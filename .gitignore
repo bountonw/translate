@@ -1,3 +1,17 @@
+# Ignore temporary files and compressed files
+*.swp
+*.zip
+*.gz
+*.tar
+
+# Ignore mac generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -12,7 +26,7 @@
 *.cb2
 .*.lb
 
-## Intermediate documents:
+## Intermediate TeX documents:
 *.dvi
 *.xdv
 *-converted-to.*
@@ -22,7 +36,7 @@
 # *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
-.pdf
+#.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
