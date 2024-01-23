@@ -25,4 +25,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Check Markdown Files
         run: |
-          bash scripts/validate_markdown.sh
+          bash scripts/validate-md.sh
