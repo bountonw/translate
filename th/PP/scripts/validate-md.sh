@@ -5,13 +5,13 @@
 #Loop through all markdown files
 for file in $(find th/PP -type f -name "*.md"); do
   # Search for markdown subheadings not followed by space
-  if grep q '^#[^ ]' "$file" ; then
+  if grep -q -E '^#{1,}[^ #]' "$file" ; then
     echo "Markdown subheadings not followed by space in $file"
     exit 1
   fi
 
   # Search for double spaces after YAML header
-  if sed -n '/^---$/,/^---$/{//!{/  /p}}' "$file" |grep -q ; then
+  if sed '/^---$/,/^---$/ s/.*//' "$file" | grep -q '  ' ; then
     echo "Double spaces found in body of $file"
     exit 1
   fi
