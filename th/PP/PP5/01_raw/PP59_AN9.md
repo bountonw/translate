@@ -9,7 +9,7 @@ chapter:
     th: ภาคผนวก ซ
     en: Appendix Note 9
   url: https://legacy.egwwritings.org/?ref=en_PP.764.3&para=84.3634
-  basedon: 
+  basedon:
 author:
   en: Ellen White
   th: เอเลน ไวท์

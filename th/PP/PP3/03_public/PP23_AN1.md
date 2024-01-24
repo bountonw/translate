@@ -6,10 +6,10 @@ book:
 chapter:
   number: 23A
   title:
-    th: ภาคผนวก ก 
-    en: Appendix Note 1 
+    th: ภาคผนวก ก
+    en: Appendix Note 1
   url: https://egwwritings.org/?ref=en_PP.757.1&para=84.3591
-  basedon: 
+  basedon:
 author:
   en: Ellen White
   th: เอเลน ไวท์
