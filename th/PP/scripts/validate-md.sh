@@ -11,7 +11,7 @@ for file in $(find th/PP -type f -name "*.md"); do
   fi
 
   # Search for double spaces after YAML header
-  if sed '/^---$/,/^---$/ s/.*//' "$file" | grep -q '  ' ; then
+  if sed '/^---$/,/^---$/ s/.*//' "$file" | grep -q -E '\S\s{2,}($|\S)' ; then
     echo "Double spaces found in body of $file"
     exit 1
   fi
@@ -23,7 +23,7 @@ for file in $(find th/PP -type f -name "*.md"); do
   fi
 
   # Search for closing parentheses not properly followed
-  if grep -q ')[^ ’”;:,.!]' "$file"; then
+  if grep -q ')[^ ’”;:,.!\[]' "$file"; then
     echo "Closing parenthesis not properly followed in $file"
     exit 1
   fi
