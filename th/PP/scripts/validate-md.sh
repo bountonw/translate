@@ -2,8 +2,10 @@
 
 # Search for common typo issues and fail merge if found
 
+cd "$(dirname $(dirname "$0"))"
+
 #Loop through all markdown files
-for file in $(find th/PP -type f -name "*.md"); do
+for file in $(find ./*/03_public -type f -name "*.md"); do
   # Search for markdown subheadings not followed by space
   if grep -q -E '^#{1,}[^ #]' "$file" ; then
     echo "Markdown subheadings not followed by space in $file"
