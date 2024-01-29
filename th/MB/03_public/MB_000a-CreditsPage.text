@@ -2,14 +2,14 @@
 chapter:
   title:
     en: Credits Page
-    th: 
+    th:
 ---
 
 สงวนลิขสิทธิ์ © 2022 สำนักพิมพ์ข่าวประเสริฐ
 12 ซอยปรีดี พนมยงค์ 37 ถนนสุขุมวิท 71
 แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110
 
-สัญญาอนุญาตครีเอทีฟคอมมอนส์ แสดงที่มา-ไม่ดัดแปลง 4.0 International 
+สัญญาอนุญาตครีเอทีฟคอมมอนส์ แสดงที่มา-ไม่ดัดแปลง 4.0 International
 (CC BY-ND 4.0) (https://creativecommons.org/licenses/by-nd/4.0/)
 Translated from Thoughts From the Mount of Blessing by Ellen G. White
 ผู้แปล: Brian Wilson

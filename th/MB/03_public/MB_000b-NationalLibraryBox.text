@@ -2,7 +2,7 @@
 chapter:
   title:
     en: National Library of Thailand info
-    th: 
+    th:
 ---
 
 
@@ -11,4 +11,4 @@ chapter:
 ปัญญาจากคำเทศนาบนภูเขา—กรุงเทพฯ: สำนักพิมพ์ข่าวประเสริฐ, 2022
 	160 หน้า
 	1. คริสต์ศาสนา / I. ชื่อเรื่อง
-ISBN: 
+ISBN:
