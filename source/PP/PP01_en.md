@@ -22,18 +22,18 @@ Every manifestation of creative power is an expression of infinite love. The sov
 
 ## {PP 33.3}
 
-“Strong is Thy hand, and high is Thy right hand.
-Righteousness and judgment are the foundation of Thy throne:
-Mercy and truth go before Thy face.
-Blessed is the people that know the joyful sound:
-They walk, O Lord, in the light of Thy countenance.
-In Thy name do they rejoice all the day:
-And in Thy righteousness are they exalted.
-For Thou art the glory of their strength: ...
-For our shield belongeth unto Jehovah,
-And our king to the Holy One.”
-Psalm 89:13-18, R.V.
-[Note: In this text and in some other Bible quotations used in this book the word “Jehovah” is employed instead of “Lord,” as rendered in the American Supplement to the Revised Version.] {PP 33.3}
+    “Strong is Thy hand, and high is Thy right hand.
+    Righteousness and judgment are the foundation of Thy throne:
+    Mercy and truth go before Thy face.
+    Blessed is the people that know the joyful sound:
+    They walk, O Lord, in the light of Thy countenance.
+    In Thy name do they rejoice all the day:
+    And in Thy righteousness are they exalted.
+    For Thou art the glory of their strength: ...
+    For our shield belongeth unto Jehovah,
+    And our king to the Holy One.”
+    Psalm 89:13-18, R.V.
+    [Note: In this text and in some other Bible quotations used in this book the word “Jehovah” is employed instead of “Lord,” as rendered in the American Supplement to the Revised Version.] {PP 33.3}
 
 ## {PP 33.4}
 
