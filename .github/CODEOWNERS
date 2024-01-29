@@ -1,0 +1,8 @@
+# Catch-all owners for everything not specified below.
+* @bountonw @deadpikle @mattleff
+
+*.lua @mattleff
+*.sh @mattleff
+
+/.github/ @bountonw
+*.md @bountonw
