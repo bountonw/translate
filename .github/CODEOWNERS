@@ -1,4 +1,5 @@
 # Catch-all owners for everything not specified below.
+# @src https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 * @bountonw @deadpikle @mattleff
 
 *.lua @mattleff
