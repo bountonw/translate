@@ -1,65 +1,142 @@
-Appendix
+---
+book:
+  title:
+    en: Patriarchs and Prophets
+chapter:
+  title:
+    en: Appendix
+  url: https://legacy.egwwritings.org/?ref=en_PP.757.1&para=84.3591
+  basedon: 
+author:
+  en: Ellen White
+---
+
+## {PP 757.1}
+
+### Appendix
 
 Note 1. Page 258. In the command for Israel’s release, the Lord said to Pharaoh, “Israel is my son, even my first-born.... Let my son go, that he may serve Me.” Exodus 4:22, 23. The psalmist tells us why God delivered Israel from Egypt: “He brought forth His people with joy, and His chosen with gladness: And gave them the lands of the heathen: And they inherited the labor of the people; that they might observe His statutes, and keep His laws.” Psalm 105:43-45. Here we learn that the Hebrews could not serve God in Egypt. {PP 757.1}
 
+## {PP 757.2}
+
 In Deuteronomy 5:14, 15 we find special emphasis given to that portion of the fourth commandment which requires the manservant and the maidservant to rest, and the Israelite was told to remember that he had been a servant in the land of Egypt. The Lord said, “the seventh day is the Sabbath of the Lord thy God: In it thou shalt not do any work, thou, nor thy son, nor thy daughter, nor thy manservant, nor thy maidservant, nor thine ox, nor thine ass, nor any of thy cattle, nor thy stranger that is within thy gates; that thy manservant and thy maidservant may rest as well as thou. And remember that thou wast a servant in the land of Egypt, and that the Lord thy God brought thee out thence through a mighty hand and by a stretched-out arm: Therefore the Lord thy God commanded thee to keep the Sabbath day.” In Exodus 5:5 we learn that Moses and Aaron made the people “rest from their burdens.” {PP 757.2}
+
+## {PP 757.3}
 
 From these facts we may conclude that the Sabbath was one of the things in which they could not serve the Lord in Egypt; and when Moses and Aaron came with the message of God (Exodus 4:29-31), they attempted a reform, which only increased the oppression. The Israelites were delivered that they might observe the statutes of the Lord, including the fourth commandment, and this placed upon them an additional obligation to keep the Sabbath strictly, as well as to keep all the commandments. Thus in Deuteronomy 24:17, 18 the fact of their deliverance from Egypt is cited as placing them under special obligation to show kindness to the widow and the fatherless: “Thou shalt not pervert the judgment of the stranger, nor of the fatherless; nor take a widow’s raiment to pledge: But thou shalt remember that thou wast a bondman in Egypt, and the Lord thy God redeemed thee thence: Therefore I command thee to do this thing.” {PP 757.3}
 
+## {PP 758.1}
+
 Note 2. Page 272. That the plagues were designed to destroy the confidence of the Egyptians in the power and protection of their idols, and even made their gods to appear as cruel tormentors of their worshipers, can be seen from a study of the Egyptian religion. A few examples may serve to illustrate this fact. {PP 758.1}
+
+## {PP 758.2}
 
 The first plague, turning the water of the river Nile and of all canals into blood (Exodus 7:19), was directed against the source of Egypt’s very existence. The river Nile was regarded with religious reverence, and at several places sacrifices were offered to the Nile as to a god. {PP 758.2}
 
+## {PP 758.3}
+
 The second plague brought frogs over Egypt. Exodus 8:6. Frogs were held sacred by the Egyptians, and one of their deities, Heqa, was a frog-headed goddess thought to possess creative power. When the frogs, as the result of Moses’ command, multiplied to the extent that they filled the land from one end to the other, the Egyptians may have wondered why Heqa was tormenting her ardent worshipers instead of protecting them. In this way the Egyptians were not only punished by the second plague, but witnessed also contempt heaped upon them, as they supposed, by one of their gods (Exodus 9:3), of which many represented powerful gods in the Egyptians pantheon. To mention only a few, we find that the Apis bull was dedicated to Ptah, the father of all the gods, the cow was sacred to Hathor, one of the most widely worshiped of all female deities of the Nile country, while the ram represented several gods like Khnemu, and the ram-headed Amen, who was Egypt’s chief god in the New Empire period. Hence, the disease which slew the animals dedicated to their deities revealed to the Egyptians the impotence of their gods in the presence of the God of the despised Hebrews. {PP 758.3}
+
+## {PP 758.4}
 
 The ninth plague (Exodus 10:21) dealt a heavy blow to one of the greatest gods of Egypt, the sun god Ra, who had been continuously worshiped from the earliest times of that country’s known history. In a land which hardly ever saw clouds in the sky, the sun was recognized as a never-failing power which provided warmth, light, life, and growth to the whole world. Every Egyptian king considered himself as a “son of Ra,” and carried this expression in his titulary. When Amen of Thebes became chief god of Egypt during the eighteenth dynasty, the power of the sun god Ra was recognized as so great that a compromise was made by combining Amen and Ra to make one god—Amen-Ra. A few years after the Exodus, when Ikhnaton introduced a short-lived monotheism, the only god retained was Aton, the sun disk. Seeing how entrenched sun worship was in the religious life of the Egyptians, and how highly the sun god Ra, Amen-Ra, or Aton was revered, we can understand why the plague directed against the god was brought upon Egypt toward the culmination of the fight between the God of the Hebrews and His Egyptian adversaries. {PP 758.4}
 
+## {PP 759.1}
+
 Also the tenth plague, the slaughtering of the first-born (Exodus 12:29), was striking at least one god, and that was the king, who was considered to be Horus, the son of Osiris. As the ruler of the Nile country, he was addressed by his subjects as “the good god.” Hence, the last plague crowned the actions wrought by the miracle-working power of the Hebrew God. So far gods controlling the forces of nature or animals had been disgraced, but now a god living in a visible form among the Egyptians was also humiliated by the despised God of the Hebrew slaves, of whom the proud Pharaoh once had said, “Who is the Lord, that I should obey His voice to let Israel go? I know not the Lord, neither will I let Israel go.” Exodus 5:2. {PP 759.1}
+
+## {PP 759.2}
 
 Note 3. Page 282. In Genesis 15:13 we read that the Lord said to Abraham, “Know of a surety that thy seed shall be a stranger in a land that is not theirs, and shall serve them: And they shall afflict them four hundred years.” This text raises the questions whether the 400 years refer to the time of affliction or sojourning, or both, and what the relation of the 400 years is to the 430 years of Exodus 12:40, 41, and Galatians 3:16, 17. {PP 759.2}
 
+## {PP 759.3}
+
 The statement in Exodus 12:40, that “the sojourning of the children of Israel, who dwelt in Egypt, was four hundred and thirty years,” gives the impression that the Israelites, from Jacob’s entry into Egypt to the Exodus, actually spent 430 years in the country of the Nile. That this impression cannot be correct is obvious from Paul’s inspired interpretation presented in Galatians 3:16, 17, where the 430 years are said to cover the period beginning when God made His covenant with Abraham until the law was promulgated at Sinai. Paul seems to refer to the first promise made by God to Abraham when he was called to leave Haran. Genesis 12:1-3. At that time the 430 years began, when Abraham was seventy-five years old (chapter 12:4), while the 400 years of the prophecy of Genesis 15:13 began thirty years later, when Abraham was 105 and his son Isaac five years old (Chapter 21:5). At that time Ishmael, who “was born after the flesh persecuted him [Isaac] that was born after the Spirit” (Galatians 4:29; Genesis 21:9-11), beginning a time of affliction of Abraham’s seed which intermittently would be continued until the time of the Exodus. Isaac had not only troubles with his half brother Ishmael, but also with the Philistines (Genesis 26:15, 20, 21); Jacob fled for his life from Esau (Genesis 27:41-43), and later from Laban (Genesis 31:21), and then was again in jeopardy from Esau (Genesis 32:8); Joseph was sold into slavery by his brethren (Genesis 37:28), and the children of Israel were oppressed by the Egyptians for many decades (Exodus 1:14). {PP 759.3}
+
+## {PP 759.4}
 
 The time from Abraham’s call to Jacob’s entry into Egypt was 215 years, being the total of (1) twenty-five years lying between Abraham’s call and the birth of Isaac (Genesis 12:4; Genesis 21:5), (2) sixty years lying between Isaac’s birth and Jacob’s birth (Genesis 25:26), and (3) the age of Jacob at the time of his migration into Egypt (Genesis 47:9). This leaves the remaining 215 years of the 430 as the actual time the Hebrews spent in Egypt. Hence the 430 years of Exodus 12:40 includes the sojourn of the patriarchs in Canaan as well as their stay in Egypt. Since in the time of Moses, Palestine was part of the Egyptian empire, it is not strange to find an author of that period including Canaan in the term “Egypt.” The translators of the Septuagint, knowing that the 430 years included the sojourn of the patriarchs in Canaan, made this point clear in their rendering of this passage: “And the sojourning of the children of Israel, while they sojourned in the land of Egypt and the land of Canaan, was four hundred and thirty years.” An additional corroboration of the interpretation of the 430 years given above is found in the prophecy that the fourth generation of those who had entered Egypt would leave it (Genesis 15:16), and its recorded fulfillment in Exodus 6:16-20. {PP 759.4}
 
+## {PP 760.1}
+
 Note 4. Page 316. The Israelites, in their adoration of the golden calf, professed to be worshiping God. Thus Aaron, when inaugurating the worship of the idol, proclaimed, “Tomorrow is a feast unto Jehovah.” They proposed to worship God, as the Egyptians worshiped Osiris, under the semblance of the image. But God could not accept the service. Though offered in His name, the sun god, and not Jehovah, was the real object of their adoration. {PP 760.1}
+
+## {PP 760.2}
 
 The worship of Apis was accompanied with the grossest licentiousness, and the Scripture record indicates that the calf worship by the Israelites was attended with all the license usual in heathen worship. We read: “They rose up early on the morrow, and offered burnt offerings, and brought peace offerings; and the people sat down to eat and to drink, and rose up to play.” Exodus 32:6. The Hebrew word rendered “to play” signifies playing with leaping, singing, and dancing. This dancing, especially among the Egyptians, was sensual and indecent. The word rendered “corrupted” in the next verse, where it is said, “thy people, which thou broughtest out of the land of Egypt, have corrupted themselves,” is the same that is used in Genesis 6:11, 12, where we read that the earth was corrupt, “for all flesh had corrupted his way upon the earth.” This explains the terrible anger of the Lord, and why He desired to consume the people at once. {PP 760.2}
 
+## {PP 760.3}
+
 Note 5. Page 329. The Ten Commandments were the “covenant” to which the Lord referred when, in proposing a covenant with Israel, He said, “If ye will obey My voice indeed, and keep My covenant,” etc. Exodus 19:5. The ten commandments were termed God’s “covenant” before the covenant was made with Israel. They were not an agreement made, but something which God commanded them to perform. Thus the Ten Commandments—God’s covenant—became the basis of the covenant made between Him and Israel. The Ten Commandments in all their details are “all these words,” concerning which the covenant was made. See Exodus 24:8. {PP 760.3}
+
+## {PP 761.1}
 
 Note 6. Page 354. When a sin offering was presented for a priest or for the whole congregation, the blood was carried into the holy place and sprinkled before the veil and placed upon the horns of the Golden Altar. The fat was consumed upon the altar of burnt offering in the court, but the body of the victim was burned without the camp. See Leviticus 4:1-21. {PP 761.1}
 
+## {PP 761.2}
+
 When, however, the offering was for a ruler or for one of the people, the blood was not taken into the holy place, but the flesh was to be eaten by the priest, as the Lord directed Moses: “The priest that offereth it for sin shall eat it: In a holy place shall it be eaten, in the court of the tent of meeting.” Leviticus 6:26, R.V. See also Leviticus 4:22-35. {PP 761.2}
+
+## {PP 761.3}
 
 Note 7. Page 366. That the One who spoke the law, who called Moses into the mount and talked with him, was our Lord Jesus Christ, is evident from the following considerations: {PP 761.3}
 
+## {PP 761.4}
+
 Christ is the One through whom God has at all times revealed Himself to man. “But to us there is but one God, the Father, of whom are all things, and we in Him; and one Lord Jesus Christ, by whom are all things, and we by Him.” 1 Corinthians 8:6. “This is he [Moses], that was in the church in the wilderness with the Angel which spake to him in the Mount Sinai, and with our fathers: who received the lively oracles to give unto us.” Acts 7:38. This Angel was the Angel of God’s presence (Isaiah 63:9), the Angel in whom was the name of the great Jehovah (Exodus 23:20-23). The expression can refer to no other than the Son of God. {PP 761.4}
+
+## {PP 761.5}
 
 Again: Christ is called the Word of God. John 1:1-3. He is so called because God gave His revelations to man in all ages through Christ. It was His Spirit that inspired the prophets. 1 Peter 1:10, 11. He was revealed to them as the Angel of Jehovah, the Captain of the Lord’s host, Michael the Archangel. {PP 761.5}
 
+## {PP 761.6}
+
 Note 8. Page 603. The question has been raised, and is now much agitated, if a theocracy was good in the time of Israel, why would not a theocratical form of government be equally good for this time? The answer is easy: {PP 761.6}
+
+## {PP 761.7}
 
 A theocracy is a government which derives its power immediately from God. The government of Israel was a true theocracy. That was really a government of God. At the burning bush, God commissioned Moses to lead His people out of Egypt. By signs and wonders and mighty miracles multiplied, God delivered Israel from Egypt and led them through the wilderness and finally into the Promised Land. There He ruled them by judges “until Samuel the prophet,” to whom, when he was a child, God spoke, and by whom He made known His will. In the days of Samuel the people asked that they might have a king. This was allowed, and God chose Saul, and Samuel anointed him king of Israel. Saul failed to do the will of God; and as he rejected the word of the Lord, the Lord rejected him from being king and sent Samuel to anoint David king of Israel; and David’s throne God established forevermore. When Solomon succeeded to the kingdom in the place of David his father, the record is: “Then Solomon sat on the throne of the Lord as king instead of David his father.” 1 Chronicles 29:23. David’s throne was the throne of the Lord, and Solomon sat on the throne of the Lord as king over the earthly kingdom of God. The succession to the throne descended in David’s line to Zedekiah, who was made subject to the king of Babylon, and who entered into a solemn covenant before God that he would loyally render allegiance to the king of Babylon. But Zedekiah broke his covenant, and then God said to him: {PP 761.7}
 
+## {PP 762.1}
+
 “Thou, profane wicked prince of Israel, whose day is come, when iniquity shall have an end, thus saith the Lord God; remove the diadem, and take off the crown: This shall not be the same: Exalt him that is low, and abase him that is high. I will overturn, overturn, overturn, it: And it shall be no more, until He come whose right it is; and I will give it him.” Ezekiel 21:25-27. See also chapter 17:1-21. {PP 762.1}
+
+## {PP 762.2}
 
 The kingdom was then subject to Babylon. When Babylon fell, and Medo-Persia succeeded, it was overturned the first time. When Medo-Persia fell and was succeeded by Greece, it was overturned the second time. When the Greek empire gave way to Rome, it was overturned the third time. And then says the word, “It shall be no more, until He come whose right it is; and I will give it Him.” Who is He whose right it is? “Thou ... shalt call His name Jesus. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto Him the throne of His father David: And He shall reign over the house of Jacob forever; and of His kingdom there shall be no end.” Luke 1:31-33. And while He was here as “that Prophet,” a Man of Sorrows and acquainted with grief, the night in which He was betrayed He Himself declared, “My kingdom is not of this world.” Thus the throne of the Lord has been removed from this world and will “be no more, until He come whose right it is,” and then it will be given Him. And that time is the end of this world, and the beginning of “the world to come.” {PP 762.2}
 
+## {PP 762.3}
+
 To the twelve apostles the Saviour said, “I appoint unto you a kingdom, as My Father hath appointed unto Me; that ye may eat and drink at My table in My kingdom, and sit on thrones, judging the twelve tribes of Israel.” Luke 22:29, 30. From Matthew’s account of Christ’s promise to the twelve we learn when it will be fulfilled; “in the regeneration when the Son of man shall sit on the throne of His glory, ye also shall sit upon twelve thrones, judging the twelve tribes of Israel.” Matthew 19:28. In the parable of the talents, Christ represents Himself under the figure of a nobleman who “went into a far country to receive for himself a kingdom, and to return.” Luke 19:12. And He Himself has told us when He will sit upon the throne of His glory: “When the Son of man shall come in His glory, and all the holy angels with Him, then shall He sit upon the throne of His glory: And before Him shall be gathered all nations.” Matthew 25:31, 32. {PP 762.3}
+
+## {PP 763.1}
 
 To this time the revelator looks forward when he says, “The kingdoms of this world are become the kingdoms of our Lord, and of His Christ; and He shall reign forever and ever.” Revelation 11:15. The context clearly shows when this will take place: “The nations were angry, and Thy wrath is come, and the time of the dead, that they should be judged, and that Thou shouldest give reward unto Thy servants the prophets, and to the saints, and them that fear Thy name, small and great; and shouldest destroy them which destroy the earth.” Verse 18. It is at the time of the final judgment, the reward of the righteous, and the punishment of the wicked that the kingdom of Christ will be set up. When all who oppose the sovereignty of Christ have been destroyed, the kingdoms of this world become the kingdoms of our Lord and of His Christ. {PP 763.1}
 
+## {PP 763.2}
+
 Then Christ will reign, “King of kings, and Lord of lords.” Revelation 19:16. “And the kingdom and dominion, and the greatness of the kingdom under the whole heaven, shall be given to the people of the saints of the Most High.” And “the saints of the Most High shall take the kingdom, and possess the kingdom forever, even forever and ever.” Daniel 7:27, 18. {PP 763.2}
+
+## {PP 763.3}
 
 Until that time the kingdom of Christ cannot be established on the earth. His kingdom is not of this world. His followers are to account themselves “strangers and pilgrims on the earth.” Paul says, “Our citizenship is in heaven; from whence also we wait for a Saviour, the Lord Jesus Christ.” Hebrews 11:13; Philippians 3:20, R.V. {PP 763.3}
 
+## {PP 763.4}
+
 Since the kingdom of Israel passed away, God has never delegated authority to any man or body of men to execute His laws as such. “Vengeance is mine; I will repay, saith the Lord.” Romans 12:19. Civil governments have to do with the relations of man with man; but they have nothing whatever to do with the duties that grow out of man’s relation to God. {PP 763.4}
+
+## {PP 763.5}
 
 Except the kingdom of Israel, no government has ever existed on the earth in which God by inspired men directed the affairs of state. Whenever men have endeavored to form such a government as that of Israel, they have, of necessity, taken it upon themselves to interpret and enforce the law of God. They have assumed the right to control the conscience, and thus have usurped the prerogative of God. {PP 763.5}
 
+## {PP 764.1}
+
 In the former dispensation, while sins against God were visited with temporal penalties, the judgments executed were not only by divine sanction, but under His direct control, and by His command. Sorcerers were to be put to death. Idolaters were to be slain. Profanity and sacrilege were punished with death. Whole nations of idolaters were to be exterminated. But the infliction of these penalties was directed by Him who reads the hearts of men, who knows the measure of their guilt, and who deals with His creatures in wisdom and mercy. When men, with human frailties and passions, undertake to do this work, it needs no argument to show that the door is opened to unrestrained injustice and cruelty. The most inhuman crimes will be perpetrated, and all in the sacred name of Christ. {PP 764.1}
 
+## {PP 764.2}
+
 From the laws of Israel, which punished offenses against God, arguments have been drawn to prove the duty of punishing similar sins in this age. All persecutors have employed them to justify their deeds. The principle that God has delegated to human authority the right to control the conscience is the very foundation of religious tyranny and persecution. But all who reason thus lose sight of the fact that we are now living in a different dispensation, under conditions wholly different from those of Israel; that the kingdom of Israel was a type of the kingdom of Christ, which will not be set up until His second coming; and that the duties which pertain to man’s relation to God are not to be regulated or enforced by human authority. {PP 764.2}
+
+## {PP 764.3}
 
 Note 9. Page 608. Concerning the identity of the Ramah of Samuel with the Ramah of Benjamin, Dr. Edersheim says: “These two points seem established: Saul’s residence was at Gibeah, and he first met Samuel in Ramah. But if so, it seems impossible, in view of 1 Samuel 10:2, to identify the Ramah of Samuel with the Ramah of Benjamin, or to regard it as the modern Neby Samuel, four miles northwest of Jerusalem.” {PP 764.3}
