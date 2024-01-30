@@ -5,6 +5,7 @@ module.exports = {
     "no-bare-urls": false,
     "no-duplicate-heading": false,
     "no-inline-html": false,
+    "no-trailing-punctuation": false,
     "single-trailing-newline": false,
     "heading-style": {
       style: "atx",
