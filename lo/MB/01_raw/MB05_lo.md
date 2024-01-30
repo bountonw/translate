@@ -9,7 +9,7 @@ chapter:
 
 ## {MB 102.1}
 
-###
+### <Lao Scripture>
 
 {MB 102.1}
 
@@ -27,7 +27,7 @@ chapter:
 
 ## {MB 103.3}
 
-###
+### <Lao Scripture>
 
 {MB 103.3}
 
@@ -69,7 +69,7 @@ chapter:
 
 ## {MB 106.2}
 
-###
+### <Lao Scripture>
 
 {MB 106.2}
 
@@ -83,7 +83,7 @@ chapter:
 
 ## {MB 107.2}
 
-###
+### <Lao Scripture>
 
 {MB 107.2}
 
@@ -105,7 +105,7 @@ chapter:
 
 ## {MB 109.1}
 
-###
+### <Lao Scripture>
 
 {MB 109.1}
 
@@ -119,7 +119,7 @@ chapter:
 
 ## {MB 110.2}
 
-###
+### <Lao Scripture>
 
 {MB 110.2}
 
@@ -149,7 +149,7 @@ chapter:
 
 ## {MB 113.2}
 
-###
+### <Lao Scripture>
 
 {MB 113.2}
 
@@ -175,7 +175,7 @@ chapter:
 
 ## {MB 116.2}
 
-###
+### <Lao Scripture>
 
 {MB 116.2}
 
@@ -217,7 +217,7 @@ chapter:
 
 ## {MB 120.1}
 
-###
+### <Lao Scripture>
 
 {MB 120.1}
 
