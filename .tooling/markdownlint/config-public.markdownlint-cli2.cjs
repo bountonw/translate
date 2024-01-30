@@ -56,5 +56,5 @@ module.exports = {
     ...draftConfig,
     "custom-formatting": true,
   },
-  globs: ["**/03_public/**.md", "!node_modules"],
+  globs: ["**/03_public/**.md", "!node_modules", "!lo"],
 };

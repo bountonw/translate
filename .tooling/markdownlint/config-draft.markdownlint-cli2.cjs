@@ -9,5 +9,5 @@ module.exports = {
       style: "atx",
     },
   },
-  globs: ["**/*.md", "!node_modules"],
+  globs: ["**/*.md", "!node_modules", "!lo"],
 };
