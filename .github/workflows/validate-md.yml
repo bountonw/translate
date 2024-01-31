@@ -21,9 +21,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-        
-      # Runs a set of commands using the runners shell
-      - name: Check Markdown Files
-        run: |
-          # validate MD files in PP
-          bash th/PP/scripts/validate-md.sh
+        with:
+          fetch-depth: 1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.19.0
+      - uses: bahmutov/npm-install@v1
+      - name: Lint markdown
+        run: npm run lint

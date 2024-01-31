@@ -1,4 +1,4 @@
-## Directory structure of the translation files
+# Directory structure of the translation files
 
 * Language: Top-level directory representing the language.
 * Book: Subdirectory for each book.
