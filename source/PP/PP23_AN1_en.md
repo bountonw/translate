@@ -3,6 +3,7 @@ book:
   title:
     en: Patriarchs and Prophets
 chapter:
+  number: 23A
   title:
     en: Appendix Note 1
   url: https://legacy.egwwritings.org/?ref=en_PP.757.1&para=84.3591
