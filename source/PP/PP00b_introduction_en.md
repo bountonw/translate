@@ -113,4 +113,4 @@ On the strength of these considerations are we not justified in believing that t
 
 All things are to be treated according to the apostle’s rule: “Prove all things; hold fast that which is good;” and to be tested by the Saviour’s standard: “By their fruits ye shall know them.” Appealing to this standard in behalf of what claims to be a manifestation of the gift of prophecy, we commend this volume to the consideration of those who believe that the Bible is the word of God, and that the church is the body of which Christ is head. {PP 28.3}
 
-U. Smith.
+    U. Smith.
