@@ -14,6 +14,10 @@ const publicFormattingRules = [
     name: "closing parenthesis not properly followed",
     regexp: /\)[^ ’”;:,.!\[]/,
   },
+  {
+    name: "missing space after closing curly quotes",
+    regexp: "/[’”][^\n<]/",
+  },
 ];
 
 const clamp = (number, min, max) => {
