@@ -37,7 +37,7 @@ A well-known writer speaks thus of the attitude of the papal hierarchy as regard
 
 ## {GC 564.5}
 
-“The Constitution of the United States guarantees liberty of conscience. Nothing is dearer or more fundamental. Pope Pius IX, in his Encyclical Letter of August 15, 1854, said: `The absurd and erroneous doctrines or ravings in defense of liberty of conscience are a most pestilential error—a pest, of all others, most to be dreaded in a state.’ The same pope, in his Encyclical Letter of December 8, 1864, anathematized `those who assert the liberty of conscience and of religious worship,’ also ‘all such as maintain that the church may not employ force.’ {GC 564.5}
+“The Constitution of the United States guarantees liberty of conscience. Nothing is dearer or more fundamental. Pope Pius IX, in his Encyclical Letter of August 15, 1854, said: 'The absurd and erroneous doctrines or ravings in defense of liberty of conscience are a most pestilential error—a pest, of all others, most to be dreaded in a state.' The same pope, in his Encyclical Letter of December 8, 1864, anathematized 'those who assert the liberty of conscience and of religious worship,’ also ‘all such as maintain that the church may not employ force.' {GC 564.5}
 
 ## {GC 565.1}
 
