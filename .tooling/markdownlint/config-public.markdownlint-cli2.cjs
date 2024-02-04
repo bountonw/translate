@@ -8,7 +8,7 @@ const publicFormattingRules = [
   },
   {
     name: "no space before '{'",
-    regexp: /\)[^ ’”;:,.!\[]/,
+    regexp: /)\s|[\s’”;:,.![]]/
   },
   {
     name: "closing parenthesis not properly followed",
