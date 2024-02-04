@@ -24,9 +24,10 @@ jobs:
         with:
           fetch-depth: 1
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 18.19.0
-      - uses: bahmutov/npm-install@v1
+          cache: 'npm'
+      - run: npm ci
       - name: Lint markdown
         run: npm run lint
