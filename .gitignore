@@ -316,3 +316,6 @@ TSWLatexianTemp*
 
 # NodeJS dependencies folder
 /node_modules/
+
+# Local sandbox folders
+**/sandbox/
