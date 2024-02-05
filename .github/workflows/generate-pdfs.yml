@@ -19,37 +19,21 @@ on:
     #   - "!*.md"
     #   - "!**/*.md"
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref }}
-  cancel-in-progress: ${{ ! (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/release/')) }}
-
 defaults:
   run:
     shell: bash
 
-env:
-  FREEZE_REQUIREMENTS: "1"
-  TORCH_URL: "https://download.pytorch.org/whl/cpu/torch_stable.html"
-  PYPI_CACHE_DIR: "_pip-wheels"
-
 jobs:
   generate-pdfs:
-    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
-          ref: ${{ github.event.pull_request.head.sha }}
-
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-xetex swath
-
       - name: Run Make
         working-directory: ./.tooling/latex/
         run: ./draftall.sh
-
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
