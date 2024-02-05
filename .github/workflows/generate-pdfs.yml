@@ -44,7 +44,7 @@ jobs:
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-latex-extra dvipng texlive-pictures
+          sudo apt-get install -y pandoc texlive-latex-extra swath dvipng texlive-pictures
 
       - name: Run Make
         working-directory: ./.tooling/latex/
