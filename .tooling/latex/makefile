@@ -3,7 +3,8 @@
 # We set ALL folders through variables to make them easily configurable.
 
 # Input directory
-SRCDIR = ./source
+# TODO: make dynamic
+SRCDIR = ../../th/PP/PP1/03_public
 # Partial output directory
 TEXDIR = ./tex
 # Draft output directory
@@ -13,7 +14,7 @@ TPLDIR = ./templates
 # Filters directory
 FILDIR = ./filters
 # Dictionaries directory
-DICDIR = ../dictionaries
+DICDIR = ./dictionaries
 # Html directory
 HTMDIR = ./html
 # Font directory
@@ -30,15 +31,15 @@ GPHDIR = ./graphs
 # We define a list that gathers source files.
 # Sorting is important since this list - and the lists derived
 # from it - are used also for chapter concatenation.
-ALLSRC = $(sort $(wildcard $(SRCDIR)/*.text))
+ALLSRC = $(sort $(wildcard $(SRCDIR)/*.md))
 
 # We define lists for files of intermediate build steps.
 # we use the previous list and simply replace paths/suffixes.
-ALLPRE = $(patsubst $(SRCDIR)/%.text,$(PREDIR)/%.md,$(ALLSRC))
-ALLTEX = $(patsubst $(SRCDIR)/%.text,$(TEXDIR)/%.tex,$(ALLSRC))
-ALLHTM = $(patsubst $(SRCDIR)/%.text,$(HTMDIR)/%.html,$(ALLSRC))
-ALLPDF = $(patsubst $(SRCDIR)/%.text,$(DFTDIR)/%.pdf,$(ALLSRC))
-ALLODT = $(patsubst $(SRCDIR)/%.text,$(DFTDIR)/%.odt,$(ALLSRC))
+ALLPRE = $(patsubst $(SRCDIR)/%.md,$(PREDIR)/%.md,$(ALLSRC))
+ALLTEX = $(patsubst $(SRCDIR)/%.md,$(TEXDIR)/%.tex,$(ALLSRC))
+ALLHTM = $(patsubst $(SRCDIR)/%.md,$(HTMDIR)/%.html,$(ALLSRC))
+ALLPDF = $(patsubst $(SRCDIR)/%.md,$(DFTDIR)/%.pdf,$(ALLSRC))
+ALLODT = $(patsubst $(SRCDIR)/%.md,$(DFTDIR)/%.odt,$(ALLSRC))
 
 #==[ GLOBAL TARGETS ]===========================================================
 
@@ -103,9 +104,9 @@ clobber:
 #   perl -S -p -e 's/(\B[^!-~]+\B)(?=[^()]*?\))/<span class="th">\1<\/span>/g'
 
 # usage: make preprocessed/filename.md
-$(PREDIR)/%.md : $(SRCDIR)/metadata.yaml $(SRCDIR)/%.text $(TPLDIR)/chapter.md
+$(PREDIR)/%.md : $(SRCDIR)/metadata.yaml $(SRCDIR)/%.md $(TPLDIR)/chapter.md
 	mkdir -p $(PREDIR)
-	cat $(SRCDIR)/metadata.yaml $(SRCDIR)/$*.text \
+	cat $(SRCDIR)/metadata.yaml $(SRCDIR)/$*.md \
   | \
 	pandoc \
 	  --id-prefix='$*@' \
@@ -113,8 +114,8 @@ $(PREDIR)/%.md : $(SRCDIR)/metadata.yaml $(SRCDIR)/%.text $(TPLDIR)/chapter.md
 	  --to markdown \
 	  --standalone \
 	  --variable=this:$* \
-	  --variable=prev:$(notdir $(basename $(shell ls $(SRCDIR)/*.text | grep -B 1 $(SRCDIR)/$*.text | head -n 1))) \
-	  --variable=next:$(notdir $(basename $(shell ls $(SRCDIR)/*.text | grep -A 1 $(SRCDIR)/$*.text | tail -n +2))) \
+	  --variable=prev:$(notdir $(basename $(shell ls $(SRCDIR)/*.md | grep -B 1 $(SRCDIR)/$*.md | head -n 1))) \
+	  --variable=next:$(notdir $(basename $(shell ls $(SRCDIR)/*.md | grep -A 1 $(SRCDIR)/$*.md | tail -n +2))) \
 	  --template=$(TPLDIR)/chapter.md \
 	> $(PREDIR)/$*.md
 
@@ -241,7 +242,7 @@ $(DFTDIR)/book.pdf : $(TEXDIR)/book.tex $(TPLDIR)/draft.tex
 # the draft.
 
 # usage: make draft/filename.odt
-$(DFTDIR)/%.odt : $(SRCDIR)/%.text $(TPLDIR)/draft.odt $(TPLDIR)/reference.odt $(SRCDIR)/metadata.yaml
+$(DFTDIR)/%.odt : $(SRCDIR)/%.md $(TPLDIR)/draft.odt $(TPLDIR)/reference.odt $(SRCDIR)/metadata.yaml
 	mkdir -p $(DFTDIR)
 	pandoc \
 	  --from markdown \
@@ -251,8 +252,8 @@ $(DFTDIR)/%.odt : $(SRCDIR)/%.text $(TPLDIR)/draft.odt $(TPLDIR)/reference.odt $
 	  --reference-odt=$(TPLDIR)/reference.odt \
 	  --output $(DFTDIR)/$*.odt \
 	  $(SRCDIR)/metadata.yaml \
-	  $(SRCDIR)/$*.text
-# TODO: check wheter it's ok to pass *.text instead of preprocessed *.md
+	  $(SRCDIR)/$*.md
+# TODO: check wheter it's ok to pass *.md instead of preprocessed *.md
 
 #==[ ODT DRAFT - WHOLE BOOK ]===================================================
 

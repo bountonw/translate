@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 # TODO: nix fixed directory
-SOURCEDIR=../../th/PP/PP1/03_public
+SOURCEDIR=../../th/PP/PP1/03_public/
 
 for f in ${SOURCEDIR}*
 do
     t=`basename $f`
-    make draft/${t%.*}.pdf
-    echo $t
+    if [[ "$t" == *".md" ]];then
+        echo $f
+        make draft/${t%.*}.pdf
+    fi
 done
