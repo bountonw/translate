@@ -44,7 +44,7 @@ jobs:
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-lang-cjk texlive-fonts-recommended texlive-xetex swath
+          sudo apt-get install -y pandoc texlive-xetex swath
 
       - name: Run Make
         working-directory: ./.tooling/latex/
