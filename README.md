@@ -15,4 +15,3 @@
 ## Developer
 
 local `sandbox/` folders are ignored
-
