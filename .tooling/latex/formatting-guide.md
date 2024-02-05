@@ -3,6 +3,7 @@
 These styles are to be applied to PDF (TeX) and ODT drafts.
 
 Page
+
 * size: letter (8.5inx11in)
 * margins: 1in
 * open any
@@ -13,12 +14,14 @@ Page
 * controlled orphans <2 (allowed with tex)
 
 Header
+
 * content: two lines, aligned to outer margin
     $book.title.en$, chapter $chapter.number$: $chapter.title.en$
     $chapter.url$
 * font size: tiny (?pt)
 
 Footer
+
 * content: respectively line one left, line one right and line two center
     Compiled on YYY-M-D at HH:MM
     Page n of NN
@@ -27,13 +30,14 @@ Footer
 * font size: tiny (?pt)
 
 Thai text
+
 * font family: CSPraJad
 * font size: 17pt
 * word spacing: double
 
 English text
+
 * font family: Linux Libertine O
 * font size: 17pt
 * small caps
 * old style figures
-
