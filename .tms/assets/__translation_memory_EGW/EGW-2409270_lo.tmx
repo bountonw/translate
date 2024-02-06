@@ -1,0 +1,874 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tmx version="1.4">
+  <header creationtool="memsource_tool" creationtoolversion="2.0" segtype="sentence" o-tmf="memsourceTM" adminlang="en" srclang="en" datatype="unknown" creationdate="20240206T025448Z">
+    <prop type="name">EGW</prop>
+  </header>
+  <body>
+    <tu tuid="_03OSktif0Yf9w1zwca18L30l4">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Many of God's people are in danger of being ensnared by worldliness and covetousness.</prop>
+        <prop type="context_next">Objects that call benevolence into action must be placed before them, or they cannot pattern after the character of the great Exemplar. {CS 14.3}</prop>
+        <seg>They should understand that it is His mercy that multiplies the demands for their means.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031418Z" changedate="20231106T031418Z" lastusagedate="20231106T031418Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເຂົາເຈົ້າຄວນເຂົ້າໃຈວ່າມັນເປັນຄວາມເມດຕາຂອງພຣະອົງທີ່ເພີ່ມຄວາມຮຽກຮ້ອງຕ້ອງການຂອງເຂົາເຈົ້າ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_0lBPIbR51C9as0Bwsa2UNSzX2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Christ's believing people are to perpetuate His love.</prop>
+        <prop type="context_next">It is to divest them of all selfishness, and bind them to God and to one another. {CS 16.2}</prop>
+        <seg>This love is to draw them together around the cross.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031432Z" changedate="20231106T031432Z" lastusagedate="20231106T031432Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄວາມ​ຮັກ​ນີ້​ແມ່ນ​ເພື່ອ​ດຶງ​ເຂົາ​ເຈົ້າ​ເຂົ້າ​ກັນ​ອ້ອມ​ໄມ້​ກາງ​ແຂນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_0q2PxrIawkC4c28gyH0yqEBi1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">There God gave to human beings an unmistakable evidence of the love with which He regarded them.</prop>
+        <prop type="context_next">John 3:16.</prop>
+        <seg>He “so loved the world, that He gave His only-begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.”</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031406Z" changedate="20231113T060907Z" lastusagedate="20231106T031406Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພຣະເຈົ້າ​ “ຊົງ​ຮັກ​ໂລກ​ຫລາຍ​ທີ່ສຸດ ຈົນ​ໄດ້​ປະທານ​ພຣະບຸດ​ອົງ​ດຽວ​ຂອງ​ພຣະອົງ ເພື່ອ​ທຸກຄົນ​ທີ່​ວາງໃຈເຊື່ອ​ໃນ​ພຣະບຸດ​ນັ້ນ​ຈະ​ບໍ່​ຈິບຫາຍ ແຕ່​ມີ​ຊີວິດ​ອັນ​ຕະຫລອດ​ໄປ​ເປັນນິດ.”</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_1XS7Uh5rxiV5ic8M6G0Q067M4">
+      <tuv xml:lang="en">
+        <prop type="context_prev">He “so loved the world, that He gave His only-begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.”</prop>
+        <prop type="context_next">The gift of Christ reveals the Father's heart.</prop>
+        <seg>John 3:16.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031407Z" changedate="20231106T031407Z" lastusagedate="20231106T031407Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ໂຢຮັນ 3:16.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_1rfUzah90mZ9kcgwVV3Aj1KT5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">They should understand that it is His mercy that multiplies the demands for their means.</prop>
+        <prop type="context_next">##The Blessings of Stewardship</prop>
+        <seg>Objects that call benevolence into action must be placed before them, or they cannot pattern after the character of the great Exemplar. {CS 14.3}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031418Z" changedate="20231106T031418Z" lastusagedate="20231106T031418Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ວັດຖຸທີ່ເອີ້ນຄວາມເມດຕາໃນການກະທຳຕ້ອງຖືກວາງໄວ້ຕໍ່ໜ້າພວກມັນ, ຫຼືພວກມັນບໍ່ສາມາດສ້າງແບບຢ່າງຕາມຕົວແບບອັນຍິ່ງໃຫຍ່ໄດ້. {CS 14.3}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_40HERw1r21DnUuDwgV7gtoDH3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The principle of worldlings is to get, get, and thus they expect to secure happiness; but, carried out in all its bearings, the fruit is misery and death. {CS 14.2}</prop>
+        <prop type="context_next">It should not be a lamented fact that there are increasing calls to give.</prop>
+        <seg>The light of the gospel shining from the cross of Christ rebukes selfishness, and encourages liberality and benevolence.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031415Z" changedate="20231106T031415Z" lastusagedate="20231106T031415Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄວາມ​ສະ​ຫວ່າງ​ຂອງ​ພຣະ​ກິດ​ຕິ​ຄຸນ​ທີ່​ສ່ອງ​ແສງ​ມາ​ຈາກ​ໄມ້​ກາງ​ແຂນ​ຂອງ​ພຣະ​ຄຣິດຫ້າມ​ຄວາມ​ເຫັນ​ແກ່​ຕົວ, ແລະຊຸກ​ຍູ້​ໃຫ້​ມີ​ອິດ​ສະ​ລະແລະຄວາມ​ເມດ​ຕາ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_47axdxwigMl2RZ4wirgB0lLE0">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Shall we not do all we can to give power to the principles which Christ brought to this world?</prop>
+        <prop type="context_next">As you stand before the cross, and see the Prince of heaven dying for you, can you seal your heart, saying, “No; I have nothing to give”? {CS 16.1}</prop>
+        <seg>Shall we not strive to establish and give efficiency to the benevolent enterprises which are now called for without delay?</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031431Z" changedate="20231106T031431Z" lastusagedate="20231106T031431Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພວກ​ເຮົາ​ຈະ​ບໍ່​ພະ​ຍາ​ຍາມ​ສ້າງ​ຕັ້ງ​ແລະ​ປະ​ສິດ​ທິ​ຜົນ​ໃຫ້​ບັນ​ດາ​ວິ​ສາ​ຫະ​ກິດ​ໃຈ​ດີ​ທີ່​ຖືກ​ຮຽກ​ຮ້ອງ​ໃນ​ປັດ​ຈຸ​ບັນ​ໂດຍ​ບໍ່​ມີ​ການ​ຊັກ​ຊ້າ?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_4cKpFEdE0QW4od9UQC0wa1Fm7">
+      <tuv xml:lang="en">
+        <prop type="context_prev">By a chain of circumstances which would call forth his charities, He bestows upon man the best means of cultivating benevolence, and keeps him habitually giving to help the poor and to advance His cause.</prop>
+        <prop type="context_next">And as we heed these calls, by labor and by acts of benevolence, we are assimilated to the image of Him who for our sakes became poor.</prop>
+        <seg>By its necessities a ruined world is drawing forth from us talents of means and of influence, to present to men and women the truth, of which they are in perishing need.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031403Z" changedate="20231113T045144Z" lastusagedate="20231106T031403Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພັນທະກິດນີ້ຈຶ່ງມີຄວາມຈໍາເປັນຢ່າງຍິ່ງສໍາລັບໂລກທີ່ກໍາລັງເສື່ອມໂຊມ ແລະພວກເຮົາຖຶກເອິ້ນໃຫ້ໃຊ້ຄວາມສາມາດ ແລະອິດທິຜົນຂອງພວກເຮົາໃນການແບ່ງປັນຄວາມຈິງກັບຜູ້ຄົນທີ່ຕ້ອງການມັນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_6CKawv1Y0gVacBhMno306P7n2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">#Section 1—Heaven's Law of Benevolence and Its Purpose</prop>
+        <prop type="context_next">“Honor the Lord with thy substance, and with the first fruits of all thine increase: so shall thy barns be filled with plenty, and thy presses shall burst out with new wine.”</prop>
+        <seg>#Chapter 1—Coworkers With God</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T030147Z" changedate="20231106T092252Z" lastusagedate="20231106T030147Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>#ບົດທີ1—ຄູ່ຮ່ວມງານກັບພຣະເຈົ້າ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_8Qh8RqGYwaW2aI4MOHgHCZSR">
+      <tuv xml:lang="en">
+        <prop type="context_prev">##The Glory of the Gospel</prop>
+        <prop type="context_next">God could have reached His object in saving sinners without the aid of man; but He knew that man could not be happy without acting a part in the great work.</prop>
+        <seg>That man might not lose the blessed results of benevolence, our Redeemer formed the plan of enlisting him as His coworker.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031402Z" changedate="20231111T020318Z" lastusagedate="20231106T031402Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເພື່ອວ່າມະນຸດຈະບໍ່ໄດ້ສູນເສຍພຣະພອນອັນເນື່ອງມາຈາກການຖະວາຍບໍລິຈາກ, ພຣະຜູ້ໄຖ່ຂອງພວກເຮົາໄດ້ຊົງວາງແຜນການ ໂດຍຄັດເລືອກໃຫ້ພວກເຮົາມາເປັນຄູ່ຮ່ວມງານກັບພຣະອົງ. </seg>
+      </tuv>
+    </tu>
+    <tu tuid="_9m0N5Sr40u79wsgwaN1WeuaQ7">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The gift of Christ reveals the Father's heart.</prop>
+        <prop type="context_next">The spirit of liberality is the spirit of heaven.</prop>
+        <seg>It testifies that, having undertaken our redemption, He will spare nothing, however dear, which is necessary to the completion of His work. {CS 14.1}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031408Z" changedate="20231106T031408Z" lastusagedate="20231106T031408Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ມັນ​ເປັນ​ພະ​ຍານ​ວ່າ, ໂດຍ​ໄດ້​ດຳ​ເນີນ​ການ​ໄຖ່​ຂອງ​ເຮົາ, ພຣະ​ອົງ​ຈະ​ບໍ່​ປະ​ຖິ້ມ​ຫຍັງ, ເຖິງ​ຢ່າງ​ໃດ​ກໍ​ຕາມ, ທີ່​ຮັກ, ຊຶ່ງ​ຈຳ​ເປັນ​ເພື່ອ​ເຮັດ​ໃຫ້​ວຽກ​ງານ​ຂອງ​ພຣະ​ອົງ​ສຳ​ເລັດ. {CS 14.1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_CCiZKL1d0o4b4Jg0u418FQuye">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Proverbs 3:9, 10. {CS 13.1}</prop>
+        <prop type="context_next">The liberal soul shall be made fat: and he that watereth shall be watered also himself.”</prop>
+        <seg>“There is that scattereth, and yet increaseth; and there is that withholdeth more than is meet, but it tendeth to poverty.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031357Z" changedate="20231106T092750Z" lastusagedate="20231106T031357Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>“ຍິ່ງ​ໃຫ້​ຍິ່ງ​ມີ ຍິ່ງ​ຂີ້ຖີ່​ຍິ່ງ​ທຸກຈົນ​ລົງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_Cv1jiwoEwbB4Yn8w0g3V3cjC3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The light of the gospel shining from the cross of Christ rebukes selfishness, and encourages liberality and benevolence.</prop>
+        <prop type="context_next">God in His providence is calling His people out from their limited sphere of action, to enter upon greater enterprises.</prop>
+        <seg>It should not be a lamented fact that there are increasing calls to give.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031416Z" changedate="20231106T031416Z" lastusagedate="20231106T031416Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ມັນບໍ່ຄວນຈະເປັນຄວາມຈິງທີ່ໂສກເສົ້າທີ່ມີການໂທຫາເພີ່ມຂຶ້ນທີ່ຈະໃຫ້.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_CwIpTWXKMrO2b34MBlwwBMkx">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Shall we not strive to establish and give efficiency to the benevolent enterprises which are now called for without delay?</prop>
+        <prop type="context_next">Christ's believing people are to perpetuate His love.</prop>
+        <seg>As you stand before the cross, and see the Prince of heaven dying for you, can you seal your heart, saying, “No; I have nothing to give”? {CS 16.1}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031431Z" changedate="20231106T031431Z" lastusagedate="20231106T031431Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເມື່ອເຈົ້າຢືນຢູ່ຕໍ່ໜ້າໄມ້ກາງແຂນ, ແລະເຫັນເຈົ້າຊາຍແຫ່ງສະຫວັນຈະຕາຍແທນເຈົ້າ, ເຈົ້າສາມາດຜະນຶກຫົວໃຈຂອງເຈົ້າໄດ້ບໍ, ໂດຍກ່າວວ່າ, “ບໍ່;ຂ້ອຍບໍ່ມີຫຍັງໃຫ້”? {CS 16.1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_D2gst1TZ003lUtw02b880xAW1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">That man might be saved, He gave all that He had, and then gave Himself.</prop>
+        <prop type="context_next">The principle there illustrated is to give, give.</prop>
+        <seg>The cross of Christ appeals to the benevolence of every follower of the blessed Saviour.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031410Z" changedate="20231106T031410Z" lastusagedate="20231106T031410Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ໄມ້ກາງແຂນຂອງພຣະຄຣິດຂໍອຸທອນກັບຄວາມເມດຕາຂອງຜູ້ຕິດຕາມຂອງພຣະຜູ້ຊ່ອຍໃຫ້ລອດທີ່ໄດ້ຮັບພອນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_DJ1q0sSn3M498Wj04U14itmD6">
+      <tuv xml:lang="en">
+        <prop type="context_prev">This love is to draw them together around the cross.</prop>
+        <prop type="context_next">Meet around the cross of Calvary in self-sacrifice and self-denial.</prop>
+        <seg>It is to divest them of all selfishness, and bind them to God and to one another. {CS 16.2}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031433Z" changedate="20231106T031433Z" lastusagedate="20231106T031433Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ມັນ​ແມ່ນ​ການ​ຂັບ​ໄລ່​ພວກ​ເຂົາ​ຈາກ​ຄວາມ​ເຫັນ​ແກ່​ຕົວ​ທັງ​ໝົດ, ແລະ​ຜູກ​ມັດ​ພວກ​ເຂົາ​ກັບ​ພຣະ​ເຈົ້າ​ແລະ​ຕໍ່​ກັນ​ແລະ​ກັນ. {CS 16.2}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_F1bOyfhWwo648K9gEH1azB1l2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Meet around the cross of Calvary in self-sacrifice and self-denial.</prop>
+        <prop type="context_next">As you approach the throne of grace, as you find yourself bound to this throne by the golden chain let down from heaven to earth, to draw men from the pit of sin, your heart will go out in love for your brethren and sisters who are without God and without hope in the world.—Testimonies for the Church 9:253-256. {CS 16.3}</prop>
+        <seg>God will bless you as you do your best.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031434Z" changedate="20231106T031611Z" lastusagedate="20231106T031434Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ແຫພຣະ​ເຈົ້າ​ຈະ​ອວຍ​ພອນ​ທ່ານ​ໃນ​ຂະ​ນະ​ທີ່​ທ່ານ​ເຮັດ​ສຸດ​ຄວາມ​ສາ​ມາດ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_I8lB9fPygFi22u4MDSwLFIPR">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Christ's self-sacrificing love is revealed upon the cross.</prop>
+        <prop type="context_next">The cross of Christ appeals to the benevolence of every follower of the blessed Saviour.</prop>
+        <seg>That man might be saved, He gave all that He had, and then gave Himself.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031409Z" changedate="20231106T031409Z" lastusagedate="20231106T031409Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຜູ້ຊາຍຄົນນັ້ນອາດຈະໄດ້ຮັບຄວາມລອດ, ພຣະອົງໄດ້ໃຫ້ທຸກສິ່ງທີ່ພຣະອົງມີ, ແລະຫຼັງຈາກນັ້ນໃຫ້ພຣະອົງເອງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_K6iq9o1awwx4KU9wq61iuYkO3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">It is the glory of the gospel that it is founded upon the principle of restoring in the fallen race the divine image by a constant manifestation of benevolence.</prop>
+        <prop type="context_next">There God gave to human beings an unmistakable evidence of the love with which He regarded them.</prop>
+        <seg>This work began in the heavenly courts.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031405Z" changedate="20231106T031405Z" lastusagedate="20231106T031405Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ວຽກ​ງານ​ນີ້​ເລີ່ມ​ຕົ້ນ​ໃນ​ສານ​ແຫ່ງ​ສະຫວັນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_KjfeCIpswrW20l8UFE10AXrY1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">This work began in the heavenly courts.</prop>
+        <prop type="context_next">He “so loved the world, that He gave His only-begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.”</prop>
+        <seg>There God gave to human beings an unmistakable evidence of the love with which He regarded them.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031406Z" changedate="20231113T052716Z" lastusagedate="20231106T031406Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຢູ່ທີ່ນັ້ນພຣະເຈົ້າໄດ້ມອບຫຼັກຖານອັນໜຶ່ງທີ່ບໍ່ຜິດພາດແກ່ມະນຸດເຖິງຄວາມຮັກທີ່ພຣະອົງນັບຖືເຂົາເຈົ້າ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_KnBQTBXBgao2wH4cakwuIq2B">
+      <tuv xml:lang="en">
+        <prop type="context_prev">That man might not lose the blessed results of benevolence, our Redeemer formed the plan of enlisting him as His coworker.</prop>
+        <prop type="context_next">By a chain of circumstances which would call forth his charities, He bestows upon man the best means of cultivating benevolence, and keeps him habitually giving to help the poor and to advance His cause.</prop>
+        <seg>God could have reached His object in saving sinners without the aid of man; but He knew that man could not be happy without acting a part in the great work.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031402Z" changedate="20231111T021320Z" lastusagedate="20231106T031402Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພຣະເຈົ້າສາມາດທີ່ຈະເຮັດໃຫ້ພຣະປະສົງຂອງພຣະອົງໃນການໄຖ່ຄົນບາບໃຫ້ບັນລຸເປົ້າໝາຍໄດ້ໂດຍບໍ່ຕ້ອງເພິ່ງພາອາໄສມະນຸດເລີຍ. ແຕ່ພຣະອົງຮູ້ດີວ່າມະນຸດຈະບໍ່ໄດ້ພົບກັບຄວາມສຸກທີ່ແທ້ຈິງ ຖ້າພວກເຂົາບໍ່ໄດ້ມີສ່ວນຮ່ວມໃນງານອັນຍິ່ງໃຫຍ່ນີ້. </seg>
+      </tuv>
+    </tu>
+    <tu tuid="_Ma01u0YO2kNnEJBwuW2MoJgw5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Unlimited effort is demanded at this time when moral darkness is covering the world.</prop>
+        <prop type="context_next">They should understand that it is His mercy that multiplies the demands for their means.</prop>
+        <seg>Many of God's people are in danger of being ensnared by worldliness and covetousness.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031417Z" changedate="20231106T031417Z" lastusagedate="20231106T031417Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ປະຊາຊົນ​ຂອງ​ພະເຈົ້າ​ຫຼາຍ​ຄົນ​ຕົກ​ຢູ່​ໃນ​ອັນຕະລາຍ​ທີ່​ຈະ​ຖືກ​ກັກ​ຂັງ​ໂດຍ​ຄວາມ​ໂລກ​ແລະ​ຄວາມ​ໂລບ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_NJFtuaL4gpg2Lc4Uuv0EwySM1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Proverbs 11:24, 25. {CS 13.2}</prop>
+        <prop type="context_next">Isaiah 32:8. {CS 13.3}</prop>
+        <seg>“The liberal deviseth liberal things; and by liberal things shall he stand.”</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031359Z" changedate="20231106T092842Z" lastusagedate="20231106T031359Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>“ແຕ່​ຄົນ​ທີ່​ມີ​ກຽດ​ກະທຳ​ຢ່າງ​ສັດຊື່ ແລະ​ຕັ້ງ​ໝັ້ນຄົງ​ຢູ່​ໃນ​ຄວາມ​ຖືກຕ້ອງ."</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_NRuHqQ75wAg27U4EJ4g0JG1h3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">“Honor the Lord with thy substance, and with the first fruits of all thine increase: so shall thy barns be filled with plenty, and thy presses shall burst out with new wine.”</prop>
+        <prop type="context_next">“There is that scattereth, and yet increaseth; and there is that withholdeth more than is meet, but it tendeth to poverty.</prop>
+        <seg>Proverbs 3:9, 10. {CS 13.1}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T030151Z" changedate="20231106T030151Z" lastusagedate="20231106T030151Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ສຸພາສິດ 3:9, 10. {CS 13.1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_NvAhsWgr0Y85Gh8Eck1y0y1N3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">But while some go forth to preach, He calls upon others to answer His claims upon them for offerings, with which to support His cause in the earth.</prop>
+        <prop type="context_next">This is one of God's ways of exalting man.</prop>
+        <seg>He has placed means in the hands of men, that His divine gifts may flow through human channels in doing the work appointed us in saving our fellow men.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031424Z" changedate="20231106T031424Z" lastusagedate="20231106T031424Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພຣະ​ອົງ​ໄດ້​ວາງ​ຄວາມ​ໝາຍ​ໄວ້​ໃນ​ມື​ຂອງ​ມະ​ນຸດ, ເພື່ອ​ໃຫ້​ຂອງ​ປະ​ທານ​ແຫ່ງ​ສະ​ຫວັນ​ຂອງ​ພຣະ​ອົງ​ຈະ​ໄຫຼ​ຜ່ານ​ຊ່ອງ​ທາງ​ຂອງ​ມະ​ນຸດໃນ​ການ​ເຮັດ​ວຽກ​ງານ​ທີ່​ໄດ້​ຮັບ​ການ​ແຕ່ງ​ຕັ້ງ​ໃຫ້​ເຮົາ​ໃນ​ການ​ຊ່ວຍ​ປະ​ຢັດ​ເພື່ອນ​ມະນຸດ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_OAi1W4m120Ln0G818Cc8wB1011">
+      <tuv xml:lang="en">
+        <prop type="context_prev">It is just the work that man needs; for it will stir the deepest sympathies of his heart, and call into exercise the highest capabilities of the mind. {CS 15.1}</prop>
+        <prop type="context_next">The poor are His, and the cause of religion is His.</prop>
+        <seg>Every good thing of earth was placed here by the bountiful hand of God as an expression of His love to man.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031426Z" changedate="20231106T031426Z" lastusagedate="20231106T031426Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ທຸກສິ່ງທີ່ດີຂອງແຜ່ນດິນໂລກໄດ້ຖືກວາງໄວ້ທີ່ນີ້ດ້ວຍມືອັນອຸດົມສົມບູນຂອງພຣະເຈົ້າເພື່ອເປັນການສະແດງຄວາມຮັກຂອງພຣະອົງຕໍ່ມະນຸດ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_OQe59uppwVa2JW40gs0ScQ8G1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">God could have reached His object in saving sinners without the aid of man; but He knew that man could not be happy without acting a part in the great work.</prop>
+        <prop type="context_next">By its necessities a ruined world is drawing forth from us talents of means and of influence, to present to men and women the truth, of which they are in perishing need.</prop>
+        <seg>By a chain of circumstances which would call forth his charities, He bestows upon man the best means of cultivating benevolence, and keeps him habitually giving to help the poor and to advance His cause.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031403Z" changedate="20231111T035515Z" lastusagedate="20231106T031403Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ໂດຍເຫດການຕ່າງໆທີ່ຜ່ານມາໃນຊີວິດເຮັດໃຫ້ມະນຸດເກີດມີຄວາມເຫັນອົກເຫັນໃຈ ແລະຖະວາຍບໍລິຈາກ, ນັ້ນເປັນແນວທາງທີ່ດີທີ່ສຸດທີ່ພຣະເຈົ້າປົກປ້ອງມະນຸດໃຫ້ມີນໍ້າໃຈເອື້ອເຝື້ອເພື່ອແຜ່ຢູ່ສະເໜີ ແລະຮັກສາໃຫ້ມະນຸດມີອຸປະນິໄສໃນການໃຫ້ຄວາມຊ່ວຍເຫຼືອແກ່ຜູ້ທຸກຍາກ ແລະສົ່ງເສີມວຽກງານຂອງພຣະອົງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_Poy1RSLnwYy5k59wx71CPkfO2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Isaiah 32:8. {CS 13.3}</prop>
+        <prop type="context_next">He who gives to the needy blesses others, and is blessed himself in a still greater degree. {CS 13.4}</prop>
+        <seg>Divine wisdom has appointed, in the plan of salvation, the law of action and reaction, making the work of beneficence, in all its branches, twice blessed.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031400Z" changedate="20231106T093024Z" lastusagedate="20231106T031400Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ແຜນການແຫ່ງຄວາມລອດຂອງພຣະເຈົ້າກ່ຽວຂ້ອງກັບຫຼັກການຂອງການຕອບແທນເຊີ່ງກັນແລະກັນ, ຊຶ່ງເຮັດໃຫ້ທຸກໆການກະທໍາດ້ວຍຄວາມເມດຕາໄດ້ຮັບຜົນຕອບແທນເປັນສອງເທົ່າ. </seg>
+      </tuv>
+    </tu>
+    <tu tuid="_RiENZDJz0aH4qy98vA1sjjD51">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Divine wisdom has appointed, in the plan of salvation, the law of action and reaction, making the work of beneficence, in all its branches, twice blessed.</prop>
+        <prop type="context_next">##The Glory of the Gospel</prop>
+        <seg>He who gives to the needy blesses others, and is blessed himself in a still greater degree. {CS 13.4}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031401Z" changedate="20231106T093027Z" lastusagedate="20231106T031401Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg> ຜູ້ທີ່ໃຫ້ຄວາມຊ່ວຍເຫຼືອຄົນທຸກຍາກບໍ່ພຽງແຕ່ເຮັດໃຫ້ຕົນເອງໄດ້ຮັບຜົນປະໂຫຍດເທົ່ານັ້ນ, ແຕ່ຍັງໄດ້ຮັບພຣະພອນທີ່ຍິ່ງໃຫຍ່ກວ່າອິກສໍາລັບຕົນເອງ.. {CS 13.4}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_SK1Zy1vB0yvjguz0mi2cktXQ0">
+      <tuv xml:lang="en">
+        <prop type="context_prev">It should not be a lamented fact that there are increasing calls to give.</prop>
+        <prop type="context_next">Unlimited effort is demanded at this time when moral darkness is covering the world.</prop>
+        <seg>God in His providence is calling His people out from their limited sphere of action, to enter upon greater enterprises.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031416Z" changedate="20231106T031416Z" lastusagedate="20231106T031416Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພຣະ​ເຈົ້າ​ໃນ​ການ​ສະ​ໜອງ​ຂອງ​ພຣະ​ອົງ​ກຳ​ລັງ​ເອີ້ນ​ປະ​ຊາ​ຊົນ​ຂອງ​ພຣະ​ອົງ​ອອກ​ຈາກ​ຂະ​ບວນ​ການ​ທີ່​ຈຳ​ກັດ​ຂອງ​ເຂົາ​ເຈົ້າ, ເພື່ອ​ເຂົ້າ​ສູ່​ວິ​ສາ​ຫະ​ກິດ​ທີ່​ຍິ່ງ​ໃຫຍ່​ກວ່າ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_UOe2lCISw6z2In4M9rMm0S1C3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">As you stand before the cross, and see the Prince of heaven dying for you, can you seal your heart, saying, “No; I have nothing to give”? {CS 16.1}</prop>
+        <prop type="context_next">This love is to draw them together around the cross.</prop>
+        <seg>Christ's believing people are to perpetuate His love.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031432Z" changedate="20231106T031432Z" lastusagedate="20231106T031432Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຜູ້​ຄົນ​ທີ່​ມີ​ຄວາມ​ເຊື່ອ​ຂອງ​ພະ​ຄລິດ​ແມ່ນ​ຈະ​ຮັກ​ສາ​ຄວາມ​ຮັກ​ຂອງ​ພຣະ​ອົງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_UjbVdKE5wNk2Ft4gHuwAMhM0">
+      <tuv xml:lang="en">
+        <prop type="context_prev">God will bless you as you do your best.</prop>
+        <seg>As you approach the throne of grace, as you find yourself bound to this throne by the golden chain let down from heaven to earth, to draw men from the pit of sin, your heart will go out in love for your brethren and sisters who are without God and without hope in the world.—Testimonies for the Church 9:253-256. {CS 16.3}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031434Z" changedate="20231106T033233Z" lastusagedate="20231106T031434Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເມື່ອເຈົ້າເຂົ້າພຣະທີ່ນັ່ງແຫ່ງພຣະຄຸນ, ເມື່ອເຈົ້າພົບວ່າເຈົ້າຖືກຜູກມັດກັບບັນລັງນີ້ດ້ວຍສາຍເຊືອກທອງທີ່ປ່ອຍລົງຈາກສະຫວັນມາສູ່ແຜ່ນດິນໂລກ, ເພື່ອດຶງຜູ້ຊາຍອອກຈາກຂຸມແຫ່ງຄວາມບາບ, ຫົວໃຈຂອງເຈົ້າຈະອອກໄປດ້ວຍຄວາມຮັກຕໍ່ພີ່ນ້ອງແລະເອື້ອຍນ້ອງຂອງເຈົ້າ.ປາດສະຈາກພະເຈົ້າແລະບໍ່ມີຄວາມຫວັງໃນໂລກ. (ຄຳສອນສໍາລັບຄຣິສຕະຈັກ 9:253–256). {CS 16.3}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_WvSofXv4wXK2v18MA6xmCcyg1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">In commissioning His disciples to go “into all the world, and preach the gospel to every creature,” Christ assigned to men the work of extending the knowledge of His grace.</prop>
+        <prop type="context_next">He has placed means in the hands of men, that His divine gifts may flow through human channels in doing the work appointed us in saving our fellow men.</prop>
+        <seg>But while some go forth to preach, He calls upon others to answer His claims upon them for offerings, with which to support His cause in the earth.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031420Z" changedate="20231106T031420Z" lastusagedate="20231106T031420Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ແຕ່​ໃນ​ຂະນະ​ທີ່​ບາງ​ຄົນ​ອອກ​ໄປ​ປະກາດ, ພຣະອົງ​ຮຽກຮ້ອງ​ໃຫ້​ຄົນ​ອື່ນ​ຕອບ​ຄຳ​ຮຽກຮ້ອງ​ຂອງ​ພຣະອົງ​ທີ່​ມີ​ຕໍ່​ເຂົາ​ເຈົ້າ​ໃນ​ການ​ຖວາຍ​ເຄື່ອງ​ບູຊາ, ​ເພື່ອ​ສະໜັບສະໜູນ​ສາ​ເຫດ​ຂອງ​ພຣະອົງ​ຢູ່​ໃນ​ໂລກ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_X9OhrL8jwno2XH4wbcMqXtYG">
+      <tuv xml:lang="en">
+        <prop type="context_prev">##The Blessings of Stewardship</prop>
+        <prop type="context_next">But while some go forth to preach, He calls upon others to answer His claims upon them for offerings, with which to support His cause in the earth.</prop>
+        <seg>In commissioning His disciples to go “into all the world, and preach the gospel to every creature,” Christ assigned to men the work of extending the knowledge of His grace.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031419Z" changedate="20231106T031419Z" lastusagedate="20231106T031419Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ໃນ​ການ​ມອບ​ໝາຍ​ສາ​ນຸ​ສິດ​ຂອງ​ພຣະ​ອົງ​ໃຫ້“ໄປ​ທົ່ວ​ໂລກ, ແລະປະ​ກາດ​ພຣະ​ກິດ​ຕິ​ຄຸນ​ແກ່​ທຸກ​ຄົນ, ”ພຣະ​ຄຣິດ​ໄດ້​ມອບ​ໝາຍ​ໃຫ້​ມະນຸດ​ເຮັດ​ວຽກ​ງານ​ເສີມ​ຂະ​ຫຍາຍ​ຄວາມ​ຮູ້​ເຖິງ​ພຣະ​ຄຸນ​ຂອງ​ພຣະ​ອົງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_XNpSMGsBMMC2vJ4ooHgZBz0H0">
+      <tuv xml:lang="en">
+        <prop type="context_prev">God in His providence is calling His people out from their limited sphere of action, to enter upon greater enterprises.</prop>
+        <prop type="context_next">Many of God's people are in danger of being ensnared by worldliness and covetousness.</prop>
+        <seg>Unlimited effort is demanded at this time when moral darkness is covering the world.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031417Z" changedate="20231106T031417Z" lastusagedate="20231106T031417Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄວາມພະຍາຍາມບໍ່ຈໍາກັດແມ່ນຕ້ອງການໃນເວລານີ້ໃນເວລາທີ່ຄວາມມືດທາງສິນທໍາກໍາລັງປົກຄຸມໂລກ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_Y1JNdMsA1Ms9IpiMui2BVZGA1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The poor are His, and the cause of religion is His.</prop>
+        <prop type="context_next">But instead of this He has made man His steward, entrusting him with means, not to be hoarded, but to be used in benefiting others.</prop>
+        <seg>The gold and the silver are the Lord's; and He could rain them from heaven if He chose.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031427Z" changedate="20231106T031427Z" lastusagedate="20231106T031427Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄໍາແລະເງິນເປັນຂອງພຣະຜູ້ເປັນເຈົ້າ;ແລະພຣະອົງສາມາດຝົນພວກເຂົາຈາກສະຫວັນຖ້າພຣະອົງເລືອກ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_YHJIAWFzMga2V94gnOwM218z1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">In bestowing, we bless others, and thus accumulate true riches. {CS 13.5}</prop>
+        <prop type="context_next">This work began in the heavenly courts.</prop>
+        <seg>It is the glory of the gospel that it is founded upon the principle of restoring in the fallen race the divine image by a constant manifestation of benevolence.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031405Z" changedate="20231113T052444Z" lastusagedate="20231106T031405Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຂ່າວປະເສີດມີຄວາມສະຫງ່າລາສີເພາະຕັ້ງຢູ່ບົນພື້ນຖານຂອງແນວຄວາມຄິດໃນການຟື້ນຟູພຣະລັກສະນະຂອງເຈົ້າໃນມະນຸດ ໂດຍການສະແດງຄວາມເມດຕາກະລຸນາຢ່າງສະໝໍ່າສະເໝີ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_aIDK8vvOw9l2X24gHSwb8m8C">
+      <tuv xml:lang="en">
+        <prop type="context_prev">He who gives to the needy blesses others, and is blessed himself in a still greater degree. {CS 13.4}</prop>
+        <prop type="context_next">That man might not lose the blessed results of benevolence, our Redeemer formed the plan of enlisting him as His coworker.</prop>
+        <seg>##The Glory of the Gospel</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031401Z" changedate="20231106T093046Z" lastusagedate="20231106T031401Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>##ລັດສະໝີພາບຂອງຂ່າວປະເສີດ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_aM1Re8uF1QqaIghMDf1GHbxm5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The spirit of liberality is the spirit of heaven.</prop>
+        <prop type="context_next">That man might be saved, He gave all that He had, and then gave Himself.</prop>
+        <seg>Christ's self-sacrificing love is revealed upon the cross.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031409Z" changedate="20231106T031409Z" lastusagedate="20231106T031409Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄວາມຮັກທີ່ເສຍສະລະຕົນເອງຂອງພຣະຄຣິດໄດ້ຖືກເປີດເຜີຍຢູ່ເທິງໄມ້ກາງແຂນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_aTJcwFSR0QK5qV8UVJxMqaC02">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The liberal soul shall be made fat: and he that watereth shall be watered also himself.”</prop>
+        <prop type="context_next">“The liberal deviseth liberal things; and by liberal things shall he stand.”</prop>
+        <seg>Proverbs 11:24, 25. {CS 13.2}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031358Z" changedate="20231106T031358Z" lastusagedate="20231106T031358Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ສຸພາສິດ 11:24, 25. {CS 13.2}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_bhF0W0mr3ZJ9AfjMzu1c1pyMe">
+      <tuv xml:lang="en">
+        <prop type="context_prev">##Meeting Around the Cross</prop>
+        <prop type="context_next">Shall we not do all we can to give power to the principles which Christ brought to this world?</prop>
+        <seg>The love expressed on Calvary should be revived, strengthened, and diffused among our churches.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031430Z" changedate="20231106T031430Z" lastusagedate="20231106T031430Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄວາມ​ຮັກ​ທີ່​ສະ​ແດງ​ອອກເທິງພູເຂົາຄານວາຣີຄວນ​ໄດ້​ຮັບ​ການ​ຟື້ນ​ຟູ, ເພີ່ມ​ຄວາມ​ເຂັ້ມ​ແຂງ, ແລະແຜ່​ລາມ​ອອກ​ໄປ​ໃນຄຣິສຕະຈັກທັງຫຼາຍ​ຂອງ​ເຮົາ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_f6T16tOXxu74Mg88aj0wNr2F2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The principle there illustrated is to give, give.</prop>
+        <prop type="context_next">The principle of worldlings is to get, get, and thus they expect to secure happiness; but, carried out in all its bearings, the fruit is misery and death. {CS 14.2}</prop>
+        <seg>This, carried out in actual benevolence and good works, is the true fruit of the Christian life.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031414Z" changedate="20231106T031414Z" lastusagedate="20231106T031414Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ນີ້, ປະຕິບັດໃນຄວາມເມດຕາທີ່ແທ້ຈິງແລະວຽກງານທີ່ດີ, ແມ່ນໝາກຜົນທີ່ແທ້ຈິງຂອງຊີວິດຄຣິສຕຽນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_gGgcHBdWw5I200h0m0c4wCl29">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Objects that call benevolence into action must be placed before them, or they cannot pattern after the character of the great Exemplar. {CS 14.3}</prop>
+        <prop type="context_next">In commissioning His disciples to go “into all the world, and preach the gospel to every creature,” Christ assigned to men the work of extending the knowledge of His grace.</prop>
+        <seg>##The Blessings of Stewardship</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031419Z" changedate="20231106T031419Z" lastusagedate="20231106T031419Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>##ພອນແຫ່ງການເບິ່ງແຍງ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_hP8TBiqgguE24a4MA00u0qNN2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">Every good thing of earth was placed here by the bountiful hand of God as an expression of His love to man.</prop>
+        <prop type="context_next">The gold and the silver are the Lord's; and He could rain them from heaven if He chose.</prop>
+        <seg>The poor are His, and the cause of religion is His.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031427Z" changedate="20231106T031427Z" lastusagedate="20231106T031427Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຄົນທຸກຍາກແມ່ນຂອງພຣະອົງ, ແລະສາເຫດຂອງສາດສະໜາແມ່ນຂອງພຣະອົງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_idjKB0ljwex5g68MUV06zULw1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The love expressed on Calvary should be revived, strengthened, and diffused among our churches.</prop>
+        <prop type="context_next">Shall we not strive to establish and give efficiency to the benevolent enterprises which are now called for without delay?</prop>
+        <seg>Shall we not do all we can to give power to the principles which Christ brought to this world?</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031430Z" changedate="20231106T031430Z" lastusagedate="20231106T031430Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເຮົາ​ຈະ​ເຮັດ​ທຸກ​ສິ່ງ​ທີ່​ເຮົາ​ເຮັດ​ໄດ້​ບໍເພື່ອ​ໃຫ້​ອຳນາດ​ແກ່​ຫຼັກ​ທຳ​ທີ່​ພຣະ​ຄຣິດ​ໄດ້​ນຳ​ມາ​ສູ່​ໂລກ​ນີ້?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_kDJDyW061qG8oPiwX17w0n0at">
+      <tuv xml:lang="en">
+        <prop type="context_prev">God planned the system of beneficence, in order that man might become like his Creator, benevolent and unselfish in character, and finally be a partaker with Christ of the eternal, glorious reward. {CS 15.2}</prop>
+        <prop type="context_next">The love expressed on Calvary should be revived, strengthened, and diffused among our churches.</prop>
+        <seg>##Meeting Around the Cross</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031429Z" changedate="20231106T031429Z" lastusagedate="20231106T031429Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>##ການພົບກັນຢູ່ອ້ອມຮອບໄມ້ກາງແຂນ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_lPMdE0gh0Wt9gZg0UT6i61wj9">
+      <tuv xml:lang="en">
+        <prop type="context_prev">This is one of God's ways of exalting man.</prop>
+        <prop type="context_next">Every good thing of earth was placed here by the bountiful hand of God as an expression of His love to man.</prop>
+        <seg>It is just the work that man needs; for it will stir the deepest sympathies of his heart, and call into exercise the highest capabilities of the mind. {CS 15.1}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031425Z" changedate="20231106T031425Z" lastusagedate="20231106T031425Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ມັນເປັນພຽງແຕ່ວຽກງານທີ່ຜູ້ຊາຍຕ້ອງການ;ເພາະ​ມັນ​ຈະ​ກະຕຸ້ນ​ຄວາມ​ເຫັນ​ອົກ​ເຫັນ​ໃຈ​ທີ່​ສຸດ​ໃນ​ໃຈ​ຂອງ​ລາວ, ແລະຮຽກ​ຮ້ອງ​ໃຫ້​ໃຊ້​ຄວາມ​ສາ​ມາດ​ທີ່​ສູງ​ທີ່​ສຸດ​ຂອງ​ຈິດ​ໃຈ. {CS 15.1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_lmS0Fan01WUigXxwT19Iuced5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">“The liberal deviseth liberal things; and by liberal things shall he stand.”</prop>
+        <prop type="context_next">Divine wisdom has appointed, in the plan of salvation, the law of action and reaction, making the work of beneficence, in all its branches, twice blessed.</prop>
+        <seg>Isaiah 32:8. {CS 13.3}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031359Z" changedate="20231106T031359Z" lastusagedate="20231106T031359Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ເອ​ຊາ​ຢາ 32:8. {CS 13.3}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_mXyMkadZ0Mw4yU98dsxOIBwc1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The gold and the silver are the Lord's; and He could rain them from heaven if He chose.</prop>
+        <prop type="context_next">He thus makes man the medium through which to distribute His blessings on earth.</prop>
+        <seg>But instead of this He has made man His steward, entrusting him with means, not to be hoarded, but to be used in benefiting others.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031428Z" changedate="20231106T031428Z" lastusagedate="20231106T031428Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ແຕ່​ແທນ​ທີ່​ຈະ​ເປັນ​ສິ່ງ​ນີ້​ພະອົງ​ໄດ້​ຕັ້ງ​ມະນຸດ​ໃຫ້​ເປັນ​ຜູ້​ດູ​ແລ​ຂອງ​ພະອົງ, ມອບ​ໝາຍ​ໃຫ້​ເຂົາ​ດ້ວຍ​ວິທີ, ບໍ່​ໃຫ້​ຖືກ​ເກັບ​ໄວ້, ແຕ່​ໃຫ້​ໃຊ້​ເພື່ອ​ໃຫ້​ປະໂຫຍດ​ແກ່​ຄົນ​ອື່ນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_nCOto5wdMIx2Ub4oo0wRAY8Y1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">John 3:16.</prop>
+        <prop type="context_next">It testifies that, having undertaken our redemption, He will spare nothing, however dear, which is necessary to the completion of His work. {CS 14.1}</prop>
+        <seg>The gift of Christ reveals the Father's heart.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031407Z" changedate="20240205T121812Z" lastusagedate="20231106T031407Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຂອງປະທານຂອງພຣະຄຣິດເປີດເຜີຍຫົວໃຈຂອງພຣະບິດາ.[**Translated to here]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_orvtmH1vxi190UDw7O3ESAIE4">
+      <tuv xml:lang="en">
+        <prop type="context_prev">“There is that scattereth, and yet increaseth; and there is that withholdeth more than is meet, but it tendeth to poverty.</prop>
+        <prop type="context_next">Proverbs 11:24, 25. {CS 13.2}</prop>
+        <seg>The liberal soul shall be made fat: and he that watereth shall be watered also himself.”</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031358Z" changedate="20231106T092805Z" lastusagedate="20231106T031358Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຜູ້​ທີ່​ມີ​ໃຈ​ເຜື່ອແຜ່​ຍ່ອມ​ຈະເລີນ​ຮຸ່ງເຮືອງ ຜູ້​ທີ່​ຊ່ວຍເຫລືອ​ຄົນ​ຍ່ອມ​ໄດ້​ຮັບ​ຄວາມ​ຊ່ວຍເຫລືອ​ຕອບ.”</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_pajcDmaVgiU2Cu4IO1xFo3X70">
+      <tuv xml:lang="en">
+        <prop type="context_prev">#Chapter 1—Coworkers With God</prop>
+        <prop type="context_next">Proverbs 3:9, 10. {CS 13.1}</prop>
+        <seg>“Honor the Lord with thy substance, and with the first fruits of all thine increase: so shall thy barns be filled with plenty, and thy presses shall burst out with new wine.”</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T030151Z" changedate="20231106T092511Z" lastusagedate="20231106T030151Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>“ຈົ່ງ​ຍ້ອງຍໍ​ໃຫ້ກຽດ​ພຣະເຈົ້າຢາເວ ດ້ວຍ​ຊັບສິນ​ຂອງຕົນ ດ້ວຍ​ຜົນ​ທໍາອິດ​ອັນ​ດີທີ່ສຸດ​ຈາກ​ຜົນລະປູກ​ທັງໝົດ​ຂອງເຈົ້າ. ຖ້າ​ເຈົ້າ​ເຮັດ​ເຈົ້າ​ຈະ​ມີ​ເຂົ້າ​ເຕັມ​ເລົ້າ ແລະ​ມີ​ເຫຼົ້າ​ອະງຸ່ນ​ເຫລືອຫລາຍ​ຈົນ​ບໍ່ມີ​ບ່ອນ​ໃສ່.”</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_r2r4fVGd04n4Qq8MVn027VjS2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">This, carried out in actual benevolence and good works, is the true fruit of the Christian life.</prop>
+        <prop type="context_next">The light of the gospel shining from the cross of Christ rebukes selfishness, and encourages liberality and benevolence.</prop>
+        <seg>The principle of worldlings is to get, get, and thus they expect to secure happiness; but, carried out in all its bearings, the fruit is misery and death. {CS 14.2}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031415Z" changedate="20231106T031415Z" lastusagedate="20231106T031415Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຫຼັກ​ການ​ຂອງ​ໂລກ​ແມ່ນ​ການ​ໄດ້​ຮັບ, ໄດ້​ຮັບ, ແລະ​ດັ່ງ​ນັ້ນ​ເຂົາ​ເຈົ້າ​ຄາດ​ຫວັງ​ວ່າ​ຈະ​ໄດ້​ຮັບ​ຄວາມ​ສຸກ;ແຕ່, ປະຕິບັດໃນທຸກbearingsຂອງມັນ, ໝາກແມ່ນຄວາມທຸກທໍລະມານແລະຄວາມຕາຍ. {CS 14.2}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_rnU1QNkR16QaA2i0kJ6ERPvs6">
+      <tuv xml:lang="en">
+        <prop type="context_prev">It testifies that, having undertaken our redemption, He will spare nothing, however dear, which is necessary to the completion of His work. {CS 14.1}</prop>
+        <prop type="context_next">Christ's self-sacrificing love is revealed upon the cross.</prop>
+        <seg>The spirit of liberality is the spirit of heaven.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031408Z" changedate="20231106T031408Z" lastusagedate="20231106T031408Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຈິດວິນຍານຂອງເສລີພາບແມ່ນວິນຍານຂອງສະຫວັນ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_t4Xaf2GH0635iq8EM208mSUr3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">And as we heed these calls, by labor and by acts of benevolence, we are assimilated to the image of Him who for our sakes became poor.</prop>
+        <prop type="context_next">It is the glory of the gospel that it is founded upon the principle of restoring in the fallen race the divine image by a constant manifestation of benevolence.</prop>
+        <seg>In bestowing, we bless others, and thus accumulate true riches. {CS 13.5}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031404Z" changedate="20231113T050958Z" lastusagedate="20231106T031404Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ດັ່ງນັ້ນ ການ​ເສຍສະຫຼະ, ພວກເຮົາ​ເປັນທໍ່ພຣະ​ພອນ​ໃຫ້​ແກ່​ຄົນ​ອື່ນ, ແລະນັ້ນ​ຈຶ່ງເປັນການ​ສະ​ສົມຄວາມຮັ່ງມີ​ທີ່​ແທ້​ຈິງ. {CS 13.5}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_ub1F6UMj1GF98ZjgS81OhZNh5">
+      <tuv xml:lang="en">
+        <prop type="context_next">#Chapter 1—Coworkers With God</prop>
+        <seg>#Section 1—Heaven's Law of Benevolence and Its Purpose</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T030146Z" changedate="20231106T092415Z" lastusagedate="20231106T030146Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>#ພາກ​ທີ1—ກົດເກນແຫ່ງສະຫວັນເລື່ອງການຖະວາຍບໍລິຈາກ ແລະຈຸດປະສົງມັນ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_vK01P0t44iBlwYBw5L18xV7B5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">It is to divest them of all selfishness, and bind them to God and to one another. {CS 16.2}</prop>
+        <prop type="context_next">God will bless you as you do your best.</prop>
+        <seg>Meet around the cross of Calvary in self-sacrifice and self-denial.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031433Z" changedate="20231106T031554Z" lastusagedate="20231106T031433Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຈົ່ງພົບກັນຢູ່ອ້ອມຮອບໄມ້ກາງແຂນແຫ່ງຄານວາຣດ້ວຍການເສຍສະຫຼະ ແລະ ປະຕິເສດຕົນເອງ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_vLqPj0SFwo1bEeg0wq24Bcr62">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The cross of Christ appeals to the benevolence of every follower of the blessed Saviour.</prop>
+        <prop type="context_next">This, carried out in actual benevolence and good works, is the true fruit of the Christian life.</prop>
+        <seg>The principle there illustrated is to give, give.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031410Z" changedate="20231106T031410Z" lastusagedate="20231106T031410Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ຫຼັກ​ການ​ທີ່​ມີ​ການ​ສະ​ແດງ​ໃຫ້​ເຫັນ​ແມ່ນ​ໃຫ້​, ໃຫ້​.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_vtWai6HK0Wg5Y1hgQN30gTDE5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">By its necessities a ruined world is drawing forth from us talents of means and of influence, to present to men and women the truth, of which they are in perishing need.</prop>
+        <prop type="context_next">In bestowing, we bless others, and thus accumulate true riches. {CS 13.5}</prop>
+        <seg>And as we heed these calls, by labor and by acts of benevolence, we are assimilated to the image of Him who for our sakes became poor.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031404Z" changedate="20231113T050506Z" lastusagedate="20231106T031404Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">1125300</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ແລະເມື່ອພວກເຮົາຕອບສະໜອງຕໍ່ຄໍາຮຽກຮ້ອງເຫຼົ່ານີ້ ໂດຍການເຮັດວຽກ ແລະການຖະວາຍບໍລິຈາກ ພວກເຮົາກໍເປັນເໝືອນພຣະອົງຜູ້ທີ່ຍອມກາຍເປັນຜູ້ທຸກຍາກເພາະເຫັນແກ່ພວກເຮົາ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_wTVeTJ4k0wJ4Iz8g1b1ABBQC3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">He thus makes man the medium through which to distribute His blessings on earth.</prop>
+        <prop type="context_next">##Meeting Around the Cross</prop>
+        <seg>God planned the system of beneficence, in order that man might become like his Creator, benevolent and unselfish in character, and finally be a partaker with Christ of the eternal, glorious reward. {CS 15.2}</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031429Z" changedate="20231106T031429Z" lastusagedate="20231106T031429Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ພຣະເຈົ້າໄດ້ວາງແຜນລະບົບຂອງຜົນປະໂຫຍດ, ເພື່ອໃຫ້ມະນຸດກາຍເປັນຄືກັບຜູ້ສ້າງຂອງລາວ, ມີໃຈເມດຕາແລະບໍ່ເຫັນແກ່ຕົວ, ແລະສຸດທ້າຍໄດ້ມີສ່ວນຮ່ວມກັບພຣະຄຣິດຂອງລາງວັນອັນຮຸ່ງໂລດນິລັນດອນ. {CS 15.2}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_yhzS0Ua80qG8kPigiR3GWMji2">
+      <tuv xml:lang="en">
+        <prop type="context_prev">But instead of this He has made man His steward, entrusting him with means, not to be hoarded, but to be used in benefiting others.</prop>
+        <prop type="context_next">God planned the system of beneficence, in order that man might become like his Creator, benevolent and unselfish in character, and finally be a partaker with Christ of the eternal, glorious reward. {CS 15.2}</prop>
+        <seg>He thus makes man the medium through which to distribute His blessings on earth.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031428Z" changedate="20231106T031428Z" lastusagedate="20231106T031428Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ດັ່ງນັ້ນພຣະອົງຈຶ່ງເຮັດໃຫ້ມະນຸດເປັນສື່ກາງເພື່ອແຈກຢາຍພອນຂອງພຣະອົງເທິງແຜ່ນດິນໂລກ.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_zKGR4i2F0sP5uP883CxWkIXr1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">He has placed means in the hands of men, that His divine gifts may flow through human channels in doing the work appointed us in saving our fellow men.</prop>
+        <prop type="context_next">It is just the work that man needs; for it will stir the deepest sympathies of his heart, and call into exercise the highest capabilities of the mind. {CS 15.1}</prop>
+        <seg>This is one of God's ways of exalting man.</seg>
+      </tuv>
+      <tuv xml:lang="lo" creationdate="20231106T031424Z" changedate="20231106T031424Z" lastusagedate="20231106T031424Z">
+        <prop type="project">28449552</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">CS_01.txt</prop>
+        <seg>ນີ້​ແມ່ນ​ວິທີ​ໜຶ່ງ​ຂອງ​ພຣະ​ເຈົ້າ​ໃນ​ການ​ຍົກ​ມະນຸດ.</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

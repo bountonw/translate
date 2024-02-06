@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<martif xml:lang="en" type="TBX">
+  <text>
+    <body>
+      <termEntry>
+        <descrip type="conceptId">K73zeOng004bgZigfc0cVcwN4</descrip>
+        <langSet xml:lang="th">
+          <tig>
+            <term>หน้าผาวิปโยค</term>
+            <termNote type="termId">EBLeLlCLwW04239EDJwZszXn1</termNote>
+            <termNote type="forbidden">false</termNote>
+            <termNote type="preferred">false</termNote>
+            <termNote type="exactMatch">false</termNote>
+            <termNote type="status">Approved</termNote>
+            <termNote type="caseSensitive">false</termNote>
+            <termNote type="createdBy">bountonw</termNote>
+            <termNote type="createdAt">1690855265808</termNote>
+            <termNote type="lastModifiedBy">bountonw</termNote>
+            <termNote type="lastModifiedAt">1690855265808</termNote>
+          </tig>
+          <tig>
+            <term>ทางลาดชันที่ลื่น</term>
+            <termNote type="termId">DszGlAE7gVq2Ib4QFE0oIBJw0</termNote>
+            <termNote type="forbidden">false</termNote>
+            <termNote type="preferred">false</termNote>
+            <termNote type="exactMatch">false</termNote>
+            <termNote type="status">Approved</termNote>
+            <termNote type="caseSensitive">false</termNote>
+            <termNote type="createdBy">bountonw</termNote>
+            <termNote type="createdAt">1690855283751</termNote>
+            <termNote type="lastModifiedBy">bountonw</termNote>
+            <termNote type="lastModifiedAt">1690855283751</termNote>
+          </tig>
+        </langSet>
+        <langSet xml:lang="en">
+          <tig>
+            <term>slippery slope</term>
+            <termNote type="termId">C5QQO6bSwhF2fe4AargAt0mK1</termNote>
+            <termNote type="forbidden">false</termNote>
+            <termNote type="preferred">false</termNote>
+            <termNote type="exactMatch">false</termNote>
+            <termNote type="status">Approved</termNote>
+            <termNote type="caseSensitive">false</termNote>
+            <termNote type="createdBy">bountonw</termNote>
+            <termNote type="createdAt">1690855265473</termNote>
+            <termNote type="lastModifiedBy">bountonw</termNote>
+            <termNote type="lastModifiedAt">1690855265473</termNote>
+          </tig>
+        </langSet>
+      </termEntry>
+    </body>
+  </text>
+</martif>
