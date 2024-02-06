@@ -17,7 +17,7 @@ const publicFormattingRules = [
   },
   {
     name: "forbidden term",
-    regexp: new RegExp(`(${terms.join("|")})`, "g"),
+    regexp: new RegExp(`${terms.join("|")}`),
   },
 ];
 
