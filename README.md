@@ -11,3 +11,7 @@
 02_edit: Improved translations with more refined language. Feedback is welcome at this stage.
 03_public: Final translations ready for public distribution.
 ```
+
+## Developer
+
+local `sandbox/` folders are ignored
