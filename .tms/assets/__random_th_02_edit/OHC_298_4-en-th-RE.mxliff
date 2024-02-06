@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:m="http://www.memsource.com/mxlf/2.0" version="1.2" m:level="3" m:version="2.9">
+<file datatype="x-undefined" original="OHC_298_4.txt" source-language="en" target-language="th" m:begin-group-id="0" m:end-group-id="2" m:file-format="PLAIN_TEXT" m:job-uid="l6dM3YxMWdpq1OJ0hcbxIc" m:project-uid="wa17OBtdk1CCTQb50B9RKh" m:task-id="BNudgwxCNH85pPip_dc6">
+<header>
+<m:in-ctx-preview-skel bilingual="false">
+<![CDATA[<html>
+<head>
+<style>
+body, span {white-space: pre;}
+</style>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
+</head>
+<body>
+<span><span id="m-tgroup_0" class="m-tgroup"></span> <span id="m-tgroup_1" class="m-tgroup"></span> <span id="m-tgroup_2" class="m-tgroup"></span></span>
+</body>
+</html>]]>
+</m:in-ctx-preview-skel>
+</header>
+<body>
+
+<group id="0" m:para-id="0">
+<context-group>
+</context-group>
+<trans-unit id="BNudgwxCNH85pPip_dc6:0" m:confirmed="3" m:created-at="1697437974420" m:created-by="1040200" m:gross-score="0.75" m:level-edited="false" m:locked="false" m:modified-at="1697461252571" m:modified-by="1040200" m:para-id="0" m:score="0.75" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>“With the help of God, every true believer can see where there is work to be done.</source>
+<target>“ผู้เชื่อที่แท้จริงทุกคนสามารถมองเห็นว่ามีการงานใดที่ต้องทำ โดยการพึ่งพาการทรงช่วยจากพระเจ้า</target>
+<alt-trans match-quality="0.75" origin="machine-trans"><target>“ด้วยความช่วยเหลือจากพระเจ้า ผู้เชื่อที่แท้จริงทุกคนสามารถมองเห็นได้ว่ามีงานให้ทำที่ไหน</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>216052</m:editing-time>
+                            <m:thinking-time>47550</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="1" m:para-id="0">
+<context-group>
+</context-group>
+<trans-unit id="BNudgwxCNH85pPip_dc6:1:0" m:confirmed="3" m:created-at="1697437974420" m:created-by="1040200" m:gross-score="0.75" m:level-edited="false" m:locked="false" m:modified-at="1697461740911" m:modified-by="1040200" m:para-id="0" m:score="0.75" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] </source>
+<target> เมื่อพลังแห่งการตัดสินใจของมนุษย์เป็นไปตามน้ำพระทัยของพระเจ้า ความสามารถในการตัดสินใจจะไม่มีขีดจำกัด และผู้รับใช้คนนั้นจะสามารถสร้างโอกาสในการประกาศ …</target>
+<alt-trans match-quality="0.75" origin="machine-trans"><target>เมื่อมนุษย์จะร่วมมือกับพระประสงค์ของพระเจ้า มันจะกลายเป็นผู้มีอำนาจทุกอย่าง และผู้ปฏิบัติงานสามารถสร้างโอกาส […] </target></alt-trans>
+<alt-trans match-quality="0.5362318840579711" origin="memsource-tm" tm-id="2409270"><target>เมื่อมนุษย์ร่วมมือกับพระประสงค์ของพระเจ้า พวกเขาได้รับฤทธานุภาพสูงสุด และผู้รับใช้เหล่านี้จะสามารถสร้างโอกาส […] หากคุณปฏิบัติงานด้วยความจริงใจ พระเจ้าจะทรงเปิดหนทางให้คุณทำงานของพระองค์ให้บรรลุผลสำเร็จ </target></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>314171</m:editing-time>
+                            <m:thinking-time>198773</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="BNudgwxCNH85pPip_dc6:1:1" m:confirmed="3" m:created-at="1697438129455" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697461914679" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>If you will go to work in earnest, ways will open before you for the accomplishment of this work.</source>
+<target> หากคุณปฏิบัติงานด้วยความจริงใจ พระเจ้าจะทรงเปิดหนทางให้คุณทำงานนี้ให้สำเร็จลุล่วงไปด้วยดี</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target>หากคุณจะไปทำงานอย่างจริงจัง หนทางต่างๆ จะเปิดกว้างต่อหน้าคุณเพื่อให้งานนี้สำเร็จ</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>202264</m:editing-time>
+                            <m:thinking-time>38361</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="2" m:para-id="0">
+<context-group>
+</context-group>
+<trans-unit id="BNudgwxCNH85pPip_dc6:2" m:confirmed="3" m:created-at="1697437974420" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697461475468" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>Lean upon the divine arm for wisdom, strength, and skill for the work that God has given you to do.” (OHC 298.4)</source>
+<target> จงพึ่งพิงในพระหัตถ์ของพระเจ้าสำหรับสติปัญญา พละกำลังและทักษะในการทำงานที่พระเจ้าทรงมอบหมายให้คุณกระทำ” (OHC 298.4)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target>พึ่งพาพระกรของพระเจ้าเพื่อรับสติปัญญา พละกำลัง และทักษะสำหรับงานที่พระเจ้าประทานให้คุณทำ” (อปท.298.4)</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>109558</m:editing-time>
+                            <m:thinking-time>3045</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+</body>
+</file>
+<m:extra>
+<m:users>
+<m:user fullname="Brian Wilson" id="1040200" uid="X5iTHm6d3KqZcZ8Uwgact3" username="bountonw"/>
+</m:users>
+</m:extra>
+</xliff>
