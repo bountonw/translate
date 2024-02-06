@@ -45,5 +45,5 @@ jobs:
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: PP1_${{ env.CURRENT_TIME }}
+          name: PP_${{ env.CURRENT_TIME }}
           path: .tooling/latex/draft
