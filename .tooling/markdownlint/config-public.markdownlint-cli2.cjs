@@ -21,6 +21,14 @@ const publicFormattingRules = [
     regexp: /\)[^ ’”;:,.!\[]/,
   },
   {
+    name: "missing space after closing curly quotes",
+    regexp: /[’”][^\s<’”—\.\[]/,
+  },
+  {
+    name: "no trailing space after 'ๆ' mai yamok",
+    regexp: /ๆ[^\s’”\[]/,
+  },
+  {
     name: "forbidden term",
     regexp: new RegExp(`${forbiddenTerms.join("|")}`),
   },
