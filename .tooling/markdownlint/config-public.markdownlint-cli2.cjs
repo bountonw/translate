@@ -1,6 +1,11 @@
 const { forEachLine, getLineMetadata } = require("markdownlint-rule-helpers");
 const { config: draftConfig } = require("./config-draft.markdownlint-cli2.cjs");
-const { terms } = require("./forbidden-terms.cjs");
+const fs = require("fs");
+const path = require("path");
+const forbiddenTerms = fs
+  .readFileSync(path.resolve(__dirname, "./forbidden-terms.md"), "utf-8")
+  .split("\n")
+  .filter((l) => l && l.charAt(0) !== "#");
 
 const publicFormattingRules = [
   {
@@ -17,7 +22,7 @@ const publicFormattingRules = [
   },
   {
     name: "forbidden term",
-    regexp: new RegExp(`${terms.join("|")}`),
+    regexp: new RegExp(`${forbiddenTerms.join("|")}`),
   },
 ];
 
