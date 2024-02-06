@@ -1,0 +1,1555 @@
+<?xml version='1.0' encoding='UTF-8'?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:m="http://www.memsource.com/mxlf/2.0" version="1.2" m:level="2" m:version="2.9">
+<file datatype="x-undefined" original="SC01_en.md" source-language="en" target-language="ium" m:begin-group-id="0" m:end-group-id="114" m:file-format="MD" m:job-uid="rHwyEXtlaMED5R0W9EmWa7" m:project-uid="sVDsxhIIdt8Vap7tYWC6g0" m:task-id="DoJLWZ711uvxlh093_dc5">
+<header>
+<m:in-ctx-preview-skel bilingual="false">
+<![CDATA[<p><span id="m-tgroup_0" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_1" class="m-tgroup"></span> <span id="m-tgroup_2" class="m-tgroup"></span> <span id="m-tgroup_3" class="m-tgroup"></span> <span id="m-tgroup_4" class="m-tgroup"></span> <span id="m-tgroup_5" class="m-tgroup"></span> <span id="m-tgroup_6" class="m-tgroup"></span> <span id="m-tgroup_7" class="m-tgroup"></span></p>
+<pre><code><span id="m-tgroup_8" class="m-tgroup"></span>
+<span id="m-tgroup_9" class="m-tgroup"></span>
+<span id="m-tgroup_10" class="m-tgroup"></span>
+<span id="m-tgroup_11" class="m-tgroup"></span></code></pre>
+<p><span id="m-tgroup_12" class="m-tgroup"></span> <span id="m-tgroup_13" class="m-tgroup"></span> <span id="m-tgroup_14" class="m-tgroup"></span> <span id="m-tgroup_15" class="m-tgroup"></span> <span id="m-tgroup_16" class="m-tgroup"></span> <span id="m-tgroup_17" class="m-tgroup"></span> <span id="m-tgroup_18" class="m-tgroup"></span> <span id="m-tgroup_19" class="m-tgroup"></span> <span id="m-tgroup_20" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_21" class="m-tgroup"></span> <span id="m-tgroup_22" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_23" class="m-tgroup"></span> <span id="m-tgroup_24" class="m-tgroup"></span> <span id="m-tgroup_25" class="m-tgroup"></span> <span id="m-tgroup_26" class="m-tgroup"></span> <span id="m-tgroup_27" class="m-tgroup"></span> <span id="m-tgroup_28" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_29" class="m-tgroup"></span> <span id="m-tgroup_30" class="m-tgroup"></span> <span id="m-tgroup_31" class="m-tgroup"></span> <span id="m-tgroup_32" class="m-tgroup"></span> <span id="m-tgroup_33" class="m-tgroup"></span> <span id="m-tgroup_34" class="m-tgroup"></span> <span id="m-tgroup_35" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_36" class="m-tgroup"></span> <span id="m-tgroup_37" class="m-tgroup"></span> <span id="m-tgroup_38" class="m-tgroup"></span> <span id="m-tgroup_39" class="m-tgroup"></span> <span id="m-tgroup_40" class="m-tgroup"></span> <span id="m-tgroup_41" class="m-tgroup"></span> <span id="m-tgroup_42" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_43" class="m-tgroup"></span> <span id="m-tgroup_44" class="m-tgroup"></span> <span id="m-tgroup_45" class="m-tgroup"></span> <span id="m-tgroup_46" class="m-tgroup"></span> <span id="m-tgroup_47" class="m-tgroup"></span> <span id="m-tgroup_48" class="m-tgroup"></span> <span id="m-tgroup_49" class="m-tgroup"></span> <span id="m-tgroup_50" class="m-tgroup"></span> <span id="m-tgroup_51" class="m-tgroup"></span> <span id="m-tgroup_52" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_53" class="m-tgroup"></span> <span id="m-tgroup_54" class="m-tgroup"></span> <span id="m-tgroup_55" class="m-tgroup"></span> <span id="m-tgroup_56" class="m-tgroup"></span> <span id="m-tgroup_57" class="m-tgroup"></span> <span id="m-tgroup_58" class="m-tgroup"></span> <span id="m-tgroup_59" class="m-tgroup"></span> <span id="m-tgroup_60" class="m-tgroup"></span> <span id="m-tgroup_61" class="m-tgroup"></span> <span id="m-tgroup_62" class="m-tgroup"></span> <span id="m-tgroup_63" class="m-tgroup"></span> <span id="m-tgroup_64" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_65" class="m-tgroup"></span> <span id="m-tgroup_66" class="m-tgroup"></span> <span id="m-tgroup_67" class="m-tgroup"></span> <span id="m-tgroup_68" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_69" class="m-tgroup"></span> <span id="m-tgroup_70" class="m-tgroup"></span> <span id="m-tgroup_71" class="m-tgroup"></span> <span id="m-tgroup_72" class]]><![CDATA[="m-tgroup"></span> <span id="m-tgroup_73" class="m-tgroup"></span> <span id="m-tgroup_7]]><![CDATA[4" class="m-tgroup"></span> <span id="m-tgroup_75" class="m-tgroup"></span> <span id="m-tgroup_76" class="m-tgroup"></span> <span id="m-tgroup_77" class="m-tgroup"></span> <span id="m-tgroup_78" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_79" class="m-tgroup"></span> <span id="m-tgroup_80" class="m-tgroup"></span> <span id="m-tgroup_81" class="m-tgroup"></span> <span id="m-tgroup_82" class="m-tgroup"></span> <span id="m-tgroup_83" class="m-tgroup"></span> <span id="m-tgroup_84" class="m-tgroup"></span> <span id="m-tgroup_85" class="m-tgroup"></span> <span id="m-tgroup_86" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_87" class="m-tgroup"></span> <span id="m-tgroup_88" class="m-tgroup"></span> <span id="m-tgroup_89" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_90" class="m-tgroup"></span> <span id="m-tgroup_91" class="m-tgroup"></span> <span id="m-tgroup_92" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_93" class="m-tgroup"></span> <span id="m-tgroup_94" class="m-tgroup"></span> <span id="m-tgroup_95" class="m-tgroup"></span> <span id="m-tgroup_96" class="m-tgroup"></span> <span id="m-tgroup_97" class="m-tgroup"></span> <span id="m-tgroup_98" class="m-tgroup"></span> <span id="m-tgroup_99" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_100" class="m-tgroup"></span> <span id="m-tgroup_101" class="m-tgroup"></span> <span id="m-tgroup_102" class="m-tgroup"></span> <span id="m-tgroup_103" class="m-tgroup"></span> <span id="m-tgroup_104" class="m-tgroup"></span> <span id="m-tgroup_105" class="m-tgroup"></span> <span id="m-tgroup_106" class="m-tgroup"></span> <span id="m-tgroup_107" class="m-tgroup"></span></p>
+<p><span id="m-tgroup_108" class="m-tgroup"></span> <span id="m-tgroup_109" class="m-tgroup"></span> <span id="m-tgroup_110" class="m-tgroup"></span> <span id="m-tgroup_111" class="m-tgroup"></span> <span id="m-tgroup_112" class="m-tgroup"></span> <span id="m-tgroup_113" class="m-tgroup"></span> <span id="m-tgroup_114" class="m-tgroup"></span></p>]]>
+</m:in-ctx-preview-skel>
+</header>
+<body>
+
+<group id="0" m:para-id="0">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:0" m:confirmed="1" m:created-at="1694045594125" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694139852763" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>#Chapter 1--God’s Love for Man</source>
+<target>#1--Tin-Hungh Hnamv Lungh Ndiev Mienh</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="1" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:1" m:confirmed="1" m:created-at="1694052520766" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072068097" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Nature and revelation alike testify of God’s love.</source>
+<target>Tin-Hungh zeix daaih nyei ga’naaiv caux Ging-Sou nyei waac fih hnangv nyei biux mengh Tin-Hungh za’gengh maaih hnyouv hnamv mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="2" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:2" m:confirmed="1" m:created-at="1694052523320" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694053156666" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Our Father in heaven is the source of life, of wisdom, and of joy.</source>
+<target>Mbuo nyei Tin-Dorngh Diex zoux ziangh maengc, cong-mengh, caux njien-youh, orn-lorqc nyei gorn-doqv. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="3" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:3" m:confirmed="2" m:created-at="1694052769052" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160754921" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Look at the wonderful and beautiful things of nature.</source>
+<target>Mangc gaax Tin-Hungh zeix daaih nyei ga'naaiv za’gengh nzueic yaac peix fuc haic.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>3555</m:editing-time>
+                            <m:thinking-time>558</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="4" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:4" m:confirmed="1" m:created-at="1694053173753" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694053542923" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Think of their marvelous adaptation to the needs and happiness, not only of man, but of all living creatures.</source>
+<target>Tin-Hungh zeix daaih nyei nyungc horngh bun mienh maaih ninh mbuo qiemx zuqc longc nyei maanc muotc, yaac tengx mienh njien-youh. Maiv zeiz mienh hnangv, mv baac Tin-Hungh bun saeng-kuv hieh zoih buangh zuqc ninh mbuo qiemx zuqc longc nyei nyungc-nyungc. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="5" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:5" m:confirmed="2" m:created-at="1694053232773" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694163167155" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The sunshine and the rain, that gladden and refresh the earth, the hills and seas and plains, all speak to us of the Creator’s love.</source>
+<target>Mba'hnoi ziux njang, mbiungc yaac duih njiec bun lungh ndiev kuh yiem. Baamh gen maaih nyei ndau-baengh, gemh hlang caux koiv bun cing Zeix Lungh Ndau Nyei Ziouv za'gengh hnamv haic Ninh zeix daaih nyei nyungc-nyungc.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>13268</m:editing-time>
+                            <m:thinking-time>1620</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="6" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:6" m:confirmed="1" m:created-at="1694053577582" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694053607793" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It is God who supplies the daily needs of all His creatures.</source>
+<target>Tin-Hungh yaac hnoi-hnoi ceix bun ninh mbuo qiemx zuqc nyei nyanc hopv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="7" m:para-id="1">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:7" m:confirmed="2" m:created-at="1694053570715" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694164188938" m:modified-by="1040200" m:para-id="1" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In the beautiful words of the psalmist-- {SC 9.1}</source>
+<target>Naaiv se ei Singx Nzung kuh muangx haic nyei waac gorngv— {SC 9.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>9867</m:editing-time>
+                            <m:thinking-time>3257</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="8" m:para-id="2">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:8" m:confirmed="2" m:created-at="1694053984203" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159834673" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“*The eyes of all wait upon Thee;*\</source>
+<target>“*Da’faanh maaih maengc nyei ga’naaiv mangc jienv meih,*\</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>41762</m:editing-time>
+                            <m:thinking-time>2838</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="9" m:para-id="2">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:9" m:confirmed="2" m:created-at="1694054064874" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159835310" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>*And Thou givest them their meat in due season.*\</source>
+<target>*ziux horpc zuqc bun nyei ziangh hoc meih yaac bun nyanc hopv ninh mbuo.*\</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>6686</m:editing-time>
+                            <m:thinking-time>1008</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="10" m:para-id="2">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:10:0:0" m:confirmed="2" m:created-at="1694054097601" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159835882" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>*Thou openest Thine hand,*\ 
+*And satisfiest the desire of every living thing.”*</source>
+<target>Meih zoux hnyouv jangv bun nyungc-nyungc maaih maengc nyei ga’naaiv duqv nyanc beuv.”*\</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>5790</m:editing-time>
+                            <m:thinking-time>1919</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:10:0:1" m:confirmed="1" m:created-at="1694054274008" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694054274008" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> Psalm 145:15, 16. {SC 9.2}</source>
+<target>(Singx Nzung 145:15, 16.) {SC 9.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="11" m:para-id="2">
+<context-group>
+</context-group>
+</group>
+<group id="12" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:12:0" m:confirmed="2" m:created-at="1694054426401" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159838392" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>God made man perfectly holy and happy;</source>
+<target>Tin-Hungh zeix mienh maanh wuov zanc, Ninh zeix daaih cing-nzengc yaac maaih orn-lorqc.  </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>48052</m:editing-time>
+                            <m:thinking-time>1085</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:12:1" m:confirmed="2" m:created-at="1694054468543" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159913127" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> and the fair earth, as it came from the Creator’s hand, bore no blight of decay or shadow of the curse.</source>
+<target>Ninh zeix baamh gen zueic haic, maiv maaih dorngx nqemh yaac maiv maaih zuqc houv zuqc zioux nyei dongh linh om jienv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1772</m:editing-time>
+                            <m:thinking-time>447</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="13" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:13" m:confirmed="1" m:created-at="1694054429353" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694054664842" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It is transgression of God’s law--the law of love--that has brought woe and death.</source>
+<target>Laaix mienh baamz Tin-Hungh nyei leiz-latc, se bun cing Tin-Hungh maaih hnyouv hnamv mienh nyei leiz-latc, daic nyei jauv caux yietc zungv zeqc naanc ziouc bieqc daaih naaiv baamh gen. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="14" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:14" m:confirmed="2" m:created-at="1694054540551" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159814820" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Yet even amid the suffering that results from sin, God’s love is revealed.</source>
+<target>Mv baac yiem zuiz bun daaih nyei naanc zingh mbu’ndongx mbuo corc mangc duqv buatc Tin-Hungh maaih hnyouv hnamv mienh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>4669</m:editing-time>
+                            <m:thinking-time>839</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="15" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:15:0" m:confirmed="2" m:created-at="1694054579958" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159863081" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It is written that God cursed the ground for man’s sake. (Genesis 3:17.)</source>
+<target>Yiem Tin Deic Douh Sou 3:17 gorngv “Ndau ziouc laaix meih zoux nyei sic zuqc houv.” Mv baac, naaiv yiemc Ging-Sou haih faan daaih gorngv, “Ndau zuqc houv weic tengx meih” ei leiz se weic tengx mienh maanh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>2045</m:editing-time>
+                            <m:thinking-time>916</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="16" m:para-id="3">
+<context-group>
+</context-group>
+</group>
+<group id="17" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:17" m:confirmed="1" m:created-at="1694054728539" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055028260" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The thorn and the thistle--the difficulties and trials that make his life one of toil and care--were appointed for his good as a part of the training needful in God’s plan for his uplifting from the ruin and degradation that sin has wrought.</source>
+<target>Zuiz bun baamh mienh ndortv njiec ndo nyei, Tin-Hungh ziouc longc njimv-cou njimv-muonc
+caux yiem seix zaangc nyei kuonx naanh weic tengx ninh mbuo hoqc hiuv dongh ninh mbuo qiemx zuqc hiuv, naaiv se ei jienv Ninh nyei za’eix mienh cingx daaih haih zuqc bouh faaux hlang. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="18" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:18" m:confirmed="2" m:created-at="1694054945419" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694242699605" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The world, though fallen, is not all sorrow and misery.</source>
+<target>Maiv gunv baamh gen ndortv njiec aiv, mv baac maiv zeiz kungx maaih kuonx hnyouv nyei sic hnangv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>3594</m:editing-time>
+                            <m:thinking-time>1234</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="19" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:19" m:confirmed="2" m:created-at="1694055062608" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159976457" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In nature itself are messages of hope and comfort.</source>
+<target>Yiem lungh ndiev mbuo duqv buatc ziex nyungc biux mengh maaih lamh hnamv dorngx; maaih camv-nyungc orn mbuo nyei hnyouv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1638</m:editing-time>
+                            <m:thinking-time>889</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="20" m:para-id="3">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:20" m:confirmed="2" m:created-at="1694055074793" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159964492" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>There are flowers upon the thistles, and the thorns are covered with roses. {SC 9.3}</source>
+<target>Yiem lomc nyei njimv-cou
+yaac maaih biangh, njimv-muonc youc maaih biouv. {SC 9.3}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>6190</m:editing-time>
+                            <m:thinking-time>476</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="21" m:para-id="4">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:21" m:confirmed="1" m:created-at="1694055117027" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055130016" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“God is love” is written upon every opening bud, upon every spire of springing grass.</source>
+<target>Diuh diuh miev-maeng caux norm-norm biangh biux mengh Tin-Hungh zoux hnamv mienh nyei gorn.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="22" m:para-id="4">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:22:0" m:confirmed="1" m:created-at="1694055120039" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055232195" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The lovely birds making the air vocal with their happy songs,</source>
+<target>Ndaamh lungh nyei norqc baaux kuv muangx haic nyei nzung. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:22:1:0" m:confirmed="2" m:created-at="1694055200500" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694159997487" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> the delicately tinted flowers in their perfection perfuming the air,</source>
+<target>Ndau-beih nyei biangh ndomh mau yaac nzueic bungx ndaang nyei qiex buangv lomc-ndiev. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>4461</m:editing-time>
+                            <m:thinking-time>434</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:22:1:1:0" m:confirmed="1" m:created-at="1694055219335" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055238613" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> the lofty trees of the forest with their rich foliage of living green--</source>
+<target>Nqemh hlang nyei ndiangx nzueic haic, ndiemh maeng nyei. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:22:1:1:1" m:confirmed="2" m:created-at="1694055220903" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160007910" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>all testify to the tender, fatherly care of our God and to His desire to make His children happy. {SC 10.1}</source>
+<target>Naaiv deix yietc zungv zoux zorng-zengx gorngv Zaangc Diex ziux goux Ninh nyei fu’jueiv yaac oix ninh mbuo maaih njien-youh. {SC 10.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1809</m:editing-time>
+                            <m:thinking-time>444</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="23" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:23" m:confirmed="1" m:created-at="1694055325070" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055328288" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The word of God reveals His character.</source>
+<target>Tin-Hungh nyei waac biux mengh Ninh nyei fiem-fingx.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="24" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:24" m:confirmed="1" m:created-at="1694055326665" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055364347" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He Himself has declared His infinite love and pity.</source>
+<target>Tin-Hungh ganh yaac zunh yaangh Ninh hnamv mienh yaac korv-lienh mienh zungv maiv maaih soux mouc.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="25" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:25:0" m:confirmed="0" m:created-at="1694055354937" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160032985" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>When Moses prayed, “Show me Thy glory,” the Lord answered, “I will make all My goodness pass before thee.” </source>
+<target>Mose daux gaux wuov zanc, Ninh gorngv, “Tov meih bun yie buatc meih nyei njang-laangc maah!” Ziouv ziouc dau, “Yie oix hinc cuotv yie nyei yietc zungv njang-laangc nyei en jiex meih nyei nza’hmien.” </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>9824</m:editing-time>
+                            <m:thinking-time>557</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:25:1" m:confirmed="2" m:created-at="1694055445827" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160062144" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>(Exodus 33:18, 19.)</source>
+<target>(Cuotv I^yipv 33:18, 19.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>7308</m:editing-time>
+                            <m:thinking-time>2170</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="26" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:26" m:confirmed="1" m:created-at="1694055380566" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055456937" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>This is His glory.</source>
+<target>Naaiv se Tin-Hungh nyei njang-laangc.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="27" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:27" m:confirmed="2" m:created-at="1694055391555" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160084470" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The Lord passed before Moses, and proclaimed, “The Lord, The Lord God, merciful and gracious, long-suffering, and abundant in goodness and truth, keeping mercy for thousands, forgiving iniquity and transgression and sin.” (Exodus 34:6, 7.)</source>
+<target> Ziouv jiex Mose nyei nza-hmien gorngv, “Ziouv, Ziouv, korv-lienh mienh, ceix en bun mienh nyei Tin-Hungh. Yie maiv qiex jiez siepv, za\’gengh hnamv haic mienh, yaac ziepc zuoqv nyei. Yie ziepc zuoqv nyei hnamv mienh taux cin-cin doic mienh. Yie guangc zoux waaic zoux orqv caux baamz zuiz nyei sic.” (Cuotv I^yipv 34:6, 7.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>13395</m:editing-time>
+                            <m:thinking-time>448</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="28" m:para-id="5">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:28" m:confirmed="2" m:created-at="1694055541861" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160103444" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He is “slow to anger, and of great kindness,” “because He delighteth in mercy.” (Jonah 4:2; Micah 7:18.) {SC 10.2}</source>
+<target>Tin-Hungh “hnyouv ndaauv haic, haaix zanc yaac a’hneiv zoux longx bun mienh,” weic zuqc Ninh “a’hneiv ziepc zuoqv nyei hnamv mienh.” (Yonaa 4:2; Mikaa 7:18.) {SC 10.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>6253</m:editing-time>
+                            <m:thinking-time>1033</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="29" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:29" m:confirmed="1" m:created-at="1694055638496" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055670130" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>God has bound our hearts to Him by unnumbered tokens in heaven and in earth.</source>
+<target>Tin-Hungh longc ziex nyungc za’eix yiem Tin-Dorngh yaac yiem baamh gen weic bun cing Ninh hnamv haic mbuo, zungv maiv haih saauv maiv zienz.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="30" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:30" m:confirmed="1" m:created-at="1694055661154" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055753283" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Through the things of nature, and the deepest and tenderest earthly ties that human hearts can know, He has sought to reveal Himself to us.</source>
+<target>Ninh longc Ninh zeix daaih nyei ga’naaiv caux baamh mienh hnamv haic nyei biauv zong mienh weic tengx mbuo hiuv duqv Ninh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="31" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:31" m:confirmed="1" m:created-at="1694055751059" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694055769978" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Yet these but imperfectly represent His love.</source>
+<target>Mv baac naaiv deix yietc zungv maiv nzoih zunh nyei biux mengh Ninh hnamv nyei jauv. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="32" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:32" m:confirmed="1" m:created-at="1694055761380" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056149649" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Though all these evidences have been given, the enemy of good blinded the minds of men, so that they looked upon God with fear; they thought of Him as severe and unforgiving.</source>
+<target>Maiv gunv naaiv deix nyungc horngh zoux zorng-zengx nyei mv baac mienh zuqc Zoux Longx Nyei Win-Wangv buang jienv hnyouv. Ninh mbuo ziouc gamh nziex Tin-Hungh, gorv nziex laaic Tin-Hungh ciouv nyei yaac maiv haih guangc mienh nyei zuiz. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="33" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:33" m:confirmed="1" m:created-at="1694055817309" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056247313" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Satan led men to conceive of God as a being whose chief attribute is stern justice,--one who is a severe judge, a harsh, exacting creditor.</source>
+<target>Saadaan nduov mienh hnamv dorngc, gorngv Tin-Hungh nyei fiem-fingx hlo jiex wuov buonc se ciouv nyei dingc mienh nyei zuiz. Mienh ziouc gorv nziex laaic Tin-Hungh se ciouv haic nyei siemv zuiz jien, yaac zoux hnyouv hepc nyei zaeqv-ziouv. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="34" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:34" m:confirmed="1" m:created-at="1694056178233" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056392854" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He pictured the Creator as a being who is watching with jealous eye to discern the errors and mistakes of men, that He may visit judgments upon them.</source>
+<target>Saadaan pien eix leiz gorngv Zeix Lungh Ndau Nyei Ziouv zanc-zanc zaah mangc mienh weic lorz qangx dingc zuiz haaix zanc mienh zoux dorngc. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="35" m:para-id="6">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:35" m:confirmed="1" m:created-at="1694056270665" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056502369" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It was to remove this dark shadow, by revealing to the world the infinite love of God, that Jesus came to live among men. {SC 10.3}</source>
+<target>Weic zorqv naaiv norm hmuangx haic nyei dongh linh bun nzaanx nzengc, Ziouv Yesu ziouc njiec daaih yiem baamh mienh mbu’ndongx biux mengh bun baamh mienh hiuv dingc gorngv Tin-Hungh maaih hnyouv hnamv mienh zungv jiex ndaangc haih ndorqc duqv taux. {SC 10.3}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="36" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:36" m:confirmed="1" m:created-at="1694056584864" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056585273" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The Son of God came from heaven to make manifest the Father.</source>
+<target>Tin-Hungh nyei dorn yiem tin-dorngh njiec daaih weic bun cing Zaangc Diex.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="37" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:37" m:confirmed="2" m:created-at="1694056603290" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160143865" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“No man hath seen God at any time; the only begotten Son, which is in the bosom of the Father, He hath declared Him.”</source>
+<target>“Maiv maaih haaix dauh buatc jiex Tin-Hungh. Kungx maaih ninh nyei ndoqc Dorn, dongh yiem Zaangc Diex nyei ga’hlen wuov dauh, bun mbuo hiuv duqv Tin-Hungh hnangv.”</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>5023</m:editing-time>
+                            <m:thinking-time>728</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="38" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:38" m:confirmed="1" m:created-at="1694056530413" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056530819" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>John 1:18.</source>
+<target>(Yo^han 1:18.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="39" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:39" m:confirmed="2" m:created-at="1694056615651" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160178005" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“Neither knoweth any man the Father, save the Son, and he to whomsoever the Son will reveal Him.”</source>
+<target>“Cuotv liuz Dorn, caux Dorn bun hiuv wuov deix, maiv maaih haaix dauh hiuv duqv Die.”</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>2193</m:editing-time>
+                            <m:thinking-time>477</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="40" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:40" m:confirmed="1" m:created-at="1694056547359" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056559555" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Matthew 11:27.</source>
+<target>(Matv^taai 11:27.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="41" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:41:0" m:confirmed="2" m:created-at="1694056648876" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160192473" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>When one of the disciples made the request, “Show us the Father,” </source>
+<target>Maaih nzunc maaih dauh sai-gorx tov Ziouv Yesu gorngv, “Ziouv aah! Tov meih bun yie mbuo buatc Zaangc Diex oc.” </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>2983</m:editing-time>
+                            <m:thinking-time>448</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:41:1" m:confirmed="2" m:created-at="1694056700729" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160200090" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Jesus answered, “Have I been so long time with you, and yet hast thou not known Me, Philip?</source>
+<target>Ziouv Yesu ziouc dauc, “Filipv aah! Yie caux meih mbuo yiem lauh haic aqv. Meih corc maiv gaengh hiuv duqv yie fai?</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>7605</m:editing-time>
+                            <m:thinking-time>730</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="42" m:para-id="7">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:42:0" m:confirmed="2" m:created-at="1694056665490" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160207813" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He that hath seen Me hath seen the Father; </source>
+<target>Haaix dauh buatc jiex yie se buatc jiex Zaangc Diex. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>7420</m:editing-time>
+                            <m:thinking-time>524</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:42:1:0" m:confirmed="1" m:created-at="1694056756134" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056788103" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>and how sayest thou then, Show us the Father?”</source>
+<target>Hnangv naaiv meih weic haaix diuc gorngv, ‘Tov bun yie mbuo buatc Zaangc Diex?’”</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.8113207547169812" origin="memsource-tm" tm-id="2409270"><target>Hnangv naaiv meih weic haaix diuc gorngv, ‘Tov bun yie mbuo buatc Zaangc Diex?’” (Yo\^han 14:8, 9.) {SC 11.1}</target></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:42:1:1" m:confirmed="1" m:created-at="1694056786406" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694056792526" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> (John 14:8, 9.) {SC 11.1}</source>
+<target> (Yo^han 14:8, 9.) {SC 11.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="43" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:43:0:0" m:confirmed="1" m:created-at="1694062364212" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072088645" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In describing His earthly mission, Jesus said, The Lord “hath anointed Me to preach the gospel to the poor;</source>
+<target>Ziouv Yesu porv mengh Ninh yiem baamh gen oix zuqc zoux nyei gong gorngv, Ziouv “ginv yie daaih zunh kuv fienx mbuox mienh jomc mienh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:43:0:1:0" m:confirmed="1" m:created-at="1694062437057" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062480339" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> He hath sent Me to heal the brokenhearted, to preach deliverance to the captives,</source>
+<target>Ninh paaiv yie daaih zunh mbuox zuqc wuonx nyei mienh ninh mbuo oix duqv bungx cuotv,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:43:0:1:1:0" m:confirmed="1" m:created-at="1694062468988" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062481043" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> and recovering of sight to the blind,</source>
+<target> yaac zunh mbuox m’zing maengh nyei mienh, ninh mbuo haih mangc duqv buatc,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:43:0:1:1:1" m:confirmed="1" m:created-at="1694062471644" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062481925" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> to set at liberty them that are bruised.” </source>
+<target> yaac bun zuqc mienh zoux doqc hoic wuov deix duqv bungx nqoi.” </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:43:1" m:confirmed="1" m:created-at="1694062377260" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062377260" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>(Luke 4:18.)</source>
+<target>(Lugaa 4:18.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="1.0" origin="memsource-tm" tm-id="2409270"><target>(Lugaa 4:18.)</target></alt-trans>
+</trans-unit>
+</group>
+<group id="44" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:44" m:confirmed="1" m:created-at="1694062366630" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062509370" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>This was His work.</source>
+<target>Naaiv se Ziouv Yesu nyei gong. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="45" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:45" m:confirmed="1" m:created-at="1694062508206" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062547677" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He went about doing good and healing all that were oppressed by Satan.</source>
+<target>Ninh mingh norm-norm dorngx zoux kuv sic yaac zorc longx yietc zungv zuqc Saadaan hoic nyei mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="46" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:46:0" m:confirmed="2" m:created-at="1694062528715" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160254428" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>There were whole villages where there was not a moan of sickness in any house,</source>
+<target>Maaix ziex norm laangz maiv maaih haaix dauh butv baengc yaac maiv maaih haaix dauh nyei biauv maaih njunh nyei qiex mbui,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.5746268656716418" origin="memsource-tm" tm-id="2409270"><target>Maaix ziex norm laangz maiv maaih haaix dauh butv
+baengc yaac maiv maaih yietc deix njunh nyei qiex mbui yiem haaix dauh nyei biauv, weic zuqc Ninh zueih mungv zueih laangz yangh jiex ninh mbuo yiem nyei dorngx yaac zorc longx ninh mbuo nyei yietc zungv baengc tongx baengc zingh.</target></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>3711</m:editing-time>
+                            <m:thinking-time>1081</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:46:1" m:confirmed="1" m:created-at="1694062700464" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062836762" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> for He had passed through them and healed all their sick.</source>
+<target> weic zuqc Ninh zueih mungv zueih laangz yangh jiex ninh mbuo yiem nyei dorngx yaac zorc longx ninh mbuo nyei yietc zungv baengc tongx baengc zingh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="47" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:47" m:confirmed="1" m:created-at="1694062574634" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062877596" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>His work gave evidence of His divine anointing.</source>
+<target>Ninh zoux nyei kuv sic bun cing Tin-Hungh paaiv Ninh zoux.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="48" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:48:0" m:confirmed="1" m:created-at="1694062864748" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062988265" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Love, mercy, and compassion were revealed in every act of His life; </source>
+<target>Ninh yiem seix zaangc zoux nyei nyungc-nyungc biux mengh Ninh hnamv mienh yaac korv-lienh mienh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:48:1" m:confirmed="1" m:created-at="1694062943328" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694062990144" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>His heart went out in tender sympathy to the children of men.</source>
+<target>Ninh za’gengh korv-lienh mienh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="49" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:49" m:confirmed="1" m:created-at="1694062902547" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694063350242" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He took man’s nature, that He might reach man’s wants.</source>
+<target>Ninh cuotv seix daaih zoux yietc dauh baamh mienh weic tengx duqv taux mienh qiemx zuqc nyei nyungc horngh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="50" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:50" m:confirmed="2" m:created-at="1694062985423" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694165316852" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The poorest and humblest were not afraid to approach Him.</source>
+<target>Mienh jomc mienh ndortv naanc ndongc haaix kouv yaac maiv gamh ziex lorz Ninh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>2130</m:editing-time>
+                            <m:thinking-time>730</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="51" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:51" m:confirmed="2" m:created-at="1694063388886" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160273010" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Even little children were attracted to Him.</source>
+<target>Liemh fu’jueiv faix yaac hnamv Ninh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1860</m:editing-time>
+                            <m:thinking-time>502</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="52" m:para-id="8">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:52" m:confirmed="2" m:created-at="1694063391799" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160282165" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>They loved to climb upon His knees and gaze into the pensive face, benignant with love. {SC 11.2}</source>
+<target>Ninh mbuo oix faaux nzueic Ninh nyei cing-mborqc, nuqv-nuqv nyei mangc jienv Ninh nyei hmien, weic zuqc Ninh nyei hmien-mueic njang, ziux Ninh nyei en-zingh yaac ziux ninh hnamv mienh. {SC 11.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>9089</m:editing-time>
+                            <m:thinking-time>411</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="53" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:53:0" m:confirmed="1" m:created-at="1694063541207" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694063633554" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Jesus did not suppress one word of truth, </source>
+<target>Ziouv Yesu maiv muangh jienv yietc joux zien leiz, </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:53:1" m:confirmed="1" m:created-at="1694063631958" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694063645307" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>but He uttered it always in love.</source>
+<target>mv baac gorngv zien leiz nyei ziangh hoc Ninh nyei qiex bun cing Ninh hnamv haic muangx Ninh nyei mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="54" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:54" m:confirmed="1" m:created-at="1694063579093" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064539876" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He exercised the greatest tact and thoughtful, kind attention in His intercourse with the people.</source>
+<target>Ninh zanc-zanc dorh leiz nyei gorngv waac yaac zoux hnyouv longx bun zuangx mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="55" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:55:0" m:confirmed="1" m:created-at="1694063674482" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064664487" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He was never rude, never needlessly spoke a severe word,</source>
+<target>Ninh maiv gorngv jiex maiv horpc zuqc gorngv nyei waac-ciouv. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:55:1" m:confirmed="1" m:created-at="1694064661296" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064665609" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> never gave needless pain to a sensitive soul.</source>
+<target>Se gorngv maiv maaih gorn-baengx nor, ninh yaac maiv bun hnyouv mau nyei mienh zuqc mun.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="56" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:56" m:confirmed="1" m:created-at="1694064571151" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064689627" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He did not censure human weakness.</source>
+<target>Ninh maiv guaix baamh mienh mau maiv maaih qaqv nyei dorngx.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="57" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:57" m:confirmed="1" m:created-at="1694064676997" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064716160" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He spoke the truth, but always in love.</source>
+<target>Ziouv Yesu gorngv zien leiz, mv baac Ninh haaix zanc gorngv se yiem Ninh hnamv mienh nyei hnyouv gorngv cuotv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="58" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:58:0" m:confirmed="1" m:created-at="1694064705319" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064774823" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He denounced hypocrisy, unbelief, and iniquity;</source>
+<target>Ninh daanh beih zaqc hnyouv njuotv nyei sic, maiv maaih sienx fim nyei hnyouv, caux zoux orqv zoux waaic nyei jauv;</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:58:1" m:confirmed="2" m:created-at="1694064762655" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160363789" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> but tears were in His voice as He uttered His scathing rebukes.</source>
+<target>mv baac haaix zanc Ninh gorngv hniev guaix naaiv deix jauv-louc, Ninh yaac nyiemv jienv gorngv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>7739</m:editing-time>
+                            <m:thinking-time>1726</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="59" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:59:0" m:confirmed="2" m:created-at="1694064793366" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694161141349" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He wept over Jerusalem, the city He loved,</source>
+<target>Ninh weic Ye^lu^saa^lem Zingh nzauh nyiemv, weic zuqc benx ninh hnamv haic nyei Zingh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>6382</m:editing-time>
+                            <m:thinking-time>2585</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:59:1" m:confirmed="2" m:created-at="1694064887886" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160398946" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> which refused to receive Him, the way, the truth, and the life.</source>
+<target>Naaiv norm zingh maiv kangv zipv Ninh, maiv gunv Ninh se dongh mingh Zaangc Diex wuov diuh jauv, yaac dongh zien leiz, yaac dongh ziangh maengc.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>15631</m:editing-time>
+                            <m:thinking-time>653</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="60" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:60" m:confirmed="1" m:created-at="1694064905664" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694064936276" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>They had rejected Him, the Saviour, but He regarded them with pitying tenderness.</source>
+<target>Ye^lu^saa^lem Zingh nyei mienh nqemh Njoux Ziouv mv baac Ziouv Yesu corc korv-lienh ninh mbuo.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="61" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:61" m:confirmed="2" m:created-at="1694064932822" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694161154646" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>His life was one of self-denial and thoughtful care for others.</source>
+<target>Ninh yiem seix zaangc siev jienv ninh ganh weic longx-longx nyei tengx mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>10551</m:editing-time>
+                            <m:thinking-time>3395</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="62" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:62" m:confirmed="1" m:created-at="1694064959734" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065041148" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Every soul was precious in His eyes.</source>
+<target>Ninh funx laanh laanh mienh weih jaaix.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="63" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:63:0" m:confirmed="1" m:created-at="1694064991473" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065211349" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>While He ever bore Himself with divine dignity,</source>
+<target>Ninh zoux nyei nyungc zeiv hnangv yietc laanh gueix mienh puix horpc Ninh se yiem Tin-Hungh daaih. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:63:1" m:confirmed="1" m:created-at="1694065194774" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065324574" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> He bowed with the tenderest regard to every member of the family of God.</source>
+<target>Hnangv haaix yaac baac, Ninh longc suonc hnyouv mangc dauh dauh Tin-Hungh nyei naamh nyouz</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="64" m:para-id="9">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:64" m:confirmed="1" m:created-at="1694065135913" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065329551" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In all men He saw fallen souls whom it was His mission to save. {SC 12.1}</source>
+<target> yaac buatc dauh dauh se Ninh oix zuqc njoux nyei dorngc jauv mienh. {SC 12.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="65" m:para-id="10">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:65" m:confirmed="2" m:created-at="1694065356790" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160422252" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Such is the character of Christ as revealed in His life.</source>
+<target>A’jang gorngv liuz se yiem seix zaangc Giduc biux mengh nyei fiem-fingx,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>5845</m:editing-time>
+                            <m:thinking-time>443</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="66" m:para-id="10">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:66" m:confirmed="2" m:created-at="1694065397633" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160435240" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>This is the character of God.</source>
+<target>se dongh Tin-Hungh nyei fiem-fingx.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>12946</m:editing-time>
+                            <m:thinking-time>6308</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="67" m:para-id="10">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:67" m:confirmed="2" m:created-at="1694065389727" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160443442" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It is from the Father’s heart that the streams of divine compassion, manifest in Christ, flow out to the children of men.</source>
+<target>Yiem Zaangc Diex nyei hnyouv maaih korv-lienh mienh nyei en gan jienv Giduc liouc njiec taux maanc mienh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>8185</m:editing-time>
+                            <m:thinking-time>1552</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="68" m:para-id="10">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:68" m:confirmed="2" m:created-at="1694065471729" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160452745" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Jesus, the tender, pitying Saviour, was God “manifest in the flesh.” (1 Timothy 3:16.) {SC 12.2}</source>
+<target>Yesu se korv-lienh mienh nyei Njoux Ziouv, se dongh Tin-Hungh “daaih benx yietc dauh baamh mienh bun mienh buatc.” (1 Ti^mo^tai 3:16.) {SC 12.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>9158</m:editing-time>
+                            <m:thinking-time>8317</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="69" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:69" m:confirmed="1" m:created-at="1694065728933" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065729252" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It was to redeem us that Jesus lived and suffered and died.</source>
+<target>Yesu yiem seix zaangc zoux nyei sic weic zuoqc yie mbuo nzuonx, Ninh siouc kouv siouc naanc yaac daic weic zuoqc yie mbuo nzuonx daaih.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="70" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:70" m:confirmed="1" m:created-at="1694065763718" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065784139" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He became “a Man of Sorrows,” that we might be made partakers of everlasting joy.</source>
+<target>Ninh “zuqc diev mun;” yie mbuo ziouc haih maaih buonc yiem yietc liuz nyei njien-youh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="71" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:71" m:confirmed="2" m:created-at="1694065767318" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160489233" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>God permitted His beloved Son, full of grace and truth, to come from a world of indescribable glory, to a world marred and blighted with sin, darkened with the shadow of death and the curse.</source>
+<target>Tin-Hungh nqoi nzuih bun Ninh maaih en-ceix caux zien leiz buangv nzengc nyei Dorn-hnamv leih maaih njang-laangc nyei tin-dorngh njiec taux zuqc zuiz baaic huv baaic waaic nyei baamh gen se zuqc daic zuqc houv zuqc zioux nyei dongh linh ormx jienv nyei baamh gen.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1549</m:editing-time>
+                            <m:thinking-time>554</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="72" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:72" m:confirmed="0" m:created-at="1694065822301" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160487353" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He permitted Him to leave the bosom of His love, the adoration of the angels, to suffer shame, insult, humiliation, hatred, and death.</source>
+<target>Tin-Hungh nqoi nzuih bun Ziouv Yesu leih Ninh hnamv haic nyei Zaangc Diex caux zuangx fin-mienh fu-sux liuc leiz, weic mingh diev nyaiv, diev mienh mangc maiv faaux mueic, diev ganh zuqc baaic hmien, zuqc mienh nzorng, yaac zuqc daic.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>18634</m:editing-time>
+                            <m:thinking-time>243</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="73" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:73" m:confirmed="1" m:created-at="1694065899926" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694065993293" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“The chastisement of our peace was upon Him; and with His stripes we are healed.” (Isaiah 53:5.)</source>
+<target>“Ninh zuqc dingc zuiz bun yie mbuo duqv baengh orn. Ninh zuqc mborqv faaux nziaamv bun yie mbuo duqv zorc longx.” (I^saa^yaa 53:5.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="74" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:74" m:confirmed="1" m:created-at="1694066024231" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066032326" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Behold Him in the wilderness, in Gethsemane, upon the cross!</source>
+<target>Mangc gaax yie mbuo nyei Njoux Ziouv yiem deic-bung-huaang, yiem Getc^se^maa^ni Huingx, yiem ziepc nzaangc jaax!</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="75" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:75" m:confirmed="1" m:created-at="1694066049173" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066051097" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The spotless Son of God took upon Himself the burden of sin.</source>
+<target>Tin-Hungh nyei Dorn maiv maaih dorngx nqemh, mv baac Ninh ganh ndaam mienh nyei zuiz yaac nyiex mienh nyei zuiz-nipc.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="76" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:76" m:confirmed="0" m:created-at="1694066089440" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160524432" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He who had been one with God, felt in His soul the awful separation that sin makes between God and man.</source>
+<target>Jiex daaih Ninh caux Tin-Hungh dongh diuc hnyouv, mv baac Ninh zipv liuz mienh nyei zuiz Ninh ziouc haiz ninh ndaam wuov deix zuiz za’gengh siem haic, weic zuqc zuiz nqaeqv jienv bun mienh leih nqoi Tin-Hungh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>15927</m:editing-time>
+                            <m:thinking-time>1248</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="77" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:77" m:confirmed="2" m:created-at="1694066091548" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160527185" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>This wrung from His lips the anguished cry, “My God, My God, why hast Thou forsaken Me?” (Matthew 27:46.)</source>
+<target>Ninh ziouc bungx-sing bungx-qiex hnyouv mun nyei gorngv, “Yie nyei Tin-Hungh aah! Yie nyei Tin-Hungh! Meih weic haaix diuc guangc yie?” (Matv^taai 27:46.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>2439</m:editing-time>
+                            <m:thinking-time>1122</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="78" m:para-id="11">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:78" m:confirmed="1" m:created-at="1694066144232" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066192736" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>It was the burden of sin, the sense of its terrible enormity, of its separation of the soul from God--it was this that broke the heart of the Son of God. {SC 13.1}</source>
+<target> Ninh ndaam baamh mienh nyei zuiz youc hlo youc hniev, ziouc nqaeqv jienv bun Ninh leih go Tin-Hungh, yaac zoux bun Tin-Hungh nyei Dorn hnyouv mun, mba’nziu mbaaix. {SC 13.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="79" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:79" m:confirmed="1" m:created-at="1694066213499" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072323513" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>But this great sacrifice was not made in order to create in the Father’s heart a love for man, not to make Him willing to save.</source>
+<target>Mv baac Ziouv Yesu siev maengc daic ndongc naaic siem maiv zeiz weic yuoqc Tin-Hungh hnamv mienh, bun Ninh maaih hnyouv njoux mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="80" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:80" m:confirmed="1" m:created-at="1694066219683" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072139386" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>No, no!</source>
+<target>Zungv maiv zeiz!</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="81" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:81" m:confirmed="1" m:created-at="1694066231973" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066232396" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“God so loved the world, that He gave His only-begotten Son.” (John 3:16.)</source>
+<target>“Tin-Hungh ndong naaic hnamv lungh ndiev mienh cingx zorqv Ninh nyei ndoqv dorn.” (Yo^han 3:16.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="82" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:82" m:confirmed="1" m:created-at="1694066262718" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066460306" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The Father loves us, not because of the great propitiation, but He provided the propitiation because He loves us.</source>
+<target>Zaangc Diex hnamv mbuo, maiv zeiz laaix Ziouv Yesu fiqv mbuo nyei zuiz Ninh cingx daaih hnamv, mv baac ninh paaiv Ziouv Yesu fiqv zuiz weic zuqc Ninh hnamv mbuo.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="83" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:83" m:confirmed="1" m:created-at="1694066269733" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694071446859" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Christ was the medium through which He could pour out His infinite love upon a fallen world.</source>
+<target>Tin-Hungh hnamv lungh ndiev mienh zungv maiv maaih soux mouc. Ninh ziouc longc Giduc zoux mbu’ndongx mienh weic tengx baamz zuiz dorngc jauv nyei baamh gen duqv zipv Ninh nyei en.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="84" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:84" m:confirmed="1" m:created-at="1694066304863" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694066304863" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“God was in Christ, reconciling the world unto Himself.” (2 Corinthians 5:19).</source>
+<target>Hnangv yiem 2 Ko^lin^to 5:19 faan zaqv nyei gorngv, “Tin-Hungh yiem Giduc gu’nyuoz, tengx baamh mienh caux Ninh horpc hnyouv.”</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="85" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:85" m:confirmed="1" m:created-at="1694066311474" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072020456" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>God suffered with His Son.</source>
+<target>Tin-Hungh caux Ninh nyei Dorn lomh nzoih siouc kouv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="86" m:para-id="12">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:86:0:0" m:confirmed="1" m:created-at="1694066329188" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072409263" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In the agony of Gethsemane, the death of Calvary, the heart of Infinite Love paid the price of our redemption. {SC 13.2}</source>
+<target>Ziouv Yesu diev kouv yiem Getc^se^maa^ni Huingx, yaac yiem Kaan^waa^li Mbong daic weic zuoqc mbuo nzuonx wuov zanc, Tin-Hungh ganh yaac haiz hnyouv mun. {SC 13.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="87" m:para-id="13">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:87" m:confirmed="1" m:created-at="1694072435867" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072470606" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Jesus said, “Therefore doth My Father love Me, because I lay down My life, that I might take it again.” (John 10:17).</source>
+<target>Ziouv Yesu gorngv, “Zaangc Diex hnamv yie weic zuqc yie siev yie ganh nyei maengc daic. Yie siev yie nyei maengc weic aengx duqv maengc nzuonx.” (Yo^han 10:17).</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="88" m:para-id="13">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:88" m:confirmed="2" m:created-at="1694072447216" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160588626" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>That is, “My Father has so loved you that He even loves Me more for giving My life to redeem you.</source>
+<target>Eix leiz se, “Yie nyei Zaangc Diex hnamv meih mbuo ndongc naaic camv, Ninh cingx daaih hnamv yie jaa camv jienv faaux laaix yie siev yie ganh nyei maengc weic zuoqc meih mbuo nzuonx. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>9043</m:editing-time>
+                            <m:thinking-time>1020</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="89" m:para-id="13">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:89:0:0" m:confirmed="1" m:created-at="1694072541212" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072679122" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>In becoming your Substitute and Surety,</source>
+<target>Yie div meih mbuo yaac zoux meih mbuo nyei Ndaam-daauh. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:89:0:1:0:0" m:confirmed="1" m:created-at="1694072702969" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694072751057" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> by surrendering My life, by taking your liabilities, your transgressions,</source>
+<target>Yie siev yie ganh nyei maengc yaac zipv meih nyei zaeqv caux meih baamz nyei zuiz.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:89:0:1:0:1:0" m:confirmed="2" m:created-at="1694072744607" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160598871" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> I am endeared to My Father;</source>
+<target>Zaangc Diex ziouc hnamv yie jaa camv jienv faaux,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1446</m:editing-time>
+                            <m:thinking-time>514</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:89:0:1:0:1:1" m:confirmed="2" m:created-at="1694072747543" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160628374" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> for by My sacrifice, God can be just, and yet the Justifier of him who believeth in Jesus.” {SC 14.1}</source>
+<target>weic zuqc yie siev yie nyei maengc bun cing Tin-Hungh ‘baengh fim nyei, weic zuqc mienh baamz zuiz mv baac haaix dauh sienx kaux Yesu Giduc, Tin-Hungh bun wuov dauh caux ninh horpc hnyouv.’” (Lomaa 3:26) {SC 14.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>29520</m:editing-time>
+                            <m:thinking-time>7106</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="90" m:para-id="14">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:90" m:confirmed="1" m:created-at="1694072923021" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694073213500" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>None but the Son of God could accomplish our redemption; for only He who was in the bosom of the Father could declare Him.</source>
+<target>Kungx maaih Tin-Hungh nyei Dorn hnangv haih zuoqc mbuo nzuonx, weic zuqc kungx maaih yiem Zaangc Diex nyei ga’hlen wuov dauh haih bun mbuo hiuv duqv Ninh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="91" m:para-id="14">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:91" m:confirmed="1" m:created-at="1694072925058" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694073443215" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Only He who knew the height and depth of the love of God could make it manifest.</source>
+<target>Dongh hiuv duqv Tin-Hungh maaih hnyouv hnamv mienh ndongc haaix jangv ndongc haaix ndo wuov dauh hnangv haih biux mengh bun mienh hiuv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="92" m:para-id="14">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:92" m:confirmed="2" m:created-at="1694072927410" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694185485107" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Nothing less than the infinite sacrifice made by Christ in behalf of fallen man could express the Father’s love to lost humanity. {SC 14.2}</source>
+<target>Giduc nyunc siev guangc ndongc naaic camv weic tengx baamz zuiz mienh zungv saauv maiv zienz, kungx maaih naaiv nduqc nyungc hnangv haih biux mengh Tin-Hungh hnamv haic dorngc jauv nyei mienh maanh. {SC 14.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>7405</m:editing-time>
+                            <m:thinking-time>5522</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="93" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:93" m:confirmed="1" m:created-at="1694073986049" m:created-by="1040200" m:gross-score="0.9193548387096774" m:level-edited="false" m:locked="false" m:modified-at="1694074087197" m:modified-by="1040200" m:para-id="15" m:score="0.9193548387096774" m:trans-origin="tm" m:trans-origin-detail="k3PXvdjuv4rKb9AzVvNrM1" xml:space="preserve">
+<source>“God so loved the world, that He gave His only-begotten Son.”</source>
+<target>“Tin-Hungh ndongc naaic hnamv lungh ndiev mienh cingx zorqv ninh nyei ndoqc Dorn ceix bun ninh mbuo.” (Yo^han 3:16.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.9193548387096774" origin="memsource-tm" tm-id="2409270"><target>“Tin-Hungh ndong naaic hnamv lungh ndiev mienh cingx zorqv Ninh nyei ndoqv dorn.” (Yo^han 3:16.)</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.9193548387096774</m:trans-prop>
+  <m:trans-prop name="gross-score">0.9193548387096774</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+  <m:trans-prop name="origin-detail">k3PXvdjuv4rKb9AzVvNrM1</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="94" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:94" m:confirmed="1" m:created-at="1694074444184" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694074890347" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He gave Him not only to live among men, to bear their sins, and die their sacrifice.</source>
+<target>Tin-Hungh ceix bun Ninh nyei ndoqc Dorn maiv zeiz kungx weic bun Ninh yiem baamh mienh mbu’ndongx hnangv, mv baac weic ndaam mienh maanh nyei zuiz yaac div ninh mbuo zuqc dingc zuiz daic.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="95" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:95" m:confirmed="1" m:created-at="1694074446331" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694074889094" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He gave Him to the fallen race.</source>
+<target>Tin-Hungh ceix Ziouv Yesu bun baamz zuiz dorngc jauv nyei mienh maanh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="96" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:96" m:confirmed="1" m:created-at="1694074448581" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694077374688" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Christ was to identify Himself with the interests and needs of humanity.</source>
+<target>Giduc ganh oix zuqc daaih benx yietc dauh baamh mienh. Oix zuqc ganh yiem sin haiz qiemx zuqc nyanc, qiemx zuqc hopv, qiemx zuqc bueix m’njormh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="97" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:97" m:confirmed="1" m:created-at="1694074450867" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694077684270" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>He who was one with God has linked Himself with the children of men by ties that are never to be broken.</source>
+<target>Dongh caux Tin-Hungh yiem yaac dongh Tin-Hungh wuov dauh daaih nitv fatv baamh mienh, yietc liuz yaac caeqv maiv nqoi.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="98" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:98:0" m:confirmed="2" m:created-at="1694074487477" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160656363" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Jesus is “not ashamed to call them brethren” (Hebrews 2:11);</source>
+<target>“Yesu maiv nyaiv heuc ninh mbuo zoux gorx-youz.” (Hipv^lu 2:11.)</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>1678</m:editing-time>
+                            <m:thinking-time>485</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:98:1" m:confirmed="1" m:created-at="1694074505081" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694078436518" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> He is our Sacrifice, our Advocate, our Brother, bearing our human form before the Father’s throne, and through eternal ages one with the race He has redeemed--the Son of man.</source>
+<target>Yesu siev Ninh ganh nyei maengc daic waic div mbuo. Ninh zoux mbu’ndongx mienh, yaac zoux mbuo nyei Domh Gorx. Ninh yietc liuz yiem Tin-Hungh nyei nza’hmien maaih baamh mienh nyei sin ziouc duqv mbuox heuc Baamh Mienh nyei Dorn—bun cing Ninh daaih zoux yietc dauh dongh Ninh daaih zuoqc nzuonx nyei baamh mienh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="99" m:para-id="15">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:99:0" m:confirmed="1" m:created-at="1694074506837" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694076880210" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>And all this that man might be uplifted from the ruin and degradation of sin</source>
+<target>Naaiv deix yietc zungv se weic tengx zuqc zuiz baaic waaic nyei baamh mienh bouh faaux hlang. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:99:1" m:confirmed="1" m:created-at="1694076724081" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694076928741" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> that he might reflect the love of God and share the joy of holiness. {SC 14.3}</source>
+<target>Mienh cingx daaih haih zuangv Tin-Hungh nyei hnamv yaac maaih mbuonc zipv cing-nzengc nyei njien-youh. {SC 14.3}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="100" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:100:0" m:confirmed="1" m:created-at="1694074519949" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694078611235" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The price paid for our redemption, the infinite sacrifice of our heavenly Father in giving His Son to die for us,</source>
+<target>Zuoqc mienh maanh nzuonx nyei jaax-zinh se Tin-Dorngh Diex ceix bun Ninh nyei ndoqc Dorn siev maengc weic mbuo daic.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:100:1" m:confirmed="1" m:created-at="1694078606929" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694078915156" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> should give us exalted conceptions of what we may become through Christ.</source>
+<target>Naaiv horpc zuqc tengx mbuo corngh duqv hiuv, mbuo haih kaux Giduc duqv faaux ndongc haaix hlang.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="101" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:101:0:0" m:confirmed="1" m:created-at="1694074523329" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694140366145" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>As the inspired apostle John beheld the height, the depth, the breadth of the Father’s love toward the perishing race,</source>
+<target>Singx Lingh tengx zoux gong-zoh Yo^han bieqc hnyouv taux Tin-Hungh hnamv mienh nyei hnyouv ndongc haaix hlang, ndongc haaix jangv, ndongc haaix ndo—se bieqc hnyouv Tin-Hungh hnamv haic a’lamh zuqc daic nyei mienh maanh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:101:0:1" m:confirmed="1" m:created-at="1694140293673" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694140397574" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> he was filled with adoration and reverence; </source>
+<target>Ninh ziouc haiz hnamv yaac taaih Tin-Hungh.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:101:1" m:confirmed="2" m:created-at="1694079745027" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160899382" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>and, failing to find suitable language in which to express the greatness and tenderness of this love, he called upon the world to behold it.</source>
+<target>Mv baac ninh lorz maiv duqv waac gorngv puix duqv zuqc Tin-Hungh hnamv mienh nyei hnyouv ndongc naaiv hlo, en-zingh ndongc naaiv camv, ninh ziouc tov lungh ndiev mienh mangc. Ninh gorngv,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>3666</m:editing-time>
+                            <m:thinking-time>1233</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="102" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:102" m:confirmed="1" m:created-at="1694074547149" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694074547495" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>“Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God.” (1 John 3:1).</source>
+<target>“Mangc gaax Tin-Hungh ndongc haaix hnamv mbuo! Ninh bun mbuo duqv mbuox heuc Tin-Hungh nyei naamh nyouz.” (1 Yo^han 3:1).</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="103" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:103" m:confirmed="1" m:created-at="1694078966150" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694078966150" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>What a value this places upon man!</source>
+<target>Naaiv deix jauv bun cing mienh nyei maengc ze’gengh maaih jaax.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="104" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:104" m:confirmed="1" m:created-at="1694074564816" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694079039011" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Through transgression the sons of man become subjects of Satan.</source>
+<target>Mienh laaix baamz zuiz ziouc zuqc Mienv nyei Hungh Saadaan gunv jienv ninh mbuo.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="105" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:105" m:confirmed="1" m:created-at="1694074567611" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694079533819" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Through faith in the atoning sacrifice of Christ the sons of Adam may become the sons of God.</source>
+<target>Laaix kaux Ziouv Yesu fiqv zuiz weic tengx mbuo duqv caux Tin-Hungh horpc hnyouv, Aa^ndam nyei zeiv-fun haih benx Tin-Hungh nyei naamh nyouz.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="106" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:106" m:confirmed="1" m:created-at="1694074571987" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694079707159" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>By assuming human nature, Christ elevates humanity.</source>
+<target>Giduc zipv baamh mienh nyei fiem-fingx ziouc bouh mienh maanh faaux hlang.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="107" m:para-id="16">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:107" m:confirmed="1" m:created-at="1694074573203" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694079192105" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Fallen men are placed where, through connection with Christ, they may indeed become worthy of the name “sons of God.” {SC 15.1}</source>
+<target>Dorngc zuiz mienh haih kaux Giduc ziouc haih puix duqv mbuox heuc “Tin-Hungh nyei naamh nyouz.” {SC 15.1}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="108" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:108" m:confirmed="1" m:created-at="1694074583977" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694075027522" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Such love is without a parallel.</source>
+<target>Maiv maaih haaix dauh hnamv mienh ndongc Tin-Hungh hnamv.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="109" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:109:0" m:confirmed="1" m:created-at="1694074587286" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694075035709" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Children of the heavenly King! Precious promise!</source>
+<target>Mienh haih zoux Tin-Hungh nyei naamh nyouz se jaaix haic nyei ngaengc waac!</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="110" m:para-id="17">
+<context-group>
+</context-group>
+</group>
+<group id="111" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:111" m:confirmed="1" m:created-at="1694074589086" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694075044821" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>Theme for the most profound meditation!</source>
+<target>Zungv corngh maiv zaaic yaac hnamv mangc maiv zienz.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="112" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:112" m:confirmed="0" m:created-at="1694074589919" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160699340" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The matchless love of God for a world that did not love Him!</source>
+<target>Tin-Hungh hnamv lungh ndiev mienh yaac maiv lamh beiv dorngx mv baac lungh ndiev mienh zungv maiv hnamv ninh!</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>15479</m:editing-time>
+                            <m:thinking-time>1954</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="113" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:113" m:confirmed="2" m:created-at="1694074590890" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160714780" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The thought has a subduing power upon the soul and brings the mind into captivity to the will of God.</source>
+<target>Haaix dauh jangx taux naaic ziouc tengx ninh hnyouv suonc hnyouv mau yaac bun ninh maaih hnyouv oix ei jienv Tin-Hungh nyei za’eix.</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>10923</m:editing-time>
+                            <m:thinking-time>671</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="114" m:para-id="17">
+<context-group>
+</context-group>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:114:0" m:confirmed="2" m:created-at="1694074601016" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694160713516" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>The more we study the divine character in the light of the cross,</source>
+<target>Yie mbuo gunv zaah mangc Tin-Hungh nyei fiem-fingx yiem ziepc nzaangc jaax ziux daaih nyei njang,</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>3342</m:editing-time>
+                            <m:thinking-time>434</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:114:1:0" m:confirmed="1" m:created-at="1694079752610" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694080001491" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> the more we see mercy, tenderness, and forgiveness blended with equity and justice,</source>
+<target> mbuo gunv bieqc hnyouv Tin-Hungh korv-lienh mienh. Ninh hnyouv suonc, yaac guangc mienh nyei zuiz. Ninh youc baengh fim nyei. </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="DoJLWZ711uvxlh093_dc5:114:1:1" m:confirmed="1" m:created-at="1694080000265" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1694080388154" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source> and the more clearly we discern innumerable evidences of a love that is infinite and a tender pity surpassing a mother’s yearning sympathy for her wayward child. {SC 15.2}</source>
+<target>Mbuo yaac gunv mangc duqv cing taux saauv maiv zienz nyei zorng-zengx dongh biux mengh Tin-Hungh maaih hnyouv hnamv mienh yaac korv-lienh mienh zungv gauh camv zoux maa nyei mienh korv-lienh ninh dorngc jauv nyei fu’jueiv. {SC 15.2}</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target/></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+</body>
+</file>
+<m:extra>
+<m:users>
+<m:user fullname="Brian Wilson" id="1040200" uid="X5iTHm6d3KqZcZ8Uwgact3" username="bountonw"/>
+</m:users>
+</m:extra>
+</xliff>

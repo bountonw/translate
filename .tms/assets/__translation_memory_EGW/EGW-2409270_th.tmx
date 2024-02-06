@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tmx version="1.4">
+  <header creationtool="memsource_tool" creationtoolversion="2.0" segtype="sentence" o-tmf="memsourceTM" adminlang="en" srclang="en" datatype="unknown" creationdate="20240206T025503Z">
+    <prop type="name">EGW</prop>
+  </header>
+  <body>
+    <tu tuid="_0slirLSIxAo4EU8U1r0e99D33">
+      <tuv xml:lang="en">
+        <prop type="context_prev">If you will go to work in earnest, ways will open before you for the accomplishment of this work.</prop>
+        <seg>Lean upon the divine arm for wisdom, strength, and skill for the work that God has given you to do.” (OHC 298.4)</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063529Z" changedate="20231016T130435Z" lastusagedate="20231016T063529Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg> จงพึ่งพิงในพระหัตถ์ของพระเจ้าสำหรับสติปัญญา พละกำลังและทักษะในการทำงานที่พระเจ้าทรงมอบหมายให้คุณกระทำ” (OHC 298.4)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_6MNwOS6vwxm2yj4czRg08Z1Q0">
+      <tuv xml:lang="en">
+        <prop type="context_prev">When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] </prop>
+        <prop type="context_next">Lean upon the divine arm for wisdom, strength, and skill for the work that God has given you to do.” (OHC 298.4)</prop>
+        <seg>If you will go to work in earnest, ways will open before you for the accomplishment of this work.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063540Z" changedate="20231016T131154Z" lastusagedate="20231016T063540Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg> หากคุณปฏิบัติงานด้วยความจริงใจ พระเจ้าจะทรงเปิดหนทางให้คุณทำงานนี้ให้สำเร็จลุล่วงไปด้วยดี</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_ARCEWdg60so5gq804q3MaPzl3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">We yearn after Him, and for that fullness that is in Him, and that shines out in the perfection of His heavenly character; </prop>
+        <prop type="context_next">{ST August 18, 1887, par. 10}</prop>
+        <seg>and by beholding we become changed into His image.” </seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20240206T024136Z" changedate="20240206T024136Z" lastusagedate="20240206T024136Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">ST_18870818_10.txt</prop>
+        <seg>และโดยการเพ่งพินิจดูพระองค์ เราจึงได้รับการเปลี่ยนแปลงไปเป็นเหมือนพระฉายาของพระองค์.”</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_VfOubBgdMNQ2274MViwZDeAY">
+      <tuv xml:lang="en">
+        <prop type="context_next">The more light we have, the more we can impart to others around us.</prop>
+        <seg>“It is Christ dwelling in the soul that gives us spiritual power, and makes us channels of light.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20230801T023055Z" changedate="20230801T023055Z" lastusagedate="20230801T023055Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">ST_18870818_10.txt</prop>
+        <seg>“สิ่งที่ให้กำลังด้านจิตวิญญาณและเปลี่ยนเราให้เป็นแสงสว่างแก่คนอื่นนั้น คือการที่พระคริสต์ประทับในใจ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_WvHo0Eqt14i8oUjMDW3M579K3">
+      <tuv xml:lang="en">
+        <prop type="context_prev">The more light we have, the more we can impart to others around us.</prop>
+        <prop type="context_next">As we behold Him in His purity, we discern more clearly our own faults of character.</prop>
+        <seg>The more closely we live to Jesus, the clearer views shall we have of His loveliness.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20240206T024132Z" changedate="20240206T024132Z" lastusagedate="20240206T024132Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">ST_18870818_10.txt</prop>
+        <seg> ยิ่งเราดำเนินชีวิตใกล้ชิดพระเยซูมากเท่าใด เราจะยิ่งเห็นคุณงามความดีของพระองค์มากขึ้นตามลำดับ</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_cChpNmE0wvF50DjgCJ3QOnPD1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">“With the help of God, every true believer can see where there is work to be done.</prop>
+        <prop type="context_next">Lean upon the divine arm for wisdom, strength, and skill for the work that God has given you to do.” (OHC 298.4)</prop>
+        <seg>When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] If you will go to work in earnest, ways will open before you for the accomplishment of this work.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063513Z" changedate="20231016T063513Z" lastusagedate="20231016T063513Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg> เมื่อมนุษย์ร่วมมือกับพระประสงค์ของพระเจ้า พวกเขาได้รับฤทธานุภาพสูงสุด และผู้รับใช้เหล่านี้จะสามารถสร้างโอกาส […] หากคุณปฏิบัติงานด้วยความจริงใจ พระเจ้าจะทรงเปิดหนทางให้คุณทำงานของพระองค์ให้บรรลุผลสำเร็จ </seg>
+      </tuv>
+    </tu>
+    <tu tuid="_k3M0p7Bv0UC980ywYj0kgMpMb">
+      <tuv xml:lang="en">
+        <prop type="context_next">When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] </prop>
+        <seg>“With the help of God, every true believer can see where there is work to be done.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063529Z" changedate="20231016T130052Z" lastusagedate="20231016T063529Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg>“ผู้เชื่อที่แท้จริงทุกคนสามารถมองเห็นว่ามีการงานใดที่ต้องทำ โดยการพึ่งพาการทรงช่วยจากพระเจ้า</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_k5CvhIwLgbY2Mc4gQzgLLxof">
+      <tuv xml:lang="en">
+        <prop type="context_next">When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] If you will go to work in earnest, ways will open before you for the accomplishment of this work.</prop>
+        <seg>“With the help of God, every true believer can see where there is work to be done.</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063512Z" changedate="20231016T063512Z" lastusagedate="20231016T063512Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg>“ผู้เชื่อที่แท้จริงทุกคนอาจมองเห็นว่ามีการงานใดที่ต้องทำโดยได้รับความช่วยเหลือจากพระเจ้า</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_oSivHdYf0iI56j9guixSZg6C1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">and by beholding we become changed into His image.” </prop>
+        <seg>{ST August 18, 1887, par. 10}</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20240206T024136Z" changedate="20240206T024136Z" lastusagedate="20240206T024136Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">ST_18870818_10.txt</prop>
+        <seg> {ST 18 สิงหาคม, ค.ศ. 1887, วรรค 10}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_sjG9IcMhMiF2Rf48ERwIdxw5">
+      <tuv xml:lang="en">
+        <prop type="context_prev">As we behold Him in His purity, we discern more clearly our own faults of character.</prop>
+        <prop type="context_next">and by beholding we become changed into His image.” </prop>
+        <seg>We yearn after Him, and for that fullness that is in Him, and that shines out in the perfection of His heavenly character; </seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20240206T024136Z" changedate="20240206T024136Z" lastusagedate="20240206T024136Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">ST_18870818_10.txt</prop>
+        <seg> เราโหยหาพระองค์และความไพบูลย์ซึ่งอยู่ในพระองค์ คือความบริบูรณ์ที่ฉายออกจากพระลักษณะนิสัยอันสมบูรณ์แบบของพระองค์ </seg>
+      </tuv>
+    </tu>
+    <tu tuid="_t7UXGNbegz82XE4o2KMXFP1C1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] If you will go to work in earnest, ways will open before you for the accomplishment of this work.</prop>
+        <seg>Lean upon the divine arm for wisdom, strength, and skill for the work that God has given you to do.” (OHC 298.4)</seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063513Z" changedate="20231016T063513Z" lastusagedate="20231016T063513Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg>ขอให้คุณพึ่งพิงพระหัตถ์ของพระเจ้าสำหรับพระสติปัญญา พละกำลังและทักษะในการทำงานที่พระเจ้าได้ทรงประทานให้คุณกระทำ” (OHC 298.4)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="_vWlP1OTsxW65ea8UtK1c3Tnc1">
+      <tuv xml:lang="en">
+        <prop type="context_prev">“With the help of God, every true believer can see where there is work to be done.</prop>
+        <prop type="context_next">If you will go to work in earnest, ways will open before you for the accomplishment of this work.</prop>
+        <seg>When the human will cooperates with the will of God, it becomes omnipotent, and the worker can make opportunities […] </seg>
+      </tuv>
+      <tuv xml:lang="th" creationdate="20231016T063604Z" changedate="20231016T130901Z" lastusagedate="20231016T063604Z">
+        <prop type="project">27756461</prop>
+        <prop type="domain">19482</prop>
+        <prop type="created_by">bountonw</prop>
+        <prop type="modified_by">bountonw</prop>
+        <prop type="filename">OHC_298_4.txt</prop>
+        <seg> เมื่อพลังแห่งการตัดสินใจของมนุษย์เป็นไปตามน้ำพระทัยของพระเจ้า ความสามารถในการตัดสินใจจะไม่มีขีดจำกัด และผู้รับใช้คนนั้นจะสามารถสร้างโอกาสในการประกาศ …</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
