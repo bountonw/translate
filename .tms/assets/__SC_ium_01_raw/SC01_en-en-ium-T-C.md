@@ -1,15 +1,13 @@
-\#1--Tin-Hungh Hnamv Lungh Ndiev Mienh
+# 1--Tin-Hungh Hnamv Lungh Ndiev Mienh
 
 Tin-Hungh zeix daaih nyei ga’naaiv caux Ging-Sou nyei waac fih hnangv nyei biux mengh Tin-Hungh za’gengh maaih hnyouv hnamv mienh. Mbuo nyei Tin-Dorngh Diex zoux ziangh maengc, cong-mengh, caux njien-youh, orn-lorqc nyei gorn-doqv.  Mangc gaax Tin-Hungh zeix daaih nyei ga'naaiv za’gengh nzueic yaac peix fuc haic. Tin-Hungh zeix daaih nyei nyungc horngh bun mienh maaih ninh mbuo qiemx zuqc longc nyei maanc muotc, yaac tengx mienh njien-youh. Maiv zeiz mienh hnangv, mv baac Tin-Hungh bun saeng-kuv hieh zoih buangh zuqc ninh mbuo qiemx zuqc longc nyei nyungc-nyungc.  Mba'hnoi ziux njang, mbiungc yaac duih njiec bun lungh ndiev kuh yiem. Baamh gen maaih nyei ndau-baengh, gemh hlang caux koiv bun cing Zeix Lungh Ndau Nyei Ziouv za'gengh hnamv haic Ninh zeix daaih nyei nyungc-nyungc. Tin-Hungh yaac hnoi-hnoi ceix bun ninh mbuo qiemx zuqc nyei nyanc hopv. Naaiv se ei Singx Nzung kuh muangx haic nyei waac gorngv— {SC 9.1}
 
-	“*Da’faanh maaih maengc nyei ga’naaiv mangc jienv meih,*\
-	*ziux horpc zuqc bun nyei ziangh hoc meih yaac bun nyanc hopv ninh mbuo.*\
-	Meih zoux hnyouv jangv bun nyungc-nyungc maaih maengc nyei ga’naaiv duqv nyanc beuv.”*\(Singx Nzung 145:15, 16.) {SC 9.2}
-	
+    “*Da’faanh maaih maengc nyei ga’naaiv mangc jienv meih,
+    *ziux horpc zuqc bun nyei ziangh hoc meih yaac bun nyanc hopv ninh mbuo.
+    Meih zoux hnyouv jangv bun nyungc-nyungc maaih maengc nyei ga’naaiv duqv nyanc beuv.” (Singx Nzung 145:15, 16.) {SC 9.2}
 
 Tin-Hungh zeix mienh maanh wuov zanc, Ninh zeix daaih cing-nzengc yaac maaih orn-lorqc.  Ninh zeix baamh gen zueic haic, maiv maaih dorngx nqemh yaac maiv maaih zuqc houv zuqc zioux nyei dongh linh om jienv. Laaix mienh baamz Tin-Hungh nyei leiz-latc, se bun cing Tin-Hungh maaih hnyouv hnamv mienh nyei leiz-latc, daic nyei jauv caux yietc zungv zeqc naanc ziouc bieqc daaih naaiv baamh gen.  Mv baac yiem zuiz bun daaih nyei naanc zingh mbu’ndongx mbuo corc mangc duqv buatc Tin-Hungh maaih hnyouv hnamv mienh.  Yiem Tin Deic Douh Sou 3:17 gorngv “Ndau ziouc laaix meih zoux nyei sic zuqc houv.” Mv baac, naaiv yiemc Ging-Sou haih faan daaih gorngv, “Ndau zuqc houv weic tengx meih” ei leiz se weic tengx mienh maanh.  Zuiz bun baamh mienh ndortv njiec ndo nyei, Tin-Hungh ziouc longc njimv-cou njimv-muonc
-caux yiem seix zaangc nyei kuonx naanh weic tengx ninh mbuo hoqc hiuv dongh ninh mbuo qiemx zuqc hiuv, naaiv se ei jienv Ninh nyei za’eix mienh cingx daaih haih zuqc bouh faaux hlang.  Maiv gunv baamh gen ndortv njiec aiv, mv baac maiv zeiz kungx maaih kuonx hnyouv nyei sic hnangv. Yiem lungh ndiev mbuo duqv buatc ziex nyungc biux mengh maaih lamh hnamv dorngx; maaih camv-nyungc orn mbuo nyei hnyouv. Yiem lomc nyei njimv-cou
-yaac maaih biangh, njimv-muonc youc maaih biouv. {SC 9.3}
+caux yiem seix zaangc nyei kuonx naanh weic tengx ninh mbuo hoqc hiuv dongh ninh mbuo qiemx zuqc hiuv, naaiv se ei jienv Ninh nyei za’eix mienh cingx daaih haih zuqc bouh faaux hlang.  Maiv gunv baamh gen ndortv njiec aiv, mv baac maiv zeiz kungx maaih kuonx hnyouv nyei sic hnangv. Yiem lungh ndiev mbuo duqv buatc ziex nyungc biux mengh maaih lamh hnamv dorngx; maaih camv-nyungc orn mbuo nyei hnyouv. Yiem lomc nyei njimv-cou yaac maaih biangh, njimv-muonc youc maaih biouv. {SC 9.3}
 
 Diuh diuh miev-maeng caux norm-norm biangh biux mengh Tin-Hungh zoux hnamv mienh nyei gorn. Ndaamh lungh nyei norqc baaux kuv muangx haic nyei nzung. Ndau-beih nyei biangh ndomh mau yaac nzueic bungx ndaang nyei qiex buangv lomc-ndiev. Nqemh hlang nyei ndiangx nzueic haic, ndiemh maeng nyei. Naaiv deix yietc zungv zoux zorng-zengx gorngv Zaangc Diex ziux goux Ninh nyei fu’jueiv yaac oix ninh mbuo maaih njien-youh. {SC 10.1}
 
