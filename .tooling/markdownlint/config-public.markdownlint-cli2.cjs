@@ -1,5 +1,11 @@
 const { forEachLine, getLineMetadata } = require("markdownlint-rule-helpers");
 const { config: draftConfig } = require("./config-draft.markdownlint-cli2.cjs");
+const fs = require("fs");
+const path = require("path");
+const forbiddenTerms = fs
+  .readFileSync(path.resolve(__dirname, "./forbidden-terms.md"), "utf-8")
+  .split("\n")
+  .filter((l) => l && l.charAt(0) !== "#");
 
 const publicFormattingRules = [
   {
@@ -13,6 +19,18 @@ const publicFormattingRules = [
   {
     name: "closing parenthesis not properly followed",
     regexp: /\)[^ ’”;:,.!\[]/,
+  },
+  {
+    name: "missing space after closing curly quotes",
+    regexp: /[’”][^\s<’”—\.\[]/,
+  },
+  {
+    name: "no trailing space after 'ๆ' mai yamok",
+    regexp: /ๆ[^\s’”\[]/,
+  },
+  {
+    name: "forbidden term",
+    regexp: new RegExp(`${forbiddenTerms.join("|")}`),
   },
 ];
 

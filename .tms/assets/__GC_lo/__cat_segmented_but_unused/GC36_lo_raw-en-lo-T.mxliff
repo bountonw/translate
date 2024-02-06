@@ -1,0 +1,2737 @@
+<?xml version='1.0' encoding='UTF-8'?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:m="http://www.memsource.com/mxlf/2.0" version="1.2" m:level="1" m:version="2.9">
+<file datatype="x-undefined" original="GC36_lo_raw.docx" source-language="en" target-language="lo" m:begin-group-id="0" m:end-group-id="164" m:file-format="DOC" m:job-uid="alUTVu4FxFoo35wUOqNGr0" m:project-uid="shQzrgtsX0Ne4O5Q0aths9" m:task-id="DYOS6bDL2w19b0aB1_dc6">
+<header>
+<m:in-ctx-preview-skel bilingual="false">
+<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><!--This file was converted to xhtml by LibreOffice - see https://cgit.freedesktop.org/libreoffice/core/tree/filter/source/xslt for the code.--><head profile="http://dublincore.org/documents/dcmi-terms/"><title xml:lang="en-US">- no title specified</title><meta name="DCTERMS.title" content="" xml:lang="en-US"/><meta name="DCTERMS.language" content="en-US" scheme="DCTERMS.RFC4646"/><meta name="DCTERMS.source" content="http://xml.openoffice.org/odf2xhtml"/><meta name="xsl:vendor" content="libxslt"/><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" hreflang="en"/><link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" hreflang="en"/><link rel="schema.DCTYPE" href="http://purl.org/dc/dcmitype/" hreflang="en"/><link rel="schema.DCAM" href="http://purl.org/dc/dcam/" hreflang="en"/><style>
+    table { border-collapse:collapse; border-spacing:0; empty-cells:show }
+    td, th { vertical-align:top; font-size:12pt;}
+    h1, h2, h3, h4, h5, h6 { clear:both;}
+    ol, ul { margin:0; padding:0;}
+    li { list-style: none; margin:0; padding:0;}
+    span.footnodeNumber { padding-right:1em; }
+    span.annotation_style_by_filter { font-size:95%; font-family:Arial; background-color:#fff000;  margin:0; border:0; padding:0;  }
+    span.heading_numbering { margin-right: 0.8rem; }* { margin:0;}
+    .P1 { font-size:11pt; line-height:115%; margin-bottom:0in; margin-top:0in; text-align:center ! important; font-family:Arial; writing-mode:horizontal-tb; direction:ltr; }
+    .P2 { font-size:11pt; line-height:108%; margin-bottom:0.111in; margin-top:0in; text-align:center ! important; font-family:Arial; writing-mode:horizontal-tb; direction:ltr; }
+    .P3 { font-size:11pt; line-height:108%; margin-bottom:0.111in; margin-top:0in; text-align:left ! important; font-family:Arial; writing-mode:horizontal-tb; direction:ltr; margin-left:0in; margin-right:0in; text-indent:0in; }
+    .P4 { font-size:11pt; line-height:108%; margin-bottom:0.111in; margin-top:0in; text-align:left ! important; font-family:Arial; writing-mode:horizontal-tb; direction:ltr; margin-left:0in; margin-right:0in; text-indent:0.5in; }
+    .P5 { font-size:14pt; line-height:108%; margin-bottom:0.111in; margin-top:0in; text-align:left ! important; font-family:'Noto Serif Lao Light'; writing-mode:horizontal-tb; direction:ltr; margin-left:0in; margin-right:0in; text-indent:0.5in; }
+    .T1 { font-family:'Times New Roman'; font-size:10pt; }
+    .T2 { font-family:'Times New Roman'; font-size:10pt; font-style:italic; }
+    .T4 { font-family:'Noto Serif Lao'; font-size:18pt; font-weight:bold; }
+    .T6 { font-family:'Noto Serif Lao'; font-size:14pt; }
+    .T7 { font-family:'Noto Serif Lao'; font-size:14pt; font-weight:bold; }
+    .T9 { font-family:'Noto Serif Lao Light'; font-size:14pt; }
+    /* ODF styles with no properties representable as CSS:
+    .dp1 .T12 .T3  { } */
+</style><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
+</head><body dir="ltr" style="max-width:8.2681in;margin-top:1in; margin-bottom:0.5in; margin-left:1in; margin-right:1in; background-color:#ffffff; "><div class="P2"><span class="T3"><span id="m-tgroup_0" class="m-tgroup"></span></span></div><p class="P3"><span class="T6"><span id="m-tgroup_1" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_2" class="]]><![CDATA[m-tgroup"></span> <span id="m-tgroup_3" class="m-tgroup"></span> <span id="m-tgroup_4" c]]><![CDATA[lass="m-tgroup"></span> <span id="m-tgroup_5" class="m-tgroup"></span> <span id="m-tgroup_6" class="m-tgroup"></span> <span id="m-tgroup_7" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_8" class="m-tgroup"></span> <span id="m-tgroup_9" class="m-tgroup"></span> <span id="m-tgroup_10" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_11" class="m-tgroup"></span> <span id="m-tgroup_12" class="m-tgroup"></span> <span id="m-tgroup_13" class="m-tgroup"></span> <span id="m-tgroup_14" class="m-tgroup"></span> <span id="m-tgroup_15" class="m-tgroup"></span> <span id="m-tgroup_16" class="m-tgroup"></span> <span id="m-tgroup_17" class="m-tgroup"></span> <span id="m-tgroup_18" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_19" class="m-tgroup"></span> <span id="m-tgroup_20" class="m-tgroup"></span> <span id="m-tgroup_21" class="m-tgroup"></span> <span id="m-tgroup_22" class="m-tgroup"></span> <span id="m-tgroup_23" class="m-tgroup"></span> <span id="m-tgroup_24" class="m-tgroup"></span> <span id="m-tgroup_25" class="m-tgroup"></span> <span id="m-tgroup_26" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_27" class="m-tgroup"></span> <span id="m-tgroup_28" class="m-tgroup"></span> <span id="m-tgroup_29" class="m-tgroup"></span> <span id="m-tgroup_30" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_31" class="m-tgroup"></span> <span id="m-tgroup_32" class="m-tgroup"></span> <span id="m-tgroup_33" class="m-tgroup"></span> <span id="m-tgroup_34" class="m-tgroup"></span> <span id="m-tgroup_35" class="m-tgroup"></span> <span id="m-tgroup_36" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_37" class="m-tgroup"></span> <span id="m-tgroup_38" class="m-tgroup"></span> <span id="m-tgroup_39" class="m-tgroup"></span> <span id="m-tgroup_40" class="m-tgroup"></span> <span id="m-tgroup_41" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_42" class="m-tgroup"></span> <span id="m-tgroup_43" class="m-tgroup"></span> <span id="m-tgroup_44" class="m-tgroup"></span> <span id="m-tgroup_45" class="m-tgroup"></span> <span id="m-tgroup_46" class="m-tgroup"></span> <span id="m-tgroup_47" class="m-tgroup"></span> <span id="m-tgroup_48" class="m-tgroup"></span> <span id="m-tgroup_49" class="m-tgroup"></span> <span id="m-tgroup_50" class="m-tgroup"></span> <span id="m-tgroup_51" class="m-tgroup"></span> <span id="m-tgroup_52" class="m-tgroup"></span> <span id="m-tgroup_53" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_54" class="m-tgroup"></span> <span id="m-tgroup_55" class="m-tgroup"></span> <span id="m-tgroup_56" class="m-tgroup"></span> <span id="m-tgroup_57" class="m-tgroup"></span> <span id="m-tgroup_58" class="m-tgroup"></span> <span id="m-tgroup_59" class="m-tgroup"></span> <span id="m-tgroup_60" class="m-tgroup"></span> <span id="m-tgroup_61" class="m-tgroup"></span> <span id="m-tgroup_62" class="m-tgroup"></span> <span id="m-tgroup_63" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_64" class="m-tgroup"></span> <span id="m-tgroup_65" class="m-tgroup"></span> <span id="m-tgroup_66" class="m-tgroup"></span> <span id="m-tgroup_67" class="m-tgroup"></span> <span id="m-tgroup_68" class="m-tgroup"></span> <span id="m-tgroup_69" class="m-tgroup"></span> <span id="m-tgroup_70" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_71" class="m-tgroup"></span> <span id="m-tgroup_72" class="m-tgroup"></span> <span id="m-tgroup_73" class="m-tgroup"></span> <span id="m-tgroup_74" class="m-tgroup"></span> <span id="m-tgroup_75" class="m-tgroup"></span> <span id="m-tgroup_76" class="m-tgroup"></span> <span id="m-tgroup_77" class="m-tgroup"></span> <span id="m-tgroup_78" class="m-tgroup"></span> <span id="m-tgroup_]]><![CDATA[79" class="m-tgroup"></span> <span id="m-tgroup_80" class="m-tgroup"></span> <span id="m-tgroup_]]><![CDATA[81" class="m-tgroup"></span> <span id="m-tgroup_82" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_83" class="m-tgroup"></span> <span id="m-tgroup_84" class="m-tgroup"></span> <span id="m-tgroup_85" class="m-tgroup"></span> <span id="m-tgroup_86" class="m-tgroup"></span> <span id="m-tgroup_87" class="m-tgroup"></span> <span id="m-tgroup_88" class="m-tgroup"></span> <span id="m-tgroup_89" class="m-tgroup"></span> <span id="m-tgroup_90" class="m-tgroup"></span> <span id="m-tgroup_91" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_92" class="m-tgroup"></span> <span id="m-tgroup_93" class="m-tgroup"></span> <span id="m-tgroup_94" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_95" class="m-tgroup"></span> <span id="m-tgroup_96" class="m-tgroup"></span> <span id="m-tgroup_97" class="m-tgroup"></span> <span id="m-tgroup_98" class="m-tgroup"></span> <span id="m-tgroup_99" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_100" class="m-tgroup"></span> <span id="m-tgroup_101" class="m-tgroup"></span> <span id="m-tgroup_102" class="m-tgroup"></span> <span id="m-tgroup_103" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_104" class="m-tgroup"></span> <span id="m-tgroup_105" class="m-tgroup"></span> <span id="m-tgroup_106" class="m-tgroup"></span> <span id="m-tgroup_107" class="m-tgroup"></span> <span id="m-tgroup_108" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_109" class="m-tgroup"></span> <span id="m-tgroup_110" class="m-tgroup"></span> <span id="m-tgroup_111" class="m-tgroup"></span> <span id="m-tgroup_112" class="m-tgroup"></span> <span id="m-tgroup_113" class="m-tgroup"></span> <span id="m-tgroup_114" class="m-tgroup"></span> <span id="m-tgroup_115" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_116" class="m-tgroup"></span> <span id="m-tgroup_117" class="m-tgroup"></span> <span id="m-tgroup_118" class="m-tgroup"></span> <span id="m-tgroup_119" class="m-tgroup"></span> <span id="m-tgroup_120" class="m-tgroup"></span> <span id="m-tgroup_121" class="m-tgroup"></span> <span id="m-tgroup_122" class="m-tgroup"></span> <span id="m-tgroup_123" class="m-tgroup"></span> <span id="m-tgroup_124" class="m-tgroup"></span> <span id="m-tgroup_125" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_126" class="m-tgroup"></span> <span id="m-tgroup_127" class="m-tgroup"></span> <span id="m-tgroup_128" class="m-tgroup"></span> <span id="m-tgroup_129" class="m-tgroup"></span> <span id="m-tgroup_130" class="m-tgroup"></span> <span id="m-tgroup_131" class="m-tgroup"></span> <span id="m-tgroup_132" class="m-tgroup"></span> <span id="m-tgroup_133" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_134" class="m-tgroup"></span> <span id="m-tgroup_135" class="m-tgroup"></span> <span id="m-tgroup_136" class="m-tgroup"></span> <span id="m-tgroup_137" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_138" class="m-tgroup"></span> <span id="m-tgroup_139" class="m-tgroup"></span> <span id="m-tgroup_140" class="m-tgroup"></span> <span id="m-tgroup_141" class="m-tgroup"></span> <span id="m-tgroup_142" class="m-tgroup"></span> <span id="m-tgroup_143" class="m-tgroup"></span> <span id="m-tgroup_144" class="m-tgroup"></span> <span id="m-tgroup_145" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_146" class="m-tgroup"></span> <span id="m-tgroup_147" class="m-tgroup"></span> <span id="m-tgroup_148" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_149" class="m-tgroup"></span> <span id="m-tgroup_150" class="m-tgroup"></span> <span id="m-tgroup_151" class="m-tgroup"></span> <span id="m-tgroup_152" class="m-tgroup"></span> <span id="m-tgroup]]><![CDATA[_153" class="m-tgroup"></span> <span id="m-tgroup_154" class="m-tgroup"></span></span></p><p cla]]><![CDATA[ss="P4"><span class="T9"><span id="m-tgroup_155" class="m-tgroup"></span> <span id="m-tgroup_156" class="m-tgroup"></span></span></p><p class="P4"><span class="T9"><span id="m-tgroup_157" class="m-tgroup"></span> <span id="m-tgroup_158" class="m-tgroup"></span> <span id="m-tgroup_159" class="m-tgroup"></span> <span id="m-tgroup_160" class="m-tgroup"></span> <span id="m-tgroup_161" class="m-tgroup"></span> <span id="m-tgroup_162" class="m-tgroup"></span> <span id="m-tgroup_163" class="m-tgroup"></span></span></p><p class="P5"> </p><p class="P4"> </p></body></html>]]>
+</m:in-ctx-preview-skel>
+</header>
+<body>
+
+<group id="0" m:para-id="0">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+
+<m:in-ctx-preview-metadata>
+<m:mark id="1">
+<m:open-mark-content><![CDATA[</span><span class="T12"><span xmlns="" title="annotation" class="annotation_style_by_filter"><br/>[ANNOTATION:<br/><br/><span title="dc:creator">BY 'Brian Wilson'</span><br/><span title="dc:date">ON '2023-07-13T05:05:43'</span><br/><span>NOTE: 'The Impending Conflict'</span>]</span></span><span class="T3">]]></m:open-mark-content>
+</m:mark>
+<m:mark id="2">
+<m:open-mark-content><![CDATA[</span><span class="T4">]]></m:open-mark-content>
+<m:close-mark-content><![CDATA[</span><span class="T3">]]></m:close-mark-content>
+</m:mark>
+<m:mark id="3">
+<m:open-mark-content><![CDATA[</span><span class="T3">]]></m:open-mark-content>
+</m:mark>
+<m:mark id="4">
+<m:open-mark-content><![CDATA[]]></m:open-mark-content>
+</m:mark>
+<m:mark id="5">
+<m:open-mark-content><![CDATA[</span><span class="T4">]]></m:open-mark-content>
+<m:close-mark-content><![CDATA[</span><span class="T3">]]></m:close-mark-content>
+</m:mark>
+</m:in-ctx-preview-metadata>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:0" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>{1}{2&gt;#&lt;2}{3}{4}{5&gt;ການຂັດແຍ້ງທີ່ຈວນຈະເກີດຂຶ້ນ&lt;5}</source>
+<target>{1}{2&gt;#&lt;2}{3}{5&gt;໑&lt;5}{4}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+<m:tunit-metadata>
+<m:mark id="1">
+<m:content>&lt;w:commentRangeStart w:id="0"&gt;&lt;/w:commentRangeStart&gt;</m:content>
+</m:mark>
+<m:mark id="2">
+<m:content>&lt;w:r&gt;&lt;w:rPr&gt;&lt;w:rFonts&gt;&lt;/w:rFonts&gt;&lt;w:b w:val="1"&gt;&lt;/w:b&gt;&lt;w:sz w:val="36"&gt;&lt;/w:sz&gt;&lt;w:szCs w:val="36"&gt;&lt;/w:szCs&gt;&lt;w:rtl w:val="0"&gt;&lt;/w:rtl&gt;&lt;/w:rPr&gt;&lt;w:t&gt;&lt;/w:t&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+<m:mark id="3">
+<m:content>&lt;w:commentRangeEnd w:id="0"&gt;&lt;/w:commentRangeEnd&gt;</m:content>
+</m:mark>
+<m:mark id="4">
+<m:content>&lt;w:r&gt;&lt;w:commentReference w:id="0"&gt;&lt;/w:commentReference&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+<m:mark id="5">
+<m:content>&lt;w:r&gt;&lt;w:rPr&gt;&lt;w:rFonts&gt;&lt;/w:rFonts&gt;&lt;w:b w:val="1"&gt;&lt;/w:b&gt;&lt;w:sz w:val="36"&gt;&lt;/w:sz&gt;&lt;w:szCs w:val="36"&gt;&lt;/w:szCs&gt;&lt;w:rtl w:val="0"&gt;&lt;/w:rtl&gt;&lt;/w:rPr&gt;&lt;w:t&gt;&lt;/w:t&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+</m:tunit-metadata>
+<m:tunit-target-metadata>
+<m:mark id="1">
+<m:content>&lt;w:commentRangeStart w:id="0"&gt;&lt;/w:commentRangeStart&gt;</m:content>
+</m:mark>
+<m:mark id="2">
+<m:content>&lt;w:r&gt;&lt;w:rPr&gt;&lt;w:rFonts&gt;&lt;/w:rFonts&gt;&lt;w:b w:val="1"&gt;&lt;/w:b&gt;&lt;w:sz w:val="36"&gt;&lt;/w:sz&gt;&lt;w:szCs w:val="36"&gt;&lt;/w:szCs&gt;&lt;w:rtl w:val="0"&gt;&lt;/w:rtl&gt;&lt;/w:rPr&gt;&lt;w:t&gt;&lt;/w:t&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+<m:mark id="3">
+<m:content>&lt;w:commentRangeEnd w:id="0"&gt;&lt;/w:commentRangeEnd&gt;</m:content>
+</m:mark>
+<m:mark id="4">
+<m:content>&lt;w:r&gt;&lt;w:commentReference w:id="0"&gt;&lt;/w:commentReference&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+<m:mark id="5">
+<m:content>&lt;w:r&gt;&lt;w:rPr&gt;&lt;w:rFonts&gt;&lt;/w:rFonts&gt;&lt;w:b w:val="1"&gt;&lt;/w:b&gt;&lt;w:sz w:val="36"&gt;&lt;/w:sz&gt;&lt;w:szCs w:val="36"&gt;&lt;/w:szCs&gt;&lt;w:rtl w:val="0"&gt;&lt;/w:rtl&gt;&lt;/w:rPr&gt;&lt;w:t&gt;&lt;/w:t&gt;&lt;/w:r&gt;</m:content>
+</m:mark>
+</m:tunit-target-metadata>
+</trans-unit>
+</group>
+<group id="1" m:para-id="1">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:1" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="1.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="1" m:score="1.0" m:trans-origin="tm" xml:space="preserve">
+<source>{b&gt;##&lt;b}</source>
+<target>{b&gt;##&lt;b}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.0</m:trans-prop>
+  <m:trans-prop name="gross-score">1.0</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="2" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:2" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>From the very beginning of the great controversy in heaven it has been Satan's purpose to overthrow the law of God.</source>
+<target>ຕັ້ງ ແຕ່ ການ ເລີ່ມ ຕົ້ນ ຂອງ ການ ໂຕ້ ຖຽງ ກັນ ອັນ ໃຫຍ່ ຫລວງ ໃນ ສະ ຫວັນ ມັນ ເປັນ ຈຸດ ປະ ສົງ ຂອງ ຊາ ຕານ ທີ່ ຈະ ໂຄ່ນ ລົ້ມ ກົດ ຫມາຍ ຂອງ ພຣະ ເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="3" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:3" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It was to accomplish this that he entered upon his rebellion against the Creator, and though he was cast out of heaven he has continued the same warfare upon the earth.</source>
+<target>ມັນ ເປັນ ສິ່ງ ສໍາ ເລັດ ທີ່ ເພິ່ນ ໄດ້ ເຂົ້າ ສູ່ ການ ກະ ບົດ ຂອງ ເພິ່ນ ຕໍ່ ຕ້ານ ຜູ້ ສ້າງ, ແລະ ເຖິງ ແມ່ນ ວ່າ ເພິ່ນ ໄດ້ ຖືກ ຂັບ ໄລ່ ອອກ ຈາກ ສະ ຫວັນ ກໍ ຕາມ, ແຕ່ ເພິ່ນ ກໍ ຍັງ ມີ ການ ສູ້ ຮົບ ແບບ ດຽວ ກັນ ຢູ່ ເທິງ ແຜ່ນ ດິນ ໂລກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="4" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:4" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>To deceive men, and thus lead them to transgress God's law, is the object which he has steadfastly pursued.</source>
+<target>ເພື່ອຫລອກລວງມະນຸດ ແລະດ້ວຍເຫດນີ້ຈຶ່ງພາເຂົາໃຫ້ລ່ວງລະເມີດກົດຫມາຍຂອງພະເຈົ້າ ນັ້ນແມ່ນສິ່ງທີ່ພະອົງໄດ້ຕິດຕາມໄວ້ຢ່າງຫມັ້ນຄົງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="5" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:5" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Whether this be accomplished by casting aside the law altogether, or by rejecting one of its precepts, the result will be ultimately the same.</source>
+<target>ບໍ່ວ່ານີ້ຈະສໍາເລັດໂດຍການປະຖິ້ມກົດຫມາຍທັງຫມົດ, ຫຼືໂດຍການປະຕິເສດຫນຶ່ງຂອງມັນ, ຜົນໄດ້ຮັບໃນທີ່ສຸດຈະເປັນຄືກັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="6" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:6" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He that offends “in one point,” manifests contempt for the whole law; his influence and example are on the side of transgression; he becomes “guilty of all.”</source>
+<target>ຜູ້ທີ່ເຮັດຜິດ "ໃນຈຸດດຽວ" ສະແດງການດູຖູກຕໍ່ກົດຫມາຍທັງຫມົດ; ອິດທິພົນແລະຕົວຢ່າງຂອງພຣະອົງແມ່ນຢູ່ຝ່າຍຂອງການລ່ວງລະເມີດ; ລາວກາຍເປັນ "ຄວາມຜິດຂອງທຸກຄົນ."</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="7" m:para-id="2">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:7" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="2" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>James 2:10. {GC 582.1}</source>
+<target>ຢາໂກໂບ 2:10. {GC 582.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="8" m:para-id="3">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:8" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In seeking to cast contempt upon the divine statutes, Satan has perverted the doctrines of the Bible, and errors have thus become incorporated into the faith of thousands who profess to believe the Scriptures.</source>
+<target>ໃນ ການ ສະ ແຫວງ ຫາ ທີ່ ຈະ ດູ ຖູກ ກົດ ຫມາຍ ຂອງ ສະ ຫວັນ, ຊາ ຕານ ໄດ້ ປ່ຽນ ຄໍາ ສອນ ຂອງ ຄໍາ ພີ ໄບເບິນ, ແລະ ດ້ວຍ ເຫດ ນີ້ ຄວາມ ຜິດ ຈຶ່ງ ໄດ້ ເຂົ້າ ຮ່ວມ ໃນ ສັດ ທາ ຂອງ ຫລາຍ ພັນ ຄົນ ທີ່ ອ້າງ ວ່າ ເຊື່ອ ພຣະ ຄໍາ ພີ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="9" m:para-id="3">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:9" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The last great conflict between truth and error is but the final struggle of the long-standing controversy concerning the law of God.</source>
+<target>ການ ຂັດ ແຍ້ງ ອັນ ໃຫຍ່ ຫລວງ ຄັ້ງ ສຸດ ທ້າຍ ລະຫວ່າງ ຄວາມ ຈິງ ແລະ ຄວາມ ຜິດ ພາດ ແມ່ນ ແຕ່ ການ ຕໍ່ສູ້ ເທື່ອ ສຸດ ທ້າຍ ຂອງ ການ ໂຕ້ ຖຽງ ກັນ ເປັນ ເວລາ ດົນ ນານ ກ່ຽວ ກັບ ກົດ ຂອງ ພຣະ ເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="10" m:para-id="3">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:10" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="3" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Upon this battle we are now entering—a battle between the laws of men and the precepts of Jehovah, between the religion of the Bible and the religion of fable and tradition. {GC 582.2}</source>
+<target>ໃນການສູ້ຮົບຄັ້ງນີ້ ຕອນນີ້ເຮົາກໍາລັງເຂົ້າສູ່ການຕໍ່ສູ້ລະຫວ່າງກົດຫມາຍມະນຸດກັບຄໍາອຸປະມາຂອງພະເຢໂຫວາ ລະຫວ່າງສາສະຫນາຂອງຄໍາພີໄບເບິນກັບສາສະຫນາທີ່ມີນິທານແລະປະເພນີ. {GC 582.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="11" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:11" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The agencies which will unite against truth and righteousness in this contest are now actively at work.</source>
+<target>ຫນ່ວຍ ງານ ທີ່ ຈະ ຮ່ວມ ກັນ ຕໍ່ ຕ້ານ ຄວາມ ຈິງ ແລະ ຄວາມ ຊອບ ທໍາ ໃນ ການ ແຂ່ງ ຂັນ ນີ້ ບັດ ນີ້ ກໍ ທໍາ ງານ ຢ່າງ ເຂັ້ມ ງວດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="12" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:12" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>God's holy word, which has been handed down to us at such a cost of suffering and blood, is but little valued.</source>
+<target>ພຣະ ຄໍາ ບໍລິສຸດ ຂອງ ພຣະ ເຈົ້າ, ຊຶ່ງ ໄດ້ ຖືກ ມອບ ໃຫ້ ແກ່ ເຮົາ ດ້ວຍ ຄ່າ ຄວາມທຸກ ທໍລະມານ ແລະ ເລືອດ ເຊັ່ນ ນັ້ນ, ມັນ ບໍ່ ມີ ຄຸນຄ່າ ຫຍັງ ເລີຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="13" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:13" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The Bible is within the reach of all, but there are few who really accept it as the guide of life.</source>
+<target>ຄໍາພີໄບເບິນແມ່ນບໍ່ສາມາດເຂົ້າເຖິງໄດ້ເລີຍ ແຕ່ມີຫນ້ອຍຄົນທີ່ຍອມຮັບຢ່າງແທ້ຈິງວ່າເປັນຜູ້ນໍາພາຊີວິດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="14" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:14" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Infidelity prevails to an alarming extent, not in the world merely, but in the church.</source>
+<target>ຄວາມ ບໍ່ ຊື່ສັດ ມີ ຢູ່ ໃນ ຂອບ ເຂດ ທີ່ ຫນ້າ ເປັນ ຫ່ວງ, ບໍ່ ແມ່ນ ຢູ່ ໃນ ໂລກ ເທົ່າ ນັ້ນ, ແຕ່ ຢູ່ ໃນ ສາດສະຫນາ ຈັກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="15" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:15" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Many have come to deny doctrines which are the very pillars of the Christian faith.</source>
+<target>ຫລາຍ ຄົນ ໄດ້ ປະຕິ ເສດ ຄໍາ ສອນ ຊຶ່ງ ເປັນ ຫລັກ ແຫ່ງ ສັດທາ ຂອງ ຊາວ ຄຣິດ ສະ ຕຽນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="16" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:16" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The great facts of creation as presented by the inspired writers, the fall of man, the atonement, and the perpetuity of the law of God, are practically rejected, either wholly or in part, by a large share of the professedly Christian world.</source>
+<target>ຄວາມ ຈິງ ທີ່ ຍິ່ງ ໃຫຍ່ ຂອງ ການ ສ້າງ ດັ່ງ ທີ່ ຜູ້ ຂຽນ ໄດ້ ຮັບ ການ ດົນ ໃຈ, ການ ລົ້ມ ເຫລວ ຂອງ ມະນຸດ, ການ ຊົດ ໃຊ້, ແລະ ຄວາມ ຍືນ ຍາວ ຂອງ ກົດ ຂອງ ພຣະ ເຈົ້າ, ແມ່ນ ຖືກ ປະຕິ ເສດ ແທ້ໆ, ບໍ່ ວ່າ ຈະ ເປັນ ທັງ ສິ້ນ ຫລື ບາງ ສ່ວນ, ໂດຍ ສ່ວນ ໃຫຍ່ ຂອງ ໂລກ ຄຣິດ ສະ ຕຽນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="17" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:17" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Thousands who pride themselves upon their wisdom and independence regard it as an evidence of weakness to place implicit confidence in the Bible; they think it a proof of superior talent and learning to cavil at the Scriptures and to spiritualize and explain away their most important truths.</source>
+<target>ຫລາຍ ພັນ ຄົນ ທີ່ ພູມ ໃຈ ກັບ ສະຕິ ປັນຍາ ແລະ ຄວາມ ເປັນ ອິດ ສະລະ ຂອງ ເຂົາ ເຈົ້າ ຖື ວ່າ ມັນ ເປັນ ຫລັກ ຖານ ເຖິງ ຄວາມ ອ່ອນ ແອ ທີ່ ຈະ ເຮັດ ໃຫ້ ມີ ຄວາມ ຫມັ້ນ ໃຈ ຢ່າງ ແຈ່ມ ແຈ້ງ ໃນ ຄໍາ ພີ ໄບເບິນ; ເຂົາ ເຈົ້າ ຄິດ ວ່າ ມັນ ເປັນ ຫລັກ ຖານ ເຖິງ ພອນ ສະ ຫວັນ ທີ່ ດີ ກວ່າ ແລະ ຮຽນ ຮູ້ ທີ່ ຈະ cavil ຢູ່ ໃນ ພຣະ ຄໍາ ພີ ແລະ ເພື່ອ ໃຫ້ ເປັນ ຝ່າຍ ວິນ ຍານ ແລະ ອະ ທິ ບາຍ ຄວາມ ຈິງ ທີ່ ສໍາ ຄັນ ທີ່ ສຸດ ຂອງ ເຂົາ ເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="18" m:para-id="4">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:18" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="4" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Many ministers are teaching their people, and many professors and teachers are instructing their students, that the law of God has been changed or abrogated; and those who regard its requirements as still valid, to be literally obeyed, are thought to be deserving only of ridicule or contempt. {GC 582.3}</source>
+<target>ຜູ້ຮັບໃຊ້ຫຼາຍຄົນກໍາລັງສອນປະຊາຊົນຂອງຕົນ, ແລະອາຈານແລະຄູອາຈານຫຼາຍຄົນກໍາລັງສັ່ງສອນນັກຮຽນຂອງເຂົາເຈົ້າ, ວ່າກົດຫມາຍຂອງພຣະເຈົ້າໄດ້ຖືກປ່ຽນແປງຫຼືຖືກໂຜດ; ແລະ ຜູ້ ທີ່ ຖື ວ່າ ຂໍ້ ຮຽກ ຮ້ອງ ຂອງ ມັນ ຍັງ ມີ ຜົນ ດີ, ທີ່ ຈະ ເຊື່ອ ຟັງ ແທ້ໆ, ຖື ວ່າ ສົມ ຄວນ ທີ່ ຈະ ຖືກ ເຍາະ ເຍີ້ ຍ ຫລື ດູ ຖູກ ເທົ່າ ນັ້ນ. {GC 582.3}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="19" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:19" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In rejecting the truth, men reject its Author.</source>
+<target>ໃນການປະຕິເສດຄວາມຈິງ, ຜູ້ຊາຍປະຕິເສດຜູ້ຂຽນຂອງມັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="20" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:20" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In trampling upon the law of God, they deny the authority of the Law-giver.</source>
+<target>ໃນການຢຽບຢໍາກົດຂອງພຣະເຈົ້າ, ພວກເຂົາປະຕິເສດສິດອໍານາດຂອງຜູ້ໃຫ້ພຣະບັນຍັດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="21" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:21" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It is as easy to make an idol of false doctrines and theories as to fashion an idol of wood or stone.</source>
+<target>ມັນ ເປັນ ເລື່ອງ ງ່າຍ ທີ່ ຈະ ເຮັດ ໃຫ້ ຮູບ ປັ້ນ ຂອງ ຄໍາ ສອນ ແລະ ທິດສະດີ ທີ່ ບໍ່ ຖືກຕ້ອງ ກ່ຽວ ກັບ ການ ແຕ້ມ ຮູບ ປັ້ນ ໄມ້ ຫລື ກ້ອນ ຫີນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="22" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:22" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>By misrepresenting the attributes of God, Satan leads men to conceive of Him in a false character.</source>
+<target>ໂດຍການບອກຜິດຄຸນລັກສະນະຂອງພະເຈົ້າ ຊາຕານຈຶ່ງພາມະນຸດໃຫ້ຕັ້ງທ້ອງຂອງພຣະອົງໃນລັກສະນະທີ່ບໍ່ຖືກຕ້ອງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="23" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:23" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>With many, a philosophical idol is enthroned in the place of Jehovah; while the living God, as He is revealed in His word, in Christ, and in the works of creation, is worshiped by but few.</source>
+<target>ໂດຍມີຫຼາຍຄົນມີພະພຸດທະຮູບປັດຊະຍາໄວ້ແທນພະເຢໂຫວາ; ໃນ ຂະນະ ທີ່ ພຣະ ເຈົ້າ ຜູ້ ມີ ຊີວິດ ຢູ່, ດັ່ງ ທີ່ ພຣະອົງ ໄດ້ ຖືກ ເປີດ ເຜີຍ ໃນ ພຣະ ຄໍາ ຂອງ ພຣະອົງ, ໃນ ພຣະ ຄຣິດ, ແລະ ໃນ ວຽກ ງານ ແຫ່ງ ການ ສ້າງ, ໄດ້ ຖືກ ນະມັດສະການ ໂດຍ ພຽງ ຫນ້ອຍ ດຽວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="24" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:24" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Thousands deify nature while they deny the God of nature.</source>
+<target>ຫລາຍ ພັນ ຄົນ ໄດ້ ເຮັດ ໃຫ້ ທໍາ ມະ ຊາດ ເສື່ອມ ໂຊມ ໃນ ຂະນະ ທີ່ ເຂົາ ປະຕິ ເສດ ພຣະ ເຈົ້າ ແຫ່ງ ທໍາ ມະ ຊາດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="25" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:25" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Though in a different form, idolatry exists in the Christian world today as verily as it existed among ancient Israel in the days of Elijah.</source>
+<target>ເຖິງ ແມ່ນ ວ່າ ໃນ ຮູບ ແບບ ທີ່ ແຕກ ຕ່າງ ກັນ, ແຕ່ ການ ບູຊາ ຮູບ ບູຊາ ມີ ຢູ່ ໃນ ໂລກ ຄຣິດ ສະ ຕຽນ ໃນ ທຸກ ວັນ ນີ້ ຄື ກັນ ກັບ ທີ່ ມີ ຢູ່ ໃນ ບັນດາ ຊາວ ອິດສະລາແອນ ໃນ ສະ ໄຫມ ໂບຮານ ໃນ ສະ ໄຫມ ຂອງ ເອລີ ຢາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="26" m:para-id="5">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:26" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="5" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The god of many professedly wise men, of philosophers, poets, politicians, journalists—the god of polished fashionable circles, of many colleges and universities, even of some theological institutions—is little better than Baal, the sun-god of Phoenicia. {GC 583.1}</source>
+<target>ພະພຸດທະເຈົ້າຂອງຫຼາຍຄົນທີ່ມີການອ້າງວ່າເປັນຄົນສະຫຼາດ, ຂອງນັກປັດຊະຍາ, ນັກກະວີ, ນັກການເມືອງ, ນັກສືກສາ— ພະພຸດທະເຈົ້າຂອງວົງການແຟຊັ່ນທີ່ຫລໍ່ຫຼົ່ນ, ຂອງວິທະຍາໄລແລະມະຫາວິທະຍາໄລຫຼາຍແຫ່ງ, ແມ່ນແຕ່ສະຖາບັນທາງສາສນາບາງແຫ່ງ — ແມ່ນບໍ່ໄດ້ດີກວ່າບາລ, ພະພຸດທະເຈົ້າຕາເວັນ-ພະເຈົ້າຂອງຟີນີເຊຍ. {GC 583.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="27" m:para-id="6">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:27" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>No error accepted by the Christian world strikes more boldly against the authority of Heaven, none is more directly opposed to the dictates of reason, none is more pernicious in its results, than the modern doctrine, so rapidly gaining ground, that God's law is no longer binding upon men.</source>
+<target>ບໍ່ ມີ ຄວາມ ຜິດ ໃດ ທີ່ ໂລກ ຄຣິດ ສະ ຕຽນ ໄດ້ ຮັບ ການ ຍອມ ຮັບ ຢ່າງ ກ້າ ຫານ ຕໍ່ ສິດ ອໍາ ນາດ ຂອງ ສະ ຫວັນ, ບໍ່ ມີ ຜູ້ ໃດ ທີ່ ກົງ ກັນ ຂ້າມ ໂດຍ ກົງ ກັບ ຄໍາ ອຸ ປະ ກອນ ຂອງ ເຫດ ຜົນ, ບໍ່ ມີ ສິ່ງ ໃດ ທີ່ ເປັນ ອັນ ຕະ ລາຍ ໃນ ຜົນ ປະ ໂຫຍດ ຂອງ ມັນ, ຫລາຍ ໄປ ກວ່າ ຄໍາ ສອນ ໃນ ສະ ໄຫມ ໃຫມ່, ທີ່ ກໍາ ລັງ ມີ ພື້ນ ຖານ ຢ່າງ ວ່ອງ ໄວ, ຈົນ ວ່າ ກົດ ຂອງ ພຣະ ເຈົ້າ ບໍ່ ໄດ້ ຜູກ ມັດ ກັບ ມະ ນຸດ ອີກ ຕໍ່ ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="28" m:para-id="6">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:28" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Every nation has its laws, which command respect and obedience; no government could exist without them; and can it be conceived that the Creator of the heavens and the earth has no law to govern the beings He has made?</source>
+<target>ທຸກຊາດມີກົດຫມາຍຂອງຕົນ, ຊຶ່ງບັນຊາຄວາມເຄົາລົບ ແລະ ການເຊື່ອຟັງ; ບໍ່ມີລັດຖະບານໃດສາມາດມີຢູ່ໄດ້ຖ້າປາສະຈາກພວກເຂົາເຈົ້າ; ແລະຈະຄິດໄດ້ບໍວ່າຜູ້ສ້າງສະຫວັນແລະແຜ່ນດິນໂລກບໍ່ມີກົດຫມາຍທີ່ຈະຄຸ້ມຄອງມະນຸດທີ່ພຣະອົງໄດ້ສ້າງຂຶ້ນ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="29" m:para-id="6">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:29" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Suppose that prominent ministers were publicly to teach that the statutes which govern their land and protect the rights of its citizens were not obligatory—that they restricted the liberties of the people, and therefore ought not to be obeyed; how long would such men be tolerated in the pulpit?</source>
+<target>ສົມມຸດວ່າບັນດາຜູ້ຮັບໃຊ້ທີ່ມີຊື່ສຽງໄດ້ໃຫ້ສິດສອນຢ່າງເປີດເຜີຍວ່າກົດຫມາຍທີ່ປົກຄອງແຜ່ນດິນຂອງພວກເຂົາແລະປົກປ້ອງສິດທິຂອງພົນລະເມືອງຂອງຕົນບໍ່ໄດ້ເປັນການຈໍາເປັນ—ວ່າພວກເຂົາເຈົ້າຈໍາກັດສິດເສລີພາບຂອງປະຊາຊົນ, ແລະດັ່ງນັ້ນຈຶ່ງບໍ່ຄວນເຊື່ອຟັງ; ຜູ້ຊາຍດັ່ງກ່າວຈະຖືກອົດທົນດົນປານໃດໃນແທ່ນປາໄສ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="30" m:para-id="6">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:30" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="6" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>But is it a graver offense to disregard the laws of states and nations than to trample upon those divine precepts which are the foundation of all government? {GC 584.1}</source>
+<target>ແຕ່ ມັນ ເປັນ ການ ເຮັດ ຜິດ ທີ່ ຮ້າຍ ກາດ ທີ່ ຈະ ບໍ່ ເອົາ ໃຈ ໃສ່ ກົດ ຫມາຍ ຂອງ ລັດ ແລະ ປະ ເທດ ຊາດ ບໍ ແທນ ທີ່ ຈະ ຢຽບ ຍ່ໍາ ກົດ ຫມາຍ ຂອງ ສະ ຫວັນ ເຫລົ່າ ນັ້ນ ຊຶ່ງ ເປັນ ພື້ນ ຖານ ຂອງ ລັດ ຖະ ບານ ທັງ ຫມົດ? {GC 584.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="31" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:31" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It would be far more consistent for nations to abolish their statutes, and permit the people to do as they please, than for the Ruler of the universe to annul His law, and leave the world without a standard to condemn the guilty or justify the obedient.</source>
+<target>ມັນຈະສອດຄ່ອງກັນຫຼາຍກວ່ານັ້ນສໍາລັບຊາດທີ່ຈະຍົກເລີກກົດຫມາຍຂອງຕົນ, ແລະອະນຸຍາດໃຫ້ປະຊາຊົນເຮັດຕາມທີ່ເຂົາເຈົ້າຕ້ອງການ, ແທນທີ່ຈະເປັນຜູ້ປົກຄອງເອກະພົບເພື່ອລົບລ້າງກົດຫມາຍຂອງພຣະອົງ, ແລະອອກຈາກໂລກໂດຍບໍ່ມີມາດຕະຖານທີ່ຈະຕໍາຫນິຜູ້ທີ່ມີຄວາມຜິດຫຼືໃຫ້ເຫດຜົນແກ່ຜູ້ເຊື່ອຟັງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="32" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:32" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Would we know the result of making void the law of God?</source>
+<target>ເຮົາຈະຮູ້ຜົນຂອງການເຮັດໃຫ້ກົດຫມາຍຂອງພະເຈົ້າລົບລ້າງບໍ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="33" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:33" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The experiment has been tried.</source>
+<target>ການ ທົດ ລອງ ໄດ້ ຖືກ ທົດ ລອງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="34" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:34" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Terrible were the scenes enacted in France when atheism became the controlling power.</source>
+<target>ເປັນ ພາບ ທີ່ ຫນ້າ ຢ້ານ ກົວ ທີ່ ໄດ້ ລົງ ນາມ ໃນ ປະ ເທດ ຝ ຣັ່ງ ເມື່ອ ລັດທິ ທີ່ ບໍ່ ມີ ພຣະ ເຈົ້າ ໄດ້ ກາຍ ມາ ເປັນ ອໍານາດ ທີ່ ຄວບ ຄຸມ ໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="35" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:35" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It was then demonstrated to the world that to throw off the restraints which God has imposed is to accept the rule of the cruelest of tyrants.</source>
+<target>ຈາກ ນັ້ນ ກໍ ໄດ້ ສະ ແດງ ໃຫ້ ໂລກ ເຫັນ ວ່າ ການ ປະ ຖິ້ມ ການ ບັງ ຄັບ ທີ່ ພຣະ ເຈົ້າ ໄດ້ ວາງ ໄວ້ ຄື ການ ຍອມ ຮັບ ການ ປົກ ຄອງ ຂອງ ພວກ ຫົວ ຮຸນ ແຮງ ທີ່ ໂຫດ ຮ້າຍ ທີ່ ສຸດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="36" m:para-id="7">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:36" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="7" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>When the standard of righteousness is set aside, the way is open for the prince of evil to establish his power in the earth. {GC 584.2}</source>
+<target>ເມື່ອ ມາດຕະຖານ ແຫ່ງ ຄວາມ ຊອບ ທໍາ ຖືກ ວາງ ໄວ້, ທາງ ນັ້ນ ຈະ ເປີດ ໃຫ້ ເຈົ້າ ຊາຍ ແຫ່ງ ຄວາມ ຊົ່ວ ຮ້າຍ ຕັ້ງ ອໍານາດ ຂອງ ຕົນ ຢູ່ ໃນ ໂລກ. {GC 584.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="37" m:para-id="8">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:37" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Wherever the divine precepts are rejected, sin ceases to appear sinful or righteousness desirable.</source>
+<target>ບໍ່ ວ່າ ຄໍາ ສັ່ງ ຂອງ ສະຫວັນ ຈະ ຖືກ ປະຕິ ເສດ ຢູ່ ບ່ອນ ໃດ ກໍ ຕາມ, ຄວາມ ບາບ ຈະ ບໍ່ ປະກົດ ວ່າ ເປັນ ບາບ ຫລື ຄວາມ ຊອບ ທໍາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="38" m:para-id="8">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:38" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Those who refuse to submit to the government of God are wholly unfitted to govern themselves.</source>
+<target>ຜູ້ທີ່ບໍ່ຍອມຍອມຕໍ່ລັດຖະບານຂອງພຣະເຈົ້າແມ່ນບໍ່ເຫມາະສົມເລີຍທີ່ຈະປົກຄອງຕົນເອງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="39" m:para-id="8">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:39" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Through their pernicious teachings the spirit of insubordination is implanted in the hearts of children and youth, who are naturally impatient of control; and a lawless, licentious state of society results.</source>
+<target>ຜ່ານ ຄໍາ ສອນ ອັນ ຕະ ລາຍ ຂອງ ເຂົາ ເຈົ້າ, ວິນ ຍານ ຂອງ ການ ລົບ ກວນ ໄດ້ ຖືກ ປູກ ໄວ້ ໃນ ໃຈ ຂອງ ເດັກ ນ້ອຍ ແລະ ຊາວ ຫນຸ່ມ, ຜູ້ ທີ່ ບໍ່ ອົດ ທົນ ຕາມ ທໍາ ມະ ຊາດ ໃນ ການ ຄວບ ຄຸມ; ແລະ ສະພາບທີ່ບໍ່ມີລະບຽບກົດຫມາຍ, ມີອິດທິພົນຕໍ່ສັງຄົມ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="40" m:para-id="8">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:40" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>While scoffing at the credulity of those who obey the requirements of God, the multitudes eagerly accept the delusions of Satan.</source>
+<target>ໃນ ຂະ ນະ ທີ່ ຫົວ ຂໍ້ ທີ່ ຫນ້າ ເຊື່ອ ຖື ຂອງ ຜູ້ ທີ່ ເຊື່ອ ຟັງ ຂໍ້ ຮຽກ ຮ້ອງ ຂອງ ພຣະ ເຈົ້າ, ຝູງ ຊົນ ກໍ ຍອມ ຮັບ ການ ຫລອກ ລວງ ຂອງ ຊາ ຕານ ຢ່າງ ກະ ຕື ລື ລົ້ນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="41" m:para-id="8">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:41" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="8" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>They give the rein to lust and practice the sins which have called down judgments upon the heathen. {GC 584.3}</source>
+<target>ເຂົາ ເຈົ້າ ໃຫ້ ຄວາມ ກະ ຕັນ ຍັບ ແລະ ປະ ຕິ ບັດ ບາບ ຊຶ່ງ ໄດ້ ປະ ຕິ ບັດ ການ ຕັດ ສິນ ລົງ ໂທດ ຢູ່ ໃນ ເຂດ ນັ້ນ. {GC 584.3}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="42" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:42" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Those who teach the people to regard lightly the commandments of God sow disobedience to reap disobedience.</source>
+<target>ຜູ້ ທີ່ ສອນ ຜູ້ ຄົນ ໃຫ້ ຖື ພຣະ ບັນຍັດ ຂອງ ພຣະ ເຈົ້າ ຫວ່ານ ການ ບໍ່ ເຊື່ອ ຟັງ ຢ່າງ ເບົາໆ ເພື່ອ ເກັບ ກ່ຽວ ການ ບໍ່ ເຊື່ອ ຟັງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="43" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:43" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Let the restraint imposed by the divine law be wholly cast aside, and human laws would soon be disregarded.</source>
+<target>ໃຫ້ການຢັບຢັ້ງທີ່ກົດຫມາຍແຫ່ງສະຫວັນຖືກປະຖິ້ມຢ່າງສິ້ນທີ ແລະອີກບໍ່ດົນກົດຫມາຍຂອງມະນຸດຈະຖືກປະລະເລີຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="44" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:44" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Because God forbids dishonest practices, coveting, lying, and defrauding, men are ready to trample upon His statutes as a hindrance to their worldly prosperity; but the results of banishing these precepts would be such as they do not anticipate.</source>
+<target>ເພາະ ພຣະ ເຈົ້າ ຫ້າມ ບໍ່ ໃຫ້ ມີ ການ ປະ ຕິ ບັດ ທີ່ ບໍ່ ຊື່ ສັດ, ຄວາມ ປາ ຖະ ນາ, ການ ເວົ້າ ຕົວະ, ແລະ ການ ຫລອກ ລວງ, ມະ ນຸດ ຈຶ່ງ ພ້ອມ ທີ່ ຈະ ຢຽບ ຍ່ໍາ ກົດ ຫມາຍ ຂອງ ພຣະ ອົງ ເພື່ອ ເປັນ ສິ່ງ ບັງ ຄັບ ໃຫ້ ແກ່ ຄວາມ ຈະ ເລີນ ຮຸ່ງ ເຮືອງ ທາງ ໂລກ ຂອງ ເຂົາ ເຈົ້າ; ແຕ່ຜົນຂອງການລົບລ້າງprecepts ເຫຼົ່ານີ້ຈະເປັນດັ່ງທີ່ພວກເຂົາເຈົ້າບໍ່ໄດ້ຄາດຄິດໄວ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="45" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:45" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>If the law were not binding, why should any fear to transgress?</source>
+<target>ຖ້າກົດຫມາຍບໍ່ໄດ້ຜູກມັດ ເປັນຫຍັງຈຶ່ງຄວນມີຄວາມຢ້ານທີ່ຈະລ່ວງລະເມີດ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="46" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:46" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Property would no longer be safe.</source>
+<target>ຊັບສິນຈະບໍ່ປອດໄພອີກຕໍ່ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="47" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:47" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Men would obtain their neighbor's possessions by violence, and the strongest would become richest.</source>
+<target>ຜູ້ຊາຍຈະໄດ້ຊັບສົມບັດຂອງເພື່ອນບ້ານດ້ວຍຄວາມຮຸນແຮງ ແລະຜູ້ທີ່ແຂງແຮງທີ່ສຸດຈະກາຍເປັນຄົນຮັ່ງມີທີ່ສຸດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="48" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:48" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Life itself would not be respected.</source>
+<target>ຊີວິດເອງຈະບໍ່ໄດ້ຮັບການນັບຖື.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="49" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:49" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The marriage vow would no longer stand as a sacred bulwark to protect the family.</source>
+<target>ຄໍາ ສາບານ ຂອງ ການ ແຕ່ງງານ ຈະ ບໍ່ ຢືນ ເປັນ ສິ່ງ ສັກສິດ ອີກ ຕໍ່ ໄປ ເພື່ອ ປົກ ປ້ອງ ຄອບຄົວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="50" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:50" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He who had the power, would, if he desired, take his neighbor's wife by violence.</source>
+<target>ຜູ້ ທີ່ ມີ ອໍານາດ, ຖ້າ ຫາກ ລາວ ປາດ ຖະຫນາ ຈະ ເອົາ ພັນ ລະ ຍາ ຂອງ ເພື່ອນ ບ້ານ ໄປ ດ້ວຍ ຄວາມ ຮຸນ ແຮງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="51" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:51" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The fifth commandment would be set aside with the fourth.</source>
+<target>ພຣະບັນຍັດທີຫ້າຈະຖືກຈັດໄວ້ກັບຂໍ້ທີສີ່.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="52" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:52" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Children would not shrink from taking the life of their parents if by so doing they could obtain the desire of their corrupt hearts.</source>
+<target>ລູກ ຈະ ບໍ່ ຫົດ ຕົວ ຈາກ ການ ເອົາ ຊີວິດ ຂອງ ພໍ່ ແມ່ ຖ້າ ຫາກ ວ່າ ໂດຍ ການ ເຮັດ ເຊັ່ນ ນັ້ນ ເຂົາ ຈະ ໄດ້ ຮັບ ຄວາມ ປາດ ຖະຫນາ ຈາກ ໃຈ ທີ່ ເສື່ອມ ໂຊມ ຂອງ ເຂົາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="53" m:para-id="9">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:53" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="9" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The civilized world would become a horde of robbers and assassins; and peace, rest, and happiness would be banished from the earth. {GC 585.1}</source>
+<target>ໂລກທີ່ມີສີວິໄລຈະກາຍເປັນພວກໂຈນແລະນັກລອບສັງຫານ; ແລະຄວາມສະຫງົບ, ພັກຜ່ອນ, ແລະຄວາມສຸກຈະຖືກມ້າງອອກຈາກແຜ່ນດິນໂລກ. {GC 585.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="54" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:54" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Already the doctrine that men are released from obedience to God's requirements has weakened the force of moral obligation and opened the floodgates of iniquity upon the world.</source>
+<target>ແລ້ວ ຄໍາ ສອນ ທີ່ ວ່າ ມະນຸດ ຖືກ ປົດ ຈາກ ການ ເຊື່ອ ຟັງ ຂໍ້ ຮຽກຮ້ອງ ຂອງ ພຣະ ເຈົ້າ ໄດ້ ເຮັດ ໃຫ້ ພະລັງ ຂອງ ພັນທະ ທາງ ສິນ ທໍາ ອ່ອນ ແອ ລົງ ແລະ ໄດ້ ເປີດ ປະຕູ ແຫ່ງ ຄວາມ ຊົ່ວ ຮ້າຍ ມາສູ່ ໂລກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="55" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:55" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Lawlessness, dissipation, and corruption are sweeping in upon us like an overwhelming tide.</source>
+<target>ຄວາມບໍ່ຖືກກົດຫມາຍ, ການສໍ້ລາດບັງຫຼວງ, ແລະການສໍ້ລາດບັງຫຼວງພວມມີຢູ່ໃນຕົວເຮົາຄືກັບນໍ້າຖ້ວມຢ່າງລົ້ນເຫຼືອ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="56" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:56" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In the family, Satan is at work.</source>
+<target>ໃນຄອບຄົວ ຊາຕານກໍາລັງເຮັດວຽກຢູ່.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="57" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:57" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>His banner waves, even in professedly Christian households.</source>
+<target>ຄື້ນທຸງຊາດລາວແມ່ນແຕ່ໃນການອ້າງວ່າຄອບຄົວຄລິດສະຕຽນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="58" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:58" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>There is envy, evil surmising, hypocrisy, estrangement, emulation, strife, betrayal of sacred trusts, indulgence of lust.</source>
+<target>ມີ ຄວາມ ອິດສາ ບັງ ບຽດ, ຄວາມ ຊົ່ວ ຮ້າຍ, ຄວາມ ຫນ້າ ຊື່ ໃຈ ຄົດ, ການ ແຍກ ອອກ ໄປ, ການ ປະ ຕິ ເສດ, ການ ຜິດ ຖຽງ ກັນ, ການ ທໍລະ ຍົດ ຄວາມ ໄວ້ ວາງ ໃຈ ທີ່ ສັກ ສິດ, ຄວາມ ປາ ຖະ ນາ ຂອງ ຄວາມ ປາ ຖະ ນາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="59" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:59" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The whole system of religious principles and doctrines, which should form the foundation and framework of social life, seems to be a tottering mass, ready to fall to ruin.</source>
+<target>ລະບົບທັງຫມົດຂອງຫຼັກການແລະຄໍາສອນທາງສາສະຫນາ, ເຊິ່ງຄວນຈະເປັນພື້ນຖານແລະໂຄງຮ່າງຂອງຊີວິດສັງຄົມ, ເບິ່ງຄືວ່າຈະເປັນມວນຊົນtottering, ພ້ອມທີ່ຈະລົ້ມເຫຼວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="60" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:60" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The vilest of criminals, when thrown into prison for their offenses, are often made the recipients of gifts and attentions as if they had attained an enviable distinction.</source>
+<target>ຜູ້ກະທໍາຜິດທີ່ຮ້າຍແຮງທີ່ສຸດ ເມື່ອຖືກຂັງຄຸກຍ້ອນຄວາມຜິດຂອງພວກເຂົາມັກຈະຖືກເຮັດໃຫ້ຜູ້ຮັບຂອງຂວັນແລະຄວາມເອົາໃຈໃສ່ຄືກັບວ່າພວກເຂົາເຈົ້າໄດ້ມີຄວາມແຕກຕ່າງທີ່ອິດສາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="61" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:61" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Great publicity is given to their character and crimes.</source>
+<target>ການເຜີຍແຜ່ທີ່ຍິ່ງໃຫຍ່ແມ່ນມອບໃຫ້ແກ່ບຸກຄະລິກກະພາບແລະຄວາມຜິດຂອງເຂົາເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="62" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:62" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The press publishes the revolting details of vice, thus initiating others into the practice of fraud, robbery, and murder; and Satan exults in the success of his hellish schemes.</source>
+<target>ນັກຂ່າວໄດ້ເຜີຍແຜ່ລາຍລະອຽດການກະບົດຂອງຄວາມເປັນຮອງ, ດ້ວຍເຫດນີ້ຈຶ່ງເປັນການລິເລີ່ມຜູ້ອື່ນເຂົ້າໃນການປະຕິບັດການສໍ້ໂກງ, ປຸ້ນຈີ້, ແລະຄາດຕະກໍາ; ແລະຊາຕານມີຄວາມປິຕິປິຕິໃນຄວາມສໍາເລັດຂອງແຜນການນາຮົກຂອງລາວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="63" m:para-id="10">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:63" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="10" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The infatuation of vice, the wanton taking of life, the terrible increase of intemperance and iniquity of every order and degree, should arouse all who fear God, to inquire what can be done to stay the tide of evil. {GC 585.2}</source>
+<target>ຄວາມຫຼົງໄຫຼຂອງຄວາມຊົ່ວຮ້າຍ, ຄວາມຕ້ອງການທີ່ຈະເອົາຊີວິດ, ການເພີ່ມຂຶ້ນຢ່າງຮ້າຍແຮງຂອງຄວາມບໍ່ເອົາໃຈໃສ່ແລະຄວາມຊົ່ວຮ້າຍຂອງທຸກລະບຽບແລະລະດັບ, ຄວນກະຕຸ້ນທຸກຄົນທີ່ຢ້ານພຣະເຈົ້າ, ເພື່ອສອບຖາມສິ່ງທີ່ສາມາດເຮັດໄດ້ເພື່ອຮັກສາຄວາມຊົ່ວຮ້າຍ. {GC 585.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="64" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:64" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Courts of justice are corrupt.</source>
+<target>ສານຍຸຕິທໍາສໍ້ລາດບັງຫຼວງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="65" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:65" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Rulers are actuated by desire for gain and love of sensual pleasure.</source>
+<target>ຜູ້ປົກຄອງຖືກກະຕຸ້ນໂດຍຄວາມປາຖະຫນາທີ່ຈະໄດ້ຮັບຜົນປະໂຫຍດແລະຄວາມຮັກຂອງຄວາມເພີດເພີນທາງຕາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="66" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:66" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Intemperance has beclouded the faculties of many so that Satan has almost complete control of them.</source>
+<target>ຄວາມ ບໍ່ ລະມັດລະວັງ ໄດ້ ເຮັດ ໃຫ້ ຄວາມ ສາມາດ ຂອງ ຫລາຍ ຄົນ ເກີດ ຂຶ້ນ ເພື່ອ ວ່າ ຊາຕານ ຈະ ຄວບ ຄຸມ ມັນ ໄດ້ ຢ່າງ ຄົບ ຖ້ວນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="67" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:67" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Jurists are perverted, bribed, deluded.</source>
+<target>ພວກນັກວິທຍາກອນຖືກຫຼອກຫຼົບຫຼາ, ຮັບສິນບົນ, ຫຼອກຫຼອກຫຼາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="68" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:68" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Drunkenness and revelry, passion, envy, dishonesty of every sort, are represented among those who administer the laws.</source>
+<target>ການເມົາເຫລົ້າ ແລະ ການເປີດກວ້າງ, ຄວາມຫລົງໄຫລ, ອິດສາ, ຄວາມບໍ່ສັດຊື່ຂອງທຸກຮູບແບບ, ແມ່ນເປັນຕົວແທນໃນບັນດາຜູ້ທີ່ປະຕິບັດກົດຫມາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="69" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:69" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>“Justice standeth afar off: for truth is fallen in the street, and equity cannot enter.”</source>
+<target>"ຄວາມຍຸຕິທໍາຢືນຢູ່ຫ່າງໄກ: ເພາະວ່າຄວາມຈິງແມ່ນຕົກຢູ່ຕາມຖະຫນົນຫົນທາງ, ຄວາມເທົ່າທຽມກັນບໍ່ສາມາດເຂົ້າໄປໄດ້."</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="70" m:para-id="11">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:70" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="11" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Isaiah 59:14. {GC 586.1}</source>
+<target>ເອຊາອີ 59:14. {GC 586.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="71" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:71" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The iniquity and spiritual darkness that prevailed under the supremacy of Rome were the inevitable result of her suppression of the Scriptures; but where is to be found the cause of the widespread infidelity, the rejection of the law of God, and the consequent corruption, under the full blaze of gospel light in an age of religious freedom?</source>
+<target>ຄວາມ ຊົ່ວ ຮ້າຍ ແລະ ຄວາມ ມືດ ທາງ ວິນ ຍານ ທີ່ ມີ ຢູ່ ພາຍ ໃຕ້ ຄວາມ ສູງ ສົ່ງ ຂອງ ໂຣມ ເປັນ ຜົນ ສະທ້ອນ ທີ່ ຫລີກ ລ້ຽງ ບໍ່ ໄດ້ ຈາກ ການ ປາບ ປາມ ພຣະຄໍາ ພີ ຂອງ ນາງ; ແຕ່ ບ່ອນ ໃດ ທີ່ ຈະ ພົບ ເຫັນ ສາ ເຫດ ຂອງ ການ ບໍ່ ເຊື່ອ ຖື ຢ່າງ ກວ້າງ ຂວາງ, ການ ປະ ຕິ ເສດ ກົດ ຂອງ ພຣະ ເຈົ້າ, ແລະ ການ ສໍ້ ໂກງ ທີ່ ຕາມ ມາ, ພາຍ ໃຕ້ ແສງ ສະ ຫວ່າງ ຂອງ ພຣະ ກິດ ຕິ ຄຸນ ຢ່າງ ເຕັມ ທີ່ ໃນ ສະ ໄຫມ ແຫ່ງ ອິດ ສະ ລະ ພາບ ທາງ ສາດ ສະ ຫນາ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="72" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:72" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Now that Satan can no longer keep the world under his control by withholding the Scriptures, he resorts to other means to accomplish the same object.</source>
+<target>ບັດ ນີ້ ເມື່ອ ຊາຕານ ບໍ່ ສາມາດ ຄວບ ຄຸມ ໂລກ ໄດ້ ອີກ ຕໍ່ ໄປ ໂດຍ ການ ບໍ່ ກີດ ກັນ ພຣະຄໍາ ພີ, ລາວ ຈຶ່ງ ໃຊ້ ວິທີ ອື່ນ ເພື່ອ ເຮັດ ໃຫ້ ວັດຖຸ ອັນ ດຽວ ກັນ ສໍາ ເລັດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="73" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:73" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>To destroy faith in the Bible serves his purpose as well as to destroy the Bible itself.</source>
+<target>ເພື່ອທໍາລາຍຄວາມເຊື່ອໃນຄໍາພີໄບເບິນໃຊ້ຈຸດປະສົງຂອງພະອົງພ້ອມທັງທໍາລາຍຄໍາພີໄບເບິນເອງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="74" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:74" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>By introducing the belief that God's law is not binding, he as effectually leads men to transgress as if they were wholly ignorant of its precepts.</source>
+<target>ໂດຍ ການ ແນະນໍາ ຄວາມ ເຊື່ອ ທີ່ ວ່າ ກົດ ຂອງ ພຣະ ເຈົ້າ ບໍ່ ໄດ້ ຜູກ ມັດ, ພຣະ ອົງ ຈະ ນໍາພາ ມະນຸດ ໃຫ້ ລ່ວງ ລະ ເມີດ ຄື ກັບ ວ່າ ເຂົາ ເຈົ້າ ບໍ່ ຮູ້ ເລື່ອງ ນີ້ ເລີຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="75" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:75" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And now, as in former ages, he has worked through the church to further his designs.</source>
+<target>ແລະ ບັດ ນີ້, ເຊັ່ນ ດຽວ ກັບ ໃນ ສະ ໄຫມ ກ່ອນ, ລາວ ໄດ້ ທໍາ ງານ ຜ່ານ ສາດ ສະ ຫນາ ຈັກ ເພື່ອ ເຮັດ ໃຫ້ ການ ອອກ ແບບ ຂອງ ລາວ ຕື່ມ ອີກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="76" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:76" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The religious organizations of the day have refused to listen to unpopular truths plainly brought to view in the Scriptures, and in combating them they have adopted interpretations and taken positions which have sown broadcast the seeds of skepticism.</source>
+<target>ອົງການທາງສາສະຫນາໃນສະໄຫມນັ້ນໄດ້ປະຕິເສດທີ່ຈະຮັບຟັງຄວາມຈິງທີ່ບໍ່ເປັນທີ່ນິຍົມທີ່ນໍາມາເບິ່ງໃນພຣະຄໍາພີຢ່າງຈະແຈ້ງ ແລະໃນການຕໍ່ສູ້ກັບພວກເຂົາເຈົ້າໄດ້ເອົາການຕີຄວາມຫມາຍແລະເອົາຕໍາແຫນ່ງທີ່ໄດ້ຫວ່ານອອກເຜີຍແຜ່ເມັດແຫ່ງຄວາມສົງໄສ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="77" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:77" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Clinging to the papal error of natural immortality and man's consciousness in death, they have rejected the only defense against the delusions of spiritualism.</source>
+<target>ໂດຍ ທີ່ ຍຶດ ຖື ຄວາມ ຜິດ ພາດ ຂອງ papal ຂອງ ຄວາມ ເປັນ ອະ ມະ ຕະ ທໍາ ທໍາ ມະ ຊາດ ແລະ ຈິດ ໃຈ ຂອງ ມະ ນຸດ ໃນ ຄວາມ ຕາຍ, ເຂົາ ເຈົ້າ ໄດ້ ປະ ຕິ ເສດ ການ ປ້ອງ ກັນ ພຽງ ຢ່າງ ດຽວ ຕໍ່ ຕ້ານ ການ ຫລົງ ຜິດ ຂອງ ລັດ ຖະ ບານ ທາງ ວິນ ຍານ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="78" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:78" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The doctrine of eternal torment has led many to disbelieve the Bible.</source>
+<target>ຄໍາ ສອນ ເລື່ອງ ການ ທໍລະມານ ນິລັນດອນ ໄດ້ ເຮັດ ໃຫ້ ຫລາຍ ຄົນ ບໍ່ ເຊື່ອ ພຣະຄໍາ ພີ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="79" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:79" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And as the claims of the fourth commandment are urged upon the people, it is found that the observance of the seventh-day Sabbath is enjoined; and as the only way to free themselves from a duty which they are unwilling to perform, many popular teachers declare that the law of God is no longer binding.</source>
+<target>ແລະ ດັ່ງ ທີ່ ການ ອ້າງ ອີງ ຂອງ ພຣະ ບັນຍັດ ທີ ສີ່ ໄດ້ ຖືກ ຊຸກ ຍູ້ ໃຫ້ ແກ່ ຜູ້ ຄົນ, ກໍ ເຫັນ ວ່າ ການ ປະຕິບັດ ຕາມ ວັນ ຊະບາ ໂຕ ວັນ ທີ ເຈັດ ໄດ້ ຖືກ ນໍາ ໄປ ໃຊ້; ແລະເປັນວິທີດຽວທີ່ຈະປົດປ່ອຍຕົນເອງຈາກຫນ້າທີ່ທີ່ພວກເຂົາບໍ່ເຕັມໃຈທີ່ຈະປະຕິບັດ, ຄູອາຈານທີ່ມີຊື່ສຽງຫຼາຍຄົນປະກາດວ່າກົດຫມາຍຂອງພຣະເຈົ້າບໍ່ໄດ້ຜູກມັດອີກຕໍ່ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="80" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:80" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Thus they cast away the law and the Sabbath together.</source>
+<target>ດັ່ງ ນັ້ນ ພວກ ເຂົາ ຈຶ່ງ ໄດ້ ປະ ຖິ້ມ ກົດ ຫມາຍ ແລະ ວັນ ຊະ ບາ ໂຕ ໄວ້ ນໍາ ກັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="81" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:81" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>As the work of Sabbath reform extends, this rejection of the divine law to avoid the claims of the fourth commandment will become well-nigh universal.</source>
+<target>ເມື່ອ ວຽກ ງານ ແຫ່ງ ການ ປ່ຽນ ແປງ ວັນ ຊະບາ ໂຕ ຂະຫຍາຍ ອອກ ໄປ, ການ ປະຕິ ເສດ ກົດ ແຫ່ງ ສະຫວັນ ນີ້ ເພື່ອ ຫລີກ ເວັ້ນຈາກ ການ ອ້າງ ອີງ ຂອງ ພຣະບັນຍັດ ທີ ສີ່ ຈະ ກາຍ ເປັນ ສິ່ງ ທີ່ ມີ ຢູ່ ທົ່ວ ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="82" m:para-id="12">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:82" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="12" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The teachings of religious leaders have opened the door to infidelity, to spiritualism, and to contempt for God's holy law; and upon these leaders rests a fearful responsibility for the iniquity that exists in the Christian world. {GC 586.2}</source>
+<target>ຄໍາ ສອນ ຂອງ ຜູ້ນໍາ ທາງ ສາດສະຫນາ ໄດ້ ເປີດ ປະຕູ ສູ່ ການ ບໍ່ ເຊື່ອ ຖື, ຕໍ່ ລັດທິ ວິນ ຍານ, ແລະ ດູ ຖູກ ກົດ ອັນ ສັກສິດ ຂອງ ພຣະ ເຈົ້າ; ແລະ ສໍາ ລັບ ຜູ້ ນໍາ ເຫລົ່າ ນີ້ ເປັນ ຜູ້ ຮັບ ຜິດ ຊອບ ທີ່ ຫນ້າ ຢ້ານ ກົວ ຕໍ່ ຄວາມ ຊົ່ວ ຮ້າຍ ທີ່ ມີ ຢູ່ ໃນ ໂລກ ຄຣິດ ສະ ຕຽນ. {GC 586.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="83" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:83" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Yet this very class put forth the claim that the fast-spreading corruption is largely attributable to the desecration of the so-called “Christian sabbath,” and that the enforcement of Sunday observance would greatly improve the morals of society.</source>
+<target>ເຖິງ ຢ່າງ ໃດ ກໍ ຕາມ, ຫ້ອງ ຮຽນ ນີ້ ໄດ້ ກ່າວ ອ້າງ ວ່າ ການ ສໍ້ ລາດ ບັງ ຫຼວງ ທີ່ ແຜ່ ຂະ ຫຍາຍ ໄປ ຢ່າງ ວ່ອງ ໄວ ນັ້ນ ສ່ວນ ໃຫຍ່ ເປັນ ເພາະ ການ ຫມິ່ນ ປະ ຫມາດ ທີ່ ເອີ້ນ ວ່າ "ວັນ ຊະ ບາ ໂຕ ຄຣິດ ສະ ຕຽນ" ແລະ ວ່າ ການ ບັງ ຄັບ ໃຊ້ ການ ສະ ແດງ ໃນ ວັນ ອາ ທິດ ຈະ ເຮັດ ໃຫ້ ສິນ ທໍາ ຂອງ ສັງ ຄົມ ດີ ຂຶ້ນ ຢ່າງ ຫລວງ ຫລາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="84" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:84" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>This claim is especially urged in America, where the doctrine of the true Sabbath has been most widely preached.</source>
+<target>ການກ່າວອ້າງນີ້ໄດ້ຮັບການກະຕຸ້ນເປັນພິເສດໃນອາເມຣິກາ, ບ່ອນທີ່ຄໍາສອນຂອງວັນຊະບາໂຕທີ່ແທ້ຈິງໄດ້ຮັບການປະກາດຢ່າງກວ້າງຂວາງທີ່ສຸດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="85" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:85" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Here the temperance work, one of the most prominent and important of moral reforms, is often combined with the Sunday movement, and the advocates of the latter represent themselves as laboring to promote the highest interest of society; and those who refuse to unite with them are denounced as the enemies of temperance and reform.</source>
+<target>ໃນ ນີ້ ວຽກ ງານ temperance, ຫນຶ່ງ ໃນ ການ ປ່ຽນ ແປງ ສິນ ທໍາ ທີ່ ມີ ຊື່ ສຽງ ແລະ ສໍາ ຄັນ ທີ່ ສຸດ, ມັກ ຈະ ຮ່ວມ ກັນ ກັບ ການ ເຄື່ອນ ໄຫວ ໃນ ວັນ ອາ ທິດ, ແລະ ຜູ້ ສະ ຫນັບ ສະ ຫນູນ ຂອງ ຄົນ ສຸດ ທ້າຍ ເປັນ ຕົວ ແທນ ໃຫ້ ແກ່ ຕົນ ເອງ ວ່າ ເປັນ ແຮງ ງານ ເພື່ອ ສົ່ງ ເສີມ ຄວາມ ສົນ ໃຈ ສູງ ສຸດ ຂອງ ສັງ ຄົມ; ແລະ ຜູ້ ທີ່ ບໍ່ ຍອມ ເປັນ ອັນ ຫນຶ່ງ ດຽວ ກັນ ກັບ ພວກ ເຂົາ ຖືກ ປະນາມ ວ່າ ເປັນ ສັດຕູ ຂອງ ອາລົມ ແລະ ການ ປ່ຽນ ແປງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="86" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:86" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>But the fact that a movement to establish error is connected with a work which is in itself good, is not an argument in favor of the error.</source>
+<target>ແຕ່ ວ່າ ການ ເຄື່ອນ ໄຫວ ເພື່ອ ສ້າງ ຄວາມ ຜິດ ພາດ ແມ່ນ ຕິດ ພັນ ກັບ ວຽກ ງານ ທີ່ ຢູ່ ໃນ ຕົວ ມັນ ເອງ ດີ, ບໍ່ ແມ່ນ ການ ໂຕ້ ຖຽງ ກັນ ເພື່ອ ເຫັນ ແກ່ ຄວາມ ຜິດ ພາດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="87" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:87" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>We may disguise poison by mingling it with wholesome food, but we do not change its nature.</source>
+<target>ເຮົາອາດປອມແປງສານພິດໂດຍການປະສົມກັບອາຫານທີ່ດີ ແຕ່ເຮົາບໍ່ໄດ້ປ່ຽນແປງທໍາມະຊາດຂອງມັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="88" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:88" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>On the contrary, it is rendered more dangerous, as it is more likely to be taken unawares.</source>
+<target>ກົງກັນຂ້າມ, ມັນຖືກເຮັດໃຫ້ເປັນອັນຕະລາຍຫຼາຍກວ່າ, ເນື່ອງຈາກວ່າມັນມັກຈະຖືກເອົາໄປໂດຍບໍ່ຮູ້ຕົວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="89" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:89" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It is one of Satan's devices to combine with falsehood just enough truth to give it plausibility.</source>
+<target>ມັນເປັນເຄື່ອງມືຫນຶ່ງຂອງຊາຕານທີ່ຈະລວມເຂົ້າກັບຄວາມຕົວະພຽງພໍກັບຄວາມຈິງພຽງພໍທີ່ຈະເຮັດໃຫ້ມັນຫນ້າເຊື່ອຖືໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="90" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:90" m:confirmed="0" m:created-at="1697121710621" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710621" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The leaders of the Sunday movement may advocate reforms which the people need, principles which are in harmony with the Bible; yet while there is with these a requirement which is contrary to God's law, His servants cannot unite with them.</source>
+<target>ຜູ້ນໍາ ຂອງ ການ ເຄື່ອນ ໄຫວ ໃນ ວັນ ອາທິດ ອາດ ສົ່ງ ເສີມ ການ ປ່ຽນ ແປງ ຊຶ່ງ ຜູ້ ຄົນ ຕ້ອງການ, ຫລັກ ທໍາ ທີ່ ສອດຄ່ອງ ກັບ ພຣະຄຣິສຕະທໍາ ຄໍາ ພີ; ເຖິງ ຢ່າງ ໃດ ກໍ ຕາມ, ໃນ ຂະນະ ທີ່ ມີ ຂໍ້ ຮຽກຮ້ອງ ເຫລົ່າ ນີ້ ຊຶ່ງ ກົງ ກັນ ຂ້າມ ກັບ ກົດ ຂອງ ພຣະ ເຈົ້າ, ຜູ້ ຮັບ ໃຊ້ ຂອງ ພຣະ ອົງ ກໍ ບໍ່ ສາມາດ ເປັນ ອັນ ຫນຶ່ງ ດຽວ ກັນ ກັບ ມັນ ໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="91" m:para-id="13">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:91" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="13" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Nothing can justify them in setting aside the commandments of God for the precepts of men. {GC 587.1}</source>
+<target>ບໍ່ ມີ ສິ່ງ ໃດ ທີ່ ຈະ ໃຫ້ ຂໍ້ ແກ້ ຕົວ ແກ່ ເຂົາ ເຈົ້າ ໃນ ການ ປະ ຖິ້ມ ພຣະ ບັນຍັດ ຂອງ ພຣະ ເຈົ້າ ສໍາ ລັບ ຄໍາ ສັ່ງ ຂອງ ມະນຸດ. {GC 587.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="92" m:para-id="14">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:92" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Through the two great errors, the immortality of the soul and Sunday sacredness, Satan will bring the people under his deceptions.</source>
+<target>ຜ່ານ ຄວາມ ຜິດ ພາດ ອັນ ໃຫຍ່ ຫລວງ ສອງ ຢ່າງ, ຄວາມ ເປັນ ອະ ມະ ຕະ ຂອງ ຈິດ ວິນ ຍານ ແລະ ຄວາມ ສັກ ສິດ ໃນ ວັນ ອາ ທິດ, ຊາ ຕານ ຈະ ນໍາ ຜູ້ ຄົນ ມາ ຢູ່ ພາຍ ໃຕ້ ການ ຫລອກ ລວງ ຂອງ ພຣະ ອົງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="93" m:para-id="14">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:93" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>While the former lays the foundation of spiritualism, the latter creates a bond of sympathy with Rome.</source>
+<target>ໃນ ຂະນະ ທີ່ ຄົນ ເກົ່າ ວາງ ຮາກ ຖານ ຂອງ ລັດທິ ວິນ ຍານ, ຄົນ ສຸດ ທ້າຍ ສ້າງ ຄວາມ ເຫັນ ອົກ ເຫັນ ໃຈ ກັບ ໂຣມ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="94" m:para-id="14">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:94" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="14" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The Protestants of the United States will be foremost in stretching their hands across the gulf to grasp the hand of spiritualism; they will reach over the abyss to clasp hands with the Roman power; and under the influence of this threefold union, this country will follow in the steps of Rome in trampling on the rights of conscience. {GC 588.1}</source>
+<target>ພວກປະ ທ້ວງ ຂອງ ສະ ຫະ ລັດ ອາ ເມ ຣິ ກາ ຈະ ເປັນ ທີ່ ສໍາ ດີ ທີ່ ສຸດ ໃນ ການ ຢື້ ມື ຂ້າມ ອ່າວ ເພື່ອ ເຂົ້າ ໃຈ ເຖິງ ກໍາ ມື ຂອງ ລັດ ຖະ ບານ ທາງ ວິນ ຍານ; ພວກ ເຂົາ ຈະ ເອື້ອມ ອອກ ໄປ ໃນ ເຫວ ເພື່ອ ຈັບ ມື ກັບ ອໍານາດ ຂອງ ຊາວ ໂຣມ; ແລະ ພາຍ ໃຕ້ ອິດ ທິພົນ ຂອງ ການ ຮ່ວມ ໄມ້ ຮ່ວມ ມື ສາມ ເທົ່າ ນີ້, ປະ ເທດ ນີ້ ຈະ ເຮັດ ຕາມ ຂັ້ນ ຕອນ ຂອງ ນະຄອນ ໂຣມ ໃນ ການ ຢຽບ ຍ່ໍາ ສິດທິ ຂອງ ຈິດ ສໍານຶກ. {GC 588.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="95" m:para-id="15">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:95" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>As spiritualism more closely imitates the nominal Christianity of the day, it has greater power to deceive and ensnare.</source>
+<target>ເມື່ອລັດທິຝ່າຍວິນຍານຮຽນແບບຢ່າງໃກ້ຊິດກັບສາສະຫນາຄລິດສະຕຽນໃນສະໄຫມນັ້ນ ມັນກໍມີລິດເດດຫຼາຍກວ່າທີ່ຈະຫຼອກລວງແລະບ້ວງໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="96" m:para-id="15">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:96" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Satan himself is converted, after the modern order of things.</source>
+<target>ຊາຕານເອງໄດ້ຮັບການປ່ຽນໃຈເຫລື້ອມໃສ, ຫຼັງຈາກຄວາມເປັນລະບຽບຮຽບຮ້ອຍຂອງສິ່ງຕ່າງໆໃນສະໄຫມໃຫມ່.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="97" m:para-id="15">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:97" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He will appear in the character of an angel of light.</source>
+<target>ພຣະອົງຈະປາກົດໃນລັກສະນະຂອງເທວະດາແຫ່ງຄວາມສະຫວ່າງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="98" m:para-id="15">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:98" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Through the agency of spiritualism, miracles will be wrought, the sick will be healed, and many undeniable wonders will be performed.</source>
+<target>ຜ່ານ ອໍາ ເພີ ໃຈ ຂອງ ລັດທິ ວິນ ຍານ, ການ ມະຫັດສະຈັນ ຈະ ຖືກ ກະທໍາ, ຄົນ ເຈັບ ຈະ ໄດ້ ຮັບ ການ ປິ່ນປົວ, ແລະ ສິ່ງ ອັດສະຈັນ ຫລາຍ ຢ່າງ ທີ່ ປະຕິ ເສດ ບໍ່ ໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="99" m:para-id="15">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:99" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="15" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And as the spirits will profess faith in the Bible, and manifest respect for the institutions of the church, their work will be accepted as a manifestation of divine power. {GC 588.2}</source>
+<target>ແລະ ດັ່ງ ທີ່ ວິນ ຍານ ຈະ ອ້າງ ສັດທາ ໃນ ພຣະຄຣິສຕະທໍາ ຄໍາ ພີ, ແລະ ສະ ແດງ ຄວາມ ນັບຖື ຕໍ່ ສະ ຖາ ບັນ ຂອງ ສາດສະຫນາ ຈັກ, ວຽກ ງານ ຂອງ ເຂົາ ເຈົ້າ ຈະ ຖືກ ຍອມຮັບ ວ່າ ເປັນ ການ ສະ ແດງ ໃຫ້ ເຫັນ ເຖິງ ອໍານາດ ແຫ່ງ ສະຫວັນ. {GC 588.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="100" m:para-id="16">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:100" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The line of distinction between professed Christians and the ungodly is now hardly distinguishable.</source>
+<target>ຄວາມແຕກຕ່າງລະຫວ່າງຄົນທີ່ຖືກອ້າງວ່າເປັນຄລິດສະຕຽນແລະຄົນທີ່ບໍ່ເຊື່ອຖືໃນຕອນນີ້ແມ່ນບໍ່ມີຄວາມແຕກຕ່າງເລີຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="101" m:para-id="16">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:101" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Church members love what the world loves and are ready to join with them, and Satan determines to unite them in one body and thus strengthen his cause by sweeping all into the ranks of spiritualism.</source>
+<target>ສະ ມາ ຊິກ ຂອງ ສາດ ສະ ຫນາ ຈັກ ມັກ ສິ່ງ ທີ່ ໂລກ ຮັກ ແລະ ພ້ອມ ແລ້ວ ທີ່ ຈະ ເຂົ້າ ຮ່ວມ ກັບ ເຂົາ ເຈົ້າ, ແລະ ຊາ ຕານ ກໍາ ນົດ ທີ່ ຈະ ເຮັດ ໃຫ້ ເຂົາ ເຈົ້າ ເປັນ ອັນ ຫນຶ່ງ ດຽວ ກັນ ໃນ ຮ່າງ ກາຍ ດຽວ ກັນ ແລະ ດ້ວຍ ເຫດ ນີ້ ຈຶ່ງ ເຮັດ ໃຫ້ ອຸດົມ ການ ຂອງ ພຣະ ອົງ ເຂັ້ມ ແຂງ ຂຶ້ນ ໂດຍ ການ ກວາດ ລ້າງ ທຸກ ຄົນ ເຂົ້າ ໄປ ໃນ ລະ ດັບ ຂອງ ສາດ ສະ ຫນາ ຈັກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="102" m:para-id="16">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:102" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Papists, who boast of miracles as a certain sign of the true church, will be readily deceived by this wonder-working power; and Protestants, having cast away the shield of truth, will also be deluded.</source>
+<target>Papists, ຜູ້ທີ່ໂອ້ອວດກ່ຽວກັບການມະຫັດສະຈັນເປັນເຄື່ອງຫມາຍຫນຶ່ງຂອງສາດສະຫນາຈັກແທ້, ຈະຖືກຫຼອກລວງໂດຍອໍານາດທີ່ຫນ້າອັດສະຈັນນີ້; ແລະຊາວໂປແຕສຕັງ ທີ່ໄດ້ຖິ້ມໂລ້ແຫ່ງຄວາມຈິງນັ້ນກໍຈະຖືກຫຼົບຫຼີກເຊັ່ນກັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="103" m:para-id="16">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:103" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="16" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Papists, Protestants, and worldlings will alike accept the form of godliness without the power, and they will see in this union a grand movement for the conversion of the world and the ushering in of the long-expected millennium. {GC 588.3}</source>
+<target>Papists, Protestants, ແລະ worldlings ຈະ ຮັບ ເອົາ ຮູບ ແບບ ຂອງ ພຣະ ເຈົ້າ ປາດ ສະ ຈາກ ອໍາ ນາດ, ແລະ ເຂົາ ເຈົ້າ ຈະ ເຫັນ ໃນ ການ ຮ່ວມ ໄມ້ ຮ່ວມ ມື ນີ້ ເປັນ ການ ເຄື່ອນ ໄຫວ ອັນ ຍິ່ງ ໃຫຍ່ ສໍາ ລັບ ການ ປ່ຽນ ໃຈ ເຫລື້ອມ ໃສ ຂອງ ໂລກ ແລະ ການ ນໍາ ໃຊ້ ໃນ ພັນ ປີ ທີ່ ຄາດ ຫວັງ ໄວ້ ດົນ ນານ. {GC 588.3}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="104" m:para-id="17">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:104" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Through spiritualism, Satan appears as a benefactor of the race, healing the diseases of the people, and professing to present a new and more exalted system of religious faith; but at the same time he works as a destroyer.</source>
+<target>ໂດຍທາງລັດທິຝ່າຍວິນຍານຊາຕານປາກົດວ່າເປັນຜູ້ໃຫ້ຜົນປະໂຫຍດຂອງເຊື້ອຊາດ, ປິ່ນປົວພະຍາດຂອງປະຊາຊົນ, ແລະອ້າງວ່າສະເຫນີລະບົບໃຫມ່ແລະສູງສົ່ງຂອງຄວາມເຊື່ອທາງສາສະຫນາ; ແຕ່ໃນເວລາດຽວກັນລາວກໍເຮັດວຽກເປັນຜູ້ທໍາລາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="105" m:para-id="17">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:105" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>His temptations are leading multitudes to ruin.</source>
+<target>ການ ລໍ້ ລວງ ຂອງ ພຣະ ອົງ ພາ ໃຫ້ ຄົນ ຢ່າງ ຫລວງ ຫລາຍ ທໍາ ລາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="106" m:para-id="17">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:106" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Intemperance dethrones reason; sensual indulgence, strife, and bloodshed follow.</source>
+<target>Intemperance dethrones ເຫດຜົນ; sensual indulgence, strife, and bloodshed follow.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="107" m:para-id="17">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:107" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Satan delights in war, for it excites the worst passions of the soul and then sweeps into eternity its victims steeped in vice and blood.</source>
+<target>ຊາຕານມີຄວາມຍິນດີໃນສົງຄາມ ເພາະມັນເຮັດໃຫ້ຈິດວິນຍານຕື່ນເຕັ້ນແລະຈາກນັ້ນກໍກວາດເຂົ້າໄປໃນຊົ່ວນິລັນດອນທີ່ຜູ້ເຄາະຮ້າຍຂອງມັນຢູ່ໃນຄວາມຊົ່ວຮ້າຍແລະເລືອດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="108" m:para-id="17">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:108" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="17" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It is his object to incite the nations to war against one another, for he can thus divert the minds of the people from the work of preparation to stand in the day of God. {GC 589.1}</source>
+<target>ມັນເປັນວັດຖຸປະສົງຂອງພະອົງທີ່ຈະປຸກລະດົມຊາດໃຫ້ເຮັດສົງຄາມຕໍ່ເຊິ່ງກັນແລະກັນ ເພາະດ້ວຍເຫດນີ້ພະອົງຈຶ່ງສາມາດປ່ຽນຄວາມຄິດຂອງຜູ້ຄົນຈາກວຽກກຽມພ້ອມທີ່ຈະຢືນຢູ່ໃນວັນຂອງພະເຈົ້າ. {GC 589.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="109" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:109" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Satan works through the elements also to garner his harvest of unprepared souls.</source>
+<target>ຊາຕານເຮັດວຽກຜ່ານທາດຕ່າງໆເພື່ອເກັບກ່ຽວຈິດວິນຍານທີ່ບໍ່ກຽມພ້ອມ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="110" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:110" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He has studied the secrets of the laboratories of nature, and he uses all his power to control the elements as far as God allows.</source>
+<target>ພຣະອົງໄດ້ສຶກສາຄວາມລັບຂອງຫ້ອງທົດລອງຂອງທໍາມະຊາດ, ແລະພຣະອົງຊົງໃຊ້ລິດເດດທັງຫມົດຂອງພຣະອົງເພື່ອຄວບຄຸມທາດຕ່າງໆຕາມທີ່ພຣະເຈົ້າຊົງອະນຸຍາດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="111" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:111" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>When he was suffered to afflict Job, how quickly flocks and herds, servants, houses, children, were swept away, one trouble succeeding another as in a moment.</source>
+<target>ເມື່ອ ລາວ ທົນ ທຸກ ທໍ ລະ ມານ ກັບ ໂຢບ, ຝູງ ສັດ ລ້ຽງ ແລະ ຝູງ ສັດ ລ້ຽງ, ຜູ້ ຮັບ ໃຊ້, ບ້ານ ເຮືອນ, ລູກໆ, ໄດ້ ຖືກ ກວາດ ລ້າງ ໄປ ໄວ ປານ ໃດ, ອັນ ຫນຶ່ງ ໄດ້ ຮັບ ຄວາມ ຫຍຸ້ງ ຍາກ ຕໍ່ ອີກ ຄົນ ຫນຶ່ງ ຄື ກັນ ໃນ ເວ ລາ ດຽວ ກັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="112" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:112" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It is God that shields His creatures and hedges them in from the power of the destroyer.</source>
+<target>ແມ່ນພຣະເຈົ້າທີ່ປົກປ້ອງສິ່ງທີ່ມີຊີວິດຂອງພຣະອົງແລະປ້ອງກັນມັນໄວ້ຈາກລິດເດດຂອງຜູ້ທໍາລາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="113" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:113" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>But the Christian world have shown contempt for the law of Jehovah; and the Lord will do just what He has declared that He would—He will withdraw His blessings from the earth and remove His protecting care from those who are rebelling against His law and teaching and forcing others to do the same.</source>
+<target>ແຕ່ໂລກຄລິດສະຕຽນໄດ້ສະແດງຄວາມດູຖູກຕໍ່ກົດຫມາຍຂອງພະເຢໂຫວາ; ແລະ ພຣະ ຜູ້ ເປັນ ເຈົ້າ ຈະ ເຮັດ ຕາມ ທີ່ ພຣະ ອົງ ໄດ້ ປະ ກາດ ວ່າ ພຣະ ອົງ ຈະ ປະ ຕິ ເສດ—ພຣະ ອົງ ຈະ ຖອນ ພອນ ຂອງ ພຣະ ອົງ ອອກ ຈາກ ແຜ່ນ ດິນ ໂລກ ແລະ ເອົາ ການ ດູ ແລ ປົກ ປ້ອງ ຂອງ ພຣະ ອົງ ອອກ ຈາກ ຜູ້ ທີ່ ກໍາ ລັງ ຂັດ ຄ້ານ ກົດ ຫມາຍ ແລະ ການ ສອນ ຂອງ ພຣະ ອົງ ແລະ ບັງ ຄັບ ໃຫ້ ຄົນ ອື່ນ ເຮັດ ແບບ ດຽວ ກັນ ນັ້ນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="114" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:114" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Satan has control of all whom God does not especially guard.</source>
+<target>ຊາຕານຄວບຄຸມທຸກຄົນທີ່ພະເຈົ້າບໍ່ໄດ້ເຝົ້າລະວັງເປັນພິເສດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="115" m:para-id="18">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:115" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="18" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He will favor and prosper some in order to further his own designs, and he will bring trouble upon others and lead men to believe that it is God who is afflicting them. {GC 589.2}</source>
+<target>ພຣະ ອົງ ຈະ ສົ່ງ ເສີມ ແລະ ຈະ ເລີນ ຮຸ່ງ ເຮືອງ ບາງ ຄົນ ເພື່ອ ຈະ ໄດ້ ຮັບ ການ ອອກ ແບບ ຂອງ ຕົນ ຕື່ມ ອີກ, ແລະ ພຣະ ອົງ ຈະ ນໍາ ຄວາມ ຫຍຸ້ງ ຍາກ ມາ ໃຫ້ ຄົນ ອື່ນ ແລະ ນໍາ ພາ ຜູ້ ຊາຍ ໃຫ້ ເຊື່ອ ວ່າ ເປັນ ພຣະ ເຈົ້າ ຜູ້ ທີ່ ກໍາ ລັງ ເຮັດ ໃຫ້ ເຂົາ ເຈົ້າ ທຸກ ທໍ ລະ ມານ. {GC 589.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="116" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:116" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>While appearing to the children of men as a great physician who can heal all their maladies, he will bring disease and disaster, until populous cities are reduced to ruin and desolation.</source>
+<target>ໃນ ຂະນະ ທີ່ ປາກົດ ໃຫ້ ເຫັນ ລູກ ຂອງ ມະນຸດ ເປັນ ຫມໍ ທີ່ ຍິ່ງ ໃຫຍ່ ຜູ້ ທີ່ ສາມາດ ປິ່ນປົວ ພະຍາດ ໄຂ້ ທັງ ຫມົດ ໄດ້, ລາວ ຈະ ນໍາ ເອົາ ພະຍາດ ແລະ ໄພພິບັດ ມາ ໃຫ້, ຈົນ ກວ່າ ເມືອງ ທີ່ ມີ ປະຊາກອນ ຈະ ຫຼຸດ ລົງ ຈົນ ເຖິງ ຄວາມ ເສຍ ຫາຍ ແລະ ຄວາມ ເສົ້າ ສະຫລົດ ໃຈ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="117" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:117" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Even now he is at work.</source>
+<target>ແມ່ນແຕ່ຕອນນີ້ລາວກໍເຮັດວຽກຢູ່.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="118" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:118" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In accidents and calamities by sea and by land, in great conflagrations, in fierce tornadoes and terrific hailstorms, in tempests, floods, cyclones, tidal waves, and earthquakes, in every place and in a thousand forms, Satan is exercising his power.</source>
+<target>ໃນອຸບັດເຫດແລະໄພພິບັດທາງທະເລແລະໂດຍທີ່ດິນ, ໃນການປະທະກັນຢ່າງໃຫຍ່ຫຼວງ, ໃນລົມພະຍຸຮ້າຍແຮງແລະພາຍຸຫມາກເຫັບທີ່ຫນ້າຢ້ານກົວ, ໃນລົມພາຍຸ, ນ້ໍາຖ້ວມ, ລົມພະຍຸໄຊຄະໂລນ, ຄື້ນຟອງນ້ໍາ, ແລະແຜ່ນດິນໄຫວ, ໃນທຸກບ່ອນແລະໃນຮູບແບບພັນ, ຊາຕານກໍາລັງໃຊ້ລິດເດດຂອງຕົນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="119" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:119" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He sweeps away the ripening harvest, and famine and distress follow.</source>
+<target>ພຣະອົງ ກວາດ ລ້າງ ການ ເກັບ ກ່ຽວ ທີ່ ສຸກ ແລ້ວ, ແລະ ຄວາມ ອຶດ ຢາກ ແລະ ຄວາມ ໂສກ ເສົ້າ ກໍ ຕາມ ມາ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="120" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:120" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He imparts to the air a deadly taint, and thousands perish by the pestilence.</source>
+<target>ພະອົງໃຫ້ອາກາດມີຄວາມເປື້ອນເປື່ອຍທີ່ຮ້າຍແຮງ ແລະຫຼາຍພັນຄົນກໍຕາຍຍ້ອນການລະບາດຂອງພະຍາດນີ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="121" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:121" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>These visitations are to become more and more frequent and disastrous.</source>
+<target>ການ ຢ້ຽມ ຢາມ ເຫລົ່າ ນີ້ ຈະ ນັບ ມື້ ນັບ ມີ ຫລາຍ ຂຶ້ນ ເລື້ອຍໆ ແລະ ສ້າງ ຄວາມ ເສຍ ຫາຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="122" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:122" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Destruction will be upon both man and beast.</source>
+<target>ຄວາມ ພິນາດ ຈະ ເກີດ ຂຶ້ນ ທັງ ມະນຸດ ແລະ ສັດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="123" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:123" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>“The earth mourneth and fadeth away,” “the haughty people ... do languish.</source>
+<target>"ແຜ່ນດິນໂລກໂສກເສົ້າແລະຫາຍໄປ," ຄົນທີ່ເປັນຄົນອວຍພອນ ... ເຮັດໃຫ້ອ່ອນນ້ຽວ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="124" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:124" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The earth also is defiled under the inhabitants thereof; because they have transgressed the laws, changed the ordinance, broken the everlasting covenant.”</source>
+<target>ແຜ່ນດິນໂລກຍັງມີມົນລະຈອນຢູ່ໃຕ້ຜູ້ອາໄສຢູ່ໃນນັ້ນ; ເພາະວ່າພວກເຂົາເຈົ້າໄດ້ລ່ວງລະເມີດກົດຫມາຍ, ປ່ຽນແປງພິທີການ, ໄດ້ລະເມີດພັນທະສັນຍາອັນເປັນນິດ."</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="125" m:para-id="19">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:125" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="19" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Isaiah 24:4, 5. {GC 589.3}</source>
+<target>ເອຊາອີ 24:4, 5. {GC 589.3}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="126" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:126" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And then the great deceiver will persuade men that those who serve God are causing these evils.</source>
+<target>ແລະ ແລ້ວ ຜູ້ ຫລອກ ລວງ ທີ່ ຍິ່ງ ໃຫຍ່ ຈະ ຊັກ ຊວນ ຜູ້ ຊາຍ ວ່າ ຄົນ ທີ່ ຮັບ ໃຊ້ ພຣະ ເຈົ້າ ກໍ່ ໃຫ້ ເກີດ ຄວາມ ຊົ່ວ ຮ້າຍ ເຫລົ່າ ນີ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="127" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:127" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The class that have provoked the displeasure of Heaven will charge all their troubles upon those whose obedience to God's commandments is a perpetual reproof to transgressors.</source>
+<target>ຫ້ອງ ຮຽນ ທີ່ ໄດ້ ກໍ່ ໃຫ້ ເກີດ ຄວາມ ບໍ່ ພໍ ໃຈ ຂອງ ສະ ຫວັນ ຈະ ກ່າວ ຫາ ບັນ ຫາ ທັງ ຫມົດ ຂອງ ເຂົາ ເຈົ້າ ຕໍ່ ຜູ້ ທີ່ ເຊື່ອ ຟັງ ພຣະ ບັນ ຍັດ ຂອງ ພຣະ ເຈົ້າ ເປັນ ການ ປ້ອງ ກັນ ຜູ້ ລ່ວງ ລະ ເມີດ ຕະ ຫຼອດ ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="128" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:128" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It will be declared that men are offending God by the violation of the Sunday sabbath; that this sin has brought calamities which will not cease until Sunday observance shall be strictly enforced; and that those who present the claims of the fourth commandment, thus destroying reverence for Sunday, are troublers of the people, preventing their restoration to divine favor and temporal prosperity.</source>
+<target>ຈະ ມີ ການ ປະກາດ ວ່າ ມະນຸດ ເຮັດ ໃຫ້ ພຣະ ເຈົ້າ ຂຸ່ນ ເຄືອງ ໂດຍ ການ ລະ ເມີດ ວັນ ອາທິດ; ວ່າ ບາບ ນີ້ ໄດ້ ນໍາ ຄວາມ ເສຍ ຫາຍ ມາ ຊຶ່ງ ຈະ ບໍ່ ຢຸດ ເຊົາ ຈົນ ກວ່າ ການ ປະຕິບັດ ໃນ ວັນ ອາທິດ ຈະ ຖືກ ບັງຄັບ ຢ່າງ ເຄັ່ງ ຄັດ; ແລະ ວ່າ ຜູ້ ທີ່ ສະ ເຫນີ ການ ອ້າງ ອີງ ຂອງ ພຣະ ບັນຍັດ ຂໍ້ ທີ ສີ່, ດ້ວຍ ເຫດ ນີ້ ການ ທໍາລາຍ ຄວາມ ຄາລະວະ ສໍາລັບ ວັນ ອາທິດ, ຈຶ່ງ ເປັນ ສິ່ງ ທີ່ ເຮັດ ໃຫ້ ຜູ້ ຄົນ ມີ ບັນຫາ, ເພື່ອ ປ້ອງ ກັນ ການ ຟື້ນ ຟູ ຂອງ ເຂົາ ເຈົ້າ ໃຫ້ ໄດ້ ຮັບ ຄວາມ ນິຍົມ ຊົມ ຊອບ ຈາກ ສະຫວັນ ແລະ ຄວາມ ຈະ ເລີນ ຮຸ່ງ ເຮືອງ ທາງ ໂລກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="129" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:129" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Thus the accusation urged of old against the servant of God will be repeated and upon grounds equally well established:</source>
+<target>ດັ່ງ ນັ້ນ ການ ກ່າວ ຫາ ທີ່ ຖືກ ຊຸກ ຍູ້ ໃຫ້ ແກ່ ຜູ້ ຮັບ ໃຊ້ ຂອງ ພຣະ ເຈົ້າ ຈະ ຖືກ ເຮັດ ຊ້ໍາ ແລ້ວ ຊ້ໍາ ອີກ ແລະ ຕາມ ພື້ນ ຖານ ທີ່ ຖືກ ຈັດ ຕັ້ງ ຂຶ້ນ ຢ່າງ ສະ ເຫມີ ພາບ:</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="130" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:130" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>“And it came to pass, when Ahab saw Elijah, that Ahab said unto him, Art thou he that troubleth Israel?</source>
+<target>"ແລະ ມັນ ໄດ້ ບັງ ເກີດ ຂຶ້ນ, ເມື່ອ ອາ ຮາບ ໄດ້ ເຫັນ ເອ ລີ ຢາ, ອາ ຮາບ ໄດ້ ກ່າວ ກັບ ລາວ ວ່າ, ອາ ຮາບ ຜູ້ ທີ່ ເຮັດ ໃຫ້ ອິດ ສະ ຣາ ເອນ ມີ ບັນ ຫາ ນັ້ນ ບໍ?</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="131" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:131" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And he answered, I have not troubled Israel; but thou, and thy father's house, in that ye have forsaken the commandments of the Lord, and thou hast followed Baalim.”</source>
+<target>ແລະພຣະອົງຊົງຕອບວ່າ, ຂ້າພະເຈົ້າບໍ່ໄດ້ລົບກວນອິສຣາແອລ; ແຕ່ ເຈົ້າ ແລະ ເຮືອນ ຂອງ ພໍ່ ຂອງ ເຈົ້າ, ໃນ ນັ້ນ ເຈົ້າ ໄດ້ ປະ ຖິ້ມ ພຣະ ບັນຍັດ ຂອງ ພຣະຜູ້ ເປັນ ເຈົ້າ, ແລະ ເຈົ້າ ໄດ້ ຕິດຕາມ ບາ ລີມ."</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="132" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:132" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>1 Kings 18:17, 18.</source>
+<target>1 ກະສັດ 18:17, 18.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="133" m:para-id="20">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:133" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="20" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>As the wrath of the people shall be excited by false charges, they will pursue a course toward God's ambassadors very similar to that which apostate Israel pursued toward Elijah. {GC 590.1}</source>
+<target>ເມື່ອ ຄວາມ ຄຽດ ແຄ້ນ ຂອງ ຜູ້ ຄົນ ຈະ ຕື່ນ ເຕັ້ນ ໂດຍ ການ ກ່າວ ຫາ ທີ່ ບໍ່ ຖືກ ຕ້ອງ, ເຂົາ ເຈົ້າ ຈະ ເດີນ ໄປ ຫາ ທູດ ຂອງ ພຣະ ເຈົ້າ ຄ້າຍ ຄື ກັນ ກັບ ສິ່ງ ທີ່ ຊາວ ອິດ ສະ ຣາ ເອນ ອອກ ຈາກ ປະ ເທດ ອິດ ສະ ຣາ ເອນ ໄດ້ ເດີນ ໄປ ຫາ ເອລີ ຢາ. {GC 590.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="134" m:para-id="21">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:134" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="21" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The miracle-working power manifested through spiritualism will exert its influence against those who choose to obey God rather than men.</source>
+<target>ອໍາ ນາດ ການ ເຮັດ ວຽກ ທີ່ ມະ ຫັດ ສະ ຈັນ ທີ່ ສະ ແດງ ອອກ ຜ່ານ ທາງ ວິນ ຍານ ຈະ ໃຊ້ ອິດ ທິ ພົນ ຂອງ ມັນ ຕໍ່ ຜູ້ ທີ່ ເລືອກ ທີ່ ຈະ ເຊື່ອ ຟັງ ພຣະ ເຈົ້າ ແທນ ທີ່ ຈະ ເປັນ ມະ ນຸດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="135" m:para-id="21">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:135" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="21" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Communications from the spirits will declare that God has sent them to convince the rejecters of Sunday of their error, affirming that the laws of the land should be obeyed as the law of God.</source>
+<target>ການ ສື່ ສານ ຈາກ ວິນ ຍານ ຈະ ປະ ກາດ ວ່າ ພຣະ ເຈົ້າ ໄດ້ ສົ່ງ ເຂົາ ເຈົ້າ ມາ ເພື່ອ ເຮັດ ໃຫ້ ຜູ້ ປະ ຕິ ເສດ ໃນ ວັນ ອາ ທິດ ຂອງ ຄວາມ ຜິດ ຂອງ ເຂົາ ເຈົ້າ ເຊື່ອ ຫມັ້ນ, ຢືນ ຢັນ ວ່າ ກົດ ຫມາຍ ຂອງ ແຜ່ນ ດິນ ຄວນ ຖືກ ເຊື່ອ ຟັງ ວ່າ ເປັນ ກົດ ຂອງ ພຣະ ເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="136" m:para-id="21">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:136" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="21" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>They will lament the great wickedness in the world and second the testimony of religious teachers that the degraded state of morals is caused by the desecration of Sunday.</source>
+<target>ເຂົາ ເຈົ້າຈະ ຮ້ອງ ເຖິງ ຄວາມ ຊົ່ວ ຮ້າຍ ທີ່ ຍິ່ງ ໃຫຍ່ ຢູ່ ໃນ ໂລກ ແລະ ເປັນ ປະຈັກ ພະຍານ ຂອງ ຄູ ສອນ ສາດສະຫນາ ທີ່ ວ່າ ສະພາບ ສິນ ທໍາ ທີ່ ເສື່ອມ ໂຊມ ນັ້ນ ເກີດ ຈາກ ການ ເສື່ອມ ໂຊມ ຂອງ ວັນ ອາທິດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="137" m:para-id="21">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:137" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="21" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Great will be the indignation excited against all who refuse to accept their testimony. {GC 590.2}</source>
+<target>ຍິ່ງ ໃຫຍ່ ຈະ ເປັນ ຄວາມ ໃຈ ຮ້າຍ ທີ່ ຕື່ນ ເຕັ້ນ ຕໍ່ ທຸກ ຄົນ ທີ່ ບໍ່ ຍອມ ຮັບ ປະ ຈັກ ພະ ຍານ ຂອງ ເຂົາ ເຈົ້າ. {GC 590.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="138" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:138" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Satan's policy in this final conflict with God's people is the same that he employed in the opening of the great controversy in heaven.</source>
+<target>ນະ ໂຍ ບາຍ ຂອງ ຊາ ຕານ ໃນ ການ ຂັດ ແຍ້ງ ຄັ້ງ ສຸດ ທ້າຍ ນີ້ ກັບ ປະ ຊາ ຊົນ ຂອງ ພຣະ ເຈົ້າ ຄື ກັນ ກັບ ທີ່ ລາວ ໄດ້ ໃຊ້ ໃນ ການ ເປີດ ການ ໂຕ້ ຖຽງ ກັນ ອັນ ໃຫຍ່ ຫລວງ ໃນ ສະ ຫວັນ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="139" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:139" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>He professed to be seeking to promote the stability of the divine government, while secretly bending every effort to secure its overthrow.</source>
+<target>ລາວ ໄດ້ ປະ ຕິ ເສດ ວ່າ ສະ ແຫວງ ຫາ ທີ່ ຈະ ສົ່ງ ເສີມ ຄວາມ ຫມັ້ນ ຄົງ ຂອງ ລັດ ຖະ ບານ ແຫ່ງ ສະ ຫວັນ, ໃນ ຂະ ນະ ທີ່ ປິດ ລັບ ຄວາມ ພະ ຍາ ຍາມ ທຸກ ຢ່າງ ເພື່ອ ໃຫ້ ມັນ ຖືກ ໂຄ່ນ ລົ້ມ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="140" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:140" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>And the very work which he was thus endeavoring to accomplish he charged upon the loyal angels.</source>
+<target>ແລະ ວຽກ ງານ ທີ່ ລາວ ພະຍາຍາມ ເຮັດ ໃຫ້ ສໍາ ເລັດ ໄດ້ ນັ້ນ ລາວ ໄດ້ ກ່າວ ຫາ ທູດ ສະຫວັນ ທີ່ ຈົງ ຮັກ ພັກດີ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="141" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:141" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The same policy of deception has marked the history of the Roman Church.</source>
+<target>ນະ ໂຍ ບາຍ ການ ຫລອກ ລວງ ອັນ ດຽວ ກັນ ນັ້ນ ໄດ້ ຫມາຍ ເຖິງ ປະ ຫວັດ ສາດ ຂອງ ສາດ ສະ ຫນາ ຈັກ ໂຣມ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="142" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:142" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>It has professed to act as the vicegerent of Heaven, while seeking to exalt itself above God and to change His law.</source>
+<target>ມັນ ໄດ້ ປະ ຕິ ບັດ ວ່າ ເປັນ ຜູ້ ສະ ເດັດ ຂາດ ຂອງ ສະ ຫວັນ, ໃນ ຂະ ນະ ທີ່ ສະ ແຫວງ ຫາ ທີ່ ຈະ ຍົກ ຕົວ ເອງ ຂຶ້ນ ເຫນືອ ພຣະ ເຈົ້າ ແລະ ປ່ຽນ ກົດ ຂອງ ພຣະ ອົງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="143" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:143" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Under the rule of Rome, those who suffered death for their fidelity to the gospel were denounced as evildoers; they were declared to be in league with Satan; and every possible means was employed to cover them with reproach, to cause them to appear in the eyes of the people and even to themselves as the vilest of criminals.</source>
+<target>ພາຍ ໃຕ້ ການ ປົກຄອງ ຂອງ ໂຣມ, ຜູ້ ທີ່ ໄດ້ ຮັບ ຄວາມ ຕາຍ ຍ້ອນ ຄວາມ ຊື່ສັດ ຂອງ ເຂົາ ເຈົ້າ ຕໍ່ ພຣະກິດ ຕິ ຄຸນ ໄດ້ ຖືກ ປະນາມ ວ່າ ເປັນ ຄົນ ຮ້າຍ; ເຂົາ ເຈົ້າ ໄດ້ ຖືກ ປະ ກາດ ວ່າ ຢູ່ ໃນ ການ ຮ່ວມ ມື ກັບ ຊາ ຕານ; ແລະທຸກວິທີທາງທີ່ເປັນໄປໄດ້ແມ່ນຖືກໃຊ້ເພື່ອປົກປິດໃຫ້ເຂົາເຈົ້າດ້ວຍຄໍາຕໍາຫນິ, ເພື່ອເຮັດໃຫ້ເຂົາເຈົ້າປາກົດຕົວໃນສາຍຕາຂອງປະຊາຊົນແລະເຖິງຂັ້ນວ່າຕົນເອງເປັນຄົນຮ້າຍທີ່ສຸດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="144" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:144" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>So it will be now.</source>
+<target>ດັ່ງ ນັ້ນ ມັນ ຈະ ເປັນ ໄປ ໄດ້ ໃນ ຕອນ ນີ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="145" m:para-id="22">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:145" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="22" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>While Satan seeks to destroy those who honor God's law, he will cause them to be accused as lawbreakers, as men who are dishonoring God and bringing judgments upon the world. {GC 591.1}</source>
+<target>ໃນຂະນະທີ່ຊາຕານພະຍາຍາມທໍາລາຍຄົນທີ່ໃຫ້ກຽດຕໍ່ກົດຫມາຍຂອງພະເຈົ້າ ພະອົງຈະເຮັດໃຫ້ເຂົາເຈົ້າຖືກກ່າວຫາວ່າເປັນຜູ້ລະເມີດກົດຫມາຍ ໃນຖານະທີ່ເປັນຄົນທີ່ເຮັດໃຫ້ພະເຈົ້າເປັນກຽດແລະນໍາເອົາການພິພາກສາມາສູ່ໂລກ. {GC 591.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="146" m:para-id="23">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:146" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="23" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>God never forces the will or the conscience; but Satan's constant resort—to gain control of those whom he cannot otherwise seduce—is compulsion by cruelty.</source>
+<target>ພຣະເຈົ້າບໍ່ເຄີຍບັງຄັບໃຈຫຼືສະຕິຮູ້ສຶກຜິດຊອບ; ແຕ່ຊາຕານຈະໃຊ້ວິທີຄວບຄຸມຄົນທີ່ພະອົງບໍ່ສາມາດຫຼອກລວງໄດ້ໃນທາງອື່ນນັ້ນເປັນການບັງຄັບໂດຍຄວາມໂຫດຮ້າຍ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="147" m:para-id="23">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:147" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="23" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Through fear or force he endeavors to rule the conscience and to secure homage to himself.</source>
+<target>ໂດຍຄວາມຢ້ານກົວຫຼືບັງຄັບລາວພະຍາຍາມທີ່ຈະປົກຄອງສະຕິຮູ້ສຶກຜິດຊອບແລະໃຫ້ຄວາມເຄົາລົບຕໍ່ຕົນເອງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="148" m:para-id="23">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:148" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="23" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>To accomplish this, he works through both religious and secular authorities, moving them to the enforcement of human laws in defiance of the law of God. {GC 591.2}</source>
+<target>ເພື່ອເຮັດສິ່ງນີ້ໃຫ້ສໍາເລັດ ພະອົງໄດ້ເຮັດວຽກຜ່ານທັງທາງຝ່າຍສາສະຫນາແລະຝ່າຍໂລກ ໂດຍຍ້າຍພວກເຂົາເຈົ້າໄປບັງຄັບໃຊ້ກົດຫມາຍມະນຸດໃນການຄັດຄ້ານກົດຫມາຍຂອງພະເຈົ້າ. {GC 591.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="149" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:149" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Those who honor the Bible Sabbath will be denounced as enemies of law and order, as breaking down the moral restraints of society, causing anarchy and corruption, and calling down the judgments of God upon the earth.</source>
+<target>ຜູ້ທີ່ໃຫ້ກຽດໃນວັນຊະບາໂຕໃນຄໍາພີໄບເບິນຈະຖືກປະນາມວ່າເປັນສັດຕູຂອງກົດຫມາຍແລະຄວາມເປັນລະບຽບຮຽບຮ້ອຍ, ເປັນການທໍາລາຍການຢັບຢັ້ງທາງສິນລະທໍາຂອງສັງຄົມ, ເຮັດໃຫ້ອະທິປະໄຕແລະການສໍ້ລາດບັງຫຼວງ, ແລະເອີ້ນການຕັດສິນຂອງພຣະເຈົ້າເທິງແຜ່ນດິນໂລກ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="150" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:150" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Their conscientious scruples will be pronounced obstinacy, stubbornness, and contempt of authority.</source>
+<target>ຄວາມ ສໍານຶກ ຂອງ ເຂົາ ເຈົ້າ ຈະ ຖືກ ປະ ກາດ ວ່າ ເປັນ ການ ຫລົງ ໄຫລ, ດື້ ດ້ານ, ແລະ ດູ ຖູກ ສິດ ອໍາ ນາດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="151" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:151" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>They will be accused of disaffection toward the government.</source>
+<target>ເຂົາ ເຈົ້າ ຈະ ຖືກ ກ່າວ ຫາ ວ່າ ບໍ່ ມັກ ລັດຖະບານ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="152" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:152" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Ministers who deny the obligation of the divine law will present from the pulpit the duty of yielding obedience to the civil authorities as ordained of God.</source>
+<target>ຜູ້ຮັບໃຊ້ທີ່ປະຕິເສດພັນທະຂອງກົດຫມາຍແຫ່ງສະຫວັນຈະສະເຫນີຈາກແທ່ນປາໄສຫນ້າທີ່ຂອງການຍອມເຊື່ອຟັງສິດອໍານາດຂອງພົນລະເມືອງຕາມທີ່ໄດ້ຮັບການແຕ່ງຕັ້ງຈາກພຣະເຈົ້າ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="153" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:153" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In legislative halls and courts of justice, commandment keepers will be misrepresented and condemned.</source>
+<target>ໃນຫໍພັກນິຕິບັນຍັດ ແລະ ສານແຫ່ງຄວາມຍຸຕິທໍາ, ຜູ້ຮັກສາຄໍາສັ່ງຈະຖືກບິດບິດແລະຖືກຕໍາຫນິ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="154" m:para-id="24">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:154" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="24" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>A false coloring will be given to their words; the worst construction will be put upon their motives. {GC 592.1}</source>
+<target>ສີປອມຈະຖືກມອບໃຫ້ຕາມຄໍາເວົ້າຂອງພວກເຂົາ; ການກໍ່ສ້າງທີ່ຮ້າຍແຮງທີ່ສຸດຈະຖືກວາງໄວ້ໃນແຮງຈູງໃຈຂອງພວກເຂົາ. {GC 592.1}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="155" m:para-id="25">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:155" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="25" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>As the Protestant churches reject the clear, Scriptural arguments in defense of God's law, they will long to silence those whose faith they cannot overthrow by the Bible.</source>
+<target>ໃນຂະນະທີ່ຄຣິສຕະຈັກໂປແຕສຕັງປະຕິເສດການໂຕ້ຖຽງທີ່ຊັດເຈນໃນຄໍາພີໄບເບິນເພື່ອປົກປ້ອງກົດຫມາຍຂອງພະເຈົ້າ ເຂົາເຈົ້າຈະດົນນານທີ່ຈະມິດງຽບຜູ້ທີ່ມີຄວາມເຊື່ອທີ່ເຂົາເຈົ້າບໍ່ສາມາດໂຄ່ນລົ້ມໂດຍຄໍາພີໄບເບິນໄດ້.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="156" m:para-id="25">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:156" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="25" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Though they blind their own eyes to the fact, they are now adopting a course which will lead to the persecution of those who conscientiously refuse to do what the rest of the Christian world are doing, and acknowledge the claims of the papal sabbath. {GC 592.2}</source>
+<target>ເຖິງ ແມ່ນ ວ່າ ເຂົາ ເຈົ້າ ຕາ ບອດ ຕໍ່ ຄວາມ ຈິງ, ແຕ່ ບັດ ນີ້ ເຂົາ ເຈົ້າ ກໍາ ລັງ ຮັບ ເອົາ ເສັ້ນ ທາງ ທີ່ ຈະ ນໍາ ໄປ ສູ່ ການ ຂົ່ມ ເຫັງ ຂອງ ຜູ້ ທີ່ ບໍ່ ຍອມ ເຮັດ ສິ່ງ ທີ່ ຄົນ ອື່ນໆ ໃນ ໂລກ ຄຣິດ ສະ ຕຽນ ກໍາ ລັງ ເຮັດ ຢູ່, ແລະ ຮັບ ຮູ້ ການ ອ້າງ ອີງ ຂອງ ວັນ ຊະ ບາ ໂຕ ຂອງ ປະ ເທດ ປາ ວ. {GC 592.2}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="157" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:157" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The dignitaries of church and state will unite to bribe, persuade, or compel all classes to honor the Sunday.</source>
+<target>ຜູ້ ມີ ກຽດ ຂອງ ສາດ ສະ ຫນາ ຈັກ ແລະ ລັດ ຈະ ຮ່ວມ ກັນ ຮັບ ສິນ ບົນ, ຊັກ ຊວນ, ຫລື ບັງ ຮ້ອງ ທຸກ ຫ້ອງ ຮຽນ ໃຫ້ ກຽດ ແກ່ ວັນ ອາ ທິດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="158" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:158" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>The lack of divine authority will be supplied by oppressive enactments.</source>
+<target>ການ ຂາດ ສິດ ອໍານາດ ຂອງ ສະຫວັນ ຈະ ຖືກ ສະຫນອງ ໂດຍ ການ ກະທໍາ ທີ່ ກົດ ຂີ່ ຂົ່ມ ເຫັງ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="159" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:159" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Political corruption is destroying love of justice and regard for truth; and even in free America, rulers and legislators, in order to secure public favor, will yield to the popular demand for a law enforcing Sunday observance.</source>
+<target>ການ ສໍ້ ລາດ ບັງ ຫຼວງ ທາງ ການ ເມືອງ ພວມ ທໍາ ລາຍ ຄວາມ ຮັກ ຂອງ ຄວາມ ຍຸຕິ ທໍາ ແລະ ນັບຖື ຄວາມ ຈິງ; ແລະ ເຖິງ ແມ່ນ ວ່າ ໃນ ອາ ເມ ລິ ກາ ທີ່ ເປັນ ອິດ ສະ ລະ, ຜູ້ ປົກ ຄອງ ແລະ ຜູ້ ອອກ ກົດຫມາຍ, ເພື່ອ ຈະ ໄດ້ ຮັບ ຄວາມ ເຫັນ ດີ ຈາກ ສັງ ຄົມ, ຈະ ຍອມ ຮັບ ຕໍ່ ຄວາມ ຮຽກ ຮ້ອງ ທີ່ ນິ ຍົມ ຊົມ ຊອບ ສໍາ ລັບ ກົດ ຫມາຍ ທີ່ ບັງຄັບ ໃຊ້ ການ ປະ ຕິ ບັດ ໃນ ວັນ ອາ ທິດ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="160" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:160" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Liberty of conscience, which has cost so great a sacrifice, will no longer be respected.</source>
+<target>ເສລີພາບຂອງສະຕິຮູ້ສຶກຜິດຊອບ ເຊິ່ງໄດ້ເສຍສະລະຢ່າງໃຫຍ່ຫຼວງນັ້ນ ຈະບໍ່ໄດ້ຮັບການນັບຖືອີກຕໍ່ໄປ.</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="161" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:161" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>In the soon-coming conflict we shall see exemplified the prophet's words:</source>
+<target>ໃນ ການ ຂັດ ແຍ້ງ ທີ່ ຈະ ມາ ເຖິງ ໃນ ບໍ່ ຊ້າ ນີ້ ເຮົາ ຈະ ເຫັນ ເປັນ ຕົວຢ່າງ ຂອງ ຖ້ອຍ ຄໍາ ຂອງ ສາດສະດາ ທີ່ ວ່າ:</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="162" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:162" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>“The dragon was wroth with the woman, and went to make war with the remnant of her seed, which keep the commandments of God, and have the testimony of Jesus Christ.”</source>
+<target>"ພະຍານາກມີຄວາມວິຕົກກັງວົນກັບຜູ້ຍິງແລະໄດ້ໄປເຮັດສົງຄາມກັບສ່ວນທີ່ເຫຼືອຂອງເມັດຂອງລາວ ເຊິ່ງຮັກສາພຣະບັນຍັດຂອງພຣະເຈົ້າແລະມີປະຈັກພະຍານຂອງພຣະເຢຊູຄຣິດ."</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="163" m:para-id="26">
+<context-group>
+<context context-type="x-file-part">word/document.xml::body</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:163" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="26" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>Revelation 12:17. {GC 592.3}</source>
+<target>ພະນິມິດ 12:17. {GC 592.3}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="164" m:para-id="27">
+<context-group>
+<context context-type="x-file-part">word/document.xml::footer</context>
+<context context-type="x-key-note">rId7</context>
+</context-group>
+<trans-unit id="DYOS6bDL2w19b0aB1_dc6:164" m:confirmed="0" m:created-at="1697121710622" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1697121710622" m:modified-by="1040200" m:para-id="27" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>{i&gt;Page&lt;i}</source>
+<target>{i&gt;ຫນ້າທໍາອິດ&lt;i}</target>
+<alt-trans origin="machine-trans"><target/></alt-trans>
+<alt-trans origin="memsource-tm"><target/></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.0</m:trans-prop>
+  <m:trans-prop name="gross-score">0.0</m:trans-prop>
+  <m:trans-prop name="origin">mt</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+</body>
+</file>
+<m:extra>
+<m:users>
+<m:user fullname="Brian Wilson" id="1040200" uid="X5iTHm6d3KqZcZ8Uwgact3" username="bountonw"/>
+</m:users>
+</m:extra>
+</xliff>
