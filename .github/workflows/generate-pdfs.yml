@@ -1,23 +1,22 @@
 name: Generate PDFs
 
 on:
-  # TODO: make this run on merges too?
-  # push:
-  #   branches: ["master", "release/*"]
-  #   tags: ["*"]
+  push:
+    branches: ["main"]
+    paths:
+      - 'th/**.md'
   pull_request:
     branches: ["main"]
-    # TODO: fix this
-    # paths:
-    #   - ".actions/*"
-    #   - ".github/workflows/docs-build.yml"
-    #   - "requirements/**"
-    #   - "docs/**"
-    #   - "src/**"
-    #   - "setup.py"
-    #   - "pyproject.toml"  # includes metadata used in the package creation
-    #   - "!*.md"
-    #   - "!**/*.md"
+    paths:
+      - 'th/**.md'
+    # The following are placeholders for future adjustments, keep them commented if not in use:
+    # - ".actions/*"
+    # - ".github/workflows/docs-build.yml"
+    # - "requirements/**"
+    # - "docs/**"
+    # - "src/**"
+    # - "setup.py"
+    # - "pyproject.toml"  # includes metadata used in the package creation
 
 defaults:
   run:
