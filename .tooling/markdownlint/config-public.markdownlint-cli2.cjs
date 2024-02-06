@@ -16,11 +16,11 @@ const publicFormattingRules = [
   },
   {
     name: "missing space after closing curly quotes",
-    regexp: /[’”][^\n<]/,
+    regexp: /[’”][^\s<’”—\.\[]/,
   },
   {
     name: "no trailing space after 'ๆ' mai yamok",
-    regexp: /ๆ[^\n ’”]/
+    regexp: /ๆ[^\s’”]/,
   },
 ];
 
