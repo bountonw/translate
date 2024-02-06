@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:m="http://www.memsource.com/mxlf/2.0" version="1.2" m:level="3" m:version="2.9">
+<file datatype="x-undefined" original="ST_18870818_10.txt" source-language="en" target-language="th" m:begin-group-id="0" m:end-group-id="4" m:file-format="PLAIN_TEXT" m:job-uid="Unwm0RNinvPelytnFmlDZ5" m:project-uid="wa17OBtdk1CCTQb50B9RKh" m:task-id="WkwKpMkhgppDFxcp_dc5">
+<header>
+<m:in-ctx-preview-skel bilingual="false">
+<![CDATA[<html>
+<head>
+<style>
+body, span {white-space: pre;}
+</style>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
+</head>
+<body>
+<span><span id="m-tgroup_0" class="m-tgroup"></span> <span id="m-tgroup_1" class="m-tgroup"></span> <span id="m-tgroup_2" class="m-tgroup"></span> <span id="m-tgroup_3" class="m-tgroup"></span> <span id="m-tgroup_4" class="m-tgroup"></span></span>
+</body>
+</html>]]>
+</m:in-ctx-preview-skel>
+</header>
+<body>
+
+<group id="0" m:para-id="0">
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:0" m:confirmed="3" m:created-at="1690855839648" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1690857055389" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>“It is Christ dwelling in the soul that gives us spiritual power, and makes us channels of light.</source>
+<target>“สิ่งที่ให้กำลังด้านจิตวิญญาณและเปลี่ยนเราให้เป็นแสงสว่างแก่คนอื่นนั้น คือการที่พระคริสต์ประทับในใจ</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target>“พระคริสต์ทรงสถิตอยู่ในจิตวิญญาณที่ทำให้เรามีอำนาจทางจิตวิญญาณ, และทำให้เราเป็นช่องทางของแสง.</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+<m:editing-stats>
+                            <m:editing-time>84139</m:editing-time>
+                            <m:thinking-time>84139</m:thinking-time>
+            </m:editing-stats>
+</trans-unit>
+</group>
+<group id="1" m:para-id="0">
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:1" m:confirmed="2" m:created-at="1690855839648" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1690856379735" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>The more light we have, the more we can impart to others around us.</source>
+<target> ยิ่งเรามีแสงสว่างมากเท่าไหร่ เราก็ยิ่งสามารถแบ่งปันให้กับผู้อื่นได้มากขึ้นเท่านั้น</target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target>แสงมากขึ้นเรามี, มากกว่าที่เราสามารถบอกให้คนอื่น ๆ รอบตัวเรา.</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="2" m:para-id="0">
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:2" m:confirmed="2" m:created-at="1690855839648" m:created-by="1040200" m:gross-score="0.75" m:level-edited="false" m:locked="false" m:modified-at="1707187292592" m:modified-by="1040200" m:para-id="0" m:score="0.75" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>The more closely we live to Jesus, the clearer views shall we have of His loveliness.</source>
+<target> ยิ่งเราดำเนินชีวิตใกล้ชิดพระเยซูมากเท่าใด เราจะยิ่งเห็นคุณงามความดีของพระองค์มากขึ้นตามลำดับ</target>
+<alt-trans match-quality="0.75" origin="machine-trans"><target>ยิ่งเรามีชีวิตอยู่กับพระเยซูอย่างใกล้ชิด เราจะมีมุมมองที่ชัดเจนยิ่งขึ้นของความรักของพระองค์</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="3" m:para-id="0">
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:3" m:confirmed="2" m:created-at="1690855839648" m:created-by="1040200" m:gross-score="0.75" m:level-edited="false" m:locked="false" m:modified-at="1690856381576" m:modified-by="1040200" m:para-id="0" m:score="0.75" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>As we behold Him in His purity, we discern more clearly our own faults of character.</source>
+<target> ขณะที่เรามองดูความบริสุทธิ์ของพระองค์ เราจะเห็นข้อบกพร่องในอุปนิสัยของเราชัดเจนยิ่งขึ้น</target>
+<alt-trans match-quality="0.75" origin="machine-trans"><target>ขณะที่เราเห็นพระองค์ในความบริสุทธิ์ของพระองค์ เราจะเห็นความผิดของตัวละครของเราอย่างชัดเจนยิ่งขึ้น</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+<group id="4" m:para-id="0">
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:4:0:0" m:confirmed="2" m:created-at="1690855839648" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1690856382881" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" xml:space="preserve">
+<source>We yearn after Him, and for that fullness that is in Him, and that shines out in the perfection of His heavenly character; </source>
+<target> เราโหยหาพระองค์และความไพบูลย์ซึ่งอยู่ในพระองค์ คือความบริบูรณ์ที่ฉายออกจากพระลักษณะนิสัยอันสมบูรณ์แบบของพระองค์ </target>
+<alt-trans match-quality="0.0" origin="machine-trans"><target>เราปรารถนาหลังจากพระองค์ และด้วยความบริบูรณ์ที่อยู่ในพระองค์ และทรงส่องสว่างในความสมบูรณ์ของพระเอกบนสวรรค์ของพระองค์ </target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:4:0:1" m:confirmed="2" m:created-at="1690856378332" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1690856384044" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="null" xml:space="preserve">
+<source>and by beholding we become changed into His image.” </source>
+<target>และโดยการเพ่งพินิจดูพระองค์ เราจึงได้รับการเปลี่ยนแปลงไปเป็นเหมือนพระฉายาของพระองค์.”</target>
+<alt-trans match-quality="0.75" origin="machine-trans"><target>และเมื่อเห็นเราก็กลายเป็นรูปพระฉายาของพระองค์” </target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+<trans-unit id="WkwKpMkhgppDFxcp_dc5:4:1" m:confirmed="2" m:created-at="1690856089595" m:created-by="1040200" m:gross-score="0.0" m:level-edited="false" m:locked="false" m:modified-at="1707187296707" m:modified-by="1040200" m:para-id="0" m:score="0.0" m:trans-origin="mt" xml:space="preserve">
+<source>{ST August 18, 1887, par. 10}</source>
+<target> {ST 18 สิงหาคม, ค.ศ. 1887, วรรค 10}</target>
+<alt-trans match-quality="0.53" origin="machine-trans"><target>{ST 18 สิงหาคม 1887 พ.10}</target></alt-trans>
+<alt-trans match-quality="0.0" origin="memsource-tm"><target/></alt-trans>
+</trans-unit>
+</group>
+</body>
+</file>
+<m:extra>
+<m:users>
+<m:user fullname="Brian Wilson" id="1040200" uid="X5iTHm6d3KqZcZ8Uwgact3" username="bountonw"/>
+</m:users>
+</m:extra>
+</xliff>
