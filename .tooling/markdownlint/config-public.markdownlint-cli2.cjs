@@ -1,5 +1,6 @@
 const { forEachLine, getLineMetadata } = require("markdownlint-rule-helpers");
 const { config: draftConfig } = require("./config-draft.markdownlint-cli2.cjs");
+const { terms } = require("./forbidden-terms.cjs");
 
 const publicFormattingRules = [
   {
@@ -13,6 +14,10 @@ const publicFormattingRules = [
   {
     name: "closing parenthesis not properly followed",
     regexp: /\)[^ ’”;:,.!\[]/,
+  },
+  {
+    name: "forbidden term",
+    regexp: new RegExp(`(${terms.join("|")})`, "g"),
   },
 ];
 
