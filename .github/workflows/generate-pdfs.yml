@@ -28,15 +28,22 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
+      
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-xetex swath
+      
       - name: Run Make
         working-directory: ./.tooling/latex/
         run: ./draftall.sh
+      
+      - name: Set Current Time
+        id: current-time
+        run: echo "CURRENT_TIME=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
+      
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: PP01-${{ github.sha }}
+          name: PP1_${{ env.CURRENT_TIME }}
           path: .tooling/latex/draft
