@@ -26,6 +26,42 @@ defaults:
     shell: bash
 
 jobs:
+  setup:
+    # Specify the runner environment
+    runs-on: ubuntu-latest
+    
+    # Define outputs that other jobs can use based on this job's findings
+    outputs:
+      build_scope: ${{ steps.determine_scope.outputs.build_scope }}
+    
+    steps:
+      # Checkout the repository to access its contents
+      - uses: actions/checkout@v4
+      
+      # Determine the scope of the build based on changed files
+      - id: determine_scope
+        run: |
+          # Fetch the list of files that changed using git diff
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          
+          # Initialize the build scope variable
+          BUILD_SCOPE="none"
+          
+          # Check if there are changes in the latex directory
+          if echo "$CHANGED_FILES" | grep -q 'latex/'; then
+            BUILD_SCOPE="all"
+          # If not, check for changes in the Thai documents directory
+          elif echo "$CHANGED_FILES" | grep -q 'th/'; then
+            BUILD_SCOPE="th"
+          # Next, check for changes in the Lao documents directory
+          elif echo "$CHANGED_FILES" | grep -q 'lo/'; then
+            BUILD_SCOPE="lo"
+          fi
+          
+          # Set the build scope output for this job
+          echo "build_scope=${BUILD_SCOPE}" >> $GITHUB_ENV
+          echo "::set-output name=build_scope=${BUILD_SCOPE}"
+
   generate-pdfs:
     runs-on: ubuntu-20.04
     steps:
