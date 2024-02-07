@@ -4,17 +4,13 @@ on:
   push:
     paths:
       - 'th/**.md'
-      # 'lo/**.md'
-      - 'generate-pdfs.yml'
-      - '**/draftall.sh'
-      - '**/makefile'
+      # - 'lo/**.md' (commented out until needed)
+      - 'latex/**'
   pull_request:
     paths:
       - 'th/**.md'
-      # 'lo/**.md'
-      - 'generate-pdfs.yml'
-      - '**/draftall.sh'
-      - '**/makefile'
+      # - 'lo/**.md' (commented out until needed)
+      - 'latex/**'
 
     # The following are placeholders for future adjustments, keep them commented if not in use:
     # - ".actions/*"
