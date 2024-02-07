@@ -5,10 +5,17 @@ on:
     branches: ["main"]
     paths:
       - 'th/**.md'
+      - 'generate-pdfs.yml'
+      - 'draftall.sh'
+      - 'makefile'
   pull_request:
     branches: ["main"]
     paths:
       - 'th/**.md'
+      - 'generate-pdfs.yml'
+      - 'draftall.sh'
+      - 'makefile'
+
     # The following are placeholders for future adjustments, keep them commented if not in use:
     # - ".actions/*"
     # - ".github/workflows/docs-build.yml"
