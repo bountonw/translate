@@ -62,26 +62,47 @@ jobs:
           echo "build_scope=${BUILD_SCOPE}" >> $GITHUB_ENV
           echo "::set-output name=build_scope=${BUILD_SCOPE}"
 
-  generate-pdfs:
+  build-docs:
+    # This job needs the setup job to complete before it starts.
+    needs: setup
+    # This job runs if the setup job determined there's something to build (i.e., build_scope is not 'none').
+    if: ${{ needs.setup.outputs.build_scope != 'none' }}
+    # Specifies the type of runner that the job will execute on.
     runs-on: ubuntu-20.04
     steps:
+      # Checkout the repository to access its content.
       - uses: actions/checkout@v4
       
-      - name: Install pandoc & texlive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
+      # Install necessary dependencies for the build process.
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y pandoc texlive-xetex swath
       
-      - name: Run Make
-        working-directory: ./.tooling/latex/
-        run: ./draftall.sh
+      # Conditionally execute the build process for all documents if the build scope is 'all'.
+      - name: Build all documents
+        if: ${{ needs.setup.outputs.build_scope == 'all' }}
+        run: ./latex/draftall.sh --all
+        working-directory: ./
       
+      # Conditionally execute the build process for Thai documents if the build scope is 'th'.
+      - name: Build Thai documents
+        if: ${{ needs.setup.outputs.build_scope == 'th' }}
+        run: ./latex/draftall.sh --language th
+        working-directory: ./
+      
+      # Conditionally execute the build process for Lao documents if the build scope is 'lo'.
+      - name: Build Lao documents
+        if: ${{ needs.setup.outputs.build_scope == 'lo' }}
+        run: ./latex/draftall.sh --language lo
+        working-directory: ./
+      
+     # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Current Time
-        id: current-time
         run: echo "CURRENT_TIME=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
       
+      # Upload the generated documents as an artifact of the workflow run
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: PP_${{ env.CURRENT_TIME }}
-          path: .tooling/latex/draft
+          # Adjust the artifact name to include build scope and current time
+          name: ${{ env.BUILD_SCOPE }}_${{ env.CURRENT_TIME }}
+          path: ./.tooling/latex/draft/**
