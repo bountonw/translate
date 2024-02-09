@@ -4,7 +4,7 @@
 
 # Input directory
 # TODO: make dynamic
-SRCDIR = ../../th/PP/PP1/03_public
+SRCDIR ?=
 # Partial output directory
 TEXDIR = ./tex
 # Draft output directory

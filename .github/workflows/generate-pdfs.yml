@@ -1,42 +1,108 @@
 name: Generate PDFs
 
 on:
-  # TODO: make this run on merges too?
-  # push:
-  #   branches: ["master", "release/*"]
-  #   tags: ["*"]
+  push:
+    paths:
+      - 'th/**.md'
+      # - 'lo/**.md' (commented out until needed)
+      - 'latex/**'
   pull_request:
-    branches: ["main"]
-    # TODO: fix this
-    # paths:
-    #   - ".actions/*"
-    #   - ".github/workflows/docs-build.yml"
-    #   - "requirements/**"
-    #   - "docs/**"
-    #   - "src/**"
-    #   - "setup.py"
-    #   - "pyproject.toml"  # includes metadata used in the package creation
-    #   - "!*.md"
-    #   - "!**/*.md"
+    paths:
+      - 'th/**.md'
+      # - 'lo/**.md' (commented out until needed)
+      - 'latex/**'
+
+    # The following are placeholders for future adjustments, keep them commented if not in use:
+    # - ".actions/*"
+    # - ".github/workflows/docs-build.yml"
+    # - "requirements/**"
+    # - "docs/**"
+    # - "src/**"
+    # - "setup.py"
+    # - "pyproject.toml"  # includes metadata used in the package creation
 
 defaults:
   run:
     shell: bash
 
 jobs:
-  generate-pdfs:
+  setup:
+    # Specify the runner environment
+    runs-on: ubuntu-latest
+    
+    # Define outputs that other jobs can use based on this job's findings
+    outputs:
+      build_scope: ${{ steps.determine_scope.outputs.build_scope }}
+    
+    steps:
+      # Checkout the repository to access its contents
+      - uses: actions/checkout@v4
+      
+      # Determine the scope of the build based on changed files
+      - id: determine_scope
+        run: |
+          # Fetch the list of files that changed using git diff
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          
+          # Initialize the build scope variable
+          BUILD_SCOPE="none"
+          
+          # Check if there are changes in the latex directory
+          if echo "$CHANGED_FILES" | grep -q 'latex/'; then
+            BUILD_SCOPE="all"
+          # If not, check for changes in the Thai documents directory
+          elif echo "$CHANGED_FILES" | grep -q 'th/'; then
+            BUILD_SCOPE="th"
+          # Next, check for changes in the Lao documents directory
+          elif echo "$CHANGED_FILES" | grep -q 'lo/'; then
+            BUILD_SCOPE="lo"
+          fi
+          
+          # Set the build scope output for this job
+          echo "build_scope=${BUILD_SCOPE}" >> $GITHUB_ENV
+          echo "::set-output name=build_scope=${BUILD_SCOPE}"
+
+  build-docs:
+    # This job needs the setup job to complete before it starts.
+    needs: setup
+    # This job runs if the setup job determined there's something to build (i.e., build_scope is not 'none').
+    if: ${{ needs.setup.outputs.build_scope != 'none' }}
+    # Specifies the type of runner that the job will execute on.
     runs-on: ubuntu-20.04
     steps:
+      # Checkout the repository to access its content.
       - uses: actions/checkout@v4
-      - name: Install pandoc & texlive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
-      - name: Run Make
-        working-directory: ./.tooling/latex/
-        run: ./draftall.sh
+      
+      # Install necessary dependencies for the build process.
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y pandoc texlive-xetex swath
+      
+      # Conditionally execute the build process for all documents if the build scope is 'all'.
+      - name: Build all documents
+        if: ${{ needs.setup.outputs.build_scope == 'all' }}
+        run: ./latex/draftall.sh --all
+        working-directory: ./
+      
+      # Conditionally execute the build process for Thai documents if the build scope is 'th'.
+      - name: Build Thai documents
+        if: ${{ needs.setup.outputs.build_scope == 'th' }}
+        run: ./latex/draftall.sh --language th
+        working-directory: ./
+      
+      # Conditionally execute the build process for Lao documents if the build scope is 'lo'.
+      - name: Build Lao documents
+        if: ${{ needs.setup.outputs.build_scope == 'lo' }}
+        run: ./latex/draftall.sh --language lo
+        working-directory: ./
+      
+     # Dynamically set the name for the artifact based on the current time and build scope
+      - name: Set Current Time
+        run: echo "CURRENT_TIME=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
+      
+      # Upload the generated documents as an artifact of the workflow run
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: PP01-${{ github.sha }}
-          path: .tooling/latex/draft
+          # Adjust the artifact name to include build scope and current time
+          name: ${{ env.BUILD_SCOPE }}_${{ env.CURRENT_TIME }}
+          path: ./.tooling/latex/draft/**
