@@ -1,3 +1,5 @@
+#!/usr/bin/env lua
+
 local function executeShellCommand(command)
     local handle = io.popen(command)
     local result = handle:read("*a")
