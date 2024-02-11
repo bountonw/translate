@@ -2,8 +2,13 @@ const { forEachLine, getLineMetadata } = require("markdownlint-rule-helpers");
 const { config: draftConfig } = require("./config-draft.markdownlint-cli2.cjs");
 const fs = require("fs");
 const path = require("path");
-const forbiddenTerms = fs
-  .readFileSync(path.resolve(__dirname, "./forbidden-terms.md"), "utf-8")
+const forbiddenThaiTerms = fs
+  .readFileSync(path.resolve(__dirname, "./forbidden_thai_terms.txt"), "utf-8")
+  .split("\n")
+  .filter((l) => l && l.charAt(0) !== "#");
+
+const forbiddenLaoTerms = fs
+  .readFileSync(path.resolve(__dirname, "./forbidden_lao_terms.txt"), "utf-8")
   .split("\n")
   .filter((l) => l && l.charAt(0) !== "#");
 
