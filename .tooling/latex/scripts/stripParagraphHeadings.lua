@@ -1,4 +1,4 @@
-function stripParagraphHeadings(mdFile, outputFile)
+function stripParagraphHeadings(mdFile)
   local strippedContent = ""
 
   for line in io.lines(mdFile) do
@@ -7,15 +7,5 @@ function stripParagraphHeadings(mdFile, outputFile)
     end
   end
 
-  local f = io.open(outputFile, "w")
-  if f then
-    f:write(strippedContent)
-    f:close()
-    print("Stripped content saved to", outputFile)
-  else
-    print("Error opening output file:", outputFile)
-  end
+  return strippedContent
 end
-
--- Specify input and output filenames
-stripParagraphHeadings("source/GC/GC01_en.md", "source/stripped/GC/GC01_en.md")
