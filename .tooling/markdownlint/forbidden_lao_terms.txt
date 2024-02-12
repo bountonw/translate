@@ -1,3 +1,8 @@
 # List of common typos and misspellings of Lao words to be flagged.
 
 ພຮະ
+າ່
+າ້
+ເຈາ
+ເຂາ
+ເຂ້າ
