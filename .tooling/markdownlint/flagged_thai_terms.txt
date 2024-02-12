@@ -1,0 +1,4 @@
+# List of Thai terms that raise a warning upon linting.
+
+เหี้ย
+  
