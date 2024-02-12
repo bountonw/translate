@@ -319,3 +319,6 @@ TSWLatexianTemp*
 
 # Local sandbox folders
 **/sandbox/
+
+# Editor generated files
+*.~lock*
