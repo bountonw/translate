@@ -1,13 +1,13 @@
 # List of common typos and misspellings of Thai words to be flagged.
 
-พณะ
-เจๆ้า
-ปรากฎ
-กฏหมาย
 กฏบัญญัติ
+กฏหมาย
 กฏเกณฑ์
+ปรากฎ
+ผุ้
+พณะ
 มงกุฏ
+เจๆ้า
 เเ
 เแ
 แเ
-ผุ้
