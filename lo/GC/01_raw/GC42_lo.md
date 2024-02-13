@@ -79,19 +79,19 @@ author:
 
 ## {GC 668.1}
 
-There are papist priests and prelates, who claimed to be Christ’s ambassadors, yet employed the rack, the dungeon, and the stake to control the consciences of His people. There are the proud pontiffs who exalted themselves above God and presumed to change the law of the Most High. Those pretended fathers of the church have an account to render to God from which they would fain be excused. Too late they are made to see that the Omniscient One is jealous of His law and that He will in no wise clear the guilty. They learn now that Christ identifies His interest with that of His suffering people; and they feel the force of His own words: “Inasmuch as ye have done it unto one of the least of these My brethren, ye have done it unto Me.” Matthew 25:40. {GC 668.1}
+ທີ່ນັ້ນກໍມີພວກບາດລຼວງ ແລະ ພວກຜູ້ນຳລະບອບສັນຕະປາປາທີ່ເຄີຍອ້າງວ່າຕົນເປັນທູດຂອງພຣະຄຣິສ ແຕ່ໄດ້ໃຊ້ເຄື່ອງທໍລະມານກາຍ, ຄຸກມືດ ແລະ ລຼັກປະຫານເພື່ອຄວບຄຸມຈິດສຳນຶກຜິດຊອບຂອງໄພ່ພົນຂອງພຣະອົງ. ພວກສັນຕະປາປາຜູ້ທະນົງຕົວກໍຢູ່ທີ່ນັ້ນ, ຄົນເລຼົ່ານີ້ເຄີຍຍົກຕົວເອງຂຶ້ນເໜືອພຣະເຈົ້າ ແລະ ບັງອາດຄິດທີ່ຈະປ່ຽນທຳບັນຍັດຂອງອົງຜູ້ສູງສຸດ. ຄົນເລຼົ່ານີ້ເຄີຍອ້າງວ່າຕົນເປັນບັນພະບຸລຸດຂອງຄຣິສຕະຈັກ, ເຖິງແມ່ນວ່າພວກເຂົາຢາກຈະລຼີກລ່ຽງກໍຕາມ ແຕ່ກໍຈະຕ້ອງລາຍງານການກະທຳຂອງຕົນຕໍ່ພຣະເຈົ້າຢ່າງແນ່ນອນ. ພວກເຂົາມາເຖິງຈຸດທີ່ຕ້ອງຍອມຮັບວ່າ ພຣະເຈົ້າຜູ້ຊົງຮູ້ແຈ້ງໃນທຸກສິ່ງ ຊົງຫວງແຫນກົດບັນຍັດຂອງພຣະອົງ ແລະ ຈະບໍ່ລືມທີ່ຈະລົງໂທດຜູ້ກະທຳຜິດ ແຕ່ເປັນການຍອມຮັບທີ່ສາຍເກີນໄປ. ພວກເຂົາຮຽນຮູ້ວ່າ ພຣະຄຣິສຊົງເອົາໃຈໃສ່ໃນຄວາມທຸກຍາກຂອງຄົນຂອງພຣະອົງ ຈຶ່ງຮູ້ສຶກເຖິງນ້ຳໜັກຂອງຖ້ອຍຄຳທີ່ພຣະອົງຊົງກ່າວວ່າ: “ເມື່ອພວກເຈົ້າໄດ້ເຮັດສິ່ງເລຼົ່ານີ້ ແກ່ຜູ້ທີ່ຕ່ຳຕ້ອຍທີ່ສຸດຄົນໜຶ່ງໃນພວກພີ່ນ້ອງເລຼົ່ານີ້ຂອງເຮົາ ພວກເຈົ້າກໍໄດ້ເຮັດແກ່ເຮົາເໝືອນກັນ” (ມັດທາຍ 25:40). {GC 668.1}
 
 ## {GC 668.2}
 
-The whole wicked world stand arraigned at the bar of God on the charge of high treason against the government of heaven. They have none to plead their cause; they are without excuse; and the sentence of eternal death is pronounced against them. {GC 668.2}
+ໃນການພິພາກສາຂອງພຣະເຈົ້ານັ້ນ ຄົນອະທຳທັງປວງຖືກก่าวหาໃນຂໍ້ຫາເປັນກະບົດຕໍ່ການປົກຄອງແຫ່ງສະຫວັນ. ບໍ່ມີທະນາຍຄວາມຄົນໃດມາສູ້ຄະດີໃຫ້ຄົນເລຼົ່ານີ້, ພວກເຂົາບໍ່ມີຂໍ້ແກ້ຕົວ, ຄຳຕັດສິນຈຶ່ງຖືກປະກາດອອກໄປວ່າ ພວກເຂົາຈະຕ້ອງຖືກລົງໂທດໃຫ້ຕາຍໄປຕະລຼອດນິຣັນດອນ. {GC 668.2}
 
 ## {GC 668.3}
 
-It is now evident to all that the wages of sin is not noble independence and eternal life, but slavery, ruin, and death. The wicked see what they have forfeited by their life of rebellion. The far more exceeding and eternal weight of glory was despised when offered them; but how desirable it now appears. “All this,” cries the lost soul, “I might have had; but I chose to put these things far from me. Oh, strange infatuation! I have exchanged peace, happiness, and honor for wretchedness, infamy, and despair.” All see that their exclusion from heaven is just. By their lives they have declared: “We will not have this Man [Jesus] to reign over us.” {GC 668.3}
+ທຸກຄົນເຫັນຢ່າງຈະແຈ້ງວ່າ ຂ້າຈ້າງແຫ່ງຄວາມບາບ ບໍ່ແມ່ນອິດສະລຼະພາບທີ່ສະຫງ່າງາມ ແລະ ຊີວິດນິຣັນ ແຕ່ແມ່ນຄວາມເປັນທາດ, ຄວາມພິນາດ ແລະ ຄວາມຕາຍ. ຄົນອະທຳເຫັນສິ່ງທີ່ຕົນໄດ້ສູນເສັຍເພື່ອແລກກັບຊີວິດແຫ່ງການເປັນກະບົດ. ເມື່ອມີການປະກາດເຖິງສະຫງ່າງຣາສີແຫ່ງຊີວິດອັນຕະລຼອດໄປເປັນນິດ ພວກເຂົາກໍດູຖູກ; ແຕ່ບັດນີ້ສະຫງ່າຣາສີນັ້ນເບິ່ງຄືເປັນສິ່ງທີ່ໜ້າປາຖະໜາລຼາຍ. ຄົນທີ່ກຳລັງພິນາດຈຶ່ງຮ້ອງວ່າ: “ເຮົາສາມາດໄດ້ສິ່ງທັງໝົດນີ້ ແຕ່ເຮົາເລືອກທີ່ຈະປະມັນຖິ້ມໄວ້ຫ່າງໆ. ໂອ ຄວາມລຼົງໃລຼທີ່ແປກປະລຼາດ! ເຮົາໄດ້ເອົາສັນຕິສຸກ ແລະກຽດຕິຍົດສັກສີ ໄປແລກເອົາຄວາມທຸກ, ການເສັຍຊື່ສຽງ ແລະ ຄວາມສິ້ນຫວັງ.” ທຸກຄົນເຫັນວ່າເປັນການຍຸຕິທຳທີ່ຖືກຕັດຂາດໄປຈາກສະຫວັນ ເພາະໂດຍທາງຊີວິດ ພວກເຂົາໄດ້ປະກາດວ່າ: “ພວກເຮົາບໍ່ຕ້ອງການຊາຍຄົນນີ້ [ໝາຍເຖິງພຣະເຢຊູ] ໃຫ້ເປັນຜູ້ປົກຄອງຂອງພວກເຮົາ” (ລູກາ 19:14). {GC 668.3}
 
 ## {GC 668.4}
 
-As if entranced, the wicked have looked upon the coronation of the Son of God. They see in His hands the tables of the divine law, the statutes which they have despised and transgressed. They witness the outburst of wonder, rapture, and adoration from the saved; and as the wave of melody sweeps over the multitudes without the city, all with one voice exclaim, “Great and marvelous are Thy works, Lord God Almighty; just and true are Thy ways, Thou King of saints” (Revelation 15:3); and, falling prostrate, they worship the Prince of life. {GC 668.4}
+ຄົນອະທຳເບິ່ງການເຈິ່ມພຣະບຸດຂອງພຣະເຈົ້າເປັນກະສັດເໝືອນຖືກສະກົດຈິດ. ພວກເຂົາເຫັນແຜ່ນກົດບັນຍັດໃນພຣະຫັດຂອງພຣະອົງ ຄືກົດລະບຽບຕ່າງໆ ທີ່ພວກເຂົາດູຖູກ ແລະ ຝ່າຝືນນັ້ນ ແລະ ເຫັນຄວາມຕື່ນເຕ້ນ, ຄວາມສຸກ ແລະ ການສັນເສີນຂອງຄົນທັງລຼາຍທີ່ໄດ້ຮັບຄວາມລອດ; ໃນຂະນະທີ່ສຽງຮ້ອງດັງກ້ອງໄປເຖິງພວກທີ່ຢູ່ນອກນະຄອນນັ້ນ ທຸກຄົນຮ້ອງຂຶ້ນເປັນສຽງດຽວກັນວ່າ, “ຂ້າແດ່ອົງພຣະຜູ້ເປັນເຈົ້າ ພຣະເຈົ້າຜູ້ຊົງຣິດທານຸພາບສູງສຸດ ພຣະຣາຊກິດຂອງພຣະອົງກໍໃຫຍ່ລຼວງ ແລະ ໜ້າອັດສະຈັນ ຂ້າແດ່ພຣະມະຫາກະສັດແຫ່ງປະຊາຊາດທັງປວງ ວິຖີທາງຂອງພຣະອົງກໍຍຸຕິທຳ ແລະ ທ້ຽງແທ້” (Revelation 15:3); ພວກເຂົາຈຶ່ງຂາບລົງນະມັດສະການອົງເຈົ້າຊີວິດ. {GC 668.4}
 
 ## {GC 669.1}
 
