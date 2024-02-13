@@ -5,6 +5,7 @@ book:
 chapter:
   number: 42
   title:
+    lo: ຄວາມຂັດແຍ້ງສິ້ນສຸດລົງ
     en: The Controversy Ended
   url: https://legacy.egwwritings.org/?ref=en_GC.662&para=132.2989
 author:
