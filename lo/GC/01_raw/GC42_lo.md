@@ -5,6 +5,7 @@ book:
 chapter:
   number: 42
   title:
+    lo: ຄວາມຂັດແຍ້ງສິ້ນສຸດລົງ
     en: The Controversy Ended
   url: https://legacy.egwwritings.org/?ref=en_GC.662&para=132.2989
 author:
@@ -67,31 +68,31 @@ author:
 
 ## {GC 667.1}
 
-And now before the swaying multitude are revealed the final scenes—the patient Sufferer treading the path to Calvary; the Prince of heaven hanging upon the cross; the haughty priests and the jeering rabble deriding His expiring agony; the supernatural darkness; the heaving earth, the rent rocks, the open graves, marking the moment when the world’s Redeemer yielded up His life. {GC 667.1}
+ບັດນີ້ມີການສາຍສາກສຸດທ້າຍໃຫ້ຝູງຊົນທີ່ຢືນໂອນເອນຢູ່ນັ້ນດູຄື ພາບຂອງພຣະຄຣິສໃນຂະນະທີ່ອົດທົນກ້າວເທົ້າຍ່າງເດີນໄປສູ່ພູເຂົາຄານວາຣີຢ່າງທຸກທໍລະມານ; ອົງເຈົ້ານາຍແຫ່ງສະຫວັນຖືກແຂວນຢູ່ເທິງໄມ້ກາງແຂນ; ບັນດາປະໂຣຫິດຜູ້(ໂອຫັງ/ອວດອົງ) ແລະ ຝູງຊົນທີ່ເຍາະເຍີຍຄວາມເຈັບປວດຂອງພຣະອົງໃນຊ່ວງລົມຫາຍໃຈສຸດທ້າຍ; ຄວາມມືດທຶບທີ່ເໜືອທຳມະຊາດ; ແຜ່ນດິນສະທ້ານຫວັ່ນໄຫວ ໂງ່ນຫີນແຕກເປັນປ່ຽງໆ ແລະ ອຸບມົງຝັງສົບກໍເປີດອອກ ເປັນໝຸດໝາຍເຖິງເວລາທີ່ພຣະຜູ້ໄຖ່ຂອງໂລກສິ້ນ(ພຣະຊົນ/ໃຈ). {GC 667.1}
 
 ## {GC 667.2}
 
-The awful spectacle appears just as it was. Satan, his angels, and his subjects have no power to turn from the picture of their own work. Each actor recalls the part which he performed. Herod, who slew the innocent children of Bethlehem that he might destroy the King of Israel; the base Herodias, upon whose guilty soul rests the blood of John the Baptist; the weak, timeserving Pilate; the mocking soldiers; the priests and rulers and the maddened throng who cried, “His blood be on us, and on our children!”—all behold the enormity of their guilt. They vainly seek to hide from the divine majesty of His countenance, outshining the glory of the sun, while the redeemed cast their crowns at the Saviour’s feet, exclaiming: “He died for me!” {GC 667.2}
+ພາບອັນສະເທືອນໃຈໃນອະດີດສະເໝືອນໜຶ່ງປາກົດຂຶ້ນໃໝ່ອີກຄັ້ງ. ບໍ່ວ່າຈະຊາຕານເອງ ລຼື ບັນດາທູດ ພ້ອມດ້ວຍຜູ້ທີ່ຕິດຕາມມັນບໍ່ສາມາດຫັນໜ້າໜີໄປຈາກພາບເລຼົ່ານັ້ນ ອັນເປັນຜົນການກະທຳຂອງຕົນເອງ. ແຕ່ລະຄົນກໍລະນຶກເຖິງພາກສ່ວນທີ່ຕົນໄດ້ກະທຳ ທຸກຄົນລ້ວນແຕ່ຊາບຊຶ້ງໃນຄວາມຜິດບາບອັນມະຫັນຂອງຕົນ ເຊັ່ນ: ເຮໂຣດຜູ້ຂ້າເດັກນ້ອຍຜູ້ບໍລິສຸດໃນໝູ່ບ້ານ Bethlehem ໂດຍຫວັງວ່າຈະໄດ້ທຳລາຍກະສັດແຫ່ງອິດສະຣາເອນ; ນາງ Herodias ຜູ້ຕ່ຳຊ້າຕ້ອງຮັບຜິດຊອບຕໍ່ການຕາຍຂອງໂຢຮັນຜູ້ໃຫ້ບັບຕິສະມາ; ປີລາດຜູ້ອ່ອນປວກປຽກ ແລະ ມຸ່ງເອົາຕົວລອດຄົນດຽວ; ພວກທະຫານທີ່ເຍາະເຍີຍ; ພວກປະໂຣຫິດກັບຜູ້ນຳ ແລະ ຝູງຊົນຜູ້ບ້າຄັ່ງທີ່ຮ້ອງຂຶ້ນວ່າ, “ໃຫ້ໂທດເລື່ອງຄວາມຕາຍຂອງລາວ ຕົກຖືກພວກເຮົາ ແລະ ລູກລຼານຂອງພວກເຮົາ!” (ມັດທາຍ 27:25); ຕ່າງຄົນຕ່າງໄດ້ເຫັນເຖິງຄວາມຜິດຂອງຕົນ. ພວກເຂົາພະຍາຍາມລຼົບຊ່ອນຈາກພຣະຣັດສະໝີແຫ່ງພຣະພົກຂອງພຣະຄຣິສທີ່ເຈີດຈ້າກວ່າແສງອາທິດ ແຕ່ກໍບໍ່ເປັນປະໂຫຍດ, ໃນຂະນະທີ່ບັນດາຜູ້ທີ່ໄດ້ຮັບການຊົງໄຖ່ໄດ້ຖອດມົງກຸດວາງລົງທີ່ພຣະບາດຂອງພຣະຜູ້ຊ່ວຍໃຫ້ລອດ ພ້ອມຮ້ອງຂຶ້ນວ່າ: “ພຣະອົງສິ້ນພຣະຊົນເພື່ອຂ້ານ້ອຍ!” {GC 667.2}
 
 ## {GC 667.3}
 
-Amid the ransomed throng are the apostles of Christ, the heroic Paul, the ardent Peter, the loved and loving John, and their truehearted brethren, and with them the vast host of martyrs; while outside the walls, with every vile and abominable thing, are those by whom they were persecuted, imprisoned, and slain. There is Nero, that monster of cruelty and vice, beholding the joy and exaltation of those whom he once tortured, and in whose extremest anguish he found satanic delight. His mother is there to witness the result of her own work; to see how the evil stamp of character transmitted to her son, the passions encouraged and developed by her influence and example, have borne fruit in crimes that caused the world to shudder. {GC 667.3}
+ທ່າມກາງບັນດາຜູ້ທີ່ໄດ້ຮັບການຊົງໄຖ່ກໍມີພວກອັກຄະສາວົກຂອງພຣະຄຣິສ ຄືໂປໂລຜູ້ຫານກ້າ, ເປໂຕຜູ້ກະຕືລືລົ້ນ, ໂຢຮັນຜູ້ຕອບສະໜອງຄວາມຮັກຂອງພຣະຄຣິສດ້ວຍຄວາມຮັກ, ແລະພີ່ນ້ອງຂອງຄົນເລຼົ້ານີ້ຜູ້ຈິງໃຈ, ພ້ອມດ້ວຍຄົນຈຳນວນລຼວງລຼາຍທີ່ຍອມຖືກຂ້າເພາະຄວາມເຊື່ອ; ສ່ວນພາຍນອກກຳແພງນັ້ນ,ທ່າມກາງສິ່ງ(ໜ້າສະອິດສະອຽນ)ທັງລຼາຍ ກໍຄືຄົນທີ່ກົດຂີ່ ຈັບຂັງ ແລະ ຂ້າຜູ້ຊອບທຳໃຫ້ຕາຍ. ຈັກກະພັດເນໂຣຜູ້ຫ້ຽມໂຫດ ແລະ ເລວຊາມດັ່ງປີສາດຮ້າຍກໍຢູ່ທີ່ນັ້ນ ແລະ ໄດ້ເຫັນຄວາມສຸກແສນຍິນດີຂອງຄົນທັງລຼາຍທີ່ທ່ານເຄີຍຈັບທໍລະມານ, ເຊິ່ງໃຈຂອງທ່ານເປັນຢ່າງມານຊາຕານເພາະເຄີຍເພີດເພີນໃນຄວາມເຈັບປວດຂອງຄົນເລຼົ່ານັ້ນ. ແມ່ຂອງທ່ານກໍຢູ່ທີ່ນັ້ນ ແລະ ໄດ້ເຫັນຜົນການກະທຳຂອງຕົນເອງ ຄືອຸປະນິໄສຊົ່ວ ແລະ ການເອົາອາລົມເປັນໃຫຍ່ທີ່ນາງໄດ້ຖ່າຍທອດໃຫ້ແກ່ລູກຊາຍຜ່ານອິດທິພົນ ແລະ ແບບຢ່າງຂອງນາງ, ສິ່ງເລຼົ່ານີ້ໄດ້ອອກຜົນໃນອາຊະຍາກຳຂອງຈັກກະພັດເນໂຣທີ່ເຮັດໃຫ້ໂລກສັ່ນສະທ້ານ. {GC 667.3}
 
 ## {GC 668.1}
 
-There are papist priests and prelates, who claimed to be Christ’s ambassadors, yet employed the rack, the dungeon, and the stake to control the consciences of His people. There are the proud pontiffs who exalted themselves above God and presumed to change the law of the Most High. Those pretended fathers of the church have an account to render to God from which they would fain be excused. Too late they are made to see that the Omniscient One is jealous of His law and that He will in no wise clear the guilty. They learn now that Christ identifies His interest with that of His suffering people; and they feel the force of His own words: “Inasmuch as ye have done it unto one of the least of these My brethren, ye have done it unto Me.” Matthew 25:40. {GC 668.1}
+ທີ່ນັ້ນກໍມີພວກບາດລຼວງ ແລະ ພວກຜູ້ນຳລະບອບສັນຕະປາປາທີ່ເຄີຍອ້າງວ່າຕົນເປັນທູດຂອງພຣະຄຣິສ ແຕ່ໄດ້ໃຊ້ເຄື່ອງທໍລະມານກາຍ, ຄຸກມືດ ແລະ ລຼັກປະຫານເພື່ອຄວບຄຸມຈິດສຳນຶກຜິດຊອບຂອງໄພ່ພົນຂອງພຣະອົງ. ພວກສັນຕະປາປາຜູ້ທະນົງຕົວກໍຢູ່ທີ່ນັ້ນ, ຄົນເລຼົ່ານີ້ເຄີຍຍົກຕົວເອງຂຶ້ນເໜືອພຣະເຈົ້າ ແລະ ບັງອາດຄິດທີ່ຈະປ່ຽນທຳບັນຍັດຂອງອົງຜູ້ສູງສຸດ. ຄົນເລຼົ່ານີ້ເຄີຍອ້າງວ່າຕົນເປັນບັນພະບຸລຸດຂອງຄຣິສຕະຈັກ, ເຖິງແມ່ນວ່າພວກເຂົາຢາກຈະລຼີກລ່ຽງກໍຕາມ ແຕ່ກໍຈະຕ້ອງລາຍງານການກະທຳຂອງຕົນຕໍ່ພຣະເຈົ້າຢ່າງແນ່ນອນ. ພວກເຂົາມາເຖິງຈຸດທີ່ຕ້ອງຍອມຮັບວ່າ ພຣະເຈົ້າຜູ້ຊົງຮູ້ແຈ້ງໃນທຸກສິ່ງ ຊົງຫວງແຫນກົດບັນຍັດຂອງພຣະອົງ ແລະ ຈະບໍ່ລືມທີ່ຈະລົງໂທດຜູ້ກະທຳຜິດ ແຕ່ເປັນການຍອມຮັບທີ່ສາຍເກີນໄປ. ພວກເຂົາຮຽນຮູ້ວ່າ ພຣະຄຣິສຊົງເອົາໃຈໃສ່ໃນຄວາມທຸກຍາກຂອງຄົນຂອງພຣະອົງ ຈຶ່ງຮູ້ສຶກເຖິງນ້ຳໜັກຂອງຖ້ອຍຄຳທີ່ພຣະອົງຊົງກ່າວວ່າ: “ເມື່ອພວກເຈົ້າໄດ້ເຮັດສິ່ງເລຼົ່ານີ້ ແກ່ຜູ້ທີ່ຕ່ຳຕ້ອຍທີ່ສຸດຄົນໜຶ່ງໃນພວກພີ່ນ້ອງເລຼົ່ານີ້ຂອງເຮົາ ພວກເຈົ້າກໍໄດ້ເຮັດແກ່ເຮົາເໝືອນກັນ” (ມັດທາຍ 25:40). {GC 668.1}
 
 ## {GC 668.2}
 
-The whole wicked world stand arraigned at the bar of God on the charge of high treason against the government of heaven. They have none to plead their cause; they are without excuse; and the sentence of eternal death is pronounced against them. {GC 668.2}
+ໃນການພິພາກສາຂອງພຣະເຈົ້ານັ້ນ ຄົນອະທຳທັງປວງຖືກก่าวหาໃນຂໍ້ຫາເປັນກະບົດຕໍ່ການປົກຄອງແຫ່ງສະຫວັນ. ບໍ່ມີທະນາຍຄວາມຄົນໃດມາສູ້ຄະດີໃຫ້ຄົນເລຼົ່ານີ້, ພວກເຂົາບໍ່ມີຂໍ້ແກ້ຕົວ, ຄຳຕັດສິນຈຶ່ງຖືກປະກາດອອກໄປວ່າ ພວກເຂົາຈະຕ້ອງຖືກລົງໂທດໃຫ້ຕາຍໄປຕະລຼອດນິຣັນດອນ. {GC 668.2}
 
 ## {GC 668.3}
 
-It is now evident to all that the wages of sin is not noble independence and eternal life, but slavery, ruin, and death. The wicked see what they have forfeited by their life of rebellion. The far more exceeding and eternal weight of glory was despised when offered them; but how desirable it now appears. “All this,” cries the lost soul, “I might have had; but I chose to put these things far from me. Oh, strange infatuation! I have exchanged peace, happiness, and honor for wretchedness, infamy, and despair.” All see that their exclusion from heaven is just. By their lives they have declared: “We will not have this Man [Jesus] to reign over us.” {GC 668.3}
+ທຸກຄົນເຫັນຢ່າງຈະແຈ້ງວ່າ ຂ້າຈ້າງແຫ່ງຄວາມບາບ ບໍ່ແມ່ນອິດສະລຼະພາບທີ່ສະຫງ່າງາມ ແລະ ຊີວິດນິຣັນ ແຕ່ແມ່ນຄວາມເປັນທາດ, ຄວາມພິນາດ ແລະ ຄວາມຕາຍ. ຄົນອະທຳເຫັນສິ່ງທີ່ຕົນໄດ້ສູນເສັຍເພື່ອແລກກັບຊີວິດແຫ່ງການເປັນກະບົດ. ເມື່ອມີການປະກາດເຖິງສະຫງ່າງຣາສີແຫ່ງຊີວິດອັນຕະລຼອດໄປເປັນນິດ ພວກເຂົາກໍດູຖູກ; ແຕ່ບັດນີ້ສະຫງ່າຣາສີນັ້ນເບິ່ງຄືເປັນສິ່ງທີ່ໜ້າປາຖະໜາລຼາຍ. ຄົນທີ່ກຳລັງພິນາດຈຶ່ງຮ້ອງວ່າ: “ເຮົາສາມາດໄດ້ສິ່ງທັງໝົດນີ້ ແຕ່ເຮົາເລືອກທີ່ຈະປະມັນຖິ້ມໄວ້ຫ່າງໆ. ໂອ ຄວາມລຼົງໃລຼທີ່ແປກປະລຼາດ! ເຮົາໄດ້ເອົາສັນຕິສຸກ ແລະກຽດຕິຍົດສັກສີ ໄປແລກເອົາຄວາມທຸກ, ການເສັຍຊື່ສຽງ ແລະ ຄວາມສິ້ນຫວັງ.” ທຸກຄົນເຫັນວ່າເປັນການຍຸຕິທຳທີ່ຖືກຕັດຂາດໄປຈາກສະຫວັນ ເພາະໂດຍທາງຊີວິດ ພວກເຂົາໄດ້ປະກາດວ່າ: “ພວກເຮົາບໍ່ຕ້ອງການຊາຍຄົນນີ້ [ໝາຍເຖິງພຣະເຢຊູ] ໃຫ້ເປັນຜູ້ປົກຄອງຂອງພວກເຮົາ” (ລູກາ 19:14). {GC 668.3}
 
 ## {GC 668.4}
 
-As if entranced, the wicked have looked upon the coronation of the Son of God. They see in His hands the tables of the divine law, the statutes which they have despised and transgressed. They witness the outburst of wonder, rapture, and adoration from the saved; and as the wave of melody sweeps over the multitudes without the city, all with one voice exclaim, “Great and marvelous are Thy works, Lord God Almighty; just and true are Thy ways, Thou King of saints” (Revelation 15:3); and, falling prostrate, they worship the Prince of life. {GC 668.4}
+ຄົນອະທຳເບິ່ງການເຈິ່ມພຣະບຸດຂອງພຣະເຈົ້າເປັນກະສັດເໝືອນຖືກສະກົດຈິດ. ພວກເຂົາເຫັນແຜ່ນກົດບັນຍັດໃນພຣະຫັດຂອງພຣະອົງ ຄືກົດລະບຽບຕ່າງໆ ທີ່ພວກເຂົາດູຖູກ ແລະ ຝ່າຝືນນັ້ນ ແລະ ເຫັນຄວາມຕື່ນເຕ້ນ, ຄວາມສຸກ ແລະ ການສັນເສີນຂອງຄົນທັງລຼາຍທີ່ໄດ້ຮັບຄວາມລອດ; ໃນຂະນະທີ່ສຽງຮ້ອງດັງກ້ອງໄປເຖິງພວກທີ່ຢູ່ນອກນະຄອນນັ້ນ ທຸກຄົນຮ້ອງຂຶ້ນເປັນສຽງດຽວກັນວ່າ, “ຂ້າແດ່ອົງພຣະຜູ້ເປັນເຈົ້າ ພຣະເຈົ້າຜູ້ຊົງຣິດທານຸພາບສູງສຸດ ພຣະຣາຊກິດຂອງພຣະອົງກໍໃຫຍ່ລຼວງ ແລະ ໜ້າອັດສະຈັນ ຂ້າແດ່ພຣະມະຫາກະສັດແຫ່ງປະຊາຊາດທັງປວງ ວິຖີທາງຂອງພຣະອົງກໍຍຸຕິທຳ ແລະ ທ້ຽງແທ້” (Revelation 15:3); ພວກເຂົາຈຶ່ງຂາບລົງນະມັດສະການອົງເຈົ້າຊີວິດ. {GC 668.4}
 
 ## {GC 669.1}
 
