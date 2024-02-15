@@ -1,13 +1,14 @@
 {
+  "type": "module",
   "engines": {
     "node": "18.19"
   },
   "scripts": {
-    "lint": "markdownlint-cli2 --config .tooling/markdownlint/config-draft.markdownlint-cli2.cjs && markdownlint-cli2 --config .tooling/markdownlint/config-public.markdownlint-cli2.cjs"
+    "lint": ".tooling/markdownlint/index.js"
   },
   "devDependencies": {
+    "globby": "^14.0.1",
     "markdownlint": "^0.33.0",
-    "markdownlint-cli2": "^0.12.1",
     "markdownlint-rule-helpers": "^0.24.0"
   }
 }
