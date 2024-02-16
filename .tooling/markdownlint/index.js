@@ -48,7 +48,11 @@ const CHECKS = [
 (async () => {
   let allClear = true;
   for (const { globPath, customFormatting, config } of CHECKS) {
-    const paths = await globby([`${globPath}/*.md`, "!node_modules"]);
+    const paths = await globby([
+      `${globPath}/*.md`,
+      "!node_modules",
+      "!**/001_machineraw/*.md",
+    ]);
     console.log(`Linting ${paths.length} files in "${globPath}"`);
     let customRules = [];
     if (customFormatting) {
