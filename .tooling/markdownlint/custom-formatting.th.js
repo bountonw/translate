@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 const forbiddenTerms = fs
   .readFileSync(
-    path.resolve(".tooling/markdownlint", "./forbidden_thai_terms.txt"),
+    path.resolve(".tooling/markdownlint", "./forbidden_terms/thai.txt"),
     "utf-8"
   )
   .split("\n")
