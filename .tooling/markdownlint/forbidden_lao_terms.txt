@@ -1,13 +1,11 @@
 # List of common typos and misspellings of Lao words to be flagged.
 
 ປະໂລຫິດ
-ປຸໂຣຫິດ
+ປຸໂຣຫິຕ
 ປຸໂລຫິດ
 ຜຼ້
 ພຮະ
 ສັນຕະສຸກ
-ຫນ
-ຫມ
 ຮາຊກິດ
 າ່
 າ້
