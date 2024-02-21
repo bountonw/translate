@@ -1,6 +1,8 @@
 # List of common typos and misspellings of Lao words to be flagged.
 
 ກຸງເຢຣູຊາເລັມ
+ຄຮິດ
+ຄຮິສ
 ປະໂລຫິດ
 ປຸໂຣຫິຕ
 ປຸໂລຫິດ
