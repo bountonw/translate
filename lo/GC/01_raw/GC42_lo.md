@@ -94,7 +94,7 @@ author:
 
 ຄົນອະທຳເບິ່ງການເຈິ່ມພຣະບຸດຂອງພຣະເຈົ້າເປັນກະສັດເໝືອນຖືກສະກົດຈິດ. ພວກເຂົາເຫັນແຜ່ນກົດບັນຍັດໃນພຣະຫັດຂອງພຣະອົງ ຄືກົດລະບຽບຕ່າງໆ ທີ່ພວກເຂົາດູຖູກ ແລະ ຝ່າຝືນນັ້ນ ແລະ ເຫັນຄວາມຕື່ນເຕ້ນ, ຄວາມສຸກ ແລະ ການສັນເສີນຂອງຄົນທັງລຼາຍທີ່ໄດ້ຮັບຄວາມລອດ; ໃນຂະນະທີ່ສຽງຮ້ອງດັງກ້ອງໄປເຖິງພວກທີ່ຢູ່ນອກນະຄອນນັ້ນ ທຸກຄົນຮ້ອງຂຶ້ນເປັນສຽງດຽວກັນວ່າ, “ຂ້າແດ່ອົງພຣະຜູ້ເປັນເຈົ້າ ພຣະເຈົ້າຜູ້ຊົງຣິດທານຸພາບສູງສຸດ ພຣະຣາຊກິດຂອງພຣະອົງກໍໃຫຍ່ລຼວງ ແລະ ໜ້າອັດສະຈັນ ຂ້າແດ່ພຣະມະຫາກະສັດແຫ່ງປະຊາຊາດທັງປວງ ວິຖີທາງຂອງພຣະອົງກໍຍຸຕິທຳ ແລະ ທ້ຽງແທ້” (Revelation 15:3); ພວກເຂົາຈຶ່ງຂາບລົງນະມັດສະການອົງເຈົ້າຊີວິດ. {GC 668.4}
 
-## {GC 669.1}edit
+## {GC 669.1}
 
 ຊາຕານເບິ່ງຄືເປັນອຳມະພາດໃນຂະນະທີ່ມັນເບິ່ງສະຫງ່າຣາສີແລະຄວ
 າມຍິ່ງໃຫຍ່ຂອງພຣະຄຣິສ.
@@ -111,7 +111,36 @@ author:
 
 ## {GC 669.2}
 
-Memory recalls the home of his innocence and purity, the peace and content that were his until he indulged in murmuring against God, and envy of Christ. His accusations, his rebellion, his deceptions to gain the sympathy and support of the angels, his stubborn persistence in making no effort for self-recovery when God would have granted him forgiveness—all come vividly before him. He reviews his work among men and its results—the enmity of man toward his fellow man, the terrible destruction of life, the rise and fall of kingdoms, the overturning of thrones, the long succession of tumults, conflicts, and revolutions. He recalls his constant efforts to oppose the work of Christ and to sink man lower and lower. He sees that his hellish plots have been powerless to destroy those who have put their trust in Jesus. As Satan looks upon his kingdom, the fruit of his toil, he sees only failure and ruin. He has led the multitudes to believe that the City of God would be an easy prey; but he knows that this is false. Again and again, in the progress of the great controversy, he has been defeated and compelled to yield. He knows too well the power and majesty of the Eternal. {GC 669.2}
+ຊາຕານລະນຶກຖຶງບ້ານເດິມໃນສະຫວັນ
+ຄາວເມື່ອມັນຍັງບໍລິສຸດປາດຊະຈາກຄວາມບາບ ແລະ
+ຈົດຈຳສັນຕິສຸກກັບຄວາມສະດວກສະບາຍທີ່ມັນມີກ່ອນທີ່ມັນເລີ່ມຈົ
+່ມວ່າພຣະເຈົ້າ ແລະ ອິດສາພຣະຄຣິສ.
+ພາບໃນອະດີດປາກົດຢ່າງແຈ່ມແຈ້ງໃນຄວາມຊົງຈຳ
+ທັງການກ່າວຫາວ່າຮ້າຍ, ການກໍ່ກະບົດ,
+ການລຼອກລຼວງພວກທູດສະຫວັນເພື່ອຮຽກຮ້ອງຄວາມເຫັນໃຈ ແລະ
+ການສະໜັບສະໜູນ,
+ພ້ອມດ້ວຍຄວາມດື້ຫົວແຂງຂອງຕົນທີ່ບໍ່ຍອມແກ້ຕົວເມື່ອພຣະເຈົ້າ
+ພ້ອມທີ່ຈະໃຫ້ອະໄພ.
+ມັນທົບທວນວຽກງານທີ່ເຮັດທ່າມກາງມະນຸດສະໂລກ
+ແລະ ຜົນງານຂອງມັນ ຄື ຄວາມກຽດຊັງທີ່ມະນຸດມີຕໍ່ກັນ,
+ການທຳລາຍລ້າງຊີວິດຢ່າງເປັນຕາໜ້າຢ້ານກົວ,
+ການຂຶ້ນລົງຂອງອານາຈັກຕ່າງໆ, ການໂຄ່ນອຳນາດກະສັດ,
+ພ້ອມດ້ວຍຄວາມຂັດແຍ້ງ, ການປະຕິວັດ ແລະ
+ການຕໍ່ສູ້ທີ່ເກີດຂຶ້ນຢ່າງຕໍ່ເນື່ອງເປັນເວລາດົນນານ.
+ມັນລະນຶກເຖິງວ່າມັນເຄີຍພະຍາຍາມຢູ່ຕະລຼອດເວລາເພື່ອຕໍ່ຕ້ານພ
+ັນທກິດຂອງພຣະຄຣິສ ແລະ ເຮັດໃຫ້ມະນຸດຕົກຕ່ຳລົງເລື້ອຍໆ.
+ມັນເຫັນວ່າ
+ແຜນອຸບາຍຊົ່ວຂອງມັນບໍ່ມີອຳນາດທຳລາຍຜູ້ທີ່ວາງໃຂໃນພຣະເຢຊູ.
+ໃນຂະນະທີ່ຊາຕານເບິ່ງໄປຍັງອານາຈັກຂອງມັນ
+ຄືໝາກຜົນແຫ່ງວຽກງານຂອງມັນເອງ, ມັນເຫັນແຕ່ຄວາມລົ້ມເລຼວ
+ແລະ ຄວາມພິນາດ.
+ມັນລຼອກຄົນທັງລຼາຍໃຫ້ລຼົງເຊື່ອວ່ານະຄອນຂອງພຣະເຈົ້າເປັນເຫຍ
+ື່ອທີ່ສາມາດຊະນະໄດ້ງ່າຍ,
+ແຕ່ມັນຮູ້ວ່ານັ້ນບໍ່ແມ່ນຄວາມຈິງ.
+ຄັ້ງແລ້ວຄ້ັງເລົ່າໃນຂະບວນການຕໍ່ສູ້ມະຫາກາບນີ້
+ມັນຕ້ອງປາລະໄຊ ຈົນຕ້ອງຈຳໃຈຍອມແພ້.
+ມັນຮູ້ດີວ່າພຣະເຈົ້າອົງນິຣັນມີອຳນາດຣິດເດດ
+ແລະສະຫງ່າຣາສີລຼາຍຊ່ຳໃດ. {GC 669.2}
 
 ## {GC 670.1}
 
