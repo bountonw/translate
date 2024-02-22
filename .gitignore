@@ -322,3 +322,4 @@ node_modules
 
 # Editor generated files
 *.~lock*
+*.kate-swp
