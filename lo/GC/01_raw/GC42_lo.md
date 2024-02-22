@@ -144,15 +144,76 @@ author:
 
 ## {GC 670.1}
 
-The aim of the great rebel has ever been to justify himself and to prove the divine government responsible for the rebellion. To this end he has bent all the power of his giant intellect. He has worked deliberately and systematically, and with marvelous success, leading vast multitudes to accept his version of the great controversy which has been so long in progress. For thousands of years this chief of conspiracy has palmed off falsehood for truth. But the time has now come when the rebellion is to be finally defeated and the history and character of Satan disclosed. In his last great effort to dethrone Christ, destroy His people, and take possession of the City of God, the archdeceiver has been fully unmasked. Those who have united with him see the total failure of his cause. Christ’s followers and the loyal angels behold the full extent of his machinations against the government of God. He is the object of universal abhorrence. {GC 670.1}
+ເປົ່າໝາຍຂອງຊາຕານຜູ້ເປັນຈອມກະບົດຄືການແກ້ຕົວ
+ແລະ ການພິສຸດວ່າ
+ການປົກຄອງຂອງພຣະເຈົ້າເປັນເຫດທີ່ກໍ່ໃຫ້ເກີດການກະບົດ.
+ມັນທຸ່ມເທພະລັງສະຕິປັນຍາອັນປາດເປື່ອງທັງໝົດຂອງມັນເພື່ອຈຸດ
+ປະສົງນີ້. ມັນເຮັດວຽກດ້ວຍຄວາມຕັ້ງໃຈ ແລະ
+ເປັນລະບົບຈົນໄດ້ຮັບຄວາມສຳເລັດຢ່າງກວ້າງຂວາງ;
+ມີຄົນຈຳນວນມະຫາສານຮັບເອົາມຸມມອງຂອງມັນກ່ຽວກັບການຕໍ່ສູ້ມະຫ
+າກາບທີ່ດຳເນິນມາຢ່າງຊ້ານານ.
+ມານຮ້າຍຜູ້ຢູ່ເບື້ອງລຼັງການກະບົດໄດ້ລຼອກລວງເປັນເວລາລຼາຍພົ
+ນປີໂດຍເຜີຍແຜ່ຄວາມເທັດວ່າເປັນຄວາມຈິງ.
+ບັດນີ້ມາເຖິງເວລາແລ້ວທີ່ການກະບົດນັ້ນຈະຕ້ອງມາເຖິງຄວາມປາລະ
+ໄຊຢ່າງສິ້ນເຊິງ; ເຖິງເວລາເວລາທີ່ຈະຕ້ອງເປີດໂປ່ງປະຫວັດ
+ແລະ ອຸປນິໄສຂອງຊາຕານ.
+ໃນຄວາມພະຍາຍາມຂັ້ນສຸດທ້າຍຂອງມັນທີ່ຈະໂຄ່ນອຳນາດຂອງພຣະຄຣິສ,
+ ທຳລາຍຄົນຂອງພຣະອົງ ແລະ ຍຶດນະຄອນຂອງພຣະເຈົ້າ
+ມານຊາຕານໄດ້ຖືກເປີດໂປ່ງຢ່າງສິ້ນເຊິງ.
+ຜູ້ທີ່ເຂົ້າຮ່ວມກັບມັນກໍເຫັນວ່າ
+ຄວາມມຸ້ງໝາຍຂອງມັນລົ້ມເລຼວ(ຢ່າງສິ້ນເຊິງ).
+ບັນດາຜູ້ຕິດຕາມພຣະຄຣິສ
+ພ້ອມດ້ວຍທູດສະຫວັນທີ່ຈົງຮັກພັກດີເຫັນ(
+ລະບົບການຕໍ່ສູ້ທັງໝົດ)
+ຂອງຊາຕານທີ່ມັນໃຊ້ໃນການຕໍ່ສູ້ການປົກຄອງຂອງພຣະເຈົ້າ.
+ມັນຈຶ່ງຖືກຜູ້ມີຊີວິດທັງລຼາຍກຽດຊັງ.. {GC 670.1}
 
 ## {GC 670.2}
 
-Satan sees that his voluntary rebellion has unfitted him for heaven. He has trained his powers to war against God; the purity, peace, and harmony of heaven would be to him supreme torture. His accusations against the mercy and justice of God are now silenced. The reproach which he has endeavored to cast upon Jehovah rests wholly upon himself. And now Satan bows down and confesses the justice of his sentence. {GC 670.2}
+ຊາຕານເຫັນວ່າການຈົ່ງໃຈກະບົດເຮັດໃຫ້ມັນບໍ່ເໝາະສົມສຳລຼັບສະຫ
+ວັນ. ມັນໄດ້ເຝິກຝົນຕົວເອງທີ່ຈະຕໍ່ສູ້ກັບພຣະເຈົ້າ
+ຈົນເພິ່ນຮູ້ສຶກວ່າຄວາມບໍລິສຸດ, ສັນຕິສຸກ ແລະ
+ຄວາມເປັນນ້ຳໜຶ່ງໃຈດຽວກັນໃນສະຫວັນເປັນເລື່່ອງທີ່ທໍລະມານທີ່
+ສຸດສຳລຼັບຕົນ.
+ບັດນີ້ຂໍ້ກ່າວຫາທີ່ມັນເຄີຍກ່າວຮ້າຍພຣະເມດຕາ ແລະ
+ຄວາມຍຸຕິທຳຂອງພຣະເຈົ້າກໍຍຸຕິລົງ.
+ຂໍ້ຕຳໜິທີ່ມັນເຄີຍພະຍາຍາມໃສ່ຮ້າຍພຣະເຢໂຮວາກໍຖືກຕົວມັນເອງ.
+ບັດນີ້ຊາຕານກົ້ມລົງຂາບໄຫວ້ສາລະພາບວ່າ
+ຄຳຕິດສິນໂລງໂທດມັນນັ້ນຍຸຕິທຳ. {GC 670.2}
 
 ## {GC 670.3}
 
-“Who shall not fear Thee, O Lord, and glorify Thy name? for Thou only art holy: for all nations shall come and worship before Thee; for Thy judgments are made manifest.” Verse 4. Every question of truth and error in the long-standing controversy has now been made plain. The results of rebellion, the fruits of setting aside the divine statutes, have been laid open to the view of all created intelligences. The working out of Satan’s rule in contrast with the government of God has been presented to the whole universe. Satan’s own works have condemned him. God’s wisdom, His justice, and His goodness stand fully vindicated. It is seen that all His dealings in the great controversy have been conducted with respect to the eternal good of His people and the good of all the worlds that He has created. “All Thy works shall praise Thee, O Lord; and Thy saints shall bless Thee.” Psalm 145:10. The history of sin will stand to all eternity as a witness that with the existence of God’s law is bound up the happiness of all the beings He has created. With all the facts of the great controversy in view, the whole universe, both loyal and rebellious, with one accord declare: “Just and true are Thy ways, Thou King of saints.” {GC 670.3}
+“ໃຜໜໍຈະບໍ່ຢຳເກງພຣະອົງ
+ແລະຈະບໍ່ຖວາຍກຽດແດ່ພຣະນາມຂອງພຣະອົງ
+ເພາະພຣະອົງຜູ້ດຽວຊົງເປັນຜູ້ບໍລິສຸດ.
+ປະຊາຊາດທັງປວງຈະມານະມັດສະການຕໍ່ພຣະພັກພຣະອົງ
+ເພາະກິດຈະການອັນຍຸດຕິທຳຂອງພຮະອົງປາກົດແຈ້ງແລ້ວ.”
+(ພຣະນິມິດ 15:4) ທຸກຄຳຖາມທີ່ກ່ຽວຂ້ອງກັບຄວາມຈິງ ແລະ
+ຄວາມເທັດຂອງການຕໍ່ສູ້ອັນຍາວນານນັ້ນ
+ບັດນີ້ໄດ້ຮັບການຊີ້ແຈງໃຫ້ກະຈ່າງແຈ້ງ. ຜົນຂອງການກະບົດ
+ກໍຄືໝາກຜົນຂອງການປະຕິເສດພຣະບັນຍັດຂອງພຣະເຈົ້າລ້ວນແຕ່ໄດ້ຮັ
+ບການເປີດເຜີຍຕໍ່ບັນດາຜູ້ມີຊີວິດທັງລຼາຍທີ່ພຣະອົງຊົງສ້າງ.
+ຜົນການປົກຄອງຂອງຊາຕານໄດ້ຖືກນຳມາປຽບທຽບກັບການປົກຄອງຂອງພຣະເ
+ຈົ້າໃຫ້ທຸກຄົນໃນຈັກກະວານໄດ້ເຫັນ.
+ຜົນການກະທຳຂອງຊາຕານເອງເປັນສິ່ງທີ່ກ່າວໂທດມັນ.
+ສະຕິປັນຍາ, ຄວາມຍຸຕິທຳ, ແລະ
+ພຣະຄຸນຄວາມດີຂອງພຣະເຈົ້າໄດ້ຮັບການພິສຸດວ່າຖືກຕ້ອງແລ້ວ.
+ທຸກຄົນເຫັນວ່າ
+ການກະທຳທຸກຢ່າງຂອງພຣະເຈົ້າຕະລຼອດການຕໍ່ສູ້ມະຫາກາບນັ້ນລ້ວນ
+ແຕ່ເຮັດເພື່ອໃຫ້ຜົນດີແກ່ຄົນຂອງພຣະອົງຕະລຼອດຊົ່ວນິຣັນ
+ແລະ ອຳນວຍປະໂຫຍດແກ່ບັນດາໂລກຕ່າງໆ ທີ່ພຣະອົງຊົງສ້າງ.
+“ຂ້າແດ່ພຣະເຈົ້າຢາເວ
+ທຸກສິ່ງທີ່ຖືກສ້າງມາຈະຍ້ອງຍໍສັນລະເສີນພຣະອົງ ແລະ
+ປະຊາຊົນຂອງພຣະອົງຈະໂມທະນາຂອບພຣະຄຸນແດ່ພຣະອົງ.”
+(ເພງສັນລະເສີນ 145:10).
+ປະຫວັດສາດແຫ່ງຄວາມບາບຈະເປັນພະຍານຢູ່ຕະລຼາດຊົ່ວນິຣັນວ່າ
+ຄວາມສຸກຂອງບັນດາຜູ້ມີຊີວິດທີ່ພຣະເຈົ້າຊົງສ້າງນັ້ນຂຶ້ນຢູ່ກ
+ັບກົດບັນຍັດທັງລຼາຍຂອງພຣະເຈົ້າ.
+ເມື່ອຂໍ້ເທັດຈິງທັງລຼາຍທີ່ກ່ຽວຂ້ອງກັບການຕໍ່ສູ້ມະຫາກາບໄ້ດ
+ປາກົດແຈ້ງແລ້ວ ຜູ້ມີຊີວິດທັງລຼາຍໃນຈັກກະວານ
+ທັງຜູ້ທີ່ຈົງຮັກພັກດີ ແລະ ຜູ້ທີ່ຮ່ວມໃນການກະບົດ
+ທຸກຄົນຮ້ອງຂຶ້ນພ້ອມກັນວ່າ:
+“ວິຖີທາງຂອງພຣະອົງກໍຍຸຕິທຳ ແລະ ທ່ຽງແທ້.” {GC 670.3}
 
 ## {GC 671.1}
 
