@@ -6,7 +6,7 @@ book:
 chapter:
   number: 23A
   title:
-    th: ภาคผนวก ก
+    th: ภาคผนวก 1
     en: Appendix Note 1
   url: https://egwwritings.org/?ref=en_PP.757.1&para=84.3591
   basedon:
