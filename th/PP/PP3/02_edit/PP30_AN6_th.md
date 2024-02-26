@@ -6,7 +6,7 @@ book:
 chapter:
   number: 30A
   title:
-    th: ภาคผนวก จ
+    th: ภาคผนวก 6
     en: Appendix Note 6
   url: https://egwwritings.org/?ref=en_PP.761.1&para=84.3611
   basedon:
