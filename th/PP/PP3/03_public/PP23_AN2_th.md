@@ -6,7 +6,7 @@ book:
 chapter:
   number: 23B
   title:
-    th: ภาคผนวก ข
+    th: ภาคผนวก 2
     en: Appendix Note 2
   url: https://egwwritings.org/?ref=en_PP.757&para=84.3589
   basedon:
@@ -17,19 +17,6 @@ translator:
   en: Brian Wilson
   th: บุญต้น วิลสัน
 ---
-<!--
-Appendix Schedule
-1 = ก
-2 = ข
-3 = ค
-4 = ฆ
-5 = ง
-6 = จ
-7 = ฉ
-8 = ช
-9 = ซ
-10 = ฌ
--->
 
 ## {PP 758.1}
 
