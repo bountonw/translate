@@ -6,7 +6,7 @@ book:
 chapter:
   number: 25A
   title:
-    th: ภาคผนวก ค
+    th: ภาคผนวก 3
     en: Appendix Note 3
   url: https://egwwritings.org/?ref=en_PP.759.2&para=84.3601
   basedon:
