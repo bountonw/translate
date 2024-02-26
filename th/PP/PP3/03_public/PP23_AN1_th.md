@@ -17,19 +17,6 @@ translator:
   en: Brian Wilson
   th: บุญต้น วิลสัน
 ---
-<!--
-Appendix Schedule
-1 = ก
-2 = ข
-3 = ค
-4 = ฆ
-5 = ง
-6 = จ
-7 = ฉ
-8 = ช
-9 = ซ
-10 = ฌ
--->
 
 ## {PP 757.1}
 
