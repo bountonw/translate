@@ -6,7 +6,7 @@ book:
 chapter:
   number: 59B
   title:
-    th: ภาคผนวก ซ
+    th: ภาคผนวก 9
     en: Appendix Note 9
   url: https://legacy.egwwritings.org/?ref=en_PP.764.3&para=84.3634
   basedon:
