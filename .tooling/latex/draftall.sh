@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-# TODO: nix fixed directory
-SOURCEDIR=../../th/PP/PP1/03_public/
-
-for f in ${SOURCEDIR}*
+(cd ../../ && find . -path "*/02_edit/*" -or -path "*/03_public/*" -not -path "*/.tooling/*" -name "*.md") | while read LINE;
 do
-    t=`basename $f`
-    if [[ "$t" == *".md" ]];then
+    f="$(echo $LINE | cut -c 3-)"
+    if [[ "$f" == *".md" ]];then
         echo $f
-        make draft/${t%.*}.pdf
+        make draft/${f%.*}.pdf
     fi
 done
