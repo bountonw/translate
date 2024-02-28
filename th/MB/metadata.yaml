@@ -12,9 +12,6 @@ creator:
   text: Ellen White # เอเลน ไวท์
 - role: translator
   text: Brian Wilson # ไบรอัน วิลสัน
-contributor:
-- role: book producer
-  text: Paolo Brasolin
 #identifier:
 #- scheme: DOI
 #  text: doi:10.234234.234/33
