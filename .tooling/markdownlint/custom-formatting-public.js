@@ -2,20 +2,8 @@ import { forEachLine, getLineMetadata } from "markdownlint-rule-helpers";
 
 const customFormattingRules = [
   {
-    name: "invalid spacing",
-    regexp: /\S\s{2,}($|\S)/,
-  },
-  {
-    name: "no space before '{'",
-    regexp: /\S{/,
-  },
-  {
-    name: "invalid space before closing curly quotes",
-    regexp: /\s[”’]/,
-  },
-  {
-    name: "semicolon followed by a number",
-    regexp: /;\d/,
+    name: "closing parenthesis not properly followed",
+    regexp: /\)[^ ’”;:,.!\[]/,
   },
 ];
 
@@ -32,7 +20,7 @@ const extractContext = (line, column) => {
 };
 
 const CustomFormatting = {
-  names: ["custom-formatting"],
+  names: ["custom-formatting-public"],
   description: "Custom formatting rules",
   tags: ["style"],
   function: (params, onError) => {
