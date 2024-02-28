@@ -6,7 +6,7 @@ book:
 chapter:
   number: 32A
   title:
-    th: ภาคผนวก ฉ
+    th: ภาคผนวก 7
     en: Appendix Note 7
   url: https://legacy.egwwritings.org/?ref=en_PP.761.3&para=84.3613
   basedon:
@@ -17,19 +17,6 @@ translator:
   en: Brian Wilson
   th: บุญต้น วิลสัน
 ---
-<!--
-Appendix Schedule
-1 = ก
-2 = ข
-3 = ค
-4 = ฆ
-5 = ง
-6 = จ
-7 = ฉ
-8 = ช
-9 = ซ
-10 = ฌ
--->
 
 ## {PP 761.3}
 
