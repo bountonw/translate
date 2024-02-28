@@ -3,8 +3,7 @@
 # We set ALL folders through variables to make them easily configurable.
 
 # Input directory
-# TODO: make dynamic
-SRCDIR = ../../th/PP/PP1/03_public
+SRCDIR = ../../
 # Partial output directory
 TEXDIR = ./tex
 # Draft output directory
@@ -18,7 +17,7 @@ DICDIR = ./dictionaries
 # Html directory
 HTMDIR = ./html
 # Font directory
-FNTDIR = ./fonts
+FNTDIR = ../../th/assets/fonts
 # Ebooks directory
 EBKDIR = ./ebooks
 # Preprocessed directory
@@ -104,9 +103,9 @@ clobber:
 #   perl -S -p -e 's/(\B[^!-~]+\B)(?=[^()]*?\))/<span class="th">\1<\/span>/g'
 
 # usage: make preprocessed/filename.md
-$(PREDIR)/%.md : $(SRCDIR)/metadata.yaml $(SRCDIR)/%.md $(TPLDIR)/chapter.md
-	mkdir -p $(PREDIR)
-	cat $(SRCDIR)/metadata.yaml $(SRCDIR)/$*.md \
+$(PREDIR)/%.md : $(SRCDIR)/%.md $(TPLDIR)/chapter.md
+	mkdir -p $(PREDIR)/$(shell dirname $*)
+	cat $(SRCDIR)/$(shell dirname $(shell dirname $*))/metadata.yaml $(SRCDIR)/$*.md \
   | \
 	pandoc \
 	  --id-prefix='$*@' \
@@ -156,7 +155,7 @@ $(PREDIR)/%.md : $(SRCDIR)/metadata.yaml $(SRCDIR)/%.md $(TPLDIR)/chapter.md
 
 $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs $(DICDIR)/penalized-breaks $(DICDIR)/forbidden-breaks
 #$(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(DICDIR)/penalized-breaks $(DICDIR)/forbidden-breaks
-	mkdir -p $(TEXDIR)
+	mkdir -p $(TEXDIR)/${shell dirname $*}
 	cat $(PREDIR)/$*.md \
 	| \
 	pandoc \
@@ -186,7 +185,7 @@ $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs
 
 # usage: make draft/filename.pdf
 $(DFTDIR)/%.pdf : $(TEXDIR)/%.tex $(TPLDIR)/chapter.tex $(TPLDIR)/draft.tex
-	mkdir -p $(DFTDIR)
+	mkdir -p $(DFTDIR)/${shell dirname $*}
 	pandoc \
 	  $(TEXDIR)/$*.tex \
 	  --from latex+raw_tex \
