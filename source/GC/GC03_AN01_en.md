@@ -15,7 +15,7 @@ author:
 
 ### General Notes
 
-Revisions adopted by the E. G. White Trustees November 19, 1956, December 6, 1979, and January 8, 1993  {GC 679.1}
+Revisions adopted by the E. G. White Trustees November 19, 1956, December 6, 1979, and January 8, 1993 {GC 679.1}
 
 {GC 679.2}
 
