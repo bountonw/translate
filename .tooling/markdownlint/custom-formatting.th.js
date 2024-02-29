@@ -11,6 +11,10 @@ const forbiddenTerms = fs
 
 const customFormattingRules = [
   {
+    name: "missing space after closing curly quotes",
+    regexp: /[’”][^\s<’”—\.\[]/,
+  },
+  {
     name: "no trailing space after 'ๆ' mai yamok",
     regexp: /ๆ[^\s’”\[]/,
   },

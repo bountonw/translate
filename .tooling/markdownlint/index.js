@@ -19,12 +19,12 @@ const GLOBAL_CONFIG = {
 const CHECKS = [
   {
     globPath: "./**/",
-    customFormatting: "",
+    customFormatting: "custom-formatting.js",
     config: GLOBAL_CONFIG,
   },
   {
     globPath: "./**/03_public/",
-    customFormatting: "custom-formatting.js",
+    customFormatting: "custom-formatting-public.js",
     config: {
       default: false,
     },
@@ -51,6 +51,7 @@ const CHECKS = [
     const paths = await globby([
       `${globPath}/*.md`,
       "!node_modules",
+      "!**/00_source/*.md",
       "!**/001_machineraw/*.md",
     ]);
     console.log(`Linting ${paths.length} files in "${globPath}"`);
