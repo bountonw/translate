@@ -11,10 +11,6 @@ const forbiddenTerms = fs
 
 const customFormattingRules = [
   {
-    name: "missing space after closing curly quotes",
-    regexp: /[’”][^\s<’”—\.\[]/,
-  },
-  {
     name: "forbidden term",
     regexp: new RegExp(`${forbiddenTerms.join("|")}`),
   },
