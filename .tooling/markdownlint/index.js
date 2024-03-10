@@ -37,8 +37,15 @@ const CHECKS = [
     },
   },
   {
-    globPath: "./th/**/03_public/", // TODO: split into public th rules and all Thai rules?
+    globPath: "./th/**/",
     customFormatting: "custom-formatting.th.js",
+    config: {
+      default: false,
+    },
+  },
+  {
+    globPath: "./th/**/03_public/",
+    customFormatting: "custom-formatting-public.th.js",
     config: {
       default: false,
     },
