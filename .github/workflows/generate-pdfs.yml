@@ -1,0 +1,42 @@
+name: Generate PDFs
+
+on:
+  # TODO: make this run on merges too?
+  # push:
+  #   branches: ["master", "release/*"]
+  #   tags: ["*"]
+  pull_request:
+    branches: ["main", "latex-pdfs"]
+    # TODO: fix this
+    # paths:
+    #   - ".actions/*"
+    #   - ".github/workflows/docs-build.yml"
+    #   - "requirements/**"
+    #   - "docs/**"
+    #   - "src/**"
+    #   - "setup.py"
+    #   - "pyproject.toml"  # includes metadata used in the package creation
+    #   - "!*.md"
+    #   - "!**/*.md"
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pandoc & texlive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex swath
+      - name: Run Make
+        working-directory: ./.tooling/latex/
+        run: ./draftall.sh
+      - name: Upload built docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: PP01-${{ github.sha }}
+          path: .tooling/latex/draft
