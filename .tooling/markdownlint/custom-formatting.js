@@ -17,6 +17,10 @@ const customFormattingRules = [
     name: "semicolon followed by a number",
     regexp: /;\d/,
   },
+  {
+    name: "hyphen instead of en-dash",
+    regexp: /\d(-|—)\d/,
+  },
 ];
 
 const CustomFormatting = {

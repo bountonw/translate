@@ -56,8 +56,9 @@ const CHECKS = [
   let allClear = true;
   for (const { globPath, customFormatting, config } of CHECKS) {
     const paths = await globby([
-      `${globPath}/*.md`,
+      `${globPath}*.md`,
       "!node_modules",
+      "!source/**/*.md",
       "!**/00_source/*.md",
       "!**/001_machineraw/*.md",
     ]);

@@ -124,7 +124,7 @@ Notwithstanding that Satan has been constrained to acknowledge God’s justice a
 
 ## {GC 672.1}
 
-Saith the Lord: “Because thou hast set thine heart as the heart of God; behold, therefore I will bring strangers upon thee, the terrible of the nations: and they shall draw their swords against the beauty of thy wisdom, and they shall defile thy brightness. They shall bring thee down to the pit.” “I will destroy thee, O covering cherub, from the midst of the stones of fire.... I will cast thee to the ground, I will lay thee before kings, that they may behold thee.... I will bring thee to ashes upon the earth in the sight of all them that behold thee.... Thou shalt be a terror, and never shalt thou be any more.” Ezekiel 28:6-8, 16-19. {GC 672.1}
+Saith the Lord: “Because thou hast set thine heart as the heart of God; behold, therefore I will bring strangers upon thee, the terrible of the nations: and they shall draw their swords against the beauty of thy wisdom, and they shall defile thy brightness. They shall bring thee down to the pit.” “I will destroy thee, O covering cherub, from the midst of the stones of fire.... I will cast thee to the ground, I will lay thee before kings, that they may behold thee.... I will bring thee to ashes upon the earth in the sight of all them that behold thee.... Thou shalt be a terror, and never shalt thou be any more.” Ezekiel 28:6–8, 16–19. {GC 672.1}
 
 ## {GC 672.2}
 
@@ -160,7 +160,7 @@ A fear of making the future inheritance seem too material has led many to spirit
 
 ## {GC 675.1}
 
-In the Bible the inheritance of the saved is called “a country.” Hebrews 11:14-16. There the heavenly Shepherd leads His flock to fountains of living waters. The tree of life yields its fruit every month, and the leaves of the tree are for the service of the nations. There are ever-flowing streams, clear as crystal, and beside them waving trees cast their shadows upon the paths prepared for the ransomed of the Lord. There the wide-spreading plains swell into hills of beauty, and the mountains of God rear their lofty summits. On those peaceful plains, beside those living streams, God’s people, so long pilgrims and wanderers, shall find a home. {GC 675.1}
+In the Bible the inheritance of the saved is called “a country.” Hebrews 11:14–16. There the heavenly Shepherd leads His flock to fountains of living waters. The tree of life yields its fruit every month, and the leaves of the tree are for the service of the nations. There are ever-flowing streams, clear as crystal, and beside them waving trees cast their shadows upon the paths prepared for the ransomed of the Lord. There the wide-spreading plains swell into hills of beauty, and the mountains of God rear their lofty summits. On those peaceful plains, beside those living streams, God’s people, so long pilgrims and wanderers, shall find a home. {GC 675.1}
 
 ## {GC 675.2}
 
