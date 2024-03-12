@@ -162,7 +162,8 @@ $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs
 	  --from markdown \
 	  --to latex \
 	  --template=$(TPLDIR)/chapter.tex \
-	  --lua-filter $(FILDIR)/pdf-filters.lua \
+	  --lua-filter $(FILDIR)/remove-paragraph-code-headings.lua \
+	  --lua-filter $(FILDIR)/transform-poetry.lua \
 	| \
 	swath \
 	  -b "|" \
