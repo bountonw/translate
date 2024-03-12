@@ -315,7 +315,11 @@ TSWLatexianTemp*
 #*Notes.bib
 
 # NodeJS dependencies folder
-/node_modules/
+node_modules
 
 # Local sandbox folders
 **/sandbox/
+
+# Editor generated files
+*.~lock*
+*.kate-swp
