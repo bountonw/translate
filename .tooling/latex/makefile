@@ -162,6 +162,7 @@ $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs
 	  --from markdown \
 	  --to latex \
 	  --template=$(TPLDIR)/chapter.tex \
+	  --lua-filter $(FILDIR)/pdf-filters.lua \
 	| \
 	swath \
 	  -b "|" \
