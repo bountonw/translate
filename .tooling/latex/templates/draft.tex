@@ -1,0 +1,196 @@
+% ============================================ DOCUMENT CLASS, BASIC LAYOUT ====
+
+\documentclass[
+  fontsize=17pt,
+  openany,
+  paper=letter,
+%  BCOR=5mm,
+%  DIV=15,
+]{scrbook}
+
+\usepackage[
+  margin=1in,
+  footskip=.5in,
+]{geometry}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{setspace}
+\doublespacing
+
+%\flushbottom
+%\emergencystretch=0.8em
+
+% paragraph first line indentation
+\parindent=.5in
+
+% forbid widows
+\widowpenalty=10000
+
+% ========================================= LOCALIZATION, LANGUAGES & FONTS ====
+
+\usepackage{polyglossia}
+\usepackage{fontspec}
+
+% -------------------------------------------------------------------- THAI ----
+
+\setmainlanguage[numerals=arabic]{thai}
+
+% Word breaking
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\input{./dictionaries/hyphenation}
+
+% First paragraph indentation
+\PolyglossiaSetup{thai}{indentfirst=true}
+
+\setmainfont{CSPraJad}[
+  % Thai font is in local directory (for portability)
+  Path = ../../th/assets/fonts/CSPraJad/,
+  Extension = .otf,
+  UprightFont = *,
+  BoldFont = *-bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-boldItalic,
+  % Wordspace is a factor applied to nominal, stretch and shrink values
+  % of word spacing.  One can also give the respective separate factors as
+  %   Wordspace =  {1, 2, 3},
+  WordSpace = 2,
+]
+
+% ----------------------------------------------------------------- English ----
+
+\setotherlanguage{english}
+
+% Any font having OldStyle and real SmallCaps could be used here
+\newfontfamily{\englishfont}{LinLibertine}[
+  Numbers=OldStyle,
+  Path = fonts/,
+  Extension = .otf,
+  UprightFont = *_R,
+  ]
+
+% This is a stub for automatic font switching based on script.
+% \usepackage[Latin, Thai]{ucharclasses}
+% \setDefaultTransitions{\rmfamily}{}
+% \setTransitionTo{BasicLatin}{\englishfont}{}
+% \setTransitionTo{Thai}{\rmfamily}
+% \setTransitionTo{Punctuation}{\rmfamily}
+% \setTransitionTo{Diacritics}{\rmfamily}
+
+% ======================================================= HEADERS & FOOTERS ====
+
+\usepackage{datetime}
+\usepackage{scrlayer-scrpage}
+\usepackage{lastpage}
+
+% Content of headers and footers
+\ohead{\textenglish{\BookTitleEN{}, chapter \CurrentChapterNumber: \CurrentChapterTitleEN\\\CurrentChapterURL}}
+\ifoot{\textenglish{Compiled on \number\year-\number\month-\number\day\ at \currenttime}}
+\ofoot{\textenglish{Page \thepage\ of \pageref{LastPage}}}
+\cfoot{\textenglish{\vskip\baselineskip This is a draft copy for editing and is not for publication.
+  Please return suggested edits to bountonw@gmail.com}}
+
+% Format headers and footers
+\setkomafont{pageheadfoot}{\tiny}
+
+% Include headers and footers on chapter pages
+\renewcommand*{\chapterpagestyle}{headings}
+
+% Format footnotes
+\addtokomafont{footnote}{\bfseries\fontsize{10pt}{12pt}\selectfont}
+
+% ============================================================== SECTIONING ====
+
+% Restrict section numbering to \part and \chapter
+\setcounter{secnumdepth}{0}
+% Suppress numbering of \chapter
+\renewcommand*{\chapterformat}{}
+
+% Adjust skips around \chapter and \section
+\RedeclareSectionCommand[
+  beforeskip=-1sp,
+  afterskip=.25\baselineskip,
+]{chapter}
+\RedeclareSectionCommand[
+  beforeskip=.75\baselineskip,
+  afterskip=.25\baselineskip,
+]{section}
+
+% Format \chapter and \section
+\setkomafont{chapter}{\normalfont\LARGE\bfseries}
+\setkomafont{section}{\normalfont\large\bfseries\centering}
+\setkomafont{subsection}{\normalfont\bfseries}
+\setkomafont{subsubsection}{\normalfont\bfseries}
+
+% =========================================================== CUSTOM MACROS ==== 
+
+\usepackage{xcolor}
+
+%
+%\newcommand{\egwtag}[1]{\textenglish{\scshape\color{black!70}\egwtagaux#1\egwtagstop}}
+%\def\egwtagaux#1 #2\egwtagstop{\{#1~#2\}}
+
+\newcommand{\TagPar}[1]{\textenglish{\scshape\color{black!70}#1}}
+\newcommand{\TagVer}[1]{\textenglish{\scshape\color{black!70}#1}}
+
+% -------------------------------------------------------- EMPHASIZED QUOTE ----
+
+%\usepackage{etoolbox}
+
+% WARNING: the following path is buggy
+% Patch shape and stretching of quote environment
+%\AtBeginEnvironment{quote}{\doublespacing\itshape}
+
+% ----------------------------------------------------- UNDERLINED EMPHASIS ----
+
+% Initialize to void commands
+\let\Emph\emph
+\let\Strong\textbf
+
+%\usepackage[normalem]{ulem}
+
+% Setup macros for custom emphasis
+%\let\Emph\uline
+%\let\Strong\uuline
+
+% --------------------------------------------------- CHAPTER WITH METADATA ----
+
+\newcommand\BookTitleTH{}
+\newcommand\BookTitleEN{}
+\newcommand\Book[2]{
+  \renewcommand\BookTitleTH{#1}
+  \renewcommand\BookTitleEN{#2}
+}
+\newcommand\CurrentChapterNumber{}
+\newcommand\CurrentChapterTitleTH{}
+\newcommand\CurrentChapterTitleEN{}
+\newcommand\CurrentChapterURL{}
+\newcommand\CurrentChapterBasedOn{}
+\newcommand\Chapter[5]{
+  \renewcommand\CurrentChapterNumber{#1}
+  \renewcommand\CurrentChapterTitleTH{#2}
+  \renewcommand\CurrentChapterTitleEN{#3}
+  \renewcommand\CurrentChapterURL{#4}
+  \renewcommand\CurrentChapterBasedOn{#5}
+%  \chapter{\CurrentChapterTitleTH}
+%  {\raggedleft\itshape\small\CurrentChapterBasedOn\par}
+}
+
+\newcommand{\BasedOn}[1]
+  {\raggedleft\itshape\small#1\par}
+
+% --------------------------------------------------------- PHRASE BREAKING ----
+
+% Common word break
+%\let\wbr\relax
+
+% Penalised word break (just using a soft break at the moment)
+\let\pwbr\-
+
+% ================================================================ DOCUMENT ====
+
+\begin{document}
+\Book{$book.title.th$}{$book.title.en$}
+$body$
+\end{document}

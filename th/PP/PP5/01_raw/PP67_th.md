@@ -32,7 +32,7 @@ translator:
 
 ## {PP 684.2}
 
-เรื่องการสื่อสารกับคนตายอันเดียวกันนี้เป็นศิลามุมเอกของระบบการไกว้รูปเคารพของคนที่ไม่นับถือพระเจ้าThe gods of the heathen were believed to be the deified spirits of departed heroes. Thus the religion of the heathen was a worship of the dead. This is evident from the Scriptures. In the account of the sin of Israel at Beth-peor, it is stated: “Israel abode in Shittim, and the people began to commit whoredom with the daughters of Moab. And they called the people unto the sacrifices of their gods: and the people did eat, and bowed down to their gods. And Israel joined himself unto Baalpeor.” Numbers 25:1-3. The psalmist tells us to what kind of gods these sacrifices were offered. Speaking of the same apostasy of the Israelites, he says, “They joined themselves also unto Baalpeor, and ate the sacrifices of the dead” (Psalm 106:28); that is, sacrifices that had been offered to the dead. {PP 684.2}
+เรื่องการสื่อสารกับคนตายอันเดียวกันนี้เป็นศิลามุมเอกของระบบการไกว้รูปเคารพของคนที่ไม่นับถือพระเจ้าThe gods of the heathen were believed to be the deified spirits of departed heroes. Thus the religion of the heathen was a worship of the dead. This is evident from the Scriptures. In the account of the sin of Israel at Beth-peor, it is stated: “Israel abode in Shittim, and the people began to commit whoredom with the daughters of Moab. And they called the people unto the sacrifices of their gods: and the people did eat, and bowed down to their gods. And Israel joined himself unto Baalpeor.” Numbers 25:1–3. The psalmist tells us to what kind of gods these sacrifices were offered. Speaking of the same apostasy of the Israelites, he says, “They joined themselves also unto Baalpeor, and ate the sacrifices of the dead” (Psalm 106:28); that is, sacrifices that had been offered to the dead. {PP 684.2}
 
 ## {PP 684.3}
 
@@ -88,7 +88,7 @@ translator:
 
 ## {PP 688.2}
 
-พระเจ้าทรงเปิดเผยให้คนอิสราเอลรู้ถึงผลของการติดต่อสื่อสารกับวิญญาณชั่วผ่านพฤติกรรมอฟนเสื่อมทรามของชาวคานาอัน ที่ไม่มีความรักพื้นฐานระหว่างคนในครอบครัว เป็นคนไหว้รูปเคารพ ล่วงประเวณี ฆ่าคน ทั้งคิดและทำการโสโครกทุก(อย่าง) มนุษย์ไม่รู้จักใจของตน เพราะ “จิตใจก็เป็นตัวล่อลวงเหนือสิ่งใดทั้งหมด มีันเสื่อมทรามอย่างร้ายที่เดียว” (เยเรมีย์ 17:9 TH1971) แต่พระเจ้าเข้าพระทัยถึงแนวโนมของจิตใจอันต่ำช้าของมนุษย์ ในขณะนั้นซาตานเฝ้าสังเกตเพื่อจะสามารถนำสถานการณ์ให้เหมาะสมต่อการทำตามใจตัวเองแทนการเชื่อฟังพระเจ้า เพื่อคนอิสราเอลจะทำตัวเองให้เป็นที่น่ารังเกียจสำหรับพระเจ้า(พอๆ/เหมือน)กับ(ที่ชาวคานาอันเป็น) ในสมัยนี้มันพยายามทำเช่นกัน ศัตรูของมนุษย์ตืนตัวอยู่ตลอดเวลาเพื่อหาโอกาศล่อให้เราปล่อยตัวทำบาปโดยไม่ยับยั้งชั่งใจ เพราะมันปรารถนาให้เราเสียคน และถูกพระเจ้าทรงกล่าวโทษ {PP 688.2}
+พระเจ้าทรงเปิดเผยให้คนอิสราเอลรู้ถึงผลของการติดต่อสื่อสารกับวิญญาณชั่วผ่านพฤติกรรมอฟนเสื่อมทรามของชาวคานาอัน ที่ไม่มีความรักพื้นฐานระหว่างคนในครอบครัว เป็นคนไหว้รูปเคารพ ล่วงประเวณี ฆ่าคน ทั้งคิดและทำการโสโครกทุก(อย่าง) มนุษย์ไม่รู้จักใจของตน เพราะ “จิตใจก็เป็นตัวล่อลวงเหนือสิ่งใดทั้งหมด มีันเสื่อมทรามอย่างร้ายที่เดียว” (เยเรมีย์ 17:9 TH1971) แต่พระเจ้าเข้าพระทัยถึงแนวโนมของจิตใจอันต่ำช้าของมนุษย์ ในขณะนั้นซาตานเฝ้าสังเกตเพื่อจะสามารถนำสถานการณ์ให้เหมาะสมต่อการทำตามใจตัวเองแทนการเชื่อฟังพระเจ้า เพื่อคนอิสราเอลจะทำตัวเองให้เป็นที่น่ารังเกียจสำหรับพระเจ้า(พอๆ/เหมือน)กับ(ที่ชาวคานาอันเป็น) ในสมัยนี้มันพยายามทำเช่นกัน ศัตรูของมนุษย์ตืนตัวอยู่ตลอดเวลาเพื่อหาโอกาสล่อให้เราปล่อยตัวทำบาปโดยไม่ยับยั้งชั่งใจ เพราะมันปรารถนาให้เราเสียคน และถูกพระเจ้าทรงกล่าวโทษ {PP 688.2}
 
 ## {PP 688.3}
 

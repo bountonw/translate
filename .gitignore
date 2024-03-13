@@ -319,3 +319,7 @@ node_modules
 
 # Local sandbox folders
 **/sandbox/
+
+# Editor generated files
+*.~lock*
+*.kate-swp

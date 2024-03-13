@@ -9,7 +9,7 @@ chapter:
    th: ปัสกา
    en: The Passover
  url: https://egwwritings.org/?ref=en_PP.273&para=84.1195
- basedon: ศึกษาควบคู่กับ อพยพบทที่ 11; 12:1-32
+ basedon: ศึกษาควบคู่กับ อพยพบทที่ 11; 12:1–32
 author:
   en: Ellen White
   th: เอเลน ไวท์
