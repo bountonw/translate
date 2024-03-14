@@ -86,7 +86,7 @@
 
 % Content of headers and footers
 \ohead{\textenglish{\BookTitleEN{}, chapter \CurrentChapterNumber: \CurrentChapterTitleEN\\\CurrentChapterURL}}
-\ifoot{\textenglish{Compiled on \number\year-\number\month-\number\day\ at \currenttime}}
+\ifoot{\textenglish{Compiled on \number\year-\number\month-\number\day\ at \currenttime. Content last modified on \CurrentChapterModified.}}
 \ofoot{\textenglish{Page \thepage\ of \pageref{LastPage}}}
 \cfoot{\textenglish{\vskip\baselineskip This is a draft copy for editing and is not for publication.
   Please return suggested edits to bountonw@gmail.com}}
@@ -167,12 +167,14 @@
 \newcommand\CurrentChapterTitleEN{}
 \newcommand\CurrentChapterURL{}
 \newcommand\CurrentChapterBasedOn{}
-\newcommand\Chapter[5]{
+\newcommand\CurrentChapterModified{}
+\newcommand\Chapter[6]{
   \renewcommand\CurrentChapterNumber{#1}
   \renewcommand\CurrentChapterTitleTH{#2}
   \renewcommand\CurrentChapterTitleEN{#3}
   \renewcommand\CurrentChapterURL{#4}
   \renewcommand\CurrentChapterBasedOn{#5}
+  \renewcommand\CurrentChapterModified{#6}
 %  \chapter{\CurrentChapterTitleTH}
 %  {\raggedleft\itshape\small\CurrentChapterBasedOn\par}
 }
