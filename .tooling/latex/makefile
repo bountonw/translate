@@ -105,6 +105,7 @@ clobber:
 # usage: make preprocessed/filename.md
 $(PREDIR)/%.md : $(SRCDIR)/%.md $(TPLDIR)/chapter.md
 	mkdir -p $(PREDIR)/$(shell dirname $*)
+	cat $(SRCDIR)/$(shell dirname $(shell dirname $*))/metadata.yaml
 	cat $(SRCDIR)/$(shell dirname $(shell dirname $*))/metadata.yaml $(SRCDIR)/$*.md \
   | \
 	pandoc \
@@ -156,6 +157,7 @@ $(PREDIR)/%.md : $(SRCDIR)/%.md $(TPLDIR)/chapter.md
 $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs $(DICDIR)/penalized-breaks $(DICDIR)/forbidden-breaks
 #$(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(DICDIR)/penalized-breaks $(DICDIR)/forbidden-breaks
 	mkdir -p $(TEXDIR)/${shell dirname $*}
+	cat $(PREDIR)/$*.md
 	cat $(PREDIR)/$*.md \
 	| \
 	pandoc \
