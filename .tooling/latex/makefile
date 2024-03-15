@@ -3,7 +3,7 @@
 # We set ALL folders through variables to make them easily configurable.
 
 # Input directory
-SRCDIR = ../../
+SRCDIR = ../..
 # Partial output directory
 TEXDIR = ./tex
 # Draft output directory
@@ -104,8 +104,8 @@ clobber:
 
 # usage: make preprocessed/filename.md
 $(PREDIR)/%.md : $(SRCDIR)/%.md $(TPLDIR)/chapter.md
-	mkdir -p $(PREDIR)$(shell dirname $*)
-	cat $(SRCDIR)$(shell dirname $(shell dirname $*))/metadata.yaml $(SRCDIR)/$*.md \
+	mkdir -p $(PREDIR)/$(shell dirname $*)
+	cat $(SRCDIR)/$(shell dirname $(shell dirname $*))/metadata.yaml $(SRCDIR)/$*.md \
   | \
 	pandoc \
 	  --id-prefix='$*@' \
