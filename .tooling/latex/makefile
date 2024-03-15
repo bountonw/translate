@@ -164,6 +164,7 @@ $(TEXDIR)/%.tex : $(PREDIR)/%.md $(TPLDIR)/chapter.tex $(FILDIR)/inline-latex.hs
 	  --template=$(TPLDIR)/chapter.tex \
 	  --lua-filter $(FILDIR)/remove-paragraph-code-headings.lua \
 	  --lua-filter $(FILDIR)/transform-poetry.lua \
+	  --variable=modified:"$(shell git log -n 1 --pretty=format:%cd --date=format:"%Y-%m-%d at %H:%M" $(SRCDIR)/$*.md)" \
 	| \
 	swath \
 	  -b "|" \

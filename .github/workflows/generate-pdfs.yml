@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # This is required for retrieving the content last modified timestamps
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
