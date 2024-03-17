@@ -1,6 +1,5 @@
 # List of common typos and misspellings of Thai words to be flagged.
 
-
 กฏบัญญัติ
 กฏหมาย
 กฏเกณฑ์
