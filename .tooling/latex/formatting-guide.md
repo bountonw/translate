@@ -31,7 +31,7 @@ Footer
 
 Thai text
 
-* font family: CSPraJad
+* font family: Sarabun
 * font size: 17pt
 * word spacing: double
 
