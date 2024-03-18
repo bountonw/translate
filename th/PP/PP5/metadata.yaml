@@ -1,12 +1,5 @@
 ---
 lang: th-TH
-title:
-- &maintitle
-  type: main
-  text: คำพรจากภูเขา 
-- &subtitle
-  type: subtitle
-  text: Thoughts from the Mount of Blessings
 creator:
 - role: author
   text: Ellen White # เอเลน ไวท์
@@ -21,4 +14,3 @@ book:
   title:
     th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
     en: Patriarchs and Prophets!
-...
