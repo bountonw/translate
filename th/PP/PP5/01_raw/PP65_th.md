@@ -1,4 +1,8 @@
 ---
+book:
+  title:
+    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
+    en: Patriarchs and Prophets
 chapter:
   number: 65
   title:
