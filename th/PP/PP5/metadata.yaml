@@ -1,17 +1,13 @@
 ---
 lang: th-TH
-creator:
-- role: author
-  text: Ellen White # เอเลน ไวท์
-- role: translator
-  text: Brian Wilson # ไบรอัน วิลสัน
-#identifier:
-#- scheme: DOI
-#  text: doi:10.234234.234/33
-publisher:  Unknown Press
-rights: © 2016 John Smith, All rights reserved
+author:
+  en: Ellen White
+  th: เอเลน ไวท์
+translator:
+  en: Brian Wilson
+  th: บุญต้น วิลสัน
 book:
   title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
+    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 5
     en: Patriarchs and Prophets
 ...
