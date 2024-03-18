@@ -18,8 +18,6 @@ creator:
 publisher:  Unknown Press
 rights: © 2016 John Smith, All rights reserved
 book:
-    maintitle:
-        <<: *maintitle
-    subtitle:
-        <<: *subtitle
-...
+  title:
+    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
+    en: Patriarchs and Prophets!
