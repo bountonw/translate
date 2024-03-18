@@ -1,7 +1,4 @@
 ---
-book:
-  title:
-    en: The Great Controversy
 chapter:
   number: 42
   title:

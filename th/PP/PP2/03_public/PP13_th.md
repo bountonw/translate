@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 2
-    en: Patriarchs and Prophets
 chapter:
   number: 13
   title:

@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 1
-    en: Patriarchs and Prophets
 chapter:
   number: 6
   title:
