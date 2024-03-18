@@ -6,12 +6,6 @@ chapter:
     en: Eli and His Sons
   url: https://legacy.egwwritings.org/?ref=en_PP.575&para=84.2698
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล 2:12–36
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 575.1}

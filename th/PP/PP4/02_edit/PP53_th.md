@@ -6,12 +6,6 @@ chapter:
     en: The Earlier Judges
   url: https://legacy.egwwritings.org/?ref=en_PP.543&para=84.2538
   basedon: ศึกษาควบคู่กับผู้วินิจฉัยบทที่ 6–8; 10
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 543.1}

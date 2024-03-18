@@ -6,12 +6,6 @@ chapter:
     en: Joseph in Egypt
   url: https://legacy.egwwritings.org/?para=84.584
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 39–41
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 213.1}

@@ -6,12 +6,6 @@ chapter:
     en: The Law Given to Israel
   url: https://egwwritings.org/?ref=en_PP.303&para=84.1328
   basedon: ศึกษาควบคู่กับ อพยพ 19–24
-author:
- en: Ellen White
- th: เอเลน ไวท์
-translator:
- en: Brian Wilson
- th: บุญต้น วิลสัน
 ---
 
 ## {PP 303.1}

@@ -6,12 +6,6 @@ chapter:
     en: Jacob's Flight and Excile
   url: https://legacy.egwwritings.org/?para=84.758
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 28–31
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 183.1}

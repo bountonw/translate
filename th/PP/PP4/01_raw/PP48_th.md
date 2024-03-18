@@ -6,12 +6,6 @@ chapter:
     en: The Division of Canaan
   url: https://egwwritings.org/?ref=en_PP.510&para=84.2352
   basedon: ศึกษาควบคู่กับ โยชูวา 10:40–43; 11; 14–22
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 510.1}

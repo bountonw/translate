@@ -6,12 +6,6 @@ chapter:
     en: Abraham in Canaan
   url: https://legacy.egwwritings.org/?para=84.517
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 13–15; 17:1–16; 18
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 132.1}

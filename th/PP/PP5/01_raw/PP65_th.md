@@ -6,12 +6,6 @@ chapter:
     en: The Magnanimity of David
   url: https://legacy.egwwritings.org/?ref=en_PP.660&para=84.3100
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 22:20–23; 23–27
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 660.1}

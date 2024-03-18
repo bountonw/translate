@@ -6,12 +6,6 @@ chapter:
     en: The First King of Israel
   url: https://egwwritings.org/?ref=en_PP.603&para=84.2832
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 8--12
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 603.1}

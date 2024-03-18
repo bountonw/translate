@@ -6,12 +6,6 @@ chapter:
     en: The Conquest of Bashan
   url:
   basedon: เฉลยธรรมบัญญัติ 2; 3:1–11.
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 433.1}

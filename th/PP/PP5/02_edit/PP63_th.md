@@ -6,12 +6,6 @@ chapter:
     en: David and Goliath
   url: https://legacy.egwwritings.org/?ref=en_PP.643&para=84.3013
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 16:14–23; 17
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 643.1}

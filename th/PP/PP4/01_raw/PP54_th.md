@@ -6,12 +6,6 @@ chapter:
     en: Samson
   url: https://legacy.egwwritings.org/?ref=en_PP.560&para=84.2620
   basedon: ศึกษาควบคู่กับผู้วินิจฉัยบทที่ 13 ถึง 16
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 560.1}

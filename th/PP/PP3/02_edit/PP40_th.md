@@ -6,12 +6,6 @@ chapter:
     en: Balaam
   url: https://legacy.egwwritings.org/?ref=en_PP.438&para=84.2012
   basedon: กันดารวิถี 22–24
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 438.1}

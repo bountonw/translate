@@ -6,12 +6,6 @@ chapter:
     en: (พระเจ้าทรงเลี้ยงดูคนยากจน///)
   url: https://legacy.egwwritings.org/?ref=en_PP.530&para=84.2461
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 530.1}

@@ -6,12 +6,6 @@ chapter:
     en: The Blessings and the Curses
   url: https://egwwritings.org/?ref=en_PP.499&para=84.2302
   basedon: ศึกษาควบคู่กับ โยชูวา 8
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 499.1}

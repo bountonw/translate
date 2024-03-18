@@ -6,12 +6,6 @@ chapter:
     en: The Death of Saul
   url: https://legacy.egwwritings.org/?ref=en_PP.675&para=84.3169
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 28; 31
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 675.1}

@@ -6,12 +6,6 @@ chapter:
     en: Cain and Abel Tested
   url: https://legacy.egwwritings.org/?ref=en_PP.80&para=84.289
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 4:25–6:2
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 80.1}

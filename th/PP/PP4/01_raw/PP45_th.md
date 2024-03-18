@@ -6,12 +6,6 @@ chapter:
     en: The fall of Jericho
   url: https://egwwritings.org/?ref=en_PP.487&para=84.2245
   basedon: ศึกษาควบคู่กับ โยชูวา 5:13–15; 6; 7
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 487.1}

@@ -6,12 +6,6 @@ chapter:
     en: League With the Gibeonites
   url: https://egwwritings.org/?ref=en_PP.505&para=84.2326
   basedon: ศึกษาควบคู่กับ โยชูวา 9 และ 10
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 505.1}

@@ -6,12 +6,6 @@ chapter:
     en: Joseph and his Brothers
   url: https://legacy.egwwritings.org/?para=84.945
   basedon: ศึกษาควบคู่กับปฐมกาลบทที่ 41:54–56; 42–50
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 224.1}

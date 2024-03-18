@@ -6,12 +6,6 @@ chapter:
     en: Why was sin permitted?
   url: https://legacy.egwwritings.org/?ref=en_PP.33&para=84.68
   basedon: 
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 33.1}

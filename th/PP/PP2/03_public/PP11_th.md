@@ -6,12 +6,6 @@ chapter:
     en: The Call of Abraham
   url: https://legacy.egwwritings.org/?para=84.488
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 11:27–32; 12:1–20
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 125.1}

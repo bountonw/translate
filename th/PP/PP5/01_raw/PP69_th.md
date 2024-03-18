@@ -6,12 +6,6 @@ chapter:
     en: David Called to the Throne
   url: https://legacy.egwwritings.org/?para=84.3274
   basedon: ศึกษาควบคู่กับ 2 ซามูเอล 2 ถึงบทที่ 5:5
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 697.1}

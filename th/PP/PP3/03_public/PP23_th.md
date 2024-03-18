@@ -6,12 +6,6 @@ chapter:
     en: The Plagues of Egypt
   url: https://egwwritings.org/?ref=en_PP.257&para=84.1118
   basedon: ศึกษาควบคู่กับ อพยพบทที่ 5–10
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 257.1}

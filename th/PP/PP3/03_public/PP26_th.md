@@ -6,12 +6,6 @@ chapter:
   en: From the Red Sea to Sinai
  url: https://egwwritings.org/?ref=en_PP.291&para=84.1270
  basedon: ศึกษาควบคู่กับ อพยพบทที่ 15:22–27; 16–18
-author:
- en: Ellen White
- th: เอเลน ไวท์
-translator:
- en: Brian Wilson
- th: บุญต้น วิลสัน
 ---
 
 ## {PP 291.1}

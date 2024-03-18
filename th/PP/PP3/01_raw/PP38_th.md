@@ -6,12 +6,6 @@ chapter:
     en: The Journey Around Edom
   url:
   basedon: กันดารวิถี 20:14–29; 21:1–9
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 422.1}

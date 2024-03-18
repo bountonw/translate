@@ -6,12 +6,6 @@ chapter:
     en: The Rebellion of Absalom
   url: https://legacy.egwwritings.org/?para=84.3447
   basedon: ศึกษาควบคู่กับ 2 ซามูเอล 13–19
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 727.1}

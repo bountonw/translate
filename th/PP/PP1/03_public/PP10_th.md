@@ -6,12 +6,6 @@ chapter:
     en: The Tower of Babel
   url: https://legacy.egwwritings.org/?para=84.454
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 9:25–27; 11:1–9
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 117.1}

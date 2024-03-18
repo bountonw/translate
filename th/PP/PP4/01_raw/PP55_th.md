@@ -6,12 +6,6 @@ chapter:
     en: The Child Samuel
   url: https://legacy.egwwritings.org/?ref=en_PP.569&para=84.2666
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล 1; 2:1–11
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 569.1}

@@ -6,12 +6,6 @@ chapter:
     en: David a Fugitive
   url: https://legacy.egwwritings.org/?ref=en_PP.649&para=84.3043
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 18 ถึง 22
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 649.1}

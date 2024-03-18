@@ -6,12 +6,6 @@ chapter:
     en: The Law and the Covenants
   url: https://egwwritings.org/?ref=en_PP.363&para=84.1631
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 363.1}

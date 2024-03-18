@@ -6,12 +6,6 @@ chapter:
     en: The Last Years of David
   url: https://legacy.egwwritings.org/?para=84.3535
   basedon: ศึกษาควบคู่กับ 2 ซามูเอล 24; 1 พงศ์กษัตริย์ 1; 1 พงศาวดาร 24; 28; 29
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 746.1}

@@ -6,12 +6,6 @@ chapter:
     en: Appendix Note 3
   url: https://egwwritings.org/?ref=en_PP.759.2&para=84.3601
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 759.2}

@@ -6,12 +6,6 @@ chapter:
     en: The Temptation and Fall
   url: https://legacy.egwwritings.org/?ref=en_PP.52&para=84.155
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 3
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 52.1}

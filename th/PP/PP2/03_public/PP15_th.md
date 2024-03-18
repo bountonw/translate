@@ -6,12 +6,6 @@ chapter:
     en: The Marriage of Isaac
   url: https://legacy.egwwritings.org/?para=84.697
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 24
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 171.1}

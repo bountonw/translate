@@ -6,12 +6,6 @@ chapter:
     en: The Schools of the Prophets
   url: https://legacy.egwwritings.org/?ref=en_PP.592&para=84.2786
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 592.1}

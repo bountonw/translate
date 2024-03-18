@@ -6,12 +6,6 @@ chapter:
     en: Apostasy at the Jordan
   url: https://legacy.egwwritings.org/?ref=en_PP.453&para=84.2085
   basedon: ศึกษาควบคู่กับกันดารวิถี บทที่ 25
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 453.1}

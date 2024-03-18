@@ -6,12 +6,6 @@ chapter:
     en: The Rebellion of Korah
   url: https://legacy.egwwritings.org/?ref=en_PP.395&para=84.1797
   basedon: กันดารวิถี 16 และ 17
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 395.1}
