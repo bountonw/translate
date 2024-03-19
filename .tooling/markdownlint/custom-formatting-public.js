@@ -3,7 +3,7 @@ import { applyCustomFormattingRules } from "./helpers.js";
 const customFormattingRules = [
   {
     name: "closing parenthesis not properly followed",
-    regexp: /\)[^ ’”;:,.!\[]</,
+    regexp: /\)[^ ’”;:,.!<\[]/,
   },
 ];
 
