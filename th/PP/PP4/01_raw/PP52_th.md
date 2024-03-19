@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 52
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Annual Feasts
   url: https://legacy.egwwritings.org/?ref=en_PP.537&para=84.2499
   basedon: ศึกษาควบคู่กับเลวีนิติ 23
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 537.1}

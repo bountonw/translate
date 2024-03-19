@@ -1,8 +1,4 @@
 ---
-book:
- title:
-   th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-   en: Patriarchs and Prophets
 chapter:
  number: 25
  title:
@@ -10,12 +6,6 @@ chapter:
    en: The Exodus
  url: https://egwwritings.org/?ref=en_PP.281&para=84.1225
  basedon: ศึกษาควบคู่กับ อพยพบทที่ 12:34–51; 13–15
-author:
- en: Ellen White
- th: เอเลน ไวท์
-translator:
- en: Brian Wilson
- th: บุญต้น วิลสัน
 ---
 
 ## {PP 281.1}

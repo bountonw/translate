@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 2
-    en: Patriarchs and Prophets
 chapter:
   number: 14
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Destruction of Sodom
   url: https://legacy.egwwritings.org/?para=84.632
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 19
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 156.1}

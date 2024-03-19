@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 2
-    en: Patriarchs and Prophets
 chapter:
   number: 16
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Jacob and Esau
   url: https://legacy.egwwritings.org/?para=84.729
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 25:19–34; 27
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 177.1}

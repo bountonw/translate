@@ -3,7 +3,7 @@
 # We set ALL folders through variables to make them easily configurable.
 
 # Input directory
-SRCDIR = ../../
+SRCDIR = ../..
 # Partial output directory
 TEXDIR = ./tex
 # Draft output directory

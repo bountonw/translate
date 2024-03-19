@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 2
-    en: Patriarchs and Prophets
 chapter:
   number: 19
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Return to Canaan
   url: https://legacy.egwwritings.org/?para=84.852
   basedon: ศึกษาควบคู่กับปฐมกาลบทที่ 34–35, 37
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 204.1}

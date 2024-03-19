@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 57
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Ark Taken by the Philistines
   url: https://legacy.egwwritings.org/?ref=en_PP.581&para=84.2726
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล 3 ถึง 7
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 581.1}

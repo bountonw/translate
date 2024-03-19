@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 59B
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Appendix Note 9
   url: https://legacy.egwwritings.org/?ref=en_PP.764.3&para=84.3634
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 764.3}

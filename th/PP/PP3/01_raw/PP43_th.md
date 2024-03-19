@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 43
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Death of Moses
   url: https://legacy.egwwritings.org/?ref=en_PP.469&para=84.2163
   basedon: เฉลยธรรมบัญญัติบทที่ 31 – 34
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 469.1}

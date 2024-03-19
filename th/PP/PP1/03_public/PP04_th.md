@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 1
-    en: Patriarchs and Prophets
 chapter:
   number: 4
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Plan of Redemption
   url: https://legacy.egwwritings.org/?ref=en_PP.63&para=84.215
   basedon: 
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 63.1}

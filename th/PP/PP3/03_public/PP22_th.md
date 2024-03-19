@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 22
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Moses
   url: https://egwwritings.org/?ref=en_PP.241&para=84.1042
   basedon: ศึกษาควบคู่กับ อพยพบทที่ 1–4
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 241.1}

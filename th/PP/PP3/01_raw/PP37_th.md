@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 37
   title:
@@ -10,12 +6,6 @@ chapter:
     en: In the Wilderness
   url:
   basedon: กันดารวิถี 20:1–13
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 411.1}

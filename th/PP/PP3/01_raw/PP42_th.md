@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 42
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Law Repeated
   url: https://legacy.egwwritings.org/?ref=en_PP.462&para=84.2127
   basedon: เฉลยธรรมบัญญัติบทที่ 4–6, 28
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 462.1}

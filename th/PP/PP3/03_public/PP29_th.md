@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 29
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Satan's Enmity Against the Law
   url: https://egwwritings.org/?ref=en_PP.331&para=84.1479
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 331.1}

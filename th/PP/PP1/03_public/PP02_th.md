@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 1
-    en: Patriarchs and Prophets
 chapter:
   number: 2
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Creation
   url: https://legacy.egwwritings.org/?ref=en_PP.44&para=84.117
   basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 1–2
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 44.1}

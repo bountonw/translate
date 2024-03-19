@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 71
   title:
@@ -10,12 +6,6 @@ chapter:
     en: David's Sin and Repentance
   url: https://legacy.egwwritings.org/?para=84.3386
   basedon: ศึกษาควบคู่กับ 2 ซามูเอล 11, 12
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 717.1}

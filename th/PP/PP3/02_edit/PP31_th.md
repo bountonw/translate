@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 31
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Sin of Nadab and Abihu
   url: https://egwwritings.org/?ref=en_PP.359&para=84.1614
   basedon: ศึกษาควบคู่กับ เลวีนิติบทที่ 10:1–11
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 359.1}

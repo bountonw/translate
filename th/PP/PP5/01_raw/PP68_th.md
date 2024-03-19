@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 68
   title:
@@ -10,12 +6,6 @@ chapter:
     en: David at Ziklag
   url: https://legacy.egwwritings.org/?para=84.3236
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล 29; 30; 2 ซามูเอล 1
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 690.1}

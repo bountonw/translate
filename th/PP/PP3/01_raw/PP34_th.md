@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 34
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Twelve Spies
   url: https://legacy.egwwritings.org/?ref=en_PP.387&para=84.1755
   basedon: กันดารวิถี 13 และ 14
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 387.1}

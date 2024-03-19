@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 67
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Ancient and Modern Sorcery
   url: https://legacy.egwwritings.org/?para=84.3203
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 683.1}

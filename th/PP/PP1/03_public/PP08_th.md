@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 1
-    en: Patriarchs and Prophets
 chapter:
   number: 8
   title:
@@ -10,12 +6,6 @@ chapter:
     en: After the Flood
   url: https://legacy.egwwritings.org/?ref=en_PP.105&para=84.399
   basedon: ปฐมกาล 7:20–9:17
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 105.1}

@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 60
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Presumption of Saul
   url: https://legacy.egwwritings.org/?ref=en_PP.616&para=84.2900
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 13 และ 14
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 616.1}

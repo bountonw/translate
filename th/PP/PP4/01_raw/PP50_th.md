@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 50
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Tithes and Offerings
   url: https://legacy.egwwritings.org/?ref=en_PP.525&para=84.2434
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 525.1}

@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
   number: 33
   title:
@@ -10,12 +6,6 @@ chapter:
     en: From Sinai to Kadesh
   url: https://legacy.egwwritings.org/?ref=en_PP.374&para=84.1687
   basedon: กันดารวิถี 11 และ 12
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 374.1}

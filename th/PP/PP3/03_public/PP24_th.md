@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-    en: Patriarchs and Prophets
 chapter:
  number: 24
  title:
@@ -10,12 +6,6 @@ chapter:
    en: The Passover
  url: https://egwwritings.org/?ref=en_PP.273&para=84.1195
  basedon: ศึกษาควบคู่กับ อพยพบทที่ 11; 12:1–32
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 273.1}

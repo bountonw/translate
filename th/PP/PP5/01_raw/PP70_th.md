@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 70
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Reign of David
   url: https://legacy.egwwritings.org/?para=84.3303
   basedon: ศึกษาควบคู่กับ 2 ซามูเอล 5:6–25; 6; 7; 9; 10
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 703.1}

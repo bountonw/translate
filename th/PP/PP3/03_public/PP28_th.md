@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-   th: บรรพชนกับผู้เผยพระวจนะ เล่ม 3
-   en: Patriarchs and Prophets
 chapter:
   number: 28
   title:
@@ -10,12 +6,6 @@ chapter:
     en: Idolatry at Sinai
   url: https://egwwritings.org/?ref=en_PP.315&para=84.1403
   basedon: ศึกษาควบคู่กับ อพยพ 32 ถึง 34
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 315.1}
