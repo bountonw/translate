@@ -10,6 +10,14 @@ const customFormattingRules = [
     regexp: /\S{/,
   },
   {
+    name: "missing space before opening curly quotes",
+    regexp: /[^\s“‘\()][“‘]/,
+  },
+  {
+    name: "invalid space after opening curly quotes",
+    regexp: /[“‘]\s/,
+  },
+  {
     name: "invalid space before closing curly quotes",
     regexp: /\s[”’]/,
   },
