@@ -5,6 +5,14 @@ const customFormattingRules = [
     name: "forbidden term",
     regexp: new RegExp(`${readForbiddenTerms("lao.txt").join("|")}`),
   },
+  {
+    name: "forbidden ຫນ",
+    regexp: /(?<!ຫວງແ)ຫນ/,
+  },
+  {
+    name: "forbidden ຫມ",
+    regexp: /(?<!ເນເ)ຫມ(?!ຢາ)/,
+  },
 ];
 
 const CustomFormatting = {
