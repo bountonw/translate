@@ -61,6 +61,7 @@ const CHECKS = [
       "!source/**/*.md",
       "!**/00_source/*.md",
       "!**/001_machineraw/*.md",
+      "!**/README.md",
     ]);
     console.log(`Linting ${paths.length} files in "${globPath}"`);
     let customRules = [];
