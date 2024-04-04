@@ -29,6 +29,20 @@ const customFormattingRules = [
     name: "hyphen instead of en-dash",
     regexp: /\d(-|—)\d/,
   },
+  {
+    name: "invalid reference code",
+    test: (line, { name: filename }) => {
+      if (
+        filename.search("/assets/") === -1 && // Ignore assets files
+        line.search(/^(?!(#+|\{|\[\^\d\]|\s{4}|$))/) === 0
+      ) {
+        return line.search(/\{\w+ \d{1,3}\.\d{1,2}\}$/) >= 0
+          ? -1
+          : line.length - 1;
+      }
+      return -1;
+    },
+  },
 ];
 
 const CustomFormatting = {
