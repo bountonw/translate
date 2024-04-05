@@ -4,11 +4,16 @@
     "node": "18.19"
   },
   "scripts": {
-    "lint": ".tooling/markdownlint/index.js"
+    "lint": ".tooling/markdownlint/index.js",
+    "lint-frontmatter": "remark ."
   },
   "devDependencies": {
     "globby": "^14.0.1",
     "markdownlint": "^0.33.0",
-    "markdownlint-rule-helpers": "^0.24.0"
+    "markdownlint-rule-helpers": "^0.24.0",
+    "remark": "^15.0.1",
+    "remark-cli": "^12.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-lint-frontmatter-schema": "^3.15.4"
   }
 }
