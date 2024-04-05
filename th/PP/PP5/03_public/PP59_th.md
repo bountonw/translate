@@ -3,7 +3,7 @@ chapter:
   number: 59
   title:
     th: กษัตริย์องค์แรกของอิสราเอล
-    en: The First King of Israel Test
+    en: The First King of Israel
   url: https://egwwritings.org/?ref=en_PP.603&para=84.2832
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 8--12
 ---
