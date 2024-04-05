@@ -1,0 +1,17 @@
+allOf:
+  - $ref: ./frontmatter-schema.yaml
+
+type: object
+properties:
+  chapter:
+    type: object
+    properties:
+      title:
+        type: object
+        properties:
+          lo:
+            type:
+              - string
+              - "null"
+        required:
+          - lo

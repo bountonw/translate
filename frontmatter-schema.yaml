@@ -18,9 +18,13 @@ properties:
         required:
           - en
       basedon:
-        type: string
+        type:
+          - string
+          - "null"
       url:
-        type: string
+        type:
+          - string
+          - "null"
         format: uri
     required:
       - title
