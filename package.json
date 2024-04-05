@@ -5,7 +5,7 @@
   },
   "scripts": {
     "lint": ".tooling/markdownlint/index.js",
-    "lint-frontmatter": "remark ."
+    "lint-frontmatter": "remark --frail ."
   },
   "devDependencies": {
     "globby": "^14.0.1",
