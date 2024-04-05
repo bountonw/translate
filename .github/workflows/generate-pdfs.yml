@@ -1,23 +1,15 @@
 name: Generate PDFs
 
 on:
-  # TODO: make this run on merges too?
-  # push:
-  #   branches: ["master", "release/*"]
-  #   tags: ["*"]
-  pull_request:
-    branches: ["main", "latex-pdfs"]
-    # TODO: fix this
-    # paths:
-    #   - ".actions/*"
-    #   - ".github/workflows/docs-build.yml"
-    #   - "requirements/**"
-    #   - "docs/**"
-    #   - "src/**"
-    #   - "setup.py"
-    #   - "pyproject.toml"  # includes metadata used in the package creation
-    #   - "!*.md"
-    #   - "!**/*.md"
+  push:
+    paths:
+      - 'th/**/*.md'
+      # - 'lo/**/*.md' (commented out until needed)
+      - '.tooling/latex/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:
