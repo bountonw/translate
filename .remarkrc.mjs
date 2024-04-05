@@ -13,7 +13,6 @@ const remarkConfig = {
             "./lo/**/02_edit/*.md",
             "./lo/**/03_public/*.md",
           ],
-          "./frontmatter-schema-lo-MB.yaml": ["./lo/MB/01_raw/*.md"],
           "./frontmatter-schema-th.yaml": [
             "./th/**/01_raw/*.md",
             "./th/**/02_edit/*.md",
