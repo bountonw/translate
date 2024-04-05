@@ -27,8 +27,8 @@ export const applyCustomFormattingRules =
   (customFormattingRules) => (params, onError) => {
     forEachLine(getLineMetadata(params), (line, lineIndex) => {
       for (const rule of customFormattingRules) {
-        const { name, regexp } = rule;
-        const column = line.search(regexp);
+        const { name, regexp, test } = rule;
+        const column = test ? test(line, params) : line.search(regexp);
         if (column >= 0) {
           onError({
             lineNumber: lineIndex + 1,
