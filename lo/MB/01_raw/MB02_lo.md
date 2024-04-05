@@ -2,7 +2,7 @@
 chapter:
   number: 2
   title:
-    lo: 
+    lo: ຄວາມສຸກອັນແທ້ຈິງ
     en: The Beatitudes
   url: https://legacy.egwwritings.org/?ref=en_MB.6&para=150.52
 ---
