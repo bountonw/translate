@@ -2,7 +2,7 @@
 chapter:
   number: 6
   title:
-    lo: 
+    lo: ຢ່າຕັດສິນຜູ້ອື່ນ ແຕ່ຈົ່ງປະຕິບັດຕາມພຣະທຳ
     en: Not Judging, but Doing
   url: https://legacy.egwwritings.org/ref=en_MB.123&para=150.627
 ---
