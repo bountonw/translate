@@ -2,7 +2,7 @@
 chapter:
   number: 5
   title:
-    lo: 
+    lo: ຄຳອະທິຖານຂອງພຣະເຢຊູ
     en: The Lord\'s Prayer
   url: https://legacy.egwwritings.org/?ref=en_MB.102&para=150.528
 ---
