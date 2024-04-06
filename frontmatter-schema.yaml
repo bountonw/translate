@@ -28,7 +28,7 @@ properties:
         format: uri
     required:
       - title
-    additionalProperties: false
+    # additionalProperties: false
 required:
   - chapter
-additionalProperties: false
+# additionalProperties: false
