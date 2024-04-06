@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'th/**/*.md'
+      - 'th/**/*.yaml'
       # - 'lo/**/*.md' (commented out until needed)
       - '.tooling/latex/**'
 
