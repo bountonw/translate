@@ -25,7 +25,9 @@ jobs:
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
+          sudo apt-get install -y texlive-xetex swath
+          wget https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb
+          sudo dpkg -i pandoc-3.1.13-1-amd64.deb
       - name: Generate ICMLs
         working-directory: ./.tooling/latex/
         run: ./generate-lbf-icmls.sh
