@@ -1,12 +1,11 @@
 name: Generate ICML for LBF
 
 on:
-  push:
+  pull_request:
     paths:
       - 'th/LBF/03_public/*.md'
       - 'th/LBF/metadata.yaml'
       - '.tooling/latex/**'
-      - '.github/workflows/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

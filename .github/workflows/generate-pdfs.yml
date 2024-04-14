@@ -1,7 +1,7 @@
 name: Generate PDFs
 
 on:
-  push:
+  pull_request:
     paths:
       - 'th/**/*.md'
       - 'th/**/*.yaml'
