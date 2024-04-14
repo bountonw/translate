@@ -207,11 +207,24 @@ $(DFTDIR)/%.pdf : $(TEXDIR)/%.tex $(TPLDIR)/chapter.tex $(TPLDIR)/draft.tex
 # prerequisites are the tex source for the chapter.
 
 # usage: make lbf/filename.icml
-$(LBFDIR)/%.icml : $(TEXDIR)/%.tex
+$(LBFDIR)/%.icml:
+	mkdir -p $(PREDIR)/$(shell dirname $*)	
+	cat $(SRCDIR)/$(shell dirname $(shell dirname $*))/metadata.yaml $(SRCDIR)/$*.md \
+  | \
+	pandoc \
+	  --id-prefix='$*@' \
+	  --from markdown \
+	  --to markdown \
+	  --standalone \
+	  --variable=this:$* \
+	  --template=$(TPLDIR)/chapter-lbf.md \
+	> $(PREDIR)/$*.md
 	mkdir -p $(LBFDIR)/${shell dirname $*}
 	pandoc \
-	  $(TEXDIR)/$*.tex \
-	  --from latex+raw_tex \
+	  $(PREDIR)/$*.md \
+	  --from markdown \
+	  --lua-filter $(FILDIR)/remove-paragraph-code-headings.lua \
+	  --lua-filter $(FILDIR)/transform-poetry.lua \
 	  --lua-filter $(FILDIR)/remove-paragraph-codes.lua \
 	  --standalone \
 	  --output $(LBFDIR)/$*.icml
