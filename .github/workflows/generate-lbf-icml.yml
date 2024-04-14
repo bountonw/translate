@@ -16,7 +16,7 @@ defaults:
     shell: bash
 
 jobs:
-  generate-pdfs:
+  generate-icmls:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
