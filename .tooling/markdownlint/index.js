@@ -14,6 +14,12 @@ const GLOBAL_CONFIG = {
   "heading-style": {
     style: "atx",
   },
+  "emphasis-style": {
+    style: "asterisk",
+  },
+  "strong-style": {
+    style: "asterisk",
+  },
 };
 
 const CHECKS = [
