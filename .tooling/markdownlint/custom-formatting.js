@@ -23,7 +23,7 @@ const customFormattingRules = [
   },
   {
     name: "missing space after closing curly quotes",
-    regexp: /[’”][^\s<’”—\.\[\)]/,
+    regexp: /(\w”[^\s<’”—\[\)…]|(?<![a-z])’[^\s<”—\.\[\)…](?!s))/,
   },
   {
     name: "semicolon followed by a number",
