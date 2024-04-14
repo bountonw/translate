@@ -226,6 +226,7 @@ $(LBFDIR)/%.icml:
 	  --lua-filter $(FILDIR)/remove-paragraph-code-headings.lua \
 	  --lua-filter $(FILDIR)/transform-poetry.lua \
 	  --lua-filter $(FILDIR)/remove-paragraph-codes.lua \
+	  --lua-filter $(FILDIR)/add-first-paragraph-style.lua \
 	  --standalone \
 	  --output $(LBFDIR)/$*.icml
 
