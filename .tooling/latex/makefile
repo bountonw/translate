@@ -24,6 +24,8 @@ EBKDIR = ./ebooks
 PREDIR = ./preprocessed
 # Graphs directory
 GPHDIR = ./graphs
+# Draft output directory
+LBFDIR = ./lbf
 
 #==[ FILE LISTS ]===============================================================
 
@@ -75,6 +77,7 @@ clobber:
 	rm -rf $(DFTDIR)
 	rm -rf $(HTMDIR)
 	rm -rf $(EBKDIR)
+	rm -rf $(LBFDIR)
 
 #==[ PREPROCESSING: TEXT -> MARKDOWN ]==========================================
 
@@ -197,6 +200,21 @@ $(DFTDIR)/%.pdf : $(TEXDIR)/%.tex $(TPLDIR)/chapter.tex $(TPLDIR)/draft.tex
 	  --template=$(TPLDIR)/chapter.tex \
 	  --template=$(TPLDIR)/draft.tex \
 	  --output $(DFTDIR)/$*.pdf
+
+#==[ LBF ICML - SINGLE CHAPTER ]===============================================
+
+# (LBF-only) This target generates the ICML files for a single chapter; its
+# prerequisites are the tex source for the chapter.
+
+# usage: make lbf/filename.icml
+$(LBFDIR)/%.icml : $(TEXDIR)/%.tex
+	mkdir -p $(LBFDIR)/${shell dirname $*}
+	pandoc \
+	  $(TEXDIR)/$*.tex \
+	  --from latex+raw_tex \
+	  --lua-filter $(FILDIR)/remove-paragraph-codes.lua \
+	  --standalone \
+	  --output $(LBFDIR)/$*.icml
 
 #==[ LATEX SOURCECODE - WHOLE BOOK ]============================================
 

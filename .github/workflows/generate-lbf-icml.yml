@@ -1,0 +1,36 @@
+name: Generate ICML for LBF
+
+on:
+  push:
+    paths:
+      - 'th/LBF/03_public/*.md'
+      - 'th/LBF/metadata.yaml'
+      - '.tooling/latex/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # This is required for retrieving the content last modified timestamps
+      - name: Install pandoc & texlive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex swath
+      - name: Generate ICMLs
+        working-directory: ./.tooling/latex/
+        run: ./generate-lbf-icmls.sh
+      - name: Upload ICMLs
+        uses: actions/upload-artifact@v4
+        with:
+          name: LBF-ICMLs
+          path: .tooling/latex/lbf/th/LBF/03_public
