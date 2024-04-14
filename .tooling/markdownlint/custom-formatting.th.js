@@ -5,6 +5,10 @@ const customFormattingRules = [
     name: "forbidden term",
     regexp: new RegExp(`${readForbiddenTerms("thai.txt").join("|")}`),
   },
+  {
+    name: "invalid (ดู spacing",
+    regexp: /\(ดู\S/,
+  },
 ];
 
 const CustomFormatting = {
