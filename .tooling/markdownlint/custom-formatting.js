@@ -3,7 +3,19 @@ import { applyCustomFormattingRules } from "./helpers.js";
 const customFormattingRules = [
   {
     name: "invalid spacing",
-    regexp: /\S\s{2,}($|\S)/,
+    test: (line) => {
+      const doubleSpaceIndex = line ? line.search(/\S\s{2,}($|\S)/) : -1;
+      if (doubleSpaceIndex !== -1) {
+        const isAllowedDoubleSpaceForPoetry =
+          line.search(/>\s/) !== -1 &&
+          line
+            .replace(/^>/, "")
+            .trim()
+            .search(/\S\s{2,}($|\S)/) === -1;
+        return isAllowedDoubleSpaceForPoetry ? -1 : doubleSpaceIndex;
+      }
+      return -1;
+    },
   },
   {
     name: "no space before '{'",
@@ -38,9 +50,12 @@ const customFormattingRules = [
         filename.search("/assets/") === -1 && // Ignore assets files
         line.search(/^(?!(#+|\{|\[\^\d\]|\s{4}|$))/) === 0
       ) {
-        const nextLine = lines[lines.findIndex((l) => l === line) + 1];
-        const isNextLinePoetry = nextLine && nextLine.search(/^\s{4}/) === 0;
-        return isNextLinePoetry || line.search(/\{\w+ \d{1,3}\.\d{1,2}\}$/) >= 0
+        const lineIndex = lines.findIndex((l) => l === line);
+        const nextLine = lines[lineIndex + 1] || lines[lineIndex + 2];
+        const isFollowingLinePoetry =
+          nextLine && nextLine.search(/^(>\s|\s{4,}\S+)/) === 0;
+        return isFollowingLinePoetry ||
+          line.search(/\{\w+ \d{1,3}\.\d{1,2}\}$/) >= 0
           ? -1
           : line.length - 1;
       }
