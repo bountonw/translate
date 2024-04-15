@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความสว่างและชีวิต
     en: Light and Life
-  url: https://egwwritings.org/?ref=en_PTUK.October.6.1892.p.305&para=1524.464
+  url: https://legacy.egwwritings.org/?ref=en_PTUK.October.6.1892.p.305&para=1524.464
   original: Waggoner--PT 10/6/1892
 ---
 
