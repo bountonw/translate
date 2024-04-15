@@ -1,11 +1,10 @@
-name: Generate PDFs
+name: Generate ICML for LBF
 
 on:
   pull_request:
     paths:
-      - 'th/**/*.md'
-      - 'th/**/*.yaml'
-      # - 'lo/**/*.md' (commented out until needed)
+      - 'th/LBF/03_public/*.md'
+      - 'th/LBF/metadata.yaml'
       - '.tooling/latex/**'
 
 concurrency:
@@ -17,7 +16,7 @@ defaults:
     shell: bash
 
 jobs:
-  generate-pdfs:
+  generate-icmls:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -26,12 +25,14 @@ jobs:
       - name: Install pandoc & texlive
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
-      - name: Run Make
+          sudo apt-get install -y texlive-xetex swath
+          wget https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb
+          sudo dpkg -i pandoc-3.1.13-1-amd64.deb
+      - name: Generate ICMLs
         working-directory: ./.tooling/latex/
-        run: ./draftall.sh
-      - name: Upload built docs
+        run: ./generate-lbf-icmls.sh
+      - name: Upload ICMLs
         uses: actions/upload-artifact@v4
         with:
-          name: PP01-${{ github.sha }}
-          path: .tooling/latex/draft
+          name: LBF-ICMLs
+          path: .tooling/latex/lbf/th/LBF/03_public
