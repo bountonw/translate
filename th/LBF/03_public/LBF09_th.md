@@ -3,7 +3,7 @@ chapter:
   number: 9
   title:
     th: รอดเดี๋ยวนี้
-    en: Present Salvation
+    en: A Present Salvation
   url: https://egwwritings.org/?ref=en_PTUK.May.18.1893.p.145&para=1525.1689
   original: Waggoner--PT 5/18/1893
 ---
