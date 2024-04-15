@@ -21,11 +21,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          submodules: 'recursive'
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18.19.0
           cache: 'npm'
-      - run: npm ci
+          cache-dependency-path: '.tooling/package-lock.json'
+      - name: Install deps
+        working-directory: ./.tooling/
+        run: npm ci
       - name: Lint markdown
+        working-directory: ./.tooling/
         run: npm run lint
