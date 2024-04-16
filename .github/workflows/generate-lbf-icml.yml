@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.BOOK_NAME }}_${{ env.CURRENT_TIME }}
-          path: .tooling/latex/lbf/${{ matrix.book }}
+          path: .tooling/latex/icml/${{ matrix.book }}
