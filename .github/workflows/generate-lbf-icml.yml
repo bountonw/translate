@@ -22,17 +22,12 @@ defaults:
 jobs:
   generate-icmls:
     runs-on: ubuntu-20.04
+    container: mattleff/xelatex-swath
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # This is required for retrieving the content last modified timestamps
           submodules: 'recursive'
-      - name: Install pandoc & texlive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-xetex swath
-          wget https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb
-          sudo dpkg -i pandoc-3.1.13-1-amd64.deb
       - name: Generate ICMLs
         working-directory: ./.tooling/latex/
         run: ./generate-lbf-icmls.sh

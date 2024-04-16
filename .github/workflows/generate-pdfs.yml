@@ -26,15 +26,12 @@ jobs:
       matrix:
         book: ['th/PP/PP1', 'th/PP/PP2', 'th/PP/PP3', 'th/PP/PP4','th/PP/PP5', 'th/MB', 'th/LBF']
     runs-on: ubuntu-20.04
+    container: mattleff/xelatex-swath
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # This is required for retrieving the content last modified timestamps
           submodules: 'recursive'
-      - name: Install pandoc & texlive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
       - name: Run Make
         working-directory: ./.tooling/latex/
         run: ./draft.sh ${{ matrix.book }}
