@@ -4,7 +4,7 @@ chapter:
   title:
     th: การตัดสินคนอื่น
     en: Judging Other People
-  url: https://egwwritings.org/?ref=en_PTUK.August.30.1894.p.547&para=1518.8110
+  url: https://egwwritings.org/read?panels=p1518.8110
   original: Waggoner--PT 8/30/1894
 note: Originally entitled: Discerning the Righteous and the Wicked. There has been quite a bit of editorial work in Living by Faith in this chapter.
 ---
