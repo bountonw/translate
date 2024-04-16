@@ -1,4 +1,4 @@
-name: Generate ICML for LBF
+name: Generate ICMLs
 
 on:
   push:
