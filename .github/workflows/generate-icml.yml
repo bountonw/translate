@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - 'th/**/03_public/*.md'
+      - 'th/**/**/03_public/*.md'
       - 'th/**/*.yaml'
       - '.tooling/latex/**'
   workflow_dispatch:
