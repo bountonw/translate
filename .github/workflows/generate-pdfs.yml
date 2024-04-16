@@ -40,9 +40,12 @@ jobs:
         run: ./draft.sh ${{ matrix.book }}
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Current Time
-        run: echo "CURRENT_TIME=$(date +'%Y-%m-%d_%H.%M.%S')" >> $GITHUB_ENV
+        run: |
+          echo "CURRENT_TIME=$(date +'%Y-%m-%d_%H.%M.%S')" >> $GITHUB_ENV
+          BOOK_NAME=${{ matrix.book }}
+          echo "BOOK_NAME=${BOOK_NAME/\//-}" >> $GITHUB_ENV
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.book }}_${{ env.CURRENT_TIME }}
+          name: ${{ BOOK_NAME }}_${{ env.CURRENT_TIME }}
           path: .tooling/latex/draft
