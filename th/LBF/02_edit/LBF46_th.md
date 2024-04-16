@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความเข้มแข็งและความอ่อนแอ
     en: Weakness and Strength
-  url: https://egwwritings.org/?ref=en_PTUK.November.1.1894.p.689&para=1518.9897
+  url: https://egwwritings.org/read?panels=p1518.9897
   original: Waggoner--PT 11/1/1894
 ---
 
