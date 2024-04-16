@@ -3,7 +3,7 @@ chapter:
   number: 22
   title:
     th: โมเสส
-    en: Moses
+    en: Moses!
   url: https://egwwritings.org/?ref=en_PP.241&para=84.1042
   basedon: ศึกษาควบคู่กับ อพยพบทที่ 1–4
 ---
