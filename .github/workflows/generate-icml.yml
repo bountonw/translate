@@ -1,4 +1,4 @@
-name: Generate PDFs
+name: Generate ICMLs
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - master
   pull_request:
     paths:
-      - 'th/**/*.md'
+      - 'th/**/03_public/*.md'
+      - 'th/**/**/03_public/*.md'
       - 'th/**/*.yaml'
-      # - 'lo/**/*.md' (commented out until needed)
       - '.tooling/latex/**'
   workflow_dispatch:
 
@@ -21,7 +21,7 @@ defaults:
     shell: bash
 
 jobs:
-  generate-pdfs:
+  generate-icmls:
     strategy:
       matrix:
         book: ['th/PP/PP1', 'th/PP/PP2', 'th/PP/PP3', 'th/PP/PP4','th/PP/PP5', 'th/MB', 'th/LBF']
@@ -32,17 +32,17 @@ jobs:
         with:
           fetch-depth: 0 # This is required for retrieving the content last modified timestamps
           submodules: 'recursive'
-      - name: Run Make
+      - name: Generate ICMLs
         working-directory: ./.tooling/latex/
-        run: ./draft.sh ${{ matrix.book }}
+        run: ./generate-icmls.sh ${{ matrix.book }}
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Env
         run: |
           echo "CURRENT_TIME=$(date +'%Y-%m-%d_%H.%M.%S')" >> $GITHUB_ENV
           BOOK_NAME=${{ matrix.book }}
           echo "BOOK_NAME=$(echo $BOOK_NAME | sed 's/\//-/g')" >> $GITHUB_ENV
-      - name: Upload built docs
+      - name: Upload ICMLs
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.BOOK_NAME }}_${{ env.CURRENT_TIME }}
-          path: .tooling/latex/draft/${{ matrix.book }}
+          path: .tooling/latex/icml/${{ matrix.book }}
