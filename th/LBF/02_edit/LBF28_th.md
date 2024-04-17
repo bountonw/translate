@@ -6,7 +6,7 @@ chapter:
     en: Judging Other People
   url: https://egwwritings.org/?ref=en_PTUK.August.30.1894.p.547&para=1518.8110
   original: Waggoner--PT 8/30/1894
-note: Originally entitled: Discerning the Righteous and the Wicked. There has been quite a bit of editorial work in Living by Faith in this chapter.
+note: "Originally entitled: Discerning the Righteous and the Wicked. There has been quite a bit of editorial work in Living by Faith in this chapter."
 ---
 
 คนชอบธรรมคือคนที่มีพระวจนะของพระเจ้าดำรงอยู่ในใจ ซึ่งความจริงข้อนี้ไม่ปรากฏให้เห็นภายนอก ถ้าเราสามารถมองเห็นหัวใจคนเหมือนที่พระเจ้าทรงเห็น เราจะรู้อย่างชัดเจนว่าคนๆ นั้นมีความเชื่อหรือไม่มี และจากข้อนี้เราจึงสามารถรู้ได้ว่าเขาอยู่กลุ่มไหนในมนุษย์สองกลุ่มใหญ่นั้น {LBF 87.1}
