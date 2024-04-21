@@ -4,7 +4,7 @@ chapter:
   title:
     th: พระบัญญัติและชีวิต
     en: The Law and the Life
-  url: https://egwwritings.org/?ref=en_PTUK.January.26.1893.p.19&para=1525.197
+  url: https://egwwritings.org/read?panels=p1525.197
   original: Waggoner--PT 1/26/1893
 ---
 

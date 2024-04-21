@@ -3,8 +3,8 @@ chapter:
   number: 37
   title:
     th: การอัศจรรย์ในวันสะบาโต
-    en: Sabbath Miracles
-  url: https://egwwritings.org/?ref=en_PTUK.September.19.1895.p.595&para=1519.6075
+    en: Some Sabbath Miracles
+  url: https://egwwritings.org/read?panels=p1519.6075
   original: Waggoner--PT 9/19/1895
   note: Originally titled “Some Sabbath Miracles.” Sections “The Man With A Withered Hand” and “The Impotent Man Healed” are missing in the publication of Living by Faith
 ---

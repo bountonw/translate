@@ -4,7 +4,7 @@ chapter:
   title:
     th: ดำเนินชีวิตด้วยพระวจนะ
     en: Living by the Word
-  url: https://egwwritings.org/?ref=en_ARSH.November.3.1896.p.700&para=1060.218
+  url: https://egwwritings.org/read?panels=p1060.218
   original: Jones--RH 11/3/1896
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชีวิตในพระคริสต์
     en: Life in Christ
-  url: https://egwwritings.org/?ref=en_PTUK.July.28.1892.p.232&para=1524.249
+  url: https://egwwritings.org/read?panels=p1524.249
   original: Waggoner--PT 7/28/1892
 ---
 
