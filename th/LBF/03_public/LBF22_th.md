@@ -4,7 +4,7 @@ chapter:
   title:
     th: องค์พระผู้ช่วย
     en: The Comforter
-  url: https://egwwritings.org/?ref=en_PTUK.March.23.1893.p.82.5&para=1525.941
+  url: https://egwwritings.org/read?panels=p1525.920(1525.923)&index=0
   original: Waggoner--PT 3/23/1893
   Note: It appears not all paragraphs in the original article were included.
 ---

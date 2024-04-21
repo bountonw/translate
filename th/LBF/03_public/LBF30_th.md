@@ -4,7 +4,7 @@ chapter:
   title:
     th: แล้วก็เป็นดังนั้น
     en: Let It Be
-  url: https://egwwritings.org/?ref=en_SITI.September.5.1895.p.545&para=1548.522
+  url: https://egwwritings.org/read?panels=p1548.522
   original: Waggoner--ST 9/5/1895
 ---
 

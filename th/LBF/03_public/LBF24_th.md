@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชีวิตในพระวจนะ
     en: The Life of the Word
-  url: https://egwwritings.org/?ref=en_PTUK.September.22.1892.p.291&para=1524.349
+  url: https://egwwritings.org/read?panels=p1524.349
   original: Waggoner--PT 9/22/1892
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความสมบูรณ์ที่ยังเติบโต
     en: Perfection Yet Growth
-  url: https://egwwritings.org/?ref=en_PTUK.March.1.1894.p.144&para=1518.2416
+  url: https://egwwritings.org/read?panels=p1518.2416
   original: Waggoner--PT 3/1/1894
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: ใจที่เสื่อมทราม
     en: Desperately Wicked
-  url: https://egwwritings.org/?ref=en_PTUK.December.27.1894.p.823&para=1518.11426
+  url: https://egwwritings.org/read?panels=p1518.11426
   original: Waggoner--PT 12/27/1894
 ---
 

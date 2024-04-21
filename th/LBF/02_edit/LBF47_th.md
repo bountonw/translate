@@ -4,7 +4,7 @@ chapter:
   title:
     th: การเติบโตแบบคริสเตียน
     en: Christian Growth
-  url: https://egwwritings.org/?ref=en_PTUK.November.30.1893.p.551&para=1525.7246
+  url: https://egwwritings.org/read?panels=p1525.7246
   original: Waggoner--PT 11/30/1893
 ---
 

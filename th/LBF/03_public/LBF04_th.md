@@ -4,7 +4,7 @@ chapter:
   title:
     th: เนรมิตด้วยพระวจนะ
     en: The Creative Word
-  url: https://egwwritings.org/?ref=en_PTUK.October.20.1892.p.325&para=1524.713
+  url: https://egwwritings.org/read?panels=p1524.713
   original: Waggoner--PT 10/20/1892
 ---
 
