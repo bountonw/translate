@@ -3,7 +3,7 @@ name: Generate ICMLs
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     paths:
       - 'th/**/03_public/*.md'
