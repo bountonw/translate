@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชีวิตคริสเตียน
     en: The Christian Life
-  url: https://egwwritings.org/?ref=en_PTUK.March.9.1893.p.65&para=1525.699
+  url: https://egwwritings.org/read?panels=p1525.699
   original: Waggoner--PT 3/9/1893
 ---
 

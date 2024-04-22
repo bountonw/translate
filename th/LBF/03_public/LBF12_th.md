@@ -4,7 +4,7 @@ chapter:
   title:
     th: จงฟังและมีชีวิต
     en: Hear and Live
-  url: https://egwwritings.org/?ref=en_PTUK.April.6.1893.p.100&para=1525.1167
+  url: https://egwwritings.org/read?panels=p1525.1167
   original: Waggoner--PT 4/6/1893
 ---
 
