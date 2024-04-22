@@ -9,7 +9,7 @@ on:
       - 'th/**/03_public/*.md'
       - 'th/**/**/03_public/*.md'
       - 'th/**/*.yaml'
-      - '.tooling/latex/**'
+      - '.tooling'
   workflow_dispatch:
 
 concurrency:
