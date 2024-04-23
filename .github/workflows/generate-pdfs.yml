@@ -9,7 +9,7 @@ on:
       - 'th/**/*.md'
       - 'th/**/*.yaml'
       # - 'lo/**/*.md' (commented out until needed)
-      - '.tooling/latex/**'
+      - '.tooling'
   workflow_dispatch:
 
 concurrency:
