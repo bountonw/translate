@@ -10,4 +10,6 @@ book:
   title:
     th: อยู่ด้วยความเชื่อ
     en: Living By Faith
+settings:
+  - strip_reference_codes_on_output
 ...
