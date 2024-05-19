@@ -1,6 +1,6 @@
 ---
 chapter:
-  number: 1
+  number: 34
   title:
     th: ดำเนินชีวิตด้วยพระวจนะ
     en: Living by the Word
