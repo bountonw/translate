@@ -2,7 +2,7 @@
 chapter:
   number: 3
   title:
-    lo: 
+    lo: ກົດບັນຍັດສອນໃຈ
     en: The Spirituality of the Law
   url: https://legacy.egwwritings.org/?ref=en_MB.45&para=150.237
 ---
@@ -65,9 +65,9 @@ chapter:
 
 {MB 49.3}
 
-## {MB 50:1}
+## {MB 50.1}
 
-{MB 50:1}
+{MB 50.1}
 
 ## {MB 50.2}
 

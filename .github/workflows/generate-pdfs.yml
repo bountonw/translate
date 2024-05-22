@@ -1,23 +1,20 @@
 name: Generate PDFs
 
 on:
-  # TODO: make this run on merges too?
-  # push:
-  #   branches: ["master", "release/*"]
-  #   tags: ["*"]
+  push:
+    branches:
+      - main
   pull_request:
-    branches: ["main", "latex-pdfs"]
-    # TODO: fix this
-    # paths:
-    #   - ".actions/*"
-    #   - ".github/workflows/docs-build.yml"
-    #   - "requirements/**"
-    #   - "docs/**"
-    #   - "src/**"
-    #   - "setup.py"
-    #   - "pyproject.toml"  # includes metadata used in the package creation
-    #   - "!*.md"
-    #   - "!**/*.md"
+    paths:
+      - 'th/**/*.md'
+      - 'th/**/*.yaml'
+      # - 'lo/**/*.md' (commented out until needed)
+      - '.tooling'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -25,18 +22,29 @@ defaults:
 
 jobs:
   generate-pdfs:
+    strategy:
+      matrix:
+        book: ['th/PP/PP1', 'th/PP/PP2', 'th/PP/PP3', 'th/PP/PP4','th/PP/PP5', 'th/MB', 'th/LBF']
     runs-on: ubuntu-20.04
+    container:
+      image: mattleff/xelatex-swath
+      options: --user 1001
     steps:
       - uses: actions/checkout@v4
-      - name: Install pandoc & texlive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex swath
+        with:
+          fetch-depth: 0 # This is required for retrieving the content last modified timestamps
+          submodules: 'recursive'
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: ./draftall.sh
+        run: ./draft.sh ${{ matrix.book }}
+      # Dynamically set the name for the artifact based on the current time and build scope
+      - name: Set Env
+        run: |
+          echo "CURRENT_TIME=$(date +'%Y-%m-%d_%H.%M.%S')" >> $GITHUB_ENV
+          BOOK_NAME=${{ matrix.book }}
+          echo "BOOK_NAME=$(echo $BOOK_NAME | sed 's/\//-/g')" >> $GITHUB_ENV
       - name: Upload built docs
         uses: actions/upload-artifact@v4
         with:
-          name: PP01-${{ github.sha }}
-          path: .tooling/latex/draft
+          name: ${{ env.BOOK_NAME }}_${{ env.CURRENT_TIME }}
+          path: .tooling/latex/draft/${{ matrix.book }}

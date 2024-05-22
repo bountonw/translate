@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 4
-    en: Patriarchs and Prophets
 chapter:
   number: 49
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Last Words of Joshua
   url: https://egwwritings.org/?ref=en_PP.521&para=84.2414
   basedon: ศึกษาควบคู่กับ โยชูวา 23 และ 24
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 521.1}

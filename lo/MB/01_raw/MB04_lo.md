@@ -2,7 +2,7 @@
 chapter:
   number: 4
   title:
-    lo: 
+    lo: ແຮງບັນດານໃຈໃນການຮັບໃຊ້
     en: The True Motive in Service
   url: https://legacy.egwwritings.org/?ref=en_MB.79&para=150.407
 ---

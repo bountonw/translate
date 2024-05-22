@@ -1,0 +1,15 @@
+---
+lang: th-TH
+author:
+  en: E. J. Waggoner / A. T. Jones
+  th: อี เจ แวกโกเนอร์ / เอ ที โจนส์
+translator:
+  en: Brian Wilson
+  th: บุญต้น วิลสัน
+book:
+  title:
+    th: อยู่ด้วยความเชื่อ
+    en: Living By Faith
+settings:
+  - strip_reference_codes_on_output
+...

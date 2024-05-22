@@ -1,8 +1,4 @@
 ---
-book:
-  title:
-    th: บรรพชนกับผู้เผยพระวจนะ เล่ม 1
-    en: Patriarchs and Prophets
 chapter:
   number: 9
   title:
@@ -10,12 +6,6 @@ chapter:
     en: The Literal Week 
   url: https://legacy.egwwritings.org/?para=84.428
   basedon:
-author:
-  en: Ellen White
-  th: เอเลน ไวท์
-translator:
-  en: Brian Wilson
-  th: บุญต้น วิลสัน
 ---
 
 ## {PP 111.1}
