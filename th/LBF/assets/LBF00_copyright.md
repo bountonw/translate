@@ -31,4 +31,3 @@ International (CC BY-ND 4.0) (https://creativecommons.org/licenses/by-nd/4.0/)
 
 ข้อมูลทางบรรณานุกรมของสำานักหอสมุดแห่งชาติ
 National Library of Thailand Cataloging in Publication Data
-![image](https://github.com/bountonw/translate/assets/15809934/1c414ede-0c75-4650-8c64-c8dec7066302)
