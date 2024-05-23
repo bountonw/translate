@@ -29,5 +29,5 @@ International (CC BY-ND 4.0) (https://creativecommons.org/licenses/by-nd/4.0/)
 
 พิมพ์ในประเทศไทย
 
-ข้อมูลทางบรรณานุกรมของสำานักหอสมุดแห่งชาติ
+ข้อมูลทางบรรณานุกรมของสำนักหอสมุดแห่งชาติ
 National Library of Thailand Cataloging in Publication Data
