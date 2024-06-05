@@ -6,7 +6,7 @@ chapter:
     en: The Origin of Evil
 ---
 
-## {GC 492.1}
+## {GC 492.1}(Edited to here)
 
 ### <Lao Heading>
 
