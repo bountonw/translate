@@ -20,10 +20,16 @@ jobs:
           submodules: 'recursive'
       - name: Run Make
         working-directory: ./.tooling/latex/
+        run: make preprocessed/th/LBF/03_public/LBF01_th.md
+      - name: Run Make
+        working-directory: ./.tooling/latex/
+        run: make tex/th/LBF/03_public/LBF01_th.tex
+      - name: Run Make
+        working-directory: ./.tooling/latex/
         run: make draft/th/LBF/03_public/LBF01_th.pdf
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: test
-          path: .tooling/latex/draft
+          path: .tooling/latex/
