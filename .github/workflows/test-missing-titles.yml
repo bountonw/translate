@@ -23,14 +23,16 @@ jobs:
         run: pandoc -v
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: make preprocessed/th/LBF/03_public/LBF01_th.md
+        run: mkdir -p draft/th/LBF/03_public
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: make tex/th/LBF/03_public/LBF01_th.tex
-      - name: Run Make
-        working-directory: ./.tooling/latex/
-        run: make draft/th/LBF/03_public/LBF01_th.pdf
-      # Dynamically set the name for the artifact based on the current time and build scope
+        run: echo "" | pandoc \
+          --from latex+raw_tex \
+          --to latex \
+          --pdf-engine=xelatex \
+          --template=templates/chapter.tex \
+          --template=templates/draft.tex \
+          --output draft/th/LBF/03_public/LBF01_th.pdf
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
