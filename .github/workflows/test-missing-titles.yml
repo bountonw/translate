@@ -26,13 +26,7 @@ jobs:
         run: mkdir -p draft/th/LBF/03_public
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: cat ./temp.tex | pandoc \
-          --from "latex+raw_tex" \
-          --to "latex" \
-          --pdf-engine "xelatex" \
-          --template "./templates/chapter.tex" \
-          --template "./templates/draft.tex" \
-          --output "./draft/th/LBF/03_public/LBF01_th.pdf"
+        run: ./draft.sh
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
