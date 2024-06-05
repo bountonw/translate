@@ -30,9 +30,9 @@ jobs:
           --from latex+raw_tex \
           --to latex \
           --pdf-engine=xelatex \
-          --template=templates/chapter.tex \
-          --template=templates/draft.tex \
-          --output draft/th/LBF/03_public/LBF01_th.pdf
+          --template=./templates/chapter.tex \
+          --template=./templates/draft.tex \
+          --output ./draft/th/LBF/03_public/LBF01_th.pdf
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
