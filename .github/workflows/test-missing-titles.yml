@@ -20,6 +20,9 @@ jobs:
           submodules: 'recursive'
       - name: Run Make
         working-directory: ./.tooling/latex/
+        run: pandoc -v
+      - name: Run Make
+        working-directory: ./.tooling/latex/
         run: make preprocessed/th/LBF/03_public/LBF01_th.md
       - name: Run Make
         working-directory: ./.tooling/latex/
