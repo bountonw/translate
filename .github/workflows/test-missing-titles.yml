@@ -26,8 +26,7 @@ jobs:
         run: mkdir -p draft/th/LBF/03_public
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: pandoc \
-          ./temp.tex \
+        run: cat ./temp.tex | pandoc \
           --from latex+raw_tex \
           --to latex \
           --pdf-engine=xelatex \
