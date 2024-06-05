@@ -27,7 +27,7 @@ jobs:
       - name: Run Make
         working-directory: ./.tooling/latex/
         run: pandoc \
-          temp.tex \
+          ./temp.tex \
           --from latex+raw_tex \
           --to latex \
           --pdf-engine=xelatex \
