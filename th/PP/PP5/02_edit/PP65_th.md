@@ -3,7 +3,7 @@ chapter:
   number: 65
   title:
     th: ดาวิดใจกว้าง
-    en: The Magnanimity of David!
+    en: The Magnanimity of David
   url: https://legacy.egwwritings.org/?ref=en_PP.660&para=84.3100
   basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 22:20–23; 23–27
 ---
