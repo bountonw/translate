@@ -30,18 +30,24 @@ jobs:
       # Expose matched filters as job 'packages' output variable
       packages: ${{ steps.filter.outputs.changes }}
     steps:
-    - uses: actions/checkout@v4
     - uses: dorny/paths-filter@v3
       id: filter
       with:
         filters: |
-          th/PP/PP1: th/PP/PP1
-          th/PP/PP2: th/PP/PP2
-          th/PP/PP3: th/PP/PP3
-          th/PP/PP4: th/PP/PP4
-          th/PP/PP5: th/PP/PP5
-          th/MB: th/MB
-          th/LBF: th/LBF
+          th/PP/PP1:
+            - 'th/PP/PP1/**'
+          th/PP/PP2:
+            - 'th/PP/PP2/**'
+          th/PP/PP3:
+            - 'th/PP/PP3/**'
+          th/PP/PP4:
+            - 'th/PP/PP4/**'
+          th/PP/PP5:
+            - 'th/PP/PP5/**'
+          th/MB:
+            - 'th/MB/**'
+          th/LBF:
+            - 'th/LBF/**'
 
   generate-pdfs:
     needs: changes
