@@ -30,6 +30,7 @@ jobs:
       # Expose matched filters as job 'books' output variable
       books: ${{ steps.filter.outputs.changes }}
     steps:
+    - uses: actions/checkout@v4
     - uses: dorny/paths-filter@v3
       id: filter
       with:
