@@ -27,8 +27,8 @@ jobs:
     permissions:
       pull-requests: read
     outputs:
-      # Expose matched filters as job 'packages' output variable
-      packages: ${{ steps.filter.outputs.changes }}
+      # Expose matched filters as job 'books' output variable
+      books: ${{ steps.filter.outputs.changes }}
     steps:
     - uses: dorny/paths-filter@v3
       id: filter
@@ -60,7 +60,7 @@ jobs:
     needs: changes
     strategy:
       matrix:
-        book: ${{ fromJSON(needs.changes.outputs.packages) }}
+        book: ${{ contains('main', github.ref_name) && '["th/PP/PP1", "th/PP/PP2", "th/PP/PP3", "th/PP/PP4", "th/PP/PP5", "th/LBF", "th/MB"]' || fromJSON(needs.changes.outputs.books) }}
     runs-on: ubuntu-20.04
     container:
       image: mattleff/xelatex-swath
