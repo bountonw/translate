@@ -36,18 +36,25 @@ jobs:
         filters: |
           th/PP/PP1:
             - 'th/PP/PP1/**'
+            - .tooling
           th/PP/PP2:
             - 'th/PP/PP2/**'
+            - .tooling
           th/PP/PP3:
             - 'th/PP/PP3/**'
+            - .tooling
           th/PP/PP4:
             - 'th/PP/PP4/**'
+            - .tooling
           th/PP/PP5:
             - 'th/PP/PP5/**'
+            - .tooling
           th/MB:
             - 'th/MB/**'
+            - .tooling
           th/LBF:
             - 'th/LBF/**'
+            - .tooling
 
   generate-pdfs:
     needs: changes
