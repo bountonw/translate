@@ -60,7 +60,7 @@ jobs:
     needs: changes
     strategy:
       matrix:
-        book: ${{ contains('fix-format', github.ref_name) && '["th/PP/PP1", "th/PP/PP2", "th/PP/PP3", "th/PP/PP4", "th/PP/PP5", "th/LBF", "th/MB"]' || fromJSON(needs.changes.outputs.books) }}
+        book: ${{ fromJSON(contains('fix-format', github.ref_name) && '["th/PP/PP1", "th/PP/PP2", "th/PP/PP3", "th/PP/PP4", "th/PP/PP5", "th/LBF", "th/MB"]' || needs.changes.outputs.books) }}
     runs-on: ubuntu-20.04
     container:
       image: mattleff/xelatex-swath
