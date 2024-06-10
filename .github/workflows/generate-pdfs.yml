@@ -60,7 +60,7 @@ jobs:
     needs: changes
     strategy:
       matrix:
-        package: ${{ fromJSON(needs.changes.outputs.packages) }}
+        book: ${{ fromJSON(needs.changes.outputs.packages) }}
     runs-on: ubuntu-20.04
     container:
       image: mattleff/xelatex-swath
