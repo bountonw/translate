@@ -70,6 +70,8 @@ jobs:
         with:
           fetch-depth: 0 # This is required for retrieving the content last modified timestamps
           submodules: 'recursive'
+      - name: Who dis?
+        run: echo ${{ github.ref_name }}
       - name: Run Make
         working-directory: ./.tooling/latex/
         run: make -j 4 pdfs/${{ matrix.book }}
