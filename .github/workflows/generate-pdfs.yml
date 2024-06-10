@@ -72,7 +72,7 @@ jobs:
           submodules: 'recursive'
       - name: Run Make
         working-directory: ./.tooling/latex/
-        run: ./draft.sh ${{ matrix.book }}
+        run: make -j 4 pdfs/${{ matrix.book }}
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Env
         run: |

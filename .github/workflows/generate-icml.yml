@@ -36,7 +36,7 @@ jobs:
           submodules: 'recursive'
       - name: Generate ICMLs
         working-directory: ./.tooling/latex/
-        run: ./generate-icmls.sh ${{ matrix.book }}
+        run: make -j 4 icmls/${{ matrix.book }}
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Env
         run: |
