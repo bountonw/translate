@@ -21,10 +21,33 @@ defaults:
     shell: bash
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+    outputs:
+      # Expose matched filters as job 'packages' output variable
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+    # For pull requests it's not necessary to checkout the code
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          th/PP/PP1: th/PP/PP1
+          th/PP/PP2: th/PP/PP2
+          th/PP/PP3: th/PP/PP3
+          th/PP/PP4: th/PP/PP4
+          th/PP/PP5: th/PP/PP5
+          th/MB: th/MB
+          th/LBF: th/LBF
+
   generate-pdfs:
+    needs: changes
     strategy:
       matrix:
-        book: ['th/PP/PP1', 'th/PP/PP2', 'th/PP/PP3', 'th/PP/PP4','th/PP/PP5', 'th/MB', 'th/LBF']
+        package: ${{ fromJSON(needs.changes.outputs.packages) }}
     runs-on: ubuntu-20.04
     container:
       image: mattleff/xelatex-swath
