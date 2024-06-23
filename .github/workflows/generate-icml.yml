@@ -21,10 +21,47 @@ defaults:
     shell: bash
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+    outputs:
+      # Expose matched filters as job 'books' output variable
+      books: ${{ steps.filter.outputs.changes }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          th/PP/PP1:
+            - 'th/PP/PP1/**'
+            - .tooling
+          th/PP/PP2:
+            - 'th/PP/PP2/**'
+            - .tooling
+          th/PP/PP3:
+            - 'th/PP/PP3/**'
+            - .tooling
+          th/PP/PP4:
+            - 'th/PP/PP4/**'
+            - .tooling
+          th/PP/PP5:
+            - 'th/PP/PP5/**'
+            - .tooling
+          th/MB:
+            - 'th/MB/**'
+            - .tooling
+          th/LBF:
+            - 'th/LBF/**'
+            - .tooling
+
   generate-icmls:
+    needs: changes
     strategy:
       matrix:
-        book: ['th/PP/PP1', 'th/PP/PP2', 'th/PP/PP3', 'th/PP/PP4','th/PP/PP5', 'th/MB', 'th/LBF']
+        book: ${{ fromJSON(github.ref == 'refs/heads/main' && '["th/PP/PP1", "th/PP/PP2", "th/PP/PP3", "th/PP/PP4", "th/PP/PP5", "th/LBF", "th/MB"]' || needs.changes.outputs.books) }}
     runs-on: ubuntu-20.04
     container:
       image: mattleff/xelatex-swath
@@ -36,7 +73,7 @@ jobs:
           submodules: 'recursive'
       - name: Generate ICMLs
         working-directory: ./.tooling/latex/
-        run: ./generate-icmls.sh ${{ matrix.book }}
+        run: make -j 4 icmls/${{ matrix.book }}
       # Dynamically set the name for the artifact based on the current time and build scope
       - name: Set Env
         run: |
