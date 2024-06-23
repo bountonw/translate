@@ -1,9 +1,9 @@
 ---
 chapter:
- number: 11
- title:
- lo: ພວກເຈົ້າແຂວງປະທ້ວງ
- en: Protest of the Princes
+  number: 11
+  title:
+    lo: ພວກເຈົ້າແຂວງປະທ້ວງ
+    en: Protest of the Princes
 ---
 
 ## {GC 197.1}(Edited to here)
