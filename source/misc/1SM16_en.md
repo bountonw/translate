@@ -2,7 +2,6 @@
 chapter:
   number: 16
   title:
-    th: 
     en: 1 Selected Messages
   url: https://egwwritings.org/read?panels=p98.739&index=0
 ---
