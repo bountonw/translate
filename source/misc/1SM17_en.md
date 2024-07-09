@@ -14,13 +14,13 @@ After the outpouring of the Spirit of God in Battle Creek it was proved in the c
 
 ## {1SM 129.2}
 
-In every age seasons of spiritual revival and the outpouring of the Holy Spirit have been followed by spiritual  darkness and prevailing corruptions. Taking into account that which God has done in opportunities and privileges and blessings in Battle Creek, the church has not made honorable progress in doing her work, and God's blessing will not rest upon the church in advancing still more light until they use the light as God has directed in His Word. The light that would shine in clear and distinct rays will grow dim amid the moral darkness. The aggressive power of the truth of God is dependent upon the cooperation of the human agent with God in piety, in zeal, in unselfish efforts to get the light of truth before others.—Manuscript 45, 1893. {1SM 129.2}
+In every age seasons of spiritual revival and the outpouring of the Holy Spirit have been followed by spiritual  darkness and prevailing corruptions. Taking into account that which God has done in opportunities and privileges and blessings in Battle Creek, the church has not made honorable progress in doing her work, and God's blessing will not rest upon the church in advancing still more light until they use the light as God has directed in His Word. The light that would shine in clear and distinct rays will grow dim amid the moral darkness. The aggressive power of the truth of God is dependent upon the cooperation of the human agent with God in piety, in zeal, in unselfish efforts to get the light of truth before others. {1SM 129.2}
 
 ## {1SM 130.1}
 
 ### Peril of Confusing the Spirit's Work with Fanaticism
 
-There have been things written to me in regard to the movings of the Spirit of God at the last conference [1893], and at the college, which clearly indicate that because these blessings were not lived up to, minds have been confused, and that which was light from heaven has been called excitement. I have been made sad to have this matter viewed in this light. We must be very careful not to grieve the Holy Spirit of God, in pronouncing the ministration of His Holy Spirit a species of fanaticism. How shall we understand the workings of the Spirit of God if it was not revealed in clear and unmistakable lines, not only in Battle Creek but in many places? {1SM 130.1}
+There have been things written to me in regard to the movings of the Spirit of God at the last conference, and at the college, which clearly indicate that because these blessings were not lived up to, minds have been confused, and that which was light from heaven has been called excitement. I have been made sad to have this matter viewed in this light. We must be very careful not to grieve the Holy Spirit of God, in pronouncing the ministration of His Holy Spirit a species of fanaticism. How shall we understand the workings of the Spirit of God if it was not revealed in clear and unmistakable lines, not only in Battle Creek but in many places? {1SM 130.1}
 
 ## {1SM 130.2}
 
@@ -42,7 +42,7 @@ The results after the working of the Spirit of God in Battle Creek are not becau
 
 ### Easy Ways to Lose the Blessing
 
-Some things have been urged upon my mind with great force of late, and I feel constrained by the Spirit of God to write in reference to them. [Addressed to the president of Battle Creek College.] Has the Lord graciously opened to you the windows of heaven and poured you out a blessing? Oh! Then, that was the very time to educate the teachers and students how to retain the precious favor of God by working in accordance with increased light, and send its precious rays to others. Has Heaven's light been given? And for what purpose has it been given? That the light should shine forth in practical works of righteousness. When those so abundantly blessed shall be seen with deeper and more fervent piety, having a sense that they have been bought with the precious blood of the Lamb of God, and are clothed with the garments of His salvation, will they not represent Christ? {1SM 132.1}
+Some things have been urged upon my mind with great force of late, and I feel constrained by the Spirit of God to write in reference to them. Has the Lord graciously opened to you the windows of heaven and poured you out a blessing? Oh! Then, that was the very time to educate the teachers and students how to retain the precious favor of God by working in accordance with increased light, and send its precious rays to others. Has Heaven's light been given? And for what purpose has it been given? That the light should shine forth in practical works of righteousness. When those so abundantly blessed shall be seen with deeper and more fervent piety, having a sense that they have been bought with the precious blood of the Lamb of God, and are clothed with the garments of His salvation, will they not represent Christ? {1SM 132.1}
 
 ## {1SM 132.2}
 
@@ -58,7 +58,7 @@ The Lord would have the teachers consider the contagion of their own example. Th
 
 ## {1SM 133.2}
 
-The time is altogether too full of tokens of the coming conflict to be educating the youth in fun and games. —Letter 46, 1893. {1SM 133.2}
+The time is altogether too full of tokens of the coming conflict to be educating the youth in fun and games. {1SM 133.2}
 
 ## {1SM 133.3}
 
@@ -80,7 +80,7 @@ The period of great spiritual light, if that light is not sacredly cherished and
 
 ## {1SM 135.2}
 
-Oh, how much this means to every soul—“I am the light of the world”; “I am the bread of life: he that cometh to me shall never hunger [for anything more satisfying]; and he that believeth on me shall never thirst” (John 8:12; 6:35). To come to this condition means that you have found the Source of light and love, and have learned when and how you may be replenished, and may make use of the promises of God by continually applying them to your souls. {1SM 135.2}
+Oh, how much this means to every soul—“I am the light of the world”; “I am the bread of life: he that cometh to me shall never hunger; and he that believeth on me shall never thirst” (John 8:12; 6:35). To come to this condition means that you have found the Source of light and love, and have learned when and how you may be replenished, and may make use of the promises of God by continually applying them to your souls. {1SM 135.2}
 
 ## {1SM 135.3}
 
@@ -100,7 +100,7 @@ The minds of many are so bewildered with their own human desires and inclination
 
 ### The Child of God a Laborer With God
 
-All spiritual life is derived from Jesus Christ. “As many as received him, to them gave he power to become the sons of God” (John 1:12). But what is the sure result of becoming a child of God? The result is that we become laborers together with God. There is a great work to be done for your own soul's salvation, and to qualify you to win others from unbelief to a life sustained by faith in Christ Jesus: “Verily, verily, I say unto you, He that believeth on me [with a casual faith?—No, with an abiding faith that works by love and purifies the soul] hath everlasting life. I am that bread of life.... I am the living bread which came down from heaven: if any man eat of this bread, he shall live for ever: and the bread that I will give is my flesh, which I will give for the life of the world.... Except ye eat the flesh of the Son of man, and drink his blood, ye have no life in you. Whoso eateth my flesh, and drinketh my blood, hath eternal life; and I will raise him up at the last day.... It is the Spirit that quickeneth; the flesh profiteth nothing: the words that I speak unto you, they are spirit, and they are life. But there are some of you that believe not. For Jesus knew from the beginning who they  were that believed not, and who should betray him. And he said, Therefore said I unto you, that no man can come unto me, except it were given unto him of my Father” (John 6:47, 48, 51, 53, 54, 63-65). {1SM 137.1}
+All spiritual life is derived from Jesus Christ. “As many as received him, to them gave he power to become the sons of God” (John 1:12). But what is the sure result of becoming a child of God? The result is that we become laborers together with God. There is a great work to be done for your own soul's salvation, and to qualify you to win others from unbelief to a life sustained by faith in Christ Jesus: “Verily, verily, I say unto you, He that believeth on me hath everlasting life. I am that bread of life.... I am the living bread which came down from heaven: if any man eat of this bread, he shall live for ever: and the bread that I will give is my flesh, which I will give for the life of the world.... Except ye eat the flesh of the Son of man, and drink his blood, ye have no life in you. Whoso eateth my flesh, and drinketh my blood, hath eternal life; and I will raise him up at the last day.... It is the Spirit that quickeneth; the flesh profiteth nothing: the words that I speak unto you, they are spirit, and they are life. But there are some of you that believe not. For Jesus knew from the beginning who they  were that believed not, and who should betray him. And he said, Therefore said I unto you, that no man can come unto me, except it were given unto him of my Father” (John 6:47, 48, 51, 53, 54, 63-65). {1SM 137.1}
 
 ## {1SM 138.1}
 
@@ -112,13 +112,13 @@ The treasures of eternity have been committed to the keeping of Jesus Christ, to
 
 ## {1SM 138.3}
 
-Jesus brought to our world the accumulated treasures of God, and all who believe upon Him are adopted as His heirs. He declares that great shall be the reward of them who suffer for His name's sake, It is written, “Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him” (1 Corinthians 2:9).—The Review and Herald, January 30, 1894. {1SM 138.3}
+Jesus brought to our world the accumulated treasures of God, and all who believe upon Him are adopted as His heirs. He declares that great shall be the reward of them who suffer for His name's sake, It is written, “Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him” (1 Corinthians 2:9). {1SM 138.3}
 
 ## {1SM 138.4}
 
 ### Was the Blessing Cherished?
 
-In order to increase our spiritual endowment, it is necessary to walk in the light. In view of the event of Christ's soon coming, we must be vigilantly working to prepare our own souls, to keep our own lamps trimmed and burning,  and to urge upon others the necessity of getting ready for the coming of the Bridegroom. Watching and working must go together; faith and works must be united, or our characters will not be symmetrical and well-balanced, perfect in Christ Jesus. {1SM 138.4}
+In order to increase our spiritual endowment, it is necessary to walk in the light. In view of the event of Christ's soon coming, we must be vigilantly working to prepare our own souls, to keep our own lamps trimmed and burning, and to urge upon others the necessity of getting ready for the coming of the Bridegroom. Watching and working must go together; faith and works must be united, or our characters will not be symmetrical and well-balanced, perfect in Christ Jesus. {1SM 138.4}
 
 ## {1SM 139.1}
 
@@ -176,4 +176,4 @@ The sin for which Christ reproved Chorazin and Bethsaida was the sin of rejectin
 
 ## {1SM 143.1}
 
-If this attitude is preserved, then when the Lord shall again let His light shine upon the people, they will turn from the heavenly illumination, saying, “I felt the same in 1893, and some in whom I have had confidence, said that the work was fanaticism.” Will not those who have received the rich grace of God, and who take the position that the working of the Holy Spirit was fanaticism, be ready to denounce the operations of the Spirit of God in the future, and the heart thus be proof against the solicitations of the still, small voice? The love of Jesus may be presented to those who thus barricade themselves against it, and exercise no constraining power upon them. The riches of the grace of heaven may be bestowed and yet rejected, instead of being cherished and gratefully recognized. With the heart men did believe unto righteousness, and for a time confession was made unto salvation; but, sad to relate, the receiver did not cooperate with heavenly intelligences, and cherish the light by working the works of righteousness.—The Review and Herald, February 6, 1894. {1SM 143.1}
+If this attitude is preserved, then when the Lord shall again let His light shine upon the people, they will turn from the heavenly illumination, saying, “I felt the same in 1893, and some in whom I have had confidence, said that the work was fanaticism.” Will not those who have received the rich grace of God, and who take the position that the working of the Holy Spirit was fanaticism, be ready to denounce the operations of the Spirit of God in the future, and the heart thus be proof against the solicitations of the still, small voice? The love of Jesus may be presented to those who thus barricade themselves against it, and exercise no constraining power upon them. The riches of the grace of heaven may be bestowed and yet rejected, instead of being cherished and gratefully recognized. With the heart men did believe unto righteousness, and for a time confession was made unto salvation; but, sad to relate, the receiver did not cooperate with heavenly intelligences, and cherish the light by working the works of righteousness. {1SM 143.1}
