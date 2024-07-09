@@ -21,7 +21,7 @@ In every age seasons of spiritual revival and the outpouring of the Holy Spirit 
 
 ### Peril of Confusing the Spirit's Work with Fanaticism
 
-There have been things written to me in regard to the movings of the Spirit of God at the last conference [1893], and at the college, which clearly indicate that because these blessings were not lived up to, minds have been confused, and that which was light from heaven has been called excitement. I have been made sad to have this matter viewed in this light. We must be very careful not to grieve the Holy Spirit of God, in pronouncing the ministration of His Holy Spirit a species of fanaticism. How shall we understand the workings of the Spirit of God if it was not revealed in clear and unmistakable lines, not only in Battle Creek but in many places? {1SM 130.1}
+There have been things written to me in regard to the movings of the Spirit of God at the last conference, and at the college, which clearly indicate that because these blessings were not lived up to, minds have been confused, and that which was light from heaven has been called excitement. I have been made sad to have this matter viewed in this light. We must be very careful not to grieve the Holy Spirit of God, in pronouncing the ministration of His Holy Spirit a species of fanaticism. How shall we understand the workings of the Spirit of God if it was not revealed in clear and unmistakable lines, not only in Battle Creek but in many places? {1SM 130.1}
 
 ## {1SM 130.2}
 
