@@ -88,7 +88,7 @@ The work is before us; will we engage in it? We must work fast, we must go stead
 
 ## {1SM 126.4}
 
-O my brethren, will you grieve the Holy Spirit, and cause it to depart? Will you shut out the blessed Saviour, because you are unprepared for His presence? Will you leave souls to perish without the knowledge of the truth, because you love your ease too well to bear the burden that Jesus bore for you? Let us awake out of sleep. “Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour” (1 Peter 5:8). —The Review and Herald, March 22, 1887. {1SM 126.4}
+O my brethren, will you grieve the Holy Spirit, and cause it to depart? Will you shut out the blessed Saviour, because you are unprepared for His presence? Will you leave souls to perish without the knowledge of the truth, because you love your ease too well to bear the burden that Jesus bore for you? Let us awake out of sleep. “Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour” (1 Peter 5:8). {1SM 126.4}
 
 ## {1SM 127.1}
 
@@ -106,10 +106,10 @@ God brings against ministers and people the heavy charge of spiritual feebleness
 
 ## {1SM 128.1}
 
-A revival and a reformation must take place, under the ministration of the Holy Spirit. Revival and reformation are two different things. Revival signifies a renewal of spiritual life, a quickening of the powers of mind and heart, a resurrection from spiritual death. Reformation signifies a reorganization, a change in ideas and theories, habits and practices. Reformation will not bring forth the good fruit of righteousness unless it is connected with the revival of the Spirit. Revival and reformation are to do their appointed work, and in doing this work they must blend.—The Review and Herald, February 25, 1902. {1SM 128.1}
+A revival and a reformation must take place, under the ministration of the Holy Spirit. Revival and reformation are two different things. Revival signifies a renewal of spiritual life, a quickening of the powers of mind and heart, a resurrection from spiritual death. Reformation signifies a reorganization, a change in ideas and theories, habits and practices. Reformation will not bring forth the good fruit of righteousness unless it is connected with the revival of the Spirit. Revival and reformation are to do their appointed work, and in doing this work they must blend. {1SM 128.1}
 
 ## {1SM 128.2}
 
 ### Simple Agencies Will Be Used
 
-Representations have been made to me, showing that the Lord will carry out His plans through a variety of ways and instruments. It is not alone the most talented, not alone those who hold high positions of trust, or are the most highly educated from a worldly point of view, whom the Lord uses to do His grand and holy work of soulsaving. He will use simple means; He will use many who have had few advantages to help in carrying forward His work. He will, by the use of simple means, bring those who possess property and lands to a belief of the truth, and these will be influenced to become the Lord's helping hand in the advancement of His work. —Letter 62, 1909 {1SM 128.2}
+Representations have been made to me, showing that the Lord will carry out His plans through a variety of ways and instruments. It is not alone the most talented, not alone those who hold high positions of trust, or are the most highly educated from a worldly point of view, whom the Lord uses to do His grand and holy work of soulsaving. He will use simple means; He will use many who have had few advantages to help in carrying forward His work. He will, by the use of simple means, bring those who possess property and lands to a belief of the truth, and these will be influenced to become the Lord's helping hand in the advancement of His work. {1SM 128.2}
