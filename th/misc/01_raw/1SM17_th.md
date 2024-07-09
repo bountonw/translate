@@ -37,13 +37,13 @@ It is an easy matter to idle away, talk and play away, the Holy Spirit's influen
 
 ## {1SM 131.3}
 
-The results after the working of the Spirit of God in Battle Creek are not because of fanaticism, but because those who were blessed did not show forth the praises of Him who called them out of darkness into His marvelous light; and when the earth is lightened with the glory of God, some will not know what it is, and from whence it came, because they misapplied and misinterpreted the Spirit shed upon them. God is a jealous God of His own glory. He will not honor those who dishonor Him. Some persons living in the light ought to have instructed these  souls young in experience to walk in the light after they had received the light. I wish I had time to write more fully, but I fear I have not.—Letter 58, 1893. {1SM 131.3}
+The results after the working of the Spirit of God in Battle Creek are not because of fanaticism, but because those who were blessed did not show forth the praises of Him who called them out of darkness into His marvelous light; and when the earth is lightened with the glory of God, some will not know what it is, and from whence it came, because they misapplied and misinterpreted the Spirit shed upon them. God is a jealous God of His own glory. He will not honor those who dishonor Him. Some persons living in the light ought to have instructed these  souls young in experience to walk in the light after they had received the light. I wish I had time to write more fully, but I fear I have not. {1SM 131.3}
 
 ## {1SM 132.1}
 
 ### Easy Ways to Lose the Blessing
 
-Some things have been urged upon my mind with great force of late, and I feel constrained by the Spirit of God to write in reference to them. [Addressed to the president of Battle Creek College.] Has the Lord graciously opened to you the windows of heaven and poured you out a blessing? Oh! Then, that was the very time to educate the teachers and students how to retain the precious favor of God by working in accordance with increased light, and send its precious rays to others. Has Heaven's light been given? And for what purpose has it been given? That the light should shine forth in practical works of righteousness. When those so abundantly blessed shall be seen with deeper and more fervent piety, having a sense that they have been bought with the precious blood of the Lamb of God, and are clothed with the garments of His salvation, will they not represent Christ? {1SM 132.1}
+Some things have been urged upon my mind with great force of late, and I feel constrained by the Spirit of God to write in reference to them. Has the Lord graciously opened to you the windows of heaven and poured you out a blessing? Oh! Then, that was the very time to educate the teachers and students how to retain the precious favor of God by working in accordance with increased light, and send its precious rays to others. Has Heaven's light been given? And for what purpose has it been given? That the light should shine forth in practical works of righteousness. When those so abundantly blessed shall be seen with deeper and more fervent piety, having a sense that they have been bought with the precious blood of the Lamb of God, and are clothed with the garments of His salvation, will they not represent Christ? {1SM 132.1}
 
 ## {1SM 132.2}
 
@@ -59,13 +59,13 @@ The Lord would have the teachers consider the contagion of their own example. Th
 
 ## {1SM 133.2}
 
-The time is altogether too full of tokens of the coming conflict to be educating the youth in fun and games. —Letter 46, 1893. {1SM 133.2}
+The time is altogether too full of tokens of the coming conflict to be educating the youth in fun and games. {1SM 133.2}
 
 ## {1SM 133.3}
 
 ### Danger of Light Becoming Darkness
 
-The Lord has condescended to give you an outpouring of His Holy Spirit. At the camp meetings, and in our  various institutions, a great blessing has been showered upon you. You have been visited by the heavenly messengers of light and truth and power, and it should not be thought a strange thing that God should thus bless you. How does Christ subdue His chosen people to Himself?—It is by the power of His Holy Spirit; for the Holy Spirit, through the Scriptures, speaks to the mind, and impresses truth upon the hearts of men. Before His crucifixion, Christ promised that the Comforter should be sent to His disciples. He said: “It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you. And when he is come, he will reprove the world of sin, and of righteousness, and of judgment.... When he, the Spirit of truth, is come, he will guide you into all truth: for he shall not speak of himself; but whatsoever he shall hear, that shall he speak: and he will shew you things to come. He shall glorify me: for he shall receive of mine, and shall shew it unto you” (John 16:7, 8, 13-15). {1SM 133.3}
+The Lord has condescended to give you an outpouring of His Holy Spirit. At the camp meetings, and in our  various institutions, a great blessing has been showered upon you. You have been visited by the heavenly messengers of light and truth and power, and it should not be thought a strange thing that God should thus bless you. How does Christ subdue His chosen people to Himself? - It is by the power of His Holy Spirit; for the Holy Spirit, through the Scriptures, speaks to the mind, and impresses truth upon the hearts of men. Before His crucifixion, Christ promised that the Comforter should be sent to His disciples. He said: “It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you. And when he is come, he will reprove the world of sin, and of righteousness, and of judgment.... When he, the Spirit of truth, is come, he will guide you into all truth: for he shall not speak of himself; but whatsoever he shall hear, that shall he speak: and he will shew you things to come. He shall glorify me: for he shall receive of mine, and shall shew it unto you” (John 16:7, 8, 13-15). {1SM 133.3}
 
 ## {1SM 134.1}
 
@@ -81,7 +81,7 @@ The period of great spiritual light, if that light is not sacredly cherished and
 
 ## {1SM 135.2}
 
-Oh, how much this means to every soul—“I am the light of the world”; “I am the bread of life: he that cometh to me shall never hunger [for anything more satisfying]; and he that believeth on me shall never thirst” (John 8:12; 6:35). To come to this condition means that you have found the Source of light and love, and have learned when and how you may be replenished, and may make use of the promises of God by continually applying them to your souls. {1SM 135.2}
+Oh, how much this means to every soul—“I am the light of the world”; “I am the bread of life: he that cometh to me shall never hunger; and he that believeth on me shall never thirst” (John 8:12; 6:35). To come to this condition means that you have found the Source of light and love, and have learned when and how you may be replenished, and may make use of the promises of God by continually applying them to your souls. {1SM 135.2}
 
 ## {1SM 135.3}
 
@@ -101,7 +101,7 @@ The minds of many are so bewildered with their own human desires and inclination
 
 ### The Child of God a Laborer With God
 
-All spiritual life is derived from Jesus Christ. “As many as received him, to them gave he power to become the sons of God” (John 1:12). But what is the sure result of becoming a child of God? The result is that we become laborers together with God. There is a great work to be done for your own soul's salvation, and to qualify you to win others from unbelief to a life sustained by faith in Christ Jesus: “Verily, verily, I say unto you, He that believeth on me [with a casual faith?—No, with an abiding faith that works by love and purifies the soul] hath everlasting life. I am that bread of life.... I am the living bread which came down from heaven: if any man eat of this bread, he shall live for ever: and the bread that I will give is my flesh, which I will give for the life of the world.... Except ye eat the flesh of the Son of man, and drink his blood, ye have no life in you. Whoso eateth my flesh, and drinketh my blood, hath eternal life; and I will raise him up at the last day.... It is the Spirit that quickeneth; the flesh profiteth nothing: the words that I speak unto you, they are spirit, and they are life. But there are some of you that believe not. For Jesus knew from the beginning who they  were that believed not, and who should betray him. And he said, Therefore said I unto you, that no man can come unto me, except it were given unto him of my Father” (John 6:47, 48, 51, 53, 54, 63-65). {1SM 137.1}
+All spiritual life is derived from Jesus Christ. “As many as received him, to them gave he power to become the sons of God” (John 1:12). But what is the sure result of becoming a child of God? The result is that we become laborers together with God. There is a great work to be done for your own soul's salvation, and to qualify you to win others from unbelief to a life sustained by faith in Christ Jesus: “Verily, verily, I say unto you, He that believeth on me hath everlasting life. I am that bread of life.... I am the living bread which came down from heaven: if any man eat of this bread, he shall live for ever: and the bread that I will give is my flesh, which I will give for the life of the world.... Except ye eat the flesh of the Son of man, and drink his blood, ye have no life in you. Whoso eateth my flesh, and drinketh my blood, hath eternal life; and I will raise him up at the last day.... It is the Spirit that quickeneth; the flesh profiteth nothing: the words that I speak unto you, they are spirit, and they are life. But there are some of you that believe not. For Jesus knew from the beginning who they  were that believed not, and who should betray him. And he said, Therefore said I unto you, that no man can come unto me, except it were given unto him of my Father” (John 6:47, 48, 51, 53, 54, 63-65). {1SM 137.1}
 
 ## {1SM 138.1}
 
@@ -113,7 +113,7 @@ The treasures of eternity have been committed to the keeping of Jesus Christ, to
 
 ## {1SM 138.3}
 
-Jesus brought to our world the accumulated treasures of God, and all who believe upon Him are adopted as His heirs. He declares that great shall be the reward of them who suffer for His name's sake, It is written, “Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him” (1 Corinthians 2:9).—The Review and Herald, January 30, 1894. {1SM 138.3}
+Jesus brought to our world the accumulated treasures of God, and all who believe upon Him are adopted as His heirs. He declares that great shall be the reward of them who suffer for His name's sake, It is written, “Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him” (1 Corinthians 2:9). {1SM 138.3}
 
 ## {1SM 138.4}
 
