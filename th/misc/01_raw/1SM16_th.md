@@ -29,7 +29,7 @@ We have far more to fear from within than from without. The hindrances to streng
 
 ### Opening the Door to the Adversary
 
-The adversary of souls is not permitted to read the thoughts of men; but he is a keen observer, and he marks the words; he takes account of actions, and skillfully adapts his temptations to meet the cases of those who place  themselves in his power. If we would labor to repress sinful thoughts and feelings, giving them no expression in words or actions, Satan would be defeated; for he could not prepare his specious temptations to meet the case. {1SM 122.4}
+The adversary of souls is not permitted to read the thoughts of men; but he is a keen observer, and he marks the words; he takes account of actions, and skillfully adapts his temptations to meet the cases of those who place themselves in his power. If we would labor to repress sinful thoughts and feelings, giving them no expression in words or actions, Satan would be defeated; for he could not prepare his specious temptations to meet the case. {1SM 122.4}
 
 ## {1SM 123.1}
 
@@ -45,7 +45,7 @@ The great deceiver has prepared his wiles for every soul that is not braced for 
 
 ## {1SM 123.4}
 
-We cannot prepare the way by gaining the friendship of the world, which is enmity with God; but by His help we can break its seductive influence upon ourselves and upon others. We cannot individually or as a body secure  ourselves from the constant temptations of a relentless and determined foe; but in the strength of Jesus we can resist them. {1SM 123.4}
+We cannot prepare the way by gaining the friendship of the world, which is enmity with God; but by His help we can break its seductive influence upon ourselves and upon others. We cannot individually or as a body secure ourselves from the constant temptations of a relentless and determined foe; but in the strength of Jesus we can resist them. {1SM 123.4}
 
 ## {1SM 124.1}
 
@@ -59,7 +59,7 @@ There is nothing that Satan fears so much as that the people of God shall clear 
 
 ### We Are in the Day of Atonement
 
-We are in the great day of atonement, when our sins are, by confession and repentance, to go beforehand to judgment. God does not now accept a tame, spiritless testimony from His ministers. Such a testimony would not be present truth. The message for this time must be meat in due season to feed the church of God. But Satan has been  seeking gradually to rob this message of its power, that the people may not be prepared to stand in the day of the Lord. {1SM 124.3}
+We are in the great day of atonement, when our sins are, by confession and repentance, to go beforehand to judgment. God does not now accept a tame, spiritless testimony from His ministers. Such a testimony would not be present truth. The message for this time must be meat in due season to feed the church of God. But Satan has been seeking gradually to rob this message of its power, that the people may not be prepared to stand in the day of the Lord. {1SM 124.3}
 
 ## {1SM 125.1}
 
@@ -71,7 +71,7 @@ What is our condition in this fearful and solemn time? Alas, what pride is preva
 
 ## {1SM 125.3}
 
-We must no longer remain upon the enchanted ground. We are fast approaching the close of our probation. Let every soul inquire, How do I stand before God? We know not how soon our names may be taken into the lips of Christ, and our cases be finally decided. What, oh, what  will these decisions be! Shall we be counted with the righteous, or shall we be numbered with the wicked? {1SM 125.3}
+We must no longer remain upon the enchanted ground. We are fast approaching the close of our probation. Let every soul inquire, How do I stand before God? We know not how soon our names may be taken into the lips of Christ, and our cases be finally decided. What, oh, what will these decisions be! Shall we be counted with the righteous, or shall we be numbered with the wicked? {1SM 125.3}
 
 ## {1SM 126.1}
 
@@ -103,7 +103,7 @@ Sermons have been in great demand in our churches. The members have depended upo
 
 ## {1SM 127.3}
 
-God brings against ministers and people the heavy charge of spiritual feebleness, saying, “I know thy works, that thou art neither cold nor hot: I would thou wert cold or hot. So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth. Because thou sayest, I am rich, and increased with goods, and have need of nothing; and knowest not that thou art wretched, and miserable, and poor, and blind, and naked: I counsel thee to buy of me gold tried in the fire, that thou mayest be rich; and white raiment, that thou mayest be clothed, and that the shame of thy nakedness do not appear; and anoint thine eyes with eyesalve, that thou mayest see” (Revelation 3:15-18).  God calls for a spiritual revival and a spiritual reformation. Unless this takes place, those who are lukewarm will continue to grow more abhorrent to the Lord, until He will refuse to acknowledge them as His children. {1SM 127.3}
+God brings against ministers and people the heavy charge of spiritual feebleness, saying, “I know thy works, that thou art neither cold nor hot: I would thou wert cold or hot. So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth. Because thou sayest, I am rich, and increased with goods, and have need of nothing; and knowest not that thou art wretched, and miserable, and poor, and blind, and naked: I counsel thee to buy of me gold tried in the fire, that thou mayest be rich; and white raiment, that thou mayest be clothed, and that the shame of thy nakedness do not appear; and anoint thine eyes with eyesalve, that thou mayest see” (Revelation 3:15–18). God calls for a spiritual revival and a spiritual reformation. Unless this takes place, those who are lukewarm will continue to grow more abhorrent to the Lord, until He will refuse to acknowledge them as His children. {1SM 127.3}
 
 ## {1SM 128.1}
 
