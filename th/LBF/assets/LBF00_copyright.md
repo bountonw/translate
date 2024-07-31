@@ -5,7 +5,7 @@ International (CC BY-ND 4.0) (https://creativecommons.org/licenses/by-nd/4.0/)
 
 แปลจากหนังสือ : Living By Faith
 
-**ผู้แปล** : Brian Wilson
+**ผู้แปล** : Brian Wilson (บุญต้น)
 
 **จัดเข้าเล่มและออกแบบปก** : Kenton Rogers, Publishing Light Press Asia
 
