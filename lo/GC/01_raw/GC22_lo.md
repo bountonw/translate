@@ -2,8 +2,8 @@
 chapter:
   number: 22
   title:
-   lo: ຄຳພະຍາກອນສຳເລັດ
-   en: Prophecies Fulfilled
+    lo: ຄຳພະຍາກອນສຳເລັດ
+    en: Prophecies Fulfilled
 ---
 
 ## {GC 391.1}
