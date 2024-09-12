@@ -8,7 +8,7 @@ chapter:
   basedon:
 ---
 
-## {PP 406.1}
+## {PP 406.1}(Edited to here)
 
 ### ไม่คู่ควรกับเสรีภาพ
 
