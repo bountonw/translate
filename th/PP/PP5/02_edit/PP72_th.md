@@ -5,7 +5,7 @@ chapter:
     th: การกบฏของอับซาโลม
     en: The Rebellion of Absalom
   url: https://legacy.egwwritings.org/?para=84.3447
-  basedon: ศึกษาควบคู่กับ 2 ซามูเอล 13–19
+  basedon: 2 ซามูเอล 13–19
 ---
 
 ## {PP 727.1}

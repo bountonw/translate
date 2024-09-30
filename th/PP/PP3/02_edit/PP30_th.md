@@ -5,7 +5,7 @@ chapter:
     th: พลับพลาและพิธีกรรมต่างๆ
     en: The Tabernacle and Its Services
   url: https://egwwritings.org/?ref=en_PP.343&para=84.1538
-  basedon: ศึกษาควบคู่กับ อพยพบทที่ 25–40; เลวีนิติ 4–16
+  basedon: อพยพบทที่ 25–40; เลวีนิติ 4–16
 ---
 
 ## {PP 343.1}

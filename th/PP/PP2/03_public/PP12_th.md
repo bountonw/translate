@@ -5,7 +5,7 @@ chapter:
     th: อับราฮัมในแผ่นดินคานาอัน
     en: Abraham in Canaan
   url: https://legacy.egwwritings.org/?para=84.517
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 13–15; 17:1–16; 18
+  basedon: ปฐมกาล บทที่ 13–15; 17:1–16; 18
 ---
 
 ## {PP 132.1}

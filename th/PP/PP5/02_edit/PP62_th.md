@@ -5,7 +5,7 @@ chapter:
     th: การเจิมดาวิด
     en: The Anointing of David
   url: https://legacy.egwwritings.org/?ref=en_PP.637&para=84.2996
-  basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 16:1–13
+  basedon: 1 ซามูเอล บทที่ 16:1–13
 ---
 
 ## {PP 637.1}

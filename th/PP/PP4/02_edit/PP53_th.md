@@ -5,7 +5,7 @@ chapter:
     th: ผู้วินิจฉัยรุ่นแรก
     en: The Earlier Judges
   url: https://legacy.egwwritings.org/?ref=en_PP.543&para=84.2538
-  basedon: ศึกษาควบคู่กับผู้วินิจฉัยบทที่ 6–8; 10
+  basedon: ผู้วินิจฉัยบทที่ 6–8; 10
 ---
 
 ## {PP 543.1}

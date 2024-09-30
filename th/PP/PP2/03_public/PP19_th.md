@@ -5,7 +5,7 @@ chapter:
     th: กลับสู่คานาอัน
     en: The Return to Canaan
   url: https://legacy.egwwritings.org/?para=84.852
-  basedon: ศึกษาควบคู่กับปฐมกาลบทที่ 34–35, 37
+  basedon: ปฐมกาลบทที่ 34–35, 37
 ---
 
 ## {PP 204.1}

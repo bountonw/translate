@@ -5,7 +5,7 @@ chapter:
     th: ดาวิดที่เมืองศิกลาก
     en: David at Ziklag
   url: https://legacy.egwwritings.org/?para=84.3236
-  basedon: ศึกษาควบคู่กับ 1 ซามูเอล 29; 30; 2 ซามูเอล 1
+  basedon: 1 ซามูเอล 29; 30; 2 ซามูเอล 1
 ---
 
 ## {PP 690.1}

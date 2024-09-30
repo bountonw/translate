@@ -5,7 +5,7 @@ chapter:
     th: ค่ำคืนแห่งการต่อสู้
     en: The Night of Wrestling
   url: https://legacy.egwwritings.org/?para=84.813
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 32–33
+  basedon: ปฐมกาล บทที่ 32–33
 ---
 
 ## {PP 195.1}

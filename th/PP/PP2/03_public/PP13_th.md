@@ -5,7 +5,7 @@ chapter:
     th: อับราฮัมในแผ่นดินคานาอัน
     en: The Test of Faith
   url: https://legacy.egwwritings.org/?para=84.584
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 16; 17:18–20; 21:1–14; 22:1–19
+  basedon: ปฐมกาล บทที่ 16; 17:18–20; 21:1–14; 22:1–19
 ---
 
 ## {PP 145.1}

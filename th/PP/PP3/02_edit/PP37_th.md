@@ -5,7 +5,7 @@ chapter:
     th: ศิลาที่ถูกตี
     en: The Smitten Rock 
   url:
-  basedon: ศึกษาควบคู่กับกันดารวิถี 20:1–13
+  basedon: กันดารวิถี 20:1–13
 ---
 
 ## {PP 411.1}

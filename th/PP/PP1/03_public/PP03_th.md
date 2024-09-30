@@ -5,7 +5,7 @@ chapter:
     th: การทดลองและการตกสู่ความบาป
     en: The Temptation and Fall
   url: https://legacy.egwwritings.org/?ref=en_PP.52&para=84.155
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 3
+  basedon: ปฐมกาล บทที่ 3
 ---
 
 ## {PP 52.1}

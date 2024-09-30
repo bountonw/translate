@@ -5,7 +5,7 @@ chapter:
     th: การทรงเรียกอับราฮัม
     en: The Call of Abraham
   url: https://legacy.egwwritings.org/?para=84.488
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 11:27–32; 12:1–20
+  basedon: ปฐมกาล บทที่ 11:27–32; 12:1–20
 ---
 
 ## {PP 125.1}

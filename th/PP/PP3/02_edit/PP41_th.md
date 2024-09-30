@@ -5,7 +5,7 @@ chapter:
     th: การละทิ้งพระเจ้าที่แม่น้ำจอร์แดน
     en: Apostasy at the Jordan
   url: https://legacy.egwwritings.org/?ref=en_PP.453&para=84.2085
-  basedon: ศึกษาควบคู่กับกันดารวิถี บทที่ 25
+  basedon: กันดารวิถี บทที่ 25
 ---
 
 ## {PP 453.1}

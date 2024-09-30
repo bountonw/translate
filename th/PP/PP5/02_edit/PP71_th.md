@@ -5,7 +5,7 @@ chapter:
     th: ความบาปและการกลับใจของดาวิด
     en: David's Sin and Repentance
   url: https://legacy.egwwritings.org/?para=84.3386
-  basedon: ศึกษาควบคู่กับ 2 ซามูเอล 11, 12
+  basedon: 2 ซามูเอล 11, 12
 ---
 
 ## {PP 717.1}

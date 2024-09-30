@@ -5,7 +5,7 @@ chapter:
     th: เดินทางเลี่ยงเอโดม
     en: The Journey Around Edom
   url:
-  basedon: ศึกษาควบคู่กับกันดารวิถี 20:14–29; 21:1–9
+  basedon: กันดารวิถี 20:14–29; 21:1–9
 ---
 
 ## {PP 422.1}

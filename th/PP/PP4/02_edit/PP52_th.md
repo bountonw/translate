@@ -5,7 +5,7 @@ chapter:
     th: เทศกาลประจำปี
     en: The Annual Feasts
   url: https://legacy.egwwritings.org/?ref=en_PP.537&para=84.2499
-  basedon: ศึกษาควบคู่กับเลวีนิติ 23
+  basedon: เลวีนิติ 23
 ---
 
 ## {PP 537.1}
