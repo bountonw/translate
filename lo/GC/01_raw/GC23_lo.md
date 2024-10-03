@@ -2,7 +2,7 @@
 chapter:
   number: 23
   title:
-    lo: ເຕັນສັກສິດແມ່ນຫຍັງ
+    lo: ສະຖານບໍລິສຸດແມ່ນຫຍັງ
     en: What is the Sanctuary?
 ---
 
