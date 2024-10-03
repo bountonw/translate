@@ -5,7 +5,7 @@ chapter:
     th: เมืองโสโดมถึงคราวหายนะ
     en: Destruction of Sodom
   url: https://legacy.egwwritings.org/?para=84.632
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 19
+  basedon: ปฐมกาล บทที่ 19
 ---
 
 ## {PP 156.1}

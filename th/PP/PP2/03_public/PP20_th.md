@@ -5,7 +5,7 @@ chapter:
     th: โยเซฟในอียิปต์
     en: Joseph in Egypt
   url: https://legacy.egwwritings.org/?para=84.584
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 39–41
+  basedon: ปฐมกาล บทที่ 39–41
 ---
 
 ## {PP 213.1}

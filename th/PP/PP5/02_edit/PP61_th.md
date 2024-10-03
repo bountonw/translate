@@ -5,7 +5,7 @@ chapter:
     th: ซาอูลถูกปฏิเสธ
     en: Saul Rejected
   url: https://.egwwritings.org/?ref=en_PP.616&para=84.2900
-  basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 15
+  basedon: 1 ซามูเอล บทที่ 15
 ---
 
 ## {PP 627.1}

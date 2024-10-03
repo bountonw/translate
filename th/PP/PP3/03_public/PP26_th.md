@@ -5,7 +5,7 @@ chapter:
   th: จากทะเลแดงสู่ภูเขาซีนาย
   en: From the Red Sea to Sinai
  url: https://egwwritings.org/?ref=en_PP.291&para=84.1270
- basedon: ศึกษาควบคู่กับ อพยพบทที่ 15:22–27; 16–18
+ basedon: อพยพบทที่ 15:22–27; 16–18
 ---
 
 ## {PP 291.1}

@@ -5,7 +5,7 @@ chapter:
     th: คำอวยพรและคำสาปแช่ง
     en: The Blessings and the Curses
   url: https://egwwritings.org/?ref=en_PP.499&para=84.2302
-  basedon: ศึกษาควบคู่กับ โยชูวา 8
+  basedon: โยชูวา 8
 ---
 
 ## {PP 499.1}

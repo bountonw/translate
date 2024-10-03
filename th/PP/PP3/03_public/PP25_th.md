@@ -5,7 +5,7 @@ chapter:
    th: การอพยพออกจากอียิปต์
    en: The Exodus
  url: https://egwwritings.org/?ref=en_PP.281&para=84.1225
- basedon: ศึกษาควบคู่กับ อพยพบทที่ 12:34–51; 13–15
+ basedon: อพยพบทที่ 12:34–51; 13–15
 ---
 
 ## {PP 281.1}

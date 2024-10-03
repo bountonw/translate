@@ -5,7 +5,7 @@ chapter:
     th: การพิชิตเมืองบาชาน
     en: The Conquest of Bashan
   url:
-  basedon: ศึกษาควบคู่กับเฉลยธรรมบัญญัติ 2; 3:1–11.
+  basedon: เฉลยธรรมบัญญัติ 2; 3:1–11.
 ---
 
 ## {PP 433.1}

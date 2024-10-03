@@ -5,7 +5,7 @@ chapter:
     th: เสท และ เอโนค
     en: Cain and Abel Tested
   url: https://legacy.egwwritings.org/?ref=en_PP.80&para=84.289
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 4:25–6:2
+  basedon: ปฐมกาล บทที่ 4:25–6:2
 ---
 
 ## {PP 80.1}

@@ -5,7 +5,7 @@ chapter:
     th: การปกครองของดาวิด
     en: The Reign of David
   url: https://legacy.egwwritings.org/?para=84.3303
-  basedon: ศึกษาควบคู่กับ 2 ซามูเอล 5:6–25; 6; 7; 9; 10
+  basedon: 2 ซามูเอล 5:6–25; 6; 7; 9; 10
 ---
 
 ## {PP 703.1}
