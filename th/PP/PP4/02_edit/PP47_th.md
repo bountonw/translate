@@ -5,7 +5,7 @@ chapter:
     th: ผูกมิตรกับชาวกิเบโอน
     en: League With the Gibeonites
   url: https://egwwritings.org/?ref=en_PP.505&para=84.2326
-  basedon: ศึกษาควบคู่กับ โยชูวา 9 และ 10
+  basedon: โยชูวา 9 และ 10
 ---
 
 ## {PP 505.1}

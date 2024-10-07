@@ -5,7 +5,7 @@ chapter:
     th: ยาโคบหลบหนีไปอยู่ต่างแดน
     en: Jacob's Flight and Excile
   url: https://legacy.egwwritings.org/?para=84.758
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 28–31
+  basedon: ปฐมกาล บทที่ 28–31
 ---
 
 ## {PP 183.1}

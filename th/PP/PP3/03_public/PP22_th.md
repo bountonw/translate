@@ -5,7 +5,7 @@ chapter:
     th: โมเสส
     en: Moses
   url: https://egwwritings.org/?ref=en_PP.241&para=84.1042
-  basedon: ศึกษาควบคู่กับ อพยพบทที่ 1–4
+  basedon: อพยพบทที่ 1–4
 ---
 
 ## {PP 241.1}

@@ -5,7 +5,7 @@ chapter:
     th: การพังทลายของเมืองเยรีโค
     en: The fall of Jericho
   url: https://egwwritings.org/?ref=en_PP.487&para=84.2245
-  basedon: ศึกษาควบคู่กับ โยชูวา 5:13–15; 6; 7
+  basedon: โยชูวา 5:13–15; 6; 7
 ---
 
 ## {PP 487.1}

@@ -5,7 +5,7 @@ chapter:
     th: การทรงสร้าง
     en: The Creation
   url: https://legacy.egwwritings.org/?ref=en_PP.44&para=84.117
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 1–2
+  basedon: ปฐมกาล บทที่ 1–2
 ---
 
 ## {PP 44.1}

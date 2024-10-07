@@ -5,7 +5,7 @@ chapter:
     th: การมอบพระบัญญัติแก่คนอิสราเอล
     en: The Law Given to Israel
   url: https://egwwritings.org/?ref=en_PP.303&para=84.1328
-  basedon: ศึกษาควบคู่กับ อพยพ 19–24
+  basedon: อพยพ 19–24
 ---
 
 ## {PP 303.1}

@@ -5,7 +5,7 @@ chapter:
     th: ภัยพิบัติแห่งอียิปต์
     en: The Plagues of Egypt
   url: https://egwwritings.org/?ref=en_PP.257&para=84.1118
-  basedon: ศึกษาควบคู่กับ อพยพบทที่ 5–10
+  basedon: อพยพบทที่ 5–10
 ---
 
 ## {PP 257.1}

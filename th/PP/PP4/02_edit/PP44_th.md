@@ -5,7 +5,7 @@ chapter:
     th: ข้ามแม่น้ำจอร์แดน
     en: Crossing the Jordan
   url: https://egwwritings.org/?ref=en_PP.510&para=84.2352
-  basedon: ศึกษาควบคู่กับ โยชูวา 1–5:12
+  basedon: โยชูวา 1–5:12
 ---
 
 ## {PP 481.1}

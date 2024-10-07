@@ -5,7 +5,7 @@ chapter:
     th: โยเซฟกับพี่น้องของท่าน
     en: Joseph and his Brothers
   url: https://legacy.egwwritings.org/?para=84.945
-  basedon: ศึกษาควบคู่กับปฐมกาลบทที่ 41:54–56; 42–50
+  basedon: ปฐมกาลบทที่ 41:54–56; 42–50
 ---
 
 ## {PP 224.1}

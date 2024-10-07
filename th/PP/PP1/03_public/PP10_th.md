@@ -5,7 +5,7 @@ chapter:
     th: หอบาเบล
     en: The Tower of Babel
   url: https://legacy.egwwritings.org/?para=84.454
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 9:25–27; 11:1–9
+  basedon: ปฐมกาล บทที่ 9:25–27; 11:1–9
 ---
 
 ## {PP 117.1}

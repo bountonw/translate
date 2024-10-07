@@ -5,7 +5,7 @@ chapter:
     th: แซมสัน
     en: Samson
   url: https://legacy.egwwritings.org/?ref=en_PP.560&para=84.2620
-  basedon: ศึกษาควบคู่กับผู้วินิจฉัยบทที่ 13 ถึง 16
+  basedon: ผู้วินิจฉัยบทที่ 13 ถึง 16
 ---
 
 ## {PP 560.1}

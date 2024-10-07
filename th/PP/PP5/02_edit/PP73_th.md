@@ -5,7 +5,7 @@ chapter:
     th: บั้นปลายชีวิตดาวิด
     en: The Last Years of David
   url: https://legacy.egwwritings.org/?para=84.3535
-  basedon: ศึกษาควบคู่กับ 2 ซามูเอล 24; 1 พงศ์กษัตริย์ 1; 1 พงศาวดาร 24; 28; 29
+  basedon: 2 ซามูเอล 24; 1 พงศ์กษัตริย์ 1; 1 พงศาวดาร 24; 28; 29
 ---
 
 ## {PP 746.1}

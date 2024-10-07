@@ -5,7 +5,7 @@ chapter:
     th: คำสั่งเสียของโยชูวา
     en: The Last Words of Joshua
   url: https://egwwritings.org/?ref=en_PP.521&para=84.2414
-  basedon: ศึกษาควบคู่กับ โยชูวา 23 และ 24
+  basedon: โยชูวา 23 และ 24
 ---
 
 ## {PP 521.1}

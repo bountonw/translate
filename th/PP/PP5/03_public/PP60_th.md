@@ -5,7 +5,7 @@ chapter:
     th: ความประมาทของซาอูล
     en: The Presumption of Saul
   url: https://legacy.egwwritings.org/?ref=en_PP.616&para=84.2900
-  basedon: ศึกษาควบคู่กับ 1 ซามูเอล บทที่ 13 และ 14
+  basedon: 1 ซามูเอล บทที่ 13 และ 14
 ---
 
 ## {PP 616.1}
