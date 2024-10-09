@@ -53,10 +53,8 @@ const copyFile = (fromPath, toPath) => {
   const content = `# ${title}
 
 ${matterObject.content.replace(/\n##\s+[^}]+\}/g, "")}`;
-  console.log(metadata);
-  fs.writeFileSync(toPath, matter.stringify(content, metadata));
 
-  // remove h3s?
+  fs.writeFileSync(toPath, matter.stringify(content, metadata));
 };
 
 // Run!
