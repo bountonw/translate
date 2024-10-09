@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "compile": "./build.js",
+    "compile": "./build.mjs",
     "start": "next start"
   },
   "dependencies": {
