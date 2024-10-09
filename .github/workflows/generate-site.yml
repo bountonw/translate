@@ -1,10 +1,14 @@
 name: Generate Website
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths:
       - '**/*.md'
       - 'site'
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
