@@ -326,3 +326,4 @@ node_modules
 
 # Site files
 .next/
+site/pages/*
