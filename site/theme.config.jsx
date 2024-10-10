@@ -10,7 +10,6 @@ export default {
     content: null
   },
   search: false,
-  gitTimestamp: timestamp => <div>Testing the time: {timestamp}</div>, // TODO: not working
   footer: {
     content: (
       <span>
