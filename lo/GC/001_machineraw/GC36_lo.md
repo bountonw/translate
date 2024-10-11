@@ -6,7 +6,7 @@ chapter:
     en: The Impending Conflict
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 582.1}
 

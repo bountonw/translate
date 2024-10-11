@@ -6,7 +6,7 @@ chapter:
     en: The First Great Deception
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 531.1}
 

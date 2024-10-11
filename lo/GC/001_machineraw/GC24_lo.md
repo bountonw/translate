@@ -6,7 +6,7 @@ chapter:
     en: In the Holy of Holies
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 423.1}
 

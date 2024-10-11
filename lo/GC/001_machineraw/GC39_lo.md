@@ -6,7 +6,7 @@ chapter:
     en: The Time of Trouble
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 613.1}
 

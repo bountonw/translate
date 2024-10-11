@@ -6,7 +6,7 @@ chapter:
     en: Modern Revivals
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 461.1}
 

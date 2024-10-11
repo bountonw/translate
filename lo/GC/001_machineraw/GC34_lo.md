@@ -6,7 +6,7 @@ chapter:
     en: Can Our Dead Speak to Us?
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 551.1}
 

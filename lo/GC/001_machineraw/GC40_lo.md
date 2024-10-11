@@ -6,7 +6,7 @@ chapter:
     en: God’s People Delivered
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 635.1}
 

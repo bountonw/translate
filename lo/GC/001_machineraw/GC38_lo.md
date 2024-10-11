@@ -6,7 +6,7 @@ chapter:
     en: The Final Warning
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 603.1}
 

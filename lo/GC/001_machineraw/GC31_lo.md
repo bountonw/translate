@@ -6,7 +6,7 @@ chapter:
     en: Agency of Evil Spirits
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 511.1}
 

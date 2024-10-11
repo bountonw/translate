@@ -6,7 +6,7 @@ chapter:
     en: Enmity Between Man and Satan
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 505.1}
 

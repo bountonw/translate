@@ -6,7 +6,7 @@ chapter:
     en: The Origin of Evil
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 492.1}
 

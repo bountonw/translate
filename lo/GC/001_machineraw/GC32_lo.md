@@ -6,7 +6,7 @@ chapter:
     en: Snares of Satan
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 518.1}
 

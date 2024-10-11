@@ -6,7 +6,7 @@ chapter:
     en: God’s Law Immutable
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 433.1}
 

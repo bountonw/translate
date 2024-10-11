@@ -6,7 +6,7 @@ chapter:
     en: A Work of Reform
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 451.1}
 

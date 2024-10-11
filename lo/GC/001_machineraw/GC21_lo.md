@@ -6,7 +6,7 @@ chapter:
     en: A Warning Rejected
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 375.1}
 

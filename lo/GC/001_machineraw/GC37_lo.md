@@ -6,7 +6,7 @@ chapter:
     en: The Scriptures a Safeguard
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 593.1}
 

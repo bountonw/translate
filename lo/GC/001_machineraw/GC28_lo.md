@@ -6,7 +6,7 @@ chapter:
     en: Facing Life’s Record
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 479.1}
 

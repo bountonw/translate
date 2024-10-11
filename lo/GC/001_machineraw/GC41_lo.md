@@ -6,7 +6,7 @@ chapter:
     en: Desolation of the Earth
 ---
 
-### <Lao Heading>
+### <Lao Heading>(Human Translated to Here -- File not yet begun)
 
 ## {GC 653.1}
 
