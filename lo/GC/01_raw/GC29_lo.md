@@ -1,9 +1,9 @@
 ---
 chapter:
- number: 29
- title:
- lo: ຄວາມຊົ່ວມາແຕ່ໃສ
- en: The Origin of Evil
+  number: 29
+  title:
+    lo: ຄວາມຊົ່ວມາແຕ່ໃສ
+    en: The Origin of Evil
 ---
 
 ## {GC 492.1}(Edited to here)
