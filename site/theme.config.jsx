@@ -1,3 +1,5 @@
+import { useConfig } from "nextra-theme-docs";
+
 export default {
   logo: <span>เอลเลน จี ไวท์</span>,
   project: {
@@ -7,7 +9,15 @@ export default {
     component: null
   },
   feedback: {
-    content: null
+    content: ({ children }) => {
+      const {frontMatter} = useConfig();
+      return frontMatter.lastUpdated ? <>
+        <div class="_mt-4 _mb-4 _block _text-xs _text-gray-500 dark:_text-gray-400">
+          Content last updated on {frontMatter.lastUpdated}
+        </div>
+        {children}
+      </> : null;
+    }
   },
   search: false,
   footer: {
@@ -17,7 +27,7 @@ export default {
         <a href="https://github.com/bountonw/translate/blob/main/LICENSE" target="_blank">Creative Commons Attribution-NoDerivs 4.0 International License</a>.
       </span>
     )
-  }
+  },
 };
 
 // noindex

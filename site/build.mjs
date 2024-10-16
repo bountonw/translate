@@ -3,6 +3,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import child_process from "child_process";
 
 const DOCS_PATH = "../th";
 const PAGES_PATH = "./pages";
@@ -49,6 +50,10 @@ const copyFile = (fromPath, toPath) => {
   const metadata = {
     ...matterObject.data,
     title,
+    lastUpdated: child_process.execSync(
+      `git log -n 1 --pretty=format:%cd --date=format:"%Y-%m-%d %H:%M%p" ${fromPath}`,
+      { encoding: "utf-8" }
+    ),
   };
   const content = `# ${title}
 
