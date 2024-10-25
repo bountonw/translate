@@ -1,7 +1,7 @@
 import { useConfig } from "nextra-theme-docs";
 
 export default {
-  logo: <span>เอลเลน จี ไวท์</span>,
+  logo: <span>แสงแห่งความจริง</span>,
   project: {
     link: "https://github.com/bountonw/translate",
   },
@@ -30,4 +30,4 @@ export default {
   },
 };
 
-// noindex
+// TODO: noindex
