@@ -2,7 +2,7 @@
 chapter:
   number: 33
   title:
-    lo: ການຫຼອກລວງໃຫຍ່ຄັ້ງທຳອິດ
+    lo: ຄວາມຈິງເລື່ອງຄວາມຕາຍ
     en: The First Great Deception
 ---
 
