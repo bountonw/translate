@@ -2,7 +2,7 @@
 chapter:
   number: 30
   title:
-    lo: ຄວາມກຽກຊັງລະຫວ່າງມະນຸດກັບຊາຕານ
+    lo: ຄວາມກຽດຊັງລະຫວ່າງມະນຸດກັບຊາຕານ
     en: Enmity Between Man and Satan
 ---
 
