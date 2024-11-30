@@ -5,6 +5,7 @@ chapter:
     th: "จงรักษาตัวให้บริสุทธิ์"
     en: "Be Ye Clean"
   url: https://egwwritings.org/read?panels=p123.2451
+  word_count: 3772
 ---
 
 [จากบทความเรื่อง "บาปแห่งความหมกมุ่นในกาม"] {TM 444.0}
