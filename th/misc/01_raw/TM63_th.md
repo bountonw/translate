@@ -2,7 +2,7 @@
 chapter:
   number: 63
   title:
-    th: "จงรักษาตัวให้บริสุทธิ์
+    th: "จงรักษาตัวให้บริสุทธิ์"
     en: "Be Ye Clean"
   url: https://egwwritings.org/read?panels=p123.2451
 ---
@@ -135,21 +135,21 @@ The way to heaven has been laid open at infinite cost to the Father and the Son.
 
 ## {TM 453.5}
 
-### ทรงเลือกเพื่อสั่งใด
+### ทรงเลือกเพื่อสิ่งใด
 
 พระคัมภีร์กล่าวถึงการทรงเลือกอย่างเดียวเท่านั้น นั่นคือการที่พระเจ้าทรงเลือกบุคคลและประชากรเพื่อความรอด แม้หลายคนคิดว่าตนได้รับเลือกให้ไปสวรรค์อย่างแน่นอน แต่นั่นไม่ใช่การทรงเลือกที่พระคัมภีร์กล่าวถึง พระเจ้าทรงเลือกให้มนุษย์ “อุตส่าห์ประพฤติ เพื่อให้ได้ความรอด ด้วยความเกรงกลัวและตัวสั่น” (ฟีลิปปี 2:12 TH1971) พระองค์ทรงเลือกให้เขาสวมยุทธภัณฑ์ (ดู เอเฟซัส 6:11) และ “ต่อสู้อย่างเต็มกำลังความเชื่อ” (1 ทิโมธี 6:12 TH1971) ในขณะที่ซาตานกำลังเล่นเกมชีวิตเพื่อช่วงชิงจิตวิญญาณ พระเจ้าทรงเลือกให้เขาใช้เครื่องมือที่พระองค์ประทานให้เพื่อต่อสู้กับตัณหาชั่วทุกอย่าง พระองค์ทรงเลือกให้เขาเฝ้าระวังในการอธิษฐาน ศึกษาพระคัมภีร์ และหลีกหนีจากการทดลอง ให้มีความเชื่ออย่างมั่นคงอยู่เสมอ และเชื่อฟังพระวจนะทุกคำที่ออกมาจากพระโอษฐ์ของพระเจ้า เพื่อเขาจะไม่เป็นแค่ผู้ฟังพระวจนะเท่านั้น แต่เป็นผู้ประพฤติตามด้วย นี่แหละคือการทรงเลือกตามพระคัมภีร์ {TM 453.5}
 
 ## {TM 454.1}
 
-Because great light has been given, because men have, as did the princes of Israel, ascended to the mount and been privileged to have communion with God, and been allowed to dwell in the light of His glory—for these thus favored to think that they can afterward sin, and corrupt their ways before God, and still keep on as though doing God's will, as though God would not mark sin against them because they have been thus honored of God, is a fatal deception. The great light and privileges bestowed require returns of virtue and holiness corresponding with the light given them. Anything short of this, God will not accept. {TM 454.1}
+ทีคนได้รับความสว่างยิ่งใหญ่จากพระเจ้าและได้ขึ้นไปบนภูเขาเหมือนเจ้านายแห่งอิสราเอล พวกเขาได้รับสิทธิพิเศษในการเข้าสนิทกับพระเจ้า และได้รับอนุญาตให้อยู่ในความสว่างแห่งพระสิริของพระองค์ แต่ถ้าคนที่ได้รับพระพรเช่นนี้คิดว่าตนสามารถทำบาปต่อไป และทำให้วิถีชีวิตเสื่อมทรามลงต่อพระพักตร์พระเจ้า เสมือนหนึ่งว่าตนกำลังทำตามน้ำพระทัยของพระองค์ เหมือนว่าพระเจ้าจะไม่ทรงถือโทษบาปเพราะตนเคยได้รับเกียรติจากพระองค์ นี่เป็นการหลอกตัวเองที่อันตรายถึงตาย ยิ่งได้รับความสว่างและสิทธิพิเศษจากพระเจ้าเท่าไหร่ก็ยิ่งต้องตอบสนองด้วยคุณธรรมและความบริสุทธิ์ที่เหมาะสมกับความสว่างที่ได้รับ พระเจ้าจะไม่ทรงยอมรับสิ่งที่น้อยไปกว่านี้ {TM 454.1}
 
 ## {TM 454.2}
 
-But these great manifestations by God should never lull to security or carelessness. They should never give license to licentiousness, or cause the recipients to feel that God will not be critical with them, because they think He is dependent on their ability and knowledge to act a part in the great work. All these advantages given by God are His means to throw ardor into the spirit, zeal into effort, and rigor into the carrying out of His holy will. {TM 454.2}
+การสำแดงอันยิ่งใหญ่เหล่านี้จากพระเจ้าไม่ควรทำให้รู้สึกมั่นคงปลอดภัยจนขาดการระมัดระวัง ไม่ควรถือเป็นใบอนุญาตให้ปล่อยตัวตามราคะตัณหา หรือทำให้ผู้ที่ได้รับพระพรคิดว่าพระเจ้าจะไม่ทรงถือสาความผิดของตน เพราะคิดว่าพระองค์ทรงต้องพึ่งพาความสามารถและความรู้ของเขาในพระราชกิจอันยิ่งใหญ่ของพระองค์ พระเจ้าประทานสิทธิพิเศษเหล่านี้เพื่อส่งเสริมให้มีความกระตือรือร้น ความมุ่งมั่น และความเข้มแข็งในการทำตามน้ำพระทัยอันบริสุทธิ์ของพระองค์ {TM 454.2}
 
 ## {TM 454.3}
 
-You, my brethren, fold your hands, and drift into evil practices, and then wait for God to work a miracle to change your characters and compel you to be pure and holy men. Will you expose yourselves wantonly to temptation, expecting God to force your mind and inclinations that you may not be corrupted? Will you take the viper to your bosom, expecting God to put a spell upon it so it will not poison you with its venomous sting? Will you drink poison, expecting God to provide an antidote? {TM 454.3}
+พี่น้องทั้งหลาย พวกท่านนั่งกอดอก(อยู่)เฉยๆ และ ปล่อยชีวิตให้ไหลไปสู่การประพฤติชั่ว แล้วรอคอยให้พระเจ้าทำการอัศจรรย์เพื่อเปลี่ยนแปลงอุปนิสัยของท่าน และบังคับให้ท่านเป็นคนสะอาดบริสุทธิ์ ท่านจะเสี่ยงเข้าหาการทดลองโดยหวังให้พระเจ้าบังคับจิตใจและความโน้มเอียงของท่าน เพื่อไม่ให้ท่านเสื่อมเสียอย่างนั้นหรือ ท่านจะอุ้มงูพิษขึ้นมากอดไว้ที่อกโดยหวังว่าพระเจ้าจะทรงห้ามไม่ให้มันฉกท่านด้วยเขี้ยวอาบพิษของมันหรือ ท่านจะดื่มยาพิษโดยหวังให้พระเจ้าประทานยาถอนพิษมาให้หรือ {TM 454.3}
 
 ## {TM 455.1}
 
