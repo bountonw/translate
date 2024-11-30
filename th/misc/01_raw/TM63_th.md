@@ -165,4 +165,4 @@ Oh, that my brethren would be men according to God's estimate of men, and take t
 
 The means is provided, and no one will have any excuse for sin. If you fail of overcoming, there are reasons for this. Ye will not obey God's revealed will; ye will not pray; ye will not strive; ye will not fight evil habits and unholy thoughts. Are ye stronger than God? Can ye, dare ye, contend with the Eternal? If you are not proof against God's judgments, proof against His vengeance, then go on no longer in your own evil ways. Arise and make a stand against Satan. Be doing something, and do it now. Repent now, confess, forsake. A day of fire and storm is about to burst on our world. Conform your life to the simple prescriptions of the word of God. Seek the aid of God's Spirit by prayer, by watching thereunto, and ye will come off more than conquerors through Him who hath loved us. Read 1 John 4:10. {TM 455.3}
 
-[For further study: Testimonies for the Church 5:207-216; Selected Messages 2:376–383.] {TM 455.4}
+[For further study: Testimonies for the Church 5:207–216; Selected Messages 2:376–383.] {TM 455.4}
