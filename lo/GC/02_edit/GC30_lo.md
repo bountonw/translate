@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄວາມກຽດຊັງລະຫວ່າງມະນຸດກັບຊາຕານ
     en: Enmity Between Man and Satan
+  word_count: 2004
 ---
 
 ## {GC 505.1}
