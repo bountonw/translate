@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການເຄື່ອນໄຫວຂອງວິນຍານຊົ່ວ
     en: Agency of Evil Spirits
+  word_count: 2238
 ---
 
 ## {GC 511.1}
