@@ -2,45 +2,45 @@
 chapter:
   number: 63
   title:
-    th: "จงรักษาตัวให้บริสุทธิ์"
-    en: "Be Ye Clean"
+    th: “จงรักษาตัวให้บริสุทธิ์”
+    en: “Be Ye Clean”
   url: https://egwwritings.org/read?panels=p123.2451
   word_count: 3772
 ---
 
-[จากบทความเรื่อง "บาปแห่งความหมกมุ่นในกาม"] {TM 444.0}
+[จากบทความเรื่อง “บาปแห่งความหมกมุ่นในกาม”] {TM 444.0}
 
 ## {TM 444.1}
 
-I call upon ministers who have been handling the word of God, “Be ye clean, that bear the vessels of the Lord.” I ask the people who have listened to the truths from the pulpit, What are your feelings in anticipation of that great day? In that day you have each an individual, personal interest. Be assured, God will not be mocked with pretensions. Have you the wedding garment on? {TM 444.1}
+ข้าพเจ้าขอร้องศาสนาจารย์ผู้ประกาศสั่งสอนพระวจนะของพระเจ้าว่า “เจ้าทั้งหลายผู้ถือเครื่องภาชนะของพระเยโฮวาห์…จงชำระตัวของเจ้าให้บริสุทธิ์” (อิสยาห์ 52:11 TKJV) ข้าพเจ้าขอถามคนที่ได้ฟังการเทศนาประกาศความจริงว่า ขณะที่รอคอยวันยิ่งใหญ่นั้นท่านรู้สึกอย่างไร ในวันนั้นทุกคนต้องรับผิดชอบต่อพระเจ้าเป็นการส่วนตัว จงแน่ใจเถิดว่าไม่มีใครหลอกลวงพระเจ้าได้ด้วยการเสแสร้ง ท่านสวมเสื้อสำหรับงานสมรสแล้วหรือยัง {TM 444.1}
 
 ## {TM 444.2}
 
-We hear now of earthquakes in divers places, of fires, of tempests, of disasters by sea and land, of pestilence, of famine. What weight do these signs have upon you? This is only the beginning of what shall be. The description of the day of God is given through John by the Revelator. The cry of the terror-stricken myriads has fallen upon the ear of John. “The great day of His wrath is come; and who shall be able to stand?” The apostle himself was awed and overwhelmed. {TM 444.2}
+ทุกวันนี้เราได้ยินข่าวแผ่นดินไหวในที่ต่างๆ ไฟไหม้ พายุร้าย ภัยพิบัติทั้งทางบกและทางทะเล โรคระบาด และการกันดารอาหาร ท่านรู้สึกอย่างไรต่อหมายสำคัญเหล่านี้ นี่เป็นเพียงจุดเริ่มต้นของเหตุการณ์ที่จะเกิดขึ้น ยอห์นผู้เขียนพระธรรมวิวรณ์ได้บรรยายถึงวันขององค์พระผู้เป็นเจ้า ท่านได้ยินผู้คนมากมายร้องด้วยความหวาดกลัวว่า “วันสำคัญแห่งพระพิโรธของพระองค์มาถึงแล้ว และผู้ใดจะทนอยู่ได้เล่า” (วิวร 6:17 TKJV) แม้แต่อัครทูตยังรู้สึกสะเทือนใจต่อเหตุการณ์เหล่านั้น {TM 444.2}
 
 ## {TM 444.3}
 
-### What is Your Refuge in that Day?
+### ที่ลี้ภัยของท่านในวันนั้นอยู่ที่ไหน
 
-If such scenes as this are to come, such tremendous judgments on a guilty world, where will be the refuge for God's people? How will they be sheltered until the indignation be overpast? John sees the elements of nature—earthquake, tempest, and political strife—represented as being held by four angels. These winds are under control until God gives the word to let them go. There is the safety of God's church. The angels of God do His bidding, holding back the winds of the earth, that the winds should not blow on the earth, nor on the sea, nor on any tree, until the servants of God should be sealed in their foreheads. The mighty angel is seen ascending from the east (or sunrising). This mightiest of angels has in his hand the seal of the living God, or of Him who alone can give life, who can inscribe upon the foreheads the mark or inscription, to whom shall be granted immortality, eternal life. It is the voice of this highest angel that had authority to command the four angels to keep in check the four winds until this work was performed, and until he should give the summons to let them loose. {TM 444.3}
+เมื่อจะมีเหตุการณ์เช่นนี้เกิดขึ้น เมื่อการพิพากษาอันน่าสะพรึงกลัวจะมาถึงโลกที่เต็มด้วยความผิดบาป ประชากรของพระเจ้าจะหาที่ลี้ภัยได้ที่ไหน พวกเขาจะได้รับการปกป้องอย่างไรจนกว่าพระพิโรธของพระเจ้าจะผ่านพ้นไป ยอห์นเห็นทูตสวรรค์สี่องค์กำลังจับลมไว้ ซึ่งหมายถึงการยับยั้งภัยต่างๆ  ทั้งภัยธรรมชาติอย่างแผ่นดินไหวและพายุ รวมถึงความขัดแย้งทางการเมือง ลมเหล่านี้ถูกควบคุมไว้จนกว่าพระเจ้าจะทรงบัญชาให้ปล่อย นี่แหละคือความปลอดภัยของคริสตจักรของพระเจ้า ทูตสวรรค์ของพระองค์ทำตามพระบัญชา โดยยับยั้งลมทั้งสี่ทิศไว้ไม่ให้พัดบนแผ่นดิน ทะเล หรือต้นไม้ใดๆ จนกว่าผู้รับใช้ของพระองค์จะได้รับการประทับตราที่หน้าผากเสียก่อน ทูตสวรรค์ผู้เกรียงไกรที่สุดขึ้นมาจากทิศตะวันออก ถือตราของพระเจ้าผู้ทรงพระชนม์ พระองค์ผู้เดียวที่ทรงประทานชีวิต ทูตองค์นี้สามารถประทับตราที่หน้าผากของผู้ที่จะได้รับสภาพอมตะในชีวิตนิรันดร์ ทูตสวรรค์องค์นี้มีตำแหน่งสูงสุดท่ามกลางเหล่าทูตสวรรค์ทั้งปวง และมีสิทธิอำนาจสั่งให้ทูตสวรรค์สี่องค์นั้นยับยั้งลมทั้งสี่ทิศไว้จนกว่างานประทับตราจะสำเร็จ แล้วท่านจึงจะออกคำสั่งให้ปล่อยมัน {TM 444.3}
 
 ## {TM 445.1}
 
-Those that overcome the world, the flesh, and the devil, will be the favored ones who shall receive the seal of the living God. Those whose hands are not clean, whose hearts are not pure, will not have the seal of the living God. Those who are planning sin and acting it will be passed by. Only those who, in their attitude before God, are filling the position of those who are repenting and confessing their sins in the great antitypical day of atonement, will be recognized and marked as worthy of God's protection. The names of those who are steadfastly looking and waiting and watching for the appearing of their Saviour—more earnestly and wishfully than they who wait for the morning—will be numbered with those who are sealed. Those who, while having all the light of truth flashing upon their souls, should have works corresponding to their avowed faith, but are allured by sin, setting up idols in their hearts, corrupting their souls before God, and polluting those who unite with them in sin, will have their names blotted out of the book of life, and be left in midnight darkness, having no oil in their vessels with their lamps. “Unto you that fear My name shall the Sun of Righteousness arise with healing in His wings.” {TM 445.1}
+Those that overcome the world, the flesh, and the devil, will be the favored ones who shall receive the seal of the living God. Those whose hands are not clean, whose hearts are not pure, will not have the seal of the living God. Those who are planning sin and acting it will be passed by. Only those who, in their attitude before God, are filling the position of those who are repenting and confessing their sins in the great antitypical day of atonement, will be recognized and marked as worthy of God’s protection. The names of those who are steadfastly looking and waiting and watching for the appearing of their Saviour—more earnestly and wishfully than they who wait for the morning—will be numbered with those who are sealed. Those who, while having all the light of truth flashing upon their souls, should have works corresponding to their avowed faith, but are allured by sin, setting up idols in their hearts, corrupting their souls before God, and polluting those who unite with them in sin, will have their names blotted out of the book of life, and be left in midnight darkness, having no oil in their vessels with their lamps. “Unto you that fear My name shall the Sun of Righteousness arise with healing in His wings.” {TM 445.1}
 
 ## {TM 445.2}
 
-This sealing of the servants of God is the same that was shown to Ezekiel in vision. John also had been a witness of this most startling revelation. He saw the sea and the waves roaring, and men's hearts failing them for fear. He beheld the earth moved, and the mountains carried into the midst of the sea (which is literally taking place), the water thereof roaring and troubled, and the mountains shaking with the swelling thereof. He was shown plagues, pestilence, famine, and death performing their terrible mission. {TM 445.2}
+This sealing of the servants of God is the same that was shown to Ezekiel in vision. John also had been a witness of this most startling revelation. He saw the sea and the waves roaring, and men’s hearts failing them for fear. He beheld the earth moved, and the mountains carried into the midst of the sea (which is literally taking place), the water thereof roaring and troubled, and the mountains shaking with the swelling thereof. He was shown plagues, pestilence, famine, and death performing their terrible mission. {TM 445.2}
 
 ## {TM 446.1}
 
 ### “Escape for Thy Life”
 
-The same angel who visited Sodom is sounding the note of warning, “Escape for thy life.” The bottles of God's wrath cannot be poured out to destroy the wicked and their works until all the people of God have been judged, and the cases of the living as well as the dead are decided. And even after the saints are sealed with the seal of the living God, His elect will have trials individually. Personal afflictions will come; but the furnace is closely watched by an eye that will not suffer the gold to be consumed. The indelible mark of God is upon them. God can plead that His own name is written there. The Lord has shut them in. Their destination is inscribed—“GOD, NEW JERUSALEM.” They are God's property, His possession. {TM 446.1}
+The same angel who visited Sodom is sounding the note of warning, “Escape for thy life.” The bottles of God’s wrath cannot be poured out to destroy the wicked and their works until all the people of God have been judged, and the cases of the living as well as the dead are decided. And even after the saints are sealed with the seal of the living God, His elect will have trials individually. Personal afflictions will come; but the furnace is closely watched by an eye that will not suffer the gold to be consumed. The indelible mark of God is upon them. God can plead that His own name is written there. The Lord has shut them in. Their destination is inscribed—”GOD, NEW JERUSALEM.” They are God’s property, His possession. {TM 446.1}
 
 ## {TM 446.2}
 
-Will this seal be put upon the impure in mind, the fornicator, the adulterer, the man who covets his neighbor's wife? Let your souls answer the question, Does my character correspond to the qualifications essential that I may receive a passport to the mansions Christ has prepared for those who are fitted for them? Holiness must be inwrought in our character. {TM 446.2}
+Will this seal be put upon the impure in mind, the fornicator, the adulterer, the man who covets his neighbor’s wife? Let your souls answer the question, Does my character correspond to the qualifications essential that I may receive a passport to the mansions Christ has prepared for those who are fitted for them? Holiness must be inwrought in our character. {TM 446.2}
 
 ## {TM 446.3}
 
@@ -58,7 +58,7 @@ Oh, how can any who have the light of truth, the great light given them of God, 
 
 ## {TM 448.1}
 
-### God's Standard
+### God’s Standard
 
 God has a law, and it is the great standard of righteousness. Everyone who has presumed upon the mercy of God, and practiced iniquity, will be judged according to his works. God has warned you to depart from all iniquity. He has commanded you individually to resist the devil, not to entertain him as an honored guest. The time has come when Jerusalem is being searched as with lighted candles. God is at work investigating character, weighing moral worth, and pronouncing decisions on individual cases. It may not be too late for those who have sinned to be zealous and repent; “for godly sorrow worketh repentance to salvation not to be repented of: but the sorrow of the world worketh death.” This sorrow is a deceptive kind. It has no real virtue in it. There is no sense of the aggravated character of sin; but there is a sorrow and regret that the sin has come to the knowledge of others; and so no confessions are made, except in acknowledgment of the things thus revealed which cannot be denied. {TM 448.1}
 
@@ -72,13 +72,13 @@ Those who claim to have the light of truth have not met the conditions on which 
 
 ## {TM 449.2}
 
-But many—not a few, but many—have been losing their spiritual zeal and consecration, and turning away from the light that has been constantly growing brighter and brighter, and have refused to walk in the truth because its sanctifying power upon the soul was not what they desired. They might have been renewed in holiness and have reached the elevated standard that God's word demands; but condemnation is upon them. Many ministers and many people are in darkness. They have lost sight of the Leader, the Light of the world; and their guilt is proportionate to the grace and truth opened to their understanding, which has been abundant and powerful. {TM 449.2}
+But many—not a few, but many—have been losing their spiritual zeal and consecration, and turning away from the light that has been constantly growing brighter and brighter, and have refused to walk in the truth because its sanctifying power upon the soul was not what they desired. They might have been renewed in holiness and have reached the elevated standard that God’s word demands; but condemnation is upon them. Many ministers and many people are in darkness. They have lost sight of the Leader, the Light of the world; and their guilt is proportionate to the grace and truth opened to their understanding, which has been abundant and powerful. {TM 449.2}
 
 ## {TM 450.1}
 
 ### Lift Up the Standard
 
-God calls His people to elevate the standard. The church must show their zeal for God in dealing with those who have, while professing great faith, been putting Christ to open shame. They have imperiled the truth. They have been unfaithful sentinels. They have brought reproach and dishonor upon the cause of God. The time has come for earnest and powerful efforts to rid the church of the slime and filth which is tarnishing her purity. The church of Christ is called to be a holy, powerful people, a name and praise in all the earth. There has been opened a fountain for Judah and Jerusalem, to wash from all uncleanness and sin. There is an astonishing backsliding with God's people, to whom has been entrusted sacred, holy truth. Her faith, her service, her works, must be compared to what they would have been if her course had been continually onward and upward, according to grace and holy truth given her. {TM 450.1}
+God calls His people to elevate the standard. The church must show their zeal for God in dealing with those who have, while professing great faith, been putting Christ to open shame. They have imperiled the truth. They have been unfaithful sentinels. They have brought reproach and dishonor upon the cause of God. The time has come for earnest and powerful efforts to rid the church of the slime and filth which is tarnishing her purity. The church of Christ is called to be a holy, powerful people, a name and praise in all the earth. There has been opened a fountain for Judah and Jerusalem, to wash from all uncleanness and sin. There is an astonishing backsliding with God’s people, to whom has been entrusted sacred, holy truth. Her faith, her service, her works, must be compared to what they would have been if her course had been continually onward and upward, according to grace and holy truth given her. {TM 450.1}
 
 ## {TM 450.2}
 
@@ -90,7 +90,7 @@ In this balance of the sanctuary, the individual members of the Christian church
 
 ## {TM 450.4}
 
-A knowledge of the state of the backslider from God seems to be hidden from him. Has the candlestick been removed out of its place? I call upon all who are resting unconcerned in their present state of spiritual deadness, to arouse and arise from the dead, and Christ will give them light. Many rest as content as though the cloud by day and the pillar of fire by night were sheltering and guiding them. Many profess to know God, and yet deny Him in their works. They reckon themselves among God's peculiar, chosen people, who have a special, solemn message entrusted to their keeping to sanctify their lives and to give to the world, and yet the power of the truth is scarcely felt or manifested in our midst in zealous work for God. How great is our darkness, and we know it not! The light has not diminished, but we walk not in its rays. {TM 450.4}
+A knowledge of the state of the backslider from God seems to be hidden from him. Has the candlestick been removed out of its place? I call upon all who are resting unconcerned in their present state of spiritual deadness, to arouse and arise from the dead, and Christ will give them light. Many rest as content as though the cloud by day and the pillar of fire by night were sheltering and guiding them. Many profess to know God, and yet deny Him in their works. They reckon themselves among God’s peculiar, chosen people, who have a special, solemn message entrusted to their keeping to sanctify their lives and to give to the world, and yet the power of the truth is scarcely felt or manifested in our midst in zealous work for God. How great is our darkness, and we know it not! The light has not diminished, but we walk not in its rays. {TM 450.4}
 
 ## {TM 451.1}
 
@@ -104,11 +104,11 @@ The standard must be elevated. The work must have a higher mold. There must be a
 
 ## {TM 452.1}
 
-Let God's word be the guide and the rule of life. Let that word, expressing His revealed commands, be obeyed. God summons everyone to put forth all his powers as a responsible being, to do His plainly specified will. If you do this, you will show it. Grappling with your own inherent defects of character, which are at war with spiritual advancement, is proof that you are doing your part of the work. {TM 452.1}
+Let God’s word be the guide and the rule of life. Let that word, expressing His revealed commands, be obeyed. God summons everyone to put forth all his powers as a responsible being, to do His plainly specified will. If you do this, you will show it. Grappling with your own inherent defects of character, which are at war with spiritual advancement, is proof that you are doing your part of the work. {TM 452.1}
 
 ## {TM 452.2}
 
-Let none say a state of feeling is upon them in undue attachments, unlawful love, that they cannot break away from. It is a deception. You cherish the evil; you strengthen it. You love it better than you love truth, purity, righteousness. You do not take hold of divine help, wrenching yourselves from hurtful and dangerous associations. You tamely give yourselves to the working of an evil way, as though you had no free moral agency. Study God's word prayerfully, meet its demands firmly, resolutely, as did Joseph and Daniel. Lay hold upon the help God has promised you. {TM 452.2}
+Let none say a state of feeling is upon them in undue attachments, unlawful love, that they cannot break away from. It is a deception. You cherish the evil; you strengthen it. You love it better than you love truth, purity, righteousness. You do not take hold of divine help, wrenching yourselves from hurtful and dangerous associations. You tamely give yourselves to the working of an evil way, as though you had no free moral agency. Study God’s word prayerfully, meet its demands firmly, resolutely, as did Joseph and Daniel. Lay hold upon the help God has promised you. {TM 452.2}
 
 ## {TM 452.3}
 
@@ -122,7 +122,7 @@ God has appointed means, if we will use them diligently and prayerfully, that no
 
 ## {TM 453.2}
 
-Do not think that God will work a miracle to save those weak souls who cherish evil, who practice sin; or that some supernatural element will be brought into their lives, lifting them out of self into a higher sphere, where it will be comparatively easy work, without any special effort, any special fighting, without any crucifixion of self; because all who dally on Satan's ground for this to be done will perish with the evildoers. They will be suddenly destroyed, and that without remedy. {TM 453.2}
+Do not think that God will work a miracle to save those weak souls who cherish evil, who practice sin; or that some supernatural element will be brought into their lives, lifting them out of self into a higher sphere, where it will be comparatively easy work, without any special effort, any special fighting, without any crucifixion of self; because all who dally on Satan’s ground for this to be done will perish with the evildoers. They will be suddenly destroyed, and that without remedy. {TM 453.2}
 
 ## {TM 453.3}
 
@@ -154,16 +154,16 @@ The way to heaven has been laid open at infinite cost to the Father and the Son.
 
 ## {TM 455.1}
 
-### Be God's Men
+### Be God’s Men
 
 While, under God, we are to use means in the saving of our own souls, we are not to depend on what we can do alone, thinking that will be able to save us. While we must work with heart and soul and might, we must do it all in and through Jesus. But truth as it is in Jesus must be brought into the heart and into the life, into the home and into the church. God will use the channels He has provided for the flowing through of His grace. {TM 455.1}
 
 ## {TM 455.2}
 
-Oh, that my brethren would be men according to God's estimate of men, and take their places in the great web of humanity, realizing that they are a part of God's great whole in creation, in redemption! Only be men, and then you make a decided advance in being Christians. {TM 455.2}
+Oh, that my brethren would be men according to God’s estimate of men, and take their places in the great web of humanity, realizing that they are a part of God’s great whole in creation, in redemption! Only be men, and then you make a decided advance in being Christians. {TM 455.2}
 
 ## {TM 455.3}
 
-The means is provided, and no one will have any excuse for sin. If you fail of overcoming, there are reasons for this. Ye will not obey God's revealed will; ye will not pray; ye will not strive; ye will not fight evil habits and unholy thoughts. Are ye stronger than God? Can ye, dare ye, contend with the Eternal? If you are not proof against God's judgments, proof against His vengeance, then go on no longer in your own evil ways. Arise and make a stand against Satan. Be doing something, and do it now. Repent now, confess, forsake. A day of fire and storm is about to burst on our world. Conform your life to the simple prescriptions of the word of God. Seek the aid of God's Spirit by prayer, by watching thereunto, and ye will come off more than conquerors through Him who hath loved us. Read 1 John 4:10. {TM 455.3}
+The means is provided, and no one will have any excuse for sin. If you fail of overcoming, there are reasons for this. Ye will not obey God’s revealed will; ye will not pray; ye will not strive; ye will not fight evil habits and unholy thoughts. Are ye stronger than God? Can ye, dare ye, contend with the Eternal? If you are not proof against God’s judgments, proof against His vengeance, then go on no longer in your own evil ways. Arise and make a stand against Satan. Be doing something, and do it now. Repent now, confess, forsake. A day of fire and storm is about to burst on our world. Conform your life to the simple prescriptions of the word of God. Seek the aid of God’s Spirit by prayer, by watching thereunto, and ye will come off more than conquerors through Him who hath loved us. Read 1 John 4:10. {TM 455.3}
 
 [For further study: Testimonies for the Church 5:207–216; Selected Messages 2:376–383.] {TM 455.4}
