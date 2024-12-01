@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄຳພະຍາກອນສຳເລັດ
     en: Prophecies Fulfilled
+  word_count: 6317
 ---
 
 ## {GC 391.1}
