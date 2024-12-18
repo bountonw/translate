@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການຟື້ນຟູໃນສະໄໝໃໝ່
     en: Modern Revivals
+  word_count: 6,257
 ---
 
 ## {GC 461.1}
