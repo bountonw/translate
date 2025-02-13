@@ -2,7 +2,7 @@
 chapter:
   number: 16
   title:
-    lo: ກຸ່ມປິນກຣິມລຸ່ນບຸກເບີກ
+    lo: ກຸ່ມປິນກຣິມລຸ້ນບຸກເບີກ
     en: The Pilgrim Fathers
 ---
 
