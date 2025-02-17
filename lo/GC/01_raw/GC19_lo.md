@@ -1,9 +1,9 @@
 ---
 chapter:
- number: 19
- title:
- lo: ແສງສະຫວ່າງທີ່ສ່ອງໃນຄວາມມືດ
- en: Light Through Darkness
+  number: 19
+  title:
+    lo: ແສງສະຫວ່າງທີ່ສ່ອງໃນຄວາມມືດ
+    en: Light Through Darkness
 ---
 
 ## {GC 343.1}
