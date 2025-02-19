@@ -2,7 +2,7 @@
 chapter:
   number: 14
   title:
-    lo: ນັກປະຕິຮູບຊາວອັງກິດລຸ່ນຫຼັງ
+    lo: ນັກປະຕິຮູບຊາວອັງກິດລຸ້ນຫຼັງ
     en: Later English Reformers
 ---
 
