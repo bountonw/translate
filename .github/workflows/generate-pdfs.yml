@@ -62,7 +62,7 @@ jobs:
     strategy:
       matrix:
         book: ${{ fromJSON(github.ref == 'refs/heads/main' && '["th/PP/PP1", "th/PP/PP2", "th/PP/PP3", "th/PP/PP4", "th/PP/PP5", "th/LBF", "th/MB"]' || needs.changes.outputs.books) }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: mattleff/xelatex-swath
       options: --user 1001
