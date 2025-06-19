@@ -5,7 +5,7 @@ chapter:
     th: ยาโคบกับเอซาว
     en: Jacob and Esau
   url: https://legacy.egwwritings.org/?para=84.729
-  basedon: ศึกษาควบคู่กับปฐมกาล บทที่ 25:19–34; 27
+  basedon: ปฐมกาล บทที่ 25:19–34; 27
 ---
 
 ## {PP 177.1}
