@@ -4,7 +4,6 @@ chapter:
   title:
     lo: ຄວາມພິນາດຂອງນະຄອນເຢຣູຊາເລັມ
     en: The Destruction of Jerusalem
-  url: https://m.egwwritings.org/en/book/132.69#69
 ---
 
 ## {GC 17.1}
