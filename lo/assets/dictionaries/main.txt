@@ -6,7 +6,7 @@
 % ~~~ = neutral (0)
 % ~~~~ = encouraged (-200)
 % ~~~~~ = excellent (-400)
-% ~S~ = % \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
+% ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ກກ| ກກ %
 ກຣີກ| ກຣີກ %
