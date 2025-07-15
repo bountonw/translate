@@ -188,9 +188,9 @@ def clean_markdown_body(markdown_body):
             
         # Convert {GC <page>.<paragraph>} to \egw{GC <page>.<paragraph>}
         # This handles references at the end of paragraphs
-        egw_pattern = r'\{(GC \d+\.\d+)\}'
-        line = re.sub(egw_pattern, r'\\egw{\1}', line)
-        
+        egw_pattern = r'\{(GC) (\d+\.\d+)\}'
+        line = re.sub(egw_pattern, r'\\egw{\1\\nbsp \2}', line)
+
         cleaned_lines.append(line)
     
     # Join lines and normalize whitespace
