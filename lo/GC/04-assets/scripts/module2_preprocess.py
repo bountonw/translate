@@ -437,11 +437,19 @@ def get_input_files(args):
             print(f"Error: {temp_dir} directory not found")
             sys.exit(1)
         
-        # Look for stage1.tmp files first, then .tmp files
-        stage1_files = list(temp_dir.glob('*_stage1.tmp'))
-        if stage1_files:
-            return stage1_files
+        if args.debug:
+            # Debug mode: look for stage1 files from Module 1 debug output
+            stage1_files = list(temp_dir.glob('*_stage1.tmp'))
+            if stage1_files:
+                return stage1_files
+            # Fall back to tmp files if no stage1 files
+            tmp_files = list(temp_dir.glob('*.tmp'))
+            if not tmp_files:
+                print(f"No .tmp files found in {temp_dir}")
+                sys.exit(1)
+            return tmp_files
         else:
+            # Production mode: only process tmp files (ignore any stale stage1)
             tmp_files = list(temp_dir.glob('*.tmp'))
             if not tmp_files:
                 print(f"No .tmp files found in {temp_dir}")
