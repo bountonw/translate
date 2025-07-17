@@ -195,6 +195,23 @@ def group_consecutive_text(text):
     
     return groups
 
+def find_lao_word_boundary(text, start_pos):
+    """Find the end of the current Lao word starting at start_pos."""
+    pos = start_pos
+    
+    while pos < len(text):
+        char = text[pos]
+        
+        # Stop at spaces, punctuation, or non-Lao characters
+        if (char.isspace() or 
+            is_punctuation(char) or 
+            not is_lao_text(char) or
+            char.isdigit()):
+            break
+        pos += 1
+    
+    return pos
+
 def apply_dictionary_to_lao_text(lao_text, dictionary):
     """Apply dictionary lookup to pure Lao text only."""
     sorted_terms = dictionary.get_sorted_terms()
@@ -215,11 +232,19 @@ def apply_dictionary_to_lao_text(lao_text, dictionary):
                 break
         
         if not matched:
-            # Single Lao character - wrap in \lw{}
-            result_parts.append(f'\\lw{{{lao_text[position]}}}')
-            position += 1
+            # Find the complete unknown word
+            word_end = find_lao_word_boundary(lao_text, position)
+            
+            if word_end > position:
+                # We have a complete unknown word
+                unknown_word = lao_text[position:word_end]
+                result_parts.append(f'\\nodict{{{unknown_word}}}')
+                position = word_end
+            else:
+                # Single character that's not Lao (shouldn't happen in pure Lao text)
+                result_parts.append(f'\\lw{{{lao_text[position]}}}')
+                position += 1
     
-    # No need to add \zwsp between \lw{} commands - \lw{} handles breaks internally
     return ''.join(result_parts)
 
 def process_tex_command_with_lao(line, dictionary):
