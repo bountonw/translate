@@ -153,7 +153,77 @@ def is_lao_text(text):
 
 def is_punctuation(char):
     """Check if character is punctuation."""
-    return char in '.,;:!?()[]{}"\'\'-–—“”‘’‚„‹›«»$€£¥¢@&*#_×÷±≠≤≥%'
+    return char in '.,;:!?()[]{}"\'\'-–—“”‘’‚„‹›«»@#%'
+
+def is_opening_punctuation(char):
+    """Check if character is opening punctuation that needs \nobreak after it."""
+    return char in '"\'[{(“‘‚„‹«'
+    
+def is_closing_punctuation(char):
+    """Check if character is closing punctuation that needs \nobreak before it."""
+    return char in '.,;:!?()[]{}"\'\'-–—”’‚„›»@#%'
+
+def needs_nobreak_protection(text):
+    """Check if text needs nobreak protection (ends with \lw{} or \nodict{} or is Lao repeat)."""
+    return (text.endswith('}') or 
+            text in ['\\laorepeat', '\\laorepeatbefore'])
+
+def apply_punctuation_protection(parts):
+    """Apply \nobreak protection around punctuation in a list of text parts."""
+    if len(parts) <= 1:
+        return parts
+    
+    protected_parts = []
+    
+    for i, part in enumerate(parts):
+        protected_parts.append(part)
+        
+        # Look ahead to next part
+        if i < len(parts) - 1:
+            current_part = part
+            next_part = parts[i + 1]
+            
+            # Case 1: Add \nobreak before closing punctuation
+            # \lw{word} + "." → \lw{word}\nobreak.
+            if (needs_nobreak_protection(current_part) and 
+                len(next_part) > 0 and 
+                is_closing_punctuation(next_part[0])):
+                protected_parts.append('\\nobreak')
+            
+            # Case 2: Add \nobreak after opening punctuation  
+            # " + \lw{word} → "\nobreak\lw{word}
+            elif (len(current_part) > 0 and 
+                  is_opening_punctuation(current_part[-1]) and
+                  needs_nobreak_protection(next_part)):
+                protected_parts.append('\\nobreak')
+    
+    return protected_parts
+
+def process_text_groups(groups, dictionary):
+    """Process grouped text parts through dictionary lookup and special handling."""
+    result_parts = []
+    
+    for i, (group_type, content) in enumerate(groups):
+        if group_type == 'lao':
+            # Process Lao text with dictionary
+            processed_lao = lookup_lao_words(content, dictionary)
+            result_parts.append(processed_lao)
+        elif group_type == 'ellipsis':
+            # Handle ellipsis with context-aware command selection
+            ellipsis_command = handle_ellipsis_context(groups, i)
+            result_parts.append(ellipsis_command)
+        elif group_type == 'lao_repetition':
+            # Handle Lao repetition mark with context-aware command selection
+            repetition_command = handle_lao_repetition_context(groups, i)
+            result_parts.append(repetition_command)
+        elif group_type == 'space':
+            # Original spaces become \space
+            result_parts.append('\\space')
+        else:
+            # English, numbers, punctuation, placeholders - leave as-is, no wrapping
+            result_parts.append(content)
+    
+    return result_parts
 
 def group_consecutive_text(text):
     """Group consecutive characters by type (Lao, English, punctuation, numbers)."""
@@ -212,7 +282,7 @@ def find_lao_word_boundary(text, start_pos):
     
     return pos
 
-def apply_dictionary_to_lao_text(lao_text, dictionary):
+def lookup_lao_words(lao_text, dictionary):
     """Apply dictionary lookup to pure Lao text only."""
     sorted_terms = dictionary.get_sorted_terms()
     result_parts = []
@@ -253,7 +323,7 @@ def process_tex_command_with_lao(line, dictionary):
     def replace_lao_in_braces(match):
         content = match.group(1)
         if is_lao_text(content):
-            return '{' + apply_dictionary_to_lao_text(content, dictionary) + '}'
+            return '{' + lookup_lao_words(content, dictionary) + '}'
         else:
             return match.group(0)  # Return unchanged if no Lao
     
@@ -264,7 +334,7 @@ def process_tex_command_with_lao(line, dictionary):
     return processed_line
 
 def extract_and_preserve_commands(text):
-    """Extract \\egw{} and other protected commands, replace with placeholders."""
+    """Extract \\egw{} and footnote markers, replace with placeholders."""
     import re
     
     protected_commands = []
@@ -277,6 +347,16 @@ def extract_and_preserve_commands(text):
     for i, match in enumerate(matches):
         command = match.group(0)
         placeholder = f'__PROTECTED_CMD_{i}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text.replace(command, placeholder, 1)
+    
+    # Find all footnote markers [^1], [^2], etc. and [^1]:, [^2]:, etc.
+    footnote_pattern = r'\[\^\d+\](?::)?'
+    matches = re.finditer(footnote_pattern, placeholder_text)
+    
+    for match in matches:
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
         protected_commands.append(command)
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
@@ -325,7 +405,7 @@ def handle_ellipsis_context(groups, current_index):
     else:
         return "\\ellipsis"
 
-def apply_dictionary_to_text(text, dictionary):
+def process_text_line(text, dictionary):
     """Apply dictionary lookup to text, handling different content types properly."""
     # First, extract and protect \egw{} and other commands
     placeholder_text, protected_commands = extract_and_preserve_commands(text)
@@ -344,48 +424,15 @@ def apply_dictionary_to_text(text, dictionary):
     
     # Process regular text content
     groups = group_consecutive_text(placeholder_text)
-    result_parts = []
     
-    for i, (group_type, content) in enumerate(groups):
-        if group_type == 'lao':
-            # Process Lao text with dictionary
-            processed_lao = apply_dictionary_to_lao_text(content, dictionary)
-            result_parts.append(processed_lao)
-        elif group_type == 'ellipsis':
-            # Handle ellipsis with context-aware command selection
-            ellipsis_command = handle_ellipsis_context(groups, i)
-            result_parts.append(ellipsis_command)
-        elif group_type == 'lao_repetition':
-            # Handle Lao repetition mark with context-aware command selection
-            repetition_command = handle_lao_repetition_context(groups, i)
-            result_parts.append(repetition_command)
-        elif group_type == 'space':
-            # Original spaces become \space
-            result_parts.append('\\space')
-        else:
-            # English, numbers, punctuation, placeholders - leave as-is, no wrapping
-            result_parts.append(content)
+    # Step 1: Process text groups through dictionary
+    processed_parts = process_text_groups(groups, dictionary)
     
-    # Handle connections between processed segments and punctuation protection
-    final_parts = []
-    for i, part in enumerate(result_parts):
-        final_parts.append(part)
-        
-        # Check if next part is punctuation and current part needs protection
-        if (i < len(result_parts) - 1):
-            current_ends_with_lw = part.endswith('}')  # Ends with \lw{}
-            current_is_lao_repeat = part in ['\\laorepeat', '\\laorepeatbefore']
-            next_part = result_parts[i + 1]
-            next_is_punctuation = (len(next_part) > 0 and 
-                                 next_part[0] in '.,;:!?()[]{}"\'\'-–—""''…‚„‹›«»$€£¥¢@&*#_×÷±≠≤≥%')
-            
-            # Add \nobreak before punctuation to prevent line breaks
-            if (current_ends_with_lw or current_is_lao_repeat) and next_is_punctuation:
-                final_parts.append('\\nobreak')
+    # Step 2: Apply punctuation protection
+    protected_parts = apply_punctuation_protection(processed_parts)
     
-    processed_text = ''.join(final_parts)
-    
-    # Restore protected commands
+    # Step 3: Join and restore protected commands
+    processed_text = ''.join(protected_parts)
     return restore_protected_commands(processed_text, protected_commands)
 
 def process_file(input_path, output_path, dictionary, debug_mode=False):
@@ -401,7 +448,7 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         
         for line in lines:
             # Apply dictionary processing to each line
-            processed_line = apply_dictionary_to_text(line, dictionary)
+            processed_line = process_text_line(line, dictionary)
             processed_lines.append(processed_line)
         
         # Join processed lines
