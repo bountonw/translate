@@ -4,13 +4,19 @@
 *.gz
 *.tar
 
-# Ignore intermediate files
+# Ignore intermediate folders and iles
 *.tmp
+temp/
+**/temp/
 
 # Ignore mac generated files
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Ignore python generated folders and files
+__pycache__/
+*.pyc
 
 # Thumbnails
 ._*
