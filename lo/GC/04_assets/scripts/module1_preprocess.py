@@ -11,7 +11,7 @@ requirements including custom line-breaking and penalty systems.
 
 PROJECT STRUCTURE:
 ├── 03_public/          # Source Markdown files (GC##_lo.md)
-├── 04-assets/
+├── 04_assets/
 │   ├── scripts/        # This preprocessing script
 │   ├── temp/           # Intermediate .tmp files
 │   └── tex/            # Final .tex output files
@@ -55,6 +55,7 @@ import sys
 import argparse
 import re
 from pathlib import Path
+import unicodedata
 
 def simple_yaml_parse(yaml_content):
     """
@@ -161,9 +162,16 @@ def extract_chapter_info(yaml_data, debug=False):
                 print(f"DEBUG: Available keys in chapter: {list(yaml_data['chapter'].keys())}")
         raise ValueError(f"Missing required YAML field: {e}")
 
+def normalize_lao_text(text):
+    """Simple AM vowel standardization without Unicode normalization."""
+    # Just do the direct character replacement
+    text = text.replace('ໍາ', 'ຳ')
+    return text
+
 def clean_markdown_body(markdown_body):
     """
     Clean up markdown body by removing unwanted elements and converting others.
+    Now includes Unicode normalization for Lao text.
     
     Args:
         markdown_body (str): Raw markdown content
@@ -171,6 +179,9 @@ def clean_markdown_body(markdown_body):
     Returns:
         str: Cleaned markdown content
     """
+    # Apply Unicode normalization first
+    markdown_body = normalize_lao_text(markdown_body)
+    
     lines = markdown_body.split('\n')
     cleaned_lines = []
     
@@ -183,6 +194,8 @@ def clean_markdown_body(markdown_body):
         section_match = re.match(r'^### (.+)$', line.strip())
         if section_match:
             lao_text = section_match.group(1)
+            # Apply normalization to the section text as well
+            lao_text = normalize_lao_text(lao_text)
             cleaned_lines.append(f'\\section{{{lao_text}}}')
             continue
             
@@ -190,7 +203,9 @@ def clean_markdown_body(markdown_body):
         # This handles references at the end of paragraphs
         egw_pattern = r'\{(GC) (\d+\.\d+)\}'
         line = re.sub(egw_pattern, r'\\egw{\1\\nbsp \2}', line)
-
+        
+        # Apply normalization to the processed line
+        line = normalize_lao_text(line)
         cleaned_lines.append(line)
     
     # Join lines and normalize whitespace
@@ -276,7 +291,7 @@ def process_file(input_path, output_path, debug_mode=False):
 def get_project_root():
     """
     Get the project root directory based on script location.
-    Script is in 04-assets/scripts/, so project root is two levels up.
+    Script is in 04_assets/scripts/, so project root is two levels up.
     """
     script_dir = Path(__file__).parent
     return script_dir.parent.parent
@@ -321,7 +336,7 @@ def get_output_path(input_path, debug_mode=False, stage=1):
     else:
         output_name = f"{base_name}.tmp"
     
-    return str(project_root / "04-assets" / "temp" / output_name)
+    return str(project_root / "04_assets" / "temp" / output_name)
 
 def main():
     parser = argparse.ArgumentParser(

@@ -9,7 +9,7 @@ line-breaking to Lao text. It processes the cleaned .tmp files from Module 1 and
 applies sophisticated break point penalties using a comprehensive Lao dictionary.
 
 PROJECT STRUCTURE:
-├── 04-assets/
+├── 04_assets/
 │   ├── scripts/        # This preprocessing script
 │   ├── temp/           # Input .tmp files (from Module 1) and output .tmp files
 │   └── tex/            # Final .tex output files (for later modules)
@@ -282,6 +282,44 @@ def find_lao_word_boundary(text, start_pos):
     
     return pos
 
+def needs_nobreak_protection(text):
+    """Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
+    return (text.endswith('}') or 
+            text in ['\\laorepeat', '\\laorepeatbefore'])
+
+def find_next_lao_word_break(text, start_pos, dictionary):
+    """
+    Find the next reasonable word break in continuous Lao text.
+    Try to isolate unknown words as small units rather than entire text.
+    """
+    # Start with minimum length and work up
+    max_search_length = min(20, len(text) - start_pos)  # Don't search beyond reasonable word length
+    
+    # Try progressively longer segments to find where dictionary matching resumes
+    for test_length in range(1, max_search_length + 1):
+        test_end = start_pos + test_length
+        
+        # Check if text starting at test_end matches any dictionary term
+        remaining_text = text[test_end:]
+        if remaining_text:  # Make sure there's still text to check
+            for term in dictionary.get_sorted_terms():
+                if remaining_text.startswith(term):
+                    # Found a dictionary match starting at test_end
+                    # So our unknown segment should be text[start_pos:test_end]
+                    return test_end
+    
+    # If no dictionary match found in reasonable distance, 
+    # look for natural Lao syllable boundaries (basic approach)
+    for i in range(start_pos + 1, min(start_pos + 10, len(text))):
+        char = text[i]
+        # Look for likely syllable boundaries (tone marks, vowels followed by consonants)
+        if char in 'ເແໂໃໄ':  # Leading vowels often start new syllables
+            return i
+        # Could add more sophisticated Lao syllable detection here
+    
+    # Fallback: return a reasonable chunk (don't go to end of entire text)
+    return min(start_pos + 6, len(text))  # Max 6 characters if no pattern found
+
 def lookup_lao_words(lao_text, dictionary):
     """Apply dictionary lookup to pure Lao text only."""
     sorted_terms = dictionary.get_sorted_terms()
@@ -302,20 +340,45 @@ def lookup_lao_words(lao_text, dictionary):
                 break
         
         if not matched:
-            # Find the complete unknown word
-            word_end = find_lao_word_boundary(lao_text, position)
+            # Find a reasonable word break instead of going to the end
+            word_end = find_next_lao_word_break(lao_text, position, dictionary)
+            unknown_word = lao_text[position:word_end]
             
-            if word_end > position:
-                # We have a complete unknown word
-                unknown_word = lao_text[position:word_end]
-                result_parts.append(f'\\nodict{{{unknown_word}}}')
-                position = word_end
-            else:
-                # Single character that's not Lao (shouldn't happen in pure Lao text)
-                result_parts.append(f'\\lw{{{lao_text[position]}}}')
-                position += 1
+            # Debug: Log all \nodict{} entries to a file
+            debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
+            debug_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(debug_file, 'a', encoding='utf-8') as f:
+                f.write(f"{unknown_word}\n")
+            
+            result_parts.append(f'\\nodict{{{unknown_word}}}')
+            position = word_end
     
     return ''.join(result_parts)
+
+# Add this helper function to generate a clean unique list
+def generate_unique_nodict_report():
+    """Generate a unique, sorted list of all \nodict{} terms found."""
+    debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
+    unique_file = get_project_root() / "04_assets" / "temp" / "unique_nodict_terms.txt"
+    
+    if debug_file.exists():
+        # Read all terms, remove duplicates, sort by frequency
+        with open(debug_file, 'r', encoding='utf-8') as f:
+            terms = [line.strip() for line in f if line.strip()]
+        
+        # Count frequency and create unique sorted list
+        from collections import Counter
+        term_counts = Counter(terms)
+        
+        with open(unique_file, 'w', encoding='utf-8') as f:
+            f.write("# Unique \\nodict{} terms found (frequency: term)\n")
+            for term, count in term_counts.most_common():
+                f.write(f"{count}: {term}\n")
+        
+        print(f"Generated unique nodict report: {unique_file}")
+        print(f"Found {len(term_counts)} unique missing terms")
+    else:
+        print("No nodict terms found")
 
 def process_tex_command_with_lao(line, dictionary):
     """Process TeX commands that contain Lao text in braces."""
@@ -334,7 +397,7 @@ def process_tex_command_with_lao(line, dictionary):
     return processed_line
 
 def extract_and_preserve_commands(text):
-    """Extract \\egw{} and footnote markers, replace with placeholders."""
+    """Extract \\egw{}, footnote markers, and flex/rigid spaces, replace with placeholders."""
     import re
     
     protected_commands = []
@@ -360,14 +423,34 @@ def extract_and_preserve_commands(text):
         protected_commands.append(command)
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
+    # Find \s and \S flex/rigid space markers (not followed by letters to avoid \section, \source, etc.)
+    flex_pattern = r'\\[sS](?![a-zA-Z])'
+    matches = re.finditer(flex_pattern, placeholder_text)
+    
+    # Process matches in reverse order to avoid position shifts
+    for match in reversed(list(matches)):
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text[:match.start()] + placeholder + placeholder_text[match.end():]
+    
     return placeholder_text, protected_commands
 
 def restore_protected_commands(text, protected_commands):
-    """Restore protected commands from placeholders."""
+    """Restore protected commands from placeholders, converting flex/rigid spaces."""
     result = text
     for i, command in enumerate(protected_commands):
         placeholder = f'__PROTECTED_CMD_{i}__'
-        result = result.replace(placeholder, command)
+        
+        # Convert flex/rigid space markers to LaTeX commands
+        if command == '\\s':
+            converted_command = '\\fs'
+        elif command == '\\S':
+            converted_command = '\\rs'
+        else:
+            converted_command = command  # Keep other commands unchanged
+        
+        result = result.replace(placeholder, converted_command)
     
     return result
 
@@ -483,7 +566,7 @@ def get_dictionary_path():
 def get_input_files(args):
     """Get list of .tmp files to process."""
     project_root = get_project_root()
-    temp_dir = project_root / '04-assets' / 'temp'
+    temp_dir = project_root / '04_assets' / 'temp'
     
     if args.files:
         # Process specific files
@@ -557,7 +640,7 @@ def main():
     parser.add_argument(
         'files', 
         nargs='*', 
-        help='Temp files to process (default: all .tmp files in 04-assets/temp/)'
+        help='Temp files to process (default: all .tmp files in 04_assets/temp/)'
     )
     parser.add_argument(
         '--debug', 
@@ -601,5 +684,30 @@ def main():
     if success_count < total_count:
         sys.exit(1)
 
+def generate_unique_nodict_report():
+    """Generate a unique, sorted list of all \nodict{} terms found."""
+    debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
+    unique_file = get_project_root() / "04_assets" / "temp" / "unique_nodict_terms.txt"
+    
+    if debug_file.exists():
+        # Read all terms, remove duplicates, sort by frequency
+        with open(debug_file, 'r', encoding='utf-8') as f:
+            terms = [line.strip() for line in f if line.strip()]
+        
+        # Count frequency and create unique sorted list
+        from collections import Counter
+        term_counts = Counter(terms)
+        
+        with open(unique_file, 'w', encoding='utf-8') as f:
+            f.write("# Unique \\nodict{} terms found (frequency: term)\n")
+            for term, count in term_counts.most_common():
+                f.write(f"{count}: {term}\n")
+        
+        print(f"Generated unique nodict report: {unique_file}")
+        print(f"Found {len(term_counts)} unique missing terms")
+    else:
+        print("No nodict terms found")
+
 if __name__ == "__main__":
     main()
+    generate_unique_nodict_report()
