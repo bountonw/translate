@@ -164,8 +164,12 @@ def extract_chapter_info(yaml_data, debug=False):
 
 def normalize_lao_text(text):
     """Simple AM vowel standardization without Unicode normalization."""
-    # Just do the direct character replacement
+    # Handle AM vowel combinations
     text = text.replace('ໍາ', 'ຳ')
+    text = text.replace('ໍ່າ', '່ຳ')  # mai ek + AM
+    text = text.replace('ໍ້າ', '້ຳ')  # mai to + AM  
+    text = text.replace('ໍ໊າ', '໊ຳ')  # mai tri + AM
+    text = text.replace('ໍ໋າ', '໋ຳ')  # mai chattawa + AM
     return text
 
 def clean_markdown_body(markdown_body):

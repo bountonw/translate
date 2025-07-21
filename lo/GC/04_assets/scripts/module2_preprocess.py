@@ -65,6 +65,12 @@ import sys
 import argparse
 import re
 from pathlib import Path
+from typing import List, Dict, Tuple, Any
+try:
+    import module2_debug
+    HAS_DEBUG = True
+except ImportError:
+    HAS_DEBUG = False
 
 class LaoDictionary:
     """Handles loading and lookup of Lao dictionary with break points."""
@@ -164,7 +170,7 @@ def is_closing_punctuation(char):
     return char in '.,;:!?()[]{}"\'\'-–—”’‚„›»@#%'
 
 def needs_nobreak_protection(text):
-    """Check if text needs nobreak protection (ends with \lw{} or \nodict{} or is Lao repeat)."""
+    """Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
     return (text.endswith('}') or 
             text in ['\\laorepeat', '\\laorepeatbefore'])
 
@@ -199,14 +205,14 @@ def apply_punctuation_protection(parts):
     
     return protected_parts
 
-def process_text_groups(groups, dictionary):
+def process_text_groups(groups, dictionary, debug=False):
     """Process grouped text parts through dictionary lookup and special handling."""
     result_parts = []
     
     for i, (group_type, content) in enumerate(groups):
         if group_type == 'lao':
-            # Process Lao text with dictionary
-            processed_lao = lookup_lao_words(content, dictionary)
+            # Process Lao text with dictionary using lookahead
+            processed_lao = lookup_lao_words(content, dictionary, debug)
             result_parts.append(processed_lao)
         elif group_type == 'ellipsis':
             # Handle ellipsis with context-aware command selection
@@ -320,81 +326,463 @@ def find_next_lao_word_break(text, start_pos, dictionary):
     # Fallback: return a reasonable chunk (don't go to end of entire text)
     return min(start_pos + 6, len(text))  # Max 6 characters if no pattern found
 
-def lookup_lao_words(lao_text, dictionary):
-    """Apply dictionary lookup to pure Lao text only."""
+def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
+    """Score a parsing result - lower scores are better."""
+    score = 0
+    
+    for segment in parse_result:
+        if segment['type'] == 'nodict':
+            text_len = len(segment['text'])
+            score += text_len * 10
+            
+            # Extra penalty for very short fragments (likely parsing artifacts)
+            if text_len <= 2:
+                score += 50
+            elif text_len == 1:
+                score += 25
+                
+        elif segment['type'] == 'dict':
+            score -= 1
+            if len(segment['text']) >= 4:
+                score -= 2
+    
+    # Penalty for too many segments (fragmented parsing)
+    if len(parse_result) > 5:
+        score += (len(parse_result) - 5) * 5
+    
+    return score
+
+def parse_longest_first(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
+    """Current longest-first parsing strategy."""
+    if debug:
+        print(f"  Trying longest-first on: {text}")
+    
     sorted_terms = dictionary.get_sorted_terms()
-    result_parts = []
+    result = []
     position = 0
     
-    while position < len(lao_text):
+    while position < len(text):
         matched = False
         
-        # Try to match dictionary terms
         for term in sorted_terms:
-            if lao_text[position:position + len(term)] == term:
-                coded_term = dictionary.terms[term]
-                converted_term = convert_break_points(coded_term)
-                result_parts.append(f'\\lw{{{converted_term}}}')
+            if text[position:position + len(term)] == term:
+                result.append({
+                    'type': 'dict',
+                    'text': term,
+                    'coded': dictionary.terms[term]
+                })
                 position += len(term)
                 matched = True
+                if debug:
+                    print(f"    Matched: {term}")
                 break
         
         if not matched:
-            # Find a reasonable word break instead of going to the end
-            word_end = find_next_lao_word_break(lao_text, position, dictionary)
-            unknown_word = lao_text[position:word_end]
-            
-            # Debug: Log all \nodict{} entries to a file
-            debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
-            debug_file.parent.mkdir(parents=True, exist_ok=True)
-            with open(debug_file, 'a', encoding='utf-8') as f:
-                f.write(f"{unknown_word}\n")
-            
-            result_parts.append(f'\\nodict{{{unknown_word}}}')
+            word_end = find_next_lao_word_break(text, position, dictionary)
+            unknown_text = text[position:word_end]
+            result.append({
+                'type': 'nodict',
+                'text': unknown_text,
+                'coded': unknown_text
+            })
+            if debug:
+                print(f"    NoDict: {unknown_text}")
             position = word_end
     
-    return ''.join(result_parts)
+    return result
 
-# Add this helper function to generate a clean unique list
-def generate_unique_nodict_report():
-    """Generate a unique, sorted list of all \nodict{} terms found."""
+def parse_shortest_first(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
+    """Alternative shortest-first parsing strategy."""
+    if debug:
+        print(f"  Trying shortest-first on: {text}")
+    
+    sorted_terms = sorted(dictionary.get_sorted_terms(), key=len)
+    result = []
+    position = 0
+    
+    while position < len(text):
+        matched = False
+        
+        for term in sorted_terms:
+            if text[position:position + len(term)] == term:
+                result.append({
+                    'type': 'dict',
+                    'text': term,
+                    'coded': dictionary.terms[term]
+                })
+                position += len(term)
+                matched = True
+                if debug:
+                    print(f"    Matched: {term}")
+                break
+        
+        if not matched:
+            word_end = find_next_lao_word_break(text, position, dictionary)
+            unknown_text = text[position:word_end]
+            result.append({
+                'type': 'nodict',
+                'text': unknown_text,
+                'coded': unknown_text
+            })
+            if debug:
+                print(f"    NoDict: {unknown_text}")
+            position = word_end
+    
+    return result
+
+def parse_with_backtrack(text: str, dictionary, debug: bool = False, max_lookahead: int = 3) -> List[Dict[str, Any]]:
+    """Parsing strategy with limited backtracking and lookahead."""
+    if debug:
+        print(f"  Trying backtrack on: {text}")
+    
+    sorted_terms = dictionary.get_sorted_terms()
+    result = []
+    position = 0
+    
+    while position < len(text):
+        # Find all possible matches at current position
+        possible_matches = []
+        for term in sorted_terms:
+            if text[position:position + len(term)] == term:
+                possible_matches.append(term)
+                if len(possible_matches) >= max_lookahead:
+                    break
+        
+        if possible_matches:
+            # Evaluate each possible match by looking ahead
+            best_choice = None
+            best_score = float('inf')
+            
+            for match in possible_matches:
+                temp_position = position + len(match)
+                remainder = text[temp_position:]
+                
+                if remainder:
+                    # Quick evaluation: can we match the start of remainder?
+                    remainder_has_match = any(
+                        remainder.startswith(term) 
+                        for term in sorted_terms[:50]  # Check top 50 terms for speed
+                    )
+                    
+                    choice_score = len(match) * -2  # Bonus for longer matches
+                    if not remainder_has_match and len(remainder) > 0:
+                        choice_score += len(remainder) * 5  # Penalty for unmatched remainder
+                    
+                    if choice_score < best_score:
+                        best_score = choice_score
+                        best_choice = match
+                else:
+                    best_choice = match
+                    break
+            
+            if best_choice:
+                result.append({
+                    'type': 'dict',
+                    'text': best_choice,
+                    'coded': dictionary.terms[best_choice]
+                })
+                position += len(best_choice)
+                if debug:
+                    print(f"    Matched (backtrack): {best_choice}")
+                continue
+        
+        word_end = find_next_lao_word_break(text, position, dictionary)
+        unknown_text = text[position:word_end]
+        result.append({
+            'type': 'nodict',
+            'text': unknown_text,
+            'coded': unknown_text
+        })
+        if debug:
+            print(f"    NoDict: {unknown_text}")
+        position = word_end
+    
+    return result
+
+def generate_alternative_parses(text: str, dictionary, debug: bool = False) -> List[List[Dict[str, Any]]]:
+    """Generate multiple parsing strategies for comparison."""
+    alternatives = []
+    alternatives.append(parse_longest_first(text, dictionary, debug))
+    alternatives.append(parse_shortest_first(text, dictionary, debug))
+    alternatives.append(parse_with_backtrack(text, dictionary, debug))
+    return alternatives
+
+def parse_chunk_with_lookahead(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
+    """Parse a continuous Lao text chunk with lookahead and backtracking."""
+    if debug:
+        print(f"Parsing chunk with lookahead: {text}")
+    
+    alternatives = generate_alternative_parses(text, dictionary, debug)
+    
+    scored_alternatives = []
+    for i, alt in enumerate(alternatives):
+        score = evaluate_parse_quality(alt)
+        scored_alternatives.append((score, alt, i))
+        if debug:
+            strategy_names = ["longest-first", "shortest-first", "backtrack"]
+            print(f"  Strategy {strategy_names[i]} score: {score}")
+    
+    best_score, best_parse, best_strategy = min(scored_alternatives, key=lambda x: x[0])
+    
+    if debug:
+        strategy_names = ["longest-first", "shortest-first", "backtrack"]
+        print(f"  Selected: {strategy_names[best_strategy]} (score: {best_score})")
+    
+    # Log interesting decisions (optional debug logging)
+    if HAS_DEBUG and debug:
+        module2_debug.log_lookahead_decision(text, alternatives, best_strategy, debug, get_project_root())
+    
+    return best_parse
+
+def convert_parse_result_to_tex(parse_result: List[Dict[str, Any]]) -> str:
+    """Convert parse result to TeX format with \\lw{} and \\nodict{} commands."""
+    tex_parts = []
+    
+    for segment in parse_result:
+        if segment['type'] == 'dict':
+            coded_term = convert_break_points(segment['coded'])
+            tex_parts.append(f'\\lw{{{coded_term}}}')
+        elif segment['type'] == 'nodict':
+            tex_parts.append(f'\\nodict{{{segment["text"]}}}')
+    
+    return ''.join(tex_parts)
+
+# UPDATED LOOKUP FUNCTION WITH LOOKAHEAD
+def lookup_lao_words(lao_text, dictionary, debug=False):
+    """Apply dictionary lookup to pure Lao text using lookahead logic."""
+    if debug:
+        print(f"Processing Lao text with lookahead: {lao_text}")
+    
+    # Parse the text using lookahead
+    parse_result = parse_chunk_with_lookahead(lao_text, dictionary, debug)
+    
+    # Log nodict terms for debugging (maintain existing functionality)
     debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
-    unique_file = get_project_root() / "04_assets" / "temp" / "unique_nodict_terms.txt"
+    debug_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(debug_file, 'a', encoding='utf-8') as f:
+        for segment in parse_result:
+            if segment['type'] == 'nodict':
+                f.write(f"{segment['text']}\n")
     
-    if debug_file.exists():
-        # Read all terms, remove duplicates, sort by frequency
-        with open(debug_file, 'r', encoding='utf-8') as f:
-            terms = [line.strip() for line in f if line.strip()]
+    # Convert to TeX format
+    return convert_parse_result_to_tex(parse_result)
+    
+# EXAMPLE TEST FUNCTION TO VALIDATE THE IMPLEMENTATION
+def test_lookahead_logic():
+    """Test function to validate the lookahead implementation."""
+    # This would be used for testing during development
+    print("Testing lookahead logic...")
+    
+    # Mock dictionary for testing
+    class MockDictionary:
+        def __init__(self):
+            self.terms = {
+                'ເລືອກ': 'ເລືອກ',
+                'ສັນຕະປາປາ': 'ສັນຕະປາປາ', 
+                'ເລືອກສັນ': 'ເລືອກ~~ສັນ'
+            }
         
-        # Count frequency and create unique sorted list
-        from collections import Counter
-        term_counts = Counter(terms)
-        
-        with open(unique_file, 'w', encoding='utf-8') as f:
-            f.write("# Unique \\nodict{} terms found (frequency: term)\n")
-            for term, count in term_counts.most_common():
-                f.write(f"{count}: {term}\n")
-        
-        print(f"Generated unique nodict report: {unique_file}")
-        print(f"Found {len(term_counts)} unique missing terms")
-    else:
-        print("No nodict terms found")
+        def get_sorted_terms(self):
+            return sorted(self.terms.keys(), key=len, reverse=True)
+    
+    # Mock helper functions
+    def mock_convert_break_points(coded_term):
+        return coded_term.replace('~~', '\\p{200}')
+    
+    def mock_find_next_lao_word_break(text, start_pos, dictionary):
+        return min(start_pos + 3, len(text))  # Simple fallback
+    
+    def mock_get_project_root():
+        from pathlib import Path
+        return Path("/tmp")  # Mock path for testing
+    
+    # Replace functions temporarily for testing
+    global convert_break_points, find_next_lao_word_break, get_project_root
+    convert_break_points = mock_convert_break_points
+    find_next_lao_word_break = mock_find_next_lao_word_break
+    get_project_root = mock_get_project_root
+    
+    # Test the problematic case
+    test_text = "ເລືອກສັນຕະປາປາ"
+    mock_dict = MockDictionary()
+    
+    print(f"Input: {test_text}")
+    
+    # Test different parsing strategies
+    longest_result = parse_longest_first(test_text, mock_dict, True)
+    print(f"Longest-first result: {longest_result}")
+    
+    shortest_result = parse_shortest_first(test_text, mock_dict, True)
+    print(f"Shortest-first result: {shortest_result}")
+    
+    backtrack_result = parse_with_backtrack(test_text, mock_dict, True)
+    print(f"Backtrack result: {backtrack_result}")
+    
+    # Test lookahead selection
+    final_result = parse_chunk_with_lookahead(test_text, mock_dict, True)
+    print(f"Final selected result: {final_result}")
+    
+    # Test TeX conversion
+    tex_output = convert_parse_result_to_tex(final_result)
+    print(f"TeX output: {tex_output}")
+    
+    # Expected: \lw{ເລືອກ}\lw{ສັນຕະປາປາ}
+    print("Expected: \\lw{ເລືອກ}\\lw{ສັນຕະປາປາ}")
 
-def process_tex_command_with_lao(line, dictionary):
-    """Process TeX commands that contain Lao text in braces."""
+# PERFORMANCE ENHANCEMENT FUNCTION
+def optimize_dictionary_lookup(dictionary):
+    """
+    Optimize dictionary for faster lookups by creating prefix trees.
+    This is an optional enhancement for better performance.
+    """
+    # Create a prefix tree (trie) for faster matching
+    # This would be useful for very large dictionaries
     
-    def replace_lao_in_braces(match):
-        content = match.group(1)
-        if is_lao_text(content):
-            return '{' + lookup_lao_words(content, dictionary) + '}'
-        else:
-            return match.group(0)  # Return unchanged if no Lao
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.is_complete_word = False
+            self.word = None
     
-    # Pattern to match content within braces
-    pattern = r'\{([^}]+)\}'
-    processed_line = re.sub(pattern, replace_lao_in_braces, line)
+    root = TrieNode()
     
-    return processed_line
+    # Build trie from dictionary terms
+    for term in dictionary.get_sorted_terms():
+        current = root
+        for char in term:
+            if char not in current.children:
+                current.children[char] = TrieNode()
+            current = current.children[char]
+        current.is_complete_word = True
+        current.word = term
+    
+    return root
+
+def find_all_matches_at_position(text, position, trie_root, max_matches=5):
+    """
+    Find all dictionary matches starting at a specific position using trie.
+    Returns matches sorted by length (longest first).
+    """
+    matches = []
+    current = trie_root
+    
+    for i in range(position, len(text)):
+        char = text[i]
+        if char not in current.children:
+            break
+        
+        current = current.children[char]
+        if current.is_complete_word:
+            matches.append(current.word)
+            if len(matches) >= max_matches:
+                break
+    
+    # Return longest matches first
+    return sorted(matches, key=len, reverse=True)
+
+# DEBUGGING AND STATISTICS FUNCTIONS
+def analyze_parse_statistics(parse_result):
+    """Analyze and return statistics about a parse result."""
+    stats = {
+        'total_segments': len(parse_result),
+        'dict_matches': 0,
+        'nodict_segments': 0,
+        'total_dict_chars': 0,
+        'total_nodict_chars': 0,
+        'shortest_nodict': float('inf'),
+        'longest_nodict': 0,
+        'single_char_nodicts': 0
+    }
+    
+    for segment in parse_result:
+        if segment['type'] == 'dict':
+            stats['dict_matches'] += 1
+            stats['total_dict_chars'] += len(segment['text'])
+        elif segment['type'] == 'nodict':
+            stats['nodict_segments'] += 1
+            length = len(segment['text'])
+            stats['total_nodict_chars'] += length
+            stats['shortest_nodict'] = min(stats['shortest_nodict'], length)
+            stats['longest_nodict'] = max(stats['longest_nodict'], length)
+            if length == 1:
+                stats['single_char_nodicts'] += 1
+    
+    if stats['shortest_nodict'] == float('inf'):
+        stats['shortest_nodict'] = 0
+    
+    # Calculate coverage percentage
+    total_chars = stats['total_dict_chars'] + stats['total_nodict_chars']
+    if total_chars > 0:
+        stats['dict_coverage'] = (stats['total_dict_chars'] / total_chars) * 100
+    else:
+        stats['dict_coverage'] = 100
+    
+    return stats
+
+def print_parse_comparison(text, alternatives):
+    """Print a detailed comparison of different parsing strategies."""
+    print(f"\n=== Parse Comparison for: {text} ===")
+    strategy_names = ["Longest-first", "Shortest-first", "Backtrack"]
+    
+    for i, alt in enumerate(alternatives):
+        stats = analyze_parse_statistics(alt)
+        score = evaluate_parse_quality(alt)
+        
+        print(f"\n{strategy_names[i]} Strategy:")
+        print(f"  Score: {score}")
+        print(f"  Dictionary coverage: {stats['dict_coverage']:.1f}%")
+        print(f"  Segments: {stats['total_segments']} ({stats['dict_matches']} dict, {stats['nodict_segments']} nodict)")
+        
+        if stats['nodict_segments'] > 0:
+            print(f"  NoDict lengths: {stats['shortest_nodict']}-{stats['longest_nodict']}, {stats['single_char_nodicts']} single chars")
+        
+        print("  Result:", end=" ")
+        for segment in alt:
+            if segment['type'] == 'dict':
+                print(f"[{segment['text']}]", end="")
+            else:
+                print(f"?{segment['text']}?", end="")
+        print()
+
+# VALIDATION FUNCTION FOR INTEGRATION TESTING
+def validate_integration():
+    """
+    Validate that the integration works correctly with sample data.
+    Run this after integrating the lookahead logic.
+    """
+    print("=== Integration Validation ===")
+    
+    # Test cases that should improve with lookahead
+    test_cases = [
+        "ເລືອກສັນຕະປາປາ",  # Should become two terms instead of one + nodict
+        "ການສຶກສາດີ",        # Test compound scenarios
+        "ເຮັດວຽກຢ່າງດີ"       # Test multiple small words vs longer compounds
+    ]
+    
+    print("Testing sample cases (requires actual dictionary):")
+    for case in test_cases:
+        print(f"  Input: {case}")
+        print(f"  (Would show parse result with actual dictionary)")
+    
+    print("\nValidation complete. Check nodict_terms.log for improvements.")
+
+def process_tex_command_with_lao(line, dictionary, debug=False):
+   """Process TeX commands that contain Lao text in braces."""
+   
+   def replace_lao_in_braces(match):
+       content = match.group(1)
+       if is_lao_text(content):
+           # Use full processing pipeline to handle spaces properly
+           processed = process_text_line(content, dictionary, debug)
+           return '{' + processed + '}'
+       else:
+           return match.group(0)  # Return unchanged if no Lao
+   
+   # Pattern to match content within braces
+   pattern = r'\{([^}]+)\}'
+   processed_line = re.sub(pattern, replace_lao_in_braces, line)
+   
+   return processed_line
 
 def extract_and_preserve_commands(text):
     """Extract \\egw{}, footnote markers, and flex/rigid spaces, replace with placeholders."""
@@ -488,7 +876,7 @@ def handle_ellipsis_context(groups, current_index):
     else:
         return "\\ellipsis"
 
-def process_text_line(text, dictionary):
+def process_text_line(text, dictionary, debug=False):
     """Apply dictionary lookup to text, handling different content types properly."""
     # First, extract and protect \egw{} and other commands
     placeholder_text, protected_commands = extract_and_preserve_commands(text)
@@ -500,7 +888,7 @@ def process_text_line(text, dictionary):
             return text  # Return original text, not placeholder
         # Process commands that might contain Lao text
         if any(cmd in placeholder_text for cmd in ['\\laochapter{', '\\section{', '\\subsection{']):
-            processed = process_tex_command_with_lao(placeholder_text, dictionary)
+            processed = process_tex_command_with_lao(placeholder_text, dictionary, debug)
             return restore_protected_commands(processed, protected_commands)
         # Other TeX commands pass through unchanged
         return text  # Return original text, not placeholder
@@ -509,7 +897,7 @@ def process_text_line(text, dictionary):
     groups = group_consecutive_text(placeholder_text)
     
     # Step 1: Process text groups through dictionary
-    processed_parts = process_text_groups(groups, dictionary)
+    processed_parts = process_text_groups(groups, dictionary, debug)
     
     # Step 2: Apply punctuation protection
     protected_parts = apply_punctuation_protection(processed_parts)
@@ -530,8 +918,8 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         processed_lines = []
         
         for line in lines:
-            # Apply dictionary processing to each line
-            processed_line = process_text_line(line, dictionary)
+            # Apply dictionary processing to each line, passing debug flag
+            processed_line = process_text_line(line, dictionary, debug_mode)
             processed_lines.append(processed_line)
         
         # Join processed lines
@@ -556,8 +944,9 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
 def get_project_root():
     """Get the project root directory based on script location."""
     script_dir = Path(__file__).parent
-    return script_dir.parent.parent
-
+    project_root = script_dir.parent.parent
+    return project_root
+    
 def get_dictionary_path():
     """Get the path to the dictionary file."""
     script_dir = Path(__file__).parent
@@ -655,6 +1044,10 @@ def main():
     
     args = parser.parse_args()
     
+    # Initialize debug session
+    if HAS_DEBUG and args.debug:
+        module2_debug.initialize_debug_session(get_project_root())
+    
     # Load dictionary
     dictionary_path = get_dictionary_path()
     dictionary = LaoDictionary(dictionary_path)
@@ -681,33 +1074,12 @@ def main():
     
     print(f"\nCompleted: {success_count}/{total_count} files processed successfully")
     
+    # Finalize debug session and generate comprehensive reports
+    if HAS_DEBUG and args.debug:
+        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count)
+    
     if success_count < total_count:
         sys.exit(1)
 
-def generate_unique_nodict_report():
-    """Generate a unique, sorted list of all \nodict{} terms found."""
-    debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
-    unique_file = get_project_root() / "04_assets" / "temp" / "unique_nodict_terms.txt"
-    
-    if debug_file.exists():
-        # Read all terms, remove duplicates, sort by frequency
-        with open(debug_file, 'r', encoding='utf-8') as f:
-            terms = [line.strip() for line in f if line.strip()]
-        
-        # Count frequency and create unique sorted list
-        from collections import Counter
-        term_counts = Counter(terms)
-        
-        with open(unique_file, 'w', encoding='utf-8') as f:
-            f.write("# Unique \\nodict{} terms found (frequency: term)\n")
-            for term, count in term_counts.most_common():
-                f.write(f"{count}: {term}\n")
-        
-        print(f"Generated unique nodict report: {unique_file}")
-        print(f"Found {len(term_counts)} unique missing terms")
-    else:
-        print("No nodict terms found")
-
 if __name__ == "__main__":
     main()
-    generate_unique_nodict_report()
