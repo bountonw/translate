@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "version": "Revised Lao Version 2015 3rd Edition",
+    "language": "lo",
+    "total_books": 66
+  },
+  "books": [
+    {
+      "id": 1,
+      "lao_name": "ປະຖົມມະການ",
+      "english_name": "Genesis",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 50
+    },
+    {
+      "id": 2,
+      "lao_name": "ອົບພະຍົບ",
+      "english_name": "Exodus",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 40
+    },
+    {
+      "id": 3,
+      "lao_name": "ລະບຽບພວກເລວີ",
+      "english_name": "Leviticus",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 27
+    },
+    {
+      "id": 4,
+      "lao_name": "ຈົດບັນຊີ",
+      "english_name": "Numbers",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 36
+    },
+    {
+      "id": 5,
+      "lao_name": "ພຣະບັນຍັດສອງ",
+      "english_name": "Deuteronomy",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 34
+    },
+    {
+      "id": 6,
+      "lao_name": "ໂຢຊວຍ",
+      "english_name": "Joshua",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 24
+    },
+    {
+      "id": 7,
+      "lao_name": "ພວກຜູ້ປົກຄອງ",
+      "english_name": "Judges",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 21
+    },
+    {
+      "id": 8,
+      "lao_name": "ນາງຣຸດ",
+      "english_name": "Ruth",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 4
+    },
+    {
+      "id": 9,
+      "lao_name": "1 ຊາມູເອນ",
+      "english_name": "1 Samuel",
+      "testament": "old",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ຊາມູເອນ",
+      "chapter_count": 31
+    },
+    {
+      "id": 10,
+      "lao_name": "2 ຊາມູເອນ",
+      "english_name": "2 Samuel",
+      "testament": "old",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ຊາມູເອນ",
+      "chapter_count": 24
+    },
+    {
+      "id": 11,
+      "lao_name": "1 ກະສັດ",
+      "english_name": "1 Kings",
+      "testament": "old",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ກະສັດ",
+      "chapter_count": 22
+    },
+    {
+      "id": 12,
+      "lao_name": "2 ກະສັດ",
+      "english_name": "2 Kings",
+      "testament": "old",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ກະສັດ",
+      "chapter_count": 25
+    },
+    {
+      "id": 13,
+      "lao_name": "1 ຂ່າວຄາວ",
+      "english_name": "1 Chronicles",
+      "testament": "old",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ຂ່າວຄາວ",
+      "chapter_count": 29
+    },
+    {
+      "id": 14,
+      "lao_name": "2 ຂ່າວຄາວ",
+      "english_name": "2 Chronicles",
+      "testament": "old",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ຂ່າວຄາວ",
+      "chapter_count": 36
+    },
+    {
+      "id": 15,
+      "lao_name": "ເອຊະຣາ",
+      "english_name": "Ezra",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 10
+    },
+    {
+      "id": 16,
+      "lao_name": "ເນເຫມີຢາ",
+      "english_name": "Nehemiah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 13
+    },
+    {
+      "id": 17,
+      "lao_name": "ເອສະເທີ",
+      "english_name": "Esther",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 10
+    },
+    {
+      "id": 18,
+      "lao_name": "ໂຢບ",
+      "english_name": "Job",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 42
+    },
+    {
+      "id": 19,
+      "lao_name": "ເພງສັນລະເສີນ",
+      "english_name": "Psalms",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 150
+    },
+    {
+      "id": 20,
+      "lao_name": "ສຸພາສິດ",
+      "english_name": "Proverbs",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 31
+    },
+    {
+      "id": 21,
+      "lao_name": "ປັນຍາຈານ",
+      "english_name": "Ecclesiastes",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 12
+    },
+    {
+      "id": 22,
+      "lao_name": "ຍອດເພງ",
+      "english_name": "Song of Songs",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 8
+    },
+    {
+      "id": 23,
+      "lao_name": "ເອຊາຢາ",
+      "english_name": "Isaiah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 66
+    },
+    {
+      "id": 24,
+      "lao_name": "ເຢເຣມີຢາ",
+      "english_name": "Jeremiah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 52
+    },
+    {
+      "id": 25,
+      "lao_name": "ເພງຄ່ຳຄວນ",
+      "english_name": "Lamentations",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 5
+    },
+    {
+      "id": 26,
+      "lao_name": "ເອເຊກຽນ",
+      "english_name": "Ezekiel",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 48
+    },
+    {
+      "id": 27,
+      "lao_name": "ດານີເອນ",
+      "english_name": "Daniel",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 12
+    },
+    {
+      "id": 28,
+      "lao_name": "ໂຮເສອາ",
+      "english_name": "Hosea",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 14
+    },
+    {
+      "id": 29,
+      "lao_name": "ໂຢເອນ",
+      "english_name": "Joel",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 3
+    },
+    {
+      "id": 30,
+      "lao_name": "ອາໂມດ",
+      "english_name": "Amos",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 9
+    },
+    {
+      "id": 31,
+      "lao_name": "ໂອບາດີຢາ",
+      "english_name": "Obadiah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 1
+    },
+    {
+      "id": 32,
+      "lao_name": "ໂຢນາ",
+      "english_name": "Jonah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 4
+    },
+    {
+      "id": 33,
+      "lao_name": "ມີກາ",
+      "english_name": "Micah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 7
+    },
+    {
+      "id": 34,
+      "lao_name": "ນາຮູມ",
+      "english_name": "Nahum",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 3
+    },
+    {
+      "id": 35,
+      "lao_name": "ຮາບາກຸກ",
+      "english_name": "Habakkuk",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 3
+    },
+    {
+      "id": 36,
+      "lao_name": "ເຊຟານີຢາ",
+      "english_name": "Zephaniah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 3
+    },
+    {
+      "id": 37,
+      "lao_name": "ຮັກກາຍ",
+      "english_name": "Haggai",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 2
+    },
+    {
+      "id": 38,
+      "lao_name": "ເຊກາຣີຢາ",
+      "english_name": "Zechariah",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 14
+    },
+    {
+      "id": 39,
+      "lao_name": "ມາລາກີ",
+      "english_name": "Malachi",
+      "testament": "old",
+      "numbered": false,
+      "chapter_count": 4
+    },
+    {
+      "id": 40,
+      "lao_name": "ມັດທາຍ",
+      "english_name": "Matthew",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 28
+    },
+    {
+      "id": 41,
+      "lao_name": "ມາຣະໂກ",
+      "english_name": "Mark",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 16
+    },
+    {
+      "id": 42,
+      "lao_name": "ລູກາ",
+      "english_name": "Luke",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 24
+    },
+    {
+      "id": 43,
+      "lao_name": "ໂຢຮັນ",
+      "english_name": "John",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 21
+    },
+    {
+      "id": 44,
+      "lao_name": "ກິດຈະການ",
+      "english_name": "Acts",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 28
+    },
+    {
+      "id": 45,
+      "lao_name": "ໂຣມ",
+      "english_name": "Romans",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 16
+    },
+    {
+      "id": 46,
+      "lao_name": "1 ໂກຣິນໂທ",
+      "english_name": "1 Corinthians",
+      "testament": "new",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ໂກຣິນໂທ",
+      "chapter_count": 16
+    },
+    {
+      "id": 47,
+      "lao_name": "2 ໂກຣິນໂທ",
+      "english_name": "2 Corinthians",
+      "testament": "new",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ໂກຣິນໂທ",
+      "chapter_count": 13
+    },
+    {
+      "id": 48,
+      "lao_name": "ຄາລາເຕຍ",
+      "english_name": "Galatians",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 6
+    },
+    {
+      "id": 49,
+      "lao_name": "ເອເຟໂຊ",
+      "english_name": "Ephesians",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 6
+    },
+    {
+      "id": 50,
+      "lao_name": "ຟີລິບປອຍ",
+      "english_name": "Philippians",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 4
+    },
+    {
+      "id": 51,
+      "lao_name": "ໂກໂລຊາຍ",
+      "english_name": "Colossians",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 4
+    },
+    {
+      "id": 52,
+      "lao_name": "1 ເທສະໂລນິກ",
+      "english_name": "1 Thessalonians",
+      "testament": "new",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ເທສະໂລນິກ",
+      "chapter_count": 5
+    },
+    {
+      "id": 53,
+      "lao_name": "2 ເທສະໂລນິກ",
+      "english_name": "2 Thessalonians",
+      "testament": "new",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ເທສະໂລນິກ",
+      "chapter_count": 3
+    },
+    {
+      "id": 54,
+      "lao_name": "1 ຕີໂມທຽວ",
+      "english_name": "1 Timothy",
+      "testament": "new",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ຕີໂມທຽວ",
+      "chapter_count": 6
+    },
+    {
+      "id": 55,
+      "lao_name": "2 ຕີໂມທຽວ",
+      "english_name": "2 Timothy",
+      "testament": "new",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ຕີໂມທຽວ",
+      "chapter_count": 4
+    },
+    {
+      "id": 56,
+      "lao_name": "ຕີໂຕ",
+      "english_name": "Titus",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 3
+    },
+    {
+      "id": 57,
+      "lao_name": "ຟີເລໂມນ",
+      "english_name": "Philemon",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 1
+    },
+    {
+      "id": 58,
+      "lao_name": "ເຮັບເຣີ",
+      "english_name": "Hebrews",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 13
+    },
+    {
+      "id": 59,
+      "lao_name": "ຢາໂກໂບ",
+      "english_name": "James",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 5
+    },
+    {
+      "id": 60,
+      "lao_name": "1 ເປໂຕ",
+      "english_name": "1 Peter",
+      "testament": "new",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ເປໂຕ",
+      "chapter_count": 5
+    },
+    {
+      "id": 61,
+      "lao_name": "2 ເປໂຕ",
+      "english_name": "2 Peter",
+      "testament": "new",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ເປໂຕ",
+      "chapter_count": 3
+    },
+    {
+      "id": 62,
+      "lao_name": "1 ໂຢຮັນ",
+      "english_name": "1 John",
+      "testament": "new",
+      "numbered": true,
+      "number": 1,
+      "base_name": "ໂຢຮັນ",
+      "chapter_count": 5
+    },
+    {
+      "id": 63,
+      "lao_name": "2 ໂຢຮັນ",
+      "english_name": "2 John",
+      "testament": "new",
+      "numbered": true,
+      "number": 2,
+      "base_name": "ໂຢຮັນ",
+      "chapter_count": 1
+    },
+    {
+      "id": 64,
+      "lao_name": "3 ໂຢຮັນ",
+      "english_name": "3 John",
+      "testament": "new",
+      "numbered": true,
+      "number": 3,
+      "base_name": "ໂຢຮັນ",
+      "chapter_count": 1
+    },
+    {
+      "id": 65,
+      "lao_name": "ຢູດາ",
+      "english_name": "Jude",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 1
+    },
+    {
+      "id": 66,
+      "lao_name": "ພຣະນິມິດ",
+      "english_name": "Revelation",
+      "testament": "new",
+      "numbered": false,
+      "chapter_count": 22
+    }
+  ]
+}

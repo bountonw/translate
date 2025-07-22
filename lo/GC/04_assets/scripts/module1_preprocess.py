@@ -54,6 +54,7 @@ import os
 import sys
 import argparse
 import re
+import json
 from pathlib import Path
 import unicodedata
 
@@ -186,6 +187,10 @@ def clean_markdown_body(markdown_body):
     # Apply Unicode normalization first
     markdown_body = normalize_lao_text(markdown_body)
     
+    # Protect Bible books BEFORE other processing
+    markdown_body = protect_numbered_bible_books(markdown_body)
+    markdown_body = protect_scripture_spacing(markdown_body)
+
     lines = markdown_body.split('\n')
     cleaned_lines = []
     
@@ -242,6 +247,95 @@ def generate_tex_header(chapter_info):
         header_lines.append(f"\\source{{{chapter_info['url']}}}")
     
     return '\n'.join(header_lines)
+    
+def load_numbered_bible_books():
+    """Load numbered Bible books from JSON file."""
+    try:
+        script_dir = Path(__file__).parent
+        json_path = script_dir / ".." / ".." / ".." / "assets" / "data" / "bible" / "bible_books.json"
+        
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        return [book['lao_name'] for book in data['books'] if book.get('numbered', False)]
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+        print(f"Warning: Could not load numbered Bible books: {e}")
+        return []
+
+def protect_numbered_bible_books(text):
+    """
+    Protect numbered Bible book names by converting spaces to \\nbsp.
+    
+    Args:
+        text (str): Input text that may contain numbered Bible books
+        
+    Returns:
+        str: Text with numbered Bible books protected
+    """
+    numbered_books = load_numbered_bible_books()
+    
+    if not numbered_books:
+        return text  # Return unchanged if books couldn't be loaded
+    
+    protected_text = text
+    
+    # Process each numbered book
+    for book in numbered_books:
+        # Convert "1 ຊາມູເອນ" to "1\\nbsp ຊາມູເອນ"
+        protected_book = book.replace(" ", "\\nbsp ", 1)  # Only replace first space
+        protected_text = protected_text.replace(book, protected_book)
+    
+    return protected_text
+
+def load_all_bible_books():
+    """Load all Bible books data from JSON file."""
+    try:
+        script_dir = Path(__file__).parent
+        json_path = script_dir / ".." / ".." / ".." / "assets" / "data" / "bible" / "bible_books.json"
+        
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Get all book names
+        all_books = [book['lao_name'] for book in data['books']]
+        
+        # Get numbered books mapping
+        numbered_mapping = {}
+        for book in data['books']:
+            if book.get('numbered', False):
+                nbsp_form = book['lao_name'].replace(' ', '\\nbsp ', 1)
+                numbered_mapping[book['lao_name']] = nbsp_form
+        
+        # Reference pattern
+        reference_pattern = re.compile(r'\d+:\d+(?:[,-]\d+)*(?:\s*[,-]\s*\d+(?::\d+)?)*')
+        
+        return all_books, numbered_mapping, reference_pattern
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+        print(f"Warning: Could not load Bible books: {e}")
+        return [], {}, None
+
+def protect_scripture_spacing(text):
+    """Add \\scrspace between Bible book names and scripture references."""
+    bible_books, numbered_mapping, reference_pattern = load_all_bible_books()
+    
+    if not bible_books or not reference_pattern:
+        return text
+    
+    import re
+    protected_text = text
+    
+    # Process each Bible book
+    for book in bible_books:
+        # Handle both original form and nbsp form (if it's a numbered book)
+        book_forms = [book]
+        if book in numbered_mapping:
+            book_forms.append(numbered_mapping[book])
+        
+        for book_form in book_forms:
+            pattern = rf'({re.escape(book_form)})\s+({reference_pattern.pattern})'
+            protected_text = re.sub(pattern, rf'\1\\scrspace \2', protected_text)
+    
+    return protected_text
 
 def process_file(input_path, output_path, debug_mode=False):
     """
