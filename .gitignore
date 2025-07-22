@@ -7,7 +7,7 @@
 # Ignore intermediate and temporary folders and files
 **/*temp*
 **/*tmp*
-*.tmp   # Explicitly ignore .tmp files even though the line above already catches them
+*.tmp   # Explicitly ignore .tmp files
 
 # Ignore local sandbox folders regardless of case
 **/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
