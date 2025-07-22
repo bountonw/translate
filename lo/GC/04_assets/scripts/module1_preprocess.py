@@ -190,6 +190,7 @@ def clean_markdown_body(markdown_body):
     # Protect Bible books BEFORE other processing
     markdown_body = protect_numbered_bible_books(markdown_body)
     markdown_body = protect_scripture_spacing(markdown_body)
+    markdown_body = protect_scripture_references(markdown_body)
 
     lines = markdown_body.split('\n')
     cleaned_lines = []
@@ -336,6 +337,57 @@ def protect_scripture_spacing(text):
             protected_text = re.sub(pattern, rf'\1\\scrspace \2', protected_text)
     
     return protected_text
+
+def split_reference_components(reference_text):
+    """Split scripture reference text into components and separators."""
+    # Split on commas and semicolons, preserving separators
+    parts = re.split(r'([,;])', reference_text)
+    components = []
+    separators = []
+    
+    for part in parts:
+        part = part.strip()
+        if not part:
+            continue
+        elif part in [',', ';']:
+            separators.append(part)
+        else:
+            components.append(part)
+    
+    return components, separators
+
+def format_reference_components(components, separators):
+    """Format reference components with proper TeX markup."""
+    formatted_parts = []
+    
+    for i, component in enumerate(components):
+        formatted_parts.append(f'\\scrref{{{component}}}')
+        
+        # Add separator if not the last component
+        if i < len(separators):
+            separator = separators[i]
+            formatted_parts.append(f'{separator}\\scrspace')  # Removed \nobreak
+    
+    return ''.join(formatted_parts)
+
+def protect_scripture_references(text):
+    """Wrap individual scripture reference components with \\scrref{}."""
+    # Pattern: \scrspace + space + reference that ends at specific boundaries
+    # Reference ends at: space, period, comma, semicolon, closing paren, quotes (regular and smart), or line end
+    # Note: colon is NOT a boundary since it's part of chapter:verse format
+    pattern = r'\\scrspace\s+(\d+:\d+(?:[,–-]\d+)*(?:\s*[,;]\s*\d+(?::\d+)?(?:[,–-]\d+)*)*)(?=\s|[\.;,)\'"”’]|$)'
+    
+    matches = list(re.finditer(pattern, text))
+    
+    # Process matches in reverse order to avoid position shifts
+    for match in reversed(matches):
+        reference_content = match.group(1).strip()
+        components, separators = split_reference_components(reference_content)
+        formatted = format_reference_components(components, separators)
+        replacement = f'\\scrspace{formatted}'
+        text = text[:match.start()] + replacement + text[match.end():]
+    
+    return text
 
 def process_file(input_path, output_path, debug_mode=False):
     """
