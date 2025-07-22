@@ -9,10 +9,17 @@
 **/*tmp*
 *.tmp   # Explicitly ignore .tmp files even though the line above already catches them
 
+# Ignore local sandbox folders regardless of case
+**/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
+
 # Ignore mac generated files
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Ignore Kate editor generated files
+*.~lock*
+*.kate-swp
 
 # Ignore python generated folders and files
 __pycache__/
@@ -325,10 +332,3 @@ TSWLatexianTemp*
 
 # NodeJS dependencies folder
 node_modules
-
-# Local sandbox folders
-**/sandbox/
-
-# Editor generated files
-*.~lock*
-*.kate-swp
