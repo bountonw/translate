@@ -21,61 +21,115 @@ USAGE:
 
 import re
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
+
+# Global counters for session tracking
+session_stats = {
+    'decisions_made': 0,
+    'strategy_changes': 0,
+    'interesting_cases': 0
+}
 
 # =============================================================================
 # LOOKAHEAD DECISION LOGGING
 # =============================================================================
 
 def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]], 
-                          selected_strategy: int, debug: bool = False, 
+                          selected_strategy: int, scored_alternatives: List[Tuple], 
                           project_root: Path = None):
     """Log interesting lookahead decisions in narrative format."""
+    global session_stats
+    
     strategy_names = ["longest-first", "shortest-first", "backtrack"]
+    session_stats['decisions_made'] += 1
     
     # Check if strategies produced different results
     if not _strategies_differ(alternatives):
         return  # All strategies agree, nothing interesting to log
     
-    # Console output for interesting cases
-    if debug:
-        selected_name = strategy_names[selected_strategy]
-        improvement = _describe_improvement(alternatives, selected_strategy)
-        print(f"🔍 Lookahead improved: {text} → selected {selected_name} ({improvement})")
+    session_stats['interesting_cases'] += 1
     
-    # File logging
+    # Only count as strategy change if we didn't select longest-first (baseline)
+    if selected_strategy != 0:
+        session_stats['strategy_changes'] += 1
+    
+    # Only log when we actually change from longest-first AND results differ
+    if selected_strategy == 0 or not _results_actually_differ(alternatives[0], alternatives[selected_strategy]):
+        return  # No actual change, don't log
+    
+    # File logging only - no console output
     try:
         if project_root is None:
-            # Fallback path resolution
             script_dir = Path(__file__).parent
             project_root = script_dir.parent.parent
             
         log_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
         
         selected_name = strategy_names[selected_strategy]
-        selected_result = alternatives[selected_strategy]
-        
         improvement_description = _describe_improvement(alternatives, selected_strategy)
-        before_description = _describe_parse_result(alternatives[0])  # longest-first baseline
-        after_description = _describe_parse_result(selected_result)
         
-        # Create narrative entry
+        # Build strategy comparison lines
+        comparison_lines = []
+        for score, alt, strategy_idx in scored_alternatives:
+            strategy_name = strategy_names[strategy_idx]
+            parse_description = _describe_parse_result(alt)
+            comparison_lines.append(f"{strategy_name:<15} (score: {score:3d}): {parse_description}")
+        
+        # Find fragments created
+        fragments = _find_fragments_created(alternatives[0], alternatives[selected_strategy])
+        
+        # Create formatted log entry
         log_entry = [
-            f'✓ {improvement_description} in "{text}"',
-            f'  Changed from: {before_description}',
-            f'  Changed to: {after_description}',
-            f'  Strategy: {selected_name}',
-            ""  # Empty line between entries
+            f'{"="*60}',
+            f'STRATEGY CHANGE: {selected_name}',
+            f'Text: "{text}"',
+            "",
+            "STRATEGY COMPARISON:",
+            *comparison_lines,
+            "",
+            f'DECISION: Selected {selected_name} (score: {scored_alternatives[selected_strategy][0]})',
+            f'FRAGMENTS CREATED: {fragments}' if fragments else 'FRAGMENTS CREATED: None',
+            f'IMPROVEMENT: {improvement_description}',
+            f'{"="*60}',
+            ""
         ]
         
-        # Append to log file
         log_file.parent.mkdir(parents=True, exist_ok=True)
         with open(log_file, 'a', encoding='utf-8') as f:
             f.write('\n'.join(log_entry))
             
     except Exception as e:
-        # Don't let logging errors break processing
         pass
+
+def _find_fragments_created(original_result: List[Dict[str, Any]], new_result: List[Dict[str, Any]]) -> str:
+    """Find which words were fragmented between two parse results."""
+    original_words = [seg['text'] for seg in original_result if seg['type'] == 'dict']
+    new_words = [seg['text'] for seg in new_result if seg['type'] == 'dict']
+    
+    fragments = []
+    for orig_word in original_words:
+        if orig_word not in new_words:
+            # This word was broken up, find what it became
+            # Simple approach: look for consecutive words that together make the original
+            for i in range(len(new_words) - 1):
+                if orig_word.startswith(new_words[i]):
+                    remaining = orig_word[len(new_words[i]):]
+                    if i + 1 < len(new_words) and remaining == new_words[i + 1]:
+                        fragments.append(f"{orig_word} → {new_words[i]} + {new_words[i + 1]}")
+                        break
+    
+    return ", ".join(fragments) if fragments else "None"
+
+def _results_actually_differ(result1: List[Dict[str, Any]], result2: List[Dict[str, Any]]) -> bool:
+    """Check if two parse results are actually different (not just scored differently)."""
+    if len(result1) != len(result2):
+        return True
+    
+    for seg1, seg2 in zip(result1, result2):
+        if seg1['text'] != seg2['text'] or seg1['type'] != seg2['type']:
+            return True
+    
+    return False
 
 def _strategies_differ(alternatives: List[List[Dict[str, Any]]]) -> bool:
     """Check if different strategies produced meaningfully different results."""
@@ -243,6 +297,16 @@ def validate_debug_environment():
     except Exception as e:
         print(f"Warning: Debug environment validation failed: {e}")
         return False
+
+def print_session_summary():
+    """Print summary of lookahead session to console."""
+    global session_stats
+    
+    if session_stats['decisions_made'] > 0:
+        if session_stats['strategy_changes'] > 0:
+            print(f"📊 Lookahead: {session_stats['strategy_changes']} strategy changes out of {session_stats['decisions_made']} decisions")
+        else:
+            print(f"✅ Lookahead: No strategy changes needed ({session_stats['decisions_made']} decisions)")
 
 if __name__ == "__main__":
     # Test the debug module

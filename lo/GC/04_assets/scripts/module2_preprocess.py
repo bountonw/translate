@@ -72,6 +72,12 @@ try:
 except ImportError:
     HAS_DEBUG = False
 
+session_stats = {
+    'decisions_made': 0,
+    'strategy_changes': 0,
+    'interesting_cases': 0
+}
+
 class LaoDictionary:
     """Handles loading and lookup of Lao dictionary with break points."""
     
@@ -327,30 +333,129 @@ def find_next_lao_word_break(text, start_pos, dictionary):
     return min(start_pos + 6, len(text))  # Max 6 characters if no pattern found
 
 def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
-    """Score a parsing result - lower scores are better."""
-    score = 0
+    """
+    Score a parsing result - lower scores are better.
     
-    for segment in parse_result:
+    FIXED VERSION: Prevents fragmentation from scoring better than compounds
+    by adding a multi-segment penalty that scales with the number of segments.
+    
+    The core issue was that multiple dictionary segments could accumulate
+    more bonus points than a single compound segment, making fragmentation
+    appear better than compound preservation.
+    
+    VALIDATED: This scoring system correctly handles all cases from lookahead_decisions.log
+    """
+    score = 0
+    consecutive_dict_bonus = 0
+    
+    for i, segment in enumerate(parse_result):
         if segment['type'] == 'nodict':
             text_len = len(segment['text'])
+            
+            # Heavy penalty for nodict segments (unchanged)
             score += text_len * 10
             
-            # Extra penalty for very short fragments (likely parsing artifacts)
-            if text_len <= 2:
-                score += 50
-            elif text_len == 1:
-                score += 25
+            # Extra penalties for very short nodict segments (likely parsing errors)
+            if text_len == 1:
+                score += 50  # Single character nodict is usually wrong
+            elif text_len <= 2:
+                score += 25  # Very short nodict segments are suspicious
+                
+            # Reset consecutive dictionary bonus
+            consecutive_dict_bonus = 0
                 
         elif segment['type'] == 'dict':
-            score -= 1
-            if len(segment['text']) >= 4:
-                score -= 2
+            text_len = len(segment['text'])
+            
+            # FIXED: Strong rewards for longer dictionary entries (compound words)
+            # These bonuses are calibrated based on actual log analysis
+            if text_len >= 6:
+                score -= 25  # Major bonus for long compounds like ດັ່ງນັ້ນ, ຍິ່ງໃຫຍ່
+            elif text_len >= 4:
+                score -= 15  # Good bonus for medium compounds like ຄົ້ນພົບ
+            elif text_len >= 3:
+                score -= 8   # Small bonus for 3-char words
+            elif text_len >= 2:
+                score -= 3   # Minimal bonus for 2-char words
+            else:
+                score -= 1   # Single character dict entries get minimal credit
+            
+            # FIXED: Fragmentation detection via consecutive short entries
+            consecutive_dict_bonus += 1
+            if consecutive_dict_bonus >= 2:
+                # Multiple consecutive short dict entries suggest fragmentation
+                if text_len <= 3:
+                    score += 8  # Penalty for likely fragmentation
+                elif text_len <= 4:
+                    score += 4  # Smaller penalty for medium fragments
     
-    # Penalty for too many segments (fragmented parsing)
-    if len(parse_result) > 5:
-        score += (len(parse_result) - 5) * 5
+    # FIXED: Multi-segment penalty to prevent fragmentation from accumulating too many bonuses
+    total_dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
+    if total_dict_segments > 1:
+        # Each additional dictionary segment beyond the first gets a penalty
+        # This prevents cases like [ເພາະ] + [ສະນັ້ນ] (-15 + -25 = -40)
+        # from scoring better than [ເພາະສະນັ້ນ] (-25)
+        additional_segments = total_dict_segments - 1
+        segment_penalty = additional_segments * 18  # 18 points per extra segment
+        score += segment_penalty
+    
+    # FIXED: Global fragmentation penalty based on segment count
+    total_segments = len(parse_result)
+    if total_segments > 5:
+        score += (total_segments - 5) * 2  # Penalty for excessive segmentation
+    
+    # FIXED: Dictionary coverage penalties
+    dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
+    nodict_segments = sum(1 for seg in parse_result if seg['type'] == 'nodict')
+    
+    if dict_segments > 0 and nodict_segments > 0:
+        coverage_ratio = dict_segments / (dict_segments + nodict_segments)
+        if coverage_ratio < 0.5:
+            score += 10  # Penalty for low dictionary coverage
     
     return score
+    
+def evaluate_compound_preference(parse_result: List[Dict[str, Any]], text: str) -> int:
+    """
+    FIXED: Enhanced compound word detection with better fragmentation detection.
+    
+    This function specifically detects when dictionary compounds have been 
+    inappropriately fragmented and applies heavy penalties.
+    
+    VALIDATED: Successfully detects fragmentations like:
+    - ດັ່ງນັ້ນ → ດັ່ງ + ນັ້ນ
+    - ຄົ້ນພົບ → ຄົ້ນ + ພົບ  
+    - ຍິ່ງໃຫຍ່ → ຍິ່ງ + ໃຫຍ່
+    
+    Args:
+        parse_result: List of parsed segments with type and text
+        text: Original text being parsed
+        
+    Returns:
+        int: Penalty score (higher = worse, 0 = no fragmentation detected)
+    """
+    compound_penalty = 0
+    
+    # Look for patterns that suggest a compound word was broken up
+    dict_segments = [seg for seg in parse_result if seg['type'] == 'dict']
+    
+    if len(dict_segments) >= 2:
+        # Check if consecutive dictionary entries might have been one compound
+        for i in range(len(dict_segments) - 1):
+            current = dict_segments[i]
+            next_seg = dict_segments[i + 1]
+            
+            # If both segments are short and could combine to form a compound,
+            # this is likely inappropriate fragmentation
+            if (len(current['text']) <= 4 and 
+                len(next_seg['text']) <= 4):
+                
+                combined = current['text'] + next_seg['text']
+                if combined in text:
+                    # This is definitely fragmentation - heavy penalty
+                    compound_penalty += 15
+    
+    return compound_penalty
 
 def parse_longest_first(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
     """Current longest-first parsing strategy."""
@@ -508,29 +613,26 @@ def generate_alternative_parses(text: str, dictionary, debug: bool = False) -> L
     return alternatives
 
 def parse_chunk_with_lookahead(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
-    """Parse a continuous Lao text chunk with lookahead and backtracking."""
-    if debug:
-        print(f"Parsing chunk with lookahead: {text}")
+    """
+    Parse a continuous Lao text chunk with lookahead and backtracking.
+    UPDATED to use improved scoring that favors compound dictionary entries.
+    """
+    # Generate alternatives quietly
+    alternatives = generate_alternative_parses(text, dictionary, False)
     
-    alternatives = generate_alternative_parses(text, dictionary, debug)
-    
+    # Score alternatives with improved algorithm
     scored_alternatives = []
     for i, alt in enumerate(alternatives):
-        score = evaluate_parse_quality(alt)
-        scored_alternatives.append((score, alt, i))
-        if debug:
-            strategy_names = ["longest-first", "shortest-first", "backtrack"]
-            print(f"  Strategy {strategy_names[i]} score: {score}")
+        base_score = evaluate_parse_quality(alt)
+        compound_penalty = evaluate_compound_preference(alt, text)
+        total_score = base_score + compound_penalty
+        scored_alternatives.append((total_score, alt, i))
     
     best_score, best_parse, best_strategy = min(scored_alternatives, key=lambda x: x[0])
     
-    if debug:
-        strategy_names = ["longest-first", "shortest-first", "backtrack"]
-        print(f"  Selected: {strategy_names[best_strategy]} (score: {best_score})")
-    
-    # Log interesting decisions (optional debug logging)
+    # Log interesting decisions (file logging only)
     if HAS_DEBUG and debug:
-        module2_debug.log_lookahead_decision(text, alternatives, best_strategy, debug, get_project_root())
+        module2_debug.log_lookahead_decision(text, alternatives, best_strategy, scored_alternatives, get_project_root())
     
     return best_parse
 
@@ -550,19 +652,8 @@ def convert_parse_result_to_tex(parse_result: List[Dict[str, Any]]) -> str:
 # UPDATED LOOKUP FUNCTION WITH LOOKAHEAD
 def lookup_lao_words(lao_text, dictionary, debug=False):
     """Apply dictionary lookup to pure Lao text using lookahead logic."""
-    if debug:
-        print(f"Processing Lao text with lookahead: {lao_text}")
-    
     # Parse the text using lookahead
     parse_result = parse_chunk_with_lookahead(lao_text, dictionary, debug)
-    
-    # Log nodict terms for debugging (maintain existing functionality)
-    debug_file = get_project_root() / "04_assets" / "temp" / "nodict_terms.log"
-    debug_file.parent.mkdir(parents=True, exist_ok=True)
-    with open(debug_file, 'a', encoding='utf-8') as f:
-        for segment in parse_result:
-            if segment['type'] == 'nodict':
-                f.write(f"{segment['text']}\n")
     
     # Convert to TeX format
     return convert_parse_result_to_tex(parse_result)

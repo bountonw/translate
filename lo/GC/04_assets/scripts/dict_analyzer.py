@@ -98,30 +98,56 @@ def analyze_dictionary_quality(dictionary_path: Path) -> Dict[str, List[str]]:
     }
 
 # =============================================================================
-# TEXT PROCESSING FUNCTIONS
+# TEXT PROCESSING FUNCTIONS  
 # =============================================================================
 
 def extract_word_tokens(text: str) -> List[Tuple[str, str]]:
-    """Extract word tokens from processed text."""
+    """Extract word tokens from processed text, handling nested braces properly."""
     tokens = []
-    pattern = r'\\(lw|nodict)\{([^}]+)\}'
+    pattern = r'\\(lw|nodict)\{'
     current_pos = 0
     
     for match in re.finditer(pattern, text):
         # Add any text before this match
         _add_between_text(tokens, text, current_pos, match.start())
         
-        # Add the matched command
+        # Find the matching closing brace, accounting for nested braces
         cmd_type = match.group(1)  # 'lw' or 'nodict'
-        content = match.group(2)   # content inside braces
-        tokens.append((cmd_type, content))
+        start_pos = match.end()  # Position after the opening {
+        content, end_pos = _extract_balanced_braces(text, start_pos)
         
-        current_pos = match.end()
+        if content is not None:
+            tokens.append((cmd_type, content))
+            current_pos = end_pos
+        else:
+            # Malformed command, treat as regular text
+            current_pos = match.end()
     
     # Add any remaining text
     _add_between_text(tokens, text, current_pos, len(text))
     
     return tokens
+
+def _extract_balanced_braces(text: str, start_pos: int) -> Tuple[str, int]:
+    """Extract content between balanced braces, handling nested braces."""
+    brace_count = 1
+    pos = start_pos
+    
+    while pos < len(text) and brace_count > 0:
+        char = text[pos]
+        if char == '{':
+            brace_count += 1
+        elif char == '}':
+            brace_count -= 1
+        pos += 1
+    
+    if brace_count == 0:
+        # Found matching closing brace
+        content = text[start_pos:pos-1]  # Exclude the closing brace
+        return content, pos
+    else:
+        # No matching closing brace found
+        return None, start_pos
 
 def _add_between_text(tokens: List[Tuple[str, str]], text: str, start: int, end: int):
     """Helper to add text between matches to token list."""
@@ -131,9 +157,26 @@ def _add_between_text(tokens: List[Tuple[str, str]], text: str, start: int, end:
             if between_text == '\\space':
                 tokens.append(('space', ' '))
             elif between_text.startswith('\\'):
-                tokens.append(('command', between_text))
+                # Clean any TeX commands from between-text as well
+                cleaned_between = _clean_between_text(between_text)
+                if cleaned_between:
+                    tokens.append(('other', cleaned_between))
             else:
                 tokens.append(('other', between_text))
+
+def _clean_between_text(text: str) -> str:
+    """Clean TeX commands from text that appears between \lw{} and \nodict{} blocks."""
+    # Remove penalty commands that might appear loose in text
+    text = re.sub(r'\\p\{-?\d+\}', '', text)
+    
+    # Remove spacing commands
+    text = re.sub(r'\\(?:space|cs|fs|rs|flexspace|rigidspace|zwsp|nbsp)', '', text)
+    text = re.sub(r'\\(?:nobreak|allowbreak|relax)', '', text)
+    
+    # Remove any remaining malformed TeX commands (backslash + letters)
+    text = re.sub(r'\\[a-zA-Z]+', '', text)
+    
+    return text.strip()
 
 def extract_context_windows(tokens: List[Tuple[str, str]], window_size: int = 4) -> Dict[str, List[List[str]]]:
     """Extract context windows around \nodict{} terms."""
@@ -206,10 +249,12 @@ def _is_sentence_boundary(token_type: str, content: str) -> bool:
 
 def clean_lw_content(content: str) -> str:
     """Remove TeX commands from \lw{} content to get clean text."""
-    # Remove penalty commands like \p{1000}
-    content = re.sub(r'\\p\{[^}]+\}', '', content)
-    # Remove other common commands
+    # Remove penalty commands: \p{1000}, \p{-200}, etc.
+    content = re.sub(r'\\p\{-?\d+\}', '', content)
+    
+    # Remove compound space commands: \cs
     content = re.sub(r'\\cs', '', content)
+    
     return content.strip()
 
 # =============================================================================
