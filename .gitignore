@@ -4,10 +4,10 @@
 *.gz
 *.tar
 
-# Ignore intermediate folders and iles
-*.tmp
-temp/
-**/temp/
+# Ignore intermediate and temporary folders and files
+**/*temp*
+**/*tmp*
+*.tmp   # Explicitly ignore .tmp files even though the line above already catches them
 
 # Ignore mac generated files
 .DS_Store
