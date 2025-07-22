@@ -488,14 +488,88 @@ def get_output_path(input_path, debug_mode=False, stage=1):
     
     return str(project_root / "04_assets" / "temp" / output_name)
 
+def expand_chapter_ranges(file_specs):
+    """
+    Expand chapter range specifications like GC[01..05] into individual chapters.
+    
+    Args:
+        file_specs (list): List of file specifications
+        
+    Returns:
+        list: Expanded list with ranges converted to individual chapters
+    """
+    import re
+    
+    expanded = []
+    
+    for spec in file_specs:
+        # Check for range pattern like GC[01..05] or GC[1..5]
+        range_match = re.match(r'GC\[(\d+)\.\.(\d+)\]', spec)
+        if range_match:
+            start_num = int(range_match.group(1))
+            end_num = int(range_match.group(2))
+            
+            # Generate chapter numbers in the range
+            for chapter_num in range(start_num, end_num + 1):
+                expanded.append(f"GC{chapter_num:02d}")
+        else:
+            expanded.append(spec)
+    
+    return expanded
+
+def resolve_file_specification(file_spec, public_dir):
+    """
+    Intelligently resolve a file specification to actual .md file path.
+    
+    Args:
+        file_spec (str): User-provided file specification (e.g., "GC05", "GC01_lo", "GC03_lo.md")
+        public_dir (Path): Path to 03_public directory
+        
+    Returns:
+        Path or None: Resolved file path, or None if not found
+    """
+    from pathlib import Path
+    
+    # If it's already a complete .md file path, use as-is
+    if file_spec.endswith('.md'):
+        candidate = public_dir / file_spec
+        if candidate.exists():
+            return candidate
+        else:
+            return None
+    
+    # Auto-complete the file specification
+    base_spec = file_spec
+    
+    # Add '_lo' if it's just GC## format
+    if re.match(r'^GC\d+$', base_spec):
+        base_spec = base_spec + '_lo'
+    
+    # Add .md extension
+    candidate = public_dir / f"{base_spec}.md"
+    
+    if candidate.exists():
+        return candidate
+    else:
+        return None
+
 def main():
     parser = argparse.ArgumentParser(
-        description="Module 1: YAML Header Extraction & Initial Cleanup"
+        description="Module 1: YAML Header Extraction & Initial Cleanup",
+        epilog="""
+Examples:
+  %(prog)s GC01                    # Process chapter 1
+  %(prog)s GC01 GC05              # Process chapters 1 and 5
+  %(prog)s GC[01..05]             # Process chapters 1 through 5
+  %(prog)s GC01_lo.md             # Process specific file
+  %(prog)s                        # Process all .md files in 03_public/
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument(
         'files', 
         nargs='*', 
-        help='Markdown files to process (default: all .md files in 03_public/)'
+        help='File specifications to process. Supports: GC01, GC01_lo, GC01_lo.md, GC[01..05] ranges'
     )
     parser.add_argument(
         '--debug', 
@@ -512,8 +586,39 @@ def main():
     
     # Determine input files
     if args.files:
-        # Resolve each filename to full path
-        input_files = [resolve_input_path(f) for f in args.files]
+        # Process specific files with intelligent matching
+        project_root = get_project_root()
+        public_dir = project_root / '03_public'
+        
+        if not public_dir.exists():
+            print(f"Error: {public_dir} directory not found")
+            sys.exit(1)
+        
+        input_files = []
+        
+        # First expand any range specifications
+        expanded_specs = expand_chapter_ranges(args.files)
+        
+        for file_spec in expanded_specs:
+            resolved_path = resolve_file_specification(file_spec, public_dir)
+            
+            if resolved_path:
+                input_files.append(resolved_path)
+                if args.verbose or args.debug:
+                    print(f"Resolved '{file_spec}' → {resolved_path.name}")
+            else:
+                print(f"Warning: Could not find file for specification '{file_spec}'")
+                
+                # Show what we looked for
+                base_spec = file_spec
+                if re.match(r'^GC\d+$', base_spec):
+                    base_spec = base_spec + '_lo'
+                
+                print(f"  Searched for: {base_spec}.md")
+        
+        if not input_files:
+            print("No input files found")
+            sys.exit(1)
     else:
         # Process all .md files in 03_public/
         project_root = get_project_root()
@@ -536,7 +641,7 @@ def main():
         input_path = str(input_file)
         output_path = get_output_path(input_path, args.debug, stage=1)
         
-        if process_file(input_path, output_path, args.verbose or args.debug):
+        if process_file(input_path, output_path, args.debug or args.verbose):
             success_count += 1
     
     print(f"\nCompleted: {success_count}/{total_count} files processed successfully")

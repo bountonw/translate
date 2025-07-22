@@ -876,7 +876,7 @@ def process_tex_command_with_lao(line, dictionary, debug=False):
    return processed_line
 
 def extract_and_preserve_commands(text):
-    """Extract \\egw{}, footnote markers, and flex/rigid spaces, replace with placeholders."""
+    """Extract \\egw{}, \\scrspace, \\scrref{}, footnote markers, and flex/rigid spaces, replace with placeholders."""
     import re
     
     protected_commands = []
@@ -892,6 +892,29 @@ def extract_and_preserve_commands(text):
         protected_commands.append(command)
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
+    # Find all \scrref{...} commands (scripture references with braces)
+    # These commands protect scripture references from dictionary processing
+    scrref_pattern = r'\\scrref\{[^}]+\}'
+    matches = re.finditer(scrref_pattern, placeholder_text)
+    
+    for match in matches:
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text.replace(command, placeholder, 1)
+    
+    # Find all \scrspace commands (standalone scripture spacing)
+    # These commands provide spacing between Bible books and references
+    scrspace_pattern = r'\\scrspace(?![a-zA-Z])'  # Not followed by letters
+    matches = re.finditer(scrspace_pattern, placeholder_text)
+    
+    # Process matches in reverse order to avoid position shifts
+    for match in reversed(list(matches)):
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text[:match.start()] + placeholder + placeholder_text[match.end():]
+    
     # Find all footnote markers [^1], [^2], etc. and [^1]:, [^2]:, etc.
     footnote_pattern = r'\[\^\d+\](?::)?'
     matches = re.finditer(footnote_pattern, placeholder_text)
@@ -903,6 +926,7 @@ def extract_and_preserve_commands(text):
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
     # Find \s and \S flex/rigid space markers (not followed by letters to avoid \section, \source, etc.)
+    # NOTE: The (?![a-zA-Z]) ensures we don't match \scrspace or \scrref commands
     flex_pattern = r'\\[sS](?![a-zA-Z])'
     matches = re.finditer(flex_pattern, placeholder_text)
     
@@ -1043,45 +1067,137 @@ def get_dictionary_path():
     script_dir = Path(__file__).parent
     return script_dir / '../../../../lo/assets/dictionaries/main.txt'
 
+def expand_chapter_ranges(file_specs):
+    """
+    Expand chapter range specifications like GC[01..05] into individual chapters.
+    
+    Args:
+        file_specs (list): List of file specifications
+        
+    Returns:
+        list: Expanded list with ranges converted to individual chapters
+    """
+    import re
+    
+    expanded = []
+    
+    for spec in file_specs:
+        # Check for range pattern like GC[01..05] or GC[1..5]
+        range_match = re.match(r'GC\[(\d+)\.\.(\d+)\]', spec)
+        if range_match:
+            start_num = int(range_match.group(1))
+            end_num = int(range_match.group(2))
+            
+            # Generate chapter numbers in the range
+            for chapter_num in range(start_num, end_num + 1):
+                expanded.append(f"GC{chapter_num:02d}")
+        else:
+            expanded.append(spec)
+    
+    return expanded
+    
+def resolve_file_specification(file_spec, temp_dir, debug_mode=False):
+    """
+    Intelligently resolve a file specification to actual file path.
+    
+    Args:
+        file_spec (str): User-provided file specification (e.g., "GC05", "GC01_lo", "GC03_lo.tmp")
+        temp_dir (Path): Path to temp directory
+        debug_mode (bool): Whether we're in debug mode
+        
+    Returns:
+        Path or None: Resolved file path, or None if not found
+    """
+    from pathlib import Path
+    
+    # If it's already a complete .tmp file path, use as-is
+    if file_spec.endswith('.tmp'):
+        candidate = temp_dir / file_spec
+        if candidate.exists():
+            return candidate
+        else:
+            return None
+    
+    # Auto-complete the file specification
+    base_spec = file_spec
+    
+    # Add '_lo' if it's just GC## format
+    if re.match(r'^GC\d+$', base_spec):
+        base_spec = base_spec + '_lo'
+    
+    # Now we have something like "GC05_lo"
+    # Try to find the best available file with fallback logic
+    
+    candidates = []
+    
+    if debug_mode:
+        # Debug mode: prefer stage1 files, fallback to regular .tmp
+        candidates.extend([
+            temp_dir / f"{base_spec}_stage1.tmp",  # Preferred for debug
+            temp_dir / f"{base_spec}.tmp"          # Fallback
+        ])
+    else:
+        # Production mode: prefer regular .tmp, but also check stage1 for fallback
+        candidates.extend([
+            temp_dir / f"{base_spec}.tmp",         # Preferred for production
+            temp_dir / f"{base_spec}_stage1.tmp"   # Fallback (from debug run)
+        ])
+    
+    # Return the first existing candidate
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    
+    return None
+
 def get_input_files(args):
-    """Get list of .tmp files to process."""
+    """Get list of .tmp files to process with intelligent file matching."""
     project_root = get_project_root()
     temp_dir = project_root / '04_assets' / 'temp'
     
+    if not temp_dir.exists():
+        print(f"Error: {temp_dir} directory not found")
+        sys.exit(1)
+    
     if args.files:
-        # Process specific files
+        # Process specific files with intelligent matching
         input_files = []
-        for filename in args.files:
-            if filename.endswith('.tmp'):
-                input_files.append(temp_dir / filename)
+        
+        # First expand any range specifications
+        expanded_specs = expand_chapter_ranges(args.files)
+        
+        for file_spec in expanded_specs:
+            resolved_path = resolve_file_specification(file_spec, temp_dir, args.debug)
+            
+            if resolved_path:
+                input_files.append(resolved_path)
+                if args.verbose or args.debug:
+                    print(f"Resolved '{file_spec}' → {resolved_path.name}")
             else:
-                # Assume it's a base name, look for stage1.tmp or .tmp
-                stage1_file = temp_dir / f"{filename}_stage1.tmp"
-                base_file = temp_dir / f"{filename}.tmp"
+                print(f"Warning: Could not find file for specification '{file_spec}'")
                 
-                if stage1_file.exists():
-                    input_files.append(stage1_file)
-                elif base_file.exists():
-                    input_files.append(base_file)
-                else:
-                    print(f"Warning: Could not find .tmp file for {filename}")
+                # Show what we looked for
+                base_spec = file_spec
+                if re.match(r'^GC\d+$', base_spec):
+                    base_spec = base_spec + '_lo'
+                
+                print(f"  Searched for: {base_spec}.tmp, {base_spec}_stage1.tmp")
+        
         return input_files
     else:
-        # Process all .tmp files in temp directory
-        if not temp_dir.exists():
-            print(f"Error: {temp_dir} directory not found")
-            sys.exit(1)
-        
+        # Process all .tmp files in temp directory (existing behavior)
         if args.debug:
             # Debug mode: look for stage1 files from Module 1 debug output
             stage1_files = list(temp_dir.glob('*_stage1.tmp'))
             if stage1_files:
+                print(f"Processing all debug files: {len(stage1_files)} files")
                 return stage1_files
             # Fall back to tmp files if no stage1 files
             tmp_files = list(temp_dir.glob('*.tmp'))
             if not tmp_files:
                 print(f"No .tmp files found in {temp_dir}")
                 sys.exit(1)
+            print(f"No stage1 files found, using production files: {len(tmp_files)} files")
             return tmp_files
         else:
             # Production mode: only process tmp files (ignore any stale stage1)
@@ -1089,6 +1205,7 @@ def get_input_files(args):
             if not tmp_files:
                 print(f"No .tmp files found in {temp_dir}")
                 sys.exit(1)
+            print(f"Processing all available files: {len(tmp_files)} files")
             return tmp_files
 
 def get_output_path(input_path, debug_mode=False):
@@ -1115,17 +1232,26 @@ def get_output_path(input_path, debug_mode=False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Module 2: Dictionary Lookup and Line-Breaking Application"
+        description="Module 2: Dictionary Lookup and Line-Breaking Application",
+        epilog="""
+Examples:
+  %(prog)s GC01                    # Process chapter 1
+  %(prog)s GC01 GC05              # Process chapters 1 and 5
+  %(prog)s GC[01..05]             # Process chapters 1 through 5
+  %(prog)s GC01_lo.tmp            # Process specific file
+  %(prog)s                        # Process all files in temp folder
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument(
         'files', 
         nargs='*', 
-        help='Temp files to process (default: all .tmp files in 04_assets/temp/)'
+        help='File specifications to process. Supports: GC01, GC01_lo, GC01_lo.tmp, GC[01..05] ranges'
     )
     parser.add_argument(
         '--debug', 
         action='store_true', 
-        help='Enable debug mode (create stage2 files)'
+        help='Enable debug mode (create stage2 files, prefer stage1 input)'
     )
     parser.add_argument(
         '--verbose', '-v', 
@@ -1143,7 +1269,7 @@ def main():
     dictionary_path = get_dictionary_path()
     dictionary = LaoDictionary(dictionary_path)
     
-    # Get input files
+    # Get input files with intelligent matching
     input_files = get_input_files(args)
     
     if not input_files:
@@ -1154,7 +1280,8 @@ def main():
     success_count = 0
     total_count = len(input_files)
     
-    print(f"Processing {total_count} file(s) in {'debug' if args.debug else 'production'} mode...")
+    mode_desc = 'debug' if args.debug else 'production'
+    print(f"Processing {total_count} file(s) in {mode_desc} mode...")
     
     for input_file in input_files:
         input_path = str(input_file)
