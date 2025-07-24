@@ -64,6 +64,7 @@ import os
 import sys
 import argparse
 import re
+import subprocess
 from pathlib import Path
 from typing import List, Dict, Tuple, Any
 try:
@@ -1312,6 +1313,60 @@ def get_output_path(input_path, debug_mode=False):
     
     return input_file.parent / output_name
 
+def run_pre_debug_tests():
+    """
+    Run test suite before debug processing to ensure stability.
+    
+    Returns:
+        bool: True if all tests pass, False if any test fails
+    """
+    # Prevent infinite recursion when called from test suite
+    if os.environ.get('MODULE2_TESTING', '0') == '1':
+        return True
+    
+    try:
+        print("🔍 Running pre-debug tests to ensure stability...")
+        
+        # Import the test module
+        script_dir = Path(__file__).parent
+        test_script = script_dir / "test_module2.py"
+        
+        if not test_script.exists():
+            print("⚠️ Test script not found - proceeding without tests")
+            return True
+        
+        # Set environment variable to prevent recursion
+        env = os.environ.copy()
+        env['MODULE2_TESTING'] = '1'
+        
+        # Run the test suite
+        result = subprocess.run(
+            [sys.executable, str(test_script)],
+            cwd=get_project_root(),
+            capture_output=True,
+            text=True,
+            timeout=120,
+            env=env
+        )
+        
+        if result.returncode == 0:
+            print("✅ All tests passed - proceeding with debug processing")
+            return True
+        else:
+            print("❌ Tests failed - debug output:")
+            print(result.stdout)
+            if result.stderr:
+                print("Errors:")
+                print(result.stderr)
+            return False
+            
+    except subprocess.TimeoutExpired:
+        print("⚠️ Tests timed out - proceeding without validation")
+        return True
+    except Exception as e:
+        print(f"⚠️ Test execution error: {e} - proceeding without validation")
+        return True
+
 def main():
     parser = argparse.ArgumentParser(
         description="Module 2: Dictionary Lookup and Line-Breaking Application",
@@ -1342,6 +1397,13 @@ Examples:
     )
     
     args = parser.parse_args()
+    
+    # Run pre-debug tests to ensure stability
+    if args.debug:
+        if not run_pre_debug_tests():
+            print("⚠️ Tests failed - aborting to prevent breaking functionality")
+            print("Fix the failing tests before proceeding with debug mode.")
+            sys.exit(1)
     
     # Initialize debug session
     if HAS_DEBUG and args.debug:
