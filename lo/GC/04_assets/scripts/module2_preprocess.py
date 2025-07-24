@@ -78,6 +78,89 @@ session_stats = {
     'interesting_cases': 0
 }
 
+# Lao Linguistic Rules - Based on actual nodict_analysis.log patterns
+TONE_MARKS = {
+    '່', '້', '໊', '໋'  # All tone marks
+}
+
+DEPENDENT_VOWELS = {
+    'ະ',  # Must end syllable
+    'ັ',  # Must be between consonants  
+    'ິ', 'ີ', 'ຶ', 'ື', 'ຸ', 'ູ',  # Must follow consonants
+    'ົ',  # Must be between consonants
+    'ຽ',  # Must be between consonants
+    'ຳ',  # Special combining vowel+nasal
+    'າ',  # Long A - must follow consonant
+}
+
+VOWELS_THAT_PRECEDE_CONSONANTS = {
+    'ໃ', 'ໄ', 'ໂ', 'ເ'  # Must have consonant after
+}
+
+# Single consonants that are likely fragments (high frequency in nodict)
+LIKELY_FRAGMENT_CONSONANTS = {
+    'ສ', 'ດ', 'ບ', 'ກ', 'ຄ', 'ນ', 'ມ', 'ລ', 'ວ', 'ຫ', 'ພ', 'ທ', 'ຈ', 'ຊ', 'ຍ', 'ຣ', 'ຟ', 'ປ', 'ຂ', 'ຮ', 'ອ', 'ຢ', 'ຖ', 'ຕ', 'ງ', 'ຝ', 'ຜ'
+}
+
+def is_invalid_fragment(text: str) -> bool:
+    """Check if text is an invalid fragment starting with dependent character."""
+    if len(text) < 2 or len(text) > 6:
+        return False
+    
+    # Handle fragments that start with space + dependent vowel (common pattern)
+    if text.startswith(' ') and len(text) > 1:
+        second_char = text[1]
+        # Fragments like " ັ້ນ", " ່ອນ", " ົດ", " ້າ", " ິສ"
+        if second_char in DEPENDENT_VOWELS or second_char in TONE_MARKS:
+            return True
+    
+    first_char = text[0]
+    
+    # Fragments starting with tone marks (່ອນ)
+    if first_char in TONE_MARKS:
+        return True
+        
+    # Fragments starting with dependent vowels (ັ່ງ, ັ້ນ, ົດ)
+    if first_char in DEPENDENT_VOWELS:
+        return True
+    
+    return False
+
+def is_invalid_standalone_lao(text: str) -> bool:
+    """
+    Check if text represents invalid standalone Lao.
+    Based on actual patterns from nodict_analysis.log covering 750 pages.
+    """
+    if not text:
+        return False
+    
+    # Single character rules
+    if len(text) == 1:
+        char = text[0]
+        
+        # Tone marks never standalone
+        if char in TONE_MARKS:
+            return True
+            
+        # Dependent vowels never standalone  
+        if char in DEPENDENT_VOWELS:
+            return True
+            
+        # Vowels that precede consonants never standalone
+        if char in VOWELS_THAT_PRECEDE_CONSONANTS:
+            return True
+            
+        # Single consonants are likely fragments in most contexts
+        # (This is aggressive but based on high nodict frequency)
+        if char in LIKELY_FRAGMENT_CONSONANTS:
+            return True
+    
+    # Fragment rules for 2-6 character sequences
+    if is_invalid_fragment(text):
+        return True
+    
+    return False
+
 class LaoDictionary:
     """Handles loading and lookup of Lao dictionary with break points."""
     
@@ -336,14 +419,13 @@ def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
     """
     Score a parsing result - lower scores are better.
     
-    FIXED VERSION: Prevents fragmentation from scoring better than compounds
-    by adding a multi-segment penalty that scales with the number of segments.
+    ENHANCED VERSION: Prevents illegal linguistic splits while preserving 
+    \nodict{} for legitimate missing dictionary words.
     
-    The core issue was that multiple dictionary segments could accumulate
-    more bonus points than a single compound segment, making fragmentation
-    appear better than compound preservation.
-    
-    VALIDATED: This scoring system correctly handles all cases from lookahead_decisions.log
+    The goal is to prevent splits like:
+    ❌ ເພື່ອນຳ → [ເພື່ອນ] + nodict{ຳ} (ຳ can't stand alone)
+    ✅ ເພື່ອນຳ → [ເພື່ອ] + [ນຳ] (both valid words)
+    ✅ ມິນເລີ → nodict{ມິນເລີ} (legitimate missing word for dictionary)
     """
     score = 0
     consecutive_dict_bonus = 0
@@ -352,7 +434,12 @@ def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
         if segment['type'] == 'nodict':
             text_len = len(segment['text'])
             
-            # Heavy penalty for nodict segments (unchanged)
+            # NEW: Severe penalty for linguistically impossible fragments
+            if is_invalid_standalone_lao(segment['text']):
+                score += 200  # Heavy penalty to force different word boundaries
+                # This makes illegal splits much worse than legitimate missing words
+            
+            # Normal penalty for nodict segments (legitimate missing words)
             score += text_len * 10
             
             # Extra penalties for very short nodict segments (likely parsing errors)
@@ -367,12 +454,11 @@ def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
         elif segment['type'] == 'dict':
             text_len = len(segment['text'])
             
-            # FIXED: Strong rewards for longer dictionary entries (compound words)
-            # These bonuses are calibrated based on actual log analysis
+            # UNCHANGED: Strong rewards for longer dictionary entries (compound words)
             if text_len >= 6:
-                score -= 25  # Major bonus for long compounds like ດັ່ງນັ້ນ, ຍິ່ງໃຫຍ່
+                score -= 25  # Major bonus for long compounds
             elif text_len >= 4:
-                score -= 15  # Good bonus for medium compounds like ຄົ້ນພົບ
+                score -= 15  # Good bonus for medium compounds
             elif text_len >= 3:
                 score -= 8   # Small bonus for 3-char words
             elif text_len >= 2:
@@ -380,38 +466,34 @@ def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
             else:
                 score -= 1   # Single character dict entries get minimal credit
             
-            # FIXED: Fragmentation detection via consecutive short entries
+            # UNCHANGED: Fragmentation detection via consecutive short entries
             consecutive_dict_bonus += 1
             if consecutive_dict_bonus >= 2:
-                # Multiple consecutive short dict entries suggest fragmentation
                 if text_len <= 3:
                     score += 8  # Penalty for likely fragmentation
                 elif text_len <= 4:
                     score += 4  # Smaller penalty for medium fragments
     
-    # FIXED: Multi-segment penalty to prevent fragmentation from accumulating too many bonuses
+    # UNCHANGED: Multi-segment penalty (compound preservation)
     total_dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
     if total_dict_segments > 1:
-        # Each additional dictionary segment beyond the first gets a penalty
-        # This prevents cases like [ເພາະ] + [ສະນັ້ນ] (-15 + -25 = -40)
-        # from scoring better than [ເພາະສະນັ້ນ] (-25)
         additional_segments = total_dict_segments - 1
         segment_penalty = additional_segments * 18  # 18 points per extra segment
         score += segment_penalty
     
-    # FIXED: Global fragmentation penalty based on segment count
+    # UNCHANGED: Global fragmentation penalty
     total_segments = len(parse_result)
     if total_segments > 5:
-        score += (total_segments - 5) * 2  # Penalty for excessive segmentation
+        score += (total_segments - 5) * 2
     
-    # FIXED: Dictionary coverage penalties
+    # UNCHANGED: Dictionary coverage penalties
     dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
     nodict_segments = sum(1 for seg in parse_result if seg['type'] == 'nodict')
     
     if dict_segments > 0 and nodict_segments > 0:
         coverage_ratio = dict_segments / (dict_segments + nodict_segments)
         if coverage_ratio < 0.5:
-            score += 10  # Penalty for low dictionary coverage
+            score += 10
     
     return score
     
