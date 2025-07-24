@@ -456,31 +456,54 @@ def print_console_summary(quality_results: Dict[str, List[str]],
 # MAIN ORCHESTRATION FUNCTION
 # =============================================================================
 
-def generate_context_report(project_root: Path = None):
+def generate_context_report(project_root: Path = None, processed_files: List[Path] = None):
     """Generate the complete nodict context analysis report."""
     # Setup paths
     if project_root is None:
         script_dir = Path(__file__).parent
         project_root = script_dir.parent.parent
-    
     temp_dir = project_root / "04_assets" / "temp"
     output_file = temp_dir / "nodict_analysis.log"
     dictionary_path = project_root / "04_assets" / "scripts" / "../../../../lo/assets/dictionaries/main.txt"
     
-    if not temp_dir.exists():
-        print(f"Warning: {temp_dir} not found, skipping context analysis")
-        return
+    # SCOPE FIX: Use provided files or fall back to global scan
+    if processed_files:
+        files_to_analyze = processed_files
+        print(f"📊 Analyzing specific files: {[f.name for f in processed_files]}")
+    else:
+        # Original logic: scan all files (for standalone execution)
+        stage2_files = list(temp_dir.glob('*_stage2.tmp'))
+        if stage2_files:
+            files_to_analyze = stage2_files
+            print(f"📊 Analyzing all stage2 files: {len(files_to_analyze)} files")
+        else:
+            tmp_files = list(temp_dir.glob('*.tmp'))
+            files_to_analyze = [f for f in tmp_files if not f.name.endswith('_stage1.tmp')]
+            print(f"📊 Analyzing all tmp files: {len(files_to_analyze)} files")
     
-    # Run analysis
+    # ADD THE MISSING ANALYSIS PIPELINE:
+    
+    # Run dictionary quality analysis
     quality_results = analyze_dictionary_quality(dictionary_path)
-    nodict_contexts = analyze_temp_directory(temp_dir)
     
-    # Generate and write report
-    report_lines = build_analysis_report(dictionary_path, quality_results, nodict_contexts)
+    # Analyze processed files for nodict contexts
+    all_contexts = defaultdict(list)
+    for file_path in files_to_analyze:
+        file_contexts = analyze_file(file_path)
+        
+        # Merge contexts
+        for term, contexts in file_contexts.items():
+            all_contexts[term].extend(contexts)
     
-    if write_analysis_report(report_lines, output_file):
-        print_console_summary(quality_results, nodict_contexts, output_file)
-
+    # Generate report
+    report_lines = build_analysis_report(dictionary_path, quality_results, dict(all_contexts))
+    
+    # Write report
+    success = write_analysis_report(report_lines, output_file)
+    if success:
+        print_console_summary(quality_results, dict(all_contexts), output_file)
+    
+    return success
 def main():
     """Standalone execution."""
     generate_context_report()

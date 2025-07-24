@@ -221,12 +221,12 @@ def clear_debug_logs(project_root: Path):
 # INTEGRATION WITH DICT_ANALYZER
 # =============================================================================
 
-def call_dict_analyzer(project_root: Path):
+def call_dict_analyzer(project_root: Path, processed_files: List[Path] = None):
     """Call the dictionary analyzer for comprehensive reporting."""
     try:
         # Import and call the main analyzer
         from dict_analyzer import generate_context_report
-        generate_context_report(project_root)
+        generate_context_report(project_root, processed_files)
         return True
     except ImportError:
         # dict_analyzer.py doesn't exist, continue silently
@@ -244,10 +244,10 @@ def initialize_debug_session(project_root: Path):
     """Initialize debug session - clear old logs, prepare for new session."""
     clear_debug_logs(project_root)
 
-def finalize_debug_session(project_root: Path, total_files: int, success_count: int):
+def finalize_debug_session(project_root: Path, total_files: int, success_count: int, processed_files: List[Path] = None):
     """Finalize debug session - generate comprehensive reports."""
     # Call the dictionary analyzer for comprehensive reporting
-    analysis_success = call_dict_analyzer(project_root)
+    analysis_success = call_dict_analyzer(project_root, processed_files)
     
     # Summary info
     if analysis_success:

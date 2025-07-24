@@ -436,7 +436,7 @@ def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
             
             # NEW: Severe penalty for linguistically impossible fragments
             if is_invalid_standalone_lao(segment['text']):
-                score += 200  # Heavy penalty to force different word boundaries
+                score += 10000  # Heavy penalty to force different word boundaries
                 # This makes illegal splits much worse than legitimate missing words
             
             # Normal penalty for nodict segments (legitimate missing words)
@@ -1361,6 +1361,7 @@ Examples:
     # Process files
     success_count = 0
     total_count = len(input_files)
+    processed_output_files = []
     
     mode_desc = 'debug' if args.debug else 'production'
     print(f"Processing {total_count} file(s) in {mode_desc} mode...")
@@ -1371,12 +1372,14 @@ Examples:
         
         if process_file(input_path, output_path, dictionary, args.verbose or args.debug):
             success_count += 1
+            processed_output_files.append(Path(output_path))
     
     print(f"\nCompleted: {success_count}/{total_count} files processed successfully")
     
     # Finalize debug session and generate comprehensive reports
     if HAS_DEBUG and args.debug:
-        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count)
+        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count, processed_output_files)
+
     
     if success_count < total_count:
         sys.exit(1)
