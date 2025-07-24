@@ -4,13 +4,26 @@
 *.gz
 *.tar
 
-# Ignore intermediate files
-*.tmp
+# Ignore intermediate and temporary folders and files
+**/*temp*
+**/*tmp*
+*.tmp   # Explicitly ignore .tmp files
+
+# Ignore local sandbox folders regardless of case
+**/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
 
 # Ignore mac generated files
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Ignore Kate editor generated files
+*.~lock*
+*.kate-swp
+
+# Ignore python generated folders and files
+__pycache__/
+*.pyc
 
 # Thumbnails
 ._*
@@ -319,10 +332,3 @@ TSWLatexianTemp*
 
 # NodeJS dependencies folder
 node_modules
-
-# Local sandbox folders
-**/sandbox/
-
-# Editor generated files
-*.~lock*
-*.kate-swp
