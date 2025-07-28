@@ -150,15 +150,15 @@ chapter:
 
 ເມື່ອລູເທີເຫັນຂະບວນການປະຕິຮູບຖືກກ່າວຫາດ້ວຍຜົນຂອງຄວາມຄັ່ງໄຄ້, ຄວາມທຸກໃຈທີ່ເພິ່ນເຄີຍມີເມື່ອເພິ່ນຢູ່ເມືອງເອີເຟິດນັ້ນ ໄດ້ກັບເຂົ້າມາອີກເປັນສອງເທົ່າ. ພວກເຈົ້າແຂວງຝ່າຍລະບອບສັນຕະປາປາກ່າວວ່າ ການກະບົດທີ່ເກີດຂຶ້ນເປັນຜົນໂດຍກົງຂອງຄຳສອນຂອງລູເທີ ແລະ ມີຫຼາຍຄົນພ້ອມທີ່ຈະຄ້ອຍຕາມຄວາມຄິດນີ້. ເຖິງແມ່ນວ່າຂໍ້ກ່າວຫານີ້ບໍ່ມີເຄົ້າຄວາມເປັນຈິງເລີຍ, ແຕ່ມັນສ້າງຄວາມລຳບາກໃຈໃຫ້ລູເທີຫຼາຍ. ເພິ່ນຮູ້ສຶກເໝືອນຈະທົນບໍ່ໄດ້ທີ່ເຫັນພັນທະກິດການປະກາດຫຼັກຄວາມຈິງຖືກນັບຮວມກັບຄວາມຄັ່ງໄຄ້ທີ່ຕ່ຳຊ້າທີ່ສຸດ. ສ່ວນພວກຜູ້ນຳການກະບົດກຽດຊັງລູເທີ ເພາະເພິ່ນບໍ່ພຽງແຕ່ຕໍ່ຕ້ານຄຳສອນ ແລະ ຂໍ້ອ້າງຂອງພວກເຂົາທີ່ອ້າງວ່າໄດ້ຮັບການດົນໃຈຈາກພຣະເຈົ້າແລ້ວ ເພິ່ນກໍຍັງປະກາດວ່າພວກເຂົາເປັນກະບົດຕໍ່ອຳນາດການປົກຄອງດ້ວຍ. ຄົນເຫຼົ່ານີ້ແກ້ແຄ້ນດ້ວຍການປະນາມລູເທີວ່າເປັນຈອມຫຼອກຫຼວງທີ່ຕ່ຳຊ້າ. ເບິ່ງຄືວ່າລູເທີໄດ້ເຮັດໃຫ້ທັງພວກເຈົ້າແຂວງ ແລະ ປະຊາຊົນກຽດຊັງຕົນເອງ. {GC 192.1}
 
-## {GC 192.2}
+## {GC 192.2}here<<begin missing paragraphs>>here<<begin missing paragraphs>>
 
-The Romanists exulted, expecting to witness the speedy downfall of the Reformation; and they blamed Luther, even for the errors which he had been most earnestly endeavoring to correct. The fanatical party, by falsely claiming to have been treated with great injustice, succeeded in gaining the sympathies of a large class of the people, and, as is often the case with those who take the wrong side, they came to be regarded as martyrs. Thus the ones who were exerting every energy in opposition to the Reformation were pitied and lauded as the victims of cruelty and oppression. This was the work of Satan, prompted by the same spirit of rebellion which was first manifested in heaven. {GC 192.2}
+ພວກທີ່ສະໜັບສະໜູນຄຣິສຕະຈັກໂຣມຕ່າງຄົນຕ່າງດີອົດດີໃຈເພາະຄາດວ່າໃກ້ຈະເຫັນຄວາມພິນາດຂອງຂະບວນການປະຕິຮູບຢ່າງໄວວາ. ພວກເຂົາຍັງໂທດລູເທີສຳລັບຄຳສອນຜິດໆທີ່ເພິ່ນໄດ້ທຸ້ມເທກຳລັງເພື່ອແກ້ໄຂໃຫ້ຖືກຕ້ອງ. ກຸ່ມພວກທີ່ຄັ່ງໄຄ້(ໂມເມວ່າ/ກຸເລື່ອງ)ພວກຕົນບໍ່ໄດ້ຮັບຄວາມເປັນທຳເຮັດໃຫ້ປະຊາຊົນຈຳນວນຫຼວງຫຼາຍເຫັນໃຈພວກເຂົາ, ແລ້ວກໍເປັນຢ່າງນີ້ຢູ່ເລື້ອຍໆ ຄືຄົນທີ່ເຂົ້າຂ້າງຝ່າຍທີ່ຜິດກໍຖືກນັບວ່າເປັນພວກທີ່ຍອມສະຫຼະຊີວິດເພື່ອຄວາມເຊື່ອ, ພວກທີ່ຄັ່ງໄຄ້ສະໄໝລູເທີກໍເຊັ່ນກັນ. ສະນັ້ນຄົນທັງຫຼາຍທີ່ທຸ້ມເທກຳລັງເພື່ອຕໍ່ຕ້ານຂະບວນການປະຕິຮູບກາຍເປັນທີ່ເຫັນໃຈ ແລະເປັນທີ່ຍົກຍ້ອງວ່າເປັນເຫຍື່ອຂອງການກົດຂີ່ຂົ່ມເຫັງທີ່ໂຫດຮ້າຍ. ນີ້ແມ່ນງານຂອງຊາຕານ, ໂດຍມີຄວາມຄິດກະບົດເປັນແຮງບັນດານໃຈຢູ່ເບື້ອງຫຼັງ ເຊິ່ງຄວາມຄິດນີ້ໄດ້ປາກົດເປັນຄັ້ງທຳອິດໃນສະຫວັນເມື່ອຊາຕານກະບົດຕໍ່ພຣະເຈົ້າ. {GC 192.2}
 
 ## {GC 192.3}
 
-Satan is constantly seeking to deceive men and lead them to call sin righteousness, and righteousness sin. How successful has been his work! How often censure and reproach are cast upon God's faithful servants because they will stand fearlessly in defense of the truth! Men who are but agents of Satan are praised and flattered, and even looked upon as martyrs, while those who should be respected and sustained for their fidelity to God, are left to stand alone, under suspicion and distrust. {GC 192.3}
+ຊາຕານເຮັດວຽກຢູ່ຕະຫຼອດເວລາເພື່ອຫຼອກມະນຸດໃຫ້ເອີ້ນຄວາມບາບວ່າເປັນຄວາມຊອບທຳ ແລະໃຫ້ເອີ້ນຄວາມຊອບທຳວ່າເປັນຄວາມບາບ. ມັນໄດ້ປະສົບຜົນສຳເລັດຫຼາຍໃນວຽກງານນີ້! ການທີ່ຜູ້ຮັບໃຊ້ທີ່ສັດຊື່ຂອງພຣະເຈົ້າຖືກຕຳໜິຕິຕຽນ ເພາະພວກເຂົາຢືນຢັດປົກປ້ອງສັດຈະທຳໂດຍບໍ່ຫວັ່ນໄຫວເປັນເລື່ອງທີ່ເກີດຂຶ້ນຢູ່ເລື້ອຍໆ! ຄົນທີ່ເປັນພຽງຕົວແທນຂອງຊາຕານກຊໄດ້ຮັບການຍົກຍ້ອງສັນລະເສີນ ແລະຖືກນັບວ່າເປັນຄົນທີ່ຍອມສະຫຼະຊີວິດເພື່ອຄວາມເຊື່ອ, ໃນຂະນະທີ່ຄົນທັງຫຼາຍທີ່ສົມຄວນຮັບການນັບຖື ແລະການສະໜັບສະໜູນເພາະຄວາມຈົງຮັກພັກດີທີ່ມີຕໍ່ພຣະເຈົ້າ ກໍຖືກປະໄວ້ໃຫ້ຢືນຄົນດຽວ (ໂດຍ/ແລະ)(ຖືກສັງຄົມສົງໄສບໍ່ວາງໃຈ). {GC 192.3}
 
-## {GC 193.1}
+## {GC 193.1}End missing paragraphs
 
 ຄວາມບໍຣິສຸດທຽມເທັດ ແລະ ການຊຳລະໃຈຈອມປອມຍັງຄົງດຳເນີນການລອກຫຼວງຂອງມັນຢູ່. ໃນປະຈຸບັນສິ່ງເຫຼົ່ານີ້ຍັງສະແດງເຈຕະນາແບບດຽວກັນກັບໃນສະໄໝລູເທີ ໂດຍມັນປາກົດໃນຮູບແບບຕ່າງໆ ເພື່ອຫັນເຫຄວາມຄິດຂອງຜູ້ຄົນອອກຈາກພຣະຄຳພີໄປໃສ່ໃຈກັບຄວາມຮູ້ສຶກຂອງຕົນເອງ ແທນທີ່ຈະປະຕິບັດຕາມພຣະບັນຍັດຂອງພຣະເຈົ້າ. ນີ້ເປັນເຄື່ອງມືທີ່ຊາຕານໃຊ້ໄດ້ຜົນຫຼາຍທີ່ສຸດ ໃນການນຳຄົນໃຫ້ປະນາມຄວາມບໍຣິສຸດ ແລະ ຄວາມຈິງ. {GC 193.1}
 
