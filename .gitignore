@@ -4,6 +4,9 @@
 *.gz
 *.tar
 
+# Ignore intermediate files
+*.tmp
+
 # Ignore mac generated files
 .DS_Store
 .AppleDouble
