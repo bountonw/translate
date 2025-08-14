@@ -1343,6 +1343,20 @@ def run_pre_debug_tests():
         print(f"⚠️ Test execution error: {e} - proceeding without validation")
         return True
 
+# Dictionary Maintenance helper function
+def _run_dictionary_maintenance(project_root):
+    """
+    Module 2 cleanup hook:
+    - Sort & overwrite main.txt / patch.txt
+    - Write duplicate log only if duplicates exist
+    - Print a console notice when a log is written
+    """
+    try:
+        from dict_maintenance import maintain_dictionaries
+        maintain_dictionaries(project_root=project_root)
+    except Exception as e:
+        print(f"[Module2] Dictionary maintenance skipped: {e}")
+
 def main():
     parser = argparse.ArgumentParser(
         description="Module 2: Dictionary Lookup and Line-Breaking Application",
@@ -1417,7 +1431,7 @@ Examples:
     # Finalize debug session and generate comprehensive reports
     if HAS_DEBUG and args.debug:
         module2_debug.finalize_debug_session(get_project_root(), total_count, success_count, processed_output_files)
-
+        _run_dictionary_maintenance(get_project_root())
     
     if success_count < total_count:
         sys.exit(1)
