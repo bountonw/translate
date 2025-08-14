@@ -959,68 +959,33 @@ def process_tex_command_with_lao(line, dictionary, debug=False):
    
    return processed_line
 
-# module2_preprocess.py
 def extract_and_preserve_commands(text):
-    """Extract \\egw{}, \\scrspace, \\scrref{}, \\lw{...}, footnote markers, and flex/rigid spaces, replace with placeholders."""
+    """
+    Extract \\egw{...}, \\scrref{...}, \\lw{...}, \\scrspace,
+    footnote markers ([^n] and [^n]:), and \\s/\\S (flex/rigid spaces),
+    replacing them with numbered placeholders.
+
+    Returns:
+        (placeholder_text, protected_commands)
+    """
     import re
-    
+
     protected_commands = []
-    placeholder_text = text
-    
-    # 1) \egw{...}
-    egw_pattern = r'\\egw\{[^}]+\}'
-    matches = re.finditer(egw_pattern, placeholder_text)
-    for match in matches:
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text.replace(command, placeholder, 1)
-    
-    # 2) \scrref{...}
-    scrref_pattern = r'\\scrref\{[^}]+\}'
-    matches = re.finditer(scrref_pattern, placeholder_text)
-    for match in matches:
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text.replace(command, placeholder, 1)
-    
-    # 3) \lw{...}. Protect pre-tagged Lao words so the parser won’t reprocess them
-    lw_pattern = r'\\lw\{[^}]+\}'
-    matches = re.finditer(lw_pattern, placeholder_text)
-    for match in matches:
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text.replace(command, placeholder, 1)
-    
-    # 4) \scrspace  (standalone command)
-    scrspace_pattern = r'\\scrspace(?![a-zA-Z])'
-    matches = re.finditer(scrspace_pattern, placeholder_text)
-    for match in reversed(list(matches)):  # reverse to avoid shifting indexes
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text[:match.start()] + placeholder + placeholder_text[match.end():]
-    
-    # 5) Footnote markers: [^1], [^2], … and the definition starters [^1]: etc.
-    footnote_pattern = r'\[\^\d+\](?::)?'
-    matches = re.finditer(footnote_pattern, placeholder_text)
-    for match in matches:
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text.replace(command, placeholder, 1)
-    
-    # 6) \s and \S (flex/rigid space markers; not followed by letters)
-    flex_pattern = r'\\[sS](?![a-zA-Z])'
-    matches = re.finditer(flex_pattern, placeholder_text)
-    for match in reversed(list(matches)):  # reverse to avoid shifting indexes
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text[:match.start()] + placeholder + placeholder_text[match.end():]
-    
+
+    # One-pass matcher for all protected tokens; order is preserved by re.sub callback
+    pattern = re.compile(
+        r"(\\(?:egw|scrref|lw)\{[^}]+\}"      # \egw{...}, \scrref{...}, \lw{...}
+        r"|\\scrspace(?![A-Za-z])"            # \scrspace (standalone)
+        r"|\[\^\d+\](?::)?"                   # [^1] and [^1]:
+        r"|\\[sS](?![A-Za-z]))"               # \s or \S (not followed by letters)
+    )
+
+    def _repl(m: re.Match) -> str:
+        idx = len(protected_commands)
+        protected_commands.append(m.group(0))
+        return f"__PROTECTED_CMD_{idx}__"
+
+    placeholder_text = pattern.sub(_repl, text)
     return placeholder_text, protected_commands
 
 def restore_protected_commands(text, protected_commands):
