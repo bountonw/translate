@@ -133,17 +133,26 @@ def get_input_files_module3(args: argparse.Namespace) -> List[Path]:
     return []
 
 
-def default_output_path(in_path: Path) -> Path:
+def default_output_path(in_path: Path, temp_subdir: str = "tex") -> Path:
     """
-    Map temp input → final .tex.
-      foo_stage2.tmp → 04_assets/tex/foo.tex
-      foo.tmp        → 04_assets/tex/foo.tex
+    Map temp input → final .tex path under the *temp* tree.
+
+      foo_stage2.tmp → 04_assets/temp/tex/foo.tex
+      foo.tmp        → 04_assets/temp/tex/foo.tex
+
+    Notes:
+    - Keep .tex artifacts in temp (transitional; not tracked by git).
+    - 'temp_subdir' lets us choose 'tex' (default) or '' to drop them directly in temp/.
     """
+    # base name without _stage2 suffix
     base = in_path.stem
     if base.endswith('_stage2'):
         base = base[:-len('_stage2')]
-    out_dir = get_project_root() / '04_assets' / 'tex'
+
+    temp_root = get_project_root() / '04_assets' / 'temp'
+    out_dir = temp_root / temp_subdir if temp_subdir else temp_root
     out_dir.mkdir(parents=True, exist_ok=True)
+
     return out_dir / f"{base}.tex"
 
 
