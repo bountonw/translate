@@ -66,6 +66,7 @@ import argparse
 import re
 import subprocess
 from pathlib import Path
+from patch_overrides import apply_patch_overrides
 from typing import List, Dict, Tuple, Any
 try:
     import module2_debug
@@ -958,63 +959,63 @@ def process_tex_command_with_lao(line, dictionary, debug=False):
    
    return processed_line
 
+# module2_preprocess.py
 def extract_and_preserve_commands(text):
-    """Extract \\egw{}, \\scrspace, \\scrref{}, footnote markers, and flex/rigid spaces, replace with placeholders."""
+    """Extract \\egw{}, \\scrspace, \\scrref{}, \\lw{...}, footnote markers, and flex/rigid spaces, replace with placeholders."""
     import re
     
     protected_commands = []
     placeholder_text = text
     
-    # Find all \egw{...} commands
+    # 1) \egw{...}
     egw_pattern = r'\\egw\{[^}]+\}'
-    matches = re.finditer(egw_pattern, text)
-    
-    for i, match in enumerate(matches):
-        command = match.group(0)
-        placeholder = f'__PROTECTED_CMD_{i}__'
-        protected_commands.append(command)
-        placeholder_text = placeholder_text.replace(command, placeholder, 1)
-    
-    # Find all \scrref{...} commands (scripture references with braces)
-    # These commands protect scripture references from dictionary processing
-    scrref_pattern = r'\\scrref\{[^}]+\}'
-    matches = re.finditer(scrref_pattern, placeholder_text)
-    
+    matches = re.finditer(egw_pattern, placeholder_text)
     for match in matches:
         command = match.group(0)
         placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
         protected_commands.append(command)
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
-    # Find all \scrspace commands (standalone scripture spacing)
-    # These commands provide spacing between Bible books and references
-    scrspace_pattern = r'\\scrspace(?![a-zA-Z])'  # Not followed by letters
-    matches = re.finditer(scrspace_pattern, placeholder_text)
+    # 2) \scrref{...}
+    scrref_pattern = r'\\scrref\{[^}]+\}'
+    matches = re.finditer(scrref_pattern, placeholder_text)
+    for match in matches:
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
-    # Process matches in reverse order to avoid position shifts
-    for match in reversed(list(matches)):
+    # 3) \lw{...}. Protect pre-tagged Lao words so the parser won’t reprocess them
+    lw_pattern = r'\\lw\{[^}]+\}'
+    matches = re.finditer(lw_pattern, placeholder_text)
+    for match in matches:
+        command = match.group(0)
+        placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
+        protected_commands.append(command)
+        placeholder_text = placeholder_text.replace(command, placeholder, 1)
+    
+    # 4) \scrspace  (standalone command)
+    scrspace_pattern = r'\\scrspace(?![a-zA-Z])'
+    matches = re.finditer(scrspace_pattern, placeholder_text)
+    for match in reversed(list(matches)):  # reverse to avoid shifting indexes
         command = match.group(0)
         placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
         protected_commands.append(command)
         placeholder_text = placeholder_text[:match.start()] + placeholder + placeholder_text[match.end():]
     
-    # Find all footnote markers [^1], [^2], etc. and [^1]:, [^2]:, etc.
+    # 5) Footnote markers: [^1], [^2], … and the definition starters [^1]: etc.
     footnote_pattern = r'\[\^\d+\](?::)?'
     matches = re.finditer(footnote_pattern, placeholder_text)
-    
     for match in matches:
         command = match.group(0)
         placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
         protected_commands.append(command)
         placeholder_text = placeholder_text.replace(command, placeholder, 1)
     
-    # Find \s and \S flex/rigid space markers (not followed by letters to avoid \section, \source, etc.)
-    # NOTE: The (?![a-zA-Z]) ensures we don't match \scrspace or \scrref commands
+    # 6) \s and \S (flex/rigid space markers; not followed by letters)
     flex_pattern = r'\\[sS](?![a-zA-Z])'
     matches = re.finditer(flex_pattern, placeholder_text)
-    
-    # Process matches in reverse order to avoid position shifts
-    for match in reversed(list(matches)):
+    for match in reversed(list(matches)):  # reverse to avoid shifting indexes
         command = match.group(0)
         placeholder = f'__PROTECTED_CMD_{len(protected_commands)}__'
         protected_commands.append(command)
@@ -1110,7 +1111,11 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         # Read input file
         with open(input_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
+        # Apply high-priority exact overrides from patch.txt
+        # Requires: from patch_overrides import apply_patch_overrides
+        content = apply_patch_overrides(content)
+            
         # Split into lines for processing
         lines = content.split('\n')
         processed_lines = []
@@ -1139,6 +1144,7 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         print(f"✗ Error processing {input_path}: {e}")
         return False
 
+
 def get_project_root():
     """Get the project root directory based on script location."""
     script_dir = Path(__file__).parent
@@ -1149,6 +1155,11 @@ def get_dictionary_path():
     """Get the path to the dictionary file."""
     script_dir = Path(__file__).parent
     return script_dir / '../../../../lo/assets/dictionaries/main.txt'
+
+def get_patch_dictionary_path():
+    """Get the path to the patch dictionary file."""
+    script_dir = Path(__file__).parent
+    return script_dir / '../../../../lo/assets/dictionaries/patch.txt'
 
 def expand_chapter_ranges(file_specs):
     """
