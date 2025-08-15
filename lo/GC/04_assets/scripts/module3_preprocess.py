@@ -268,6 +268,9 @@ class FootnoteReport:
     sanitize_combo_fixes: int = 0
     sanitize_trailing_trim: int = 0
 
+    # Blank-line normalization
+    blanklines_collapsed: int = 0
+
     def __post_init__(self):
         if self.duplicate_ref_ids is None:
             self.duplicate_ref_ids = {}
@@ -277,6 +280,7 @@ class FootnoteReport:
             self.orphan_def_ids = []
         if self.markers_inside_macros is None:
             self.markers_inside_macros = []
+
 
 def sanitize_footnote_text(text: str, report: FootnoteReport) -> str:
     """
@@ -406,15 +410,42 @@ def find_markers_in_text(working: str) -> Dict[str, int]:
     return counts
 
 
-def remove_used_definition_lines(working: str, used_ids: set) -> str:
+def remove_used_definition_lines(working: str, used_ids: set, def_spans: Dict[str, List[Tuple[int,int]]]) -> str:
     """
     Remove only those definition lines whose id is in used_ids; keep orphans.
+    IMPORTANT: we also remove ONE trailing newline after each removed def line
+    (handles \n, \r\n, or \r) to avoid leaving an extra blank line behind.
     """
-    def repl(m: re.Match) -> str:
-        fid = m.group(1)
-        return "" if fid in used_ids else m.group(0)
-    return _DEF_LINE_RE.sub(repl, working)
+    if not used_ids:
+        return working
 
+    intervals: List[Tuple[int, int]] = []
+    n = len(working)
+
+    for fid in used_ids:
+        for (start, end) in def_spans.get(fid, []):
+            # extend to include exactly one following linebreak if present
+            j = end
+            if j < n:
+                if working[j:j+2] == '\r\n':
+                    end = j + 2
+                elif working[j:j+1] in ('\n', '\r'):
+                    end = j + 1
+            intervals.append((start, end))
+
+    if not intervals:
+        return working
+
+    # merge and cut
+    intervals.sort()
+    out: List[str] = []
+    cursor = 0
+    for a, b in intervals:
+        if cursor < a:
+            out.append(working[cursor:a])
+        cursor = max(cursor, b)
+    out.append(working[cursor:])
+    return ''.join(out)
 
 def replace_markers_with_footnotes(working: str, defs: Dict[str, str], report: FootnoteReport) -> str:
     """
@@ -439,6 +470,24 @@ def replace_markers_with_footnotes(working: str, defs: Dict[str, str], report: F
             return m.group(0)  # leave as-is
 
     return _MARKER_RE.sub(repl, working)
+
+
+def collapse_extra_blank_lines(text: str, report: Optional[FootnoteReport] = None) -> str:
+    """
+    Ensure double-spaced paragraphs: collapse any run of 3+ newlines (with optional
+    spaces on blank lines) to exactly 2 newlines. Also normalizes CRLF/CR to LF first.
+    """
+    # Normalize line endings to LF so collapsing is predictable
+    t = text.replace('\r\n', '\n').replace('\r', '\n')
+
+    # Replace 3 or more consecutive "blank line units" with exactly 2 newlines
+    # A "blank line unit" here is optional spaces/tabs followed by \n.
+    new_text, nsubs = re.subn(r'(?:[ \t]*\n){3,}', '\n\n', t)
+
+    if report is not None and nsubs:
+        report.blanklines_collapsed += nsubs
+
+    return new_text
 
 
 def sanitize_footnotes_in_document(restored_text: str, report: FootnoteReport) -> str:
@@ -657,6 +706,7 @@ def write_logs(report: FootnoteReport, in_path: Path, resolved_ids: Dict[str,int
         f"unique_ids={len(resolved_ids)} duplicate_refs={len([k for k,v in report.duplicate_ref_ids.items() if v>1])} "
         f"duplicate_defs={len([k for k,v in report.duplicate_def_ids.items() if v>1])} orphans={len(report.orphan_def_ids)} "
         f"| sanitize: leading_trim={report.sanitize_leading_trim} combos_fixed={report.sanitize_combo_fixes} trailing_trim={report.sanitize_trailing_trim}"
+        f"| blanklines_collapsed={report.blanklines_collapsed}"
     )
     if report.duplicate_ref_ids:
         lines.append(f"  duplicate_ref_ids: {sorted(report.duplicate_ref_ids.items(), key=lambda kv: kv[0])}")
@@ -732,9 +782,12 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
             # Determine which ids are used (present as markers)
             used_ids = set(fid for fid in marker_counts.keys() if fid in defs)
 
-            # Remove ONLY used definition lines
-            working_no_defs = remove_used_definition_lines(working, used_ids)
-
+            # Remove ONLY used definition lines (plus their following newline)
+            working_no_defs = remove_used_definition_lines(working, used_ids, def_spans)
+            
+            # Standardize paragraph spacing to exactly one blank line (double-spaced)
+            working_no_defs = collapse_extra_blank_lines(working_no_defs, report)
+            
             # Replace markers with \footnote{…}
             working_replaced = replace_markers_with_footnotes(working_no_defs, defs, report)
 
