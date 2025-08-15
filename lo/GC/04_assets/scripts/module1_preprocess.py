@@ -176,7 +176,7 @@ def normalize_lao_text(text):
 def clean_markdown_body(markdown_body):
     """
     Clean up markdown body by removing unwanted elements and converting others.
-    Now includes Unicode normalization for Lao text.
+    Now includes Unicode normalization for Lao text and TeX space normalization.
     
     Args:
         markdown_body (str): Raw markdown content
@@ -210,9 +210,9 @@ def clean_markdown_body(markdown_body):
             continue
             
         # Convert {GC <page>.<paragraph>} to \egw{GC <page>.<paragraph>}
-        # This handles references at the end of paragraphs
+        # Use \nbsp{} (self-terminating) and do NOT leave literal spaces around it
         egw_pattern = r'\{(GC) (\d+\.\d+)\}'
-        line = re.sub(egw_pattern, r'\\egw{\1\\nbsp \2}', line)
+        line = re.sub(egw_pattern, r'\\egw{\1\\nbsp{}\2}', line)
         
         # Apply normalization to the processed line
         line = normalize_lao_text(line)
@@ -222,12 +222,16 @@ def clean_markdown_body(markdown_body):
     content = '\n'.join(cleaned_lines)
     
     # Remove excessive blank lines (more than 2 consecutive)
-    content = re.sub(r'\n{3,}', '\n\n', content)
+    content = re.sub(r'\n{3,}', r'\n\n', content)
     
     # Clean up leading/trailing whitespace
     content = content.strip()
+
+    # FINAL SWEEP: normalize \nbsp and \scrspace so there are no literal spaces around them
+    content = normalize_nonbreaking_commands(content)
     
     return content
+
 
 def generate_tex_header(chapter_info):
     """
@@ -265,7 +269,8 @@ def load_numbered_bible_books():
 
 def protect_numbered_bible_books(text):
     """
-    Protect numbered Bible book names by converting spaces to \\nbsp.
+    Protect numbered Bible book names by converting the FIRST space to \nbsp{}.
+    Ensures no literal spaces remain around the command.
     
     Args:
         text (str): Input text that may contain numbered Bible books
@@ -274,16 +279,13 @@ def protect_numbered_bible_books(text):
         str: Text with numbered Bible books protected
     """
     numbered_books = load_numbered_bible_books()
-    
     if not numbered_books:
         return text  # Return unchanged if books couldn't be loaded
     
     protected_text = text
-    
-    # Process each numbered book
     for book in numbered_books:
-        # Convert "1 ຊາມູເອນ" to "1\\nbsp ຊາມູເອນ"
-        protected_book = book.replace(" ", "\\nbsp ", 1)  # Only replace first space
+        # Convert "1 ຊາມູເອນ" to "1\nbsp{}ຊາມູເອນ" (no trailing literal space)
+        protected_book = book.replace(" ", "\\nbsp{}", 1)
         protected_text = protected_text.replace(book, protected_book)
     
     return protected_text
@@ -304,7 +306,7 @@ def load_all_bible_books():
         numbered_mapping = {}
         for book in data['books']:
             if book.get('numbered', False):
-                nbsp_form = book['lao_name'].replace(' ', '\\nbsp ', 1)
+                nbsp_form = book['lao_name'].replace(' ', '\\nbsp{}', 1)
                 numbered_mapping[book['lao_name']] = nbsp_form
         
         # Reference pattern
@@ -316,16 +318,12 @@ def load_all_bible_books():
         return [], {}, None
 
 def protect_scripture_spacing(text):
-    """Add \\scrspace between Bible book names and scripture references."""
+    """Add \scrspace{} between Bible book names and scripture references."""
     bible_books, numbered_mapping, reference_pattern = load_all_bible_books()
-    
     if not bible_books or not reference_pattern:
         return text
     
-    import re
     protected_text = text
-    
-    # Process each Bible book
     for book in bible_books:
         # Handle both original form and nbsp form (if it's a numbered book)
         book_forms = [book]
@@ -333,8 +331,9 @@ def protect_scripture_spacing(text):
             book_forms.append(numbered_mapping[book])
         
         for book_form in book_forms:
+            # No literal spaces around \scrspace{}; self-terminate with {}
             pattern = rf'({re.escape(book_form)})\s+({reference_pattern.pattern})'
-            protected_text = re.sub(pattern, rf'\1\\scrspace \2', protected_text)
+            protected_text = re.sub(pattern, rf'\1\\scrspace{{}}\2', protected_text)
     
     return protected_text
 
@@ -387,6 +386,24 @@ def protect_scripture_references(text):
         replacement = f'\\scrspace{formatted}'
         text = text[:match.start()] + replacement + text[match.end():]
     
+    return text
+
+def normalize_nonbreaking_commands(text):
+    """
+    Ensure \nbsp and \scrspace are self-terminating and have no literal spaces
+    around them. Also upgrades bare forms (\nbsp or \scrspace without {}) to
+    \nbsp{} / \scrspace{}.
+    """
+    # 1) Upgrade bare commands to brace form: \nbsp -> \nbsp{} ; \scrspace -> \scrspace{}
+    text = re.sub(r'\\(nbsp|scrspace)(?!\s*\{)', r'\\\1{}', text)
+
+    # 2) Collapse any surrounding spaces: " \nbsp{} " -> "\nbsp{}"
+    text = re.sub(r'\s*\\(nbsp|scrspace)\{\}\s*', r'\\\1{}', text)
+
+    # 3) Prevent accidental duplication like \nbsp{}\nbsp{} caused by upstream quirks
+    # (Do this sparingly: we only collapse *immediate* duplicates)
+    text = re.sub(r'(\\(?:nbsp|scrspace)\{\})(?:\s*)(\\(?:nbsp|scrspace)\{\})', r'\1', text)
+
     return text
 
 def process_file(input_path, output_path, debug_mode=False):

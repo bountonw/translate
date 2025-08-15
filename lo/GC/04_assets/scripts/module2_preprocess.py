@@ -315,7 +315,7 @@ def process_text_groups(groups, dictionary, debug=False):
             result_parts.append(repetition_command)
         elif group_type == 'space':
             # Original spaces become \space
-            result_parts.append('\\space')
+            result_parts.append('\\space{}')
         else:
             # English, numbers, punctuation, placeholders - leave as-is, no wrapping
             result_parts.append(content)
