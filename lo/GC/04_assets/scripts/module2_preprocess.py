@@ -285,14 +285,14 @@ def apply_punctuation_protection(parts):
             if (needs_nobreak_protection(current_part) and 
                 len(next_part) > 0 and 
                 is_closing_punctuation(next_part[0])):
-                protected_parts.append('\\nobreak')
+                protected_parts.append('\\nobreak{}')
             
             # Case 2: Add \nobreak after opening punctuation  
             # " + \lw{word} → "\nobreak\lw{word}
             elif (len(current_part) > 0 and 
                   is_opening_punctuation(current_part[-1]) and
                   needs_nobreak_protection(next_part)):
-                protected_parts.append('\\nobreak')
+                protected_parts.append('\\nobreak{}')
     
     return protected_parts
 
