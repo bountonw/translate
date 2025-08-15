@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-Module 3 — Markdown→LaTeX inline + footnotes (Step 1: scaffold)
-----------------------------------------------------------------
-This step implements ONLY:
-- CLI & file discovery (parity with Module 1/2: positional files/ranges)
-- Protect–then–restore (slice-only) engine
-- Identity round-trip (no transforms), writing .tex output
-- Optional debug/verbose summary
+Module 3 — Markdown→LaTeX inline + footnotes
+---------------------------------------------
+Current step implements:
+- CLI (positional files/ranges; parity with M1/M2)
+- Slice-only protect/restore for TeX macros
+- Footnote resolver:
+  * Collect single-line definitions:    ^\s*\[\^id\]:\s*text
+  * Replace body markers  [^id] → \footnote{text}
+  * Remove only USED definition lines; keep orphans
+  * Log: unresolved markers, orphan defs, duplicate refs, duplicate defs
+  * Warn if a footnote marker appears INSIDE any protected macro span (shouldn't happen)
+- Debug (--debug):
+  * Outermost protected spans by kind + top names
+  * RAW literal counters + deltas (raw minus outermost)
+  * "UNLISTED MACROS" (auto-inventory of any \letters control word)
+- Output: 04_assets/temp/tex/<base>.tex  (created if missing)
 
-Next steps (not in this commit):
-- Footnote collect/resolve  [^n] + matching [^n]: ...
-- Markdown *** / ** / * transforms to \textbf{\emph{…}} etc.
-- TeX special escaping in plain text (% $ & # _ ^)
-- Clean-LaTeX checks & warnings
-
-Notes:
-- We NEVER alter internals of protected macros like \lw{…}, \nodict{…}, \scrref{…}, etc.
-- We protect any \letters{…} command with balanced braces, plus select bare commands.
+Next steps (future commits):
+- Markdown *** / ** / * → \textbf{\emph{…}} with spacing trims
+- Plain-text TeX special escaping (% $ & # _ ^) outside protected spans
+- Clean-LaTeX checks (brace balance, stray markdown markers)
 """
 
 from __future__ import annotations
@@ -35,18 +39,11 @@ from typing import List, Tuple, Iterable, Optional, Dict
 # ============================================================
 
 def get_project_root() -> Path:
-    """
-    Get the project root directory based on script location.
-    Script is in 04_assets/scripts/, so project root is two levels up.
-    """
     script_dir = Path(__file__).parent
     return script_dir.parent.parent
 
 
 def expand_chapter_ranges(file_specs: List[str]) -> List[str]:
-    """
-    Expand chapter range specifications like GC[01..05] into individual chapters.
-    """
     expanded: List[str] = []
     for spec in file_specs:
         m = re.match(r'GC\[(\d+)\.\.(\d+)\]', spec)
@@ -66,22 +63,20 @@ def resolve_file_specification_module3(file_spec: str, temp_dir: Path) -> Option
 
     Rules:
       - If file_spec endswith .tmp, use it verbatim (under temp_dir) if it exists.
-      - If file_spec is GC##, auto-append '_lo' → GC## _lo.
+      - If file_spec is GC##, auto-append '_lo' → GC##_lo.
       - Prefer '{base}_stage2.tmp', else '{base}.tmp'.
     """
-    # Exact .tmp provided
     if file_spec.endswith('.tmp'):
         cand = temp_dir / file_spec
         return cand if cand.exists() else None
 
-    # Auto-complete the base
     base = file_spec
     if re.match(r'^GC\d+$', base):
         base += '_lo'
 
     candidates = [
-        temp_dir / f"{base}_stage2.tmp",  # preferred
-        temp_dir / f"{base}.tmp",         # fallback
+        temp_dir / f"{base}_stage2.tmp",
+        temp_dir / f"{base}.tmp",
     ]
     for c in candidates:
         if c.exists():
@@ -90,18 +85,12 @@ def resolve_file_specification_module3(file_spec: str, temp_dir: Path) -> Option
 
 
 def get_input_files_module3(args: argparse.Namespace) -> List[Path]:
-    """
-    Get list of input files for Module 3 using positional args (like Module 1/2).
-    If no files are provided, process all available in temp dir,
-    preferring *_stage2.tmp where present.
-    """
     project_root = get_project_root()
     temp_dir = project_root / '04_assets' / 'temp'
     if not temp_dir.exists():
         print(f"Error: {temp_dir} directory not found")
         return []
 
-    # Specific files provided → resolve them
     if args.files:
         files: List[Path] = []
         for spec in expand_chapter_ranges(args.files):
@@ -116,7 +105,6 @@ def get_input_files_module3(args: argparse.Namespace) -> List[Path]:
                 print(f"  Searched for: {base}_stage2.tmp, {base}.tmp")
         return files
 
-    # No specs → process all available
     stage2 = list(temp_dir.glob('*_stage2.tmp'))
     if stage2:
         if getattr(args, 'verbose', False) or getattr(args, 'debug', False):
@@ -139,12 +127,7 @@ def default_output_path(in_path: Path, temp_subdir: str = "tex") -> Path:
 
       foo_stage2.tmp → 04_assets/temp/tex/foo.tex
       foo.tmp        → 04_assets/temp/tex/foo.tex
-
-    Notes:
-    - Keep .tex artifacts in temp (transitional; not tracked by git).
-    - 'temp_subdir' lets us choose 'tex' (default) or '' to drop them directly in temp/.
     """
-    # base name without _stage2 suffix
     base = in_path.stem
     if base.endswith('_stage2'):
         base = base[:-len('_stage2')]
@@ -152,7 +135,6 @@ def default_output_path(in_path: Path, temp_subdir: str = "tex") -> Path:
     temp_root = get_project_root() / '04_assets' / 'temp'
     out_dir = temp_root / temp_subdir if temp_subdir else temp_root
     out_dir.mkdir(parents=True, exist_ok=True)
-
     return out_dir / f"{base}.tex"
 
 
@@ -166,15 +148,11 @@ class Span:
     start: int
     end: int
     kind: str   # 'cmd_with_arg' | 'bare_cmd'
-    name: str   # macro/control word name (letters only), e.g., 'lw', 'nodict', 'space'
+    name: str   # macro/control word, e.g., 'lw', 'nodict', 'space'
 
 
 @dataclass(frozen=True)
 class Placeholder:
-    """
-    A placeholder inserted into the working text.
-    We store only indices (slice-only, no macro copying).
-    """
     token: str              # e.g., '⟪M000001⟫'
     start_in_work: int
     end_in_work: int
@@ -186,26 +164,16 @@ class Placeholder:
 # ============================================================
 
 # Bare commands to protect (no argument braces)
-# Bare commands to protect (no argument braces)
 _BARE_PROTECT = {
     # You requested these:
     "space", "nbsp", "ellipsis",
     # Project-known:
     "scrspace", "nobreak", "fs", "rs", "cs",
-    # Newly observed bare macros we must preserve:
+    # Newly observed bare macros:
     "laorepeat", "laorepeatbefore",
 }
 
-# Any \letters{...} with balanced braces is protected generically:
-# Examples: \lw{…}, \nodict{…}, \egw{…}, \scrref{…}, \p{…}
-
-
 def _scan_balanced_braces(text: str, i: int) -> int:
-    """
-    Given text and index i pointing at '{',
-    return index of the matching closing '}' + 1 (i.e., end of slice),
-    supporting nested braces. Raise ValueError on mismatch.
-    """
     if i >= len(text) or text[i] != "{":
         raise ValueError("brace scan called at non-brace position")
     depth = 0
@@ -221,68 +189,54 @@ def _scan_balanced_braces(text: str, i: int) -> int:
         j += 1
     raise ValueError("Unbalanced braces in macro argument")
 
-
 def _is_letter(c: str) -> bool:
-    # TeX control word names here are ASCII letters; Lao text will not match.
     return ("A" <= c <= "Z") or ("a" <= c <= "z")
-
 
 def find_protected_spans(text: str) -> List[Span]:
     r"""
-    Locate protected macros as half-open slices into ORIGINAL text.
-
-    We protect:
-      1) Any backslash + letters command immediately followed by a balanced {…} argument.
-         (e.g., \lw{…}, \nodict{…}, \scrref{…}, \p{…}, \egw{…})
-      2) Specific *bare* commands with no {…}: \space, \nbsp, \ellipsis,
-         plus project-listed ones (\scrspace, \nobreak, \fs, \rs, \cs).
+    Protect:
+      1) \letters{…} with balanced braces (e.g., \lw{…}, \egw{…}, \scrref{…}, \p{…})
+      2) Selected bare commands: \space, \nbsp, \ellipsis, \scrspace, \nobreak, \fs, \rs, \cs,
+                                 \laorepeat, \laorepeatbefore
     """
     spans: List[Span] = []
-    i = 0
-    n = len(text)
+    i, n = 0, len(text)
 
     while i < n:
         if text[i] == "\\":
-            # Parse control word name
             j = i + 1
             while j < n and _is_letter(text[j]):
                 j += 1
             name = text[i + 1:j]
-
-            # If no letters after backslash, skip (e.g., escapes like \{ not protected here)
             if not name:
                 i += 1
                 continue
 
-            # Case 1: bare command (no argument), protect if in allowlist
+            # Bare command (whole control word only)
             if name in _BARE_PROTECT:
                 spans.append(Span(start=i, end=j, kind="bare_cmd", name=name))
                 i = j
                 continue
 
-            # Case 2: command followed by balanced {…}
+            # Command + optional space + balanced {…}
             k = j
-            # Allow optional spaces between command and '{' (rare in your corpus, harmless)
             while k < n and text[k].isspace():
                 k += 1
             if k < n and text[k] == "{":
                 try:
                     end_arg = _scan_balanced_braces(text, k)
                 except ValueError:
-                    # Unbalanced; treat as non-protected and move on
                     i += 1
                     continue
                 spans.append(Span(start=i, end=end_arg, kind="cmd_with_arg", name=name))
                 i = end_arg
                 continue
 
-            # Not bare-protected and no '{…}' — leave it (e.g., \LaTeX). Extend later if needed.
             i += 1
             continue
 
         i += 1
 
-    # Ensure spans are sorted and non-overlapping
     spans.sort(key=lambda s: s.start)
     non_overlapping: List[Span] = []
     last_end = -1
@@ -290,7 +244,6 @@ def find_protected_spans(text: str) -> List[Span]:
         if s.start >= last_end:
             non_overlapping.append(s)
             last_end = s.end
-        # else: overlapping macros (unlikely). Keep leftmost and drop inner; could warn in a later step.
     return non_overlapping
 
 
@@ -298,69 +251,109 @@ def find_protected_spans(text: str) -> List[Span]:
 # Placeholder apply/restore (slice-only Option B)
 # ============================================================
 
-_TOKEN_FMT = "⟪M{num:06d}⟫"   # very unlikely to collide with Lao text
+_TOKEN_FMT = "⟪M{num:06d}⟫"
 _TOKEN_RE = re.compile(r"⟪M\d{6}⟫")
 
+@dataclass
+class FootnoteReport:
+    resolved: int = 0
+    unresolved: int = 0
+    duplicate_ref_ids: Dict[str, int] = None  # id -> count (>1 means duplicate)
+    duplicate_def_ids: Dict[str, int] = None  # id -> count of defs (>1 means duplicate definition)
+    orphan_def_ids: List[str] = None          # defs never referenced
+    markers_inside_macros: List[Tuple[str, str]] = None  # (macro name, snippet)
+
+    # Sanitizer counters (footnote-only)
+    sanitize_leading_trim: int = 0
+    sanitize_combo_fixes: int = 0
+    sanitize_trailing_trim: int = 0
+
+    def __post_init__(self):
+        if self.duplicate_ref_ids is None:
+            self.duplicate_ref_ids = {}
+        if self.duplicate_def_ids is None:
+            self.duplicate_def_ids = {}
+        if self.orphan_def_ids is None:
+            self.orphan_def_ids = []
+        if self.markers_inside_macros is None:
+            self.markers_inside_macros = []
+
+def sanitize_footnote_text(text: str, report: FootnoteReport) -> str:
+    """
+    Footnote-only cleanup that assumes braceful spacing macros:
+      - Drop leading \\space{} / \\nbsp{} (any count); preserve leading \\nobreak if present.
+      - Normalize small combos anywhere in the footnote:
+          \\space{}\\nbsp{}  -> \\nbsp{}
+          \\nbsp{}\\space{}  -> \\nbsp{}
+          \\space{}\\nobreak -> \\nobreak
+      - Trim trailing \\space{} / \\nbsp{} at the very end.
+    Do NOT remove braces from spacing macros; we keep braceful forms (\space{}, \nbsp{}).
+    """
+    changed = False
+
+    # 1) Leading trims: repeatedly remove \space{} / \nbsp{} at the start (keep \nobreak)
+    leading_pattern = re.compile(r'^(?:\s|\\space\{\}|\\nbsp\{\})+')
+    m = leading_pattern.match(text)
+    if m:
+        new_text = text[m.end():]
+        if new_text != text:
+            report.sanitize_leading_trim += 1
+            text = new_text
+            changed = True
+
+    # 2) Combo fixes anywhere
+    combo_patterns = [
+        (re.compile(r'\\space\{\}\\nbsp\{\}'), r'\\nbsp{}'),
+        (re.compile(r'\\nbsp\{\}\\space\{\}'), r'\\nbsp{}'),
+        (re.compile(r'\\space\{\}\\nobreak'), r'\\nobreak'),
+    ]
+    for pat, repl in combo_patterns:
+        text, n = pat.subn(repl, text)
+        if n:
+            report.sanitize_combo_fixes += n
+            changed = True
+
+    # 3) Trailing trims: remove trailing \space{} / \nbsp{} (and whitespace) at the very end
+    trailing_pattern = re.compile(r'(?:\s|\\space\{\}|\\nbsp\{\})+\Z')
+    text2, n2 = trailing_pattern.subn('', text)
+    if n2:
+        report.sanitize_trailing_trim += 1
+        text = text2
+        changed = True
+
+    return text
+
+
 def apply_placeholders(text: str, spans: List[Span]) -> Tuple[str, List[Placeholder]]:
-    """
-    Replace protected spans with unique placeholder tokens in a single pass.
-    Returns (working_text, placeholders). No macro text is copied.
-    """
     out_chunks: List[str] = []
     placeholders: List[Placeholder] = []
-
     cursor = 0
-    current_len = 0  # running length of out_chunks joined
-
+    current_len = 0
     for idx, s in enumerate(spans, start=1):
-        # Copy text before this span
         if cursor < s.start:
             chunk = text[cursor:s.start]
             out_chunks.append(chunk)
             current_len += len(chunk)
-
         token = _TOKEN_FMT.format(num=idx)
         out_chunks.append(token)
-
         start_in_work = current_len
         end_in_work = start_in_work + len(token)
         current_len = end_in_work
-
-        placeholders.append(
-            Placeholder(
-                token=token,
-                start_in_work=start_in_work,
-                end_in_work=end_in_work,
-                span=s,
-            )
-        )
+        placeholders.append(Placeholder(token=token, start_in_work=start_in_work, end_in_work=end_in_work, span=s))
         cursor = s.end
-
-    # Tail
     if cursor < len(text):
         tail = text[cursor:]
         out_chunks.append(tail)
-        current_len += len(tail)
-
     working = "".join(out_chunks)
     return working, placeholders
 
 
 def restore_placeholders(working: str, placeholders: List[Placeholder], original: str) -> str:
-    """
-    Restore placeholders with their original slices from 'original' text.
-    Left-to-right replacement; placeholders do not overlap by design.
-    """
     if not placeholders:
         return working
-
-    # Build a map token -> slice text (slice now; we never stored copies)
     repl: Dict[str, str] = {ph.token: original[ph.span.start:ph.span.end] for ph in placeholders}
-
     parts: List[str] = []
-    i = 0
-    n = len(working)
-
+    i, n = 0, len(working)
     while i < n:
         m = _TOKEN_RE.search(working, i)
         if not m:
@@ -369,148 +362,162 @@ def restore_placeholders(working: str, placeholders: List[Placeholder], original
         if m.start() > i:
             parts.append(working[i:m.start()])
         token = m.group(0)
-        parts.append(repl.get(token, token))  # if ever missing, leave the literal token
+        parts.append(repl.get(token, token))
         i = m.end()
-
     return "".join(parts)
 
 
 # ============================================================
-# Debug summary (optional)
+# Footnote collection + replacement
 # ============================================================
 
-def debug_summary(original: str, spans: List[Span], placeholders: List[Placeholder]) -> str:
+_DEF_LINE_RE = re.compile(r'^[ \t]*\[\^([^\]]+)\]:[ \t]*(.*)$', re.MULTILINE)
+_MARKER_RE   = re.compile(r'\[\^([^\]]+)\]')
+
+def collect_footnote_definitions(working: str) -> Tuple[Dict[str, str], Dict[str, int], Dict[str, List[Tuple[int,int]]]]:
     """
-    Two-part summary (+ auto inventory):
-      A) Outermost protected spans (placeholder anchors)
-      B) Raw literal token counts (ignoring nesting), plus delta(raw - outermost)
-      C) UNLISTED MACROS — union of:
-         - names found in the raw inventory but not in 'tracked_names'
-         - names seen in outermost spans but not in 'tracked_names'
+    Scan the *working* text (with placeholders) for single-line definitions.
+    Returns:
+      defs:  id -> text (if multiple defs for same id, last one wins)
+      def_counts: id -> number of definitions found
+      def_spans: id -> list of (start, end) spans in working for each def line
     """
-    # A) Outermost protected spans
-    total_outer = len(spans)
-    by_kind: Dict[str, int] = {}
-    by_name: Dict[str, int] = {}
+    defs: Dict[str, str] = {}
+    def_counts: Dict[str, int] = {}
+    def_spans: Dict[str, List[Tuple[int,int]]] = {}
+    for m in _DEF_LINE_RE.finditer(working):
+        fid = m.group(1)
+        ftext = m.group(2)
+        defs[fid] = ftext  # last one wins (but we also count)
+        def_counts[fid] = def_counts.get(fid, 0) + 1
+        def_spans.setdefault(fid, []).append((m.start(), m.end()))
+    return defs, def_counts, def_spans
+
+
+def find_markers_in_text(working: str) -> Dict[str, int]:
+    """
+    Return counts of [^id] markers in the *working* body.
+    """
+    counts: Dict[str, int] = {}
+    for m in _MARKER_RE.finditer(working):
+        # skip definitions (those are line-anchored and have ':') — our pattern doesn't match ':' anyway here
+        fid = m.group(1)
+        counts[fid] = counts.get(fid, 0) + 1
+    return counts
+
+
+def remove_used_definition_lines(working: str, used_ids: set) -> str:
+    """
+    Remove only those definition lines whose id is in used_ids; keep orphans.
+    """
+    def repl(m: re.Match) -> str:
+        fid = m.group(1)
+        return "" if fid in used_ids else m.group(0)
+    return _DEF_LINE_RE.sub(repl, working)
+
+
+def replace_markers_with_footnotes(working: str, defs: Dict[str, str], report: FootnoteReport) -> str:
+    """
+    Replace [^id] → \footnote{<defs[id]>}; leave unresolved markers in place and log.
+    Also count duplicate refs (same id used >1).
+
+    NOTE: We no longer sanitize here because 'working' still contains placeholders.
+    A post-restore pass sanitizes only inside \\footnote{...} bodies on the final text.
+    """
+    seen_ref: Dict[str, int] = {}
+
+    def repl(m: re.Match) -> str:
+        fid = m.group(1)
+        seen_ref[fid] = seen_ref.get(fid, 0) + 1
+        if fid in defs:
+            report.resolved += 1
+            if seen_ref[fid] > 1:
+                report.duplicate_ref_ids[fid] = seen_ref[fid]
+            return r'\footnote{' + defs[fid] + '}'
+        else:
+            report.unresolved += 1
+            return m.group(0)  # leave as-is
+
+    return _MARKER_RE.sub(repl, working)
+
+
+def sanitize_footnotes_in_document(restored_text: str, report: FootnoteReport) -> str:
+    """
+    After placeholders are restored for the whole document, clean spacing only
+    inside \\footnote{...} bodies:
+      - Drop leading \\space{} / \\nbsp{} (any count)
+      - Normalize combos: \\space{}\\nbsp{} → \\nbsp{}, \\nbsp{}\\space{} → \\nbsp{}, \\space{}\\nobreak → \\nobreak
+      - Drop trailing \\space{} / \\nbsp{}
+    Other macros (\\lw{...}, \\scrref{...}, \\p{...}, etc.) remain untouched.
+    """
+    out: List[str] = []
+    i = 0
+    n = len(restored_text)
+    footnote_cmd = re.compile(r'\\footnote\s*\{')
+
+    while i < n:
+        m = footnote_cmd.search(restored_text, i)
+        if not m:
+            out.append(restored_text[i:])
+            break
+
+        # Copy text before \footnote{
+        out.append(restored_text[i:m.start()])
+
+        # Find balanced body { ... }
+        brace_start = m.end() - 1  # at the '{'
+        try:
+            brace_end = _scan_balanced_braces(restored_text, brace_start)
+        except ValueError:
+            # Unbalanced; just copy as-is and move on to avoid data loss
+            out.append(restored_text[m.start():m.end()])
+            i = m.end()
+            continue
+
+        body = restored_text[brace_start + 1 : brace_end - 1]
+        cleaned = sanitize_footnote_text(body, report)
+
+        out.append(r'\footnote{')
+        out.append(cleaned)
+        out.append('}')
+
+        i = brace_end
+
+    return ''.join(out)
+
+
+def detect_markers_inside_macros(original: str, spans: List[Span], report: FootnoteReport) -> None:
+    """
+    Scan ORIGINAL protected spans; if any contains [^id] marker, log loudly.
+    """
+    inner_marker_re = re.compile(r'\[\^([^\]]+)\]')
     for s in spans:
-        by_kind[s.kind] = by_kind.get(s.kind, 0) + 1
-        by_name[s.name] = by_name.get(s.name, 0) + 1
-    top_names = sorted(by_name.items(), key=lambda kv: kv[1], reverse=True)[:12]
+        slice_text = original[s.start:s.end]
+        if inner_marker_re.search(slice_text):
+            snippet = slice_text[:80].replace('\n', ' ') + ('…' if len(slice_text) > 80 else '')
+            report.markers_inside_macros.append((s.name, snippet))
 
-    # B) Raw literal token counts
-    raw = compute_raw_token_counts(original)
-    g = lambda d, k: d.get(k, 0)  # convenience
 
-    # Tracked set (names we explicitly report above)
-    tracked_names = {
-        # brace-taking macros
-        'lw', 'nodict', 'p', 'scrref', 'egw', 'section', 'laochapter', 'source',
-        'laorepeat', 'laorepeatbefore',
-        # bare commands
-        'space', 'nbsp', 'ellipsis', 'scrspace', 'nobreak', 'fs', 'rs', 'cs',
-    }
-
-    # Deltas for brace-takers (raw literal - outermost spans)
-    macro_deltas = {
-        'lw': g(raw, 'lw_raw') - g(by_name, 'lw'),
-        'nodict': g(raw, 'nodict_raw') - g(by_name, 'nodict'),
-        'p': g(raw, 'p_raw') - g(by_name, 'p'),
-        'scrref': g(raw, 'scrref_raw') - g(by_name, 'scrref'),
-        'egw': g(raw, 'egw_raw') - g(by_name, 'egw'),
-        'section': g(raw, 'section_raw') - g(by_name, 'section'),
-        'laochapter': g(raw, 'laochapter_raw') - g(by_name, 'laochapter'),
-        'source': g(raw, 'source_raw') - g(by_name, 'source'),
-        'laorepeat': g(raw, 'laorepeat_raw') - g(by_name, 'laorepeat'),
-        'laorepeatbefore': g(raw, 'laorepeatbefore_raw') - g(by_name, 'laorepeatbefore'),
-    }
-
-    # Deltas for bare commands (raw literal - outermost bare_cmd spans)
-    bare_deltas = {
-        'space': g(raw, 'space_raw') - g(by_name, 'space'),
-        'nbsp': g(raw, 'nbsp_raw') - g(by_name, 'nbsp'),
-        'ellipsis': g(raw, 'ellipsis_raw') - g(by_name, 'ellipsis'),
-        'scrspace': g(raw, 'scrspace_raw') - g(by_name, 'scrspace'),
-        'nobreak': g(raw, 'nobreak_raw') - g(by_name, 'nobreak'),
-        'fs': g(raw, 'fs_raw') - g(by_name, 'fs'),
-        'rs': g(raw, 'rs_raw') - g(by_name, 'rs'),
-        'cs': g(raw, 'cs_raw') - g(by_name, 'cs'),
-    }
-
-    # C) UNLISTED MACROS (auto-detected)
-    all_macros = raw.get('all_macros', {})
-    unlisted_raw = {name: cnt for name, cnt in all_macros.items() if name not in tracked_names}
-    unlisted_outer = {name: cnt for name, cnt in by_name.items() if name not in tracked_names}
-    union_names = sorted(set(unlisted_raw) | set(unlisted_outer))
-    unlisted_rows = [
-        (name, unlisted_raw.get(name, 0), unlisted_outer.get(name, 0), unlisted_raw.get(name, 0) - unlisted_outer.get(name, 0))
-        for name in union_names
-    ]
-    unlisted_rows.sort(key=lambda t: t[1], reverse=True)
-    TOP_N_UNLISTED = 20
-    unlisted_rows = unlisted_rows[:TOP_N_UNLISTED]
-
-    # Build output
-    lines: List[str] = []
-    lines.append("[module3] protect/restore summary:")
-    lines.append(f"  OUTERMOST (placeholder spans): {total_outer}")
-    lines.append(f"    kinds: {by_kind}")
-    lines.append(f"    top names: {top_names}")
-    lines.append(f"    placeholders: {len(placeholders)}")
-    lines.append("  RAW LITERAL COUNTS (ignoring nesting):")
-    lines.append(f"    backslashes_total: {raw['backslashes_total']}")
-    # Brace-takers with deltas
-    lines.append(f"    \\lw{{ : {raw['lw_raw']}}}              (outermost: {g(by_name,'lw')}, delta: {macro_deltas['lw']})")
-    lines.append(f"    \\nodict{{ : {raw['nodict_raw']}}}       (outermost: {g(by_name,'nodict')}, delta: {macro_deltas['nodict']})")
-    lines.append(f"    \\p{{ : {raw['p_raw']}}}                (outermost: {g(by_name,'p')}, delta: {macro_deltas['p']})")
-    lines.append(f"    \\scrref{{ : {raw['scrref_raw']}}}       (outermost: {g(by_name,'scrref')}, delta: {macro_deltas['scrref']})")
-    lines.append(f"    \\egw{{ : {raw['egw_raw']}}}             (outermost: {g(by_name,'egw')}, delta: {macro_deltas['egw']})")
-    lines.append(f"    \\section{{ : {raw['section_raw']}}}      (outermost: {g(by_name,'section')}, delta: {macro_deltas['section']})")
-    lines.append(f"    \\laochapter{{ : {raw['laochapter_raw']}}} (outermost: {g(by_name,'laochapter')}, delta: {macro_deltas['laochapter']})")
-    lines.append(f"    \\source{{ : {raw['source_raw']}}}        (outermost: {g(by_name,'source')}, delta: {macro_deltas['source']})")
-    lines.append(f"    \\laorepeat : {raw['laorepeat_raw']}      (outermost: {g(by_name,'laorepeat')}, delta: {macro_deltas['laorepeat']})")
-    lines.append(f"    \\laorepeatbefore : {raw['laorepeatbefore_raw']} (outermost: {g(by_name,'laorepeatbefore')}, delta: {macro_deltas['laorepeatbefore']})")
-    # Bare commands with deltas
-    lines.append(f"    \\space : {raw['space_raw']} (outermost: {g(by_name,'space')}, delta: {bare_deltas['space']})")
-    lines.append(f"    \\nbsp : {raw['nbsp_raw']} (outermost: {g(by_name,'nbsp')}, delta: {bare_deltas['nbsp']})")
-    lines.append(f"    \\ellipsis : {raw['ellipsis_raw']} (outermost: {g(by_name,'ellipsis')}, delta: {bare_deltas['ellipsis']})")
-    lines.append(f"    \\scrspace : {raw['scrspace_raw']} (outermost: {g(by_name,'scrspace')}, delta: {bare_deltas['scrspace']})")
-    lines.append(f"    \\nobreak : {raw['nobreak_raw']} (outermost: {g(by_name,'nobreak')}, delta: {bare_deltas['nobreak']})")
-    lines.append(f"    \\fs : {raw['fs_raw']} (outermost: {g(by_name,'fs')}, delta: {bare_deltas['fs']})")
-    lines.append(f"    \\rs : {raw['rs_raw']} (outermost: {g(by_name,'rs')}, delta: {bare_deltas['rs']})")
-    lines.append(f"    \\cs : {raw['cs_raw']} (outermost: {g(by_name,'cs')}, delta: {bare_deltas['cs']})")
-
-    # Unlisted macros section
-    lines.append("  UNLISTED MACROS (auto-detected; top 20):")
-    if unlisted_rows:
-        for name, raw_count, outer_count, delta in unlisted_rows:
-            lines.append(f"    \\{name} : raw {raw_count} (outermost: {outer_count}, delta: {delta})")
-    else:
-        lines.append("    (none)")
-
-    return "\n".join(lines)
+# ============================================================
+# Debug summary (kept from previous step, extended)
+# ============================================================
 
 def compute_raw_token_counts(original: str) -> dict:
     """
     Return raw (literal) counts of common tokens in ORIGINAL text, ignoring nesting.
     Also detect and return ALL macro names seen (\\letters...), grouped in 'all_macros'.
-
-    Strategy:
-    - For most brace-taking macros (e.g., \lw{), we use fast literal substring counts.
-    - For bare commands (e.g., \space) we use regex with (?![A-Za-z]) to avoid \spaceX.
-    - For laorepeat/Before, use the macro-name inventory so we count both bare and braced forms.
     """
     import re
 
-    # --------- Catch-all: ALL macro names seen (fast one-pass) ----------
-    all_macros: dict[str, int] = {}
+    # Catch-all inventory once
+    all_macros: Dict[str, int] = {}
     for m in re.finditer(r'\\([A-Za-z]+)', original):
         name = m.group(1)
         all_macros[name] = all_macros.get(name, 0) + 1
 
-    # --------- Tracked raw counts (brace + selected bare) ----------
     counts = {
         'backslashes_total': original.count('\\'),
-        # brace-takers (literal open-brace count is fine for these in your corpus)
+        # literal brace-taking substring counts
         'lw_raw': original.count('\\lw{'),
         'nodict_raw': original.count('\\nodict{'),
         'p_raw': original.count('\\p{'),
@@ -519,12 +526,12 @@ def compute_raw_token_counts(original: str) -> dict:
         'section_raw': original.count('\\section{'),
         'laochapter_raw': original.count('\\laochapter{'),
         'source_raw': original.count('\\source{'),
-        # laorepeat* may appear bare OR braced → count by macro-name inventory
+        # laorepeat* can be bare OR braced → count by name inventory
         'laorepeat_raw': all_macros.get('laorepeat', 0),
         'laorepeatbefore_raw': all_macros.get('laorepeatbefore', 0),
     }
 
-    # bare commands: whole control words only
+    # bare commands via regex (avoid counting \spaceX etc.)
     bare_patterns = {
         'space_raw': r'\\space(?![A-Za-z])',
         'nbsp_raw': r'\\nbsp(?![A-Za-z])',
@@ -542,15 +549,151 @@ def compute_raw_token_counts(original: str) -> dict:
     return counts
 
 
+def debug_summary(original: str, spans: List[Span], placeholders: List[Placeholder]) -> str:
+    """
+    Outermost spans + RAW literal counters (+ deltas) + UNLISTED inventory.
+    """
+    total_outer = len(spans)
+    by_kind: Dict[str, int] = {}
+    by_name: Dict[str, int] = {}
+    for s in spans:
+        by_kind[s.kind] = by_kind.get(s.kind, 0) + 1
+        by_name[s.name] = by_name.get(s.name, 0) + 1
+    top_names = sorted(by_name.items(), key=lambda kv: kv[1], reverse=True)[:12]
+
+    raw = compute_raw_token_counts(original)
+    g = lambda d, k: d.get(k, 0)
+
+    tracked_names = {
+        'lw','nodict','p','scrref','egw','section','laochapter','source',
+        'laorepeat','laorepeatbefore',
+        'space','nbsp','ellipsis','scrspace','nobreak','fs','rs','cs',
+    }
+
+    macro_deltas = {
+        'lw': raw['lw_raw'] - g(by_name, 'lw'),
+        'nodict': raw['nodict_raw'] - g(by_name, 'nodict'),
+        'p': raw['p_raw'] - g(by_name, 'p'),
+        'scrref': raw['scrref_raw'] - g(by_name, 'scrref'),
+        'egw': raw['egw_raw'] - g(by_name, 'egw'),
+        'section': raw['section_raw'] - g(by_name, 'section'),
+        'laochapter': raw['laochapter_raw'] - g(by_name, 'laochapter'),
+        'source': raw['source_raw'] - g(by_name, 'source'),
+        'laorepeat': raw['laorepeat_raw'] - g(by_name, 'laorepeat'),
+        'laorepeatbefore': raw['laorepeatbefore_raw'] - g(by_name, 'laorepeatbefore'),
+    }
+    bare_deltas = {
+        'space': raw['space_raw'] - g(by_name, 'space'),
+        'nbsp': raw['nbsp_raw'] - g(by_name, 'nbsp'),
+        'ellipsis': raw['ellipsis_raw'] - g(by_name, 'ellipsis'),
+        'scrspace': raw['scrspace_raw'] - g(by_name, 'scrspace'),
+        'nobreak': raw['nobreak_raw'] - g(by_name, 'nobreak'),
+        'fs': raw['fs_raw'] - g(by_name, 'fs'),
+        'rs': raw['rs_raw'] - g(by_name, 'rs'),
+        'cs': raw['cs_raw'] - g(by_name, 'cs'),
+    }
+
+    # UNLISTED union (raw inventory ∪ outermost names) \ tracked
+    all_macros = raw.get('all_macros', {})
+    unlisted_raw = {name: cnt for name, cnt in all_macros.items() if name not in tracked_names}
+    unlisted_outer = {name: cnt for name, cnt in by_name.items() if name not in tracked_names}
+    union_names = sorted(set(unlisted_raw) | set(unlisted_outer))
+    rows = [(nm, unlisted_raw.get(nm, 0), unlisted_outer.get(nm, 0), unlisted_raw.get(nm, 0) - unlisted_outer.get(nm, 0))
+            for nm in union_names]
+    rows.sort(key=lambda t: t[1], reverse=True)
+    rows = rows[:20]
+
+    lines: List[str] = []
+    lines.append("[module3] protect/restore summary:")
+    lines.append(f"  OUTERMOST (placeholder spans): {total_outer}")
+    lines.append(f"    kinds: {by_kind}")
+    lines.append(f"    top names: {top_names}")
+    lines.append(f"    placeholders: {len(placeholders)}")
+    lines.append("  RAW LITERAL COUNTS (ignoring nesting):")
+    lines.append(f"    backslashes_total: {raw['backslashes_total']}")
+    lines.append(f"    \\lw{{ : {raw['lw_raw']}}}              (outermost: {g(by_name,'lw')}, delta: {macro_deltas['lw']})")
+    lines.append(f"    \\nodict{{ : {raw['nodict_raw']}}}       (outermost: {g(by_name,'nodict')}, delta: {macro_deltas['nodict']})")
+    lines.append(f"    \\p{{ : {raw['p_raw']}}}                (outermost: {g(by_name,'p')}, delta: {macro_deltas['p']})")
+    lines.append(f"    \\scrref{{ : {raw['scrref_raw']}}}       (outermost: {g(by_name,'scrref')}, delta: {macro_deltas['scrref']})")
+    lines.append(f"    \\egw{{ : {raw['egw_raw']}}}             (outermost: {g(by_name,'egw')}, delta: {macro_deltas['egw']})")
+    lines.append(f"    \\section{{ : {raw['section_raw']}}}      (outermost: {g(by_name,'section')}, delta: {macro_deltas['section']})")
+    lines.append(f"    \\laochapter{{ : {raw['laochapter_raw']}}} (outermost: {g(by_name,'laochapter')}, delta: {macro_deltas['laochapter']})")
+    lines.append(f"    \\source{{ : {raw['source_raw']}}}        (outermost: {g(by_name,'source')}, delta: {macro_deltas['source']})")
+    lines.append(f"    \\laorepeat : {raw['laorepeat_raw']}      (outermost: {g(by_name,'laorepeat')}, delta: {macro_deltas['laorepeat']})")
+    lines.append(f"    \\laorepeatbefore : {raw['laorepeatbefore_raw']} (outermost: {g(by_name,'laorepeatbefore')}, delta: {macro_deltas['laorepeatbefore']})")
+    lines.append(f"    \\space : {raw['space_raw']} (outermost: {g(by_name,'space')}, delta: {bare_deltas['space']})")
+    lines.append(f"    \\nbsp : {raw['nbsp_raw']} (outermost: {g(by_name,'nbsp')}, delta: {bare_deltas['nbsp']})")
+    lines.append(f"    \\ellipsis : {raw['ellipsis_raw']} (outermost: {g(by_name,'ellipsis')}, delta: {bare_deltas['ellipsis']})")
+    lines.append(f"    \\scrspace : {raw['scrspace_raw']} (outermost: {g(by_name,'scrspace')}, delta: {bare_deltas['scrspace']})")
+    lines.append(f"    \\nobreak : {raw['nobreak_raw']} (outermost: {g(by_name,'nobreak')}, delta: {bare_deltas['nobreak']})")
+    lines.append(f"    \\fs : {raw['fs_raw']} (outermost: {g(by_name,'fs')}, delta: {bare_deltas['fs']})")
+    lines.append(f"    \\rs : {raw['rs_raw']} (outermost: {g(by_name,'rs')}, delta: {bare_deltas['rs']})")
+    lines.append(f"    \\cs : {raw['cs_raw']} (outermost: {g(by_name,'cs')}, delta: {bare_deltas['cs']})")
+    lines.append("  UNLISTED MACROS (auto-detected; top 20):")
+    if rows:
+        for name, rc, oc, dlt in rows:
+            lines.append(f"    \\{name} : raw {rc} (outermost: {oc}, delta: {dlt})")
+    else:
+        lines.append("    (none)")
+    return "\n".join(lines)
+
+
 # ============================================================
-# Main (Step 1 scaffold: identity round-trip)
+# Logging helpers
+# ============================================================
+
+def write_logs(report: FootnoteReport, in_path: Path, resolved_ids: Dict[str,int],
+               def_counts: Dict[str,int], used_ids: set, temp_dir: Path) -> None:
+    """
+    Write module3_inline_report.log and module3_warnings.log in 04_assets/temp/.
+    """
+    inline_path = temp_dir / "module3_inline_report.log"
+    warn_path = temp_dir / "module3_warnings.log"
+
+    # Inline report: compact summary
+    lines = []
+    lines.append(
+        f"{in_path.name}: resolved={report.resolved} unresolved={report.unresolved} "
+        f"unique_ids={len(resolved_ids)} duplicate_refs={len([k for k,v in report.duplicate_ref_ids.items() if v>1])} "
+        f"duplicate_defs={len([k for k,v in report.duplicate_def_ids.items() if v>1])} orphans={len(report.orphan_def_ids)} "
+        f"| sanitize: leading_trim={report.sanitize_leading_trim} combos_fixed={report.sanitize_combo_fixes} trailing_trim={report.sanitize_trailing_trim}"
+    )
+    if report.duplicate_ref_ids:
+        lines.append(f"  duplicate_ref_ids: {sorted(report.duplicate_ref_ids.items(), key=lambda kv: kv[0])}")
+    dupe_defs = {k:v for k,v in def_counts.items() if v>1}
+    if dupe_defs:
+        lines.append(f"  duplicate_def_ids: {sorted(dupe_defs.items(), key=lambda kv: kv[0])}")
+    if report.orphan_def_ids:
+        lines.append(f"  orphan_def_ids: {sorted(report.orphan_def_ids)}")
+    if report.markers_inside_macros:
+        lines.append(f"  markers_inside_macros: {[(name, snip) for name, snip in report.markers_inside_macros]}")
+
+    with open(inline_path, "a", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+    # Warnings log
+    warn_lines = []
+    if report.unresolved:
+        warn_lines.append(f"{in_path.name}: WARNING unresolved_markers={report.unresolved}")
+    if report.orphan_def_ids:
+        warn_lines.append(f"{in_path.name}: INFO orphan_def_ids={sorted(report.orphan_def_ids)}")
+    if dupe_defs:
+        warn_lines.append(f"{in_path.name}: INFO duplicate_definitions={sorted(dupe_defs.items())}")
+    if report.duplicate_ref_ids:
+        warn_lines.append(f"{in_path.name}: INFO duplicate_references={sorted(report.duplicate_ref_ids.items())}")
+    if report.markers_inside_macros:
+        warn_lines.append(f"{in_path.name}: ERROR footnote_markers_inside_macros={[(name, snip) for name, snip in report.markers_inside_macros]}")
+
+    with open(warn_path, "a", encoding="utf-8") as f:
+        f.write("\n".join(warn_lines) + ("\n" if warn_lines else ""))
+
+
+# ============================================================
+# Main
 # ============================================================
 
 def main(argv: Optional[Iterable[str]] = None) -> int:
-    ap = argparse.ArgumentParser(
-        description="Module 3 — protect/restore identity round-trip (Step 1)"
-    )
-    # POSitional files, mirroring Module 1/2
+    ap = argparse.ArgumentParser(description="Module 3 — footnotes + protect/restore")
     ap.add_argument('files', nargs='*', help="Chapter specs or filenames (e.g., GC01, GC[01..05], GC01_lo.tmp)")
     ap.add_argument('--debug', action='store_true', help='Print debug summary')
     ap.add_argument('--verbose', action='store_true', help='Verbose resolution output')
@@ -560,7 +703,9 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     if not input_files:
         return 1
 
+    temp_dir = get_project_root() / '04_assets' / 'temp'
     any_error = False
+
     for in_path in input_files:
         try:
             original = in_path.read_text(encoding='utf-8')
@@ -569,16 +714,53 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
             spans = find_protected_spans(original)
             working, placeholders = apply_placeholders(original, spans)
 
-            # (No transforms in Step 1) — identity pass
+            # Footnote processing on working text
+            report = FootnoteReport()
 
-            # Restore
-            restored = restore_placeholders(working, placeholders, original)
+            # Detect forbidden markers inside macros (from ORIGINAL protected slices)
+            detect_markers_inside_macros(original, spans, report)
 
-            out_path = default_output_path(in_path)
+            # Collect defs and markers
+            defs, def_counts, def_spans = collect_footnote_definitions(working)
+            marker_counts = find_markers_in_text(working)
+
+            # Record duplicate defs
+            for fid, cnt in def_counts.items():
+                if cnt > 1:
+                    report.duplicate_def_ids[fid] = cnt
+
+            # Determine which ids are used (present as markers)
+            used_ids = set(fid for fid in marker_counts.keys() if fid in defs)
+
+            # Remove ONLY used definition lines
+            working_no_defs = remove_used_definition_lines(working, used_ids)
+
+            # Replace markers with \footnote{…}
+            working_replaced = replace_markers_with_footnotes(working_no_defs, defs, report)
+
+            # Orphans = defs that were never used
+            report.orphan_def_ids = sorted(set(defs.keys()) - used_ids)
+
+            # Restore placeholders
+            restored = restore_placeholders(working_replaced, placeholders, original)
+
+            # Footnote-only spacing cleanup on the final text
+            restored = sanitize_footnotes_in_document(restored, report)
+
+
+            # Write .tex to temp/tex/
+            out_path = default_output_path(in_path, temp_subdir="tex")
             out_path.write_text(restored, encoding='utf-8')
+
+            # Logs
+            write_logs(report, in_path, marker_counts, def_counts, used_ids, temp_dir)
 
             if args.debug or args.verbose:
                 print(debug_summary(original, spans, placeholders))
+                print(f"[module3] footnotes: resolved={report.resolved}, unresolved={report.unresolved}, "
+                      f"defs={len(defs)}, used_ids={len(used_ids)}, orphans={len(report.orphan_def_ids)}")
+                if report.markers_inside_macros:
+                    print("[module3] ERROR: footnote markers were found inside protected macros (see warnings log).")
                 print(f"[module3] wrote: {out_path}")
 
         except Exception as e:
