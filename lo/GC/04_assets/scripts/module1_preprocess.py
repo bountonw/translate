@@ -318,7 +318,7 @@ def load_all_bible_books():
         return [], {}, None
 
 def protect_scripture_spacing(text):
-    """Add \scrspace{} between Bible book names and scripture references."""
+    """Add \\scrspace{} between Bible book names and scripture references."""
     bible_books, numbered_mapping, reference_pattern = load_all_bible_books()
     if not bible_books or not reference_pattern:
         return text
