@@ -389,7 +389,7 @@ def protect_scripture_references(text):
     return text
 
 def normalize_nonbreaking_commands(text):
-    """
+    r"""
     Ensure \nbsp and \scrspace are self-terminating and have no literal spaces
     around them. Also upgrades bare forms (\nbsp or \scrspace without {}) to
     \nbsp{} / \scrspace{}.
