@@ -22,6 +22,7 @@ Next steps (future commits):
 - Markdown *** / ** / * → \textbf{\emph{…}} with spacing trims
 - Plain-text TeX special escaping (% $ & # _ ^) outside protected spans
 - Clean-LaTeX checks (brace balance, stray markdown markers)
+- Process markdown poetry and block quotes
 """
 
 from __future__ import annotations
@@ -283,7 +284,7 @@ class FootnoteReport:
 
 
 def sanitize_footnote_text(text: str, report: FootnoteReport) -> str:
-    """
+    r"""
     Footnote-only cleanup that assumes braceful spacing macros:
       - Drop leading \\space{} / \\nbsp{} (any count); preserve leading \\nobreak if present.
       - Normalize small combos anywhere in the footnote:
