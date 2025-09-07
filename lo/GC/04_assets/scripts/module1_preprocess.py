@@ -57,6 +57,7 @@ import re
 import json
 from pathlib import Path
 import unicodedata
+from helpers.md_footnotes_to_tex import process_footnotes
 
 def simple_yaml_parse(yaml_content):
     """
@@ -407,54 +408,74 @@ def normalize_nonbreaking_commands(text):
     return text
 
 def process_file(input_path, output_path, debug_mode=False):
-    """
-    Process a single markdown file.
-    
-    Args:
-        input_path (str): Path to input .md file
-        output_path (str): Path to output .tmp file
-        debug_mode (bool): Whether to use debug mode
-        
-    Returns:
-        bool: True if successful, False otherwise
-    """
+    """Process a single markdown file."""
     try:
         # Read input file
         with open(input_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
         # Parse YAML frontmatter
-        yaml_data, markdown_body = parse_yaml_frontmatter(content)
+        try:
+            yaml_data, markdown_body = parse_yaml_frontmatter(content)
+        except Exception as e:
+            print(f"Error in YAML parsing: {e}")
+            raise
         
         # Extract chapter information
-        chapter_info = extract_chapter_info(yaml_data, debug_mode)
+        try:
+            chapter_info = extract_chapter_info(yaml_data, debug_mode)
+        except Exception as e:
+            print(f"Error extracting chapter info: {e}")
+            raise
         
         # Clean markdown body
-        cleaned_body = clean_markdown_body(markdown_body)
+        try:
+            cleaned_body = clean_markdown_body(markdown_body)
+        except Exception as e:
+            print(f"Error in clean_markdown_body: {e}")
+            raise
         
         # Generate TeX header
-        tex_header = generate_tex_header(chapter_info)
+        try:
+            tex_header = generate_tex_header(chapter_info)
+        except Exception as e:
+            print(f"Error generating TeX header: {e}")
+            raise
         
         # Combine header and body
-        final_content = tex_header + '\n\n' + cleaned_body
+        working_text = tex_header + '\n\n' + cleaned_body
         
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        
+        # Process footnotes
+        try:
+            working_text, fn_report = process_footnotes(working_text)
+        except Exception as e:
+            print(f"Error in process_footnotes: {e}")
+            raise
+            
+        # Future transformations will go here:
+        # working_text = process_emphasis(working_text)
+        # working_text = process_lists(working_text)
+        # working_text = process_blockquotes(working_text)
         # Write output file
+
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(final_content)
+            f.write(working_text)
         
         if debug_mode:
             print(f"✓ Processed: {input_path} → {output_path}")
             print(f"  Chapter {chapter_info['number']}: {chapter_info['title_lo']}")
+            if fn_report.get('orphaned_markers'):
+                print(f"  WARNING: Unresolved footnotes: {fn_report['orphaned_markers']}")
         
         return True
         
     except Exception as e:
         print(f"✗ Error processing {input_path}: {e}")
+        return False        
+    except Exception as e:
+        print(f"✗ Error processing {input_path}: {e}")
         return False
-
 def get_project_root():
     """
     Get the project root directory based on script location.
@@ -515,8 +536,6 @@ def expand_chapter_ranges(file_specs):
     Returns:
         list: Expanded list with ranges converted to individual chapters
     """
-    import re
-    
     expanded = []
     
     for spec in file_specs:

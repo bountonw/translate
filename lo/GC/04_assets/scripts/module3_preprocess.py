@@ -33,7 +33,7 @@ import re
 from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Tuple, Iterable, Optional, Dict
-
+from helpers.md_footnotes_to_tex import process_footnotes
 
 # ============================================================
 # Reuse-compatible helpers (parity with Module 1 & 2)
@@ -255,79 +255,6 @@ def find_protected_spans(text: str) -> List[Span]:
 _TOKEN_FMT = "⟪M{num:06d}⟫"
 _TOKEN_RE = re.compile(r"⟪M\d{6}⟫")
 
-@dataclass
-class FootnoteReport:
-    resolved: int = 0
-    unresolved: int = 0
-    duplicate_ref_ids: Dict[str, int] = None  # id -> count (>1 means duplicate)
-    duplicate_def_ids: Dict[str, int] = None  # id -> count of defs (>1 means duplicate definition)
-    orphan_def_ids: List[str] = None          # defs never referenced
-    markers_inside_macros: List[Tuple[str, str]] = None  # (macro name, snippet)
-
-    # Sanitizer counters (footnote-only)
-    sanitize_leading_trim: int = 0
-    sanitize_combo_fixes: int = 0
-    sanitize_trailing_trim: int = 0
-
-    # Blank-line normalization
-    blanklines_collapsed: int = 0
-
-    def __post_init__(self):
-        if self.duplicate_ref_ids is None:
-            self.duplicate_ref_ids = {}
-        if self.duplicate_def_ids is None:
-            self.duplicate_def_ids = {}
-        if self.orphan_def_ids is None:
-            self.orphan_def_ids = []
-        if self.markers_inside_macros is None:
-            self.markers_inside_macros = []
-
-
-def sanitize_footnote_text(text: str, report: FootnoteReport) -> str:
-    r"""
-    Footnote-only cleanup that assumes braceful spacing macros:
-      - Drop leading \\space{} / \\nbsp{} (any count); preserve leading \\nobreak if present.
-      - Normalize small combos anywhere in the footnote:
-          \\space{}\\nbsp{}  -> \\nbsp{}
-          \\nbsp{}\\space{}  -> \\nbsp{}
-          \\space{}\\nobreak -> \\nobreak
-      - Trim trailing \\space{} / \\nbsp{} at the very end.
-    Do NOT remove braces from spacing macros; we keep braceful forms (\space{}, \nbsp{}).
-    """
-    changed = False
-
-    # 1) Leading trims: repeatedly remove \space{} / \nbsp{} at the start (keep \nobreak)
-    leading_pattern = re.compile(r'^(?:\s|\\space\{\}|\\nbsp\{\})+')
-    m = leading_pattern.match(text)
-    if m:
-        new_text = text[m.end():]
-        if new_text != text:
-            report.sanitize_leading_trim += 1
-            text = new_text
-            changed = True
-
-    # 2) Combo fixes anywhere
-    combo_patterns = [
-        (re.compile(r'\\space\{\}\\nbsp\{\}'), r'\\nbsp{}'),
-        (re.compile(r'\\nbsp\{\}\\space\{\}'), r'\\nbsp{}'),
-        (re.compile(r'\\space\{\}\\nobreak'), r'\\nobreak'),
-    ]
-    for pat, repl in combo_patterns:
-        text, n = pat.subn(repl, text)
-        if n:
-            report.sanitize_combo_fixes += n
-            changed = True
-
-    # 3) Trailing trims: remove trailing \space{} / \nbsp{} (and whitespace) at the very end
-    trailing_pattern = re.compile(r'(?:\s|\\space\{\}|\\nbsp\{\})+\Z')
-    text2, n2 = trailing_pattern.subn('', text)
-    if n2:
-        report.sanitize_trailing_trim += 1
-        text = text2
-        changed = True
-
-    return text
-
 
 def apply_placeholders(text: str, spans: List[Span]) -> Tuple[str, List[Placeholder]]:
     out_chunks: List[str] = []
@@ -370,182 +297,6 @@ def restore_placeholders(working: str, placeholders: List[Placeholder], original
         parts.append(repl.get(token, token))
         i = m.end()
     return "".join(parts)
-
-
-# ============================================================
-# Footnote collection + replacement
-# ============================================================
-
-_DEF_LINE_RE = re.compile(r'^[ \t]*\[\^([^\]]+)\]:[ \t]*(.*)$', re.MULTILINE)
-_MARKER_RE   = re.compile(r'\[\^([^\]]+)\]')
-
-def collect_footnote_definitions(working: str) -> Tuple[Dict[str, str], Dict[str, int], Dict[str, List[Tuple[int,int]]]]:
-    """
-    Scan the *working* text (with placeholders) for single-line definitions.
-    Returns:
-      defs:  id -> text (if multiple defs for same id, last one wins)
-      def_counts: id -> number of definitions found
-      def_spans: id -> list of (start, end) spans in working for each def line
-    """
-    defs: Dict[str, str] = {}
-    def_counts: Dict[str, int] = {}
-    def_spans: Dict[str, List[Tuple[int,int]]] = {}
-    for m in _DEF_LINE_RE.finditer(working):
-        fid = m.group(1)
-        ftext = m.group(2)
-        defs[fid] = ftext  # last one wins (but we also count)
-        def_counts[fid] = def_counts.get(fid, 0) + 1
-        def_spans.setdefault(fid, []).append((m.start(), m.end()))
-    return defs, def_counts, def_spans
-
-
-def find_markers_in_text(working: str) -> Dict[str, int]:
-    """
-    Return counts of [^id] markers in the *working* body.
-    """
-    counts: Dict[str, int] = {}
-    for m in _MARKER_RE.finditer(working):
-        # skip definitions (those are line-anchored and have ':') — our pattern doesn't match ':' anyway here
-        fid = m.group(1)
-        counts[fid] = counts.get(fid, 0) + 1
-    return counts
-
-
-def remove_used_definition_lines(working: str, used_ids: set, def_spans: Dict[str, List[Tuple[int,int]]]) -> str:
-    """
-    Remove only those definition lines whose id is in used_ids; keep orphans.
-    IMPORTANT: we also remove ONE trailing newline after each removed def line
-    (handles \n, \r\n, or \r) to avoid leaving an extra blank line behind.
-    """
-    if not used_ids:
-        return working
-
-    intervals: List[Tuple[int, int]] = []
-    n = len(working)
-
-    for fid in used_ids:
-        for (start, end) in def_spans.get(fid, []):
-            # extend to include exactly one following linebreak if present
-            j = end
-            if j < n:
-                if working[j:j+2] == '\r\n':
-                    end = j + 2
-                elif working[j:j+1] in ('\n', '\r'):
-                    end = j + 1
-            intervals.append((start, end))
-
-    if not intervals:
-        return working
-
-    # merge and cut
-    intervals.sort()
-    out: List[str] = []
-    cursor = 0
-    for a, b in intervals:
-        if cursor < a:
-            out.append(working[cursor:a])
-        cursor = max(cursor, b)
-    out.append(working[cursor:])
-    return ''.join(out)
-
-def replace_markers_with_footnotes(working: str, defs: Dict[str, str], report: FootnoteReport) -> str:
-    """
-    Replace [^id] → \footnote{<defs[id]>}; leave unresolved markers in place and log.
-    Also count duplicate refs (same id used >1).
-
-    NOTE: We no longer sanitize here because 'working' still contains placeholders.
-    A post-restore pass sanitizes only inside \\footnote{...} bodies on the final text.
-    """
-    seen_ref: Dict[str, int] = {}
-
-    def repl(m: re.Match) -> str:
-        fid = m.group(1)
-        seen_ref[fid] = seen_ref.get(fid, 0) + 1
-        if fid in defs:
-            report.resolved += 1
-            if seen_ref[fid] > 1:
-                report.duplicate_ref_ids[fid] = seen_ref[fid]
-            return r'\footnote{' + defs[fid] + '}'
-        else:
-            report.unresolved += 1
-            return m.group(0)  # leave as-is
-
-    return _MARKER_RE.sub(repl, working)
-
-
-def collapse_extra_blank_lines(text: str, report: Optional[FootnoteReport] = None) -> str:
-    """
-    Ensure double-spaced paragraphs: collapse any run of 3+ newlines (with optional
-    spaces on blank lines) to exactly 2 newlines. Also normalizes CRLF/CR to LF first.
-    """
-    # Normalize line endings to LF so collapsing is predictable
-    t = text.replace('\r\n', '\n').replace('\r', '\n')
-
-    # Replace 3 or more consecutive "blank line units" with exactly 2 newlines
-    # A "blank line unit" here is optional spaces/tabs followed by \n.
-    new_text, nsubs = re.subn(r'(?:[ \t]*\n){3,}', '\n\n', t)
-
-    if report is not None and nsubs:
-        report.blanklines_collapsed += nsubs
-
-    return new_text
-
-
-def sanitize_footnotes_in_document(restored_text: str, report: FootnoteReport) -> str:
-    """
-    After placeholders are restored for the whole document, clean spacing only
-    inside \\footnote{...} bodies:
-      - Drop leading \\space{} / \\nbsp{} (any count)
-      - Normalize combos: \\space{}\\nbsp{} → \\nbsp{}, \\nbsp{}\\space{} → \\nbsp{}, \\space{}\\nobreak → \\nobreak
-      - Drop trailing \\space{} / \\nbsp{}
-    Other macros (\\lw{...}, \\scrref{...}, \\p{...}, etc.) remain untouched.
-    """
-    out: List[str] = []
-    i = 0
-    n = len(restored_text)
-    footnote_cmd = re.compile(r'\\footnote\s*\{')
-
-    while i < n:
-        m = footnote_cmd.search(restored_text, i)
-        if not m:
-            out.append(restored_text[i:])
-            break
-
-        # Copy text before \footnote{
-        out.append(restored_text[i:m.start()])
-
-        # Find balanced body { ... }
-        brace_start = m.end() - 1  # at the '{'
-        try:
-            brace_end = _scan_balanced_braces(restored_text, brace_start)
-        except ValueError:
-            # Unbalanced; just copy as-is and move on to avoid data loss
-            out.append(restored_text[m.start():m.end()])
-            i = m.end()
-            continue
-
-        body = restored_text[brace_start + 1 : brace_end - 1]
-        cleaned = sanitize_footnote_text(body, report)
-
-        out.append(r'\footnote{')
-        out.append(cleaned)
-        out.append('}')
-
-        i = brace_end
-
-    return ''.join(out)
-
-
-def detect_markers_inside_macros(original: str, spans: List[Span], report: FootnoteReport) -> None:
-    """
-    Scan ORIGINAL protected spans; if any contains [^id] marker, log loudly.
-    """
-    inner_marker_re = re.compile(r'\[\^([^\]]+)\]')
-    for s in spans:
-        slice_text = original[s.start:s.end]
-        if inner_marker_re.search(slice_text):
-            snippet = slice_text[:80].replace('\n', ' ') + ('…' if len(slice_text) > 80 else '')
-            report.markers_inside_macros.append((s.name, snippet))
 
 
 # ============================================================
@@ -692,8 +443,7 @@ def debug_summary(original: str, spans: List[Span], placeholders: List[Placehold
 # Logging helpers
 # ============================================================
 
-def write_logs(report: FootnoteReport, in_path: Path, resolved_ids: Dict[str,int],
-               def_counts: Dict[str,int], used_ids: set, temp_dir: Path) -> None:
+def write_logs(report: Dict[str, any], in_path: Path, temp_dir: Path) -> None:
     """
     Write module3_inline_report.log and module3_warnings.log in 04_assets/temp/.
     """
@@ -702,49 +452,43 @@ def write_logs(report: FootnoteReport, in_path: Path, resolved_ids: Dict[str,int
 
     # Inline report: compact summary
     lines = []
+    converted = report.get('converted_count', 0)
+    total_markers = report.get('marker_count', 0)
+    unresolved = len(report.get('orphaned_markers', []))
+    orphaned_defs = report.get('orphaned_definitions', [])
+    duplicate_refs = report.get('duplicate_references', {})
+    
     lines.append(
-        f"{in_path.name}: resolved={report.resolved} unresolved={report.unresolved} "
-        f"unique_ids={len(resolved_ids)} duplicate_refs={len([k for k,v in report.duplicate_ref_ids.items() if v>1])} "
-        f"duplicate_defs={len([k for k,v in report.duplicate_def_ids.items() if v>1])} orphans={len(report.orphan_def_ids)} "
-        f"| sanitize: leading_trim={report.sanitize_leading_trim} combos_fixed={report.sanitize_combo_fixes} trailing_trim={report.sanitize_trailing_trim}"
-        f"| blanklines_collapsed={report.blanklines_collapsed}"
+        f"{in_path.name}: resolved={converted} unresolved={unresolved} "
+        f"total_markers={total_markers} orphaned_defs={len(orphaned_defs)} "
+        f"duplicate_refs={len([k for k,v in duplicate_refs.items() if v>1])}"
     )
-    if report.duplicate_ref_ids:
-        lines.append(f"  duplicate_ref_ids: {sorted(report.duplicate_ref_ids.items(), key=lambda kv: kv[0])}")
-    dupe_defs = {k:v for k,v in def_counts.items() if v>1}
-    if dupe_defs:
-        lines.append(f"  duplicate_def_ids: {sorted(dupe_defs.items(), key=lambda kv: kv[0])}")
-    if report.orphan_def_ids:
-        lines.append(f"  orphan_def_ids: {sorted(report.orphan_def_ids)}")
-    if report.markers_inside_macros:
-        lines.append(f"  markers_inside_macros: {[(name, snip) for name, snip in report.markers_inside_macros]}")
+    
+    if duplicate_refs:
+        lines.append(f"  duplicate_ref_ids: {sorted(duplicate_refs.items(), key=lambda kv: kv[0])}")
+    if orphaned_defs:
+        lines.append(f"  orphan_def_ids: {sorted(orphaned_defs)}")
 
     with open(inline_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
     # Warnings log
     warn_lines = []
-    if report.unresolved:
-        warn_lines.append(f"{in_path.name}: WARNING unresolved_markers={report.unresolved}")
-    if report.orphan_def_ids:
-        warn_lines.append(f"{in_path.name}: INFO orphan_def_ids={sorted(report.orphan_def_ids)}")
-    if dupe_defs:
-        warn_lines.append(f"{in_path.name}: INFO duplicate_definitions={sorted(dupe_defs.items())}")
-    if report.duplicate_ref_ids:
-        warn_lines.append(f"{in_path.name}: INFO duplicate_references={sorted(report.duplicate_ref_ids.items())}")
-    if report.markers_inside_macros:
-        warn_lines.append(f"{in_path.name}: ERROR footnote_markers_inside_macros={[(name, snip) for name, snip in report.markers_inside_macros]}")
+    if report.get('orphaned_markers'):
+        warn_lines.append(f"{in_path.name}: WARNING unresolved_markers={report['orphaned_markers']}")
+    if orphaned_defs:
+        warn_lines.append(f"{in_path.name}: INFO orphan_def_ids={sorted(orphaned_defs)}")
+    if duplicate_refs:
+        warn_lines.append(f"{in_path.name}: INFO duplicate_references={sorted(duplicate_refs.items())}")
 
     with open(warn_path, "a", encoding="utf-8") as f:
         f.write("\n".join(warn_lines) + ("\n" if warn_lines else ""))
-
-
 # ============================================================
 # Main
 # ============================================================
 
 def main(argv: Optional[Iterable[str]] = None) -> int:
-    ap = argparse.ArgumentParser(description="Module 3 — footnotes + protect/restore")
+    ap = argparse.ArgumentParser(description="Module 3 – footnotes + protect/restore")
     ap.add_argument('files', nargs='*', help="Chapter specs or filenames (e.g., GC01, GC[01..05], GC01_lo.tmp)")
     ap.add_argument('--debug', action='store_true', help='Print debug summary')
     ap.add_argument('--verbose', action='store_true', help='Verbose resolution output')
@@ -765,56 +509,38 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
             spans = find_protected_spans(original)
             working, placeholders = apply_placeholders(original, spans)
 
-            # Footnote processing on working text
-            report = FootnoteReport()
-
-            # Detect forbidden markers inside macros (from ORIGINAL protected slices)
-            detect_markers_inside_macros(original, spans, report)
-
-            # Collect defs and markers
-            defs, def_counts, def_spans = collect_footnote_definitions(working)
-            marker_counts = find_markers_in_text(working)
-
-            # Record duplicate defs
-            for fid, cnt in def_counts.items():
-                if cnt > 1:
-                    report.duplicate_def_ids[fid] = cnt
-
-            # Determine which ids are used (present as markers)
-            used_ids = set(fid for fid in marker_counts.keys() if fid in defs)
-
-            # Remove ONLY used definition lines (plus their following newline)
-            working_no_defs = remove_used_definition_lines(working, used_ids, def_spans)
+            # Process footnotes using helper
+            # Create temporary file for footnote processor
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', suffix='.md', delete=False) as tmp:
+                tmp.write(working)
+                tmp_path = Path(tmp.name)
             
-            # Standardize paragraph spacing to exactly one blank line (double-spaced)
-            working_no_defs = collapse_extra_blank_lines(working_no_defs, report)
-            
-            # Replace markers with \footnote{…}
-            working_replaced = replace_markers_with_footnotes(working_no_defs, defs, report)
-
-            # Orphans = defs that were never used
-            report.orphan_def_ids = sorted(set(defs.keys()) - used_ids)
+            try:
+                # Process footnotes on protected text
+                processed_working, fn_report = process_footnotes(tmp_path)
+            finally:
+                # Clean up temp file
+                tmp_path.unlink(missing_ok=True)
 
             # Restore placeholders
-            restored = restore_placeholders(working_replaced, placeholders, original)
-
-            # Footnote-only spacing cleanup on the final text
-            restored = sanitize_footnotes_in_document(restored, report)
-
+            restored = restore_placeholders(processed_working, placeholders, original)
 
             # Write .tex to temp/tex/
             out_path = default_output_path(in_path, temp_subdir="tex")
             out_path.write_text(restored, encoding='utf-8')
 
             # Logs
-            write_logs(report, in_path, marker_counts, def_counts, used_ids, temp_dir)
+            write_logs(fn_report, in_path, temp_dir)
 
             if args.debug or args.verbose:
                 print(debug_summary(original, spans, placeholders))
-                print(f"[module3] footnotes: resolved={report.resolved}, unresolved={report.unresolved}, "
-                      f"defs={len(defs)}, used_ids={len(used_ids)}, orphans={len(report.orphan_def_ids)}")
-                if report.markers_inside_macros:
-                    print("[module3] ERROR: footnote markers were found inside protected macros (see warnings log).")
+                print(f"[module3] footnotes: resolved={fn_report.get('converted_count', 0)}, "
+                      f"unresolved={len(fn_report.get('orphaned_markers', []))}, "
+                      f"defs={fn_report.get('definition_count', 0)}, "
+                      f"orphans={len(fn_report.get('orphaned_definitions', []))}")
+                if fn_report.get('orphaned_markers'):
+                    print("[module3] WARNING: unresolved footnote markers found (see warnings log).")
                 print(f"[module3] wrote: {out_path}")
 
         except Exception as e:
@@ -822,7 +548,6 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
             print(f"[module3] ERROR processing {in_path}: {e}")
 
     return 0 if not any_error else 2
-
 
 if __name__ == "__main__":
     sys.exit(main())
