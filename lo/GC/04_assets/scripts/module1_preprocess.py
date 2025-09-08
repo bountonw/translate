@@ -58,6 +58,7 @@ import json
 from pathlib import Path
 import unicodedata
 from helpers.md_footnotes_to_tex import process_footnotes
+from helpers.md_emphasis_to_tex import process_emphasis
 
 def simple_yaml_parse(yaml_content):
     """
@@ -452,27 +453,45 @@ def process_file(input_path, output_path, debug_mode=False):
             print(f"Error in process_footnotes: {e}")
             raise
             
+        # Process emphasis (bold, italic, etc.)
+        try:
+            working_text, emphasis_stats = process_emphasis(working_text)
+        except Exception as e:
+            print(f"Error in process_emphasis: {e}")
+            raise
+            
         # Future transformations will go here:
-        # working_text = process_emphasis(working_text)
         # working_text = process_lists(working_text)
         # working_text = process_blockquotes(working_text)
+        
         # Write output file
-
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(working_text)
         
+        # Debug output (inside the main try block, after successful processing)
         if debug_mode:
             print(f"✓ Processed: {input_path} → {output_path}")
             print(f"  Chapter {chapter_info['number']}: {chapter_info['title_lo']}")
+            
+            # Report any warnings
             if fn_report.get('orphaned_markers'):
                 print(f"  WARNING: Unresolved footnotes: {fn_report['orphaned_markers']}")
+            
+            # Report emphasis conversions if any occurred
+            if any(emphasis_stats.values()):
+                emphasis_summary = []
+                if emphasis_stats['bold']:
+                    emphasis_summary.append(f"bold={emphasis_stats['bold']}")
+                if emphasis_stats['italic']:
+                    emphasis_summary.append(f"italic={emphasis_stats['italic']}")
+                if emphasis_stats['bold_italic']:
+                    emphasis_summary.append(f"bold+italic={emphasis_stats['bold_italic']}")
+                if emphasis_summary:
+                    print(f"  Emphasis: {', '.join(emphasis_summary)}")
         
         return True
         
-    except Exception as e:
-        print(f"✗ Error processing {input_path}: {e}")
-        return False        
     except Exception as e:
         print(f"✗ Error processing {input_path}: {e}")
         return False
