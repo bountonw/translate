@@ -51,8 +51,13 @@ def parse_footnote_definitions(text: str) -> Dict[str, str]:
         Multi-line support will be added in future extension.
     """
     def_pairs = RE_DEF_LINE.findall(text)
-    return {def_id: def_text.strip() for def_id, def_text in def_pairs}
-
+    result = {def_id: def_text.strip() for def_id, def_text in def_pairs}
+    
+    # ADD THIS DEBUG CODE HERE (after line 73):
+    for def_id, def_text in result.items():
+        print(f"DEBUG Footnote [{def_id}]: '{def_text}'")
+    
+    return result
 
 def find_footnote_markers(text: str) -> List[str]:
     """
@@ -136,10 +141,13 @@ def convert_markers_to_footnotes(text: str, definitions: Dict[str, str]) -> Tupl
         Output: ("Text\footnote{My note} and[^missing]", {"1": 1})
     """
     usage_counts = {}
-    
-    def replace_marker(match):
+
+    def replace_marker(match):  # This is a nested function
         marker_id = match.group(1)
         if marker_id in definitions:
+            # ADD THE DEBUG LINE HERE (around line 160):
+            print(f"DEBUG Converting [{marker_id}] to footnote with: '{definitions[marker_id]}'")
+            
             # Track usage for duplicate detection
             usage_counts[marker_id] = usage_counts.get(marker_id, 0) + 1
             
@@ -148,7 +156,7 @@ def convert_markers_to_footnotes(text: str, definitions: Dict[str, str]) -> Tupl
             return f"\\footnote{{{sanitized_text}}}"
         else:
             # Leave unresolvable markers unchanged
-            return match.group(0)
+            return match.group(0)    
     
     new_text = RE_MARKER_INLINE.sub(replace_marker, text)
     
