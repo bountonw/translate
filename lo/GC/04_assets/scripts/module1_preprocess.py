@@ -48,6 +48,21 @@ USAGE:
 python3 module1_preprocess.py [files...]           # Process specific files
 python3 module1_preprocess.py                      # Process all files in 03_public/
 python3 module1_preprocess.py --debug              # Enable debug mode
+
+URGENT TODO for Module1:
+
+- Move spacing logic from Module 2 to its own helper file to be called from Module1
+- Refactor remaining Module1 logic into helper files
+
+FUTURE TODO for Module1 after complete pipeline is in place.
+
+- Convert line breaks (<br/> and <br> to appropriate latex code (confirm with me before coding))
+- Add blockquote conversion (> to \begin{quote}). There can be nested quote levels.
+- Handle multi-line footnotes (indented continuations)
+- Add validation for footnotes inside emphasis (should not occur)
+- Document style guide: no footnotes inside emphasis
+- Add list conversion (* and 1. to LaTeX lists) (Not urgent. Our source documents don't have lists.)
+- Fix emphasis vs list conflict (* at line start)
 """
 
 import os

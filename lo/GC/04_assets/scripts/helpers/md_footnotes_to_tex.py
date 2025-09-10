@@ -53,10 +53,6 @@ def parse_footnote_definitions(text: str) -> Dict[str, str]:
     def_pairs = RE_DEF_LINE.findall(text)
     result = {def_id: def_text.strip() for def_id, def_text in def_pairs}
     
-    # ADD THIS DEBUG CODE HERE (after line 73):
-    for def_id, def_text in result.items():
-        print(f"DEBUG Footnote [{def_id}]: '{def_text}'")
-    
     return result
 
 def find_footnote_markers(text: str) -> List[str]:
@@ -145,8 +141,6 @@ def convert_markers_to_footnotes(text: str, definitions: Dict[str, str]) -> Tupl
     def replace_marker(match):  # This is a nested function
         marker_id = match.group(1)
         if marker_id in definitions:
-            # ADD THE DEBUG LINE HERE (around line 160):
-            print(f"DEBUG Converting [{marker_id}] to footnote with: '{definitions[marker_id]}'")
             
             # Track usage for duplicate detection
             usage_counts[marker_id] = usage_counts.get(marker_id, 0) + 1
