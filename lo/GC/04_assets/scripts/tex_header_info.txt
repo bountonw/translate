@@ -1,0 +1,94 @@
+% Basic footnote mark: superscripted number in text
+\renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}}}
+
+% Basic footnote text: number as a superscript, then a space, then the text
+\renewcommand{\@makefntext}[1]{%
+  \parindent 1em%
+  \noindent
+  \hb@xt@1.8em{\hss\textsuperscript{\normalfont\@thefnmark}}#1%
+}
+
+
+% Flexible spaces (primary solution)
+\spaceskip=1em plus 4em minus 0.4em
+
+% Moderate tolerance (don't need extreme values now)
+\tolerance=1000
+
+% Minimal emergency stretch (probably won't be needed)
+\emergencystretch=0.2em
+
+\newcommand{\space}{ }  % Natural space controlled by \spaceskip
+
+% Penalty system for line breaking
+\newcommand{\p}[1]{\penalty#1}
+
+% Lao word wrapper
+\newcommand{\lw}[1]{#1\penalty-200\hspace{0pt plus 0.1em}\relax}
+
+% Spacing commands
+\newcommand{\zwsp}{\hspace{0pt}\allowbreak}  % Zero-width space with break opportunity
+\newcommand{\nbsp}{~}  % Non-breaking space
+\newcommand{\cs}{\hspace{0.4em plus 0.2em minus 0.1em}\allowbreak}  % Compound space
+
+% Flexible and rigid spacing for Lao typography
+% Source: \s marker in .md files converts to \fs
+\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}   % More flexible spacing
+% Source: \S marker in .md files converts to \rs  
+\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax} % Less flexible spacing
+
+\newcommand{\scripturespace}{\p{200}\hskip 0.8em plus 0.4em minus 0.1em\relax}
+\newcommand{\scripturereference}[1]{\mbox{#1}}
+
+% Short aliases for typing efficiency  
+\let\fs\flexspace    % \s → \fs (flex space)
+\let\rs\rigidspace   % \S → \rs (rigid space)
+\let\scrspace\scripturespace
+\let\scrref\scripturereference
+
+
+% Chapter and reference commands
+\newcommand{\laochapter}[2]{%
+  \clearpage%
+  \thispagestyle{empty}%
+  \vspace*{2cm}%
+  \begin{center}%
+    {\Huge\textbf{#1}}\\[2em]%
+    {\LARGE\textbf{#2}}%
+  \end{center}%
+  \vspace{3cm}%
+  \setcounter{chapter}{#1}%
+}
+
+\newcommand{\source}[1]{%
+  \vspace{0.5em}%
+  {\small\textit{Source: \url{#1}}}%
+  \vspace{1em}%
+}
+
+\newcommand{\egw}[1]{%
+  {\fontsize{0.8em}{0.8em}\selectfont\textcolor[gray]{0.8}{\textbf{#1}}}%
+}
+
+
+\newcommand{\ellipsis}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
+\newcommand{\ellafter}{\mbox{\hspace{0.1em plus 0.05em minus 0.02em}\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
+\newcommand{\ellbefore}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.\hspace{0.1em plus 0.05em minus 0.02em}}}
+
+\newcommand{\laorepeat}{ໆ\penalty-400\relax}
+
+
+% Define \nodict{} command for highlighting missing dictionary words
+% Makes text bold, 1.2em size, and red color (#D13D1D)
+\usepackage{xcolor}
+\definecolor{nodictcolor}{HTML}{D13D1D}
+\newcommand{\nodict}[1]{{\fontsize{1.2em}{1.44em}\selectfont\textbf{\textcolor{nodictcolor}{#1}}}}
+
+
+% Clear, descriptive names explain what they do
+\newcommand{\flexspace}{\hskip 0pt plus 3pt minus 1pt}   % Expandable space
+\newcommand{\rigidspace}{\hskip 0pt plus 1pt minus 0.5pt} % Less expandable
+
+% Short aliases for typing efficiency
+\let\fs\flexspace
+\let\rs\rigidspace
