@@ -34,6 +34,7 @@
 % Flexible and rigid spacing for Lao typography
 % Source: \s marker in .md files converts to \fs
 \newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}   % More flexible spacing
+
 % Source: \S marker in .md files converts to \rs  
 \newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax} % Less flexible spacing
 
@@ -41,8 +42,8 @@
 \newcommand{\scripturereference}[1]{\mbox{#1}}
 
 % Short aliases for typing efficiency  
-\let\fs\flexspace    % \s → \fs (flex space)
-\let\rs\rigidspace   % \S → \rs (rigid space)
+\let\fs\flexspace    % \s → \fs{} (flex space)
+\let\rs\rigidspace   % \S → \rs{} (rigid space)
 \let\scrspace\scripturespace
 \let\scrref\scripturereference
 
