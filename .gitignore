@@ -326,3 +326,7 @@ node_modules
 # Editor generated files
 *.~lock*
 *.kate-swp
+
+# Site files
+.next/
+site/pages/*
