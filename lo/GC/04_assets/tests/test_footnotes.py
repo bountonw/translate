@@ -16,7 +16,6 @@ def test_inline_marker_order_characterization():
             match.group(1) for match in 
             foot.RE_MARKER_INLINE.finditer(md_text)
             ]
-    
     assert first_match
     assert first_match.group(0) == "[^1]"
     assert first_match.group(1) == "1"
@@ -24,14 +23,33 @@ def test_inline_marker_order_characterization():
 
 def test_defs_map_single_line():
     defs_by_id = foot.get_defs_by_id("tests/test_footnotes.md")
-    ids = defs_by_id.keys()
-    
+    ids = set(defs_by_id)
+
     assert ids == {"1","2","x"}
+    assert defs_by_id["1"] == "This one is used."
+
+def test_get_defs_by_id():
+
+    print(f"\n\n\t{foot.get_defs_by_id}\n\n")
+
+def test_replace_first_matching_marker_in_text():
+    """ """
+
+    md_text = foot.read_md_text("tests/test_footnotes.md")
+    first_replace = foot.replace_first_matching_marker_in_text(md_text)
+    (new_text, used_id) = first_replace
+
+    assert used_id == "1"
+
+# ID_SHAPE = r"[A-Z]+|[a-z]+|\d+"
+# RE_MARKER_INLINE = re.compile(rf"\[\^({ID_SHAPE})\](?!:)")
+# RE_DEF_HEAD = re.compile(rf"^\[\^({ID_SHAPE})\]:.+$", re.MULTILINE)
+# RE_DEF = re.compile(rf"^\[\^{ID_SHAPE}\]: (.+)$", re.MULTILINE)
+# RE_DEF_LINE = re.compile(rf"^\[\^({ID_SHAPE})\]:(.+)$", re.MULTILINE)
 
 # TODO: Find out the set of the last character of all footnotes in GC (all rounds). For those that aren't ".", found out why and fix. Do we need a rule that forces "." as a footnote line ending?
 
 #       Create a helper file that is for pre-module1 and create a pre-module1. 
-#       Find out what the current 
 
 # def get_defs_by_id(file_path: str | Path) -> dict:
 #     md_text = read_md_text(file_path)
@@ -71,6 +89,13 @@ def test_defs_map_single_line():
 ######
 #SANDBOX
 ######
+def test_grades_by_student():
+    grades_by_student = {"Bob": "A", "Alice": "A-", "Fred": "F"}
+    
+    assert set(grades_by_student) == {"Bob", "Alice", "Fred"}
+    assert grades_by_student["Fred"] == "F"
+    assert grades_by_student.get("Zoe", "N/A") == "N/A"
+
 def test_finditer_digits():
     text = "ab12cd034ef56"
     pattern = r"\d+"
