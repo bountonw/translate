@@ -25,7 +25,7 @@ import re
 from typing import Tuple, Dict, List
 
 
-def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
+def process_poetry(text: str, debug: bool = False) -> Tuple[str, Dict[str, int]]:
     """
     Convert Markdown poetry/verse blocks to LaTeX verse environments.
     
@@ -46,6 +46,7 @@ def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
     
     Args:
         text: Markdown text with potential poetry blocks
+        debug: If True, print debug information about processing
         
     Returns:
         Tuple of:
@@ -86,19 +87,25 @@ def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
                 # Check for nested quotation levels
                 elif current_line.startswith('> > > ') and not current_line.startswith('> > > > '):
                     # Level 3 nesting
+                    # Process any accumulated blank lines first
+                    if blank_count >= 2:
+                        verse_lines.append(('blank', ''))
+                    blank_count = 0
                     content = current_line[6:].strip()
                     if content:  # Only add if there's actual content
                         verse_lines.append(('indent3', content))
                         stats['nested_lines'] += 1
-                    blank_count = 0
                     
                 elif current_line.startswith('> > ') and not current_line.startswith('> > > '):
                     # Level 2 nesting
+                    # Process any accumulated blank lines first
+                    if blank_count >= 2:
+                        verse_lines.append(('blank', ''))
+                    blank_count = 0
                     content = current_line[4:].strip()
                     if content:  # Only add if there's actual content
                         verse_lines.append(('indent2', content))
                         stats['nested_lines'] += 1
-                    blank_count = 0
                     
                 elif current_line.startswith('> ') or current_line == '>':
                     # Level 1 (normal verse line)
@@ -107,17 +114,26 @@ def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
                     
                     if not content:  # Blank quoted line
                         blank_count += 1
-                        # Check if we should add a stanza break
+                        if debug:
+                            print(f"  Blank line #{blank_count}")
+                    else:
+                        # If we had accumulated blank lines, process them first
                         if blank_count >= 2:
                             # Add stanza break (single blank line)
-                            if verse_lines and verse_lines[-1] != ('blank', ''):
-                                verse_lines.append(('blank', ''))
-                            blank_count = 0  # Reset after adding break
-                    else:
+                            verse_lines.append(('blank', ''))
+                            if debug:
+                                print(f"  Adding stanza break after {blank_count} blanks")
+                        blank_count = 0  # Reset
                         verse_lines.append(('normal', content))
-                        blank_count = 0
+                        if debug:
+                            print(f"  Normal line: {content[:30]}...")
                 
                 i += 1
+            
+            # Check for any accumulated blank lines at end of verse
+            if blank_count >= 2 and verse_lines:
+                # Don't add a blank at the very end
+                pass
             
             # Process collected verse lines if any
             if verse_lines:
@@ -126,6 +142,14 @@ def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
                 
                 # Process each verse line
                 for j, (line_type, content) in enumerate(verse_lines):
+                    # Check if this is the last content line before end
+                    is_last_content = j == len(verse_lines) - 1
+                    # Check if next line is attribution or blank
+                    next_is_attrib = (j < len(verse_lines) - 1 and 
+                                     verse_lines[j + 1][0] == 'attribution')
+                    next_is_blank = (j < len(verse_lines) - 1 and 
+                                    verse_lines[j + 1][0] == 'blank')
+                    
                     if line_type == 'attribution':
                         # Attribution doesn't get \\
                         output_lines.append(f'\\attrib{{{content}}}')
@@ -134,21 +158,21 @@ def process_poetry(text: str) -> Tuple[str, Dict[str, int]]:
                         output_lines.append('')
                     elif line_type == 'indent3':
                         # Level 3 indentation
-                        # Add \\ unless it's the last line
-                        if j < len(verse_lines) - 1:
+                        # Add \\ unless it's the last line, before attribution, or before blank
+                        if not is_last_content and not next_is_attrib and not next_is_blank:
                             output_lines.append(f'\\verseindentiii{{{content}}}\\\\')
                         else:
                             output_lines.append(f'\\verseindentiii{{{content}}}')
                     elif line_type == 'indent2':
                         # Level 2 indentation
-                        # Add \\ unless it's the last line
-                        if j < len(verse_lines) - 1:
+                        # Add \\ unless it's the last line, before attribution, or before blank
+                        if not is_last_content and not next_is_attrib and not next_is_blank:
                             output_lines.append(f'\\verseindentii{{{content}}}\\\\')
                         else:
                             output_lines.append(f'\\verseindentii{{{content}}}')
                     else:  # normal
-                        # Add \\ unless it's the last line
-                        if j < len(verse_lines) - 1:
+                        # Add \\ unless it's the last line, before attribution, or before blank
+                        if not is_last_content and not next_is_attrib and not next_is_blank:
                             output_lines.append(f'{content}\\\\')
                         else:
                             output_lines.append(content)
