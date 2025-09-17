@@ -1112,57 +1112,6 @@ def extract_and_preserve_commands(text):
     placeholder_text = pattern.sub(_repl, text)
     return placeholder_text, protected_commands
 
-def restore_protected_commands(text, protected_commands):
-    """Restore protected commands from placeholders, converting flex/rigid spaces."""
-    result = text
-    for i, command in enumerate(protected_commands):
-        placeholder = f'__PROTECTED_CMD_{i}__'
-        
-        # Convert flex/rigid space markers to LaTeX commands
-        if command == '\\s':
-            converted_command = '\\fs'
-        elif command == '\\S':
-            converted_command = '\\rs'
-        else:
-            converted_command = command  # Keep other commands unchanged
-        
-        result = result.replace(placeholder, converted_command)
-    
-    return result
-
-def handle_lao_repetition_context(groups, current_index):
-    """Determine appropriate Lao repetition command based on following punctuation."""
-    # Check if next group is punctuation
-    if current_index < len(groups) - 1:
-        next_type, next_content = groups[current_index + 1]
-        if next_type == 'punctuation':
-            return "\\laorepeatbefore"
-    
-    return "\\laorepeat"
-
-def handle_ellipsis_context(groups, current_index):
-    """Determine appropriate ellipsis command based on surrounding punctuation."""
-    # Check if previous group is punctuation
-    previous_is_punctuation = False
-    if current_index > 0:
-        prev_type, prev_content = groups[current_index - 1]
-        if prev_type == 'punctuation':
-            previous_is_punctuation = True
-    
-    # Check if next group is punctuation
-    next_is_punctuation = False
-    if current_index < len(groups) - 1:
-        next_type, next_content = groups[current_index + 1]
-        if next_type == 'punctuation':
-            next_is_punctuation = True
-    
-    # Return appropriate ellipsis command
-    if previous_is_punctuation:
-        return "\\ellafter"
-    elif next_is_punctuation:
-        return "\\ellbefore"
-    else:
-        return "\\ellipsis"
 
 def process_text_line(text, dictionary, debug=False):
     """Apply dictionary lookup to text, handling different content types properly."""
