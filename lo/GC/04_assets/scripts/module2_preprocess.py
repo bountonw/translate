@@ -296,6 +296,130 @@ def apply_punctuation_protection(parts):
     
     return protected_parts
 
+# def apply_punctuation_bonding_after_lw(parts: List[str]) -> List[str]:
+#     """
+# NOTE: This was originally in module2, however, we moved spacing and punctuation to module1, but decided to move this back. Will need to sort out the logic. It is a repeat of what we already have above. But is put here for debugging purposes and refactoring as we seek to get module2 working.
+#     Purpose (run in Module 2 ONLY, after dictionary wrapping):
+#         Enforce no-break bonding at punctuation boundaries **after** words are wrapped with \\lw{…}.
+#         This replaces the old "add \\nobreak{} everywhere" approach that conflicted with \\lw’s break point.
+# 
+#     When to call:
+#         1) After Module 2 has produced a flat list of tokens where:
+#            1.1) Lao words are wrapped as "\\lw{...}" (or a future equivalent),
+#            1.2) Punctuation and ellipsis macros are standalone tokens (e.g., ".", ")", "\\ellbefore{}", etc.),
+#            1.3) Other macros like "\\scrref{...}", "\\egw{...}" appear as single, opaque tokens.
+# 
+#     Design rules (compact, decisive):
+#         2) Never do "\\lw{…}\\nobreak{}" — \\lw expands to "…\\penalty-200\\hspace{0pt plus 0.1em}", so a later \\nobreak
+#            does not cancel the earlier break.
+#         3) Instead, if a **closer** or **ellipsis** follows a token, make the **preceding** token non-breaking by
+#            switching "\\lw{…}" → "\\lwnb{…}" (see §6). If the preceding token is not "\\lw{…}", insert a literal "\\nobreak{}".
+#         4) If an **opener** precedes a token, make the **following** token non-breaking by switching "\\lw{…}" → "\\lwnb{…}".
+#            If the following token is not "\\lw{…}", insert "\\nobreak{}" after the opener.
+#         5) Ellipses:
+#            5.1) Treat "\\ellipsis{}", "\\ellafter{}", "\\ellbefore{}", "\\ellall{}" as **closers** for the purpose of
+#                 adding a non-break on their **left** (ellipses must not start a line with their left-side spacing).
+#            5.2) Do not alter which ellipsis macro was chosen upstream (selection logic lives in Module 1).
+#         6) TeX macro requirement (preamble):
+#            6.1) Define a non-breaking word wrapper used by this pass:
+#                  \\newcommand{\\lwnb}[1]{#1\\nobreak{}}
+#                Rationale: \\lwnb emits **no explicit break** after the word, so the following punctuation stays glued.
+#         7) Opaque macros:
+#            7.1) Do not touch contents of "\\scrref{…}", "\\egw{…}", "\\section{…}", "\\footnote{…}".
+#            7.2) It is fine to add a boundary "\\nobreak{}" **outside** them (e.g., "\\scrref{…}" + ")" → add non-break between).
+#         8) Dashes:
+#            8.1) Treat "-", "‐", "-", "‒", "–", "—", "―" as **closers** for left-side bonding (no break before dash).
+#         9) Lao repetition:
+#            9.1) Assume Module 1 has already emitted "\\laorepeat{}" vs "\\laorepeatbefore{}" correctly; do not rewrite them here.
+#                If "\\laorepeatbefore{}" is immediately followed by punctuation, rule (3) will still add the bonding on the punct side.
+# 
+#     Input / Output:
+#         • Input:  parts = ["\\lw{ຄຳ}", ".", "\\space{}", "(", "\\lw{abc}", "\\ellbefore{}", ...]
+#         • Output: same list with selective "\\lwnb{…}" swaps and/or inserted "\\nobreak{}" tokens.
+# 
+#     Notes:
+#         • This function is intentionally conservative: it never edits inside braces and never reorders tokens.
+#         • If you later emit a native non-breaking variant from the tokenizer, you can drop the string swap and keep only
+#           the fallback "\\nobreak{}" insertions for non-\\lw neighbors.
+# 
+#     """
+#     if not parts:
+#         return parts
+# 
+#     OPENERS = {"(", "[", "{", "<", "«", "‹", "“", "‘", "‚", "„"}
+#     CLOSERS = {")", "]", "}", ">", "»", "›", "”", "’"}
+#     ENDERS  = {",", ".", ":", ";", "?", "!"}
+#     DASHES  = {"-", "\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2015"}  # ‐ - ‒ – — ―
+# 
+#     def _is_lw(tok: str) -> bool:
+#         return bool(tok) and tok.startswith("\\lw{")
+# 
+#     def _is_lwnb(tok: str) -> bool:
+#         return bool(tok) and tok.startswith("\\lwnb{")
+# 
+#     def _to_lwnb(tok: str) -> str:
+#         # swap leading macro name only
+#         return re.sub(r"^\\lw\b", r"\\lwnb", tok, count=1)
+# 
+#     def _is_ellipsis(tok: str) -> bool:
+#         # Any of the four ellipsis macros
+#         return tok in ("\\ellipsis{}", "\\ellafter{}", "\\ellbefore{}", "\\ellall{}")
+# 
+#     def _is_closer_like(tok: str) -> bool:
+#         if not tok:
+#             return False
+#         # macro ellipses count as closers (we need a non-break to the left)
+#         if _is_ellipsis(tok):
+#             return True
+#         ch = tok[0]
+#         return (ch in CLOSERS) or (ch in ENDERS) or (ch in DASHES)
+# 
+#     def _ends_with_opener(tok: str) -> bool:
+#         return bool(tok) and tok[-1] in OPENERS
+# 
+#     out: List[str] = []
+#     force_next_lwnb = False  # set when we saw an opener and the next token is \\lw{…}
+# 
+#     N = len(parts)
+#     for i in range(N):
+#         cur = parts[i]
+#         nxt = parts[i + 1] if i + 1 < N else None
+# 
+#         # If the previous step asked us to force the next \\lw into \\lwnb, do it now.
+#         if force_next_lwnb:
+#             if _is_lw(cur) and not _is_lwnb(cur):
+#                 cur = _to_lwnb(cur)
+#             else:
+#                 # Fallback: ensure a non-break right after the opener (already emitted)
+#                 out.append("\\nobreak{}")
+#             force_next_lwnb = False
+# 
+#         # Rule (3): if a closer/ellipsis follows, bond on the left
+#         need_nobreak_right_of_cur = False
+#         if nxt is not None and _is_closer_like(nxt):
+#             if _is_lw(cur) and not _is_lwnb(cur):
+#                 cur = _to_lwnb(cur)  # preferred: remove the break opportunity entirely
+#             else:
+#                 # If cur is not an \\lw word, insert \\nobreak{} between cur and nxt.
+#                 need_nobreak_right_of_cur = True
+# 
+#         out.append(cur)
+# 
+#         if need_nobreak_right_of_cur:
+#             # Avoid duplicating if one is already present (cheap guard)
+#             if not (nxt == "\\nobreak{}" or (out and out[-1] == "\\nobreak{}")):
+#                 out.append("\\nobreak{}")
+# 
+#         # Rule (4): if cur ends with an opener, bond on the right
+#         if nxt is not None and _ends_with_opener(cur):
+#             if _is_lw(nxt) and not _is_lwnb(nxt):
+#                 force_next_lwnb = True  # convert at the start of the next loop
+#             else:
+#                 # Non-\\lw neighbor → insert a \\nobreak{} after the opener now
+#                 out.append("\\nobreak{}")
+# 
+#     return out
+
 def process_text_groups(groups, dictionary, debug=False):
     """Process grouped text parts through dictionary lookup and special handling."""
     result_parts = []

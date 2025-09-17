@@ -75,8 +75,10 @@
 \newcommand{\ellipsis}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
 \newcommand{\ellafter}{\mbox{\hspace{0.1em plus 0.05em minus 0.02em}\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
 \newcommand{\ellbefore}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.\hspace{0.1em plus 0.05em minus 0.02em}}}
+\newcommand{\ellall}{\mbox{\.\,\.\,\.}}
 
-\newcommand{\laorepeat}{ໆ\penalty-400\relax}
+\newcommand{\laorepeat}{\nobreak{}ໆ\penalty-400\relax}
+\newcommand{\laorepeatbefore}{\nobreak{}ໆ}
 
 
 % Define \nodict{} command for highlighting missing dictionary words
@@ -92,4 +94,10 @@
 
 % Short aliases for typing efficiency
 \let\fs\flexspace
+
+% Poetry
+\newcommand{\attrib}[1]{\hfill{#1}}
+\newcommand{\verseindent}[1]{\hspace{2em}#1}
+\newcommand{\verseindentii}[1]{\hspace{4em}#1}
+\newcommand{\verseindentiii}[1]{\hspace{6em}#1}
 \let\rs\rigidspace

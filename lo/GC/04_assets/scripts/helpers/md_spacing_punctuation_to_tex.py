@@ -62,7 +62,7 @@ from typing import List, Tuple, Dict, Optional, Set
 # BIBLE DATA LOADING
 # ============================================================================
 
-def load_bible_data() -> Tuple[List[str], List[str], Dict[str, str], Optional[re.Pattern]]:
+def load_bible_data() -> Tuple[List[str], List[str], Dict[str, str], re.Pattern]:
     """
     Load Bible book data from JSON file for scripture processing.
 
@@ -80,14 +80,17 @@ def load_bible_data() -> Tuple[List[str], List[str], Dict[str, str], Optional[re
         Tuple of (all_books, numbered_books, numbered_mapping, reference_pattern)
 
     TODO:
-        1. Move bible_books.json to within the package and call with 
-           "importlib.resources.files(...)"
-        2. 
+        1. Move bible_books.json inside the package and load via 
+           importlib.resources.files(...) (keep current Path traversal until 
+           that refactor is done).
+        2. Convert RuntimeError to a small domain exception (e.g., BibleDataLoadError) 
+           and add logging once the logging policy for helpers is finalized.
     """
     try:
         script_dir = Path(__file__).parent
         json_path = (
             script_dir
+            / ".."
             / ".."
             / ".."
             / ".."
@@ -105,199 +108,92 @@ def load_bible_data() -> Tuple[List[str], List[str], Dict[str, str], Optional[re
             book["lao_name"] for book in data["books"] if book.get("numbered", False)
         ]
 
-        numbered_mapping = {}
+        numbered_mapping: Dict[str, str] = {}
         for book in data["books"]:
             if book.get("numbered", False):
+                # Protect the first space (between numeral and name)
                 nbsp_form = book["lao_name"].replace(" ", "\\nbsp{}", 1)
                 numbered_mapping[book["lao_name"]] = nbsp_form
 
         reference_pattern = re.compile(
-            r"\d+:\d+(?:[,-]\d+)*(?:\s*[,-]\s*\d+(?::\d+)?)*"
+            r"\d+:\d+(?:[,-\u2013-]\d+)*(?:\s*[,;\u2013-]\s*\d+(?::\d+)?)*"
         )
 
         return all_books, numbered_books, numbered_mapping, reference_pattern
 
     except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-        print(f"Warning: Could not load Bible books: {e}")
-        return [], [], {}, None
+        # Fail fast: callers shouldn't proceed without this core data.
+        raise RuntimeError(f"Could not load Bible books JSON: {e}") from e
 
 
 # ============================================================================
 # BIBLE REFERENCE PROCESSING
 # ============================================================================
 
-def protect_numbered_bible_books(text: str) -> str:
+
+def protect_scripture_references(text: str) -> str:
     """
-    Convert spaces in numbered Bible book names to non-breaking spaces.
-    
-    Source: Module 1 - Replaces protect_numbered_bible_books()
-    
-    Purpose:
-        Ensures numbered Bible books (like "1 ຊາມູເອນ") stay together on one line.
-    
-    Issue Solved:
-        Prevents awkward line breaks between number and book name in Bible references.
+    Apply all scripture reference transformations in a single pass.
+    - Numbered book protection (1 Samuel → 1\\nbsp{}Samuel)
+    - Scripture spacing (John 3:16 → John\\scrspace{}3:16)
+    - Reference wrapping (3:16,18 → \\scrref{3:16},\\scrspace{}\\scrref{18})
     
     Args:
-        text: Input text containing Bible book names
+        text: Input text containing Bible references
         
     Returns:
-        Text with protected Bible book names
+        Text with all scripture transformations applied
         
     Example:
-        "1 ຊາມູເອນ 3:16" → "1\\nbsp{}ຊາມູເອນ 3:16"
+        Input:  "1 Samuel 3:16, 18-20; 4:1"
+        Output: "1\\nbsp{}Samuel\\scrspace{}\\scrref{3:16},\\scrspace{}\\scrref{18-20};\\scrspace{}\\scrref{4:1}"
     """
-    _, numbered_books, _, _ = load_bible_data()
-    if not numbered_books:
-        return text
-    
-    protected_text = text
-    for book in numbered_books:
-        protected_book = book.replace(" ", "\\nbsp{}", 1)
-        protected_text = protected_text.replace(book, protected_book)
-    
-    return protected_text
 
-
-def add_scripture_spacing(text: str) -> str:
-    """
-    Add scripture spacing between Bible book names and verse references.
-    
-    Source: Module 1 - Replaces protect_scripture_spacing()
-    
-    Purpose:
-        Provides controlled spacing between Bible book names and chapter:verse references.
-    
-    Issue Solved:
-        Allows proper line breaking between book name and reference while keeping
-        the reference components together.
-    
-    Args:
-        text: Input text with Bible references
-        
-    Returns:
-        Text with \\scrspace{} inserted
-        
-    Example:
-        "ໂຢຮັນ 3:16" → "ໂຢຮັນ\\scrspace{}3:16"
-    """
-    all_books, _, numbered_mapping, reference_pattern = load_bible_data()
+    all_books, numbered_books, _, reference_pattern = load_bible_data()
     if not all_books or not reference_pattern:
         return text
     
-    protected_text = text
+    # Build pattern matching any book (in original form)
+    book_patterns = []
+    numbered_set = set(numbered_books)
+    
     for book in all_books:
-        book_forms = [book]
-        if book in numbered_mapping:
-            book_forms.append(numbered_mapping[book])
+        # Keep original form for pattern matching
+        escaped = re.escape(book)
+        book_patterns.append(escaped)
+    
+    # Create single regex matching any book followed by reference
+    books_pattern = '|'.join(book_patterns)
+    full_pattern = rf'({books_pattern})\s+({reference_pattern.pattern})'
+    
+    def format_match(match):
+        """Process a matched Bible reference."""
+        book_part = match.group(1)
+        ref_part = match.group(2)
         
-        for book_form in book_forms:
-            pattern = rf'({re.escape(book_form)})\s+({reference_pattern.pattern})'
-            protected_text = re.sub(pattern, rf'\1\\scrspace{{}}\2', protected_text)
-    
-    return protected_text
-
-
-def split_reference_components(reference_text: str) -> Tuple[List[str], List[str]]:
-    """
-    Split scripture reference into components and separators.
-    
-    Source: Module 1 - Replaces split_reference_components()
-    
-    Purpose:
-        Parses complex scripture references for individual processing.
-    
-    Issue Solved:
-        Handles multi-part references like "3:16,18-20" by breaking them
-        into manageable components.
-    
-    Args:
-        reference_text: Scripture reference string
+        # Apply \nbsp{} to numbered books AFTER matching
+        if book_part in numbered_set and ' ' in book_part:
+            book_part = book_part.replace(' ', '\\nbsp{}', 1)
         
-    Returns:
-        Tuple of (components, separators)
-    """
-    parts = re.split(r'([,;])', reference_text)
-    components = []
-    separators = []
-    
-    for part in parts:
-        part = part.strip()
-        if not part:
-            continue
-        elif part in [',', ';']:
-            separators.append(part)
-        else:
-            components.append(part)
-    
-    return components, separators
-
-
-def format_reference_components(components: List[str], separators: List[str]) -> str:
-    """
-    Format scripture reference components with proper LaTeX markup.
-    
-    Source: Module 1 - Replaces format_reference_components()
-    
-    Purpose:
-        Wraps individual scripture references in \\scrref{} commands.
-    
-    Issue Solved:
-        Ensures each reference component can be styled independently in LaTeX.
-    
-    Args:
-        components: List of reference components
-        separators: List of separator characters
+        # Split reference on commas and semicolons
+        parts = re.split(r'([,;])', ref_part)
+        formatted = []
         
-    Returns:
-        Formatted reference string
-    """
-    formatted_parts = []
-    
-    for i, component in enumerate(components):
-        formatted_parts.append(f'\\scrref{{{component}}}')
+        for part in parts:
+            part = part.strip()
+            if not part:
+                continue
+            elif part in ',;':
+                formatted.append(f'{part}\\scrspace{{}}')
+            else:
+                formatted.append(f'\\scrref{{{part}}}')
         
-        if i < len(separators):
-            separator = separators[i]
-            formatted_parts.append(f'{separator}\\scrspace{{}}')
+        # Properly escape braces in f-string
+        formatted_str = "".join(formatted)
+        return f'{book_part}\\scrspace{{}}{formatted_str}'
     
-    return ''.join(formatted_parts)
-
-
-def wrap_scripture_references(text: str) -> str:
-    """
-    Wrap scripture reference components with \\scrref{} commands.
-    
-    Source: Module 1 - Replaces protect_scripture_references()
-    
-    Purpose:
-        Identifies and wraps scripture references that follow \\scrspace markers.
-    
-    Issue Solved:
-        Provides semantic markup for scripture references to enable proper
-        formatting and indexing in LaTeX.
-    
-    Args:
-        text: Input text with \\scrspace markers
-        
-    Returns:
-        Text with wrapped scripture references
-        
-    Example:
-        "\\scrspace{}3:16,18" → "\\scrspace{}\\scrref{3:16},\\scrspace{}\\scrref{18}"
-    """
-    pattern = r'\\scrspace\s+(\d+:\d+(?:[,–-]\d+)*(?:\s*[,;]\s*\d+(?::\d+)?(?:[,–-]\d+)*)*)(?=\s|[\.;,)\'"'""'‚„‹›«»@#%]|$)'
-    
-    matches = list(re.finditer(pattern, text))
-    
-    for match in reversed(matches):
-        reference_content = match.group(1).strip()
-        components, separators = split_reference_components(reference_content)
-        formatted = format_reference_components(components, separators)
-        replacement = f'\\scrspace{{{formatted}}}'
-        text = text[:match.start()] + replacement + text[match.end():]
-    
-    return text
+    # Single pass through entire text
+    return re.sub(full_pattern, format_match, text)
 
 
 # ============================================================================
@@ -331,8 +227,37 @@ def convert_egw_references(text: str) -> str:
 
 
 # ============================================================================
-# PUNCTUATION DETECTION
+# PUNCTUATION DETECTION (constants and helpers for Module 1)
 # ============================================================================
+
+# Explicit character sets (no extra dependencies; focused on Lao interaction)
+_OPENERS: Set[str] = {
+    "(", "[", "{", "<", "«", "‹", "“", "‘", "‚", "„"
+}
+
+_CLOSERS: Set[str] = {
+    ")", "]", "}", ">", "»", "›", "”", "’"
+}
+
+# Phrase/segment enders that trail Lao text and must not be separated
+_ENDERS: Set[str] = {",", ".", ":", ";", "?", "!"}
+
+# Dashes are treated as "closing" in our sense: no break BEFORE, break AFTER allowed elsewhere
+_DASHES: Set[str] = {"-", "\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2015"}  # ‐ - ‒ – — ―
+
+# Ellipsis and Lao repetition
+_ELLIPSIS: str = "\u2026"  # …
+_LAO_REPEAT: str = "ໆ"     # repetition mark
+
+# Full punctuation universe we care about in Module 1 (for is_punctuation)
+_PUNCTUATION_UNIVERSE: Set[str] = (
+    _OPENERS
+    | _CLOSERS
+    | _ENDERS
+    | _DASHES
+    | {"\"", "'", _ELLIPSIS, _LAO_REPEAT}
+)
+
 
 def is_punctuation(char: str) -> bool:
     """
@@ -352,7 +277,9 @@ def is_punctuation(char: str) -> bool:
     Returns:
         True if character is punctuation
     """
-    return char in '.,;:!?()[]{}"\'\'-—–""''‚„‹›«»@#%'
+    if not char or len(char) != 1:
+        return False
+    return char in _PUNCTUATION_UNIVERSE
 
 
 def is_opening_punctuation(char: str) -> bool:
@@ -373,7 +300,9 @@ def is_opening_punctuation(char: str) -> bool:
     Returns:
         True if character is opening punctuation
     """
-    return char in '"\'[{(""'‚„‹«'
+    if not char or len(char) != 1:
+        return False
+    return char in _OPENERS
 
 
 def is_closing_punctuation(char: str) -> bool:
@@ -386,7 +315,8 @@ def is_closing_punctuation(char: str) -> bool:
         Identifies closing punctuation that should not be separated from preceding text.
     
     Issue Solved:
-        Closing punctuation/quotes should stay with the text they follow.
+        Prevents line breaks between Lao text and trailing punctuation by enabling
+        upstream insertion of \\nobreak{} before these marks.
     
     Args:
         char: Single character to check
@@ -394,8 +324,86 @@ def is_closing_punctuation(char: str) -> bool:
     Returns:
         True if character is closing punctuation
     """
-    return char in '.,;:!?()[]{}"\'\'-—–"'‚„›»@#%'
+    if not char or len(char) != 1:
+        return False
 
+    # Ellipsis is handled by dedicated macros; not treated as closing here
+    if char == _ELLIPSIS:
+        return False
+
+    # Closing punctuation = paired closers OR phrase enders OR dashes OR Lao repetition mark
+    if char in _CLOSERS:
+        return True
+    if char in _ENDERS:
+        return True
+    if char in _DASHES:
+        return True
+    if char == _LAO_REPEAT:
+        return True
+
+    return False
+
+# ============================================================================
+# Lao repeat character ໆ
+# ============================================================================
+
+def handle_lao_repetition_with_context(text: str) -> str:
+    """
+    Convert Lao repetition marks (ໆ) to LaTeX commands with context.
+
+    Purpose:
+        Allow a break after ໆ normally, but never between ໆ and a following
+        closing punctuation, dash, ellipsis, or another ໆ (chained repeats).
+
+    Rules:
+        - Default: ໆ -> \\laorepeat{}
+        - If next char is a closer/ender, a dash, ellipsis (…), or another ໆ:
+          ໆ -> \\laorepeatbefore{}  (no break between ໆ and that next mark)
+
+    Notes:
+        - Does not modify spaces or other characters.
+        - Ellipsis spacing is handled elsewhere; we only prevent a pre-ellipsis
+          break here.
+    """
+    if not text:
+        return text
+
+    rep = "ໆ"
+    ellipsis = "\u2026"  # …
+    enders = {",", ".", ":", ";", "?", "!"}
+    closers = {
+        ")", "]", "}", ">", "»", "›", "”", "’", "\"", "'",
+    }
+
+    dashes = {
+        "-", "\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2015",
+    }  # ‐ - ‒ – — ―
+
+    out = []
+    n = len(text)
+
+    for i, ch in enumerate(text):
+        if ch != rep:
+            out.append(ch)
+            continue
+
+        next_ch = text[i + 1] if i + 1 < n else ""
+
+        if (
+            next_ch
+            and (
+                next_ch in enders
+                or next_ch in closers
+                or next_ch in dashes
+                or next_ch == ellipsis
+                or next_ch == rep
+            )
+        ):
+            out.append("\\laorepeatbefore{}")
+        else:
+            out.append("\\laorepeat{}")
+
+    return "".join(out)
 
 def needs_nobreak_protection(text: str) -> bool:
     """
@@ -419,107 +427,145 @@ def needs_nobreak_protection(text: str) -> bool:
             text in ['\\laorepeat{}', '\\laorepeatbefore{}'])
 
 
-
-
 # ============================================================================
-# SPECIAL CHARACTER HANDLING
+# ELLIPSES
 # ============================================================================
 
 def handle_ellipsis_with_context(text: str) -> str:
     """
-    Convert ellipsis to context-aware LaTeX commands.
-    
-    Source: Module 2 - Replaces basic ellipsis handling
-    
-    Purpose:
-        Provides proper spacing around ellipsis based on surrounding punctuation.
-    
-    Issue Solved:
-        Prevents awkward spacing when ellipsis appears near other punctuation.
-    
-    Args:
-        text: Input text with ellipsis characters
-        
-    Returns:
-        Text with context-aware ellipsis commands
-    """
-    # This will be called by Module 2 with more context
-    # For Module 1, we do basic conversion
-    return text.replace('…', '\\ellipsis{}')
+    Convert U+2026 ellipses to context-aware LaTeX commands.
 
+    Variants (selection policy):
+      - prev punct, next not            -> \\ellafter{}
+      - next punct, prev not            -> \\ellbefore{}
+      - both sides punct                -> \\ellall{}   (tight both sides)
+      - no next (paragraph/section end) -> \\ellbefore{}
+      - special: \\laorepeatbefore{} … text   -> \\laorepeatbefore{}\\ellipsis{}
+      - special: \\laorepeatbefore{} … punct  -> \\laorepeatbefore{}\\ellall{}
 
-def get_ellipsis_command(prev_is_punct: bool, next_is_punct: bool) -> str:
+    Notes:
+      - Runs AFTER handle_lao_repetition_with_context(), so raw ໆ has already
+        become \\laorepeat{} / \\laorepeatbefore{}.
+      - Uses is_punctuation() from this module to classify neighbors.
+      - Skips ASCII spaces when scanning neighbors. Macros (\\something{...})
+        are treated as non-punctuation for neighbor tests, except the explicit
+        look-back for \\laorepeatbefore{} (special cases above).
+      - Macro internals (e.g., any \\nobreak{} policy) live in TeX; we only pick
+        the correct macro flavor here.
     """
-    Determine appropriate ellipsis command based on context.
-    
-    Source: Module 2 - Replaces handle_ellipsis_context()
-    
-    Purpose:
-        Selects the correct ellipsis variant based on surrounding punctuation.
-    
-    Issue Solved:
-        Ensures proper spacing when ellipsis appears adjacent to punctuation.
-    
+    if not text:
+        return text
+
+    ELL = "\u2026"
+    n = len(text)
+    i = 0
+    out = []
+
+    def _scan_prev(idx: int):
+        """
+        Find the nearest non-space item to the left.
+        Returns: (prev_char, prev_is_punct, prev_is_repeatbefore)
+        """
+        j = idx - 1
+        while j >= 0 and text[j] == " ":
+            j -= 1
+        if j < 0:
+            return ("", False, False)
+
+        # If we landed on the end of a macro, check for \laorepeatbefore{}
+        if text[j] == "}":
+            k = j - 1
+            # hop back to a backslash beginning this (flat) macro
+            while k >= 0 and text[k] != "\\":
+                k -= 1
+            if k >= 0:
+                macro = text[k:j + 1]
+                if macro == "\\laorepeatbefore{}":
+                    return ("", False, True)
+                # other macros: treat as non-punctuation context
+                return ("", False, False)
+
+        ch = text[j]
+        return (ch, is_punctuation(ch), False)
+
+    def _scan_next(idx: int):
+        """
+        Find the nearest non-space item to the right.
+        Returns: (next_char, next_is_punct, has_next)
+        """
+        j = idx + 1
+        while j < n and text[j] == " ":
+            j += 1
+        if j >= n:
+            return ("", False, False)
+
+        # If next token starts a macro, treat as non-punctuation (neighbor exists)
+        if text[j] == "\\":
+            return ("", False, True)
+
+        ch = text[j]
+        return (ch, is_punctuation(ch), True)
+
+    while i < n:
+        ch = text[i]
+        if ch != ELL:
+            out.append(ch)
+            i += 1
+            continue
+
+        prev_ch, prev_is_punct, prev_is_repeatbefore = _scan_prev(i)
+        next_ch, next_is_punct, has_next = _scan_next(i)
+
+        # Special cases with \laorepeatbefore{} immediately to the left
+        if prev_is_repeatbefore and next_is_punct:
+            cmd = "\\ellall{}"
+            out.append(cmd)
+            i += 1
+            continue
+        if prev_is_repeatbefore and has_next and not next_is_punct:
+            # keep explicit order: \laorepeatbefore{}\ellipsis{}
+            out.append("\\ellipsis{}")
+            i += 1
+            continue
+
+        # General selection
+        if not has_next:
+            cmd = "\\ellbefore{}"
+        elif prev_is_punct and next_is_punct:
+            cmd = "\\ellall{}"
+        elif prev_is_punct:
+            cmd = "\\ellafter{}"
+        elif next_is_punct:
+            cmd = "\\ellbefore{}"
+        else:
+            cmd = "\\ellipsis{}"
+
+        out.append(cmd)
+        i += 1
+
+    return "".join(out)
+
+def get_ellipsis_command(prev_is_punct: bool, next_is_punct: bool, has_next: bool = True) -> str:
+    """
+    Selector for ellipsis variant when neighbors are already classified.
+
     Args:
-        prev_is_punct: Whether previous character is punctuation
-        next_is_punct: Whether next character is punctuation
-        
+        prev_is_punct: True if previous neighbor is punctuation
+        next_is_punct: True if next neighbor is punctuation
+        has_next:      False at paragraph/section end (default True)
+
     Returns:
-        Appropriate ellipsis command
+        One of: \\ellipsis{}, \\ellafter{}, \\ellbefore{}, \\ellall{}
     """
+    if not has_next:
+        return "\\ellbefore{}"
+    if prev_is_punct and next_is_punct:
+        return "\\ellall{}"
     if prev_is_punct:
         return "\\ellafter{}"
-    elif next_is_punct:
-        return "\\ellbefore{}"
-    else:
-        return "\\ellipsis{}"
-
-
-def handle_lao_repetition_with_context(text: str) -> str:
-    """
-    Convert Lao repetition marks to LaTeX commands.
-    
-    Source: Module 2 - Replaces basic Lao repetition handling
-    
-    Purpose:
-        Handles the Lao repetition character (ໆ) with proper spacing.
-    
-    Issue Solved:
-        Ensures repetition marks have appropriate spacing based on context.
-    
-    Args:
-        text: Input text with Lao repetition marks
-        
-    Returns:
-        Text with converted repetition marks
-    """
-    # Basic conversion for Module 1
-    return text.replace('ໆ', '\\laorepeat{}')
-
-
-def get_lao_repetition_command(next_is_punct: bool) -> str:
-    """
-    Determine appropriate Lao repetition command based on context.
-    
-    Source: Module 2 - Replaces handle_lao_repetition_context()
-    
-    Purpose:
-        Selects correct repetition command variant based on following character.
-    
-    Issue Solved:
-        Prevents spacing issues when repetition mark appears before punctuation.
-    
-    Args:
-        next_is_punct: Whether next character is punctuation
-        
-    Returns:
-        Appropriate repetition command
-    """
     if next_is_punct:
-        return "\\laorepeatbefore{}"
-    else:
-        return "\\laorepeat{}"
-
+        return "\\ellbefore{}"
+    return "\\ellipsis{}"
 
 # ============================================================================
 # SPACE CONVERSION
@@ -552,55 +598,256 @@ def convert_flex_rigid_spaces(text: str) -> str:
     return text
 
 
-def convert_compound_spaces(text: str) -> str:
+def load_compound_phrases_list() -> List[str]:
     """
-    Convert dictionary compound space markers to LaTeX commands.
-    
-    Source: Module 2 - Replaces ~S~ conversion in convert_break_points()
-    
-    Purpose:
-        Handles special compound space markers from dictionary processing.
-    
-    Issue Solved:
-        Preserves compound word boundaries that should not be broken.
-    
-    Args:
-        text: Input text with ~S~ markers
-        
+    Load multi-word phrases for Module 1 to join with \\cs{}.
+
+    Source file (UTF-8, optional):
+        assets/dictionaries/compound_phrases.txt
+
+    Each non-empty line may be:
+        <left phrase> | <ignored right/template> [ % comment]
+      or
+        <left phrase>                         [ % comment]
+
+    We only use the LEFT side to identify phrases in raw text. Internal
+    whitespace is normalized to single spaces for matching.
+
     Returns:
-        Text with converted compound space commands
-        
-    Example:
-        "ການ~S~ສຶກສາ" → "ການ\\cs{}ສຶກສາ"
+        List of phrases (with spaces) sorted longest-first (by token count).
     """
-    return re.sub(r'~S~', r'\\cs{}', text)
+    phrases: List[str] = []
+    try:
+        script_dir = Path(__file__).parent
+        fp = (script_dir / ".." / ".." / ".." / ".."
+              / "assets" / "dictionaries" / "compound_phrases.txt")
+
+        if not fp.exists():
+            return phrases
+
+        with open(fp, "r", encoding="utf-8") as fh:
+            for raw in fh:
+                line = raw.strip()
+                if not line or line.startswith("#"):
+                    continue
+                # Strip trailing comment
+                if "%" in line:
+                    line = line.split("%", 1)[0].rstrip()
+                # Split on the first '|', keep the LEFT side only
+                if "|" in line:
+                    left = line.split("|", 1)[0].strip()
+                else:
+                    left = line
+                left = re.sub(r"\s+", " ", left)
+                if " " in left:
+                    phrases.append(left)
+
+        # Deduplicate and prefer longer phrases first (more tokens -> earlier)
+        phrases = sorted(set(phrases), key=lambda s: (-len(s.split()), s))
+        return phrases
+    except Exception:
+        # Fail-soft: if anything goes wrong, return empty list (no joins applied)
+        return []
 
 
-def convert_original_spaces_to_latex(text: str) -> str:
+def apply_compound_cs_joins(text: str, phrases: List[str]) -> str:
     """
-    Convert original spaces to \\space{} commands.
-    
-    Source: Module 2 - Replaces space conversion in process_text_groups()
-    
-    Purpose:
-        Preserves original spacing intent in LaTeX output.
-    
-    Issue Solved:
-        Maintains deliberate spacing from source text that might otherwise
-        be normalized by LaTeX.
-    
+    Replace the internal spaces of known multi-word phrases with \\cs{}.
+
+    Production intent:
+        • Join only the spaces *inside* phrases listed in `phrases`.
+        • Do not add penalties here; Module 2 will handle penalties and \\lw{} wrapping.
+        • Allow phrases to be adjacent to Lao letters or punctuation (no word-boundary guards).
+        • Do not cross line breaks when matching (only spaces/tabs are considered gaps).
+
+    Examples:
+        "...ໄປຊັງ ຫຼຸຍສ໌..."   →  "...ໄປຊັງ\\cs{}ຫຼຸຍສ໌..."
+        "...ທີ່ຊັງ ແອນເຈໂລ..." →  "...ທີ່ຊັງ\\cs{}ແອນເຈໂລ..."
+
     Args:
-        text: Input text with regular spaces
-        
+        text:     Source text potentially containing multi-word phrases.
+        phrases:  Phrases with normal spaces (longest-first preferred).
+
     Returns:
-        Text with spaces converted to \\space{}
-        
-    Note:
-        This is called selectively by Module 2 for Lao text segments.
+        The input text with matched phrases joined using \\cs{} in place of
+        each inter-token space/tab run.
     """
-    # Simple space replacement for continuous Lao text
-    # Module 2 will handle the context-aware application
-    return re.sub(r' ', r'\\space{}', text)
+    if not text or not phrases:
+        return text
+
+    result_text = text
+    # Gaps inside a phrase may be one-or-more spaces or tabs (not newlines).
+    gap_pattern = r"[ \t]+"
+
+    for phrase in phrases:
+        tokens = phrase.split(" ")
+        if len(tokens) < 2:
+            continue
+
+        # Build a flexible regex for the phrase: token1 <gap> token2 (<gap> tokenN)...
+        core_tokens_regex = gap_pattern.join(re.escape(tok) for tok in tokens)
+        phrase_regex = re.compile(core_tokens_regex, flags=re.UNICODE)
+
+        def replace_internal_gaps(match: re.Match) -> str:
+            matched_text = match.group(0)
+            # Collapse every inter-token gap to a single \cs{}
+            return re.sub(gap_pattern, r"\\cs{}", matched_text)
+
+        result_text = phrase_regex.sub(replace_internal_gaps, result_text)
+
+    return result_text
+
+
+def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
+    """
+    Convert all remaining ASCII spaces (U+0020) to \\space{} *except* inside
+    protected regions.
+
+    Protected regions (left untouched):
+      1) Math mode
+         • Inline: $...$, \\(...\\)
+         • Display: $$...$$, \\[...\\]
+         • Math environments (and their contents): math, displaymath,
+           equation, align, gather, multline, flalign, eqnarray, split
+           (and anything nested within).
+      2) Code / literal text
+         • Environments: verbatim, Verbatim, lstlisting, minted, alltt
+         • Inline: \\verb<delim>...<delim>, \\lstinline (|...| or {...}),
+           \\mintinline[...]{lang}{...}
+      3) URL-like inline macros
+         • \\url{...}, \\path{...} (entire brace content is protected)
+         • \\href{url}{text}: protect only the FIRST brace argument
+           (the URL), not link text.
+
+    Not protected (converted as normal):
+      • Macro arguments for prose: \\section{...}, \\chapter{...},
+        \\laochapter{...}, \\source{...}, \\footnote{...}, blockquote
+        environments (once in TeX), and ordinary paragraph text.
+      • Spaces immediately after control words are converted too; there
+        is no “special gap” to keep.
+      • \\cs{} (compound joiner) and other spacing commands are preserved
+        as-is (they contain no ASCII spaces).
+
+    Notes:
+      • This helper runs LAST in Module 1, after punctuation/repeat/
+        ellipsis processing and compound joins.
+      • Lists are currently out of scope; if list environments are
+        introduced later (itemize/enumerate/etc.), revisit whether any
+        part of them should be treated as literal.
+        TODO: If Module 3 adds list environments, reassess whether their
+        contents require protection.
+
+    Args:
+        text: TeX-form text where any remaining ASCII spaces should be
+          made explicit.
+
+    Returns:
+        Text with all non-protected ASCII spaces replaced by \\space{}.
+    """
+    if not text:
+        return text
+
+    import re
+
+    n = len(text)
+    protected_spans = []  # list[(start, end)] half-open indices
+
+    def add_spans_from_pattern(pattern: str, flags: int = 0) -> None:
+        for m in re.finditer(pattern, text, flags):
+            protected_spans.append((m.start(), m.end()))
+
+    # --- 1) Math mode protections ---
+
+    # 1a) $$ ... $$  (ignore escaped dollars; no DOTALL to avoid overreach)
+    add_spans_from_pattern(
+        r"(?<!\\)\$\$(?:\\.|[^$])*?(?<!\\)\$\$"
+    )
+
+    # 1b) Inline $ ... $ (single dollars; exclude $$ and escaped \$)
+    add_spans_from_pattern(
+        r"(?<![\\$])\$(?!\$)(?:[^$\n\\]|\\.)*?(?<![\\$])\$(?!\$)"
+    )
+
+    # 1c) \( ... \) and \[ ... \] with escape-aware inner scanning
+    add_spans_from_pattern(r"\\\((?:\\.|[^\\])*?\\\)")
+    add_spans_from_pattern(r"\\\[(?:\\.|[^\\])*?\\\]")
+
+    # 1d) Common math environments
+    math_envs = [
+        "math", "displaymath", "equation", "align", "gather",
+        "multline", "flalign", "eqnarray", "split",
+    ]
+    math_union = "|".join(math_envs)
+    add_spans_from_pattern(
+        rf"\\begin\{{({math_union})\}}(?:.|\n)*?\\end\{{\1\}}",
+        flags=re.DOTALL,
+    )
+
+    # --- 2) Code / literal protections ---
+
+    # 2a) Verbatim-like environments
+    code_envs = ["verbatim", "Verbatim", "lstlisting", "minted", "alltt"]
+    code_union = "|".join(code_envs)
+    add_spans_from_pattern(
+        rf"\\begin\{{({code_union})\}}(?:.|\n)*?\\end\{{\1\}}",
+        flags=re.DOTALL,
+    )
+
+    # 2b) \verb<d>...<d>  (single line)
+    add_spans_from_pattern(r"\\verb\*?(?P<d>.)(?P<c>[^\\\n]*?)(?P=d)")
+
+    # 2c) \lstinline delimiter form, optional [..] options
+    add_spans_from_pattern(
+        r"\\lstinline(?:\[[^\]]*\])?(?P<d>[^A-Za-z0-9\s])(?P<c>[^\\\n]*?)(?P=d)"
+    )
+
+    # 2d) \lstinline brace form
+    add_spans_from_pattern(r"\\lstinline(?:\[[^\]]*\])?\{[^}\n]*\}")
+
+    # 2e) \mintinline[opts]{lang}{content}
+    add_spans_from_pattern(r"\\mintinline(?:\[[^\]]*\])?\{[^}]*\}\{[^}]*\}")
+
+    # --- 3) URL-like macros ---
+
+    # 3a) \url{...} and \path{...}
+    add_spans_from_pattern(r"\\(?:url|path)\{[^}]*\}")
+
+    # 3b) \href{url}{text}: protect only the first {url}
+    for m in re.finditer(r"\\href\{[^}]*\}\{", text):
+        start = text.find("{", m.start())
+        if start != -1 and start < m.end():
+            end = text.find("}", start + 1)
+            if end != -1:
+                protected_spans.append((start, end + 1))
+
+    # Merge overlaps
+    if not protected_spans:
+        return text.replace(" ", "\\space{}")
+
+    protected_spans.sort()
+    merged = []
+    cur_s, cur_e = protected_spans[0]
+    for s, e in protected_spans[1:]:
+        if s <= cur_e:
+            cur_e = max(cur_e, e)
+        else:
+            merged.append((cur_s, cur_e))
+            cur_s, cur_e = s, e
+    merged.append((cur_s, cur_e))
+    protected_spans = merged
+
+    # Replace outside protected spans
+    pieces = []
+    i = 0
+    for s, e in protected_spans:
+        if i < s:
+            pieces.append(text[i:s].replace(" ", "\\space{}"))
+        pieces.append(text[s:e])  # protected slice
+        i = e
+    if i < n:
+        pieces.append(text[i:].replace(" ", "\\space{}"))
+
+    return "".join(pieces)
 
 
 # ============================================================================
@@ -643,59 +890,6 @@ def normalize_spacing_commands(text: str) -> str:
 
 
 # ============================================================================
-# PUNCTUATION PROTECTION
-# ============================================================================
-
-def apply_punctuation_protection(parts: List[str]) -> List[str]:
-    """
-    Apply \\nobreak{} protection around punctuation.
-    
-    Source: Module 2 - Replaces apply_punctuation_protection()
-    
-    Purpose:
-        Prevents line breaks between Lao words and adjacent punctuation.
-    
-    Issue Solved:
-        Stops punctuation from being orphaned on the next line or
-        separated from quoted text.
-    
-    Args:
-        parts: List of text parts to process
-        
-    Returns:
-        List with \\nobreak{} commands inserted
-        
-    Example:
-        ["\\lw{word}", "."] → ["\\lw{word}", "\\nobreak{}", "."]
-    """
-    if len(parts) <= 1:
-        return parts
-    
-    protected_parts = []
-    
-    for i, part in enumerate(parts):
-        protected_parts.append(part)
-        
-        if i < len(parts) - 1:
-            current_part = part
-            next_part = parts[i + 1]
-            
-            # Add \nobreak before closing punctuation
-            if (needs_nobreak_protection(current_part) and 
-                len(next_part) > 0 and 
-                is_closing_punctuation(next_part[0])):
-                protected_parts.append('\\nobreak{}')
-            
-            # Add \nobreak after opening punctuation
-            elif (len(current_part) > 0 and 
-                  is_opening_punctuation(current_part[-1]) and
-                  needs_nobreak_protection(next_part)):
-                protected_parts.append('\\nobreak{}')
-    
-    return protected_parts
-
-
-# ============================================================================
 # MAIN PROCESSING FUNCTIONS
 # ============================================================================
 
@@ -720,67 +914,27 @@ def process_all_spacing_and_punctuation(text: str) -> str:
         Text with all spacing and punctuation conversions applied
     """
     # 1. Bible reference processing
-    text = protect_numbered_bible_books(text)
-    text = add_scripture_spacing(text)
-    text = wrap_scripture_references(text)
-    
+    text = protect_scripture_references(text) 
+
     # 2. EGW reference processing
     text = convert_egw_references(text)
     
     # 3. Special character handling
-    text = handle_ellipsis_with_context(text)
     text = handle_lao_repetition_with_context(text)
+    text = handle_ellipsis_with_context(text)
     
     # 4. Space marker conversion
     text = convert_flex_rigid_spaces(text)
-    text = convert_compound_spaces(text)
-    
-    # 5. Final normalization
+
+    # 5. Join multi-word compounds with \cs{}
+    phrases = load_compound_phrases_list()
+    if phrases:
+        text = apply_compound_cs_joins(text, phrases)    
+
+    # 6. Convert ASCII spaces to \space{}
+    text = convert_ascii_spaces_to_spacecmd_with_protections(text)
+
+    # 6. Final normalization
     text = normalize_spacing_commands(text)
     
     return text
-
-
-def process_module2_spacing(text_parts: List[Tuple[str, str]], 
-                           dictionary_terms: Set[str] = None) -> List[str]:
-    """
-    Process spacing for Module 2's dictionary-processed text.
-    
-    Source: NEW - Helper function for Module 2
-    
-    Purpose:
-        Handles context-aware spacing and punctuation for Module 2's
-        Lao text processing.
-    
-    Issue Solved:
-        Provides proper spacing for dictionary-segmented Lao text while
-        preserving linguistic boundaries.
-    
-    Args:
-        text_parts: List of (type, content) tuples from Module 2
-        dictionary_terms: Set of dictionary terms for validation
-        
-    Returns:
-        List of processed text parts with spacing/punctuation applied
-    """
-    # This function will be called by Module 2 after dictionary processing
-    # Implementation will depend on Module 2's specific needs
-    processed = []
-    
-    for i, (part_type, content) in enumerate(text_parts):
-        if part_type == 'space':
-            processed.append('\\space{}')
-        elif part_type == 'ellipsis':
-            # Check context
-            prev_is_punct = i > 0 and text_parts[i-1][0] == 'punctuation'
-            next_is_punct = i < len(text_parts)-1 and text_parts[i+1][0] == 'punctuation'
-            processed.append(get_ellipsis_command(prev_is_punct, next_is_punct))
-        elif part_type == 'lao_repetition':
-            # Check following context
-            next_is_punct = i < len(text_parts)-1 and text_parts[i+1][0] == 'punctuation'
-            processed.append(get_lao_repetition_command(next_is_punct))
-        else:
-            processed.append(content)
-    
-    # Apply punctuation protection
-    return apply_punctuation_protection(processed)
