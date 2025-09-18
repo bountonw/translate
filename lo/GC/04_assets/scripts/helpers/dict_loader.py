@@ -143,11 +143,12 @@ def load_hierarchical_dictionaries(
         LaoDictionary: Merged dictionary with all applicable terms
     """
     # Get base paths
-    script_dir = Path(__file__).parent.parent  # Go up from helpers/
-    project_dict_dir = script_dir / "dictionaries"
+    script_dir = Path(__file__).parent  # helpers/ directory
+    scripts_dir = script_dir.parent  # scripts/ directory
+    project_dict_dir = scripts_dir / "dictionaries"
     
     # Language-level dictionary path (4 levels up from scripts/)
-    lang_dict_dir = script_dir / ".." / ".." / ".." / ".." / "lo" / "assets" / "dictionaries"
+    lang_dict_dir = scripts_dir / ".." / ".." / ".." / ".." / "lo" / "assets" / "dictionaries"
     lang_dict_dir = lang_dict_dir.resolve()
     
     # Initialize empty dictionary (will be filled in reverse priority order)
@@ -156,11 +157,27 @@ def load_hierarchical_dictionaries(
     # Track what we're loading for debug output
     load_sequence = []
     
+    # Debug: Track some sample terms to show override behavior
+    sample_terms = {}
+    if debug:
+        print(f"\n{'='*60}")
+        print(f"DICTIONARY LOADING FOR: Chapter={chapter}, Book={book}")
+        print(f"{'='*60}")
+    
     # 6. Language main dictionary (always exists as fallback)
     lang_main = lang_dict_dir / "main.txt"
     if lang_main.exists():
         count = merged_dict.load_from_file(lang_main, "Language main")
         load_sequence.append(f"Language main: {count} terms")
+        if debug:
+            print(f"[6] Loading: {lang_main}")
+            print(f"    → Loaded {count} terms")
+            if count > 0 and merged_dict.terms:
+                # Show a few sample terms
+                samples = list(merged_dict.terms.items())[:3]
+                for clean, coded in samples:
+                    sample_terms[clean] = ("main.txt", coded)
+                    print(f"    Sample: {clean} → {coded[:30]}...")
     else:
         print(f"Warning: Language main dictionary not found: {lang_main}")
         print(f"This file must exist as the fallback dictionary.")
@@ -171,6 +188,21 @@ def load_hierarchical_dictionaries(
     if lang_patch.exists():
         count = merged_dict.load_from_file(lang_patch, "Language patch")
         load_sequence.append(f"Language patch: {count} terms (override)")
+        if debug:
+            print(f"[5] Loading: {lang_patch}")
+            print(f"    → Loaded {count} terms (OVERRIDE)")
+            # Show if any sample terms were overridden
+            for term in list(sample_terms.keys())[:3]:
+                if term in merged_dict.terms:
+                    old_source, old_coded = sample_terms.get(term, (None, None))
+                    new_coded = merged_dict.terms[term]
+                    if old_coded != new_coded:
+                        print(f"    Override: {term}")
+                        print(f"              Was: {old_coded[:30]}... (from {old_source})")
+                        print(f"              Now: {new_coded[:30]}... (from patch.txt)")
+                        sample_terms[term] = ("patch.txt", new_coded)
+    elif debug:
+        print(f"[5] Not found: {lang_patch}")
     
     # 4. Book dictionary (if book specified and directory exists)
     if book and project_dict_dir.exists():
@@ -178,6 +210,21 @@ def load_hierarchical_dictionaries(
         if book_dict.exists():
             count = merged_dict.load_from_file(book_dict, f"Book {book}")
             load_sequence.append(f"Book {book}: {count} terms (override)")
+            if debug:
+                print(f"[4] Loading: {book_dict}")
+                print(f"    → Loaded {count} terms (OVERRIDE)")
+                # Show overrides
+                for term in list(sample_terms.keys())[:3]:
+                    if term in merged_dict.terms:
+                        old_source, old_coded = sample_terms.get(term, (None, None))
+                        new_coded = merged_dict.terms[term]
+                        if old_coded != new_coded:
+                            print(f"    Override: {term}")
+                            print(f"              Was: {old_coded[:30]}... (from {old_source})")
+                            print(f"              Now: {new_coded[:30]}... (from {book}_lo.txt)")
+                            sample_terms[term] = (f"{book}_lo.txt", new_coded)
+        elif debug:
+            print(f"[4] Not found: {book_dict}")
     
     # 3. Book patch (if book specified and directory exists)
     if book and project_dict_dir.exists():
@@ -189,6 +236,21 @@ def load_hierarchical_dictionaries(
             load_sequence.append(
                 f"Book {book} patch: {count} terms (override)"
             )
+            if debug:
+                print(f"[3] Loading: {book_patch}")
+                print(f"    → Loaded {count} terms (OVERRIDE)")
+                # Show overrides
+                for term in list(sample_terms.keys())[:3]:
+                    if term in merged_dict.terms:
+                        old_source, old_coded = sample_terms.get(term, (None, None))
+                        new_coded = merged_dict.terms[term]
+                        if old_coded != new_coded:
+                            print(f"    Override: {term}")
+                            print(f"              Was: {old_coded[:30]}... (from {old_source})")
+                            print(f"              Now: {new_coded[:30]}... (from {book}_lo_patch.txt)")
+                            sample_terms[term] = (f"{book}_lo_patch.txt", new_coded)
+        elif debug:
+            print(f"[3] Not found: {book_patch}")
     
     # 2. Chapter dictionary (if chapter specified and directory exists)
     if chapter and project_dict_dir.exists():
@@ -200,6 +262,21 @@ def load_hierarchical_dictionaries(
             load_sequence.append(
                 f"Chapter {chapter}: {count} terms (override)"
             )
+            if debug:
+                print(f"[2] Loading: {chapter_dict}")
+                print(f"    → Loaded {count} terms (OVERRIDE)")
+                # Show overrides
+                for term in list(sample_terms.keys())[:3]:
+                    if term in merged_dict.terms:
+                        old_source, old_coded = sample_terms.get(term, (None, None))
+                        new_coded = merged_dict.terms[term]
+                        if old_coded != new_coded:
+                            print(f"    Override: {term}")
+                            print(f"              Was: {old_coded[:30]}... (from {old_source})")
+                            print(f"              Now: {new_coded[:30]}... (from {chapter}_lo.txt)")
+                            sample_terms[term] = (f"{chapter}_lo.txt", new_coded)
+        elif debug:
+            print(f"[2] Not found: {chapter_dict}")
     
     # 1. Chapter patch (highest priority)
     if chapter and project_dict_dir.exists():
@@ -211,15 +288,48 @@ def load_hierarchical_dictionaries(
             load_sequence.append(
                 f"Chapter {chapter} patch: {count} terms (override)"
             )
+            if debug:
+                print(f"[1] Loading: {chapter_patch}")
+                print(f"    → Loaded {count} terms (HIGHEST PRIORITY OVERRIDE)")
+                # Show overrides
+                for term in list(sample_terms.keys())[:3]:
+                    if term in merged_dict.terms:
+                        old_source, old_coded = sample_terms.get(term, (None, None))
+                        new_coded = merged_dict.terms[term]
+                        if old_coded != new_coded:
+                            print(f"    Override: {term}")
+                            print(f"              Was: {old_coded[:30]}... (from {old_source})")
+                            print(f"              Now: {new_coded[:30]}... (from {chapter}_lo_patch.txt)")
+                            sample_terms[term] = (f"{chapter}_lo_patch.txt", new_coded)
+        elif debug:
+            print(f"[1] Not found: {chapter_patch}")
     
-    # Debug output
-    if debug and load_sequence:
-        print("\nDictionary loading sequence:")
+    # Debug: Final summary
+    if debug:
+        print(f"\n{'='*60}")
+        print("LOADING SUMMARY:")
+        print(f"{'='*60}")
         for item in reversed(load_sequence):  # Show in priority order
             print(f"  {item}")
-        print(f"Total merged terms: {len(merged_dict.terms)}")
+        print(f"\nFINAL STATISTICS:")
+        print(f"  Total merged terms: {len(merged_dict.terms)}")
+        
+        # Show final state of sample terms
+        if sample_terms:
+            print(f"\nSAMPLE TERM FINAL SOURCES:")
+            for term, (source, coded) in list(sample_terms.items())[:3]:
+                print(f"  {term}: from {source}")
+                print(f"    → {coded[:40]}...")
+        
+        # Show a specific test term if it exists
+        test_term = "ເຢຣູຊາເລັມ"
+        if test_term in merged_dict.terms:
+            print(f"\nTEST TERM '{test_term}':")
+            print(f"  Final coding: {merged_dict.terms[test_term]}")
+        
+        print(f"{'='*60}\n")
     
-    # Summary message
+    # Summary message (non-debug)
     total_terms = len(merged_dict.terms)
     sources = len([s for s in load_sequence if "0 terms" not in s])
     
@@ -235,7 +345,6 @@ def load_hierarchical_dictionaries(
             print(f"Loaded {total_terms} terms from language dictionary")
     
     return merged_dict
-
 
 def load_simple_dictionary(dictionary_path: Path) -> LaoDictionary:
     """

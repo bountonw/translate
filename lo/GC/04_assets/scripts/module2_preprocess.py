@@ -69,8 +69,9 @@ from pathlib import Path
 from patch_overrides import apply_patch_overrides
 from typing import List, Dict, Tuple, Any
 # Import dictionary loader helper
+from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent / 'helpers'))
-from dict_loader import LaoDictionary, load_hierarchical_dictionaries, load_simple_dictionary
+from dict_loader import load_hierarchical_dictionaries, LaoDictionary
 try:
     import module2_debug
     HAS_DEBUG = True
@@ -206,7 +207,7 @@ def is_closing_punctuation(char):
     return char in '.,;:!?()[]{}"\'\'-–—”’‚„›»@#%'
 
 def needs_nobreak_protection(text):
-    """Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
+    r"""Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
     return (text.endswith('}') or 
             text in ['\\laorepeat', '\\laorepeatbefore'])
 
@@ -1366,6 +1367,60 @@ def _run_dictionary_maintenance(project_root):
     except Exception as e:
         print(f"[Module2] Dictionary maintenance skipped: {e}")
 
+def extract_chapter_book_from_filename(filename):
+    """
+    Extract chapter and book identifiers from a filename.
+    
+    Args:
+        filename: Path or string like 'GC01_lo.tmp' or 'MB03_lo_stage1.tmp'
+        
+    Returns:
+        tuple: (chapter, book) e.g., ('GC01', 'GC') or (None, None)
+    """
+    import re
+    
+    name = Path(filename).stem  # Remove .tmp extension
+    # Remove stage suffixes
+    name = re.sub(r'_stage[12]$', '', name)
+    # Remove _lo suffix
+    name = re.sub(r'_lo$', '', name)
+    
+    # Match pattern like GC01, MB03, etc.
+    match = re.match(r'^([A-Z]+)(\d+)$', name)
+    if match:
+        book = match.group(1)
+        chapter = name  # Full chapter code like GC01
+        return chapter, book
+    
+    return None, None
+
+def extract_chapter_book_from_filename(filename):
+    """
+    Extract chapter and book identifiers from a filename.
+    
+    Args:
+        filename: Path or string like 'GC01_lo.tmp' or 'MB03_lo_stage1.tmp'
+        
+    Returns:
+        tuple: (chapter, book) e.g., ('GC01', 'GC') or (None, None)
+    """
+    import re
+    
+    name = Path(filename).stem  # Remove .tmp extension
+    # Remove stage suffixes
+    name = re.sub(r'_stage[12]$', '', name)
+    # Remove _lo suffix
+    name = re.sub(r'_lo$', '', name)
+    
+    # Match pattern like GC01, MB03, etc.
+    match = re.match(r'^([A-Z]+)(\d+)$', name)
+    if match:
+        book = match.group(1)
+        chapter = name  # Full chapter code like GC01
+        return chapter, book
+    
+    return None, None
+
 def main():
     parser = argparse.ArgumentParser(
         description="Module 2: Dictionary Lookup and Line-Breaking Application",
@@ -1407,12 +1462,6 @@ Examples:
     # Initialize debug session
     if HAS_DEBUG and args.debug:
         module2_debug.initialize_debug_session(get_project_root())
-
-    # Load dictionary using hierarchical loader
-    # For now, use simple mode for backwards compatibility
-    # TODO: Extract chapter/book from file processing for hierarchical loading
-    dictionary_path = Path(__file__).parent / '../../../../lo/assets/dictionaries/main.txt'
-    dictionary = load_simple_dictionary(dictionary_path) 
     
     # Get input files with intelligent matching
     input_files = get_input_files(args)
@@ -1420,6 +1469,14 @@ Examples:
     if not input_files:
         print("No input files to process")
         sys.exit(1)
+    
+    # Group files by chapter for proper dictionary loading
+    from collections import defaultdict
+    files_by_chapter = defaultdict(list)
+    
+    for input_file in input_files:
+        chapter, book = extract_chapter_book_from_filename(input_file.name)
+        files_by_chapter[(chapter, book)].append(input_file)
     
     # Process files
     success_count = 0
@@ -1429,13 +1486,23 @@ Examples:
     mode_desc = 'debug' if args.debug else 'production'
     print(f"Processing {total_count} file(s) in {mode_desc} mode...")
     
-    for input_file in input_files:
-        input_path = str(input_file)
-        output_path = str(get_output_path(input_file, args.debug))
+    # Process each chapter group with its appropriate dictionary
+    for (chapter, book), chapter_files in files_by_chapter.items():
+        # Load dictionary for this chapter/book combination
+        dictionary = load_hierarchical_dictionaries(
+            chapter=chapter,
+            book=book,
+            debug=args.debug
+        )
         
-        if process_file(input_path, output_path, dictionary, args.verbose or args.debug):
-            success_count += 1
-            processed_output_files.append(Path(output_path))
+        # Process all files for this chapter
+        for input_file in chapter_files:
+            input_path = str(input_file)
+            output_path = str(get_output_path(input_file, args.debug))
+            
+            if process_file(input_path, output_path, dictionary, args.verbose or args.debug):
+                success_count += 1
+                processed_output_files.append(Path(output_path))
     
     print(f"\nCompleted: {success_count}/{total_count} files processed successfully")
     

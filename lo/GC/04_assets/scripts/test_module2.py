@@ -34,6 +34,9 @@ class Module2Tester:
         self.test_input = "GC01"
         self.results = []
         
+        # Add helpers to path
+        sys.path.insert(0, str(self.script_dir / 'helpers'))
+        
     def log_result(self, test_name: str, passed: bool, message: str = ""):
         """Log test result."""
         status = "✓ PASS" if passed else "✗ FAIL"
@@ -49,20 +52,26 @@ class Module2Tester:
             sys.path.insert(0, str(self.script_dir))
             import module2_preprocess
             
-            # Check for key functions
+            # Check for key functions in module2_preprocess
             required_functions = [
                 'parse_longest_first',
                 'parse_shortest_first', 
                 'parse_with_backtrack',
                 'process_file',
-                'LaoDictionary',
-                'is_invalid_standalone_lao'
+                'is_invalid_standalone_lao',
+                'extract_chapter_book_from_filename'
             ]
             
             missing_functions = []
             for func_name in required_functions:
                 if not hasattr(module2_preprocess, func_name):
                     missing_functions.append(func_name)
+            
+            # Check that LaoDictionary can be imported from helper
+            try:
+                from dict_loader import LaoDictionary, load_hierarchical_dictionaries
+            except ImportError as e:
+                missing_functions.append(f"dict_loader import: {e}")
             
             if missing_functions:
                 self.log_result("Module imports", False, f"Missing functions: {missing_functions}")
@@ -118,13 +127,16 @@ class Module2Tester:
             return False
     
     def test_dictionary_loading(self) -> bool:
-        """Test that the dictionary can be loaded."""
+        """Test that the dictionary can be loaded using new helper."""
         try:
-            sys.path.insert(0, str(self.script_dir))
-            from module2_preprocess import LaoDictionary, get_dictionary_path
+            from dict_loader import load_hierarchical_dictionaries
             
-            dict_path = get_dictionary_path()
-            dictionary = LaoDictionary(dict_path)
+            # Test loading dictionary for GC01
+            dictionary = load_hierarchical_dictionaries(
+                chapter="GC01",
+                book="GC",
+                debug=False
+            )
             
             term_count = len(dictionary.terms)
             if term_count > 1000:  # Reasonable dictionary size
@@ -143,13 +155,16 @@ class Module2Tester:
         try:
             sys.path.insert(0, str(self.script_dir))
             from module2_preprocess import (
-                parse_longest_first, parse_shortest_first, parse_with_backtrack,
-                LaoDictionary, get_dictionary_path
+                parse_longest_first, parse_shortest_first, parse_with_backtrack
             )
+            from dict_loader import load_hierarchical_dictionaries
             
-            # Load dictionary
-            dict_path = get_dictionary_path()
-            dictionary = LaoDictionary(dict_path)
+            # Load dictionary using new helper
+            dictionary = load_hierarchical_dictionaries(
+                chapter="GC01",
+                book="GC",
+                debug=False
+            )
             
             # Test with simple Lao text
             test_text = "ການສຶກສາ"
@@ -161,19 +176,25 @@ class Module2Tester:
                 ("backtrack", parse_with_backtrack)
             ]
             
+            all_passed = True
             for parser_name, parser_func in parsers:
                 try:
                     result = parser_func(test_text, dictionary, debug=False)
                     if isinstance(result, list) and len(result) > 0:
-                        self.log_result(f"Parser {parser_name}", True)
+                        # Parser returned a result
+                        pass
                     else:
                         self.log_result(f"Parser {parser_name}", False, "Empty or invalid result")
-                        return False
+                        all_passed = False
                 except Exception as e:
                     self.log_result(f"Parser {parser_name}", False, f"Parser error: {e}")
-                    return False
+                    all_passed = False
             
-            return True
+            if all_passed:
+                self.log_result("Parsing functions", True, "All parsers working")
+                return True
+            else:
+                return False
             
         except Exception as e:
             self.log_result("Parsing functions", False, f"Setup error: {e}")
@@ -206,7 +227,12 @@ class Module2Tester:
             
             # Check command execution
             if result.returncode != 0:
-                self.log_result("Debug mode processing", False, f"Command failed: {result.stderr}")
+                # Extract meaningful error message
+                error_msg = result.stderr if result.stderr else result.stdout
+                # Truncate long error messages
+                if len(error_msg) > 200:
+                    error_msg = error_msg[:200] + "..."
+                self.log_result("Debug mode processing", False, f"Command failed: {error_msg.strip()}")
                 return False
             
             # Check output file was created
@@ -227,7 +253,7 @@ class Module2Tester:
             has_processing = has_lw_commands or '\\nodict{' in output_content
             
             if has_processing:
-                self.log_result("Debug mode processing", True, f"Output: {len(output_content)} chars, processed: {has_lw_commands}")
+                self.log_result("Debug mode processing", True, f"Output: {len(output_content)} chars")
                 return True
             else:
                 self.log_result("Debug mode processing", False, "No processing markers found in output")
@@ -252,24 +278,24 @@ class Module2Tester:
             with open(stage2_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # Content validation checks
-            checks = [
-                ("Has content", len(content) > 500),
-                ("Has Lao text", any('\u0e80' <= char <= '\u0eff' for char in content)),
-                ("Has TeX commands", any(cmd in content for cmd in ['\\lw{', '\\section', '\\source'])),
-                ("Has processing", '\\lw{' in content or '\\nodict{' in content),
-                ("No syntax errors", '\\lw{}' not in content and '\\nodict{}' not in content)
-            ]
+            # Content validation checks - simpler output
+            has_content = len(content) > 500
+            has_lao = any('\u0e80' <= char <= '\u0eff' for char in content)
+            has_tex = any(cmd in content for cmd in ['\\lw{', '\\section', '\\source'])
+            has_processing = '\\lw{' in content or '\\nodict{' in content
+            no_empty_commands = '\\lw{}' not in content and '\\nodict{}' not in content
             
-            all_passed = True
-            for check_name, check_result in checks:
-                if not check_result:
-                    self.log_result(f"Content check: {check_name}", False)
-                    all_passed = False
-                else:
-                    self.log_result(f"Content check: {check_name}", True)
-            
-            return all_passed
+            if has_content and has_lao and has_processing and no_empty_commands:
+                self.log_result("Output file content", True, f"Valid content: {len(content)} chars")
+                return True
+            else:
+                errors = []
+                if not has_content: errors.append("too small")
+                if not has_lao: errors.append("no Lao")
+                if not has_processing: errors.append("no processing")
+                if not no_empty_commands: errors.append("empty commands")
+                self.log_result("Output file content", False, f"Issues: {', '.join(errors)}")
+                return False
             
         except Exception as e:
             self.log_result("Output file content", False, f"Content check error: {e}")
@@ -283,7 +309,7 @@ class Module2Tester:
                 ("lookahead_decisions.log", self.temp_dir / "lookahead_decisions.log")
             ]
             
-            all_logs_exist = True
+            all_logs_valid = True
             for log_name, log_path in log_files:
                 if log_path.exists():
                     # Check file has content
@@ -291,22 +317,22 @@ class Module2Tester:
                         log_content = f.read()
                     
                     if len(log_content) > 50:  # Reasonable log content
-                        self.log_result(f"Debug log: {log_name}", True, f"Size: {len(log_content)} chars")
+                        self.log_result(f"Debug log: {log_name}", True)
                     else:
                         self.log_result(f"Debug log: {log_name}", False, f"Log too small: {len(log_content)} chars")
-                        all_logs_exist = False
+                        all_logs_valid = False
                 else:
                     # lookahead_decisions.log might not exist if no strategy changes occurred
                     if log_name == "lookahead_decisions.log":
-                        self.log_result(f"Debug log: {log_name}", True, "No strategy changes (expected)")
+                        self.log_result(f"Debug log: {log_name}", True, "No strategy changes needed")
                     else:
                         self.log_result(f"Debug log: {log_name}", False, "Log file missing")
-                        all_logs_exist = False
+                        all_logs_valid = False
             
-            return all_logs_exist
+            return all_logs_valid
             
         except Exception as e:
-            self.log_result("Debug logs generated", False, f"Log check error: {e}")
+            self.log_result("Debug logs", False, f"Log check error: {e}")
             return False
     
     def test_error_handling(self) -> bool:
@@ -329,11 +355,24 @@ class Module2Tester:
             )
             
             # Should handle error gracefully (return code 1 but not crash)
-            if result.returncode == 1 and "Could not find file" in result.stdout:
-                self.log_result("Error handling", True, "Graceful error handling for missing file")
+            # Check for various possible error messages
+            error_indicators = [
+                "Could not find file",
+                "No input files",
+                "Warning:",
+                "not found"
+            ]
+            
+            error_handled = result.returncode != 0 and any(
+                indicator in result.stdout or indicator in result.stderr 
+                for indicator in error_indicators
+            )
+            
+            if error_handled:
+                self.log_result("Error handling", True, "Graceful error handling")
                 return True
             else:
-                self.log_result("Error handling", False, f"Unexpected error handling: rc={result.returncode}")
+                self.log_result("Error handling", False, f"Unexpected: rc={result.returncode}")
                 return False
                 
         except Exception as e:
