@@ -68,6 +68,9 @@ import subprocess
 from pathlib import Path
 from patch_overrides import apply_patch_overrides
 from typing import List, Dict, Tuple, Any
+# Import dictionary loader helper
+sys.path.insert(0, str(Path(__file__).parent / 'helpers'))
+from dict_loader import LaoDictionary, load_hierarchical_dictionaries, load_simple_dictionary
 try:
     import module2_debug
     HAS_DEBUG = True
@@ -162,64 +165,6 @@ def is_invalid_standalone_lao(text: str) -> bool:
         return True
     
     return False
-
-class LaoDictionary:
-    """Handles loading and lookup of Lao dictionary with break points."""
-    
-    def __init__(self, dictionary_path):
-        self.dictionary_path = dictionary_path
-        self.terms = {}  # clean_term -> coded_term mapping
-        self.load_dictionary()
-    
-    def load_dictionary(self):
-        """Load dictionary from pipe-delimited file."""
-        try:
-            with open(self.dictionary_path, 'r', encoding='utf-8') as f:
-                for line_num, line in enumerate(f, 1):
-                    line = line.strip()
-                    
-                    # Skip empty lines and comments
-                    if not line or line.startswith('%'):
-                        continue
-                    
-                    # Parse pipe-delimited format: clean_term| coded_term % comment
-                    if '|' not in line:
-                        continue
-                    
-                    parts = line.split('|', 1)
-                    if len(parts) != 2:
-                        continue
-                    
-                    clean_term = parts[0].strip()
-                    coded_part = parts[1].strip()
-                    
-                    # Remove comment if present
-                    if '%' in coded_part:
-                        coded_term = coded_part.split('%')[0].strip()
-                    else:
-                        coded_term = coded_part
-                    
-                    if clean_term and coded_term:
-                        self.terms[clean_term] = coded_term
-            
-            print(f"Loaded {len(self.terms)} dictionary terms from {self.dictionary_path}")
-            
-        except FileNotFoundError:
-            print(f"Error: Dictionary file not found: {self.dictionary_path}")
-            sys.exit(1)
-        except UnicodeDecodeError:
-            print(f"Error: Dictionary file encoding issue: {self.dictionary_path}")
-            sys.exit(1)
-        except PermissionError:
-            print(f"Error: Permission denied accessing dictionary file: {self.dictionary_path}")
-            sys.exit(1)
-        except Exception as e:
-            print(f"Error loading dictionary: {e}")
-            sys.exit(1)
-    
-    def get_sorted_terms(self):
-        """Return dictionary terms sorted by length (longest first) for matching."""
-        return sorted(self.terms.keys(), key=len, reverse=True)
 
 def convert_break_points(coded_term):
     """Convert dictionary break point symbols to TeX penalty commands."""
@@ -1189,15 +1134,6 @@ def get_project_root():
     project_root = script_dir.parent.parent
     return project_root
     
-def get_dictionary_path():
-    """Get the path to the dictionary file."""
-    script_dir = Path(__file__).parent
-    return script_dir / '../../../../lo/assets/dictionaries/main.txt'
-
-def get_patch_dictionary_path():
-    """Get the path to the patch dictionary file."""
-    script_dir = Path(__file__).parent
-    return script_dir / '../../../../lo/assets/dictionaries/patch.txt'
 
 def expand_chapter_ranges(file_specs):
     """
@@ -1471,10 +1407,12 @@ Examples:
     # Initialize debug session
     if HAS_DEBUG and args.debug:
         module2_debug.initialize_debug_session(get_project_root())
-    
-    # Load dictionary
-    dictionary_path = get_dictionary_path()
-    dictionary = LaoDictionary(dictionary_path)
+
+    # Load dictionary using hierarchical loader
+    # For now, use simple mode for backwards compatibility
+    # TODO: Extract chapter/book from file processing for hierarchical loading
+    dictionary_path = Path(__file__).parent / '../../../../lo/assets/dictionaries/main.txt'
+    dictionary = load_simple_dictionary(dictionary_path) 
     
     # Get input files with intelligent matching
     input_files = get_input_files(args)
