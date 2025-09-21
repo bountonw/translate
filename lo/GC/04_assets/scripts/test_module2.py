@@ -132,7 +132,7 @@ class Module2Tester:
             from dict_loader import load_hierarchical_dictionaries
             
             # Test loading dictionary for GC01
-            dictionary = load_hierarchical_dictionaries(
+            dictionary, conflicts = load_hierarchical_dictionaries(
                 chapter="GC01",
                 book="GC",
                 debug=False
@@ -160,7 +160,7 @@ class Module2Tester:
             from dict_loader import load_hierarchical_dictionaries
             
             # Load dictionary using new helper
-            dictionary = load_hierarchical_dictionaries(
+            dictionary, conflicts = load_hierarchical_dictionaries(
                 chapter="GC01",
                 book="GC",
                 debug=False

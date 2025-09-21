@@ -37,7 +37,6 @@ WHAT THIS MODULE DOES:
    
 6. Wraps terms and manages spacing:
    - Dictionary terms → \\lw{term_with_penalties}
-   - Original spaces → \\space
    - Punctuation protection → \\nobreak before punctuation
 
 DICTIONARY FORMAT:
@@ -66,12 +65,20 @@ import argparse
 import re
 import subprocess
 from pathlib import Path
-from patch_overrides import apply_patch_overrides
 from typing import List, Dict, Tuple, Any
 # Import dictionary loader helper
 from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent / 'helpers'))
 from dict_loader import load_hierarchical_dictionaries, LaoDictionary
+
+# Import Lao word processing functions
+from lao_word_processor import (
+    is_lao_text, is_punctuation, is_opening_punctuation, is_closing_punctuation,
+    group_consecutive_text, lookup_lao_words, TONE_MARKS, DEPENDENT_VOWELS,
+    find_lao_word_boundary, parse_longest_first, parse_shortest_first, 
+    parse_with_backtrack, is_invalid_standalone_lao
+)
+
 try:
     import module2_debug
     HAS_DEBUG = True
@@ -84,130 +91,8 @@ session_stats = {
     'interesting_cases': 0
 }
 
-# Lao Linguistic Rules - Based on actual nodict_analysis.log patterns
-TONE_MARKS = {
-    '່', '້', '໊', '໋'  # All tone marks
-}
-
-DEPENDENT_VOWELS = {
-    'ະ',  # Must end syllable
-    'ັ',  # Must be between consonants  
-    'ິ', 'ີ', 'ຶ', 'ື', 'ຸ', 'ູ',  # Must follow consonants
-    'ົ',  # Must be between consonants
-    'ຽ',  # Must be between consonants
-    'ຳ',  # Special combining vowel+nasal
-    'າ',  # Long A - must follow consonant
-}
-
-VOWELS_THAT_PRECEDE_CONSONANTS = {
-    'ໃ', 'ໄ', 'ໂ', 'ເ'  # Must have consonant after
-}
-
-# Single consonants that are likely fragments (high frequency in nodict)
-LIKELY_FRAGMENT_CONSONANTS = {
-    'ສ', 'ດ', 'ບ', 'ກ', 'ຄ', 'ນ', 'ມ', 'ລ', 'ວ', 'ຫ', 'ພ', 'ທ', 'ຈ', 'ຊ', 'ຍ', 'ຣ', 'ຟ', 'ປ', 'ຂ', 'ຮ', 'ອ', 'ຢ', 'ຖ', 'ຕ', 'ງ', 'ຝ', 'ຜ'
-}
-
-def is_invalid_fragment(text: str) -> bool:
-    """Check if text is an invalid fragment starting with dependent character."""
-    if len(text) < 2 or len(text) > 6:
-        return False
-    
-    # Handle fragments that start with space + dependent vowel (common pattern)
-    if text.startswith(' ') and len(text) > 1:
-        second_char = text[1]
-        # Fragments like " ັ້ນ", " ່ອນ", " ົດ", " ້າ", " ິສ"
-        if second_char in DEPENDENT_VOWELS or second_char in TONE_MARKS:
-            return True
-    
-    first_char = text[0]
-    
-    # Fragments starting with tone marks (່ອນ)
-    if first_char in TONE_MARKS:
-        return True
-        
-    # Fragments starting with dependent vowels (ັ່ງ, ັ້ນ, ົດ)
-    if first_char in DEPENDENT_VOWELS:
-        return True
-    
-    return False
-
-def is_invalid_standalone_lao(text: str) -> bool:
-    """
-    Check if text represents invalid standalone Lao.
-    Based on actual patterns from nodict_analysis.log covering 750 pages.
-    """
-    if not text:
-        return False
-    
-    # Single character rules
-    if len(text) == 1:
-        char = text[0]
-        
-        # Tone marks never standalone
-        if char in TONE_MARKS:
-            return True
-            
-        # Dependent vowels never standalone  
-        if char in DEPENDENT_VOWELS:
-            return True
-            
-        # Vowels that precede consonants never standalone
-        if char in VOWELS_THAT_PRECEDE_CONSONANTS:
-            return True
-            
-        # Single consonants are likely fragments in most contexts
-        # (This is aggressive but based on high nodict frequency)
-        if char in LIKELY_FRAGMENT_CONSONANTS:
-            return True
-    
-    # Fragment rules for 2-6 character sequences
-    if is_invalid_fragment(text):
-        return True
-    
-    return False
-
-def convert_break_points(coded_term):
-    """Convert dictionary break point symbols to TeX penalty commands."""
-    # Handle compound space first (~S~)
-    coded_term = re.sub(r'~S~', r'\\cs', coded_term)
-    
-    # Convert penalty symbols
-    # Order matters - longer patterns first
-    coded_term = re.sub(r'~~~~~', r'\\p{-400}', coded_term)  # excellent
-    coded_term = re.sub(r'~~~~', r'\\p{-200}', coded_term)   # encouraged
-    coded_term = re.sub(r'~~~', r'\\p{0}', coded_term)       # neutral
-    coded_term = re.sub(r'~~', r'\\p{200}', coded_term)      # discouraged
-    coded_term = re.sub(r'!!', r'\\p{7500}', coded_term)     # armageddon
-    coded_term = re.sub(r'!', r'\\p{5000}', coded_term)      # nuclear
-    coded_term = re.sub(r'~', r'\\p{1000}', coded_term)      # emergency
-    
-    return coded_term
-
-def is_lao_text(text):
-    """Check if text contains Lao characters (includes extended Lao range)."""
-    # Lao Unicode ranges: 
-    # U+0E80-U+0EFF (main Lao block)
-    # U+0EC0-U+0EC4 (Lao vowels that might be missed)
-    for char in text:
-        if ('\u0e80' <= char <= '\u0eff'):
-            return True
-    return False
-
-def is_punctuation(char):
-    """Check if character is punctuation."""
-    return char in '.,;:!?()[]{}"\'\'-–—“”‘’‚„‹›«»@#%'
-
-def is_opening_punctuation(char):
-    """Check if character is opening punctuation that needs \nobreak after it."""
-    return char in '"\'[{(“‘‚„‹«'
-    
-def is_closing_punctuation(char):
-    """Check if character is closing punctuation that needs \nobreak before it."""
-    return char in '.,;:!?()[]{}"\'\'-–—”’‚„›»@#%'
-
 def needs_nobreak_protection(text):
-    r"""Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
+    """Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
     return (text.endswith('}') or 
             text in ['\\laorepeat', '\\laorepeatbefore'])
 
@@ -239,777 +124,15 @@ def apply_punctuation_protection(parts):
                   is_opening_punctuation(current_part[-1]) and
                   needs_nobreak_protection(next_part)):
                 protected_parts.append('\\nobreak{}')
-    
+
     return protected_parts
-
-# def apply_punctuation_bonding_after_lw(parts: List[str]) -> List[str]:
-#     """
-# NOTE: This was originally in module2, however, we moved spacing and punctuation to module1, but decided to move this back. Will need to sort out the logic. It is a repeat of what we already have above. But is put here for debugging purposes and refactoring as we seek to get module2 working.
-#     Purpose (run in Module 2 ONLY, after dictionary wrapping):
-#         Enforce no-break bonding at punctuation boundaries **after** words are wrapped with \\lw{…}.
-#         This replaces the old "add \\nobreak{} everywhere" approach that conflicted with \\lw’s break point.
-# 
-#     When to call:
-#         1) After Module 2 has produced a flat list of tokens where:
-#            1.1) Lao words are wrapped as "\\lw{...}" (or a future equivalent),
-#            1.2) Punctuation and ellipsis macros are standalone tokens (e.g., ".", ")", "\\ellbefore{}", etc.),
-#            1.3) Other macros like "\\scrref{...}", "\\egw{...}" appear as single, opaque tokens.
-# 
-#     Design rules (compact, decisive):
-#         2) Never do "\\lw{…}\\nobreak{}" — \\lw expands to "…\\penalty-200\\hspace{0pt plus 0.1em}", so a later \\nobreak
-#            does not cancel the earlier break.
-#         3) Instead, if a **closer** or **ellipsis** follows a token, make the **preceding** token non-breaking by
-#            switching "\\lw{…}" → "\\lwnb{…}" (see §6). If the preceding token is not "\\lw{…}", insert a literal "\\nobreak{}".
-#         4) If an **opener** precedes a token, make the **following** token non-breaking by switching "\\lw{…}" → "\\lwnb{…}".
-#            If the following token is not "\\lw{…}", insert "\\nobreak{}" after the opener.
-#         5) Ellipses:
-#            5.1) Treat "\\ellipsis{}", "\\ellafter{}", "\\ellbefore{}", "\\ellall{}" as **closers** for the purpose of
-#                 adding a non-break on their **left** (ellipses must not start a line with their left-side spacing).
-#            5.2) Do not alter which ellipsis macro was chosen upstream (selection logic lives in Module 1).
-#         6) TeX macro requirement (preamble):
-#            6.1) Define a non-breaking word wrapper used by this pass:
-#                  \\newcommand{\\lwnb}[1]{#1\\nobreak{}}
-#                Rationale: \\lwnb emits **no explicit break** after the word, so the following punctuation stays glued.
-#         7) Opaque macros:
-#            7.1) Do not touch contents of "\\scrref{…}", "\\egw{…}", "\\section{…}", "\\footnote{…}".
-#            7.2) It is fine to add a boundary "\\nobreak{}" **outside** them (e.g., "\\scrref{…}" + ")" → add non-break between).
-#         8) Dashes:
-#            8.1) Treat "-", "‐", "-", "‒", "–", "—", "―" as **closers** for left-side bonding (no break before dash).
-#         9) Lao repetition:
-#            9.1) Assume Module 1 has already emitted "\\laorepeat{}" vs "\\laorepeatbefore{}" correctly; do not rewrite them here.
-#                If "\\laorepeatbefore{}" is immediately followed by punctuation, rule (3) will still add the bonding on the punct side.
-# 
-#     Input / Output:
-#         • Input:  parts = ["\\lw{ຄຳ}", ".", "\\space{}", "(", "\\lw{abc}", "\\ellbefore{}", ...]
-#         • Output: same list with selective "\\lwnb{…}" swaps and/or inserted "\\nobreak{}" tokens.
-# 
-#     Notes:
-#         • This function is intentionally conservative: it never edits inside braces and never reorders tokens.
-#         • If you later emit a native non-breaking variant from the tokenizer, you can drop the string swap and keep only
-#           the fallback "\\nobreak{}" insertions for non-\\lw neighbors.
-# 
-#     """
-#     if not parts:
-#         return parts
-# 
-#     OPENERS = {"(", "[", "{", "<", "«", "‹", "“", "‘", "‚", "„"}
-#     CLOSERS = {")", "]", "}", ">", "»", "›", "”", "’"}
-#     ENDERS  = {",", ".", ":", ";", "?", "!"}
-#     DASHES  = {"-", "\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2015"}  # ‐ - ‒ – — ―
-# 
-#     def _is_lw(tok: str) -> bool:
-#         return bool(tok) and tok.startswith("\\lw{")
-# 
-#     def _is_lwnb(tok: str) -> bool:
-#         return bool(tok) and tok.startswith("\\lwnb{")
-# 
-#     def _to_lwnb(tok: str) -> str:
-#         # swap leading macro name only
-#         return re.sub(r"^\\lw\b", r"\\lwnb", tok, count=1)
-# 
-#     def _is_ellipsis(tok: str) -> bool:
-#         # Any of the four ellipsis macros
-#         return tok in ("\\ellipsis{}", "\\ellafter{}", "\\ellbefore{}", "\\ellall{}")
-# 
-#     def _is_closer_like(tok: str) -> bool:
-#         if not tok:
-#             return False
-#         # macro ellipses count as closers (we need a non-break to the left)
-#         if _is_ellipsis(tok):
-#             return True
-#         ch = tok[0]
-#         return (ch in CLOSERS) or (ch in ENDERS) or (ch in DASHES)
-# 
-#     def _ends_with_opener(tok: str) -> bool:
-#         return bool(tok) and tok[-1] in OPENERS
-# 
-#     out: List[str] = []
-#     force_next_lwnb = False  # set when we saw an opener and the next token is \\lw{…}
-# 
-#     N = len(parts)
-#     for i in range(N):
-#         cur = parts[i]
-#         nxt = parts[i + 1] if i + 1 < N else None
-# 
-#         # If the previous step asked us to force the next \\lw into \\lwnb, do it now.
-#         if force_next_lwnb:
-#             if _is_lw(cur) and not _is_lwnb(cur):
-#                 cur = _to_lwnb(cur)
-#             else:
-#                 # Fallback: ensure a non-break right after the opener (already emitted)
-#                 out.append("\\nobreak{}")
-#             force_next_lwnb = False
-# 
-#         # Rule (3): if a closer/ellipsis follows, bond on the left
-#         need_nobreak_right_of_cur = False
-#         if nxt is not None and _is_closer_like(nxt):
-#             if _is_lw(cur) and not _is_lwnb(cur):
-#                 cur = _to_lwnb(cur)  # preferred: remove the break opportunity entirely
-#             else:
-#                 # If cur is not an \\lw word, insert \\nobreak{} between cur and nxt.
-#                 need_nobreak_right_of_cur = True
-# 
-#         out.append(cur)
-# 
-#         if need_nobreak_right_of_cur:
-#             # Avoid duplicating if one is already present (cheap guard)
-#             if not (nxt == "\\nobreak{}" or (out and out[-1] == "\\nobreak{}")):
-#                 out.append("\\nobreak{}")
-# 
-#         # Rule (4): if cur ends with an opener, bond on the right
-#         if nxt is not None and _ends_with_opener(cur):
-#             if _is_lw(nxt) and not _is_lwnb(nxt):
-#                 force_next_lwnb = True  # convert at the start of the next loop
-#             else:
-#                 # Non-\\lw neighbor → insert a \\nobreak{} after the opener now
-#                 out.append("\\nobreak{}")
-# 
-#     return out
-
-def process_text_groups(groups, dictionary, debug=False):
-    """Process grouped text parts through dictionary lookup and special handling."""
-    result_parts = []
     
-    for i, (group_type, content) in enumerate(groups):
-        if group_type == 'lao':
-            # Process Lao text with dictionary using lookahead
-            processed_lao = lookup_lao_words(content, dictionary, debug)
-            result_parts.append(processed_lao)
-        elif group_type == 'ellipsis':
-            # Handle ellipsis with context-aware command selection
-            ellipsis_command = handle_ellipsis_context(groups, i)
-            result_parts.append(ellipsis_command)
-        elif group_type == 'lao_repetition':
-            # Handle Lao repetition mark with context-aware command selection
-            repetition_command = handle_lao_repetition_context(groups, i)
-            result_parts.append(repetition_command)
-        elif group_type == 'space':
-            # Original spaces become \space
-            result_parts.append('\\space{}')
-        else:
-            # English, numbers, punctuation, placeholders - leave as-is, no wrapping
-            result_parts.append(content)
-    
-    return result_parts
-
-def group_consecutive_text(text):
-    """Group consecutive characters by type (Lao, English, punctuation, numbers)."""
-    if not text:
-        return []
-    
-    groups = []
-    current_group = ''
-    current_type = None
-    
-    for char in text:
-        if char == '…':
-            char_type = 'ellipsis'
-        elif char == 'ໆ':
-            char_type = 'lao_repetition'
-        elif is_lao_text(char):
-            char_type = 'lao'
-        elif char.isalpha():
-            char_type = 'english'
-        elif char.isdigit():
-            char_type = 'number'
-        elif is_punctuation(char):
-            char_type = 'punctuation'
-        elif char.isspace():
-            char_type = 'space'
-        else:
-            char_type = 'other'
-        
-        if char_type == current_type:
-            current_group += char
-        else:
-            if current_group:
-                groups.append((current_type, current_group))
-            current_group = char
-            current_type = char_type
-    
-    if current_group:
-        groups.append((current_type, current_group))
-    
-    return groups
-
-def find_lao_word_boundary(text, start_pos):
-    """Find the end of the current Lao word starting at start_pos."""
-    pos = start_pos
-    
-    while pos < len(text):
-        char = text[pos]
-        
-        # Stop at spaces, punctuation, or non-Lao characters
-        if (char.isspace() or 
-            is_punctuation(char) or 
-            not is_lao_text(char) or
-            char.isdigit()):
-            break
-        pos += 1
-    
-    return pos
-
-def needs_nobreak_protection(text):
-    """Check if text needs nobreak protection (ends with \\lw{} or \\nodict{} or is Lao repeat)."""
-    return (text.endswith('}') or 
-            text in ['\\laorepeat', '\\laorepeatbefore'])
-
-def find_next_lao_word_break(text, start_pos, dictionary):
-    """
-    Find the next reasonable word break in continuous Lao text.
-    Try to isolate unknown words as small units rather than entire text.
-    """
-    # Start with minimum length and work up
-    max_search_length = min(20, len(text) - start_pos)  # Don't search beyond reasonable word length
-    
-    # Try progressively longer segments to find where dictionary matching resumes
-    for test_length in range(1, max_search_length + 1):
-        test_end = start_pos + test_length
-        
-        # Check if text starting at test_end matches any dictionary term
-        remaining_text = text[test_end:]
-        if remaining_text:  # Make sure there's still text to check
-            for term in dictionary.get_sorted_terms():
-                if remaining_text.startswith(term):
-                    # Found a dictionary match starting at test_end
-                    # So our unknown segment should be text[start_pos:test_end]
-                    return test_end
-    
-    # If no dictionary match found in reasonable distance, 
-    # look for natural Lao syllable boundaries (basic approach)
-    for i in range(start_pos + 1, min(start_pos + 10, len(text))):
-        char = text[i]
-        # Look for likely syllable boundaries (tone marks, vowels followed by consonants)
-        if char in 'ເແໂໃໄ':  # Leading vowels often start new syllables
-            return i
-        # Could add more sophisticated Lao syllable detection here
-    
-    # Fallback: return a reasonable chunk (don't go to end of entire text)
-    return min(start_pos + 6, len(text))  # Max 6 characters if no pattern found
-
-def evaluate_parse_quality(parse_result: List[Dict[str, Any]]) -> int:
-    """
-    Score a parsing result - lower scores are better.
-    
-    ENHANCED VERSION: Prevents illegal linguistic splits while preserving 
-    \nodict{} for legitimate missing dictionary words.
-    
-    The goal is to prevent splits like:
-    ❌ ເພື່ອນຳ → [ເພື່ອນ] + nodict{ຳ} (ຳ can't stand alone)
-    ✅ ເພື່ອນຳ → [ເພື່ອ] + [ນຳ] (both valid words)
-    ✅ ມິນເລີ → nodict{ມິນເລີ} (legitimate missing word for dictionary)
-    """
-    score = 0
-    consecutive_dict_bonus = 0
-    
-    for i, segment in enumerate(parse_result):
-        if segment['type'] == 'nodict':
-            text_len = len(segment['text'])
-            
-            # NEW: Severe penalty for linguistically impossible fragments
-            if is_invalid_standalone_lao(segment['text']):
-                score += 10000  # Heavy penalty to force different word boundaries
-                # This makes illegal splits much worse than legitimate missing words
-            
-            # Normal penalty for nodict segments (legitimate missing words)
-            score += text_len * 10
-            
-            # Extra penalties for very short nodict segments (likely parsing errors)
-            if text_len == 1:
-                score += 50  # Single character nodict is usually wrong
-            elif text_len <= 2:
-                score += 25  # Very short nodict segments are suspicious
-                
-            # Reset consecutive dictionary bonus
-            consecutive_dict_bonus = 0
-                
-        elif segment['type'] == 'dict':
-            text_len = len(segment['text'])
-            
-            # UNCHANGED: Strong rewards for longer dictionary entries (compound words)
-            if text_len >= 6:
-                score -= 25  # Major bonus for long compounds
-            elif text_len >= 4:
-                score -= 15  # Good bonus for medium compounds
-            elif text_len >= 3:
-                score -= 8   # Small bonus for 3-char words
-            elif text_len >= 2:
-                score -= 3   # Minimal bonus for 2-char words
-            else:
-                score -= 1   # Single character dict entries get minimal credit
-            
-            # UNCHANGED: Fragmentation detection via consecutive short entries
-            consecutive_dict_bonus += 1
-            if consecutive_dict_bonus >= 2:
-                if text_len <= 3:
-                    score += 8  # Penalty for likely fragmentation
-                elif text_len <= 4:
-                    score += 4  # Smaller penalty for medium fragments
-    
-    # UNCHANGED: Multi-segment penalty (compound preservation)
-    total_dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
-    if total_dict_segments > 1:
-        additional_segments = total_dict_segments - 1
-        segment_penalty = additional_segments * 18  # 18 points per extra segment
-        score += segment_penalty
-    
-    # UNCHANGED: Global fragmentation penalty
-    total_segments = len(parse_result)
-    if total_segments > 5:
-        score += (total_segments - 5) * 2
-    
-    # UNCHANGED: Dictionary coverage penalties
-    dict_segments = sum(1 for seg in parse_result if seg['type'] == 'dict')
-    nodict_segments = sum(1 for seg in parse_result if seg['type'] == 'nodict')
-    
-    if dict_segments > 0 and nodict_segments > 0:
-        coverage_ratio = dict_segments / (dict_segments + nodict_segments)
-        if coverage_ratio < 0.5:
-            score += 10
-    
-    return score
-    
-def evaluate_compound_preference(parse_result: List[Dict[str, Any]], text: str) -> int:
-    """
-    FIXED: Enhanced compound word detection with better fragmentation detection.
-    
-    This function specifically detects when dictionary compounds have been 
-    inappropriately fragmented and applies heavy penalties.
-    
-    VALIDATED: Successfully detects fragmentations like:
-    - ດັ່ງນັ້ນ → ດັ່ງ + ນັ້ນ
-    - ຄົ້ນພົບ → ຄົ້ນ + ພົບ  
-    - ຍິ່ງໃຫຍ່ → ຍິ່ງ + ໃຫຍ່
-    
-    Args:
-        parse_result: List of parsed segments with type and text
-        text: Original text being parsed
-        
-    Returns:
-        int: Penalty score (higher = worse, 0 = no fragmentation detected)
-    """
-    compound_penalty = 0
-    
-    # Look for patterns that suggest a compound word was broken up
-    dict_segments = [seg for seg in parse_result if seg['type'] == 'dict']
-    
-    if len(dict_segments) >= 2:
-        # Check if consecutive dictionary entries might have been one compound
-        for i in range(len(dict_segments) - 1):
-            current = dict_segments[i]
-            next_seg = dict_segments[i + 1]
-            
-            # If both segments are short and could combine to form a compound,
-            # this is likely inappropriate fragmentation
-            if (len(current['text']) <= 4 and 
-                len(next_seg['text']) <= 4):
-                
-                combined = current['text'] + next_seg['text']
-                if combined in text:
-                    # This is definitely fragmentation - heavy penalty
-                    compound_penalty += 15
-    
-    return compound_penalty
-
-def parse_longest_first(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
-    """Current longest-first parsing strategy."""
-    if debug:
-        print(f"  Trying longest-first on: {text}")
-    
-    sorted_terms = dictionary.get_sorted_terms()
-    result = []
-    position = 0
-    
-    while position < len(text):
-        matched = False
-        
-        for term in sorted_terms:
-            if text[position:position + len(term)] == term:
-                result.append({
-                    'type': 'dict',
-                    'text': term,
-                    'coded': dictionary.terms[term]
-                })
-                position += len(term)
-                matched = True
-                if debug:
-                    print(f"    Matched: {term}")
-                break
-        
-        if not matched:
-            word_end = find_next_lao_word_break(text, position, dictionary)
-            unknown_text = text[position:word_end]
-            result.append({
-                'type': 'nodict',
-                'text': unknown_text,
-                'coded': unknown_text
-            })
-            if debug:
-                print(f"    NoDict: {unknown_text}")
-            position = word_end
-    
-    return result
-
-def parse_shortest_first(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
-    """Alternative shortest-first parsing strategy."""
-    if debug:
-        print(f"  Trying shortest-first on: {text}")
-    
-    sorted_terms = sorted(dictionary.get_sorted_terms(), key=len)
-    result = []
-    position = 0
-    
-    while position < len(text):
-        matched = False
-        
-        for term in sorted_terms:
-            if text[position:position + len(term)] == term:
-                result.append({
-                    'type': 'dict',
-                    'text': term,
-                    'coded': dictionary.terms[term]
-                })
-                position += len(term)
-                matched = True
-                if debug:
-                    print(f"    Matched: {term}")
-                break
-        
-        if not matched:
-            word_end = find_next_lao_word_break(text, position, dictionary)
-            unknown_text = text[position:word_end]
-            result.append({
-                'type': 'nodict',
-                'text': unknown_text,
-                'coded': unknown_text
-            })
-            if debug:
-                print(f"    NoDict: {unknown_text}")
-            position = word_end
-    
-    return result
-
-def parse_with_backtrack(text: str, dictionary, debug: bool = False, max_lookahead: int = 3) -> List[Dict[str, Any]]:
-    """Parsing strategy with limited backtracking and lookahead."""
-    if debug:
-        print(f"  Trying backtrack on: {text}")
-    
-    sorted_terms = dictionary.get_sorted_terms()
-    result = []
-    position = 0
-    
-    while position < len(text):
-        # Find all possible matches at current position
-        possible_matches = []
-        for term in sorted_terms:
-            if text[position:position + len(term)] == term:
-                possible_matches.append(term)
-                if len(possible_matches) >= max_lookahead:
-                    break
-        
-        if possible_matches:
-            # Evaluate each possible match by looking ahead
-            best_choice = None
-            best_score = float('inf')
-            
-            for match in possible_matches:
-                temp_position = position + len(match)
-                remainder = text[temp_position:]
-                
-                if remainder:
-                    # Quick evaluation: can we match the start of remainder?
-                    remainder_has_match = any(
-                        remainder.startswith(term) 
-                        for term in sorted_terms[:50]  # Check top 50 terms for speed
-                    )
-                    
-                    choice_score = len(match) * -2  # Bonus for longer matches
-                    if not remainder_has_match and len(remainder) > 0:
-                        choice_score += len(remainder) * 5  # Penalty for unmatched remainder
-                    
-                    if choice_score < best_score:
-                        best_score = choice_score
-                        best_choice = match
-                else:
-                    best_choice = match
-                    break
-            
-            if best_choice:
-                result.append({
-                    'type': 'dict',
-                    'text': best_choice,
-                    'coded': dictionary.terms[best_choice]
-                })
-                position += len(best_choice)
-                if debug:
-                    print(f"    Matched (backtrack): {best_choice}")
-                continue
-        
-        word_end = find_next_lao_word_break(text, position, dictionary)
-        unknown_text = text[position:word_end]
-        result.append({
-            'type': 'nodict',
-            'text': unknown_text,
-            'coded': unknown_text
-        })
-        if debug:
-            print(f"    NoDict: {unknown_text}")
-        position = word_end
-    
-    return result
-
-def generate_alternative_parses(text: str, dictionary, debug: bool = False) -> List[List[Dict[str, Any]]]:
-    """Generate multiple parsing strategies for comparison."""
-    alternatives = []
-    alternatives.append(parse_longest_first(text, dictionary, debug))
-    alternatives.append(parse_shortest_first(text, dictionary, debug))
-    alternatives.append(parse_with_backtrack(text, dictionary, debug))
-    return alternatives
-
-def parse_chunk_with_lookahead(text: str, dictionary, debug: bool = False) -> List[Dict[str, Any]]:
-    """
-    Parse a continuous Lao text chunk with lookahead and backtracking.
-    UPDATED to use improved scoring that favors compound dictionary entries.
-    """
-    # Generate alternatives quietly
-    alternatives = generate_alternative_parses(text, dictionary, False)
-    
-    # Score alternatives with improved algorithm
-    scored_alternatives = []
-    for i, alt in enumerate(alternatives):
-        base_score = evaluate_parse_quality(alt)
-        compound_penalty = evaluate_compound_preference(alt, text)
-        total_score = base_score + compound_penalty
-        scored_alternatives.append((total_score, alt, i))
-    
-    best_score, best_parse, best_strategy = min(scored_alternatives, key=lambda x: x[0])
-    
-    # Log interesting decisions (file logging only)
-    if HAS_DEBUG and debug:
-        module2_debug.log_lookahead_decision(text, alternatives, best_strategy, scored_alternatives, get_project_root())
-    
-    return best_parse
-
-def convert_parse_result_to_tex(parse_result: List[Dict[str, Any]]) -> str:
-    """Convert parse result to TeX format with \\lw{} and \\nodict{} commands."""
-    tex_parts = []
-    
-    for segment in parse_result:
-        if segment['type'] == 'dict':
-            coded_term = convert_break_points(segment['coded'])
-            tex_parts.append(f'\\lw{{{coded_term}}}')
-        elif segment['type'] == 'nodict':
-            tex_parts.append(f'\\nodict{{{segment["text"]}}}')
-    
-    return ''.join(tex_parts)
-
-# UPDATED LOOKUP FUNCTION WITH LOOKAHEAD
-def lookup_lao_words(lao_text, dictionary, debug=False):
-    """Apply dictionary lookup to pure Lao text using lookahead logic."""
-    # Parse the text using lookahead
-    parse_result = parse_chunk_with_lookahead(lao_text, dictionary, debug)
-    
-    # Convert to TeX format
-    return convert_parse_result_to_tex(parse_result)
-    
-# EXAMPLE TEST FUNCTION TO VALIDATE THE IMPLEMENTATION
-def test_lookahead_logic():
-    """Test function to validate the lookahead implementation."""
-    # This would be used for testing during development
-    print("Testing lookahead logic...")
-    
-    # Mock dictionary for testing
-    class MockDictionary:
-        def __init__(self):
-            self.terms = {
-                'ເລືອກ': 'ເລືອກ',
-                'ສັນຕະປາປາ': 'ສັນຕະປາປາ', 
-                'ເລືອກສັນ': 'ເລືອກ~~ສັນ'
-            }
-        
-        def get_sorted_terms(self):
-            return sorted(self.terms.keys(), key=len, reverse=True)
-    
-    # Mock helper functions
-    def mock_convert_break_points(coded_term):
-        return coded_term.replace('~~', '\\p{200}')
-    
-    def mock_find_next_lao_word_break(text, start_pos, dictionary):
-        return min(start_pos + 3, len(text))  # Simple fallback
-    
-    def mock_get_project_root():
-        from pathlib import Path
-        return Path("/tmp")  # Mock path for testing
-    
-    # Replace functions temporarily for testing
-    global convert_break_points, find_next_lao_word_break, get_project_root
-    convert_break_points = mock_convert_break_points
-    find_next_lao_word_break = mock_find_next_lao_word_break
-    get_project_root = mock_get_project_root
-    
-    # Test the problematic case
-    test_text = "ເລືອກສັນຕະປາປາ"
-    mock_dict = MockDictionary()
-    
-    print(f"Input: {test_text}")
-    
-    # Test different parsing strategies
-    longest_result = parse_longest_first(test_text, mock_dict, True)
-    print(f"Longest-first result: {longest_result}")
-    
-    shortest_result = parse_shortest_first(test_text, mock_dict, True)
-    print(f"Shortest-first result: {shortest_result}")
-    
-    backtrack_result = parse_with_backtrack(test_text, mock_dict, True)
-    print(f"Backtrack result: {backtrack_result}")
-    
-    # Test lookahead selection
-    final_result = parse_chunk_with_lookahead(test_text, mock_dict, True)
-    print(f"Final selected result: {final_result}")
-    
-    # Test TeX conversion
-    tex_output = convert_parse_result_to_tex(final_result)
-    print(f"TeX output: {tex_output}")
-    
-    # Expected: \lw{ເລືອກ}\lw{ສັນຕະປາປາ}
-    print("Expected: \\lw{ເລືອກ}\\lw{ສັນຕະປາປາ}")
-
-# PERFORMANCE ENHANCEMENT FUNCTION
-def optimize_dictionary_lookup(dictionary):
-    """
-    Optimize dictionary for faster lookups by creating prefix trees.
-    This is an optional enhancement for better performance.
-    """
-    # Create a prefix tree (trie) for faster matching
-    # This would be useful for very large dictionaries
-    
-    class TrieNode:
-        def __init__(self):
-            self.children = {}
-            self.is_complete_word = False
-            self.word = None
-    
-    root = TrieNode()
-    
-    # Build trie from dictionary terms
-    for term in dictionary.get_sorted_terms():
-        current = root
-        for char in term:
-            if char not in current.children:
-                current.children[char] = TrieNode()
-            current = current.children[char]
-        current.is_complete_word = True
-        current.word = term
-    
-    return root
-
-def find_all_matches_at_position(text, position, trie_root, max_matches=5):
-    """
-    Find all dictionary matches starting at a specific position using trie.
-    Returns matches sorted by length (longest first).
-    """
-    matches = []
-    current = trie_root
-    
-    for i in range(position, len(text)):
-        char = text[i]
-        if char not in current.children:
-            break
-        
-        current = current.children[char]
-        if current.is_complete_word:
-            matches.append(current.word)
-            if len(matches) >= max_matches:
-                break
-    
-    # Return longest matches first
-    return sorted(matches, key=len, reverse=True)
-
-# DEBUGGING AND STATISTICS FUNCTIONS
-def analyze_parse_statistics(parse_result):
-    """Analyze and return statistics about a parse result."""
-    stats = {
-        'total_segments': len(parse_result),
-        'dict_matches': 0,
-        'nodict_segments': 0,
-        'total_dict_chars': 0,
-        'total_nodict_chars': 0,
-        'shortest_nodict': float('inf'),
-        'longest_nodict': 0,
-        'single_char_nodicts': 0
-    }
-    
-    for segment in parse_result:
-        if segment['type'] == 'dict':
-            stats['dict_matches'] += 1
-            stats['total_dict_chars'] += len(segment['text'])
-        elif segment['type'] == 'nodict':
-            stats['nodict_segments'] += 1
-            length = len(segment['text'])
-            stats['total_nodict_chars'] += length
-            stats['shortest_nodict'] = min(stats['shortest_nodict'], length)
-            stats['longest_nodict'] = max(stats['longest_nodict'], length)
-            if length == 1:
-                stats['single_char_nodicts'] += 1
-    
-    if stats['shortest_nodict'] == float('inf'):
-        stats['shortest_nodict'] = 0
-    
-    # Calculate coverage percentage
-    total_chars = stats['total_dict_chars'] + stats['total_nodict_chars']
-    if total_chars > 0:
-        stats['dict_coverage'] = (stats['total_dict_chars'] / total_chars) * 100
-    else:
-        stats['dict_coverage'] = 100
-    
-    return stats
-
-def print_parse_comparison(text, alternatives):
-    """Print a detailed comparison of different parsing strategies."""
-    print(f"\n=== Parse Comparison for: {text} ===")
-    strategy_names = ["Longest-first", "Shortest-first", "Backtrack"]
-    
-    for i, alt in enumerate(alternatives):
-        stats = analyze_parse_statistics(alt)
-        score = evaluate_parse_quality(alt)
-        
-        print(f"\n{strategy_names[i]} Strategy:")
-        print(f"  Score: {score}")
-        print(f"  Dictionary coverage: {stats['dict_coverage']:.1f}%")
-        print(f"  Segments: {stats['total_segments']} ({stats['dict_matches']} dict, {stats['nodict_segments']} nodict)")
-        
-        if stats['nodict_segments'] > 0:
-            print(f"  NoDict lengths: {stats['shortest_nodict']}-{stats['longest_nodict']}, {stats['single_char_nodicts']} single chars")
-        
-        print("  Result:", end=" ")
-        for segment in alt:
-            if segment['type'] == 'dict':
-                print(f"[{segment['text']}]", end="")
-            else:
-                print(f"?{segment['text']}?", end="")
-        print()
-
-# VALIDATION FUNCTION FOR INTEGRATION TESTING
-def validate_integration():
-    """
-    Validate that the integration works correctly with sample data.
-    Run this after integrating the lookahead logic.
-    """
-    print("=== Integration Validation ===")
-    
-    # Test cases that should improve with lookahead
-    test_cases = [
-        "ເລືອກສັນຕະປາປາ",  # Should become two terms instead of one + nodict
-        "ການສຶກສາດີ",        # Test compound scenarios
-        "ເຮັດວຽກຢ່າງດີ"       # Test multiple small words vs longer compounds
-    ]
-    
-    print("Testing sample cases (requires actual dictionary):")
-    for case in test_cases:
-        print(f"  Input: {case}")
-        print(f"  (Would show parse result with actual dictionary)")
-    
-    print("\nValidation complete. Check nodict_terms.log for improvements.")
+def restore_protected_commands(text, protected_commands):
+    """Restore original protected commands from placeholders."""
+    for i, command in enumerate(protected_commands):
+        placeholder = f"__PROTECTED_CMD_{i}__"
+        text = text.replace(placeholder, command)
+    return text
 
 def process_tex_command_with_lao(line, dictionary, debug=False):
    """Process TeX commands that contain Lao text in braces."""
@@ -1058,7 +181,6 @@ def extract_and_preserve_commands(text):
     placeholder_text = pattern.sub(_repl, text)
     return placeholder_text, protected_commands
 
-
 def process_text_line(text, dictionary, debug=False):
     """Apply dictionary lookup to text, handling different content types properly."""
     # First, extract and protect \egw{} and other commands
@@ -1080,13 +202,22 @@ def process_text_line(text, dictionary, debug=False):
     groups = group_consecutive_text(placeholder_text)
     
     # Step 1: Process text groups through dictionary
-    processed_parts = process_text_groups(groups, dictionary, debug)
+    processed_parts = []
+    for group_type, content in groups:
+        if group_type == 'lao':
+            # Apply dictionary lookup to Lao text
+            lao_result = lookup_lao_words(content, dictionary, debug)
+            processed_parts.append(lao_result)
+        else:
+            # Pass through other content unchanged
+            processed_parts.append(content)
     
     # Step 2: Apply punctuation protection
     protected_parts = apply_punctuation_protection(processed_parts)
     
     # Step 3: Join and restore protected commands
     processed_text = ''.join(protected_parts)
+
     return restore_protected_commands(processed_text, protected_commands)
 
 def process_file(input_path, output_path, dictionary, debug_mode=False):
@@ -1096,10 +227,6 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         with open(input_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Apply high-priority exact overrides from patch.txt
-        # Requires: from patch_overrides import apply_patch_overrides
-        content = apply_patch_overrides(content)
-            
         # Split into lines for processing
         lines = content.split('\n')
         processed_lines = []
@@ -1146,8 +273,6 @@ def expand_chapter_ranges(file_specs):
     Returns:
         list: Expanded list with ranges converted to individual chapters
     """
-    import re
-    
     expanded = []
     
     for spec in file_specs:
@@ -1394,33 +519,6 @@ def extract_chapter_book_from_filename(filename):
     
     return None, None
 
-def extract_chapter_book_from_filename(filename):
-    """
-    Extract chapter and book identifiers from a filename.
-    
-    Args:
-        filename: Path or string like 'GC01_lo.tmp' or 'MB03_lo_stage1.tmp'
-        
-    Returns:
-        tuple: (chapter, book) e.g., ('GC01', 'GC') or (None, None)
-    """
-    import re
-    
-    name = Path(filename).stem  # Remove .tmp extension
-    # Remove stage suffixes
-    name = re.sub(r'_stage[12]$', '', name)
-    # Remove _lo suffix
-    name = re.sub(r'_lo$', '', name)
-    
-    # Match pattern like GC01, MB03, etc.
-    match = re.match(r'^([A-Z]+)(\d+)$', name)
-    if match:
-        book = match.group(1)
-        chapter = name  # Full chapter code like GC01
-        return chapter, book
-    
-    return None, None
-
 def main():
     parser = argparse.ArgumentParser(
         description="Module 2: Dictionary Lookup and Line-Breaking Application",
@@ -1489,7 +587,7 @@ Examples:
     # Process each chapter group with its appropriate dictionary
     for (chapter, book), chapter_files in files_by_chapter.items():
         # Load dictionary for this chapter/book combination
-        dictionary = load_hierarchical_dictionaries(
+        dictionary, conflicts = load_hierarchical_dictionaries(
             chapter=chapter,
             book=book,
             debug=args.debug
@@ -1508,7 +606,7 @@ Examples:
     
     # Finalize debug session and generate comprehensive reports
     if HAS_DEBUG and args.debug:
-        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count, processed_output_files)
+        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count, processed_output_files, conflicts) 
         _run_dictionary_maintenance(get_project_root())
     
     if success_count < total_count:
