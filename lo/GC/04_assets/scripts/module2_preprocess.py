@@ -580,6 +580,7 @@ Examples:
     success_count = 0
     total_count = len(input_files)
     processed_output_files = []
+    all_conflicts = {}
     
     mode_desc = 'debug' if args.debug else 'production'
     print(f"Processing {total_count} file(s) in {mode_desc} mode...")
@@ -592,6 +593,10 @@ Examples:
             book=book,
             debug=args.debug
         )
+        
+        # Collect conflicts for debug reporting
+        if conflicts:
+            all_conflicts.update(conflicts)
         
         # Process all files for this chapter
         for input_file in chapter_files:
@@ -606,7 +611,10 @@ Examples:
     
     # Finalize debug session and generate comprehensive reports
     if HAS_DEBUG and args.debug:
-        module2_debug.finalize_debug_session(get_project_root(), total_count, success_count, processed_output_files, conflicts) 
+        module2_debug.finalize_debug_session(
+            get_project_root(), total_count, success_count, 
+            processed_output_files, all_conflicts
+        ) 
         _run_dictionary_maintenance(get_project_root())
     
     if success_count < total_count:

@@ -17,7 +17,6 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
-
 class LaoDictionary:
     """Handles loading and lookup of Lao dictionary with break points."""
     
@@ -31,6 +30,7 @@ class LaoDictionary:
         self.terms = terms if terms is not None else {}
         self.dictionary_sources = []  # Track where terms came from
         self.source_conflicts = {}  # Track terms with multiple sources
+        self.source_map = {}  # NEW: Track which source each term came from
     
     def load_from_file(self, dictionary_path: Path, source_name: str = None):
         """
@@ -82,15 +82,15 @@ class LaoDictionary:
                                 # First time seeing a conflict for this term
                                 self.source_conflicts[clean_term] = {}
                                 # Find the existing source for this term
-                                existing_source = self._find_existing_source(clean_term)
-                                if existing_source:
-                                    self.source_conflicts[clean_term][existing_source] = self.terms[clean_term]
+                                existing_source = self.source_map.get(clean_term, "Unknown source")
+                                self.source_conflicts[clean_term][existing_source] = self.terms[clean_term]
                             
                             # Add the new source
-                            self.source_conflicts[clean_term][source_name] = coded_term
+                            self.source_conflicts[clean_term][source_name or str(dictionary_path.name)] = coded_term
                         
                         # Higher priority dictionaries override lower ones
                         self.terms[clean_term] = coded_term
+                        self.source_map[clean_term] = source_name or str(dictionary_path.name)
                         terms_loaded += 1
             
             if source_name:
@@ -112,10 +112,7 @@ class LaoDictionary:
     
     def _find_existing_source(self, term: str) -> str:
         """Find which source provided an existing term."""
-        # This is a simplified approach - in practice, we'd need to track
-        # sources more carefully during loading. For now, we'll make a
-        # reasonable guess based on the order of sources.
-        return "Previous source"
+        return self.source_map.get(term, "Unknown source")
     
     def get_sorted_terms(self):
         """Return dictionary terms sorted by length (longest first)."""
@@ -137,19 +134,21 @@ class LaoDictionary:
                     if term not in self.source_conflicts:
                         self.source_conflicts[term] = {}
                         # Add existing source
-                        existing_source = self._find_existing_source(term)
-                        if existing_source:
-                            self.source_conflicts[term][existing_source] = self.terms[term]
+                        existing_source = self.source_map.get(term, "Unknown source")
+                        self.source_conflicts[term][existing_source] = self.terms[term]
                     
-                    # Add new source (would need source tracking)
-                    self.source_conflicts[term]["Merged source"] = coded
+                    # Add new source from other dict
+                    other_source = other_dict.source_map.get(term, "Merged source")
+                    self.source_conflicts[term][other_source] = coded
             
             self.terms.update(other_dict.terms)
+            self.source_map.update(other_dict.source_map)
         else:
             # Only add terms that don't exist
             for term, coded in other_dict.terms.items():
                 if term not in self.terms:
                     self.terms[term] = coded
+                    self.source_map[term] = other_dict.source_map.get(term, "Merged source")
         
         self.dictionary_sources.extend(other_dict.dictionary_sources)
         
@@ -159,7 +158,6 @@ class LaoDictionary:
                 self.source_conflicts[term].update(sources)
             else:
                 self.source_conflicts[term] = sources.copy()
-
 
 def load_hierarchical_dictionaries(
     chapter: str = None,

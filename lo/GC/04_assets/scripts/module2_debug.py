@@ -37,15 +37,10 @@ session_stats = {
 # =============================================================================
 
 def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root: Path = None):
-    """
-    Log terms that appear in multiple dictionary sources.
-    
-    Args:
-        conflicts: Dict mapping term -> {source_name: coded_term}
-        project_root: Project root path for log file location
-    """
+    """Log terms that appear in multiple dictionary sources."""
     if not conflicts:
-        return  # No conflicts to log
+        print("No dictionary duplicates found; no log written.")
+        return
     
     try:
         if project_root is None:
@@ -53,59 +48,50 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root:
             project_root = script_dir.parent.parent
             
         log_file = project_root / "04_assets" / "temp" / "dictionary_sources.log"
+        log_file.parent.mkdir(parents=True, exist_ok=True)
         
-        # Priority order for display (highest to lowest)
+        # Priority order for display
         priority_order = [
-            "Chapter patch",
-            "Chapter",
-            "Book patch", 
-            "Book",
-            "Language patch",
-            "Language main"
+            "Chapter patch", "Chapter", "Book patch", 
+            "Book", "Language patch", "Language main"
         ]
         
-        log_entries = []
-        log_entries.append("DICTIONARY SOURCE CONFLICTS")
-        log_entries.append("=" * 60)
-        log_entries.append("")
-        log_entries.append("Terms found in multiple dictionary sources:")
-        log_entries.append("(Listed in priority order - highest priority source determines final encoding)")
-        log_entries.append("")
-        
-        for term, sources in sorted(conflicts.items()):
-            log_entries.append(f"Term: {term}")
-            
-            # Sort sources by priority
-            sorted_sources = []
-            for priority_name in priority_order:
-                for source_name, coded_term in sources.items():
-                    if priority_name.lower() in source_name.lower():
-                        sorted_sources.append((source_name, coded_term))
-                        break
-            
-            # Add any sources not in priority list
-            for source_name, coded_term in sources.items():
-                if not any(source_name in [s[0] for s in sorted_sources]):
-                    sorted_sources.append((source_name, coded_term))
-            
-            # Mark the final (highest priority) source
-            for i, (source_name, coded_term) in enumerate(sorted_sources):
-                if i == 0:  # First in sorted list = highest priority
-                    log_entries.append(f"  {source_name}: {coded_term} ← FINAL")
-                else:
-                    log_entries.append(f"  {source_name}: {coded_term}")
-            
-            log_entries.append("")
-        
-        log_entries.append(f"Total conflicting terms: {len(conflicts)}")
-        log_entries.append("")
-        
-        log_file.parent.mkdir(parents=True, exist_ok=True)
         with open(log_file, 'w', encoding='utf-8') as f:
-            f.write('\n'.join(log_entries))
+            f.write("DICTIONARY SOURCE CONFLICTS\n")
+            f.write("=" * 60 + "\n\n")
+            f.write("Terms found in multiple dictionary sources:\n")
+            f.write("(Listed in priority order - highest priority source determines final encoding)\n\n")
             
+            for term in sorted(conflicts.keys()):
+                sources = conflicts[term]
+                f.write(f"Term: {term}\n")
+                
+                # Sort by priority
+                sorted_sources = []
+                for priority_name in priority_order:
+                    for source_name, coded_term in sources.items():
+                        if priority_name.lower() in source_name.lower():
+                            sorted_sources.append((source_name, coded_term))
+                            break
+                
+                # Add remaining sources
+                for source_name, coded_term in sources.items():
+                    if source_name not in [s[0] for s in sorted_sources]:
+                        sorted_sources.append((source_name, coded_term))
+                
+                # Write sources with priority marking
+                for i, (source_name, coded_term) in enumerate(sorted_sources):
+                    marker = " ← FINAL" if i == 0 else ""
+                    f.write(f"  {source_name}: {coded_term}{marker}\n")
+                
+                f.write("\n")
+            
+            f.write(f"Total conflicting terms: {len(conflicts)}\n")
+        
+        print(f"Dictionary conflicts logged to dictionary_sources.log ({len(conflicts)} terms)")
+        
     except Exception as e:
-        pass
+        print(f"Warning: Could not write conflict log: {e}")
 
 def print_dictionary_conflict_summary(conflict_count: int):
     """Print summary of dictionary conflicts to console."""
@@ -338,9 +324,8 @@ def finalize_debug_session(project_root: Path, total_files: int, success_count: 
     # Log dictionary conflicts if any
     if dictionary_conflicts:
         log_dictionary_conflicts(dictionary_conflicts, project_root)
-        print_dictionary_conflict_summary(len(dictionary_conflicts))
     else:
-        print_dictionary_conflict_summary(0)
+        print("No dictionary duplicates found; no log written.")
     
     # Call the dictionary analyzer for comprehensive reporting
     analysis_success = call_dict_analyzer(project_root, processed_files)
@@ -350,9 +335,9 @@ def finalize_debug_session(project_root: Path, total_files: int, success_count: 
         # Check if we generated any lookahead decisions
         decisions_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
         if decisions_file.exists():
-            print(f"🔍 Generated lookahead decisions log")
+            print("Generated lookahead decisions log")
         else:
-            print(f"✅ No lookahead strategy changes needed")
+            print("No lookahead strategy changes needed")
 
 # =============================================================================
 # DEBUGGING UTILITIES
