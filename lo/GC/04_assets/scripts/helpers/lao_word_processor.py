@@ -531,7 +531,16 @@ def parse_chunk_with_lookahead(text: str, dictionary, debug: bool = False) -> Li
     if HAS_DEBUG and debug:
         from pathlib import Path
         # Get project root relative to this helper file
-        project_root = Path(__file__).parent.parent.parent
+        current = Path.cwd()
+        if current.name == '04_assets':
+            project_root = current.parent
+        else:
+            for path in current.parents:
+                if (path / '04_assets').exists():
+                    project_root = path
+                    break
+            else:
+                project_root = Path(__file__).parent.parent.parent
         module2_debug.log_lookahead_decision(text, alternatives, best_strategy, scored_alternatives, project_root)
     
     return best_parse

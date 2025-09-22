@@ -1,0 +1,52 @@
+% Document class and paper setup for Lao language books
+\documentclass[a5paper,11pt,twoside]{book}
+
+% Essential packages (load early)
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{url}
+
+% Paper and margin setup for A5
+\usepackage[a5paper,
+            top=2cm,
+            bottom=2cm,
+            inner=2cm,
+            outer=1.5cm,
+            bindingoffset=0.5cm]{geometry}
+
+% Lao font setup
+\setmainfont{Noto Serif Lao}[
+    Path = ../../assets/fonts/Noto_Serif_Lao/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Regular,
+    BoldItalicFont = *-Bold
+]
+
+% Typography packages
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing
+
+% Headers and page numbering
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO,RE]{\leftmark}
+\renewcommand{\headrulewidth}{0pt}
+
+% Chapter formatting
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries\centering}
+{\chaptertitlename\ \thechapter}
+{20pt}
+{\Huge}
+
+\urlstyle{same}
+
+% Suppress section numbering (keep chapters numbered)
+% book levels: chapter=0, section=1, subsection=2 ...
+\setcounter{secnumdepth}{0}

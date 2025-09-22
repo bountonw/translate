@@ -1,3 +1,4 @@
+\makeatletter
 % Basic footnote mark: superscripted number in text
 \renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}}}
 
@@ -7,36 +8,80 @@
   \noindent
   \hb@xt@1.8em{\hss\textsuperscript{\normalfont\@thefnmark}}#1%
 }
-
+\makeatother
 
 % Flexible spaces (primary solution)
+\spaceskip=.6em plus .4em minus .2em
+\xspaceskip=\spaceskip
 \spaceskip=1em plus 4em minus 0.4em
 
 % Moderate tolerance (don't need extreme values now)
-\tolerance=1000
+\tolerance=2400
 
 % Minimal emergency stretch (probably won't be needed)
-\emergencystretch=0.2em
+\emergencystretch=2em
 
-\newcommand{\space}{ }  % Natural space controlled by \spaceskip
+% \textspace — insert a Lao “phrasal” space that is elastic and safe around \nobreak
+% Removes any prior interword glue/penalty, then inserts moderately elastic glue.
+% The trailing 0pt skip is a sacrificial sentinel so a following \nobreak will
+% unskip *that* instead of erasing the real visible space.
+\protected\def\textspace{%
+  \ifhmode \unskip \unpenalty \fi
+  \penalty-80 %
+  \hskip .60em plus 1.00em minus .10em %
+  \hskip 0pt\relax
+}
+
+% \nobreak — hard no-break barrier for Lao text
+% If used after glue, remove that glue first, then set an infinite penalty.
+\protected\def\nobreak{%
+  \ifhmode\unskip\fi
+  \penalty10000\relax
+}
+
 
 % Penalty system for line breaking
-\newcommand{\p}[1]{\penalty#1}
+\makeatletter
+\@ifundefined{p}{%
+  \newcommand{\p}[1]{\penalty #1\relax}%
+}{%
+  \renewcommand{\p}[1]{\penalty #1\relax}%
+}
+\makeatother
 
+
+% Font Expansion
+\microtypesetup{expansion=true}
+\SetExpansion[stretch=10,shrink=10,step=1,auto=true]{encoding=TU,family=*}{}
+
+%%%%%%%%%%%%%%%%%%
 % Lao word wrapper
-\newcommand{\lw}[1]{#1\penalty-200\hspace{0pt plus 0.1em}\relax}
+\newcount\lwpenalty
+\lwpenalty=-300
+\newcommand{\lw}[1]{#1\penalty\lwpenalty\hskip 0pt plus .12em minus .04em\relax}
+
+
+% Disable TeX hyphenation fallbacks
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\uchyph=0
+
 
 % Spacing commands
 \newcommand{\zwsp}{\hspace{0pt}\allowbreak}  % Zero-width space with break opportunity
-\newcommand{\nbsp}{~}  % Non-breaking space
+
+\protected\def\nbsp{%
+  \ifhmode\unskip\fi
+  \nobreak\kern .30em\relax
+}
+
 \newcommand{\cs}{\hspace{0.4em plus 0.2em minus 0.1em}\allowbreak}  % Compound space
 
 % Flexible and rigid spacing for Lao typography
-% Source: \s marker in .md files converts to \fs
-\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}   % More flexible spacing
-
-% Source: \S marker in .md files converts to \rs  
-\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax} % Less flexible spacing
+% Source: \s marker in .md files converts to \fs (More flexible spacing)
+\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}
+% Source: \S marker in .md files converts to \rs (Less flexible spacing)
+\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax} 
 
 \newcommand{\scripturespace}{\p{200}\hskip 0.8em plus 0.4em minus 0.1em\relax}
 \newcommand{\scripturereference}[1]{\mbox{#1}}
@@ -47,19 +92,41 @@
 \let\scrspace\scripturespace
 \let\scrref\scripturereference
 
+% === Lao book tweaks: numbering, chapter title handling, and sane spacing ===
+
+% Chapter titles: render your Stage-2 markup nicely (no "one word per line")
+% - We use the first arg as the visible chapter number and set the counter.
+% - Inside the title only, \lw{…} becomes plain text + a normal interword space.
+% - Everything else is left alone.
+\makeatletter
+\newcommand{\laochapter}[2]{%
+  % set chapter counter from the explicit number (#1)
+  \setcounter{chapter}{#1-1}%
+  % locally make \lw{…} behave like "…␠" so the title is normal text
+  \begingroup
+    \let\orig@lw\lw
+    \def\lw##1{##1\ }% plain content + a space
+    \chapter{#2}%
+  \endgroup
+}
+\makeatother
+
+
+% If you also want section *titles* un-numbered in the TOC, add:
+% \setcounter{tocdepth}{0}  % (optional) only chapters in the TOC
 
 % Chapter and reference commands
-\newcommand{\laochapter}[2]{%
-  \clearpage%
-  \thispagestyle{empty}%
-  \vspace*{2cm}%
-  \begin{center}%
-    {\Huge\textbf{#1}}\\[2em]%
-    {\LARGE\textbf{#2}}%
-  \end{center}%
-  \vspace{3cm}%
-  \setcounter{chapter}{#1}%
-}
+% \newcommand{\laochapter}[2]{%
+%   \clearpage%
+%   \thispagestyle{empty}%
+%   \vspace*{2cm}%
+%   \begin{center}%
+%     {\Huge\textbf{#1}}\\[2em]%
+%     {\LARGE\textbf{#2}}%
+%   \end{center}%
+%   \vspace{3cm}%
+%   \setcounter{chapter}{#1}%
+% }
 
 \newcommand{\source}[1]{%
   \vspace{0.5em}%
@@ -67,16 +134,84 @@
   \vspace{1em}%
 }
 
-\newcommand{\egw}[1]{%
-  {\fontsize{0.8em}{0.8em}\selectfont\textcolor[gray]{0.8}{\textbf{#1}}}%
+\protected\def\egw#1{%
+  \ifhmode\unskip\fi
+  \nobreak\hskip0pt\kern .50em%
+  \mbox{%
+    \fontsize{0.8em}{0.8em}\selectfont
+    \textcolor[gray]{0.7}{%
+      {\addfontfeatures{FakeSlant=.20}\{#1\}}%
+    }%
+  }%
+  \kern .30em\nobreak\hskip0pt\relax
 }
 
+% Use fake slant to mimic italics
+\DeclareEmphSequence{%
+  {\addfontfeatures{FakeSlant=.20}},%
+  {\addfontfeatures{FakeSlant=0}},%
+  {\addfontfeatures{FakeSlant=.20}},%
+  {\addfontfeatures{FakeSlant=0}}%
+}
 
-\newcommand{\ellipsis}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
-\newcommand{\ellafter}{\mbox{\hspace{0.1em plus 0.05em minus 0.02em}\.\,\.\,\.}\hspace{0.2em plus 0.1em minus 0.05em}}
-\newcommand{\ellbefore}{\hspace{0.2em plus 0.1em minus 0.05em}\mbox{\.\,\.\,\.\hspace{0.1em plus 0.05em minus 0.02em}}}
-\newcommand{\ellall}{\mbox{\.\,\.\,\.}}
+% === Lao Ellipsis Macros (paste into tex_header_info.tex; replace old defs) ===
+% Goal: three-dot ellipsis with *nano* stretch between dots, kept nonbreaking,
+%       and visually stable (no margin protrusion). Works with LuaLaTeX+fontspec.
 
+% Core: three literal dots with tiny (rubber) spaces between them.
+% - Default internal gap = 0.22em
+% - Stretch/shrink = +0.02em / -0.01em  (tune here if desired)
+% - Wrapped in \mbox to keep the three dots together (no line break inside)
+% - microtype protrusion disabled locally so dots don't hang into the margin
+\DeclareRobustCommand{\laoellipsisrubber}[1][0.22em]{%
+  {\microtypesetup{protrusion=false}%
+   \mbox{.\hspace{#1 plus .02em minus .01em}.\hspace{#1 plus .02em minus .01em}.}}%
+}
+
+% Public API (mirrors your original commands), all preserved as nonbreaking:
+% - \ellipsis   : side spacing + core
+% - \ellbefore  : core + following spacing
+% - \ellafter   : leading spacing + core
+% - \ellall     : just the core
+%
+% Side spacing uses gentle rubber glue so it can participate in justification.
+\DeclareRobustCommand{\ellipsis}{%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+
+\DeclareRobustCommand{\ellbefore}{%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+
+\DeclareRobustCommand{\ellafter}{%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+  \mbox{\laoellipsisrubber}%
+}
+
+\DeclareRobustCommand{\ellall}{%
+  \mbox{\laoellipsisrubber}%
+}
+
+% ---------------------------
+% Tuning notes:
+% - To make the internal dots slightly looser/tighter across the book,
+%   change the default in \laoellipsisrubber above (e.g., [0.24em] or [0.20em]).
+% - To constrain stretching even more, reduce "plus .02em minus .01em"
+%   (e.g., "plus .01em minus .005em").
+% - If you ever want the ellipsis to be breakable after it, remove the \mbox
+%   in \ellafter (keep it in the core).
+% ---------------------------
+% Redefine \nobreak to also delete the preceding interword glue (if any).
+% Horizontal mode: remove last glue, then forbid a break; vertical: just forbid.
+\protected\def\nobreak{%
+  \ifhmode \unskip \unpenalty \fi
+  \penalty10000\relax
+}
+
+% Lao Repeat
 \newcommand{\laorepeat}{\nobreak{}ໆ\penalty-400\relax}
 \newcommand{\laorepeatbefore}{\nobreak{}ໆ}
 
@@ -87,13 +222,6 @@
 \definecolor{nodictcolor}{HTML}{D13D1D}
 \newcommand{\nodict}[1]{{\fontsize{1.2em}{1.44em}\selectfont\textbf{\textcolor{nodictcolor}{#1}}}}
 
-
-% Clear, descriptive names explain what they do
-\newcommand{\flexspace}{\hskip 0pt plus 3pt minus 1pt}   % Expandable space
-\newcommand{\rigidspace}{\hskip 0pt plus 1pt minus 0.5pt} % Less expandable
-
-% Short aliases for typing efficiency
-\let\fs\flexspace
 
 % Poetry
 \newcommand{\attrib}[1]{\hfill{#1}}

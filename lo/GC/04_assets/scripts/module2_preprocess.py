@@ -51,7 +51,7 @@ OUTPUT FORMAT:
 
 PROCESSING MODES:
 - Production: Overwrites .tmp files
-- Debug: Creates _stage2.tmp files for inspection
+- Debug: Creates _stage2.tex files for inspection
 
 USAGE:
 python3 module2_preprocess.py [files...]           # Process specific .tmp files
@@ -218,6 +218,18 @@ def process_text_line(text, dictionary, debug=False):
     # Step 3: Join and restore protected commands
     processed_text = ''.join(protected_parts)
 
+    # HOTFIX — keep \nobreak OUTSIDE \emph{…}
+    # Root cause: our punctuation-protection runs on raw text; \emph{…} is not
+    # “protected”, so tokenization can split it as "\emph{" + content + "}".
+    # When we insert \nobreak between parts, it can land just inside the brace,
+    # yielding \emph{\nobreak{}…}. Hoist a leading \nobreak back out so line breaks
+    # are controlled at the \emph boundary, not inside its argument.
+    processed_text = re.sub(
+        r'\\emph\{\s*\\nobreak\{\}\s*',
+        r'\\nobreak{}\\emph{',
+        processed_text,
+    )
+
     return restore_protected_commands(processed_text, protected_commands)
 
 def process_file(input_path, output_path, dictionary, debug_mode=False):
@@ -255,13 +267,29 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         print(f"✗ Error processing {input_path}: {e}")
         return False
 
-
 def get_project_root():
-    """Get the project root directory based on script location."""
-    script_dir = Path(__file__).parent
-    project_root = script_dir.parent.parent
-    return project_root
+    """Find GC project root by looking for 04_assets directory"""
+    current = Path.cwd()
+    print(f"DEBUG: current = {current}")
+    print(f"DEBUG: current.name = {current.name}")
     
+    # If we're in 04_assets directory, parent is project root
+    if current.name == '04_assets':
+        result = current.parent
+        print(f"DEBUG: returning parent = {result}")
+        return result
+    
+    # Check parent directories for 04_assets
+    for path in current.parents:
+        if (path / '04_assets').exists():
+            return path
+    
+    # Fallback: use script location to infer
+    script_dir = Path(__file__).parent
+    if script_dir.name == 'scripts':
+        return script_dir.parent.parent  # 04_assets/scripts -> GC/
+    else:
+        return script_dir.parent.parent  # Assume GC/scripts/
 
 def expand_chapter_ranges(file_specs):
     """
@@ -407,13 +435,13 @@ def get_output_path(input_path, debug_mode=False):
     input_file = Path(input_path)
     
     if debug_mode:
-        # stage1.tmp -> stage2.tmp, or .tmp -> stage2.tmp
+        # stage1.tmp -> stage2.tex, or .tmp -> stage2.tex
         if input_file.stem.endswith('_stage1'):
             base_name = input_file.stem.replace('_stage1', '')
-            output_name = f"{base_name}_stage2.tmp"
+            output_name = f"{base_name}_stage2.tex"
         else:
             base_name = input_file.stem
-            output_name = f"{base_name}_stage2.tmp"
+            output_name = f"{base_name}_stage2.tex"
     else:
         # stage1.tmp -> .tmp, or .tmp -> .tmp (overwrite)
         if input_file.stem.endswith('_stage1'):

@@ -204,7 +204,7 @@ class Module2Tester:
         """Test end-to-end processing in debug mode."""
         try:
             # Clean up any existing output first
-            stage2_file = self.temp_dir / f"{self.test_input}_lo_stage2.tmp"
+            stage2_file = self.temp_dir / f"{self.test_input}_lo_stage2.tex"
             if stage2_file.exists():
                 stage2_file.unlink()
             
@@ -269,7 +269,7 @@ class Module2Tester:
     def test_output_file_content(self) -> bool:
         """Test that output file has expected structure and content."""
         try:
-            stage2_file = self.temp_dir / f"{self.test_input}_lo_stage2.tmp"
+            stage2_file = self.temp_dir / f"{self.test_input}_lo_stage2.tex"
             
             if not stage2_file.exists():
                 self.log_result("Output file content", False, "Stage2 file does not exist")

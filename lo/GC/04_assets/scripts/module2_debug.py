@@ -44,10 +44,27 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root:
     
     try:
         if project_root is None:
-            script_dir = Path(__file__).parent
-            project_root = script_dir.parent.parent
+            current = Path.cwd()
+            if current.name == '04_assets':
+                project_root = current.parent
+            else:
+                # Check parent directories for 04_assets
+                for path in current.parents:
+                    if (path / '04_assets').exists():
+                        project_root = path
+                        break
+                else:
+                    # Fallback
+                    script_dir = Path(__file__).parent
+                    if script_dir.name == 'scripts':
+                        project_root = script_dir.parent.parent  # scripts -> GC
+                    else:
+                        project_root = script_dir.parent  # 04_assets/scripts
+        if project_root.name == '04_assets':
+            log_file = project_root / "temp" / "dictionary_sources.log"
+        else:
+            log_file = project_root / "04_assets" / "temp" / "dictionary_sources.log"
             
-        log_file = project_root / "04_assets" / "temp" / "dictionary_sources.log"
         log_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Priority order for display
@@ -81,7 +98,7 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root:
                 
                 # Write sources with priority marking
                 for i, (source_name, coded_term) in enumerate(sorted_sources):
-                    marker = " ← FINAL" if i == 0 else ""
+                    marker = " → FINAL" if i == 0 else ""
                     f.write(f"  {source_name}: {coded_term}{marker}\n")
                 
                 f.write("\n")
@@ -130,10 +147,34 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
     # File logging only - no console output
     try:
         if project_root is None:
-            script_dir = Path(__file__).parent
-            project_root = script_dir.parent.parent
-            
-        log_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
+            current = Path.cwd()
+            if current.name == '04_assets':
+                project_root = current.parent
+            else:
+                # Check parent directories for 04_assets
+                for path in current.parents:
+                    if (path / '04_assets').exists():
+                        project_root = path
+                        break
+                else:
+                    # Fallback
+                    script_dir = Path(__file__).parent
+                    if script_dir.name == 'scripts':
+                        project_root = script_dir.parent.parent  # scripts -> GC
+                    else:
+                        project_root = script_dir.parent  # 04_assets/scripts
+
+        if project_root.name == '04_assets':
+
+            # project_root is already 04_assets, don't add it again
+
+            log_file = project_root / "temp" / "lookahead_decisions.log"
+
+        else:
+
+            # project_root is GC directory, add 04_assets
+
+            log_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
         
         selected_name = strategy_names[selected_strategy]
         improvement_description = _describe_improvement(alternatives, selected_strategy)
@@ -363,13 +404,28 @@ def debug_parse_alternatives(text: str, alternatives: List[List[Dict[str, Any]]]
 def validate_debug_environment():
     """Validate that debug environment is properly set up."""
     try:
-        # Check if we can create log files
         from pathlib import Path
-        script_dir = Path(__file__).parent
-        temp_dir = script_dir.parent.parent / "04_assets" / "temp"
+        current = Path.cwd()
+        if current.name == '04_assets':
+            project_root = current.parent
+        else:
+            for path in current.parents:
+                if (path / '04_assets').exists():
+                    project_root = path
+                    break
+            else:
+                script_dir = Path(__file__).parent
+                if script_dir.name == 'scripts':
+                    project_root = script_dir.parent.parent  # scripts -> GC
+                else:
+                    project_root = script_dir.parent  # 04_assets/scripts
+        if project_root.name == '04_assets':
+            temp_dir = project_root / "temp"
+        else:
+            temp_dir = project_root / "04_assets" / "temp"
+        
         temp_dir.mkdir(parents=True, exist_ok=True)
         
-        # Test write access
         test_file = temp_dir / "debug_test.tmp"
         test_file.write_text("test")
         test_file.unlink()

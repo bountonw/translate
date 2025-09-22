@@ -822,7 +822,7 @@ def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
 
     # Merge overlaps
     if not protected_spans:
-        return text.replace(" ", "\\space{}")
+        return text.replace(" ", "\\textspace{}")
 
     protected_spans.sort()
     merged = []
