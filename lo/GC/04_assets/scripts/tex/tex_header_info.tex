@@ -1,3 +1,8 @@
+% Strong discouragement of widows/orphans
+\widowpenalty=8000
+\clubpenalty=8000
+
+
 \makeatletter
 % Basic footnote mark: superscripted number in text
 \renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}}}
@@ -13,7 +18,6 @@
 % Flexible spaces (primary solution)
 \spaceskip=.6em plus .4em minus .2em
 \xspaceskip=\spaceskip
-\spaceskip=1em plus 4em minus 0.4em
 
 % Moderate tolerance (don't need extreme values now)
 \tolerance=2400
@@ -28,7 +32,7 @@
 \protected\def\textspace{%
   \ifhmode \unskip \unpenalty \fi
   \penalty-80 %
-  \hskip .60em plus 1.00em minus .10em %
+  \hskip .60em plus 0.50em minus .10em %
   \hskip 0pt\relax
 }
 
@@ -92,25 +96,42 @@
 \let\scrspace\scripturespace
 \let\scrref\scripturereference
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % === Lao book tweaks: numbering, chapter title handling, and sane spacing ===
 
-% Chapter titles: render your Stage-2 markup nicely (no "one word per line")
-% - We use the first arg as the visible chapter number and set the counter.
-% - Inside the title only, \lw{…} becomes plain text + a normal interword space.
-% - Everything else is left alone.
+
+% === Tighten vertical spacing around chapter and first section ===
+% \titlespacing{<command>}{left}{before-sep}{after-sep}
+\titlespacing*{\chapter}{0pt}{0pt}{0.50\baselineskip}
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.25\baselineskip}
+
+% Indent first paragraph after headings (global)
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+
+% Lao Chapter macro: keep first-par indent and suppress folio on opening page
+
 \makeatletter
 \newcommand{\laochapter}[2]{%
-  % set chapter counter from the explicit number (#1)
-  \setcounter{chapter}{#1-1}%
-  % locally make \lw{…} behave like "…␠" so the title is normal text
+  \setcounter{chapter}{\numexpr #1-1\relax}%
+  % Store cleaned version for headers only
+  \begingroup
+    \def\lw##1{##1}% Strip \lw{} wrappers
+    \def\p##1{}% Strip \p{} penalty commands
+    \xdef\currentchaptertitle{#2}% Store globally cleaned version
+  \endgroup
+  \par %
   \begingroup
     \let\orig@lw\lw
-    \def\lw##1{##1\ }% plain content + a space
-    \chapter{#2}%
+    \def\lw##1{##1\ }% plain content + a space for the heading only
+    \@afterindenttrue
+    \chapter{#2}% Original #2 with all \lw{} and \p{} codes intact
+    \thispagestyle{empty}% no page number on the chapter-opening page
   \endgroup
 }
 \makeatother
-
 
 % If you also want section *titles* un-numbered in the TOC, add:
 % \setcounter{tocdepth}{0}  % (optional) only chapters in the TOC
@@ -128,18 +149,133 @@
 %   \setcounter{chapter}{#1}%
 % }
 
-\newcommand{\source}[1]{%
-  \vspace{0.5em}%
-  {\small\textit{Source: \url{#1}}}%
-  \vspace{1em}%
+
+% Initialize folios at document start (plain footer, Arabic, start at 1)
+\newcommand{\GCInitFolios}{%
+  \pagestyle{fancy}%
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
 }
 
+% === Chapter-opening footer for source URL (first page only; silent inline) ===
+% \source{<url>} prints nothing in the body and sets a centered footer
+% on the chapter’s opening page only.
+
+\makeatletter
+\@ifpackageloaded{url}{}{%
+  \RequirePackage{url}%
+}
+\@ifpackageloaded{fancyhdr}{}{%
+  \RequirePackage{fancyhdr}%
+}
+\makeatother
+
+% Compile-time switch (enabled by default)
+\newif\ifprintsourcefoot
+\printsourcefoottrue
+
+% Storage for the current chapter's URL (safe for #, %, etc.)
+\ifx\ThisChapterSourceToks\undefined
+  \newtoks\ThisChapterSourceToks
+\fi
+\global\ThisChapterSourceToks={}
+
+% Footer style used only on the chapter's first page
+\fancypagestyle{chapterstart}{%
+  \fancyhf{}%
+  % Lao label + actual URL (force expansion of toks into \url{...})
+
+\fancyfoot[C]{%
+  \begingroup
+  \footnotesize
+  {\addfontfeatures{FakeSlant=.20} ຕົ້ນສະບັບພາສາອັງກິດ:}\ %
+  \expandafter\url\expandafter{\the\ThisChapterSourceToks}%
+  \endgroup
+}%
+
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% Define or replace \source to be silent inline and set the opener's footer
+\makeatletter
+\@ifundefined{source}{%
+  \newcommand{\source}[1]{%
+    \global\ThisChapterSourceToks={#1}%
+    \ifprintsourcefoot \thispagestyle{chapterstart}\fi
+  }%
+}{%
+  \renewcommand{\source}[1]{%
+    \global\ThisChapterSourceToks={#1}%
+    \ifprintsourcefoot \thispagestyle{chapterstart}\fi
+  }%
+}
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sections and Subsections
+% Heading size/spacing (KOMA-aware); keeps first-par indent via positive beforeskip
+\makeatletter
+\@ifundefined{KOMAClassName}{%
+  % Standard classes
+  \renewcommand\section{%
+    \@startsection{section}{1}{\z@}%
+      {1.5ex plus .5ex minus .2ex}%
+      {.8ex plus .2ex}%
+      {\normalfont\large\bfseries}%
+  }%
+  \renewcommand\subsection{%
+    \@startsection{subsection}{2}{\z@}%
+      {1.25ex plus .4ex minus .2ex}%
+      {.6ex plus .2ex}%
+      {\normalfont\normalsize\bfseries}%
+  }%
+}{%
+  % KOMA-Script
+  \RedeclareSectionCommand[
+    beforeskip=1.5ex plus .5ex minus .2ex,
+    afterskip=.8ex plus .2ex,
+    font=\normalfont\large\bfseries
+  ]{section}
+  \RedeclareSectionCommand[
+    beforeskip=1.25ex plus .4ex minus .2ex,
+    afterskip=.6ex plus .2ex,
+    font=\normalfont\normalsize\bfseries
+  ]{subsection}
+}%
+\makeatother
+
+% Suppress forced blank left pages before chapters (KOMA and non-KOMA)
+\makeatletter
+\@ifundefined{KOMAClassName}{%
+  % Standard book/report insert blanks for openright; make double-clear a single clear
+  \let\cleardoublepage\clearpage
+}{%
+  % KOMA: allow chapters to open on any page (no inserted blanks)
+  \KOMAoptions{open=any}
+}%
+\makeatother
+
+% Normalize page style/numbering at document start without touching the body
+\makeatletter
+\AtBeginDocument{%
+  \pagestyle{fancy}%
+  \pagenumbering{arabic}% 1,2,3...
+  \setcounter{page}{1}% start at 1
+}%
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% \egw{}
 \protected\def\egw#1{%
   \ifhmode\unskip\fi
   \nobreak\hskip0pt\kern .50em%
   \mbox{%
     \fontsize{0.8em}{0.8em}\selectfont
-    \textcolor[gray]{0.7}{%
+    \textcolor[gray]{0.3}{%
       {\addfontfeatures{FakeSlant=.20}\{#1\}}%
     }%
   }%

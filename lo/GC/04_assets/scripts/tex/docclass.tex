@@ -1,18 +1,31 @@
-% Document class and paper setup for Lao language books
-\documentclass[a5paper,11pt,twoside]{book}
+% Book class with mirrored margins, no forced right-hand openings
+\documentclass[11pt,twoside,openany]{book}
 
 % Essential packages (load early)
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{url}
 
-% Paper and margin setup for A5
-\usepackage[a5paper,
-            top=2cm,
-            bottom=2cm,
-            inner=2cm,
-            outer=1.5cm,
-            bindingoffset=0.5cm]{geometry}
+% Paper and margin setup for A5 (production-friendly, grid-safe)
+\usepackage[
+  paperwidth=148mm,
+  paperheight=210mm,
+  % Keep your current margins
+  top=15mm,
+  bottom=15mm,
+  inner=20mm,
+  outer=15mm,
+  bindingoffset=5mm,
+  % Prepare for running heads/folios later (reserve space now)
+  includehead,
+  includefoot,
+  headheight=14pt,
+  headsep=12pt,
+  footskip=10mm,
+  % Make textheight a whole number of baselines
+  heightrounded,
+  showframe
+]{geometry}
 
 % Lao font setup
 \setmainfont{Noto Serif Lao}[
@@ -27,25 +40,73 @@
 % Typography packages
 \usepackage{microtype}
 \usepackage{setspace}
-\onehalfspacing
+\setstretch{1.1}
+%\singlespacing
+%\onehalfspacing
 
-% Headers and page numbering
+% Keep font expansion for better justification; disable protrusion (margin kerning)
+% to avoid TU-slot warnings with our current fonts.
+\microtypesetup{expansion=true,protrusion=false}
+
+% ==== Minimal working headers with existing FakeSlant ====
+\newcommand{\booktitle}{ປາກທາງແຫ່ງຄວາມຫວັງ}
+\newcommand{\currentchaptertitle}{}  % ADD THIS LINE
+
+% Use the existing FakeSlant mechanism from \emph{}
 \usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[LO,RE]{\leftmark}
+
+\fancyhead[LE]{\thepage}
+\fancyhead[CE]{\emph{\booktitle}}
+\fancyhead[LO]{\emph{\currentchaptertitle}}
+\fancyhead[RO]{\thepage}
+
 \renewcommand{\headrulewidth}{0pt}
 
 % Chapter formatting
 \usepackage{titlesec}
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries\centering}
-{\chaptertitlename\ \thechapter}
-{20pt}
-{\Huge}
 
+% -- tighten Lao title: temporarily neutralize any \lw inter-word glue -----
+% Save original \lw; inside chapter titles, use a no-glue version.
+\makeatletter
+\providecommand{\lw@title}[1]{#1} % fallback: print word, no extra glue
+\AtBeginDocument{%
+  \@ifundefined{lw}{}{%
+    \let\LW@orig\lw
+    \renewcommand{\lw@title}[1]{\begingroup\LW@orig{#1}\unskip\endgroup}%
+  }%
+}
+
+% Working minimal format without extra spacing
+\titleformat{\chapter}[display]
+{\normalfont\centering}
+{{\ChapNumberSize \thechapter}}
+{-0.7\baselineskip}
+{\ChapTitleSize}
+
+% Control spacing with titlespacing instead
+\titlespacing*{\chapter}{0pt}{0pt}{0.5\baselineskip}
+
+% \titleformat{\chapter}[display]
+% {\normalfont\centering}
+% {{\ChapNumberSize \thechapter}}
+% {0pt}
+% {%
+%   \begingroup
+%   \let\lw\lw@title
+%   \ChapTitleSize
+%   \spaceskip=0pt \xspaceskip=0pt\relax
+% }%
+% [\endgroup]
+
+% size knobs
+\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
+\providecommand{\ChapTitleSize}{} % ensure it exists
+\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
 \urlstyle{same}
+
 
 % Suppress section numbering (keep chapters numbered)
 % book levels: chapter=0, section=1, subsection=2 ...

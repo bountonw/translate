@@ -212,6 +212,7 @@ def convert_break_points(coded_term):
     
     # Convert penalty symbols
     # Order matters - longer patterns first
+    coded_term = re.sub(r'~~~~~~', r'\\p{-1000}', coded_term)  # superb
     coded_term = re.sub(r'~~~~~', r'\\p{-400}', coded_term)  # excellent
     coded_term = re.sub(r'~~~~', r'\\p{-200}', coded_term)   # encouraged
     coded_term = re.sub(r'~~~', r'\\p{0}', coded_term)       # neutral

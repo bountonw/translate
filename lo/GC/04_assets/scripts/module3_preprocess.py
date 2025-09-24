@@ -67,13 +67,12 @@ def resolve_single_file(file_spec, temp_dir):
 
 def create_tex_file(stage2_file, tex_scripts_path, output_dir, debug=False):
     """
-    Combine docclass, headers, and body into final .tex file
+    Combine docclass, headers, and body into the final .tex file.
 
-    NOTE:
-        TeX resolves \\input paths relative to the LaTeX process working directory (CWD),
-        not the directory of the .tex file. Therefore, both the header includes and the
-        body include are computed CWD-relative so compilation works whether you run
-        lualatex from GC/ or from 04_assets/.
+    Notes:
+      - TeX resolves \\input paths relative to the LaTeX CWD.
+      - Header and body paths are made CWD-relative so lualatex works from GC/
+        or 04_assets/.
     """
     # Determine output filename
     base_name = stage2_file.stem.replace('_lo_stage2', '')
@@ -82,37 +81,49 @@ def create_tex_file(stage2_file, tex_scripts_path, output_dir, debug=False):
     if debug:
         print(f"Creating {output_file}")
 
-    # Resolve all TeX \input paths relative to the current working directory
+    # Resolve TeX \\input paths relative to current working directory
     cwd = Path.cwd()
 
-    # Body file path (without .tex extension), relative to CWD
+    # Body file path (sans .tex), relative to CWD
     body_input_path = os.path.relpath(stage2_file.with_suffix(''), cwd)
 
-    # Header path already computed by caller (relative to CWD); normalize separators
+    # Normalize separators
     tex_scripts_norm = str(tex_scripts_path).replace(os.sep, '/')
     body_input_norm = body_input_path.replace(os.sep, '/')
 
-    # Create the combined .tex content
+    # Build .tex
     tex_content = []
 
-    # 1. Docclass import
+    # 1) Docclass
     tex_content.append("% Document class and basic setup")
     tex_content.append(f"\\input{{{tex_scripts_norm}/docclass}}")
     tex_content.append("")
 
-    # 2. Header commands import
+    # 2) Header
     tex_content.append("% Header commands and formatting")
     tex_content.append(f"\\input{{{tex_scripts_norm}/tex_header_info}}")
     tex_content.append("")
 
-    # 3. Begin document and body content
+    # 3) Document + body
     tex_content.append("\\begin{document}")
     tex_content.append("")
+    # Page 1: absolutely empty header/footer
+    tex_content.append("\\thispagestyle{empty}")
+    # Folios: plain footer, arabic, start at 1
+    tex_content.append("\\GCInitFolios")
+    tex_content.append("")
+    # Ensure vertical mode before any heading in the body
+    tex_content.append("\\par")
+    # Prevent an initial blank page while loading the body
+    tex_content.append("\\begingroup")
+    tex_content.append("\\let\\clearpage\\relax")
+    tex_content.append("\\let\\cleardoublepage\\relax")
     tex_content.append(f"\\input{{{body_input_norm}}}")
+    tex_content.append("\\endgroup")
     tex_content.append("")
     tex_content.append("\\end{document}")
 
-    # Write the final .tex file
+    # Write file
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write('\n'.join(tex_content))
