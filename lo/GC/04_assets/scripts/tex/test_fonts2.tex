@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{xcolor}
+\geometry{a4paper,left=2in,right=2in,top=1in,bottom=1in}
+
+% Required definitions from tex_header_info.tex
+\newcount\lwpenalty
+\lwpenalty=-300
+\newcommand{\lw}[1]{#1\penalty\lwpenalty\hskip 0pt plus .12em minus .04em\relax}
+
+\makeatletter
+\@ifundefined{p}{%
+  \newcommand{\p}[1]{\penalty #1\relax}%
+}{%
+  \renewcommand{\p}[1]{\penalty #1\relax}%
+}
+\makeatother
+
+\protected\def\textspace{%
+  \ifhmode \unskip \unpenalty \fi
+  \penalty-80 %
+  \hskip .60em plus 0.50em minus .10em %
+  \hskip 0pt\relax
+}
+
+\protected\def\nobreak{%
+  \ifhmode\unskip\fi
+  \penalty10000\relax
+}
+
+\protected\def\nbsp{%
+  \ifhmode\unskip\fi
+  \nobreak\kern .30em\relax
+}
+
+\newcommand{\scripturespace}{\p{200}\hskip 0.8em plus 0.4em minus 0.1em\relax}
+\newcommand{\scripturereference}[1]{\mbox{#1}}
+\let\scrspace\scripturespace
+\let\scrref\scripturereference
+
+\protected\def\egw#1{%
+  \ifhmode\unskip\fi
+  \nobreak\hskip0pt\kern .50em%
+  \mbox{%
+    \fontsize{0.8em}{0.8em}\selectfont
+    \textcolor[gray]{0.3}{%
+      {\addfontfeatures{FakeSlant=.20}\{#1\}}%
+    }%
+  }%
+  \kern .30em\nobreak\hskip0pt\relax
+}
+
+% Test string and font test command
+\newcommand{\teststring}{\lw{ຄຳ\p{200}ທຳ\p{5000}ນວາຍ}\lw{ຂອງ}\lw{ພຣະ\p{1000}ຄຣິສ}\textspace{}\lw{ກ່ຽວ\p{1000}ກັບ}\lw{ການ}\lw{ທຳ\p{5000}ລາຍ}\lw{ນະ\p{7500}ຄອນ}\lw{ເຢ\p{7500}ຣູ\p{5000}ຊາ\p{1000}ເລັມ}\textspace{}\lw{ສຳ\p{5000}ເລັດ}\lw{ລົງ}\lw{ຕາມ}\lw{ທີ່}\lw{ຊົງ}\lw{ກ່າວ}\lw{ໄວ້\p{1000}ທຸກ}\lw{ປະ\p{5000}ການ}\nobreak{}.\textspace{}\lw{ຄົນ\p{0}ຢິວ}\lw{ໄດ້}\lw{ປະ\p{5000}ສົບ}\lw{ຄວາມ}\lw{ຈິງ}\lw{ຂອງ}\lw{ຖ້ອຍ\p{200}ຄຳ}\textspace{}\lw{ທີ່}\lw{ພຣະ\p{1000}ອົງ}\lw{ຊົງ}\lw{ກ່າວ}\textspace{}\lw{ເພື່ອ}\lw{ຕັກ\p{1000}ເຕືອນ}\lw{ພວກ\p{200}ເຂົາ}\lw{ວ່າ}\nobreak{}:\textspace{}"\nobreak{}\lw{ເຈົ້າ}\lw{ຈະ}\lw{ຕວງ}\lw{ໃຫ້}\lw{ເຂົາ}\lw{ດ້ວຍ}\lw{ເຄື່ອງ\p{200}ຜອງ}\lw{ອັນ}\lw{ໃດ}\textspace{}\lw{ພຣະ\p{1000}ເຈົ້າ}\lw{ກໍ}\lw{ຈະ}\lw{ຕວງ}\lw{ໃຫ້}\lw{ເຈົ້າ}\textspace{}\lw{ດ້ວຍ}\lw{ເຄື່ອງ\p{200}ຜອງ}\lw{ອັນ}\lw{ນັ້ນ}\nobreak{}."\textspace{}(\nobreak{}\lw{ມັດ\p{5000}ທາຍ}\scrspace{}\scrref{7:2}).\textspace{}\lw{ທົດ\p{0}ສອບ: ຕ່ຳ\p{0}ຄ່ຳ\p{0}ຊ້ຳລ້ຳ}\textspace{}\egw{GC\nbsp{}29.2}}
+
+\newcommand{\testfont}[3]{%
+  {\fontsize{#3pt}{#3pt}\selectfont\fontspec{#1}[Path=../../assets/fonts/saysettha/] #2 (#3pt): \teststring}\\[12pt]%  % Change 12pt to adjust spacing
+}
+\begin{document}
+\small
+
+\section*{Light Weight Variants}
+\testfont{Saysettha-Light}{Light}{10.0}
+\testfont{Saysettha-Light}{Light}{10.5}
+\testfont{Saysettha-Light}{Light}{11.0}
+\testfont{Saysettha-LightItalic}{LightItalic}{10.0}
+\testfont{Saysettha-LightItalic}{LightItalic}{10.5}
+\testfont{Saysettha-LightItalic}{LightItalic}{11.0}
+\testfont{Saysettha-LightCondIta}{LightCondIta}{10.0}
+\testfont{Saysettha-LightCondIta}{LightCondIta}{10.5}
+\testfont{Saysettha-LightCondIta}{LightCondIta}{11.0}
+\testfont{Saysettha-LightCondensed}{LightCondensed}{10.0}
+\testfont{Saysettha-LightCondensed}{LightCondensed}{10.5}
+\testfont{Saysettha-LightCondensed}{LightCondensed}{11.0}
+
+\section*{Thin Weight Variants}
+\testfont{Saysettha-Thin}{Thin}{10.0}
+\testfont{Saysettha-Thin}{Thin}{10.5}
+\testfont{Saysettha-Thin}{Thin}{11.0}
+\testfont{Saysettha-ThinItalic}{ThinItalic}{10.0}
+\testfont{Saysettha-ThinItalic}{ThinItalic}{10.5}
+\testfont{Saysettha-ThinItalic}{ThinItalic}{11.0}
+\testfont{Saysettha-ThinCondensed}{ThinCondensed}{10.0}
+\testfont{Saysettha-ThinCondensed}{ThinCondensed}{10.5}
+\testfont{Saysettha-ThinCondensed}{ThinCondensed}{11.0}
+\testfont{Saysettha-ThinCondensedItalic}{ThinCondensedItalic}{10.0}
+\testfont{Saysettha-ThinCondensedItalic}{ThinCondensedItalic}{10.5}
+\testfont{Saysettha-ThinCondensedItalic}{ThinCondensedItalic}{11.0}
+
+\section*{Regular/Normal Weight Variants}
+\testfont{Saysettha-Regular}{Regular}{10.0}
+\testfont{Saysettha-Regular}{Regular}{10.5}
+\testfont{Saysettha-Regular}{Regular}{11.0}
+\testfont{Saysettha-Italic}{Italic}{10.0}
+\testfont{Saysettha-Italic}{Italic}{10.5}
+\testfont{Saysettha-Italic}{Italic}{11.0}
+\testfont{Saysettha-Condensed}{Condensed}{10.0}
+\testfont{Saysettha-Condensed}{Condensed}{10.5}
+\testfont{Saysettha-Condensed}{Condensed}{11.0}
+\testfont{Saysettha-CondensedItalic}{CondensedItalic}{10.0}
+\testfont{Saysettha-CondensedItalic}{CondensedItalic}{10.5}
+\testfont{Saysettha-CondensedItalic}{CondensedItalic}{11.0}
+
+\section*{Medium Weight Variants}
+\testfont{Saysettha-Medium}{Medium}{10.0}
+\testfont{Saysettha-Medium}{Medium}{10.5}
+\testfont{Saysettha-Medium}{Medium}{11.0}
+\testfont{Saysettha-MediumItalic}{MediumItalic}{10.0}
+\testfont{Saysettha-MediumItalic}{MediumItalic}{10.5}
+\testfont{Saysettha-MediumItalic}{MediumItalic}{11.0}
+\testfont{Saysettha-MediumCondensed}{MediumCondensed}{10.0}
+\testfont{Saysettha-MediumCondensed}{MediumCondensed}{10.5}
+\testfont{Saysettha-MediumCondensed}{MediumCondensed}{11.0}
+\testfont{Saysettha-MedCondIta}{MedCondIta}{10.0}
+\testfont{Saysettha-MedCondIta}{MedCondIta}{10.5}
+\testfont{Saysettha-MedCondIta}{MedCondIta}{11.0}
+
+\section*{Bold Weight Variants}
+\testfont{Saysettha-Bold}{Bold}{10.0}
+\testfont{Saysettha-Bold}{Bold}{10.5}
+\testfont{Saysettha-Bold}{Bold}{11.0}
+\testfont{Saysettha-BoldItalic}{BoldItalic}{10.0}
+\testfont{Saysettha-BoldItalic}{BoldItalic}{10.5}
+\testfont{Saysettha-BoldItalic}{BoldItalic}{11.0}
+\testfont{Saysettha-BoldCondensed}{BoldCondensed}{10.0}
+\testfont{Saysettha-BoldCondensed}{BoldCondensed}{10.5}
+\testfont{Saysettha-BoldCondensed}{BoldCondensed}{11.0}
+\testfont{Saysettha-BoldCondensedItalic}{BoldCondensedItalic}{10.0}
+\testfont{Saysettha-BoldCondensedItalic}{BoldCondensedItalic}{10.5}
+\testfont{Saysettha-BoldCondensedItalic}{BoldCondensedItalic}{11.0}
+
+\end{document}

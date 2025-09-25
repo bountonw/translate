@@ -188,7 +188,7 @@
 \fancyfoot[C]{%
   \begingroup
   \footnotesize
-  {\addfontfeatures{FakeSlant=.20} ຕົ້ນສະບັບພາສາອັງກິດ:}\ %
+    {\itshape ຕົ້ນສະບັບພາສາອັງກິດ:}\ %
   \expandafter\url\expandafter{\the\ThisChapterSourceToks}%
   \endgroup
 }%
@@ -276,19 +276,19 @@
   \mbox{%
     \fontsize{0.8em}{0.8em}\selectfont
     \textcolor[gray]{0.3}{%
-      {\addfontfeatures{FakeSlant=.20}\{#1\}}%
+      {\itshape\{#1\}}%
     }%
   }%
   \kern .30em\nobreak\hskip0pt\relax
 }
 
-% Use fake slant to mimic italics
 \DeclareEmphSequence{%
-  {\addfontfeatures{FakeSlant=.20}},%
-  {\addfontfeatures{FakeSlant=0}},%
-  {\addfontfeatures{FakeSlant=.20}},%
-  {\addfontfeatures{FakeSlant=0}}%
+  {\itshape},%
+  {\upshape},%
+  {\itshape},%
+  {\upshape}%
 }
+
 
 % === Lao Ellipsis Macros (paste into tex_header_info.tex; replace old defs) ===
 % Goal: three-dot ellipsis with *nano* stretch between dots, kept nonbreaking,
@@ -365,28 +365,3 @@
 \newcommand{\verseindentii}[1]{\hspace{4em}#1}
 \newcommand{\verseindentiii}[1]{\hspace{6em}#1}
 \let\rs\rigidspace
-
-% Fix Sala Am and tone marker collision
-\begin{luacode*}
-function fix_lao_tone_marks(head)
-    for n in node.traverse_id(node.id("glyph"), head) do
-        -- Check for ຳ (U+0EB3)
-        if n.char == 0x0EB3 then
-            local next = n.next
-            -- Check if next is tone mark Mai Ek (U+0EC8) or Mai To (U+0EC9)
-            if next and next.id == node.id("glyph") then
-                if next.char == 0x0EC8 or next.char == 0x0EC9 then
-                    -- Raise tone mark by approximately 0.3ex
-                    next.yoffset = tex.sp("0.3ex")
-                end
-            end
-        end
-    end
-    return head
-end
-
--- Register callback
-luatexbase.add_to_callback("post_linebreak_filter", 
-                          fix_lao_tone_marks, 
-                          "fix_lao_tone_marks")
-\end{luacode*}
