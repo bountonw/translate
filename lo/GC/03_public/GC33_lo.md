@@ -1,9 +1,9 @@
 ---
 chapter:
- number: 33
- title:
-   lo: ຄວາມຈິງເລື່ອງຄວາມຕາຍ
-   en: The First Great Deception
+  number: 33
+  title:
+    lo: ຄວາມຈິງເລື່ອງຄວາມຕາຍ
+    en: The First Great Deception
 ---
 
 ## {GC 531.1}
