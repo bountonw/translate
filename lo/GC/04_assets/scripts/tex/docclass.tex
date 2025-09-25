@@ -1,9 +1,9 @@
 % Book class with mirrored margins, no forced right-hand openings
-\documentclass[11pt,twoside,openany]{book}
+\documentclass[10pt,twoside,openany]{book}
 
 % Essential packages (load early)
 \usepackage{fontspec}
-\usepackage{xcolor}
+
 \usepackage{url}
 
 % Paper and margin setup for A5 (production-friendly, grid-safe)
@@ -26,6 +26,8 @@
   heightrounded,
   showframe
 ]{geometry}
+
+\usepackage{luacode}
 
 % Lao font setup
 \setmainfont{Noto Serif Lao}[
@@ -78,6 +80,9 @@
     \renewcommand{\lw@title}[1]{\begingroup\LW@orig{#1}\unskip\endgroup}%
   }%
 }
+
+% Set document font size
+\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
 
 % Working minimal format without extra spacing
 \titleformat{\chapter}[display]
