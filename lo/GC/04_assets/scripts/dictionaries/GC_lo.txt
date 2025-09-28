@@ -17,4 +17,5 @@
 ບອນໂຊດ| ບອນໂຊດ % Name of author (GC06)
 ຊີກີມົງ| ຊີກີມົງ % Sigismund
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
+ຊີສະກາ| ຊີສະກາ % Ziski (GC06)
 ປຣັກ| ປຣັກ % Prague (name)
