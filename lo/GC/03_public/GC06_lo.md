@@ -1,7 +1,7 @@
 ---
 chapter:
   number: 6
-  title:ນີ
+  title:
     lo: ຮັສ ແລະ ເຈໂຣມ
     en: Huss and Jerome
 ---
