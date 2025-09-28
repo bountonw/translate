@@ -169,41 +169,60 @@ def find_next_lao_word_break(text, start_pos, dictionary):
     return min(start_pos + 6, len(text))  # Max 6 characters if no pattern found
 
 def group_consecutive_text(text):
-    """Group consecutive characters by type (Lao, English, punctuation, numbers)."""
+    """
+    Group consecutive characters by type, treating \\cs{} as part of Lao text.
+    """
     if not text:
         return []
+    
+    # Split text into tokens, keeping \cs{} with adjacent Lao text
+    tokens = re.split(r'(\\cs\{\})', text)
     
     groups = []
     current_group = ''
     current_type = None
     
-    for char in text:
-        if is_lao_text(char):
-            char_type = 'lao'
-        elif char.isalpha():
-            char_type = 'english'
-        elif char.isdigit():
-            char_type = 'number'
-        elif is_punctuation(char):
-            char_type = 'punctuation'
-        elif char.isspace():
-            char_type = 'space'
+    for token in tokens:
+        if not token:
+            continue
+            
+        if token == '\\cs{}':
+            # \cs{} continues the current Lao group
+            if current_type == 'lao':
+                current_group += token
+            else:
+                if current_group:
+                    groups.append((current_type, current_group))
+                current_group = token
+                current_type = 'lao'
         else:
-            char_type = 'other'
-        
-        if char_type == current_type:
-            current_group += char
-        else:
-            if current_group:
-                groups.append((current_type, current_group))
-            current_group = char
-            current_type = char_type
+            # Process each character in the token
+            for char in token:
+                if is_lao_text(char):
+                    char_type = 'lao'
+                elif char.isalpha():
+                    char_type = 'english'
+                elif char.isdigit():
+                    char_type = 'number'
+                elif is_punctuation(char):
+                    char_type = 'punctuation'
+                elif char.isspace():
+                    char_type = 'space'
+                else:
+                    char_type = 'other'
+                
+                if char_type == current_type:
+                    current_group += char
+                else:
+                    if current_group:
+                        groups.append((current_type, current_group))
+                    current_group = char
+                    current_type = char_type
     
     if current_group:
         groups.append((current_type, current_group))
     
     return groups
-
 def convert_break_points(coded_term):
     """Convert dictionary break point symbols to TeX penalty commands."""
     

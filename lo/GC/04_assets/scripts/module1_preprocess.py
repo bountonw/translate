@@ -443,8 +443,6 @@ def resolve_file_specification(file_spec, public_dir):
     Returns:
         Path or None: Resolved file path, or None if not found
     """
-    from pathlib import Path
-    
     # If it's already a complete .md file path, use as-is
     if file_spec.endswith('.md'):
         candidate = public_dir / file_spec

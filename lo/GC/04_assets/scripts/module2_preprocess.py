@@ -156,24 +156,27 @@ def extract_and_preserve_commands(text):
     """
     Extract \\egw{...}, \\scrref{...}, \\lw{...}, \\scrspace,
     footnote markers ([^n] and [^n]:), and \\s/\\S (flex/rigid spaces),
-    replacing them with numbered placeholders.
+    replacing them with numbered placeholders while allowing \\cs{} to 
+    remain visible for dictionary lookup of compound phrases like "word\\cs{}word".
 
-    Returns:
+    Returns: 
         (placeholder_text, protected_commands)
     """
-    import re
-
     protected_commands = []
 
-    # One-pass matcher for all protected tokens; order is preserved by re.sub callback
     pattern = re.compile(
-        r"(\\(?:egw|scrref|lw)\{[^}]+\}"      # \egw{...}, \scrref{...}, \lw{...}
+        r"(\\(?:egw|scrref|lw)\{[^}]+\}"      # \egw{}, \scrref{}, \lw{}
         r"|\\scrspace(?![A-Za-z])"            # \scrspace (standalone)
         r"|\[\^\d+\](?::)?"                   # [^1] and [^1]:
+        r"|\\cs\{[^}]*\}"                     # \cs{} - exclude from protection
         r"|\\[sS](?![A-Za-z]))"               # \s or \S (not followed by letters)
     )
 
-    def _repl(m: re.Match) -> str:
+    def _repl(m):
+        # Don't protect \cs{} commands - let them pass through
+        if m.group(0).startswith('\\cs{'):
+            return m.group(0)
+        
         idx = len(protected_commands)
         protected_commands.append(m.group(0))
         return f"__PROTECTED_CMD_{idx}__"

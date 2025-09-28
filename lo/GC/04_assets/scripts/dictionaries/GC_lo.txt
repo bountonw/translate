@@ -13,3 +13,4 @@
 ເມືອງເວີມ| ເມືອງ~~ເວີມ % City of Worms, name
 ໝາກັດກິນ| ໝາ~~~ກັດ~~ກິນ %
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
+ຟູນເລີ| ຟູນເລີ % name

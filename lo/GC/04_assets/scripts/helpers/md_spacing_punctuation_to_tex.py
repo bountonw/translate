@@ -747,8 +747,6 @@ def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
     if not text:
         return text
 
-    import re
-
     n = len(text)
     protected_spans = []  # list[(start, end)] half-open indices
 
