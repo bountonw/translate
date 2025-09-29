@@ -36,6 +36,19 @@
     BoldItalicFont = *-BoldItalic
 ]
 
+\newfontfamily\thaifont{Sarabun}[
+    Path = ../../../th/assets/fonts/saraban/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    Script = Thai
+]
+
+\usepackage[Latin,Lao,Thai]{ucharclasses}
+\setTransitionsForThai{\thaifont}{}
+
 % Typography packages
 \usepackage{microtype}
 \usepackage{setspace}
