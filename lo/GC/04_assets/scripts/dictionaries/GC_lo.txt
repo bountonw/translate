@@ -9,26 +9,30 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
-ຢູດາຍ້ອນ| ຢູດາ~~~ຍ້ອນ
-ເມືອງເວີມ| ເມືອງ~~ເວີມ % City of Worms, name
-ໝາກັດກິນ| ໝາ~~~ກັດ~~ກິນ %
-ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
-ຟູນເລີ| ຟູນເລີ % name
-ບອນໂຊດ| ບອນໂຊດ % Name of author (GC06)
-ຊີກີມົງ| ຊີກີມົງ % Sigismund
-ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
-ຊີສະກາ| ຊີສະກາ % Ziski (GC06)
-ເອີເຟີດ| ເອີເຟີດ % Erfurt, city in Germany (name)
-ປຣັກ| ປຣັກ % Prague (name)
-ສະເຕົາພິດ| ສະເຕົາພິດ % Staupitz (name)
-ເທັດເຊັນ| ເທັດເຊັນ %  Tetzel
-ເມລັງໂທນ| ເມລັງໂທນ % Melanchthon
-ສະປາລາຕິນ| ສະປາລາຕິນ % Spalatin
-ວິດເທັນເບີກ |ວິດເທັນເບີກ  % Wittenberg
-ແຊັກຊັນນີ| ແຊັກຊັນນີ % Saxony
-ເບັນຢຽມ |ເບັນຢຽມ  % Belgium
-ອໍກັສຕິນ| ອໍກັສຕິນ %  Augustine
 ຊານສ໌| ຊານສ໌ % Charles
-ເຟລິກ| ເຟລິກ % Felix
+ຊີກີມົງ| ຊີກີມົງ % Sigismund
+ຊີສະກາ| ຊີສະກາ % Ziski (GC06)
+ບອນໂຊດ| ບອນໂຊດ % Name of author (GC06)
+ປຣັກ| ປຣັກ % Prague (name)
+ຟຣັນຊິສ| ຟຣັນຊິສ % Franciscan
+ຟູນເລີ| ຟູນເລີ % name
+ຢູດາຍ້ອນ| ຢູດາ~~~ຍ້ອນ
+ວິດເທັນເບີກ |ວິດເທັນເບີກ  % Wittenberg
+ສວິງລີ| ສວິງລີ % Zwingli
+ສະປາລາຕິນ| ສະປາລາຕິນ % Spalatin
+ສະເຕົາພິດ| ສະເຕົາພິດ % Staupitz (name)
 ອະລີອັນເດີ| ອະລີອັນເດີ % Aleander GC08
+ອໍກັສຕິນ| ອໍກັສຕິນ %  Augustine
+ເທັດເຊັນ| ເທັດເຊັນ %  Tetzel
+ເບັນຢຽມ |ເບັນຢຽມ  % Belgium
+ເບີນ| ເບີນ % Bern (name of city)
 ເຟຣເດີຣິກ |ເຟຣເດີຣິກ  % Frederick
+ເຟລິກ| ເຟລິກ % Felix
+ເມລັງໂທນ| ເມລັງໂທນ % Melanchthon
+ເມືອງເວີມ| ເມືອງ~~ເວີມ % City of Worms, name
+ເອີເຟີດ| ເອີເຟີດ % Erfurt, city in Germany (name)
+ແຊັກຊັນນີ| ແຊັກຊັນນີ % Saxony
+ໂດມິນນິກັນ| ໂດມິນນິກັນ % Dominican
+ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
+ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
+ໝາກັດກິນ| ໝາ~~~ກັດ~~ກິນ %
