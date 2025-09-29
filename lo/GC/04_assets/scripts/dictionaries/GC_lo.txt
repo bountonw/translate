@@ -18,4 +18,9 @@
 ຊີກີມົງ| ຊີກີມົງ % Sigismund
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
 ຊີສະກາ| ຊີສະກາ % Ziski (GC06)
+ເອີເຟີດ| ເອີເຟີດ % Erfurt, city in Germany (name)
 ປຣັກ| ປຣັກ % Prague (name)
+ສະເຕົາພິດ| ສະເຕົາພິດ % Staupitz (name)
+ເທັດເຊັນ| ເທັດເຊັນ %  Tetzel
+ເມລັງໂທນ| ເມລັງໂທນ % Melanchthon
+ວິດເທັນເບີກ |ວິດເທັນເບີກ  % Wittenberg
