@@ -36,3 +36,7 @@
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
 ໝາກັດກິນ| ໝາ~~~ກັດ~~ກິນ %
+ບາເຊັນ |ບາເຊັນ  % Basel
+ຊູຣິກ| ຊູຣິກ % Zurich
+ວິດເທັມບາກ |ວິດເທັມບາກ  % Wittembach
+
