@@ -10,4 +10,5 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ປຣັກວ່າ| ປຣັກວ່າ % 
+ທີ່ຈະເລີນ| ທີ່~~~ຈະເລີນ % 
 
