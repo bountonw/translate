@@ -9,4 +9,13 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ແກ່ນາງ| ແກ່~~~ນາງ % 
+ເຈຣາດ\cs{}ບຣັນ| ເຈຣາດ\cs{}ບຣັນ % 
+ເມັນໂນ\cs{}ຊີໂມນ| ເມັນໂນ\cs{}ຊີໂມນ  % Menno Simons
+ເມັນໂນ| ເມັນໂນ % Menno Simons
+ອໍເຣນ| ອໍເຣນ % Orange (from William of Orange)
+ໂອລັບ| ໂອລັບ % Olaf
+ໂລເຣັນທີອັດ| ໂລເຣັນທີອັດ % Laurentius 
+ເປຕຣີ| ເປຕຣີ % Petri
+ໂອເຣໂບ| ໂອເຣໂບ % Orebo
 
