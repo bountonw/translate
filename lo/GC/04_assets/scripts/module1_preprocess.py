@@ -191,6 +191,13 @@ def normalize_lao_text(text):
     text = text.replace("ໍ້າ", "້ຳ")  # mai to + AM
     text = text.replace("ໍ໊າ", "໊ຳ")  # mai tri + AM
     text = text.replace("ໍ໋າ", "໋ຳ")  # mai chattawa + AM
+
+    # Swap inverted order: tone + ◌ໍ  →  ◌ໍ + tone
+    text = text.replace("່ໍ", "ໍ່")
+    text = text.replace("້ໍ", "ໍ້")
+    text = text.replace("໊ໍ", "ໍ໊")
+    text = text.replace("໋ໍ", "ໍ໋")
+
     return text
 
 def clean_markdown_body(markdown_body):
