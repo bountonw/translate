@@ -33,6 +33,12 @@
 ເອີເຟີດ| ເອີເຟີດ % Erfurt, city in Germany (name)
 ແຊັກຊັນນີ| ແຊັກຊັນນີ % Saxony
 ໂດມິນນິກັນ| ໂດມິນນິກັນ % Dominican
+ເບີຄວິນ| ເບີຄວິນ % Berquin
+ເບຊາ| ເບຊາ % Beza
+ເອີຣັສມາສ |ເອີຣັສມາສ  % Erasmus
+ເມືອງໂມ| ເມືອງ~~ໂມ % Meaux
+ເບດາ| ເບດາ % Beda
+ຟຣານຊິສ| ຟຣານຊິສ % Francis
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
 ໝາກັດກິນ| ໝາ~~~ກັດ~~ກິນ %
