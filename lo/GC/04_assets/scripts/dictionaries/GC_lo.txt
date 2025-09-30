@@ -38,6 +38,9 @@
 ເອີຣັສມາສ |ເອີຣັສມາສ  % Erasmus
 ເມືອງໂມ| ເມືອງ~~ໂມ % Meaux
 ເບດາ| ເບດາ % Beda
+ໂອລີເວຕັນ |ໂອລີເວຕັນ  % Olivetan
+ພົວເຈ| ພົວເຈ % Poitiers
+ມາກາເຣັດ| ມາກາເຣັດ % Margaret
 ຟຣານຊິສ| ຟຣານຊິສ % Francis
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
