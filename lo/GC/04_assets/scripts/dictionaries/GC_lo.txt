@@ -41,6 +41,12 @@
 ໂອລີເວຕັນ |ໂອລີເວຕັນ  % Olivetan
 ພົວເຈ| ພົວເຈ % Poitiers
 ມາກາເຣັດ| ມາກາເຣັດ % Margaret
+ໂມຣິນ| ໂມຣິນ % Morin
+ເມືອງໂມຣັດ |ເມືອງ~~~ໂມຣັດ % Morat
+ນັອຄຊ໌ |ນັອຄຊ໌  % John Knox
+ເມືອງນິວຊາແຕວ |ເມືອງ~~~ນິວຊາແຕວ % Neuchatel
+ເຈນີວາ| ເຈນີວາ % Geneva
+ໂຟມົງ| ໂຟມົງ % Froment
 ຟຣານຊິສ| ຟຣານຊິສ % Francis
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
