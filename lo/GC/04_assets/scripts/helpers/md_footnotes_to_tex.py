@@ -201,8 +201,8 @@ def sanitize_footnote_text(text: str) -> str:
         Cleaned text suitable for \footnote{} content.
         
     Transformations:
-        - Remove leading/trailing \space{} and \nbsp{}
-        - Normalize spacing combinations (\space{}\nbsp{} -> \nbsp{})
+        - Remove leading/trailing \textspace{} and \nbsp{}
+        - Normalize spacing combinations (\textspace{}\nbsp{} -> \nbsp{})
         - Preserve \nobreak{} macros
         - Trim whitespace but preserve internal spacing
         
@@ -211,14 +211,14 @@ def sanitize_footnote_text(text: str) -> str:
         unwanted spacing artifacts.
     """
     # Remove from beginning of the footnote string
-    text = re.sub(r'^(\\space\{\}|\\nbsp\{\}|\s)+', '', text)
+    text = re.sub(r'^(\\textspace\{\}|\\nbsp\{\}|\s)+', '', text)
     # Remove from end
-    text = re.sub(r'(\\space\{\}|\\nbsp\{\}|\s)+$', '', text)
+    text = re.sub(r'(\\textspace\{\}|\\nbsp\{\}|\s)+$', '', text)
 
     # Normalize internal spacing combinations
-    text = re.sub(r'\\space\{\}\\nbsp\{\}', r'\\nbsp{}', text)
-    text = re.sub(r'\\nbsp\{\}\\space\{\}', r'\\nbsp{}', text)
-    text = re.sub(r'\\space\{\}\\nobreak', r'\\nobreak', text)
+    text = re.sub(r'\\textspace\{\}\\nbsp\{\}', r'\\nbsp{}', text)
+    text = re.sub(r'\\nbsp\{\}\\textspace\{\}', r'\\nbsp{}', text)
+    text = re.sub(r'\\textspace\{\}\\nobreak', r'\\nobreak', text)
     
     return text
 

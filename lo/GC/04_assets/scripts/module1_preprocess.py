@@ -191,6 +191,13 @@ def normalize_lao_text(text):
     text = text.replace("ໍ້າ", "້ຳ")  # mai to + AM
     text = text.replace("ໍ໊າ", "໊ຳ")  # mai tri + AM
     text = text.replace("ໍ໋າ", "໋ຳ")  # mai chattawa + AM
+
+    # Swap inverted order: tone + ◌ໍ  →  ◌ໍ + tone
+    text = text.replace("່ໍ", "ໍ່")
+    text = text.replace("້ໍ", "ໍ້")
+    text = text.replace("໊ໍ", "ໍ໊")
+    text = text.replace("໋ໍ", "ໍ໋")
+
     return text
 
 def clean_markdown_body(markdown_body):
@@ -443,8 +450,6 @@ def resolve_file_specification(file_spec, public_dir):
     Returns:
         Path or None: Resolved file path, or None if not found
     """
-    from pathlib import Path
-    
     # If it's already a complete .md file path, use as-is
     if file_spec.endswith('.md'):
         candidate = public_dir / file_spec

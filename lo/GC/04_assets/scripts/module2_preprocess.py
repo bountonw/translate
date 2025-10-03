@@ -156,24 +156,27 @@ def extract_and_preserve_commands(text):
     """
     Extract \\egw{...}, \\scrref{...}, \\lw{...}, \\scrspace,
     footnote markers ([^n] and [^n]:), and \\s/\\S (flex/rigid spaces),
-    replacing them with numbered placeholders.
+    replacing them with numbered placeholders while allowing \\cs{} to 
+    remain visible for dictionary lookup of compound phrases like "word\\cs{}word".
 
-    Returns:
+    Returns: 
         (placeholder_text, protected_commands)
     """
-    import re
-
     protected_commands = []
 
-    # One-pass matcher for all protected tokens; order is preserved by re.sub callback
     pattern = re.compile(
-        r"(\\(?:egw|scrref|lw)\{[^}]+\}"      # \egw{...}, \scrref{...}, \lw{...}
+        r"(\\(?:egw|scrref|lw)\{[^}]+\}"      # \egw{}, \scrref{}, \lw{}
         r"|\\scrspace(?![A-Za-z])"            # \scrspace (standalone)
         r"|\[\^\d+\](?::)?"                   # [^1] and [^1]:
+        r"|\\cs\{[^}]*\}"                     # \cs{} - exclude from protection
         r"|\\[sS](?![A-Za-z]))"               # \s or \S (not followed by letters)
     )
 
-    def _repl(m: re.Match) -> str:
+    def _repl(m):
+        # Don't protect \cs{} commands - let them pass through
+        if m.group(0).startswith('\\cs{'):
+            return m.group(0)
+        
         idx = len(protected_commands)
         protected_commands.append(m.group(0))
         return f"__PROTECTED_CMD_{idx}__"
@@ -452,9 +455,12 @@ def get_output_path(input_path, debug_mode=False):
     
     return input_file.parent / output_name
 
-def run_pre_debug_tests():
+def run_pre_debug_tests(filename="GC01"):
     """
     Run test suite before debug processing to ensure stability.
+    
+    Args:
+        filename: Base filename for testing (e.g., "GC05")
     
     Returns:
         bool: True if all tests pass, False if any test fails
@@ -478,9 +484,9 @@ def run_pre_debug_tests():
         env = os.environ.copy()
         env['MODULE2_TESTING'] = '1'
         
-        # Run the test suite
+        # Run the test suite with filename parameter
         result = subprocess.run(
-            [sys.executable, str(test_script)],
+            [sys.executable, str(test_script), filename],
             cwd=get_project_root(),
             capture_output=True,
             text=True,
@@ -580,7 +586,18 @@ Examples:
     
     # Run pre-debug tests to ensure stability
     if args.debug:
-        if not run_pre_debug_tests():
+        # Extract filename from first input file for testing
+        test_filename = "GC01"  # Default fallback
+        if args.files:
+            # Use first file specification for testing
+            test_filename = args.files[0]
+            # Remove any file extensions or suffixes for test
+            if test_filename.endswith('.tmp'):
+                test_filename = test_filename[:-4]
+            if test_filename.endswith('_lo'):
+                test_filename = test_filename[:-3]
+        
+        if not run_pre_debug_tests(test_filename):
             print("⚠️ Tests failed - aborting to prevent breaking functionality")
             print("Fix the failing tests before proceeding with debug mode.")
             sys.exit(1)
@@ -647,6 +664,5 @@ Examples:
     
     if success_count < total_count:
         sys.exit(1)
-
 if __name__ == "__main__":
     main()

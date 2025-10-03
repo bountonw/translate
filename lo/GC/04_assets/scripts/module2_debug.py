@@ -404,7 +404,6 @@ def debug_parse_alternatives(text: str, alternatives: List[List[Dict[str, Any]]]
 def validate_debug_environment():
     """Validate that debug environment is properly set up."""
     try:
-        from pathlib import Path
         current = Path.cwd()
         if current.name == '04_assets':
             project_root = current.parent

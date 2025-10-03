@@ -26,17 +26,18 @@ from typing import Dict, List, Any
 import shutil
 
 class Module2Tester:
-    def __init__(self):
+    def __init__(self, test_filename="GC01"):
+        """Initialize tester with configurable test filename."""
         self.script_dir = Path(__file__).parent
         self.project_root = self.script_dir.parent.parent
         self.temp_dir = self.project_root / "04_assets" / "temp"
         self.module2_script = self.script_dir / "module2_preprocess.py"
-        self.test_input = "GC01"
+        self.test_input = test_filename  # Use parameter instead of hardcoded
         self.results = []
         
         # Add helpers to path
         sys.path.insert(0, str(self.script_dir / 'helpers'))
-        
+
     def log_result(self, test_name: str, passed: bool, message: str = ""):
         """Log test result."""
         status = "✓ PASS" if passed else "✗ FAIL"
@@ -131,25 +132,35 @@ class Module2Tester:
         try:
             from dict_loader import load_hierarchical_dictionaries
             
-            # Test loading dictionary for GC01
+            # Extract chapter and book from test_input filename
+            chapter, book = self._extract_chapter_book(self.test_input)
+            
             dictionary, conflicts = load_hierarchical_dictionaries(
-                chapter="GC01",
-                book="GC",
+                chapter=chapter,
+                book=book,
                 debug=False
             )
             
             term_count = len(dictionary.terms)
-            if term_count > 1000:  # Reasonable dictionary size
-                self.log_result("Dictionary loading", True, f"Loaded {term_count} terms")
+            if term_count > 1000:
+                self.log_result("Dictionary loading", True, f"Loaded {term_count} terms for {chapter}")
                 return True
             else:
                 self.log_result("Dictionary loading", False, f"Dictionary too small: {term_count} terms")
                 return False
-                
         except Exception as e:
             self.log_result("Dictionary loading", False, f"Dictionary load error: {e}")
             return False
-    
+
+    def _extract_chapter_book(self, filename):
+        """Extract chapter and book from filename for dictionary loading."""
+        import re
+        name = re.sub(r'_lo$', '', filename)
+        match = re.match(r'^([A-Z]+)(\d+)$', name)
+        if match:
+            return name, match.group(1)  # Return full chapter, book prefix
+        return "GC01", "GC"  # Fallback   
+
     def test_parsing_functions(self) -> bool:
         """Test that parsing functions work with sample text."""
         try:
@@ -158,13 +169,14 @@ class Module2Tester:
                 parse_longest_first, parse_shortest_first, parse_with_backtrack
             )
             from dict_loader import load_hierarchical_dictionaries
-            
+
             # Load dictionary using new helper
+            chapter, book = self._extract_chapter_book(self.test_input)
             dictionary, conflicts = load_hierarchical_dictionaries(
-                chapter="GC01",
-                book="GC",
+                chapter=chapter,
+                book=book,
                 debug=False
-            )
+            )     
             
             # Test with simple Lao text
             test_text = "ການສຶກສາ"
@@ -424,8 +436,9 @@ class Module2Tester:
             return False
 
 def main():
-    """Run the test suite."""
-    tester = Module2Tester()
+    """Run the test suite with optional filename parameter."""
+    test_filename = sys.argv[1] if len(sys.argv) > 1 else "GC01"
+    tester = Module2Tester(test_filename)
     success = tester.run_all_tests()
     sys.exit(0 if success else 1)
 
