@@ -9,6 +9,9 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ຄັອນເນັກຕິກັດ| ຄັອນເນັກຕິກັດ % Connecticut
+ອານບານີ| ອານບານີ % Albany 
+ເຊີ\cs{}ຊານສ໌\cs{}ໄລອັນ| ເຊີ\cs{}ຊານສ໌\cs{}ໄລອັນ % 
 ກຣີນແລນ| ກຣີນແລນ % Greenland
 ກາເປນ| ກາເປນ % Cappel
 ກິນເນອັດ| ກິນເນອັດ % 
