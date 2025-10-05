@@ -10,6 +10,9 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ຄັອນເນັກຕິກັດ| ຄັອນເນັກຕິກັດ % Connecticut
+ວິນລຽມ\cs{}ມິນເລີ| ວິນລຽມ\cs{}ມິນເລີ % William Miller
+ດິອິສ| ດິອິສ % Diest
+ມິນເລີ| ມິນເລີ % Miller
 ອານບານີ| ອານບານີ % Albany 
 ເຊີ\cs{}ຊານສ໌\cs{}ໄລອັນ| ເຊີ\cs{}ຊານສ໌\cs{}ໄລອັນ % 
 ກຣີນແລນ| ກຣີນແລນ % Greenland
