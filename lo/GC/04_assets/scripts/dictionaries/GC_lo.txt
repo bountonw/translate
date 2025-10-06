@@ -9,6 +9,7 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ບັບຕິສ| ບັບຕິສ % Baptist
 ໄຊຣັດ| ໄຊຣັດ % Cyrus 
 ດາຣິອຸດ| ດາຣິອຸດ % Darius
 ອາກຕາເຊເຊັດ| ອາກຕາເຊເຊັດ % Artaxerxes

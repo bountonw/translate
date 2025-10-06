@@ -9,6 +9,7 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ພະນັນ| ພະນັນ % 
 ຊາມາເຣຍ| ຊາມາເຣຍ % Samaria
 ຊະເຕຟາໂນ| ຊະເຕຟາໂນ % Stephen
 ໂກເນລີໂອ| ໂກເນລີໂອ % Cornelius
