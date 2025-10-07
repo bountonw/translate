@@ -9,6 +9,12 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ໂຢສີຢາ| ໂຢສີຢາ % 
+ບັບຕິສ| ບັບຕິສ % Baptist
+ໄຊຣັດ| ໄຊຣັດ % Cyrus 
+ດາຣິອຸດ| ດາຣິອຸດ % Darius
+ອາກຕາເຊເຊັດ| ອາກຕາເຊເຊັດ % Artaxerxes
+ເປີເຊຍ| ເປີເຊຍ % Persia
 ຄັອນເນັກຕິກັດ| ຄັອນເນັກຕິກັດ % Connecticut
 ວິນລຽມ\cs{}ມິນເລີ| ວິນລຽມ\cs{}ມິນເລີ % William Miller
 ດິອິສ| ດິອິສ % Diest
