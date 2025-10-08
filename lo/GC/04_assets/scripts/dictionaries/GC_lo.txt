@@ -10,6 +10,7 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ກຣີນແລນ| ກຣີນແລນ % Greenland
+ເຈມສ໌\cs{}ໄວທ໌| ເຈມສ໌\cs{}ໄວທ໌ % 
 ກາເປນ| ກາເປນ % Cappel
 ກິນເນອັດ| ກິນເນອັດ % 
 ຄະເວເກີ| ຄະເວເກີ % Quaker
