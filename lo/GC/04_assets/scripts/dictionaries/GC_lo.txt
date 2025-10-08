@@ -10,7 +10,6 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ກຣີນແລນ| ກຣີນແລນ % Greenland
-ລູເທີແອນ| ລູເທີແອນ % Lutheran
 ກາເປນ| ກາເປນ % Cappel
 ກິນເນອັດ| ກິນເນອັດ % 
 ຄະເວເກີ| ຄະເວເກີ % Quaker
@@ -33,10 +32,12 @@
 ບັນຍັນ| ບັນຍັນ % John Bunyan
 ບັບຕິສ| ບັບຕິສ % Baptist
 ບາເຊັນ |ບາເຊັນ  % Basel
+ບຼິສ| ບຼິສ % 
 ປຣັກ| ປຣັກ % Prague (name)
 ພົວເຈ| ພົວເຈ % Poitiers
 ຟຣັນຊິສ| ຟຣັນຊິສ % Franciscan
 ຟຣານຊິສ| ຟຣານຊິສ % Francis
+ຟີລາເດັນເຟຍ |ຟີລາເດັນເຟຍ  % Philadelphia
 ຟີລິບ| ຟີລິບ % 
 ຟູນເລີ| ຟູນເລີ % name
 ມາກາເຣັດ|ລິສບອນ ມາກາເຣັດ % Margaret
@@ -47,6 +48,7 @@
 ຣິດລີ| ຣິດລີ  % Ridley
 ລາຕິເມີ |ລາຕິເມີ  % Latimer
 ລິສບອນ| ລິສບອນ % Lisbon
+ລູເທີແອນ| ລູເທີແອນ % Lutheran
 ວິດເທັນເບີກ |ວິດເທັນເບີກ  % Wittenberg
 ວິດເທັມບາກ |ວິດເທັມບາກ  % Wittembach
 ວິນລຽມ\cs{}ມິນເລີ| ວິນລຽມ\cs{}ມິນເລີ % William Miller
