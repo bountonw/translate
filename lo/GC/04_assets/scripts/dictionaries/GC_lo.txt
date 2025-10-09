@@ -9,8 +9,6 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
-ປີອູດ| ປີອູດ % Pius
-ໂອຄອນເນີ| ໂອຄອນເນີ % O'conner
 ກຣີນແລນ| ກຣີນແລນ % Greenland
 ກາເປນ| ກາເປນ % Cappel
 ກິນເນອັດ| ກິນເນອັດ % 
@@ -37,6 +35,7 @@
 ບາເຊັນ |ບາເຊັນ  % Basel
 ບຼິສ| ບຼິສ % 
 ປຣັກ| ປຣັກ % Prague (name)
+ປີອູດ| ປີອູດ % Pius
 ພົວເຈ| ພົວເຈ % Poitiers
 ຟຣັນຊິສ| ຟຣັນຊິສ % Franciscan
 ຟຣານຊິສ| ຟຣານຊິສ % Francis
@@ -111,6 +110,7 @@
 ໂມຣິນ| ໂມຣິນ % Morin
 ໂຢສີຢາ| ໂຢສີຢາ % 
 ໂລລາດ| ໂລລາດ % Lolards (followers of Wycliffe)
+ໂອຄອນເນີ| ໂອຄອນເນີ % O'conner
 ໂອລີເວຕັນ |ໂອລີເວຕັນ  % Olivetan
 ໄຊຣັດ| ໄຊຣັດ % Cyrus 
 ໄຣນ໌| ໄຣນ໌ %  Rhine (river name)
