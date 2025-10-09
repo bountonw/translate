@@ -10,3 +10,4 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ການພິພາກສາ| ການ\p{200}ພິພາກສາ % 
+ຈອບມາ| ຈອບ~~~ມາ % 
