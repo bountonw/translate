@@ -4,6 +4,7 @@
 % Essential packages (load early)
 \usepackage{fontspec}
 
+
 \usepackage{url}
 
 % Paper and margin setup for A5 (production-friendly, grid-safe)
@@ -27,7 +28,8 @@
   %showframe
 ]{geometry}
 
-\setmainfont{Saysettha}[
+% Define Saysettha family first
+\newfontfamily\laofont{Saysettha}[
     Path = ../../assets/fonts/saysettha/,
     Extension = .ttf,
     UprightFont = *-Regular,
@@ -36,9 +38,34 @@
     BoldItalicFont = *-BoldItalic
 ]
 
+% Setup separate fallbacks for each font style
+\directlua{
+  luaotfload.add_fallback(
+    "laofallback",
+    {"[../../assets/fonts/saysettha/Saysettha-Regular.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackbold",
+    {"[../../assets/fonts/saysettha/Saysettha-Bold.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackitalic",
+    {"[../../assets/fonts/saysettha/Saysettha-Italic.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackbolditalic",
+    {"[../../assets/fonts/saysettha/Saysettha-BoldItalic.ttf]:mode=harf;"}
+  )
+}
 
-%%%%%%%%
-% Thai Font support
+% Set Libertinus as main with fallbacks for each variant
+\setmainfont{Libertinus Serif}[
+  RawFeature={fallback=laofallback},
+  BoldFeatures={RawFeature={fallback=laofallbackbold}},
+  ItalicFeatures={RawFeature={fallback=laofallbackitalic}},
+  BoldItalicFeatures={RawFeature={fallback=laofallbackbolditalic}}
+]
+
 \newfontfamily\thaifont{Sarabun}[
     Path = ../../../th/assets/fonts/saraban/,
     Extension = .ttf,
@@ -49,8 +76,11 @@
     Script = Thai
 ]
 
-
 \newcommand{\thai}[1]{{\thaifont #1}}
+
+\renewcommand{\textsuperscript}[1]{%
+  {\fontsize{7}{7}\selectfont\raisebox{1.4ex}{#1}}%
+}
 
 % Typography packages
 \usepackage{microtype}

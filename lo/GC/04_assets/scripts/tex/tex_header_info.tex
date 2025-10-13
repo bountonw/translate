@@ -186,8 +186,9 @@
 
 \fancyfoot[C]{%
   \begingroup
-  \footnotesize
-    {\itshape ຕົ້ນສະບັບພາສາອັງກິດ:}\ %
+  \footnotesize\itshape
+    ຕົ້ນສະບັບພາສາອັງກິດ:\ %
+    \def\UrlFont{\itshape\rmfamily}% URL in italic serif (Libertinus)
   \expandafter\url\expandafter{\the\ThisChapterSourceToks}%
   \endgroup
 }%
