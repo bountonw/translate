@@ -1,34 +1,56 @@
+% =============================================================================
+% DOCUMENT CLASS AND GEOMETRY
+% =============================================================================
 % Book class with mirrored margins, no forced right-hand openings
 \documentclass[10pt,twoside,openany]{book}
 
-% Essential packages (load early)
-\usepackage{fontspec}
-
-
-\usepackage{url}
-
-% Paper and margin setup for A5 (production-friendly, grid-safe)
+% Page dimensions and margins for A5-ish format
 \usepackage[
   paperwidth=148mm,
   paperheight=210mm,
-  % Keep your current margins
-  top=12mm,
-  bottom=12mm,
+  top=11.5mm,
   inner=16mm,
   outer=12mm,
   bindingoffset=5mm,
-  % Prepare for running heads/folios later (reserve space now)
   includehead,
   includefoot,
   headheight=14pt,
   headsep=12pt,
   footskip=10mm,
-  % Make textheight a whole number of baselines
-  heightrounded,
-  %showframe
+  textheight=482.85274pt,
+  ignorefoot=false,
+  ignorehead=false,
+  showframe
 ]{geometry}
 
-% Define Saysettha family first
+\raggedbottom  % Allow variable page height rather than forcing flush bottom
+
+
+% =============================================================================
+% BASELINE AND SPACING FUNDAMENTALS
+% =============================================================================
+% Rigid 12.6pt baseline - remove all stretch/shrink
+\setlength{\baselineskip}{12.6pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.5em}
+\setlength{\lineskip}{0pt}
+\setlength{\lineskiplimit}{-\maxdimen}
+\setlength{\abovedisplayskip}{12.6pt}
+\setlength{\belowdisplayskip}{12.6pt}
+\setlength{\abovedisplayshortskip}{12.6pt}
+\setlength{\belowdisplayshortskip}{12.6pt}
+\setlength{\topskip}{12.6pt}
+
+
+% =============================================================================
+% FONT SETUP
+% =============================================================================
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% -----------------------------------------------------------------------------
+% Lao Font: Saysettha (Primary Lao Font)
+% -----------------------------------------------------------------------------
 \newfontfamily\laofont{Saysettha}[
     Path = ../../assets/fonts/saysettha/,
     Extension = .ttf,
@@ -58,7 +80,9 @@
   )
 }
 
-% Set Libertinus as main with fallbacks for each variant
+% -----------------------------------------------------------------------------
+% Main Font: Libertinus Serif with Lao Fallback
+% -----------------------------------------------------------------------------
 \setmainfont{Libertinus Serif}[
   RawFeature={fallback=laofallback},
   BoldFeatures={RawFeature={fallback=laofallbackbold}},
@@ -66,6 +90,9 @@
   BoldItalicFeatures={RawFeature={fallback=laofallbackbolditalic}}
 ]
 
+% -----------------------------------------------------------------------------
+% Thai Font: Sarabun
+% -----------------------------------------------------------------------------
 \newfontfamily\thaifont{Sarabun}[
     Path = ../../../th/assets/fonts/saraban/,
     Extension = .ttf,
@@ -78,31 +105,38 @@
 
 \newcommand{\thai}[1]{{\thaifont #1}}
 
+% -----------------------------------------------------------------------------
+% Font Size and Microtypography
+% -----------------------------------------------------------------------------
+% Set document font size (applied at document start)
+\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
+
+% Customize superscript positioning
 \renewcommand{\textsuperscript}[1]{%
   {\fontsize{7}{7}\selectfont\raisebox{1.4ex}{#1}}%
 }
 
-% Typography packages
-\usepackage{microtype}
-\usepackage{setspace}
-\setstretch{1.05}
-%\singlespacing
-%\onehalfspacing
-
-% Keep font expansion for better justification; disable protrusion (margin kerning)
-% to avoid TU-slot warnings with our current fonts.
+% Enable font expansion; disable protrusion to avoid TU-slot warnings
 \microtypesetup{expansion=true,protrusion=false}
 
-% ==== Minimal working headers with existing FakeSlant ====
-\newcommand{\booktitle}{ປາຍທາງແຫ່ງຄວາມຫວັງ}
-\newcommand{\currentchaptertitle}{}  % ADD THIS LINE
+% Font expansion configuration
+\SetExpansion[stretch=10,shrink=10,step=1,auto=true]{encoding=TU,family=*}{}
 
-% Use the existing FakeSlant mechanism from \emph{}
+
+% =============================================================================
+% HEADERS AND FOOTERS
+% =============================================================================
 \usepackage{fancyhdr}
+\usepackage{url}
+
+\newcommand{\booktitle}{ປາກທາງແຫ່ງຄວາມຫວັງ}
+\newcommand{\currentchaptertitle}{}  % Updated by \laochapter
+
 \setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
 
+% Header configuration (using existing FakeSlant from \emph)
 \fancyhead[LE]{\thepage}
 \fancyhead[CE]{\emph{\booktitle}}
 \fancyhead[CO]{\emph{\currentchaptertitle}}
@@ -110,52 +144,128 @@
 
 \renewcommand{\headrulewidth}{0pt}
 
-% Chapter formatting
-\usepackage{titlesec}
-
-% -- tighten Lao title: temporarily neutralize any \lw inter-word glue -----
-% Save original \lw; inside chapter titles, use a no-glue version.
-\makeatletter
-\providecommand{\lw@title}[1]{#1} % fallback: print word, no extra glue
-\AtBeginDocument{%
-  \@ifundefined{lw}{}{%
-    \let\LW@orig\lw
-    \renewcommand{\lw@title}[1]{\begingroup\LW@orig{#1}\unskip\endgroup}%
+% Chapter-opening page style (for source URL footer)
+\fancypagestyle{chapterstart}{%
+  \fancyhf{}%
+  \fancyfoot[C]{%
+    \begingroup
+    \footnotesize\itshape
+    ຕົ້ນສະບັບພາສາອັງກິດ:\ %
+    \def\UrlFont{\itshape\rmfamily}%
+    \expandafter\url\expandafter{\the\ThisChapterSourceToks}%
+    \endgroup
   }%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
 }
 
-% Set document font size
-\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
 
-% Working minimal format without extra spacing
+% =============================================================================
+% CHAPTER FORMATTING
+% =============================================================================
+\usepackage{titlesec}
+
+% Chapter spacing: minimal gap between number and title
+\titlespacing*{\chapter}{0pt}{3.38pt}{0.5\baselineskip}
+
+% Chapter format: centered, with large number and bold title
 \titleformat{\chapter}[display]
 {\normalfont\centering}
 {{\ChapNumberSize \thechapter}}
 {-0.7\baselineskip}
 {\ChapTitleSize}
 
-% Control spacing with titlespacing instead
-\titlespacing*{\chapter}{0pt}{0pt}{0.5\baselineskip}
-
-% \titleformat{\chapter}[display]
-% {\normalfont\centering}
-% {{\ChapNumberSize \thechapter}}
-% {0pt}
-% {%
-%   \begingroup
-%   \let\lw\lw@title
-%   \ChapTitleSize
-%   \spaceskip=0pt \xspaceskip=0pt\relax
-% }%
-% [\endgroup]
-
-% size knobs
+% Size controls for chapter elements
 \newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
-\providecommand{\ChapTitleSize}{} % ensure it exists
+\providecommand{\ChapTitleSize}{}
 \renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
-\urlstyle{same}
+
+% Utility to strip \lw{} wrappers in chapter titles for headers
+\makeatletter
+\providecommand{\lw@title}[1]{#1}
+\AtBeginDocument{%
+  \@ifundefined{lw}{}{%
+    \let\LW@orig\lw
+    \renewcommand{\lw@title}[1]{\begingroup\LW@orig{#1}\unskip\endgroup}%
+  }%
+}
+\makeatother
 
 
+% =============================================================================
+% SECTION FORMATTING
+% =============================================================================
 % Suppress section numbering (keep chapters numbered)
-% book levels: chapter=0, section=1, subsection=2 ...
 \setcounter{secnumdepth}{0}
+
+% Grid-aligned sections: exactly 2 baselines (25.2pt total)
+% Font: 12pt, Spacing: 9pt before + 12pt font + 4.2pt after = 25.2pt
+\makeatletter
+\@ifundefined{KOMAClassName}{%
+  % Standard classes
+  \titleformat{\section}
+    {\normalfont\fontsize{12pt}{12pt}\selectfont\bfseries}
+    {\thesection}{1em}{}
+  \titlespacing*{\section}{0pt}{9pt}{4.2pt}
+  
+  \renewcommand\subsection{%
+    \@startsection{subsection}{2}{\z@}%
+      {1.25ex plus .4ex minus .2ex}%
+      {.6ex plus .2ex}%
+      {\normalfont\normalsize\bfseries}%
+  }%
+}{%
+  % KOMA-Script
+  \RedeclareSectionCommand[
+    beforeskip=9pt,
+    afterskip=4.2pt,
+    font=\normalfont\fontsize{12pt}{12pt}\selectfont\bfseries
+  ]{section}
+  \RedeclareSectionCommand[
+    beforeskip=1.25ex plus .4ex minus .2ex,
+    afterskip=.6ex plus .2ex,
+    font=\normalfont\normalsize\bfseries
+  ]{subsection}
+}%
+\makeatother
+
+
+% =============================================================================
+% PARAGRAPH INDENTATION
+% =============================================================================
+% Indent first paragraph after headings (global setting)
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+
+
+% =============================================================================
+% PAGE BREAK BEHAVIOR
+% =============================================================================
+% Suppress forced blank left pages before chapters
+\makeatletter
+\@ifundefined{KOMAClassName}{%
+  \let\cleardoublepage\clearpage
+}{%
+  \KOMAoptions{open=any}
+}%
+\makeatother
+
+
+% =============================================================================
+% EMPHASIS SEQUENCE
+% =============================================================================
+% Define emphasis nesting: italic → upright → italic → upright
+\DeclareEmphSequence{%
+  {\itshape},%
+  {\upshape},%
+  {\itshape},%
+  {\upshape}%
+}
+
+
+% =============================================================================
+% URL STYLING
+% =============================================================================
+\urlstyle{same}  % URLs use same font as surrounding text
