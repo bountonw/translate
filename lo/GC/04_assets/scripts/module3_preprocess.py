@@ -139,8 +139,10 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     tex_content.append("\\let\\clearpage\\relax")
     tex_content.append("\\let\\cleardoublepage\\relax")
     # Output all provided
-    for file_info in tex_input_paths:
+    for index, file_info in enumerate(tex_input_paths):
         tex_content.append(f"\\input{{{file_info}}}")
+        if index < len(tex_input_paths) - 1:
+            tex_content.append(f"\\newpage")
     # Output rest of document info
     tex_content.append("\\endgroup")
     tex_content.append("")
@@ -153,7 +155,10 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
 
         if debug:
             print(f"Successfully created: {output_file}")
-            print(f"Body input path (CWD-relative): {body_input_norm}")
+            if len(tex_input_paths) == 1:
+                print(f"Body input path (CWD-relative): {body_input_norm}")
+            else:
+                print(f"Multiple files in output")
             print(f"TeX scripts path (CWD-relative): {tex_scripts_norm}")
         return True
 
