@@ -65,7 +65,24 @@ def resolve_single_file(file_spec, temp_dir):
         print(f"Warning: File not found: {full_path}")
         return None
 
-def create_tex_file(stage2_file, tex_scripts_path, output_dir, debug=False):
+def create_tex_file_input_paths(file_list):
+    """
+    Create list of \\input lines for the output tex file
+    """
+    output = []
+    for path in file_list:
+        # Resolve TeX \\input paths relative to current working directory
+        cwd = Path.cwd()
+
+        # Body file path (sans .tex), relative to CWD
+        body_input_path = os.path.relpath(path.with_suffix(''), cwd)
+
+        # Normalize separators
+        body_input_norm = body_input_path.replace(os.sep, '/')
+        output.append(body_input_norm)
+    return output
+
+def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     """
     Combine docclass, headers, and body into the final .tex file.
 
@@ -74,22 +91,25 @@ def create_tex_file(stage2_file, tex_scripts_path, output_dir, debug=False):
       - Header and body paths are made CWD-relative so lualatex works from GC/
         or 04_assets/.
     """
-    # Determine output filename
-    base_name = stage2_file.stem.replace('_lo_stage2', '')
-    output_file = output_dir / f"{base_name}.tex"
+    if len(tex_input_paths) == 0:
+        print(f"No input paths provided to create_tex_file")
+        return False
+
+    output_file = ""
+    if len(tex_input_paths) == 1:
+        base_name = tex_input_paths[0].replace('_lo_stage2', '')
+        base_name = base_name.replace('temp', '')
+        base_name = base_name.replace('/', '')
+        base_name = base_name.replace('\\', '')
+        output_file = output_dir / f"{base_name}.tex"
+    else:
+        base_name = "full-output" # TODO: adjust naming for output based on files provided; not super important
+        output_file = output_dir / f"{base_name}.tex"
 
     if debug:
         print(f"Creating {output_file}")
 
-    # Resolve TeX \\input paths relative to current working directory
-    cwd = Path.cwd()
-
-    # Body file path (sans .tex), relative to CWD
-    body_input_path = os.path.relpath(stage2_file.with_suffix(''), cwd)
-
-    # Normalize separators
     tex_scripts_norm = str(tex_scripts_path).replace(os.sep, '/')
-    body_input_norm = body_input_path.replace(os.sep, '/')
 
     # Build .tex
     tex_content = []
@@ -118,7 +138,10 @@ def create_tex_file(stage2_file, tex_scripts_path, output_dir, debug=False):
     tex_content.append("\\begingroup")
     tex_content.append("\\let\\clearpage\\relax")
     tex_content.append("\\let\\cleardoublepage\\relax")
-    tex_content.append(f"\\input{{{body_input_norm}}}")
+    # Output all provided
+    for file_info in tex_input_paths:
+        tex_content.append(f"\\input{{{file_info}}}")
+    # Output rest of document info
     tex_content.append("\\endgroup")
     tex_content.append("")
     tex_content.append("\\end{document}")
@@ -162,6 +185,7 @@ def main():
     parser = argparse.ArgumentParser(description='Module 3: TeX Document Assembly')
     parser.add_argument('files', nargs='*', help='Files to process (e.g., GC01, GC[01..05])')
     parser.add_argument('--debug', action='store_true', help='Enable debug output')
+    parser.add_argument('--full', action='store_true', help='Use all provided files in one giant PDF')
     
     args = parser.parse_args()
     
@@ -200,9 +224,17 @@ def main():
     
     # Process each file with the calculated tex_scripts_path
     success_count = 0
-    for stage2_file in all_files:
-        if create_tex_file(stage2_file, tex_scripts_path, tex_output_dir, args.debug):
-            success_count += 1
+    if args.full:
+        # make all files at once
+        file_data = create_tex_file_input_paths(all_files)
+        if create_tex_file(file_data, tex_output_dir, tex_scripts_path, args.debug):
+            success_count += len(all_files)
+    else:
+        # make files one at a time
+        for stage2_file in all_files:
+            file_data = create_tex_file_input_paths([stage2_file])
+            if create_tex_file(file_data, tex_output_dir, tex_scripts_path, args.debug):
+                success_count += 1
     
     print(f"Successfully processed {success_count}/{len(all_files)} files")
     
