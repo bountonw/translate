@@ -2,26 +2,45 @@
 
 echo "Making full book PDF including individual chapter PDFs for each chapter..."
 
-CHAP_NUM=42 # set to 42 for full book or a small number for testing
-for ((i=1;i<=CHAP_NUM;i++)); do
-    echo "Processing chapter ${i}..."
-    chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
-    scripts/make_pdf.sh "GC${chapNum}"
-    # Run LuaLaTeX with output directory
-    echo "Making PDF for chapter ${i}..."
-    if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then
-        echo "ERROR: LuaLaTeX failed for chapter ${chapNum}.tex"
-        exit 1
-    fi
-    # Move the PDF to the main pdf folder
-    if [[ -f "pdf/logs/GC${chapNum}.pdf" ]]; then
-        mv "pdf/logs/GC${chapNum}.pdf" "pdf/GC${chapNum}.pdf"
-    else
-        echo
-        echo "ERROR: PDF for chapter ${chapNum} was not generated"
-        exit 1
-    fi
+
+# https://stackoverflow.com/a/7069755/3938401
+use_existing_tex_files=false
+while test $# -gt 0; do
+  case "$1" in
+    --use-existing-tex-files)
+      use_existing_tex_files=true
+      echo "Skipping remake of individual chapter tex files..."
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
 done
+
+CHAP_NUM=42 # set to 42 for full book or a small number for testing
+if [ "${use_existing_tex_files}" = false ]
+then
+    for ((i=1;i<=CHAP_NUM;i++)); do
+        echo "Processing chapter ${i}..."
+        chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
+        scripts/make_pdf.sh "GC${chapNum}"
+        # Run LuaLaTeX with output directory
+        echo "Making PDF for chapter ${i}..."
+        if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then
+            echo "ERROR: LuaLaTeX failed for chapter ${chapNum}.tex"
+            exit 1
+        fi
+        # Move the PDF to the main pdf folder
+        if [[ -f "pdf/logs/GC${chapNum}.pdf" ]]; then
+            mv "pdf/logs/GC${chapNum}.pdf" "pdf/GC${chapNum}.pdf"
+        else
+            echo
+            echo "ERROR: PDF for chapter ${chapNum} was not generated"
+            exit 1
+        fi
+    done
+fi
 
 echo "All chapters processed, now combining into one giant PDF"
 
