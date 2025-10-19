@@ -2,8 +2,8 @@
 # @src https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 * @bountonw @deadpikle @mattleff
 
-*.lua @mattleff
-*.sh @mattleff
+*.lua @mattleff @deadpikle
+*.sh @mattleff @deadpikle
 
 /.github/ @bountonw
 *.md @bountonw
