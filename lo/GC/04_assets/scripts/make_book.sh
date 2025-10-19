@@ -18,7 +18,7 @@ while test $# -gt 0; do
   esac
 done
 
-CHAP_NUM=2 # set to 42 for full book or a small number for testing
+CHAP_NUM=42 # set to 42 for full book or a small number for testing
 if [ "${use_existing_tex_files}" = false ]
 then
     for ((i=1;i<=CHAP_NUM;i++)); do
