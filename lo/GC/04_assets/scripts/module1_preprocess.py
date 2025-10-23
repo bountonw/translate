@@ -164,7 +164,6 @@ def extract_chapter_info(yaml_data, debug=False):
         dict: Chapter information (number, title_lo, url)
     """
     if debug:
-        print("DEBUG: Parsed YAML structure:")
         print(yaml_data)
         
     try:
