@@ -273,13 +273,10 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
 def get_project_root():
     """Find GC project root by looking for 04_assets directory"""
     current = Path.cwd()
-    print(f"DEBUG: current = {current}")
-    print(f"DEBUG: current.name = {current.name}")
     
     # If we're in 04_assets directory, parent is project root
     if current.name == '04_assets':
         result = current.parent
-        print(f"DEBUG: returning parent = {result}")
         return result
     
     # Check parent directories for 04_assets
