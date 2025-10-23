@@ -156,7 +156,7 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
         if debug:
             print(f"Successfully created: {output_file}")
             if len(tex_input_paths) == 1:
-                print(f"Body input path (CWD-relative): {body_input_norm}")
+                print(f"Body input path (CWD-relative): {tex_input_paths[0]}")
             else:
                 print(f"Multiple files in output")
             print(f"TeX scripts path (CWD-relative): {tex_scripts_norm}")
