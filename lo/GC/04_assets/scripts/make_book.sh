@@ -66,9 +66,16 @@ echo "Running LuaLaTeX..."
 # Create output directories
 mkdir -p pdf/logs
 
-# Run lualatex with output directory
+# Run lualatex with output directory (first pass - generates .toc file)
 if ! lualatex -output-directory=pdf/logs "temp/tex/full-output.tex"; then
-    echo "ERROR: LuaLaTeX failed for full-output.tex"
+    echo "ERROR: LuaLaTeX failed for full-output.tex (first pass)"
+    exit 1
+fi
+
+# Run lualatex second pass to build TOC
+echo "Running LuaLaTeX second pass for TOC..."
+if ! lualatex -output-directory=pdf/logs "temp/tex/full-output.tex"; then
+    echo "ERROR: LuaLaTeX failed for full-output.tex (second pass)"
     exit 1
 fi
 
@@ -84,4 +91,4 @@ fi
 echo -e "SUCCESS: PDF generated for full book"
 
 # Open pdf
-okular "pdf/${1}.pdf" &
+okular "pdf/GC_lo_full.pdf" &

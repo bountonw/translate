@@ -2,7 +2,7 @@
 % DOCUMENT CLASS AND GEOMETRY
 % =============================================================================
 % Book class with mirrored margins, no forced right-hand openings
-\documentclass[10pt,twoside,openany]{book}
+\documentclass[10pt,twoside,openright]{book}
 \usepackage{setspace}
 \setstretch{1.23}
 
@@ -10,7 +10,7 @@
 \usepackage[
   paperwidth=148mm,
   paperheight=210mm,
-  top=11.5mm,
+  top=12mm,
   inner=16mm,
   outer=12mm,
   bindingoffset=5mm,
@@ -157,6 +157,39 @@
   \renewcommand{\footrulewidth}{0pt}%
 }
 
+% =============================================================================
+% TOC FORMATTING
+% =============================================================================
+\usepackage{tocloft}
+
+% Chapters only in TOC (no sections or subsections)
+\setcounter{tocdepth}{0}
+
+% Remove bold from page numbers
+\renewcommand{\cftchappagefont}{\normalfont}
+
+% Add period after chapter number
+\renewcommand{\cftchapaftersnum}{.}
+
+% Set chapter number width
+\setlength{\cftchapnumwidth}{2.5em}
+
+% Add leader dots between title and page number
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% Reduce line spacing between TOC entries
+\setlength{\cftbeforechapskip}{0pt}
+
+% Right-align page numbers 0.5 inch (12.7mm) from right text edge
+\makeatletter
+\renewcommand{\cftchappagefont}{%
+  \hspace*{0pt plus 1fil}%
+  \makebox[12.7mm][r]{\normalfont}%
+}
+\makeatother
+
+% Customize TOC title using chapter formatting
+\renewcommand{\contentsname}{ສາລະບານ}
 
 % =============================================================================
 % CHAPTER FORMATTING
@@ -235,19 +268,6 @@
 \makeatletter
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
-\makeatother
-
-
-% =============================================================================
-% PAGE BREAK BEHAVIOR
-% =============================================================================
-% Suppress forced blank left pages before chapters
-\makeatletter
-\@ifundefined{KOMAClassName}{%
-  \let\cleardoublepage\clearpage
-}{%
-  \KOMAoptions{open=any}
-}%
 \makeatother
 
 
