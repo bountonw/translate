@@ -159,6 +159,22 @@
 
 
 % =============================================================================
+% TOC
+% =============================================================================
+
+% Chapters only in TOC (no sections or subsections)
+\setcounter{tocdepth}{0}
+
+% Customize TOC title to match chapter formatting
+\renewcommand{\contentsname}{ສາລະບານ}
+\makeatletter
+\renewcommand\tableofcontents{%
+    \chapter*{\contentsname}%
+    \@starttoc{toc}%
+}
+\makeatother
+
+% =============================================================================
 % CHAPTER FORMATTING
 % =============================================================================
 \usepackage{titlesec}
@@ -235,19 +251,6 @@
 \makeatletter
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
-\makeatother
-
-
-% =============================================================================
-% PAGE BREAK BEHAVIOR
-% =============================================================================
-% Suppress forced blank left pages before chapters
-\makeatletter
-\@ifundefined{KOMAClassName}{%
-  \let\cleardoublepage\clearpage
-}{%
-  \KOMAoptions{open=any}
-}%
 \makeatother
 
 

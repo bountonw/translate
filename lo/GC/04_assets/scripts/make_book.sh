@@ -84,4 +84,4 @@ fi
 echo -e "SUCCESS: PDF generated for full book"
 
 # Open pdf
-okular "pdf/${1}.pdf" &
+okular "pdf/GC_lo_full.pdf" &
