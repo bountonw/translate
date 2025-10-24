@@ -6,24 +6,21 @@
 
 \setSingleSpace{1.23}
 
-% Page dimensions and margins for A5-ish format
-\usepackage[
-  paperwidth=148mm,
-  paperheight=210mm,
-  top=12mm,
-  inner=16mm,
-  outer=12mm,
-  bindingoffset=5mm,
-  headheight=14pt,
-  headsep=12pt,
-  footskip=10mm,
-  heightrounded,
-  showframe
-]{geometry}
+\setstocksize{210mm}{148mm}
+\settrimmedsize{210mm}{148mm}{*}
+\settrims{0pt}{0pt}
 
-\raggedbottom 
+\setlrmarginsandblock{21mm}{12mm}{*}
+\setulmarginsandblock{12mm}{40mm}{*}
+
+\setheadfoot{14pt}{10mm}
+\setheaderspaces{*}{12pt}{*}
+
+\checkandfixthelayout
 
 \usepackage{showframe}
+
+\raggedbottom
 
 % =============================================================================
 % BASELINE AND SPACING FUNDAMENTALS
