@@ -132,12 +132,17 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     # Folios: plain footer, arabic, start at 1
     tex_content.append("\\GCInitFolios")
     tex_content.append("")
+    # TOC for full book only
+    if len(tex_input_paths) > 1:
+        tex_content.append("\\tableofcontents")
+        tex_content.append("\\cleardoublepage")
+        tex_content.append("")
     # Ensure vertical mode before any heading in the body
     tex_content.append("\\par")
     # Prevent an initial blank page while loading the body
     tex_content.append("\\begingroup")
-    tex_content.append("\\let\\clearpage\\relax")
-    tex_content.append("\\let\\cleardoublepage\\relax")
+    #tex_content.append("\\let\\clearpage\\relax")
+    #tex_content.append("\\let\\cleardoublepage\\relax")
     # Output all provided
     for index, file_info in enumerate(tex_input_paths):
         tex_content.append(f"\\input{{{file_info}}}")
