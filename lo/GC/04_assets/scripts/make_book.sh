@@ -5,6 +5,7 @@ echo "Making full book PDF including individual chapter PDFs for each chapter...
 
 # https://stackoverflow.com/a/7069755/3938401
 use_existing_tex_files=false
+CHAP_NUM=42 # set to 42 for full book or a small number for testing
 while test $# -gt 0; do
   case "$1" in
     --use-existing-tex-files)
@@ -12,13 +13,17 @@ while test $# -gt 0; do
       echo "Skipping remake of individual chapter tex files..."
       shift
       ;;
+    --max-chapter-override)
+      shift
+      CHAP_NUM=$1
+      echo "Adjusted max chapter number to ${CHAP_NUM}"
+      ;;
     *)
       break
       ;;
   esac
 done
 
-CHAP_NUM=42 # set to 42 for full book or a small number for testing
 if [ "${use_existing_tex_files}" = false ]
 then
     for ((i=1;i<=CHAP_NUM;i++)); do
