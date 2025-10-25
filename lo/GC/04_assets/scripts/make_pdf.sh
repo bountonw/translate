@@ -2,7 +2,7 @@
 
 # Check if chaptername was provided
 if [[ -z "$1" ]]; then
-    echo "Error: No chaptername provided"
+    echo "Error: No chapter name provided"
     echo "Usage: ./make_pdf.sh GC01"
     exit 1
 fi
@@ -14,13 +14,14 @@ logfolder=""
 while test $# -gt 0; do
   case "$1" in
     --log-folder)
-      shift # bump off --log-folder arg name
-      logfolder=$1
-      echo "Using log folder of: ${logfolder}"
-      ;;
+        shift # bump off --log-folder arg name
+        logfolder=$1
+        echo "Using log folder of: ${logfolder}"
+        mkdir -p "${logfolder}" # make if does not exist already
+        ;;
     *)
-      break
-      ;;
+        break
+        ;;
   esac
 done
 
@@ -35,7 +36,7 @@ fi
 
 # Module 2  
 echo -e "\nRunning Module 2...\n"
-if ! python3 scripts/module2_preprocess.py "${chaptername}" --debug; then
+if ! python3 scripts/module2_preprocess.py "${chaptername}" --debug --log-folder "${logfolder}"; then
     echo "ERROR: Module 2 failed for ${chaptername}"
     exit 1
 fi
