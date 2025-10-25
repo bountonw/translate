@@ -578,6 +578,11 @@ Examples:
         action='store_true', 
         help='Verbose output'
     )
+    parser.add_argument(
+        '--log-folder', # "output" to args.log_folder
+        type=Path,
+        help='Use specified log folder (not cleared for you between runs)'
+    )
     
     args = parser.parse_args()
     
@@ -600,9 +605,15 @@ Examples:
             sys.exit(1)
     
     # Initialize debug session
+    log_folder = get_project_root() / "04_assets" / "temp"
     if HAS_DEBUG and args.debug:
-        module2_debug.initialize_debug_session(get_project_root())
-    
+        if args.log_folder:
+            log_folder = args.log_folder
+        else:
+            # only clear if log_folder not set -- we don't want to erase existing files between runs.
+            # this is not the cleanest thing in the world, but it's OK for now.
+            module2_debug.initialize_debug_session(log_folder)
+
     # Get input files with intelligent matching
     input_files = get_input_files(args)
     
@@ -654,7 +665,7 @@ Examples:
     # Finalize debug session and generate comprehensive reports
     if HAS_DEBUG and args.debug:
         module2_debug.finalize_debug_session(
-            get_project_root(), total_count, success_count, 
+            log_folder, total_count, success_count, 
             processed_output_files, all_conflicts
         ) 
         _run_dictionary_maintenance(get_project_root())
