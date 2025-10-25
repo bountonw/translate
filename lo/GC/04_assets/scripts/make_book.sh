@@ -33,7 +33,7 @@ then
     for ((i=1;i<=CHAP_NUM;i++)); do
         echo "Processing chapter ${i}..."
         chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
-        scripts/make_pdf.sh "GC${chapNum}"
+        scripts/make_pdf.sh "GC${chapNum}" --log-folder "${logfolder}"
         # Run LuaLaTeX with output directory
         echo "Making PDF for chapter ${i}..."
         if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then
