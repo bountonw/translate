@@ -2,27 +2,25 @@
 % DOCUMENT CLASS AND GEOMETRY
 % =============================================================================
 % Book class with mirrored margins, no forced right-hand openings
-\documentclass[10pt,twoside,openright]{book}
-\usepackage{setspace}
-\setstretch{1.23}
+\documentclass[10pt,twoside,openright]{memoir}
 
-% Page dimensions and margins for A5-ish format
-\usepackage[
-  paperwidth=148mm,
-  paperheight=210mm,
-  top=12mm,
-  inner=16mm,
-  outer=12mm,
-  bindingoffset=5mm,
-  headheight=14pt,
-  headsep=12pt,
-  footskip=10mm,
-  heightrounded,
-  showframe
-]{geometry}
+\setSingleSpace{1.23}
 
-\raggedbottom 
+\setstocksize{210mm}{148mm}
+\settrimmedsize{210mm}{148mm}{*}
+\settrims{0pt}{0pt}
 
+\setlrmarginsandblock{21mm}{12mm}{*}
+\setulmarginsandblock{19mm}{23mm}{*}
+
+\setheadfoot{14pt}{10mm}
+\setheaderspaces{*}{12pt}{*}
+
+\checkandfixthelayout
+
+\usepackage{showframe}
+
+\raggedbottom
 
 % =============================================================================
 % BASELINE AND SPACING FUNDAMENTALS
@@ -155,41 +153,79 @@
   }%
   \renewcommand{\headrulewidth}{0pt}%
   \renewcommand{\footrulewidth}{0pt}%
-}
+} 
+
 
 % =============================================================================
-% TOC FORMATTING
+% TOC
 % =============================================================================
-\usepackage{tocloft}
 
-% Chapters only in TOC (no sections or subsections)
-\setcounter{tocdepth}{0}
+\settocdepth{chapter}
+\renewcommand{\contentsname}{ສາລະບານ}
 
-% Remove bold from page numbers
-\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterpagefont}{\normalfont}
 
-% Add period after chapter number
-\renewcommand{\cftchapaftersnum}{.}
+\setlength{\cftbeforechapterskip}{0pt}
+\cftsetindents{chapter}{12.5em}{2.5em}
 
-% Set chapter number width
-\setlength{\cftchapnumwidth}{2.5em}
+\setpnumwidth{12mm}
+\setrmarg{13mm}
 
-% Add leader dots between title and page number
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapterdotsep}{1.5}
+\renewcommand{\cftchapterfillnum}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchapteraftersnum}{.\hspace{1.5em}}
 
-% Reduce line spacing between TOC entries
-\setlength{\cftbeforechapskip}{0pt}
-
-% Right-align page numbers 0.5 inch (12.7mm) from right text edge
 \makeatletter
-\renewcommand{\cftchappagefont}{%
-  \hspace*{0pt plus 1fil}%
-  \makebox[12.7mm][r]{\normalfont}%
+\renewcommand{\cftchapterformatpnum}[1]{\hb@xt@\@pnumwidth{\hfil#1}}
+\makeatother
+
+% Wrapper for local TOC settings
+\makeatletter
+\let\origtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{%
+  \begingroup
+    \setrmarg{12mm}
+    \setpnumwidth{12mm}
+    \origtableofcontents
+  \endgroup
 }
 \makeatother
 
-% Customize TOC title using chapter formatting
-\renewcommand{\contentsname}{ສາລະບານ}
+
+% % =============================================================================
+% % TOC FORMATTING
+% % =============================================================================
+% \usepackage{tocloft}
+% 
+% % Chapters only in TOC (no sections or subsections)
+% \setcounter{tocdepth}{0}
+% 
+% % Remove bold from page numbers
+% \renewcommand{\cftchappagefont}{\normalfont}
+% 
+% % Add period after chapter number
+% \renewcommand{\cftchapaftersnum}{.}
+% 
+% % Set chapter number width
+% \setlength{\cftchapnumwidth}{2.5em}
+% 
+% % Add leader dots between title and page number
+% \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+% 
+% % Reduce line spacing between TOC entries
+% \setlength{\cftbeforechapskip}{0pt}
+% 
+% % Right-align page numbers 0.5 inch (12.7mm) from right text edge
+% \makeatletter
+% \renewcommand{\cftchappagefont}{%
+%   \hspace*{0pt plus 1fil}%
+%   \makebox[12.7mm][r]{\normalfont}%
+% }
+% \makeatother
+% 
+% % Customize TOC title using chapter formatting
+% \renewcommand{\contentsname}{ສາລະບານ}
 
 % =============================================================================
 % CHAPTER FORMATTING
