@@ -24,6 +24,7 @@ USAGE:
 import re
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
+import datetime
 
 # Global counters for session tracking
 session_stats = {
@@ -36,15 +37,16 @@ session_stats = {
 # DICTIONARY SOURCE CONFLICT LOGGING
 # =============================================================================
 
-def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root: Path = None):
+def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], log_folder: Path = None, processed_files: List[Path] = None):
     """Log terms that appear in multiple dictionary sources."""
     if not conflicts:
         print("No dictionary duplicates found; no log written.")
         return
     
     try:
-        if project_root is None:
+        if log_folder is None:
             current = Path.cwd()
+            project_root = ""
             if current.name == '04_assets':
                 project_root = current.parent
             else:
@@ -60,11 +62,12 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root:
                         project_root = script_dir.parent.parent  # scripts -> GC
                     else:
                         project_root = script_dir.parent  # 04_assets/scripts
-        if project_root.name == '04_assets':
-            log_file = project_root / "temp" / "dictionary_sources.log"
-        else:
-            log_file = project_root / "04_assets" / "temp" / "dictionary_sources.log"
+            if project_root.name == '04_assets':
+                log_folder = project_root / "temp"
+            else:
+                log_folder = project_root / "04_assets" / "temp"
             
+        log_file = log_folder / "dictionary_sources.log" 
         log_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Priority order for display
@@ -73,8 +76,13 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], project_root:
             "Book", "Language patch", "Language main"
         ]
         
-        with open(log_file, 'w', encoding='utf-8') as f:
+        with open(log_file, 'a+', encoding='utf-8') as f:
             f.write("DICTIONARY SOURCE CONFLICTS\n")
+            f.write("=" * 60 + "\n")
+            f.write("Writing dictionary source conflicts for these files:\n")
+            for processed_file in processed_files:
+                f.write(processed_file.name)
+                f.write("\n")
             f.write("=" * 60 + "\n\n")
             f.write("Terms found in multiple dictionary sources:\n")
             f.write("(Listed in priority order - highest priority source determines final encoding)\n\n")
@@ -123,7 +131,7 @@ def print_dictionary_conflict_summary(conflict_count: int):
 
 def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]], 
                           selected_strategy: int, scored_alternatives: List[Tuple], 
-                          project_root: Path = None):
+                          log_folder: Path = None):
     """Log interesting lookahead decisions in narrative format."""
     global session_stats
     
@@ -146,7 +154,7 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
     
     # File logging only - no console output
     try:
-        if project_root is None:
+        if log_folder is None:
             current = Path.cwd()
             if current.name == '04_assets':
                 project_root = current.parent
@@ -164,18 +172,15 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
                     else:
                         project_root = script_dir.parent  # 04_assets/scripts
 
-        if project_root.name == '04_assets':
+            if project_root.name == '04_assets':
+                # project_root is already 04_assets, don't add it again
+                log_folder = project_root / "temp"
+            else:
+                # project_root is GC directory, add 04_assets
+                log_folder = project_root / "04_assets" / "temp"
 
-            # project_root is already 04_assets, don't add it again
+        log_file = log_folder / "lookahead_decisions.log"
 
-            log_file = project_root / "temp" / "lookahead_decisions.log"
-
-        else:
-
-            # project_root is GC directory, add 04_assets
-
-            log_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
-        
         selected_name = strategy_names[selected_strategy]
         improvement_description = _describe_improvement(alternatives, selected_strategy)
         
@@ -192,6 +197,8 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
         # Create formatted log entry
         log_entry = [
             f'{"="*60}',
+            f'LOG TIME: {datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")}',
+            "\n",
             f'STRATEGY CHANGE: {selected_name}',
             f'Text: "{text}"',
             "",
@@ -206,7 +213,7 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
         ]
         
         log_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(log_file, 'a', encoding='utf-8') as f:
+        with open(log_file, 'a+', encoding='utf-8') as f:
             f.write('\n'.join(log_entry))
             
     except Exception as e:
@@ -319,16 +326,17 @@ def print_lookahead_summary(decisions_made: int, strategy_changes: int, debug: b
     if debug and decisions_made > 0:
         print(f"✅ Processed: {decisions_made} lookahead decisions, {strategy_changes} strategy changes")
 
-def clear_debug_logs(project_root: Path):
+def clear_debug_logs(log_folder: Path):
     """Clear previous debug logs at start of processing."""
     try:
         log_files = [
-            project_root / "04_assets" / "temp" / "lookahead_decisions.log",
-            project_root / "04_assets" / "temp" / "dictionary_sources.log"
+            "lookahead_decisions.log",
+            "dictionary_sources.log"
         ]
         for log_file in log_files:
-            if log_file.exists():
-                log_file.unlink()
+            adjusted_file_path = log_folder / log_file
+            if adjusted_file_path.exists():
+                adjusted_file_path.unlink()
     except Exception:
         pass
 
@@ -336,12 +344,12 @@ def clear_debug_logs(project_root: Path):
 # INTEGRATION WITH DICT_ANALYZER
 # =============================================================================
 
-def call_dict_analyzer(project_root: Path, processed_files: List[Path] = None):
+def call_dict_analyzer(log_folder: Path, processed_files: List[Path] = None):
     """Call the dictionary analyzer for comprehensive reporting."""
     try:
         # Import and call the main analyzer
         from dict_analyzer import generate_context_report
-        generate_context_report(project_root, processed_files)
+        generate_context_report(log_folder, processed_files)
         return True
     except ImportError:
         # dict_analyzer.py doesn't exist, continue silently
@@ -355,26 +363,26 @@ def call_dict_analyzer(project_root: Path, processed_files: List[Path] = None):
 # MAIN DEBUG ORCHESTRATION
 # =============================================================================
 
-def initialize_debug_session(project_root: Path):
+def initialize_debug_session(log_folder: Path):
     """Initialize debug session - clear old logs, prepare for new session."""
-    clear_debug_logs(project_root)
+    clear_debug_logs(log_folder)
 
-def finalize_debug_session(project_root: Path, total_files: int, success_count: int, 
+def finalize_debug_session(log_folder: Path, total_files: int, success_count: int, 
                           processed_files: List[Path] = None, dictionary_conflicts: Dict[str, Dict[str, str]] = None):
     """Finalize debug session - generate comprehensive reports."""
     # Log dictionary conflicts if any
     if dictionary_conflicts:
-        log_dictionary_conflicts(dictionary_conflicts, project_root)
+        log_dictionary_conflicts(dictionary_conflicts, log_folder, processed_files)
     else:
         print("No dictionary duplicates found; no log written.")
     
     # Call the dictionary analyzer for comprehensive reporting
-    analysis_success = call_dict_analyzer(project_root, processed_files)
+    analysis_success = call_dict_analyzer(log_folder, processed_files)
     
     # Summary info
     if analysis_success:
         # Check if we generated any lookahead decisions
-        decisions_file = project_root / "04_assets" / "temp" / "lookahead_decisions.log"
+        decisions_file = log_folder / "lookahead_decisions.log"
         if decisions_file.exists():
             print("Generated lookahead decisions log")
         else:
