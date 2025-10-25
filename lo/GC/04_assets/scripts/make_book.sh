@@ -24,6 +24,10 @@ while test $# -gt 0; do
   esac
 done
 
+timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
+logfolder="pdf/logs/${timestamp}"
+mkdir -p "${logfolder}" # make if does not exist already
+
 if [ "${use_existing_tex_files}" = false ]
 then
     for ((i=1;i<=CHAP_NUM;i++)); do
