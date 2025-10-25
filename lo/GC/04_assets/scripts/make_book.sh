@@ -5,6 +5,7 @@ echo "Making full book PDF including individual chapter PDFs for each chapter...
 
 # https://stackoverflow.com/a/7069755/3938401
 use_existing_tex_files=false
+CHAP_NUM=42 # set to 42 for full book or a small number for testing
 while test $# -gt 0; do
   case "$1" in
     --use-existing-tex-files)
@@ -12,19 +13,27 @@ while test $# -gt 0; do
       echo "Skipping remake of individual chapter tex files..."
       shift
       ;;
+    --max-chapter-override)
+      shift
+      CHAP_NUM=$1
+      echo "Adjusted max chapter number to ${CHAP_NUM}"
+      ;;
     *)
       break
       ;;
   esac
 done
 
-CHAP_NUM=42 # set to 42 for full book or a small number for testing
+timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
+logfolder="pdf/logs/${timestamp}"
+mkdir -p "${logfolder}" # make if does not exist already
+
 if [ "${use_existing_tex_files}" = false ]
 then
     for ((i=1;i<=CHAP_NUM;i++)); do
         echo "Processing chapter ${i}..."
         chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
-        scripts/make_pdf.sh "GC${chapNum}"
+        scripts/make_pdf.sh "GC${chapNum}" --log-folder "${logfolder}"
         # Run LuaLaTeX with output directory
         echo "Making PDF for chapter ${i}..."
         if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then

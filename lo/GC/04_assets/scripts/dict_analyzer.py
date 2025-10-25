@@ -422,7 +422,7 @@ def write_analysis_report(report_lines: List[str], output_file: Path) -> bool:
     """Write the analysis report to file."""
     try:
         output_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, 'a+', encoding='utf-8') as f:
             f.write('\n'.join(report_lines))
         return True
     except Exception as e:
@@ -456,15 +456,16 @@ def print_console_summary(quality_results: Dict[str, List[str]],
 # MAIN ORCHESTRATION FUNCTION
 # =============================================================================
 
-def generate_context_report(project_root: Path = None, processed_files: List[Path] = None):
+def generate_context_report(log_folder: Path = None, processed_files: List[Path] = None):
     """Generate the complete nodict context analysis report."""
     # Setup paths
-    if project_root is None:
-        script_dir = Path(__file__).parent
-        project_root = script_dir.parent.parent
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent.parent
     temp_dir = project_root / "04_assets" / "temp"
-    output_file = temp_dir / "nodict_analysis.log"
-    dictionary_path = project_root / "04_assets" / "scripts" / "../../../../lo/assets/dictionaries/main.txt"
+    if log_folder is None:
+        log_folder = temp_dir
+    output_file = log_folder / "nodict_analysis.log"
+    dictionary_path = project_root / "../assets/dictionaries/main.txt"
     
     # SCOPE FIX: Use provided files or fall back to global scan
     if processed_files:
@@ -488,7 +489,7 @@ def generate_context_report(project_root: Path = None, processed_files: List[Pat
     
     # Analyze processed files for nodict contexts
     all_contexts = defaultdict(list)
-    for file_path in files_to_analyze:
+    for file_path in files_to_analyze: # file_path is a File, not a string
         file_contexts = analyze_file(file_path)
         
         # Merge contexts
@@ -498,7 +499,9 @@ def generate_context_report(project_root: Path = None, processed_files: List[Pat
     # Generate report
     report_lines = build_analysis_report(dictionary_path, quality_results, dict(all_contexts))
     
-    # Write report
+    # Write report -- including files processed (as the file will be appended to potentially depending on the log_folder arg)
+    file_name_list = "; ".join(f.name for f in files_to_analyze)
+    report_lines = ["=========", "Writing report for these files:", file_name_list, "========="] + report_lines + ["========="]
     success = write_analysis_report(report_lines, output_file)
     if success:
         print_console_summary(quality_results, dict(all_contexts), output_file)
