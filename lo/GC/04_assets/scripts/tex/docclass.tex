@@ -158,6 +158,11 @@
   \renewcommand{\footrulewidth}{0pt}%
 }
 
+% Size controls for chapter elements
+\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
+\providecommand{\ChapTitleSize}{}
+\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
+
 % =============================================================================
 % TOC FORMATTING
 % =============================================================================
@@ -167,6 +172,13 @@
 \renewcommand{\cftchapaftersnum}{. } % text after chapter number
 \renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}} % add dot leaders
 \renewcommand{\cftdotsep}{1} % add dots between chapter and page #; TBH not 100% sure what this does
+\renewcommand{\cftchapdotsep}{\cftdotsep}   
+
+% a helpful page: https://tex.stackexchange.com/a/468104
+\renewcommand{\cfttoctitlefont}{\hfill\ChapTitleSize} %!some command to make the heading huge and bold
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftbeforetoctitleskip}{0.2in}        % Title is 1in from top
+\renewcommand{\cftaftertoctitleskip}{2.0\baselineskip}% 1 double space after title
 \renewcommand{\contentsname}{ສາລະບານ} % set TOC name
 
 \setlength{\cftbeforechapskip}{0pt} % Reduce line spacing between TOC entries
@@ -187,10 +199,6 @@
 {-0.7\baselineskip}
 {\ChapTitleSize}
 
-% Size controls for chapter elements
-\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
-\providecommand{\ChapTitleSize}{}
-\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
 
 % Utility to strip \lw{} wrappers in chapter titles for headers
 \makeatletter
