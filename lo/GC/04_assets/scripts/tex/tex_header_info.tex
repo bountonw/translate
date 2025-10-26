@@ -145,7 +145,6 @@
 % Core: three dots with nano-stretch between them, kept nonbreaking
 % Internal gap = 0.22em + tiny rubber (±0.02em/0.01em)
 % Wrapped in \mbox to prevent line breaks, protrusion disabled
-\usepackage{xcolor}
 
 \DeclareRobustCommand{\laoellipsisrubber}[1][0.22em]{%
   {\microtypesetup{protrusion=false}%
@@ -273,21 +272,4 @@
     \ifprintsourcefoot \thispagestyle{chapterstart}\fi
   }%
 }
-\makeatother
-
-% -----------------------------------------------------------------------------
-% Folio Initialization
-% -----------------------------------------------------------------------------
-% Command to initialize page numbering (can be called manually if needed)
-\newcommand{\GCInitFolios}{%
-  \pagestyle{fancy}%
-  \pagenumbering{arabic}%
-  \setcounter{page}{1}%
-}
-
-% Also initialize at document start automatically
-\makeatletter
-\AtBeginDocument{%
-  \GCInitFolios
-}%
 \makeatother
