@@ -5,6 +5,7 @@
 \documentclass[10pt,twoside,openright]{book}
 \usepackage{setspace}
 \setstretch{1.23}
+\usepackage{xcolor}
 
 % Page dimensions and margins for A5-ish format
 \usepackage[
@@ -110,7 +111,7 @@
 % Font Size and Microtypography
 % -----------------------------------------------------------------------------
 % Set document font size (applied at document start)
-\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
+\AtBeginDocument{\fontsize{10.95pt}{12.6pt}\selectfont} % increased to 10.95 from 10.5 to remove error about shape not available
 
 % Customize superscript positioning
 \renewcommand{\textsuperscript}[1]{%
@@ -133,7 +134,7 @@
 \newcommand{\booktitle}{ປາກທາງແຫ່ງຄວາມຫວັງ}
 \newcommand{\currentchaptertitle}{}  % Updated by \laochapter
 
-% \setlength{\headheight}{14pt}
+% \setlength{\headheight}{14.76703pt}
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -159,39 +160,31 @@
   \renewcommand{\footrulewidth}{0pt}%
 }
 
+% Size controls for chapter elements
+\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
+\providecommand{\ChapTitleSize}{}
+\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
+
 % =============================================================================
 % TOC FORMATTING
 % =============================================================================
 \usepackage{tocloft}
+\renewcommand{\cftchapfont}{\normalfont} % titles in normal font
+\renewcommand{\cftchappagefont}{\normalfont} % page numbers in normal font
+\renewcommand{\cftchapaftersnum}{. } % text after chapter number
+\renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}} % add dot leaders
+\renewcommand{\cftdotsep}{1} % add dots between chapter and page #; TBH not 100% sure what this does
+\renewcommand{\cftchapdotsep}{\cftdotsep}   
 
-% Chapters only in TOC (no sections or subsections)
-\setcounter{tocdepth}{0}
+% a helpful page: https://tex.stackexchange.com/a/468104
+\renewcommand{\cfttoctitlefont}{\hfill\ChapTitleSize} %!some command to make the heading huge and bold
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftbeforetoctitleskip}{1.2in} % Title is 1.2in from top to match other titles
+\renewcommand{\cftaftertoctitleskip}{2.0\baselineskip}% 1 double space after title
+\renewcommand{\contentsname}{ສາລະບານ} % set TOC name
 
-% Remove bold from page numbers
-\renewcommand{\cftchappagefont}{\normalfont}
-
-% Add period after chapter number
-\renewcommand{\cftchapaftersnum}{.}
-
-% Set chapter number width
-\setlength{\cftchapnumwidth}{2.5em}
-
-% Add leader dots between title and page number
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-
-% Reduce line spacing between TOC entries
-\setlength{\cftbeforechapskip}{0pt}
-
-% Right-align page numbers 0.5 inch (12.7mm) from right text edge
-\makeatletter
-\renewcommand{\cftchappagefont}{%
-  \hspace*{0pt plus 1fil}%
-  \makebox[12.7mm][r]{\normalfont}%
-}
-\makeatother
-
-% Customize TOC title using chapter formatting
-\renewcommand{\contentsname}{ສາລະບານ}
+\setlength{\cftbeforechapskip}{0pt} % Reduce line spacing between TOC entries
+\setcounter{tocdepth}{0} % Chapters only in TOC (no sections or subsections)
 
 % =============================================================================
 % CHAPTER FORMATTING
@@ -208,10 +201,6 @@
 {-0.7\baselineskip}
 {\ChapTitleSize}
 
-% Size controls for chapter elements
-\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
-\providecommand{\ChapTitleSize}{}
-\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
 
 % Utility to strip \lw{} wrappers in chapter titles for headers
 \makeatletter
@@ -289,3 +278,27 @@
 % URL STYLING
 % =============================================================================
 \urlstyle{same}  % URLs use same font as surrounding text
+
+% -----------------------------------------------------------------------------
+% Folio Initialization
+% -----------------------------------------------------------------------------
+% Command to initialize page numbering (can be called manually if needed)
+\newcommand{\GCInitFolios}{%
+  \pagestyle{fancy}%
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+}
+
+% Also initialize at document start automatically
+\makeatletter
+\AtBeginDocument{%
+  \GCInitFolios
+}%
+\makeatother
+
+% commands for stopping/starting TOC entry
+% https://stackoverflow.com/a/78998571/3938401
+\newcommand{\nocontentsline}[3]{}
+\let\origcontentsline\addcontentsline
+\newcommand\stoptoc{\let\addcontentsline\nocontentsline}
+\newcommand\resumetoc{\let\addcontentsline\origcontentsline}
