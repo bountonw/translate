@@ -26,10 +26,11 @@ done
 
 timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
 logfolder="pdf/logs/${timestamp}"
-mkdir -p "${logfolder}" # make if does not exist already
 
 if [ "${use_existing_tex_files}" = false ]
 then
+    mkdir -p "${logfolder}" # make if does not exist already; logs are only output (right now) by make_pdf 
+    # so don't need folder made if using existing tex files
     for ((i=1;i<=CHAP_NUM;i++)); do
         echo "Processing chapter ${i}..."
         chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
