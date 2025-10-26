@@ -269,6 +269,8 @@ def generate_tex_header(chapter_info):
     # Only add source if URL is provided
     if chapter_info['url']:
         header_lines.append(f"\\source{{{chapter_info['url']}}}")
+
+    header_lines.append(f"\n\n\\stoptoc")
     
     return '\n'.join(header_lines)
     
@@ -328,6 +330,8 @@ def process_file(input_path, output_path, debug_mode=False):
         # Future transformations will go here:
         # working_text = process_lists(working_text)
         # working_text = process_blockquotes(working_text)
+
+        working_text += '\n\n' + '\\resumetoc'
         
         # Write output file
         os.makedirs(os.path.dirname(output_path), exist_ok=True)

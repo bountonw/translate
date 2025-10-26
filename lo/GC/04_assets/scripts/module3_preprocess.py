@@ -120,9 +120,6 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     tex_content.append("")
 
     # 2) Header
-    tex_content.append("% Header commands and formatting")
-    tex_content.append(f"\\input{{{tex_scripts_norm}/tex_header_info}}")
-    tex_content.append("")
 
     # 3) Document + body
     tex_content.append("\\begin{document}")
@@ -137,6 +134,11 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
         tex_content.append("\\tableofcontents")
         tex_content.append("\\cleardoublepage")
         tex_content.append("")
+
+    tex_content.append("% Header commands and formatting")
+    tex_content.append(f"\\input{{{tex_scripts_norm}/tex_header_info}}")
+    tex_content.append("")
+    
     # Ensure vertical mode before any heading in the body
     tex_content.append("\\par")
     # Prevent an initial blank page while loading the body
