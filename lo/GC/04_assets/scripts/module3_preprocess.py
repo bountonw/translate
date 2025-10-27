@@ -144,7 +144,8 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     tex_content.append("")
 
     if len(tex_input_paths) > 1:
-        tex_content.append(f"\\input{{{tex_scripts_norm}/intro_chapter}}")
+        # TODO: don't hardcode this in this func
+        tex_content.append(f"\\input{{temp/GC00_introduction_lo_stage2}}") 
 
     tex_content.append(f"\\mainmatter")
     tex_content.append("")
