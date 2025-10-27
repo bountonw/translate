@@ -129,6 +129,7 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     if len(tex_input_paths) > 1:
         tex_content.append(f"\\frontmatter")
         tex_content.append(f"\\input{{{tex_scripts_norm}/title_page}}")
+        tex_content.append("\\cleardoublepage")
         tex_content.append(f"\\input{{{tex_scripts_norm}/dedication_page}}")
         tex_content.append("\\cleardoublepage")
 
