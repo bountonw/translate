@@ -1,0 +1,30 @@
+% vertical center title page
+% https://tex.stackexchange.com/a/290449
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+% add subtitle command with titling package (not used)
+% https://tex.stackexchange.com/a/50186
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\pretitle{\hfill\fontsize{28pt}{28pt}\selectfont}
+\posttitle{\hfill\hfill} %...not sure why two \hfill needed...
+
+% set title page date
+\title{\booktitle}
+% \subtitle{ໃຊ້ພາຍນາຍ. ຫ້າມຈຳນາຍ.} % using below solution instead
+\date{} % don't show date on title page
+\author{}
+
+% getting something at bottom-ish of title page: https://tex.stackexchange.com/a/199356
+\predate{\centering}
+\postdate{\vfill\vfill\hfill\fontsize{14pt}{12pt}\selectfont\textbf{ໃຊ້ພາຍນາຍ. ຫ້າມຈຳນາຍ.}\hfill}
+
+% output the actual title page
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
