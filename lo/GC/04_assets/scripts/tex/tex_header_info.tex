@@ -264,12 +264,16 @@
 \@ifundefined{source}{%
   \newcommand{\source}[1]{%
     \global\ThisChapterSourceToks={#1}%
-    \ifprintsourcefoot \thispagestyle{chapterstart}\fi
+    \ifprintsourcefoot 
+    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \thispagestyle{chapterstart}\fi
   }%
 }{%
   \renewcommand{\source}[1]{%
     \global\ThisChapterSourceToks={#1}%
-    \ifprintsourcefoot \thispagestyle{chapterstart}\fi
+    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \ifprintsourcefoot 
+    \thispagestyle{chapterstart}\fi
   }%
 }
 \makeatother
