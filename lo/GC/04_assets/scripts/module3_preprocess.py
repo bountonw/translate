@@ -133,21 +133,24 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
         tex_content.append(f"\\input{{{tex_scripts_norm}/dedication_page}}")
         tex_content.append("\\cleardoublepage")
 
-    # Folios: plain footer, arabic, start at 1
-    tex_content.append("\\GCInitFolios")
-    tex_content.append("")
     # TOC for full book only
     if len(tex_input_paths) > 1:
         tex_content.append("\\tableofcontents")
         tex_content.append("\\cleardoublepage")
         tex_content.append("")
-        tex_content.append(f"\\input{{{tex_scripts_norm}/intro_chapter}}")
 
-    tex_content.append(f"\\mainmatter")
     tex_content.append("% Header commands and formatting")
     tex_content.append(f"\\input{{{tex_scripts_norm}/tex_header_info}}")
     tex_content.append("")
-    
+
+    if len(tex_input_paths) > 1:
+        tex_content.append(f"\\input{{{tex_scripts_norm}/intro_chapter}}")
+
+    tex_content.append(f"\\mainmatter")
+    tex_content.append("")
+    # Folios: plain footer, arabic, start at 1
+    tex_content.append("\\GCInitFolios")
+    tex_content.append("")
     # Ensure vertical mode before any heading in the body
     tex_content.append("\\par")
     # Prevent an initial blank page while loading the body
