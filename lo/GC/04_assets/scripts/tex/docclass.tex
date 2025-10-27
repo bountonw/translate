@@ -15,12 +15,15 @@
   top=12mm,
   inner=16mm,
   outer=12mm,
+  bottom=12mm,
   bindingoffset=5mm,
-  headheight=14.76703pt,
-  headsep=12pt,
-  footskip=10mm,
+  headheight=16pt,
+  headsep=4pt,
+  footskip=0pt,
   heightrounded,
-  showframe
+  includehead,
+  includefoot,
+  %showframe % Draw visible layout guides: text block, margins, headers/footers
 ]{geometry}
 
 \raggedbottom 
@@ -109,7 +112,8 @@
 % Font Size and Microtypography
 % -----------------------------------------------------------------------------
 % Set document font size (applied at document start)
-\AtBeginDocument{\fontsize{10.95pt}{12.6pt}\selectfont} % increased to 10.95 from 10.5 to remove error about shape not available
+% An increase to 10.95 removes shape errors but adds too many spaces
+\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
 
 % Customize superscript positioning
 \renewcommand{\textsuperscript}[1]{%
@@ -129,25 +133,25 @@
 \usepackage{fancyhdr}
 \usepackage{url}
 
-\newcommand{\booktitle}{ປາກທາງແຫ່ງຄວາມຫວັງ}
+\newcommand{\booktitle}{ປາຍທາງແຫ່ງຄວາມຫວັງ}
 \newcommand{\currentchaptertitle}{}  % Updated by \laochapter
 
-\setlength{\headheight}{14.76703pt}
+% \setlength{\headheight}{14.76703pt}
 \pagestyle{fancy}
 \fancyhf{}
 
 % Header configuration (using existing FakeSlant from \emph)
-\fancyhead[LE]{\thepage}
-\fancyhead[CE]{\emph{\booktitle}}
-\fancyhead[CO]{\emph{\currentchaptertitle}}
-\fancyhead[RO]{\thepage}
-
-\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE]{\thepage} % on left hand pages, page # is on the left
+\fancyhead[CE]{\emph{\booktitle}} % on left hand pages, put book title
+\fancyhead[CO]{\emph{\currentchaptertitle}} % on right hand pages, put chapter title
+\fancyhead[RO]{\thepage} % on right hand pages, page # is on the right
+% \fancyfoot{}\renewcommand{\headrulewidth}{0pt}
 
 % Chapter-opening page style (for source URL footer)
 \fancypagestyle{chapterstart}{%
   \fancyhf{}%
   \fancyfoot[C]{%
+    \vspace{-6mm}% Pull footer up from bottom
     \begingroup
     \footnotesize\itshape
     ຕົ້ນສະບັບພາສາອັງກິດ:\ %
