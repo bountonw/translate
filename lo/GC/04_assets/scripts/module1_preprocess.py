@@ -76,6 +76,7 @@ from helpers.md_footnotes_to_tex import process_footnotes
 from helpers.md_emphasis_to_tex import process_emphasis
 from helpers.md_poetry_to_tex import process_poetry
 from helpers.md_spacing_punctuation_to_tex import process_all_spacing_and_punctuation
+from helpers.md_unordered_list_to_tex import process_unordered_lists
 
 def simple_yaml_parse(yaml_content):
     """
@@ -246,7 +247,11 @@ def clean_markdown_body(markdown_body):
 
     # Process poetry/verses
     content, poetry_stats = process_poetry(content)
-    
+
+    # Process unordered lists
+    # We do this before bold lists so we don't confuse * lists with ** bolding
+    content = process_unordered_lists(content)
+
     # Apply all spacing and punctuation conversions
     content = process_all_spacing_and_punctuation(content)
     
