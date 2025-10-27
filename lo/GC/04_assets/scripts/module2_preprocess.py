@@ -344,7 +344,7 @@ def resolve_file_specification(file_spec, temp_dir, debug_mode=False):
     base_spec = file_spec
     
     # Add '_lo' if it's just GC## format
-    if re.match(r'^GC\d+$', base_spec):
+    if re.match(r'^GC\d+.*?$', base_spec):
         base_spec = base_spec + '_lo'
     
     # Now we have something like "GC05_lo"
@@ -400,7 +400,7 @@ def get_input_files(args):
                 
                 # Show what we looked for
                 base_spec = file_spec
-                if re.match(r'^GC\d+$', base_spec):
+                if re.match(r'^GC\d+.*?$', base_spec):
                     base_spec = base_spec + '_lo'
                 
                 print(f"  Searched for: {base_spec}.tmp, {base_spec}_stage1.tmp")

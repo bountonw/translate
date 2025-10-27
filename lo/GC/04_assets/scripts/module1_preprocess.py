@@ -465,7 +465,7 @@ def resolve_file_specification(file_spec, public_dir):
     base_spec = file_spec
     
     # Add '_lo' if it's just GC## format
-    if re.match(r'^GC\d+$', base_spec):
+    if re.match(r'^GC\d+.*?$', base_spec):
         base_spec = base_spec + '_lo'
     
     # Add .md extension
