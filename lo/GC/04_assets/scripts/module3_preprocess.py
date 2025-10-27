@@ -114,18 +114,24 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     # Build .tex
     tex_content = []
 
-    # 1) Docclass
+    # Docclass
     tex_content.append("% Document class and basic setup")
     tex_content.append(f"\\input{{{tex_scripts_norm}/docclass}}")
     tex_content.append("")
 
-    # 2) Header
-
-    # 3) Document + body
+    # Document + body
     tex_content.append("\\begin{document}")
     tex_content.append("")
     # Page 1: absolutely empty header/footer
     tex_content.append("\\thispagestyle{empty}")
+
+    # add title and intro page (if tex_input_paths > 1)
+    if len(tex_input_paths) > 1:
+        tex_content.append(f"\\frontmatter")
+        tex_content.append(f"\\input{{{tex_scripts_norm}/title_page}}")
+        tex_content.append(f"\\input{{{tex_scripts_norm}/dedication_page}}")
+        tex_content.append("\\cleardoublepage")
+
     # Folios: plain footer, arabic, start at 1
     tex_content.append("\\GCInitFolios")
     tex_content.append("")
@@ -134,7 +140,9 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
         tex_content.append("\\tableofcontents")
         tex_content.append("\\cleardoublepage")
         tex_content.append("")
+        tex_content.append(f"\\input{{{tex_scripts_norm}/intro_chapter}}")
 
+    tex_content.append(f"\\mainmatter")
     tex_content.append("% Header commands and formatting")
     tex_content.append(f"\\input{{{tex_scripts_norm}/tex_header_info}}")
     tex_content.append("")
