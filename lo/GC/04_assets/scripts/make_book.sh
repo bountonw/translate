@@ -53,7 +53,7 @@ then
 fi
 
 # Now make introduction
-if [ "${use_existing_tex_files}" = false ]
+if [ "${use_existing_tex_files}" = false ]; then
     echo "Processing intro..."
     scripts/make_pdf.sh "GC00_introduction" --log-folder "${logfolder}"
     # Run LuaLaTeX with output directory
