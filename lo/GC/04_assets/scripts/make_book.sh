@@ -27,6 +27,7 @@ done
 timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
 logfolder="pdf/logs/${timestamp}"
 
+# Now make introduction
 if [ "${use_existing_tex_files}" = false ]
 then
     mkdir -p "${logfolder}" # make if does not exist already; logs are only output (right now) by make_pdf 
