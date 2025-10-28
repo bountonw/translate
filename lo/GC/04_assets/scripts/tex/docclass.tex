@@ -6,6 +6,7 @@
 \usepackage{setspace}
 \setstretch{1.23}
 \usepackage{xcolor}
+\usepackage{tikz}
 \usepackage{titling}
 
 % Page dimensions and margins for A5-ish format
@@ -28,6 +29,21 @@
 
 \raggedbottom 
 
+% =============================================================================
+% DRAFT WATERMARK
+% =============================================================================
+% Comment out the entire \AddToHook block below to disable watermark
+\AddToHook{shipout/background}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[
+            text=black!55,
+            font=\sffamily\bfseries,
+            rotate=55,
+            scale=15,
+            opacity=0.3
+        ] at (current page.center) {DRAFT};
+    \end{tikzpicture}%
+}
 
 % =============================================================================
 % BASELINE AND SPACING FUNDAMENTALS
