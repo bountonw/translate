@@ -72,4 +72,4 @@ fi
 echo -e "SUCCESS: PDF generated for ${chaptername}"
 
 # Open pdf
-okular "pdf/${chaptername}.pdf" &
+%okular "pdf/${chaptername}.pdf" &
