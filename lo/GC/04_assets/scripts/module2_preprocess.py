@@ -344,7 +344,7 @@ def resolve_file_specification(file_spec, temp_dir, debug_mode=False):
     base_spec = file_spec
     
     # Add '_lo' if it's just GC## format
-    if re.match(r'^GC\d+$', base_spec):
+    if re.match(r'^GC\d+.*?$', base_spec):
         base_spec = base_spec + '_lo'
     
     # Now we have something like "GC05_lo"
@@ -400,7 +400,7 @@ def get_input_files(args):
                 
                 # Show what we looked for
                 base_spec = file_spec
-                if re.match(r'^GC\d+$', base_spec):
+                if re.match(r'^GC\d+.*?$', base_spec):
                     base_spec = base_spec + '_lo'
                 
                 print(f"  Searched for: {base_spec}.tmp, {base_spec}_stage1.tmp")
@@ -528,10 +528,12 @@ def extract_chapter_book_from_filename(filename):
     Extract chapter and book identifiers from a filename.
     
     Args:
-        filename: Path or string like 'GC01_lo.tmp' or 'MB03_lo_stage1.tmp'
+        filename: Path or string like 'GC01_lo.tmp', 'MB03_lo_stage1.tmp',
+                  or 'GC00_introduction_lo.tmp'
         
     Returns:
-        tuple: (chapter, book) e.g., ('GC01', 'GC') or (None, None)
+        tuple: (chapter, book) e.g., ('GC01', 'GC'), 
+               ('GC00_introduction', 'GC'), or (None, None)
     """
     import re
     
@@ -541,11 +543,11 @@ def extract_chapter_book_from_filename(filename):
     # Remove _lo suffix
     name = re.sub(r'_lo$', '', name)
     
-    # Match pattern like GC01, MB03, etc.
-    match = re.match(r'^([A-Z]+)(\d+)$', name)
+    # Match pattern like GC01, MB03, GC00_introduction, etc.
+    match = re.match(r'^([A-Z]+)(\d+)(?:_\w+)?$', name)
     if match:
         book = match.group(1)
-        chapter = name  # Full chapter code like GC01
+        chapter = name  # Full chapter code like GC01 or GC00_introduction
         return chapter, book
     
     return None, None

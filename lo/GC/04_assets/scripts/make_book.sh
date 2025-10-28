@@ -27,6 +27,7 @@ done
 timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
 logfolder="pdf/logs/${timestamp}"
 
+# Now make introduction
 if [ "${use_existing_tex_files}" = false ]
 then
     mkdir -p "${logfolder}" # make if does not exist already; logs are only output (right now) by make_pdf 
@@ -52,6 +53,26 @@ then
     done
 fi
 
+# Now make introduction
+if [ "${use_existing_tex_files}" = false ]; then
+    echo "Processing intro..."
+    scripts/make_pdf.sh "GC00_introduction" --log-folder "${logfolder}"
+    # Run LuaLaTeX with output directory
+    echo "Making PDF for chapter ${i}..."
+    if ! lualatex -output-directory=pdf/logs "temp/tex/GC00_introduction.tex"; then
+        echo "ERROR: LuaLaTeX failed for introduction.tex"
+        exit 1
+    fi
+    # Move the PDF to the main pdf folder
+    if [[ -f "pdf/logs/GC00_introduction.pdf" ]]; then
+        mv "pdf/logs/GC00_introduction.pdf" "pdf/GC00_introduction.pdf"
+    else
+        echo
+        echo "ERROR: PDF for introduction was not generated"
+        exit 1
+    fi
+fi
+
 echo "All chapters processed, now combining into one giant PDF"
 
 echo "Verifying that all chapters got made..."
@@ -64,6 +85,13 @@ for ((i=1;i<=CHAP_NUM;i++)); do
         exit -1
     fi
 done
+
+echo "Verifying that intro file got made..."
+fileName="GC00_introduction_lo_stage2.tex"
+if [ ! -f "temp/${fileName}" ]; then
+    echo "File ${fileName} not found!"
+    exit -1
+fi
 
 echo "Running Module 3 to create one giant book..."
 chapNumLeadingZero=$(printf "%02d" $CHAP_NUM)
