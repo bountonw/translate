@@ -1,0 +1,15 @@
+% Lao word list with break points
+% !! = armageddon (7500)
+% ! = nuclear (5000)
+% ~ = emergency (1000)
+% ~~ = discouraged (200)
+% ~~~ = neutral (0)
+% ~~~~ = encouraged (-200)
+% ~~~~~ = excellent (-400)
+% ~~~~~~ = superb (-1000)
+% ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
+
+ເວລາແຫ່ງຄວາມຍາກລຳບາກ| ເວລາແຫ່ງຄວາມຍາກລຳບາກ % 
+ມາກິ້ງ| ມາ~~~ກິ້ງ % 
+ກັບເມືອງ| ກັບ~~~ເມືອງ % 
+ໜ້າຢ້ານຢຳ| ໜ້າ~ຢ້ານ!ຢຳ %

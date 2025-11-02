@@ -1,0 +1,323 @@
+% =============================================================================
+% DOCUMENT CLASS AND GEOMETRY
+% =============================================================================
+% Book class with mirrored margins, no forced right-hand openings
+\documentclass[10pt,twoside,openright]{book}
+\usepackage{setspace}
+\setstretch{1.23}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{titling}
+
+% Page dimensions and margins for A5-ish format
+\usepackage[
+  paperwidth=148mm,
+  paperheight=210mm,
+  top=12mm,
+  inner=16mm,
+  outer=12mm,
+  bottom=12mm,
+  bindingoffset=5mm,
+  headheight=16pt,
+  headsep=4pt,
+  footskip=0pt,
+  heightrounded,
+  includehead,
+  includefoot,
+  %showframe % Draw visible layout guides: text block, margins, headers/footers
+]{geometry}
+
+\raggedbottom 
+
+% =============================================================================
+% DRAFT WATERMARK
+% =============================================================================
+% Comment out the entire \AddToHook block below to disable watermark
+\AddToHook{shipout/background}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[
+            text=black!55,
+            font=\sffamily\bfseries,
+            rotate=55,
+            scale=15,
+            opacity=0.3
+        ] at (current page.center) {DRAFT};
+    \end{tikzpicture}%
+}
+
+% =============================================================================
+% BASELINE AND SPACING FUNDAMENTALS
+% =============================================================================
+% Rigid 12.6pt baseline - remove all stretch/shrink
+% \setlength{\baselineskip}{12.6pt}
+% \setlength{\parskip}{0pt}
+% \setlength{\parindent}{1.5em}
+% \setlength{\lineskip}{0pt}
+% \setlength{\lineskiplimit}{-\maxdimen}
+% \setlength{\abovedisplayskip}{12.6pt}
+% \setlength{\belowdisplayskip}{12.6pt}
+% \setlength{\abovedisplayshortskip}{12.6pt}
+% \setlength{\belowdisplayshortskip}{12.6pt}
+% \setlength{\topskip}{12.6pt}
+
+
+% =============================================================================
+% FONT SETUP
+% =============================================================================
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% -----------------------------------------------------------------------------
+% Lao Font: Saysettha (Primary Lao Font)
+% -----------------------------------------------------------------------------
+\newfontfamily\laofont{Saysettha}[
+    Path = ../../assets/fonts/saysettha/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic
+]
+
+% Setup separate fallbacks for each font style
+\directlua{
+  luaotfload.add_fallback(
+    "laofallback",
+    {"[../../assets/fonts/saysettha/Saysettha-Regular.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackbold",
+    {"[../../assets/fonts/saysettha/Saysettha-Bold.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackitalic",
+    {"[../../assets/fonts/saysettha/Saysettha-Italic.ttf]:mode=harf;"}
+  )
+  luaotfload.add_fallback(
+    "laofallbackbolditalic",
+    {"[../../assets/fonts/saysettha/Saysettha-BoldItalic.ttf]:mode=harf;"}
+  )
+}
+
+% -----------------------------------------------------------------------------
+% Main Font: Libertinus Serif with Lao Fallback
+% -----------------------------------------------------------------------------
+\setmainfont{Libertinus Serif}[
+  RawFeature={fallback=laofallback},
+  BoldFeatures={RawFeature={fallback=laofallbackbold}},
+  ItalicFeatures={RawFeature={fallback=laofallbackitalic}},
+  BoldItalicFeatures={RawFeature={fallback=laofallbackbolditalic}}
+]
+
+% -----------------------------------------------------------------------------
+% Thai Font: Sarabun
+% -----------------------------------------------------------------------------
+\newfontfamily\thaifont{Sarabun}[
+    Path = ../../../th/assets/fonts/saraban/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    Script = Thai
+]
+
+\newcommand{\thai}[1]{{\thaifont #1}}
+
+% -----------------------------------------------------------------------------
+% Font Size and Microtypography
+% -----------------------------------------------------------------------------
+% Set document font size (applied at document start)
+% An increase to 10.95 removes shape errors but adds too many spaces
+\AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
+
+% Customize superscript positioning
+\renewcommand{\textsuperscript}[1]{%
+  {\fontsize{7}{7}\selectfont\raisebox{1.4ex}{#1}}%
+}
+
+% Enable font expansion; disable protrusion to avoid TU-slot warnings
+\microtypesetup{expansion=true,protrusion=false}
+
+% Font expansion configuration
+\SetExpansion[stretch=10,shrink=10,step=1,auto=true]{encoding=TU,family=*}{}
+
+
+% =============================================================================
+% HEADERS AND FOOTERS
+% =============================================================================
+\usepackage{fancyhdr}
+\usepackage{url}
+
+\newcommand{\booktitle}{ປາຍທາງແຫ່ງຄວາມຫວັງ}
+\newcommand{\currentchaptertitle}{}  % Updated by \laochapter
+
+% \setlength{\headheight}{14.76703pt}
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header configuration (using existing FakeSlant from \emph)
+\fancyhead[LE]{\thepage} % on left hand pages, page # is on the left
+\fancyhead[CE]{\emph{\booktitle}} % on left hand pages, put book title
+\fancyhead[CO]{\emph{\currentchaptertitle}} % on right hand pages, put chapter title
+\fancyhead[RO]{\thepage} % on right hand pages, page # is on the right
+% \fancyfoot{}\renewcommand{\headrulewidth}{0pt}
+
+% Chapter-opening page style (for source URL footer)
+\fancypagestyle{chapterstart}{%
+  \fancyhf{}%
+  \fancyfoot[C]{%
+    \vspace{-6mm}% Pull footer up from bottom
+    \begingroup
+    \footnotesize\itshape
+    ຕົ້ນສະບັບພາສາອັງກິດ:\ %
+    \def\UrlFont{\itshape\rmfamily}%
+    \expandafter\url\expandafter{\the\ThisChapterSourceToks}%
+    \endgroup
+  }%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% Size controls for chapter elements
+\newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
+\providecommand{\ChapTitleSize}{}
+\renewcommand{\ChapTitleSize}{\fontsize{15.5pt}{15.5pt}\selectfont\bfseries}
+
+% =============================================================================
+% TOC FORMATTING
+% =============================================================================
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\normalfont} % titles in normal font
+\renewcommand{\cftchappagefont}{\normalfont} % page numbers in normal font
+\renewcommand{\cftchapaftersnum}{. } % text after chapter number
+\renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}} % add dot leaders
+\renewcommand{\cftdotsep}{1} % add dots between chapter and page #; TBH not 100% sure what this does
+\renewcommand{\cftchapdotsep}{\cftdotsep}   
+
+% a helpful page: https://tex.stackexchange.com/a/468104
+\renewcommand{\cfttoctitlefont}{\hfill\ChapTitleSize} %!some command to make the heading huge and bold
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftbeforetoctitleskip}{1.2in} % Title is 1.2in from top to match other titles
+\renewcommand{\cftaftertoctitleskip}{2.0\baselineskip}% 1 double space after title
+\renewcommand{\contentsname}{ສາລະບານ} % set TOC name
+
+\setlength{\cftbeforechapskip}{0pt} % Reduce line spacing between TOC entries
+\setcounter{tocdepth}{0} % Chapters only in TOC (no sections or subsections)
+
+% =============================================================================
+% CHAPTER FORMATTING
+% =============================================================================
+\usepackage{titlesec}
+
+% Chapter spacing: minimal gap between number and title
+\titlespacing*{\chapter}{0pt}{3.38pt}{0.5\baselineskip}
+
+% Chapter format: centered, with large number and bold title
+\titleformat{\chapter}[display]
+{\normalfont\centering}
+{{\ChapNumberSize \thechapter}}
+{-0.7\baselineskip}
+{\ChapTitleSize}
+
+
+% Utility to strip \lw{} wrappers in chapter titles for headers
+\makeatletter
+\providecommand{\lw@title}[1]{#1}
+\AtBeginDocument{%
+  \@ifundefined{lw}{}{%
+    \let\LW@orig\lw
+    \renewcommand{\lw@title}[1]{\begingroup\LW@orig{#1}\unskip\endgroup}%
+  }%
+}
+\makeatother
+
+
+% =============================================================================
+% SECTION FORMATTING
+% =============================================================================
+% Suppress section numbering (keep chapters numbered)
+\setcounter{secnumdepth}{0}
+
+% Grid-aligned sections: exactly 2 baselines (25.2pt total)
+% Font: 12pt, Spacing: 9pt before + 12pt font + 4.2pt after = 25.2pt
+\makeatletter
+\@ifundefined{KOMAClassName}{%
+  % Standard classes
+  \titleformat{\section}
+    {\normalfont\fontsize{12pt}{12pt}\selectfont\bfseries}
+    {\thesection}{1em}{}
+  \titlespacing*{\section}{0pt}{9pt}{4.2pt}
+  
+  \renewcommand\subsection{%
+    \@startsection{subsection}{2}{\z@}%
+      {1.25ex plus .4ex minus .2ex}%
+      {.6ex plus .2ex}%
+      {\normalfont\normalsize\bfseries}%
+  }%
+}{%
+  % KOMA-Script
+  \RedeclareSectionCommand[
+    beforeskip=9pt,
+    afterskip=4.2pt,
+    font=\normalfont\fontsize{12pt}{12pt}\selectfont\bfseries
+  ]{section}
+  \RedeclareSectionCommand[
+    beforeskip=1.25ex plus .4ex minus .2ex,
+    afterskip=.6ex plus .2ex,
+    font=\normalfont\normalsize\bfseries
+  ]{subsection}
+}%
+\makeatother
+
+
+% =============================================================================
+% PARAGRAPH INDENTATION
+% =============================================================================
+% Indent first paragraph after headings (global setting)
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+
+
+% =============================================================================
+% EMPHASIS SEQUENCE
+% =============================================================================
+% Define emphasis nesting: italic → upright → italic → upright
+\DeclareEmphSequence{%
+  {\itshape},%
+  {\upshape},%
+  {\itshape},%
+  {\upshape}%
+}
+
+
+% =============================================================================
+% URL STYLING
+% =============================================================================
+\urlstyle{same}  % URLs use same font as surrounding text
+
+% -----------------------------------------------------------------------------
+% Folio Initialization
+% -----------------------------------------------------------------------------
+% Command to initialize page numbering (can be called manually if needed)
+\newcommand{\GCInitFolios}{%
+  \pagestyle{fancy}%
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+}
+
+% Also initialize at document start automatically
+\makeatletter
+\AtBeginDocument{%
+  \GCInitFolios
+}%
+\makeatother
+
+% commands for stopping/starting TOC entry
+% https://stackoverflow.com/a/78998571/3938401
+\newcommand{\nocontentsline}[3]{}
+\let\origcontentsline\addcontentsline
+\newcommand\stoptoc{\let\addcontentsline\nocontentsline}
+\newcommand\resumetoc{\let\addcontentsline\origcontentsline}

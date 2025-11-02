@@ -1,0 +1,279 @@
+% =============================================================================
+% TYPOGRAPHY SETTINGS
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% Widow and Orphan Control
+% -----------------------------------------------------------------------------
+\widowpenalty=2000
+\clubpenalty=2000
+
+% -----------------------------------------------------------------------------
+% Justification and Tolerance
+% -----------------------------------------------------------------------------
+% Flexible interword spacing (primary solution for Lao text)
+\spaceskip=.6em plus .4em minus .2em
+\xspaceskip=\spaceskip
+
+% Moderate tolerance for line breaking
+\tolerance=2400
+
+% Minimal emergency stretch (backup for difficult paragraphs)
+\emergencystretch=2em
+
+% -----------------------------------------------------------------------------
+% Hyphenation Control
+% -----------------------------------------------------------------------------
+% Disable TeX hyphenation fallbacks (Lao doesn't use hyphens)
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\uchyph=0
+
+
+% =============================================================================
+% FOOTNOTE FORMATTING
+% =============================================================================
+\makeatletter
+% Footnote mark in text: superscripted number
+\renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}}}
+
+% Footnote text: superscript number + space + content
+\renewcommand{\@makefntext}[1]{%
+  \parindent 1em%
+  \noindent
+  \hb@xt@1.8em{\hss\textsuperscript{\normalfont\@thefnmark}}#1%
+}
+\makeatother
+
+
+% =============================================================================
+% LINE BREAKING PENALTY SYSTEM
+% =============================================================================
+% General penalty command: \p{value} inserts line-break penalty
+\makeatletter
+\@ifundefined{p}{%
+  \newcommand{\p}[1]{\penalty #1\relax}%
+}{%
+  \renewcommand{\p}[1]{\penalty #1\relax}%
+}
+\makeatother
+
+
+% =============================================================================
+% LAO WORD WRAPPER (\lw)
+% =============================================================================
+% Dictionary-processed Lao words wrapped with break penalties and glue
+\newcount\lwpenalty
+\lwpenalty=-300
+\newcommand{\lw}[1]{#1\penalty\lwpenalty\hskip 0pt plus .12em minus .04em\relax}
+
+
+% =============================================================================
+% SPACING COMMANDS
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% Basic Spacing Primitives
+% -----------------------------------------------------------------------------
+% Zero-width space with break opportunity
+\newcommand{\zwsp}{\hspace{0pt}\allowbreak}
+
+% Non-breaking space (hard space, no line break)
+\protected\def\nbsp{%
+  \ifhmode\unskip\fi
+  \nobreak\kern .30em\relax
+}
+
+% Hard no-break barrier (removes preceding glue, forbids break)
+\protected\def\nobreak{%
+  \ifhmode\unskip\unpenalty\fi
+  \penalty10000\relax
+}
+
+% Compound space (for Lao compound words)
+\protected\def\cs{\hspace{0.4em plus 0.2em minus 0.1em}\allowbreak}
+
+% -----------------------------------------------------------------------------
+% Phrasal Spacing (\textspace)
+% -----------------------------------------------------------------------------
+% Elastic Lao phrasal space that works safely around \nobreak
+% Removes prior glue/penalty, inserts elastic space, adds sacrificial skip
+\protected\def\textspace{%
+  \ifhmode \unskip \unpenalty \fi
+  \penalty-80 %
+  \hskip .60em plus 0.50em minus .10em %
+  \hskip 0pt\relax
+}
+
+% -----------------------------------------------------------------------------
+% Flexible and Rigid Spacing (from Markdown markers)
+% -----------------------------------------------------------------------------
+% \s marker in .md → \fs (more flexible spacing)
+\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}
+
+% \S marker in .md → \rs (less flexible spacing)
+\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax}
+
+% Short aliases
+\let\fs\flexspace
+\let\rs\rigidspace
+
+% -----------------------------------------------------------------------------
+% Scripture Reference Spacing
+% -----------------------------------------------------------------------------
+\newcommand{\scripturespace}{\p{200}\hskip 0.8em plus 0.4em minus 0.1em\relax}
+\newcommand{\scripturereference}[1]{\mbox{#1}}
+
+% Short aliases
+\let\scrspace\scripturespace
+\let\scrref\scripturereference
+
+
+% =============================================================================
+% LAO-SPECIFIC CHARACTERS
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% Lao Repetition Mark (ໆ)
+% -----------------------------------------------------------------------------
+\newcommand{\laorepeat}{\nobreak{}ໆ\penalty-400\relax}
+\newcommand{\laorepeatbefore}{\nobreak{}ໆ}
+
+% -----------------------------------------------------------------------------
+% Lao Ellipsis (…)
+% -----------------------------------------------------------------------------
+% Core: three dots with nano-stretch between them, kept nonbreaking
+% Internal gap = 0.22em + tiny rubber (±0.02em/0.01em)
+% Wrapped in \mbox to prevent line breaks, protrusion disabled
+
+\DeclareRobustCommand{\laoellipsisrubber}[1][0.22em]{%
+  {\microtypesetup{protrusion=false}%
+   \mbox{.\hspace{#1 plus .02em minus .01em}.\hspace{#1 plus .02em minus .01em}.}}%
+}
+
+% Full ellipsis with side spacing
+\DeclareRobustCommand{\ellipsis}{%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+
+% Ellipsis with following space only
+\DeclareRobustCommand{\ellbefore}{%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+
+% Ellipsis with leading space only
+\DeclareRobustCommand{\ellafter}{%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+  \mbox{\laoellipsisrubber}%
+}
+
+% Bare ellipsis (no side spacing)
+\DeclareRobustCommand{\ellall}{%
+  \mbox{\laoellipsisrubber}%
+}
+
+
+% =============================================================================
+% SPECIAL FORMATTING COMMANDS
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% EGW Reference Citation
+% -----------------------------------------------------------------------------
+% Formats {GC x.y} style references with gray italic text
+\protected\def\egw#1{%
+  \ifhmode\unskip\fi
+  \nobreak\hskip0pt\kern .50em%
+  \mbox{%
+    \fontsize{0.8em}{0.8em}\selectfont
+    \textcolor[gray]{0.3}{%
+      {\itshape\{#1\}}%
+    }%
+  }%
+  \kern .30em\nobreak\hskip0pt\relax
+}
+
+% -----------------------------------------------------------------------------
+% Missing Dictionary Entry Highlighting
+% -----------------------------------------------------------------------------
+% Highlights words not found in dictionary: bold, red, 1.2em size
+\definecolor{nodictcolor}{HTML}{D13D1D}
+\newcommand{\nodict}[1]{{\fontsize{1.2em}{1.44em}\selectfont\textbf{\textcolor{nodictcolor}{#1}}}}
+
+
+% =============================================================================
+% POETRY FORMATTING
+% =============================================================================
+\newcommand{\attrib}[1]{\hfill{#1}}
+\newcommand{\verseindent}[1]{\hspace{2em}#1}
+\newcommand{\verseindentii}[1]{\hspace{4em}#1}
+\newcommand{\verseindentiii}[1]{\hspace{6em}#1}
+
+
+% =============================================================================
+% DOCUMENT-LEVEL COMMANDS
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% Chapter Definition (\laochapter)
+% -----------------------------------------------------------------------------
+% Usage: \laochapter{chapter_number}{chapter_title_with_lw_codes}
+% - Sets chapter counter
+% - Strips \lw{} and \p{} from title for headers
+% - Preserves codes in actual chapter heading
+% - Suppresses page number on opening page
+\ifx\ThisChapterSourceToks\undefined
+  \newtoks\ThisChapterSourceToks
+\fi
+\global\ThisChapterSourceToks={}
+
+\makeatletter
+\newcommand{\laochapter}[2]{%
+  \setcounter{chapter}{\numexpr #1-1\relax}%
+  % Store cleaned version for headers
+  \begingroup
+    \def\lw##1{##1}% Strip \lw{} wrappers
+    \def\p##1{}% Strip \p{} penalty commands
+    \xdef\currentchaptertitle{#2}% Store globally cleaned version
+  \endgroup
+  \par %
+  \begingroup
+    \let\orig@lw\lw
+    \def\lw##1{##1\ }% Plain content + space for heading
+    \@afterindenttrue
+    \chapter{#2}% Original #2 with all codes intact
+    \thispagestyle{empty}% No page number on opening page
+  \endgroup
+}
+\makeatother
+
+% -----------------------------------------------------------------------------
+% Source URL Footer (\source)
+% -----------------------------------------------------------------------------
+% Usage: \source{url}
+% - Silent in document body
+% - Sets footer on chapter opening page only
+% - Can be disabled with \printsourcefootfalse
+\newif\ifprintsourcefoot
+\printsourcefoottrue
+
+\makeatletter
+\@ifundefined{source}{%
+  \newcommand{\source}[1]{%
+    \global\ThisChapterSourceToks={#1}%
+    \ifprintsourcefoot 
+    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \thispagestyle{chapterstart}\fi
+  }%
+}{%
+  \renewcommand{\source}[1]{%
+    \global\ThisChapterSourceToks={#1}%
+    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \ifprintsourcefoot 
+    \thispagestyle{chapterstart}\fi
+  }%
+}
+\makeatother

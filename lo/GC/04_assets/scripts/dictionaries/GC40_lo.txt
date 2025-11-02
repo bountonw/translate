@@ -1,0 +1,17 @@
+% Lao word list with break points
+% !! = armageddon (7500)
+% ! = nuclear (5000)
+% ~ = emergency (1000)
+% ~~ = discouraged (200)
+% ~~~ = neutral (0)
+% ~~~~ = encouraged (-200)
+% ~~~~~ = excellent (-400)
+% ~~~~~~ = superb (-1000)
+% ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
+
+ພຣະເຈົ້າຊົງກອບກູ້ຄົນຂອງພຣະອົງ| ພຣະເຈົ້າຊົງກອບກູ້ຄົນຂອງພຣະອົງ % 
+ບັນດານະຄອນ| ບັນດາ~~~ນະຄອນ % 
+ມານຸ່ງ| ມາ~~~ນຸ່ງ % 
+ພາກກັນ| ພາກ~~~ກັນ % 
+ດີດສາຍພິນ| ດີດ~~~ສາຍ~~~ພິນ % 
+

@@ -1,0 +1,22 @@
+% Lao word list with break points
+% !! = armageddon (7500)
+% ! = nuclear (5000)
+% ~ = emergency (1000)
+% ~~ = discouraged (200)
+% ~~~ = neutral (0)
+% ~~~~ = encouraged (-200)
+% ~~~~~ = excellent (-400)
+% ~~~~~~ = superb (-1000)
+% ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
+
+
+ນັກປະຕິຮູບຊາວສວິສ| ນັກປະຕິຮູບຊາວສວິສ %  title
+ຫານາຍຄູ| ຫາ~~~ນາຍ~~ຄູ % 
+ຊາວສວິສ| ຊາວ~~~ສວິສ % Swiss 
+ລູຊຽນ| ລູຊຽນ % Lucian
+ສະພາບໍ່ໄດ້| ສະພາ~~~ບໍ່~~~ໄດ້ % 
+ບາເດັນ| ບາເດັນ % Baden (town name)
+ມີເລ່ມີລ່ຽມ| ມີ~~ເລ່~~ມີ~~ລ່ຽມ % 
+ໄອຊີເດັນ |ໄອຊີເດັນ  % Einsiedeln
+ທ່າທີ່| ທ່າທີ່ % 
+ໄມໂຄນຽສ| ໄມໂຄນຽສ % Myconius
