@@ -4,6 +4,7 @@ chapter:
   title:
     lo: “ສະຖານບໍຣິສຸດ” ແມ່ນຫຍັງ?
     en: What is the Sanctuary?
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 4,808
 ---
 

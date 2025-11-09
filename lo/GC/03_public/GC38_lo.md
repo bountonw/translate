@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການເຕືອນຄັ້ງສຸດທ້າຍ
     en: The Final Warning
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 603.1}

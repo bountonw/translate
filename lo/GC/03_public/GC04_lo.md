@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຊາວໂວດົວ
     en: The Waldenses
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 61.1}

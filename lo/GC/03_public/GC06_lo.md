@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຮັສ ແລະ ເຈໂຣມ
     en: Huss and Jerome
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 97.1}

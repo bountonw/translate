@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ປະຕິເສດຄຳເຕືອນ
     en: A Warning Rejected
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 375.1}

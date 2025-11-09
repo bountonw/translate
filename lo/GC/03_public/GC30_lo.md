@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄວາມກຽດຊັງລະຫວ່າງມະນຸດກັບຊາຕານ
     en: Enmity Between Man and Satan
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 1985
 ---
 

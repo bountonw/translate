@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການປະຕິຮູບໃນ\p{-200}ປະເທດເນເທີແລນ ແລະ ສະແກນດິເນເວຍ
     en: The Netherlands and Scandinavia
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 237.1}

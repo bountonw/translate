@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ພຣະເຈົ້າຊົງກອບກູ້ຄົນຂອງພຣະອົງ
     en: God’s People Delivered
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 635.1}

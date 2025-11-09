@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄວາມຂັດແຍ້ງທີ່ໃກ້ຈະເກີດຂຶ້ນ
     en: The Impending Conflict
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 582.1}

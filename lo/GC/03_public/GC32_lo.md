@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຫຼຸມດັກຂອງຊາຕານ
     en: Snares of Satan
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 518.1}

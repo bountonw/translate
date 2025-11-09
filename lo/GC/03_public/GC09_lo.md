@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ນັກປະຕິຮູບຊາວສວິສ
     en: The Swiss Reformer
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 171.1}

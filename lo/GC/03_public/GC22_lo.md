@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄຳພະຍາກອນສຳເລັດ
     en: Prophecies Fulfilled
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 6,317
 ---
 

@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຄວາມຈິງເລື່ອງຄວາມຕາຍ
     en: The First Great Deception
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 531.1}

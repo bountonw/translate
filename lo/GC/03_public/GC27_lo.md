@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການຟື້ນຟູໃນສະໄໝໃໝ່
     en: Modern Revivals
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 6,257
 ---
 

@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ວິນຍານຊົ່ວຫຼິ້ນບົດຄົນຕາຍ
     en: Can Our Dead Speak to Us?
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 3867
 ---
 

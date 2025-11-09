@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການເຄື່ອນໄຫວຂອງວິນຍານຊົ່ວ
     en: Agency of Evil Spirits
+  url: https://m.egwwritings.org/en/book/132.
   word_count: 2238
 ---
 

@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ການປະຕິຮູບໃນປະເທດຝຣັ່ງ
     en: The French Reformation
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 211.1}

@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ແສງສະຫວ່າງທີ່ສ່ອງໃນຄວາມມືດ
     en: Light Through Darkness
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 343.1}

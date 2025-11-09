@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ເສລີພາບທາງຈິດສຳນຶກຖືກຄຸກຄາມ
     en: Liberty of Conscience Threatened
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 563.1}

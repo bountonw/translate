@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ນັກປະຕິຮູບຊາວອາເມຣິກັນ
     en: An American Reformer
+  url: https://m.egwwritings.org/en/book/132.
 ---
 
 ## {GC 317.1}
