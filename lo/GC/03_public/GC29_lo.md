@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ຄວາມຊົ່ວມາແຕ່ໃສ
     en: The Origin of Evil
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2227#2227
 ---
 
 ## {GC 492.1}

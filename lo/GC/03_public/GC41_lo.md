@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ແຜ່ນດິນໂລກຮ້າງເປົ່າ
     en: Desolation of the Earth
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2946#2946
 ---
 
 ## {GC 653.1}

@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ການພິພາກສາ
     en: Facing Life’s Record
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2168#2168
   word_count: 4,426
 ---
 

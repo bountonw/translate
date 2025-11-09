@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ຄວາມຂັດແຍ້ງສິ້ນສຸດລົງ
     en: The Controversy Ended
-  url: https://legacy.egwwritings.org/?ref=en_GC.662&para=132.2989
+  url: https://m.egwwritings.org/en/book/132.2989#2989
 ---
 
 ## {GC 662.1}

@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ເວລາແຫ່ງຄວາມຍາກລຳບາກ
     en: The Time of Trouble
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2769#2769
 ---
 
 ## {GC 613.1}

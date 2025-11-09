@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ໃນສະຖານທີ່ສັກສິດທີ່ສຸດ
     en: In the Holy of Holies
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1918#1918
 ---
 
 ## {GC 423.1}

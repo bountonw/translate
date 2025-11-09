@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ວຽກງານປະຕິຮູບ
     en: A Work of Reform
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2041#2041
 ---
 
 ## {GC 451.1}

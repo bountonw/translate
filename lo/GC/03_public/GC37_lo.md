@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ພຣະຄຳພີ ໂລ້ປ້ອງກັນໄພ
     en: The Scriptures a Safeguard
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.2680#2680
 ---
 
 ## {GC 593.1}

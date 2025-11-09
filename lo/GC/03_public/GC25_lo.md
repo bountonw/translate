@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ພຣະບັນຍັດຂອງພຣະເຈົ້າປ່ຽນແປ່ງບໍ່ໄດ້
     en: God’s Law Immutable
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1960#1960
 ---
 
 ## {GC 433.1}
