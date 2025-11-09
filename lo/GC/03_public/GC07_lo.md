@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ລູເທີແຍກຈາກຄຣິສຕະຈັກໂຣມ
     en: Luther’s Separation From Rome
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.526#526
 ---
 
 ## {GC 120.1}

@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ພວກເຈົ້າແຂວງປະທ້ວງ
     en: Protest of the Princes
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.896#896
 ---
 
 ## {GC 197.1}

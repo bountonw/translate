@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ລູເທີຕໍ່ໜ້າສະພາ
     en: Luther Before the Diet
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.646#646
 ---
 
 ## {GC 145.1}

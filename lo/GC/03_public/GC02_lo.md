@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ການຂົ່ມເຫັງໃນຍຸກທຳອິດ
     en: Persecution in the First Centuries
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.160#160
 ---
 
 ## {GC 39.1}

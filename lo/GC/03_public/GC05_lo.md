@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ຈອນ ໄວຄຼິບ
     en: John Wycliffe
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.336#336
 ---
 
 ## {GC 79.1}

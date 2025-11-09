@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ກຸ່ມປິນກຣິມລຸ້ນບຸກເບີກ
     en: The Pilgrim Fathers
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1321#1321
 ---
 
 ## {GC 289.1}

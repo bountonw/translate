@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ການປະຕິຮູບສືບຕໍ່ໃນອານາຈັກເຢຍລະມັນ
     en: Progress of Reform in Germany
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.832#832
 ---
 
 ## {GC 185.1}

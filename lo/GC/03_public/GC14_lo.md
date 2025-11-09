@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ນັກປະຕິຮູບຊາວອັງກິດລຸ້ນຫຼັງ
     en: Later English Reformers
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1118#1118
 ---
 
 ## {GC 245.1}

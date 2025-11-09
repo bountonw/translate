@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ຄຳພະຍາກອນສຳເລັດ
     en: Prophecies Fulfilled
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1774#1774
   word_count: 6,317
 ---
 

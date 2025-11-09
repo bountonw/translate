@@ -4,7 +4,7 @@ chapter:
   title:
     lo: ການຟື້ນຟູຄັ້ງຍິ່ງໃຫຍ່
     en: A Great Religious Awakening
-  url: https://m.egwwritings.org/en/book/132.
+  url: https://m.egwwritings.org/en/book/132.1619#1619
 ---
 
 ## {GC 355.1}
