@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ລູເທີຕໍ່ໜ້າສະພາ
     en: Luther Before the Diet
+  url: https://m.egwwritings.org/en/book/132.646#646
 ---
 
 ## {GC 145.1}
@@ -312,7 +313,7 @@ chapter:
 
 [^28]: *ອ້າງອີງຈາກທີ່ດຽວກັນ*, ເຫຼັ້ມ 7, ບົດ 9.
 
-[^29]: ເລຟັງ Lenfant, ເຫຼັ້ມ 1, ໜ້າ 422.
+[^29]: ລອງຟອງ (Lenfant), ເຫຼັ້ມ 1, ໜ້າ 422.
 
 ## {GC 163.3}
 
