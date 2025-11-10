@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ພຣະຄຳພີ ແລະ ການປະຕິວັດຝຣັ່ງ
     en: The Bible and The French Revolution
+  url: https://m.egwwritings.org/en/book/132.1214#1214
 ---
 
 ## {GC 265.1}

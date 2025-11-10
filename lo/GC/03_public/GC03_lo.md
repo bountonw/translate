@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຍຸກມືດຝ່າຍຈິດວິນຍານ
     en: An Era of Spiritual Darkness
+  url: https://m.egwwritings.org/en/book/132.200#200
 ---
 
 ## {GC 49.1}

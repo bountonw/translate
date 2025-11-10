@@ -4,6 +4,7 @@ chapter:
   title:
     lo: ຜູ້ປະກາດແຫ່ງຮຸ່ງອາລຸນ
     en: Heralds of the Morning
+  url: https://m.egwwritings.org/en/book/132.1368#1368
 ---
 
 ## {GC 299.1}
