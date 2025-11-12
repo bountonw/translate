@@ -17,6 +17,7 @@ while test $# -gt 0; do
       shift
       CHAP_NUM=$1
       echo "Adjusted max chapter number to ${CHAP_NUM}"
+      shift
       ;;
     *)
       break
