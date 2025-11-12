@@ -123,18 +123,21 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     tex_content.append("\\begin{document}")
     tex_content.append("")
     # Page 1: absolutely empty header/footer
-    tex_content.append("\\thispagestyle{empty}")
+    # tex_content.append("\\thispagestyle{empty}")
 
     # add title and intro page (if tex_input_paths > 1)
     if len(tex_input_paths) > 1:
+        tex_content.append("\\pagestyle{empty}")
         tex_content.append(f"\\frontmatter")
         tex_content.append(f"\\input{{{tex_scripts_norm}/title_page}}")
         tex_content.append("\\cleardoublepage")
+        tex_content.append("\\thispagestyle{intropagenumbers}") # for dedication page, add page numbers
         tex_content.append(f"\\input{{{tex_scripts_norm}/dedication_page}}")
         tex_content.append("\\cleardoublepage")
 
     # TOC for full book only
     if len(tex_input_paths) > 1:
+        tex_content.append("\\pagestyle{intropagenumbers}")
         tex_content.append("\\tableofcontents")
         tex_content.append("\\cleardoublepage")
         tex_content.append("")
@@ -144,8 +147,9 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     tex_content.append("")
 
     if len(tex_input_paths) > 1:
-        # TODO: don't hardcode this in this func
-        tex_content.append(f"\\input{{temp/GC00_introduction_lo_stage2}}") 
+        tex_content.append("\\pagestyle{intropagenumbers}")
+        # TODO: don't hardcode this file name
+        tex_content.append(f"\\input{{temp/GC00_introduction_lo_stage2}}")
 
     tex_content.append(f"\\mainmatter")
     tex_content.append("")
