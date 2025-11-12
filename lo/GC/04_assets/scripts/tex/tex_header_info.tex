@@ -260,18 +260,19 @@
 \newif\ifprintsourcefoot
 \printsourcefoottrue
 
+% The number next to baselineskip moves the bottom of the "normal" chapter text move "up" that amount.
 \makeatletter
 \@ifundefined{source}{%
   \newcommand{\source}[1]{%
     \global\ThisChapterSourceToks={#1}%
     \ifprintsourcefoot 
-    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \enlargethispage{-1.5\baselineskip}% Shrink normal area of page to create space for footer on this page only
     \thispagestyle{chapterstart}\fi
   }%
 }{%
   \renewcommand{\source}[1]{%
     \global\ThisChapterSourceToks={#1}%
-    \enlargethispage{-1.5\baselineskip}% Create space for footer on this page only
+    \enlargethispage{-1.5\baselineskip}% Shrink normal area of page to create space for footer on this page only
     \ifprintsourcefoot 
     \thispagestyle{chapterstart}\fi
   }%
