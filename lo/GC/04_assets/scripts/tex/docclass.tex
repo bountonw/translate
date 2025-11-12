@@ -8,6 +8,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{titling}
+\usepackage{clrdblpg} % so clear double pages have nothing on them in header/footer (aka page number)
 
 % Page dimensions and margins for A5-ish format
 \usepackage[
@@ -181,6 +182,16 @@
   % set footrulewidth to -1.5\baselineskip (or similar) to tweak where source text is without adjusting other layout
 }
 
+% page style for intro pages that have page numbers
+\fancypagestyle{intropagenumbers}{%
+    \fancyhf{}%
+    \fancyhead[LE]{\thepage} % on left hand pages, page # is on the left
+    \fancyhead[CE]{\emph{\booktitle}} % on left hand pages, put book title
+    \fancyhead[CO]{\emph{\currentchaptertitle}} % on right hand pages, put chapter title
+    \fancyhead[RO]{\thepage} % on right hand pages, page # is on the right
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
 % Size controls for chapter elements
 \newcommand{\ChapNumberSize}{\fontsize{60pt}{66pt}\selectfont}
 \providecommand{\ChapTitleSize}{}
@@ -206,6 +217,10 @@
 
 \setlength{\cftbeforechapskip}{0pt} % Reduce line spacing between TOC entries
 \setcounter{tocdepth}{0} % Chapters only in TOC (no sections or subsections)
+% first toc page has no page number (so that the start of this TOC 'chapter' 
+% matches other chapters)
+% other pages still have normal header page numbering like the rest of the book
+\tocloftpagestyle{empty}
 
 % =============================================================================
 % CHAPTER FORMATTING
