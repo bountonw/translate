@@ -7,4 +7,5 @@
 
 /.github/ @bountonw
 *.md @bountonw
+*.typ @bountonw
 .tooling/markdownlint/forbidden_terms/* @bountonw
