@@ -166,8 +166,8 @@
 % Chapter-opening page style (for source URL footer)
 \fancypagestyle{chapterstart}{%
   \fancyhf{}%
+  \vspace{-6mm}% Pull footer up from bottom -- 
   \fancyfoot[C]{%
-    \vspace{-6mm}% Pull footer up from bottom
     \begingroup
     \footnotesize\itshape
     ຕົ້ນສະບັບພາສາອັງກິດ:\ %
@@ -176,7 +176,8 @@
     \endgroup
   }%
   \renewcommand{\headrulewidth}{0pt}%
-  \renewcommand{\footrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt} 
+  % set footrulewidth to -1.5\baselineskip (or similar) to tweak where source text is without adjusting other layout
 }
 
 % Size controls for chapter elements
