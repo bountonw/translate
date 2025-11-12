@@ -226,7 +226,7 @@ def convert_egw_references(text: str) -> str:
     return re.sub(egw_pattern, r'\\egw{\1\\nbsp{}{\\refdigits \2}}', text)
 
 def convert_text_references(text: str) -> str:
-    arr = ["TKJV", "TH1940", "TNCV", "NTV", "THSV", "THA-ER", "LCV", "KV", "TH1971", "LO1972", "version", "Adventist"]
+    arr = ["TKJV", "TH1940", "TNCV", "NTV", "THSV", "THA-ER", "LCV", "KJV", "TH1971", "LO1972", "version", "Adventist"]
     for x in arr:
         paraX = "(" + x + ")"
         if (paraX in text):
