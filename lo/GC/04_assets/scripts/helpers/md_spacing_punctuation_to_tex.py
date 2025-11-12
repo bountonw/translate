@@ -223,8 +223,17 @@ def convert_egw_references(text: str) -> str:
         "{GC 3.14}" → "\\egw{GC\\nbsp{}3.14}"
     """
     egw_pattern = r'\{(GC) (\d+\.\d+)\}'
-    return re.sub(egw_pattern, r'\\egw{\1\\nbsp{}\2}', text)
+    return re.sub(egw_pattern, r'\\egw{\1\\nbsp{}{\\refdigits \2}}', text)
 
+def convert_text_references(text: str) -> str:
+    arr = ["TKJV", "TH1940", "TNCV", "NTV", "THSV", "THA-ER", "LCV", "KV", "TH1971", "LO1972", "version", "Adventist"]
+    for x in arr:
+        paraX = "(" + x + ")"
+        if (paraX in text):
+            text = text.replace(paraX, "{\\smallerscale " + paraX + "}")
+        else:
+            text = text.replace(x, "{\\smallerscale " + x + "}")
+    return text
 
 # ============================================================================
 # PUNCTUATION DETECTION (constants and helpers for Module 1)
@@ -879,6 +888,12 @@ def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
     # 3a) \url{...} and \path{...}
     add_spans_from_pattern(r"\\(?:url|path)\{[^}]*\}")
 
+    # 3b) {\refdigits ...} for slightly scaled english numbers
+    add_spans_from_pattern(r"\{\\refdigits [0-9.]*\}")
+    
+    # 3c) {\smallerscale ...} for slightly downscaled english text
+    add_spans_from_pattern(r"\{\\smallerscale [0-9A-z]*\}")
+
     # 3b) \href{url}{text}: protect only the first {url}
     for m in re.finditer(r"\\href\{[^}]*\}\{", text):
         start = text.find("{", m.start())
@@ -985,6 +1000,8 @@ def process_all_spacing_and_punctuation(text: str) -> str:
 
     # 2. EGW reference processing
     text = convert_egw_references(text)
+
+    text = convert_text_references(text)
     
     # 3. Special character handling
     text = handle_lao_repetition_with_context(text)
