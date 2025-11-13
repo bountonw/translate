@@ -1,1 +1,51 @@
-/* placeholder file */
+/* css/style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+nav.toc {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav.toc ol {
+  list-style-position: inside;
+  counter-reset: chapter -1;
+}
+
+nav.toc li {
+  margin: 15px 0;
+  font-size: 1.1em;
+  counter-increment: chapter;
+  list-style: none;
+}
+
+nav.toc li::before {
+  content: counter(chapter) ". ";
+}
+
+nav.toc a {
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+nav.toc a:hover {
+  text-decoration: underline;
+  color: #1e40af;
+}
