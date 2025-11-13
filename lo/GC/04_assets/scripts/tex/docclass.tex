@@ -15,16 +15,16 @@
   paperwidth=148mm,
   paperheight=210mm,
   top=12mm,
-  inner=16mm,
-  outer=12mm,
-  bottom=12mm,
-  bindingoffset=5mm,
-  headheight=16pt,
-  headsep=4pt,
-  footskip=0pt,
-  heightrounded,
-  includehead,
-  includefoot,
+  inner=16mm, % alias of left/lmargin
+  outer=12mm, % alias of right/rmargin
+  bottom=12mm, % bottom margin of the page
+  bindingoffset=5mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (21mm)
+  headheight=16pt, % height of header
+  headsep=4pt, % separation between header and body
+  footskip=0pt, % distance separation between baseline of last line of text and baseline of footer
+  %heightrounded, % this messes with heights in ways that makes bottom != 12mm, etc.
+  includehead,  % includes the head of the page, \headheight and \headsep, into total body.
+  includefoot, % includes the foot of the page, \footskip, into total body. 
   %showframe % Draw visible layout guides: text block, margins, headers/footers
 ]{geometry}
 
@@ -167,8 +167,9 @@
 % Chapter-opening page style (for source URL footer)
 \fancypagestyle{chapterstart}{%
   \fancyhf{}%
+  \vspace{-6mm}% Pull footer up from bottom -- 
+  % tweak this vspace number to move ALL source text (incl. footer source text) up; also moves other text
   \fancyfoot[C]{%
-    \vspace{-6mm}% Pull footer up from bottom
     \begingroup
     \footnotesize\itshape
     ຕົ້ນສະບັບພາສາອັງກິດ:\ %
@@ -177,7 +178,8 @@
     \endgroup
   }%
   \renewcommand{\headrulewidth}{0pt}%
-  \renewcommand{\footrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt} 
+  % set footrulewidth to -1.5\baselineskip (or similar) to tweak where source text is without adjusting other layout
 }
 
 % page style for intro pages that have page numbers

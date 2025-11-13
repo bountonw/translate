@@ -3,7 +3,7 @@
 * @bountonw @deadpikle @mattleff
 
 *.lua @mattleff @deadpikle
-*.sh @mattleff @deadpikle
+*.sh @mattleff @deadpikle @bountonw
 
 /.github/ @bountonw
 *.md @bountonw
