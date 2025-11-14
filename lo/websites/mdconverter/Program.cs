@@ -197,17 +197,33 @@ static void ConvertFiles(Options args)
             chapterHtml +
             Environment.NewLine;
         var linksToPrevNext = "<p class=\"chapter-links\">";
+        // Put in links. Assumes everything in same folder or can use full link...
+        // not the best, but workable for now.
+        var currChapLink = chapterNumOutputPaths[chapterNumber];
+        var currChapDirName = Path.GetDirectoryName(currChapLink);
         if (chapterNumber != firstChapterNumber)
         {
             var prevChapNum = chapterNumber - 1;
+            var prevChapLink = chapterNumOutputPaths[prevChapNum];
+            var prevChapDirName = Path.GetDirectoryName(prevChapLink);
+            if (currChapDirName == prevChapDirName)
+            {
+                prevChapLink = prevChapLink.Replace(currChapDirName + "/", "");
+            }
             var prevChapterName = chapterData[prevChapNum].Item1["lo"];
-            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{chapterNumOutputPaths[prevChapNum]}\">{prevChapNum}: {prevChapterName}</a>";
+            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{prevChapLink}\">{prevChapNum}: {prevChapterName}</a>";
         }
         if (chapterNumber != lastChapterNumber)
         {
             var nextChapNum = chapterNumber + 1;
+            var nextChapLink = chapterNumOutputPaths[nextChapNum];
+            var nextChapDirName = Path.GetDirectoryName(nextChapLink);
+            if (currChapDirName == nextChapDirName)
+            {
+                nextChapLink = nextChapLink.Replace(currChapDirName + "/", "");
+            }
             var nextChapterName = chapterData[nextChapNum].Item1["lo"];
-            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{chapterNumOutputPaths[nextChapNum]}\">{nextChapNum}: {nextChapterName}</a>";
+            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{nextChapLink}\">{nextChapNum}: {nextChapterName}</a>";
         }
         outputFileContents += linksToPrevNext;
         outputFileContents += File.ReadAllText(footerFilePath);
