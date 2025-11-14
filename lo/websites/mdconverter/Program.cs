@@ -196,13 +196,13 @@ static void ConvertFiles(Options args)
         {
             var prevChapNum = chapterNumber - 1;
             var prevChapterName = chapterData[prevChapNum].Item1["lo"];
-            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{chapterNumOutputLines[prevChapNum]}\">{prevChapNum}: {prevChapterName}</a>";
+            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{chapterNumOutputPaths[prevChapNum]}\">{prevChapNum}: {prevChapterName}</a>";
         }
         if (chapterNumber != lastChapterNumber)
         {
             var nextChapNum = chapterNumber + 1;
             var nextChapterName = chapterData[nextChapNum].Item1["lo"];
-            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{chapterNumOutputLines[nextChapNum]}\">{nextChapNum}: {nextChapterName}</a>";
+            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{chapterNumOutputPaths[nextChapNum]}\">{nextChapNum}: {nextChapterName}</a>";
         }
         outputFileContents += linksToPrevNext;
         outputFileContents += File.ReadAllText(footerFilePath);
