@@ -156,6 +156,11 @@ static void ConvertFiles(Options args)
                     {
                         outputLine = line[4..];
                     }
+                    if (line.Contains("lw{"))
+                    {
+                        outputLine = Regex.Replace(outputLine, "\\\\lw{(.*?)}", m => $"{m.Groups[1].Value}");
+                        outputLine = Regex.Replace(outputLine, "\\\\p{200(.*?)}", m => $"{m.Groups[1].Value}");
+                    }
                     chapterContents.Add(outputLine);
                 }
             }
