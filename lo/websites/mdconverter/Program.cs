@@ -151,7 +151,12 @@ static void ConvertFiles(Options args)
             {
                 if (!line.Trim().StartsWith("## {")) // these lines are ignorable
                 {
-                    chapterContents.Add(line);
+                    var outputLine = line;
+                    if (line.StartsWith("    "))
+                    {
+                        outputLine = line[4..];
+                    }
+                    chapterContents.Add(outputLine);
                 }
             }
         }
