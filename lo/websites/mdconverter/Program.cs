@@ -184,11 +184,15 @@ static void ConvertFiles(Options args)
         {
             headerText = headerText.Replace(replace.Key, replace.Value);
         }
+        // fix header <title> element
+        var chapterTitle = metadata["lo"];
+        var numberWithLoTitle = chapterNumber > 0 ? $"{chapterNumber}: {chapterTitle}" : $"{chapterTitle}";
+        headerText = Regex.Replace(headerText, "<title>(.*?)</title>", $"<title>{numberWithLoTitle}</title>");
         // actually create output now
         var outputFileContents =
             headerText +
             Environment.NewLine +
-            $"<h1>{metadata["number"]}: {metadata["lo"]}</h1>";
+            $"<h1>{numberWithLoTitle}</h1>";
         if (metadata.TryGetValue("url", out var url))
         {
             outputFileContents += $"<p class=\"chapter-url\"><a target=\"_blank\" href=\"{metadata["url"]}\">{metadata["url"]}</a></p>";
