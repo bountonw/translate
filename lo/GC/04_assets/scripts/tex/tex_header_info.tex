@@ -101,7 +101,7 @@
 \protected\def\textspace{%
   \ifhmode \unskip \unpenalty \fi
   \penalty-80 %
-  \hskip .60em plus 0.50em minus .10em %
+  \hskip .60em plus 0.50em minus .20em %
   \hskip 0pt\relax
 }
 
@@ -109,10 +109,10 @@
 % Flexible and Rigid Spacing (from Markdown markers)
 % -----------------------------------------------------------------------------
 % \s marker in .md → \fs (more flexible spacing)
-\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 3em}\relax}
+\newcommand{\flexspace}{\penalty-300\hspace{0pt plus 1.5em}\relax}
 
 % \S marker in .md → \rs (less flexible spacing)
-\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1.5em}\relax}
+\newcommand{\rigidspace}{\penalty-300\hspace{0pt plus 1em}\relax}
 
 % Short aliases
 \let\fs\flexspace
