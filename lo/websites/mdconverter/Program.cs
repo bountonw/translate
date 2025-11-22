@@ -173,6 +173,8 @@ static void ConvertFiles(Options args)
         var chapterNumber = chapterDataItem.Key;
         var metadata = chapterDataItem.Value.Item1;
         var chapterContents = chapterDataItem.Value.Item2;
+        // replace special chars in chapter markdown/latex contents
+        chapterContents = chapterContents.Replace("{\\;}", " ").Replace("{\\:}", " ");
         // convert file from markdown to HTML
         var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
         var chapterHtml = Markdown.ToHtml(string.Join(Environment.NewLine, chapterContents), pipeline);
