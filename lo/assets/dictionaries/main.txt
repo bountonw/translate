@@ -9,6 +9,7 @@
 % ~~~~~~ = superb (-1000)
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
+ຫຼິ້ນຊູ້| ຫຼິ້ນຊູ້ % 
 ກກ| ກກ %
 ກຣີກ| ກຣີກ % 
 ກວດ| ກວດ %
