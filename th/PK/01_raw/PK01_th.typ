@@ -4,4 +4,4 @@
 
 // {PK 25.1}
 
-In the reign of David and Solomon, Israel became strong among the nations and had many opportunities to wield a mighty influence in behalf of truth and the right. The name of Jehovah was exalted and held in honor, and the purpose for which the Israelites had been established in the Land of Promise bade fair of meeting with fulfillment. Barriers were broken down, and seekers after truth from the lands of the heathen were not turned away unsatisfied. Conversions took place, and the church of God on earth was enlarged and prospered. {PK 25.1}
+ในรัชสมัยของกษัตริย์ดาวิด และ กษัตริย์ซาโลมอน ชนชาติอิสราเอลขึ้นเป็นชนชาติที่เข้มแข็งท่ามกลางประชาชาติทั้งหลาย พวกเขามีโอกาสครั้งแล้วครั้ลเล่าที่จะส่องสว่างฝ่ายความจริงและความถูกต้องให้คนทั้งใกล้ทั้งไหลเห็นอย่างกระจ่างชัด ในขณะนั้นพระนามของพระเยโฮวาห์เป็นที่ยกย่องเทิดทูน ดูเหมือนโอกาสดี((ได้))มาถึงแล้วที่ชนชาติอิสราเอลจะได้ทำตามพระประสงค์ของพระเจ้าในการตั้งพวกเขาอยู่ในแผ่นดินแห่งพระสัญญา อุปสรรคทั้งหลายก็ถูก(พังลง/รื้อถอนออก//) และคนที่หิวกระหายความจริงจากชนชาติต่างๆ ที่ไม่รู้จักพระเจ้าล้วนแต่กลับบ้านด้วยความพึงพอใจ  มีคนกลับใจ และคริสตจักรของพระเจ้า(ใน/บน)โลกได้ขยับขยาย(อย่าง)รุ่งเรือง {PK 25.1}
