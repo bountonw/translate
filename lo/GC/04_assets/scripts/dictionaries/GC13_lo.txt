@@ -11,7 +11,7 @@
 
 ແກ່ນາງ| ແກ່~~~ນາງ % 
 ເຈຣາດ\cs{}ບຣັນ| ເຈຣາດ\cs{}ບຣັນ % 
-ເມັນໂນ\cs{}ຊີໂມນ| ເມັນໂນ\cs{}ຊີໂມນ  % Menno Simons
+ເມັນໂນ\cs{}ຊີໂມນ| ເມັນໂນ\cs{}ຊີໂມນ % Menno Simons
 ເມັນໂນ| ເມັນໂນ % Menno Simons
 ອໍເຣນ| ອໍເຣນ % Orange (from William of Orange)
 ໂອລັບ| ໂອລັບ % Olaf
