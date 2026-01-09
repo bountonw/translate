@@ -235,7 +235,7 @@ def convert_break_points(coded_term):
     coded_term = re.sub(r'~~~~~', r'\\p{-400}', coded_term)  # excellent
     coded_term = re.sub(r'~~~~', r'\\p{-200}', coded_term)   # encouraged
     coded_term = re.sub(r'~~~', r'\\p{0}', coded_term)       # neutral
-    coded_term = re.sub(r'~~', r'\\p{200}', coded_term)      # discouraged
+    coded_term = re.sub(r'~~', r'\\p{100}', coded_term)      # discouraged
     coded_term = re.sub(r'!!', r'\\p{7500}', coded_term)     # armageddon
     coded_term = re.sub(r'!', r'\\p{5000}', coded_term)      # nuclear
     coded_term = re.sub(r'~', r'\\p{1000}', coded_term)      # emergency
