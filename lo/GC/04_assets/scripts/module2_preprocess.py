@@ -29,7 +29,7 @@ WHAT THIS MODULE DOES:
    - !! → \\p{7500} (armageddon)
    - ! → \\p{5000} (nuclear)
    - ~ → \\p{1000} (emergency)
-   - ~~ → \\p{200} (discouraged)
+   - ~~ → \\p{100} (discouraged)
    - ~~~ → \\p{0} (neutral)
    - ~~~~ → \\p{-200} (encouraged)
    - ~~~~~ → \\p{-400} (excellent)
