@@ -10,4 +10,6 @@
 % ~S~ = \hspace{0.4em plus 0.2em minus 0.1em}\allowbreak
 
 ຈ| ຈ %
+ແປກໍ| ແປ~~~ກໍ % 
+ເອວອນ| ເອວອນ % Name of river
 ອາ| ອາ %
