@@ -109,6 +109,7 @@
 ແຟໂຣ| ແຟໂຣ % Farel
 ໂຄເບີກ |ໂຄເບີກ % Coburg
 ໂຄໂລນ |ໂຄໂລນ % Cologne
+ໂຢນາດາບ| ໂຢນາ­ດາບ % Bible name, soft-hyphen
 ໂດມິນນິກັນ| ໂດມິນນິກັນ % Dominican
 ໂທມັດ\cs{}ມູນເຊີ| ໂທມັດ\cs{}ມູນເຊີ % ີThomas Munzer
 ໂທມັດ| ໂທມັດ % ີThomas
