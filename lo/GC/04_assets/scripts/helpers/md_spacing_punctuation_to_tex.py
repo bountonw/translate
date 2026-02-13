@@ -18,9 +18,10 @@ Commands Processed by This Helper:
     
     PUNCTUATION COMMANDS:
     • \nobreak{} - Prevent line breaks before/after punctuation
-    • \ellipsis{} - Standard ellipsis (…)
-    • \ellbefore{} - Ellipsis before punctuation
-    • \ellafter{} - Ellipsis after punctuation
+    • \elldotsLR{} - Ellipsis spaced both sides (word…word)
+    • \elldotsL{} - Ellipsis spaced left only (word…punct/EOL)
+    • \elldotsR{} - Ellipsis spaced right only (punct…word)
+    • \elldots{} - Bare ellipsis (punct…punct/EOL)
     • \laorepeat{} - Lao repetition mark (ໆ)
     • \laorepeatbefore{} - Lao repetition before punctuation
     
@@ -432,27 +433,29 @@ def needs_nobreak_protection(text: str) -> bool:
 # ============================================================================
 
 def handle_ellipsis_with_context(text: str) -> str:
-    """
+"""
     Convert U+2026 ellipses to context-aware LaTeX commands.
 
-    Variants (selection policy):
-      - prev punct, next not            -> \\ellafter{}
-      - next punct, prev not            -> \\ellbefore{}
-      - both sides punct                -> \\ellall{}   (tight both sides)
-      - no next (paragraph/section end) -> \\ellbefore{}
-      - special: \\laorepeatbefore{} … text   -> \\laorepeatbefore{}\\ellipsis{}
-      - special: \\laorepeatbefore{} … punct  -> \\laorepeatbefore{}\\ellall{}
+    Rule: thin space on each side that faces a word.
+      L = left side faces word, R = right side faces word.
+
+    Variants:
+      - word … word   -> \\elldotsLR{}
+      - word … punct   -> \\elldotsL{}
+      - word … EOL     -> \\elldotsL{}
+      - punct … word   -> \\elldotsR{}
+      - punct … punct  -> \\elldots{}
+      - punct … EOL    -> \\elldots{}
 
     Notes:
-      - Runs AFTER handle_lao_repetition_with_context(), so raw ໆ has already
-        become \\laorepeat{} / \\laorepeatbefore{}.
-      - Uses is_punctuation() from this module to classify neighbors.
-      - Skips ASCII spaces when scanning neighbors. Macros (\\something{...})
-        are treated as non-punctuation for neighbor tests, except the explicit
-        look-back for \\laorepeatbefore{} (special cases above).
-      - Macro internals (e.g., any \\nobreak{} policy) live in TeX; we only pick
-        the correct macro flavor here.
-    """
+      - Runs AFTER handle_lao_repetition_with_context(), so raw
+        ໆ is already \\laorepeat{} or \\laorepeatbefore{}.
+      - \\laorepeatbefore{} is treated as word-like (ໆ stands
+        for a repeated word, not punctuation).
+      - Uses is_punctuation() from this module to classify
+        neighbors.
+      - Skips ASCII spaces when scanning neighbors.
+"""
     if not text:
         return text
 
@@ -464,29 +467,26 @@ def handle_ellipsis_with_context(text: str) -> str:
     def _scan_prev(idx: int):
         """
         Find the nearest non-space item to the left.
-        Returns: (prev_char, prev_is_punct, prev_is_repeatbefore)
+        Returns: (prev_char, prev_is_punct)
         """
         j = idx - 1
         while j >= 0 and text[j] == " ":
             j -= 1
         if j < 0:
-            return ("", False, False)
+            return ("", False)
 
-        # If we landed on the end of a macro, check for \laorepeatbefore{}
         if text[j] == "}":
             k = j - 1
-            # hop back to a backslash beginning this (flat) macro
             while k >= 0 and text[k] != "\\":
                 k -= 1
             if k >= 0:
                 macro = text[k:j + 1]
                 if macro == "\\laorepeatbefore{}":
-                    return ("", False, True)
-                # other macros: treat as non-punctuation context
-                return ("", False, False)
+                    return ("ໆ", False)
+                return ("", False)
 
         ch = text[j]
-        return (ch, is_punctuation(ch), False)
+        return (ch, is_punctuation(ch))
 
     def _scan_next(idx: int):
         """
@@ -513,59 +513,49 @@ def handle_ellipsis_with_context(text: str) -> str:
             i += 1
             continue
 
-        prev_ch, prev_is_punct, prev_is_repeatbefore = _scan_prev(i)
+prev_ch, prev_is_punct = _scan_prev(i)
         next_ch, next_is_punct, has_next = _scan_next(i)
 
-        # Special cases with \laorepeatbefore{} immediately to the left
-        if prev_is_repeatbefore and next_is_punct:
-            cmd = "\\ellall{}"
-            out.append(cmd)
-            i += 1
-            continue
-        if prev_is_repeatbefore and has_next and not next_is_punct:
-            # keep explicit order: \laorepeatbefore{}\ellipsis{}
-            out.append("\\ellipsis{}")
-            i += 1
-            continue
+        left_is_word = prev_ch != "" and not prev_is_punct
+        right_is_word = has_next and not next_is_punct
 
-        # General selection
-        if not has_next:
-            cmd = "\\ellbefore{}"
-        elif prev_is_punct and next_is_punct:
-            cmd = "\\ellall{}"
-        elif prev_is_punct:
-            cmd = "\\ellafter{}"
-        elif next_is_punct:
-            cmd = "\\ellbefore{}"
+        if left_is_word and right_is_word:
+            cmd = "\\elldotsLR{}"
+        elif left_is_word:
+            cmd = "\\elldotsL{}"
+        elif right_is_word:
+            cmd = "\\elldotsR{}"
         else:
-            cmd = "\\ellipsis{}"
+            cmd = "\\elldots{}"
 
         out.append(cmd)
         i += 1
 
     return "".join(out)
 
-def get_ellipsis_command(prev_is_punct: bool, next_is_punct: bool, has_next: bool = True) -> str:
+def get_ellipsis_command(
+    left_is_word: bool,
+    right_is_word: bool,
+) -> str:
     """
-    Selector for ellipsis variant when neighbors are already classified.
+    Selector for ellipsis variant when neighbors are
+    already classified.
 
     Args:
-        prev_is_punct: True if previous neighbor is punctuation
-        next_is_punct: True if next neighbor is punctuation
-        has_next:      False at paragraph/section end (default True)
+        left_is_word:  True if left neighbor is a word
+        right_is_word: True if right neighbor is a word
 
     Returns:
-        One of: \\ellipsis{}, \\ellafter{}, \\ellbefore{}, \\ellall{}
+        \\elldotsLR{}, \\elldotsL{}, \\elldotsR{},
+        or \\elldots{}
     """
-    if not has_next:
-        return "\\ellbefore{}"
-    if prev_is_punct and next_is_punct:
-        return "\\ellall{}"
-    if prev_is_punct:
-        return "\\ellafter{}"
-    if next_is_punct:
-        return "\\ellbefore{}"
-    return "\\ellipsis{}"
+    if left_is_word and right_is_word:
+        return "\\elldotsLR{}"
+    if left_is_word:
+        return "\\elldotsL{}"
+    if right_is_word:
+        return "\\elldotsR{}"
+    return "\\elldots{}"
 
 # ============================================================================
 # SPACE CONVERSION

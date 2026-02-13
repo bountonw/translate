@@ -132,48 +132,44 @@
 % LAO-SPECIFIC CHARACTERS
 % =============================================================================
 
-% -----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
 % Lao Repetition Mark (ໆ)
 % -----------------------------------------------------------------------------
 \newcommand{\laorepeat}{\nobreak{}ໆ\penalty-400\relax}
 \newcommand{\laorepeatbefore}{\nobreak{}ໆ}
 
 % -----------------------------------------------------------------------------
-% Lao Ellipsis (…)
+% Lao Ellipsis (...)
 % -----------------------------------------------------------------------------
-% Core: three dots with nano-stretch between them, kept nonbreaking
+% Naming: L = thin space on Left of dots, R = thin space on Right
+%
+% Core: three dots with nano-stretch, kept nonbreaking
 % Internal gap = 0.22em + tiny rubber (±0.02em/0.01em)
 % Wrapped in \mbox to prevent line breaks, protrusion disabled
-
 \DeclareRobustCommand{\laoellipsisrubber}[1][0.22em]{%
   {\microtypesetup{protrusion=false}%
    \mbox{.\hspace{#1 plus .02em minus .01em}.\hspace{#1 plus .02em minus .01em}.}}%
 }
-
-% Full ellipsis with side spacing
-\DeclareRobustCommand{\ellipsis}{%
+% Both sides spaced (word…word)
+\DeclareRobustCommand{\elldotsLR}{%
   \hspace{0.2em plus 0.1em minus 0.05em}%
   \mbox{\laoellipsisrubber}%
   \hspace{0.2em plus 0.1em minus 0.05em}%
 }
-
-% Ellipsis with following space only
-\DeclareRobustCommand{\ellbefore}{%
-  \mbox{\laoellipsisrubber}%
-  \hspace{0.2em plus 0.1em minus 0.05em}%
-}
-
-% Ellipsis with leading space only
-\DeclareRobustCommand{\ellafter}{%
+% Left space only (word…punct, word…EOL)
+\DeclareRobustCommand{\elldotsL}{%
   \hspace{0.2em plus 0.1em minus 0.05em}%
   \mbox{\laoellipsisrubber}%
 }
-
-% Bare ellipsis (no side spacing)
-\DeclareRobustCommand{\ellall}{%
+% Right space only (punct…word, BOL…word)
+\DeclareRobustCommand{\elldotsR}{%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+% Bare (punct…punct, punct…EOL)
+\DeclareRobustCommand{\elldots}{%
   \mbox{\laoellipsisrubber}%
 }
-
 
 % =============================================================================
 % SPECIAL FORMATTING COMMANDS
