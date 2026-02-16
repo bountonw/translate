@@ -176,6 +176,18 @@
   \mbox{\laoellipsisrubber}%
 }
 
+% Ender-left, no right space (;…punct, ;…EOL)
+\DeclareRobustCommand{\elldotsP}{%
+  \nobreak\hspace{0.22em plus .02em minus .01em}%
+  \mbox{\laoellipsisrubber}%
+}
+% Ender-left, right space (;…word)
+\DeclareRobustCommand{\elldotsPR}{%
+  \nobreak\hspace{0.22em plus .02em minus .01em}%
+  \mbox{\laoellipsisrubber}%
+  \hspace{0.2em plus 0.1em minus 0.05em}%
+}
+
 % =============================================================================
 % SPECIAL FORMATTING COMMANDS
 % =============================================================================

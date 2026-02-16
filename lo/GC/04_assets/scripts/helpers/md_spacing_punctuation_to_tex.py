@@ -1,4 +1,4 @@
-"""
+r"""
 md_spacing_punctuation_to_tex.py
 ---------------------------------
 
@@ -22,6 +22,8 @@ Commands Processed by This Helper:
     • \elldotsL{} - Ellipsis spaced left only (word…punct/EOL)
     • \elldotsR{} - Ellipsis spaced right only (punct…word)
     • \elldots{} - Bare ellipsis (punct…punct/EOL)
+    • \elldotsPR{} - Ender+ellipsis+space (;…word)
+    • \elldotsP{} - Ender+ellipsis bare (;…punct/EOL)
     • \laorepeat{} - Lao repetition mark (ໆ)
     • \laorepeatbefore{} - Lao repetition before punctuation
     
@@ -431,31 +433,36 @@ def needs_nobreak_protection(text: str) -> bool:
 # ============================================================================
 # ELLIPSES
 # ============================================================================
-
 def handle_ellipsis_with_context(text: str) -> str:
-"""
+    """
     Convert U+2026 ellipses to context-aware LaTeX commands.
 
     Rule: thin space on each side that faces a word.
       L = left side faces word, R = right side faces word.
+      P = left side faces an ender (;.?!,) — uses 0.22em
+          nobreak gap to match internal dot spacing.
 
     Variants:
-      - word … word   -> \\elldotsLR{}
+      - word … word    -> \\elldotsLR{}
       - word … punct   -> \\elldotsL{}
       - word … EOL     -> \\elldotsL{}
+      - ender … word   -> \\elldotsPR{}
+      - ender … punct  -> \\elldotsP{}
+      - ender … EOL    -> \\elldotsP{}
       - punct … word   -> \\elldotsR{}
       - punct … punct  -> \\elldots{}
       - punct … EOL    -> \\elldots{}
 
     Notes:
-      - Runs AFTER handle_lao_repetition_with_context(), so raw
-        ໆ is already \\laorepeat{} or \\laorepeatbefore{}.
-      - \\laorepeatbefore{} is treated as word-like (ໆ stands
-        for a repeated word, not punctuation).
+      - Runs AFTER handle_lao_repetition_with_context(),
+        so raw ໆ is already \\laorepeat{} or
+        \\laorepeatbefore{}.
+      - \\laorepeatbefore{} is treated as word-like (ໆ
+        stands for a repeated word, not punctuation).
       - Uses is_punctuation() from this module to classify
         neighbors.
       - Skips ASCII spaces when scanning neighbors.
-"""
+    """
     if not text:
         return text
 
@@ -466,14 +473,14 @@ def handle_ellipsis_with_context(text: str) -> str:
 
     def _scan_prev(idx: int):
         """
-        Find the nearest non-space item to the left.
-        Returns: (prev_char, prev_is_punct)
+        Find nearest non-space item to the left.
+        Returns: (prev_char, prev_is_punct, prev_is_ender)
         """
         j = idx - 1
         while j >= 0 and text[j] == " ":
             j -= 1
         if j < 0:
-            return ("", False)
+            return ("", False, False)
 
         if text[j] == "}":
             k = j - 1
@@ -482,15 +489,15 @@ def handle_ellipsis_with_context(text: str) -> str:
             if k >= 0:
                 macro = text[k:j + 1]
                 if macro == "\\laorepeatbefore{}":
-                    return ("ໆ", False)
-                return ("", False)
+                    return ("ໆ", False, False)
+                return ("", False, False)
 
         ch = text[j]
-        return (ch, is_punctuation(ch))
+        return (ch, is_punctuation(ch), ch in _ENDERS)
 
     def _scan_next(idx: int):
         """
-        Find the nearest non-space item to the right.
+        Find nearest non-space item to the right.
         Returns: (next_char, next_is_punct, has_next)
         """
         j = idx + 1
@@ -498,11 +505,8 @@ def handle_ellipsis_with_context(text: str) -> str:
             j += 1
         if j >= n:
             return ("", False, False)
-
-        # If next token starts a macro, treat as non-punctuation (neighbor exists)
         if text[j] == "\\":
             return ("", False, True)
-
         ch = text[j]
         return (ch, is_punctuation(ch), True)
 
@@ -513,20 +517,33 @@ def handle_ellipsis_with_context(text: str) -> str:
             i += 1
             continue
 
-prev_ch, prev_is_punct = _scan_prev(i)
-        next_ch, next_is_punct, has_next = _scan_next(i)
+        prev_ch, prev_is_punct, prev_is_ender = (
+            _scan_prev(i)
+        )
+        next_ch, next_is_punct, has_next = (
+            _scan_next(i)
+        )
 
-        left_is_word = prev_ch != "" and not prev_is_punct
+        left_is_word = (
+            prev_ch != "" and not prev_is_punct
+        )
         right_is_word = has_next and not next_is_punct
 
-        if left_is_word and right_is_word:
-            cmd = "\\elldotsLR{}"
+        if prev_is_ender:
+            if right_is_word:
+                cmd = "\\elldotsPR{}"
+            else:
+                cmd = "\\elldotsP{}"
         elif left_is_word:
-            cmd = "\\elldotsL{}"
-        elif right_is_word:
-            cmd = "\\elldotsR{}"
+            if right_is_word:
+                cmd = "\\elldotsLR{}"
+            else:
+                cmd = "\\elldotsL{}"
         else:
-            cmd = "\\elldots{}"
+            if right_is_word:
+                cmd = "\\elldotsR{}"
+            else:
+                cmd = "\\elldots{}"
 
         out.append(cmd)
         i += 1
@@ -536,22 +553,27 @@ prev_ch, prev_is_punct = _scan_prev(i)
 def get_ellipsis_command(
     left_is_word: bool,
     right_is_word: bool,
+    left_is_ender: bool = False,
 ) -> str:
     """
     Selector for ellipsis variant when neighbors are
     already classified.
 
     Args:
-        left_is_word:  True if left neighbor is a word
-        right_is_word: True if right neighbor is a word
+        left_is_word:   True if left neighbor is a word
+        right_is_word:  True if right neighbor is a word
+        left_is_ender:  True if left neighbor is ;.?!,
 
     Returns:
-        \\elldotsLR{}, \\elldotsL{}, \\elldotsR{},
-        or \\elldots{}
+        One of the six \\elldots variants.
     """
-    if left_is_word and right_is_word:
-        return "\\elldotsLR{}"
+    if left_is_ender:
+        if right_is_word:
+            return "\\elldotsPR{}"
+        return "\\elldotsP{}"
     if left_is_word:
+        if right_is_word:
+            return "\\elldotsLR{}"
         return "\\elldotsL{}"
     if right_is_word:
         return "\\elldotsR{}"
