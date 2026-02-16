@@ -642,11 +642,6 @@ def load_compound_phrases_list() -> List[str]:
                 if not line or line.startswith("#"):
                     continue
                 
-                # Debug: Check what we're reading for lines with our target text
-                if "ເອຊະຣາ" in line and "ຮານລ໌" in line:
-                    print(f"DEBUG: Line {line_num} raw: {repr(raw.strip())}")
-                    print(f"DEBUG: Looking for pipe: {'|' in line}")
-                
                 # Strip trailing comment first
                 if "%" in line:
                     line = line.split("%", 1)[0].rstrip()
@@ -680,21 +675,12 @@ def load_compound_phrases_list() -> List[str]:
                 if left:
                     left = re.sub(r"\s+", " ", left)
                     
-                    # Debug for our target phrase
-                    if "ເອຊະຣາ" in left and "ຮານລ໌" in left:
-                        print(f"DEBUG: Extracted left side: '{left}'")
-                    
                     # Only add if it has multiple words
                     if " " in left:
                         phrases.append(left)
 
         # Deduplicate and prefer longer phrases first (more tokens -> earlier)
         phrases = sorted(set(phrases), key=lambda s: (-len(s.split()), s))
-        
-        # Final debug: check if our target is in the final list
-        target = "ເອຊະຣາ ຮານລ໌ ຈີເລັດ"
-        if target in phrases:
-            print(f"DEBUG: SUCCESS - Target phrase '{target}' is in final phrases list")
         
         return phrases
     except Exception as e:
@@ -731,23 +717,6 @@ def apply_compound_cs_joins(text: str, phrases: List[str]) -> str:
     # Gaps inside a phrase may be one-or-more spaces or tabs (not newlines).
     gap_pattern = r"[ \t]+"
     
-    # Debug: Check if the target phrase is in the phrases list
-    target_phrase = "ເອຊະຣາ ຮານລ໌ ຈີເລັດ"
-    if target_phrase in phrases:
-        print(f"DEBUG: Target phrase '{target_phrase}' found in phrases list")
-    else:
-        print(f"DEBUG: Target phrase '{target_phrase}' NOT in phrases list")
-        # Show what we have that's similar
-        for p in phrases:
-            if "ເອຊະຣາ" in p or "ຮານລ໌" in p or "ຈີເລັດ" in p:
-                print(f"  Found similar: '{p}'")
-    
-    # Debug: Check if the target phrase exists in the text
-    if target_phrase in text:
-        print(f"DEBUG: Target phrase found in text at position {text.index(target_phrase)}")
-    else:
-        print(f"DEBUG: Target phrase NOT found in text (might have different spacing)")
-
     for phrase in phrases:
         tokens = phrase.split(" ")
         if len(tokens) < 2:
@@ -756,27 +725,13 @@ def apply_compound_cs_joins(text: str, phrases: List[str]) -> str:
         # Build a flexible regex for the phrase: token1 <gap> token2 (<gap> tokenN)...
         core_tokens_regex = gap_pattern.join(re.escape(tok) for tok in tokens)
         phrase_regex = re.compile(core_tokens_regex, flags=re.UNICODE)
-        
-        # Debug: Check for matches
-        matches = list(phrase_regex.finditer(result_text))
-        if matches and "ເອຊະຣາ" in phrase:
-            print(f"DEBUG: Found {len(matches)} matches for phrase '{phrase}'")
-            for m in matches:
-                print(f"  Match: '{m.group(0)}' at position {m.start()}-{m.end()}")
 
         def replace_internal_gaps(match: re.Match) -> str:
             matched_text = match.group(0)
-            # Debug output for our target phrase
-            if "ເອຊະຣາ" in matched_text and "ຮານລ໌" in matched_text:
-                print(f"DEBUG: Replacing gaps in '{matched_text}'")
             # Collapse every inter-token gap to a single \cs{}
             result = re.sub(gap_pattern, r"\\cs{}", matched_text)
-            if "ເອຊະຣາ" in matched_text and "ຮານລ໌" in matched_text:
-                print(f"DEBUG: Result: '{result}'")
             return result
-
         result_text = phrase_regex.sub(replace_internal_gaps, result_text)
-
     return result_text
 
 def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
