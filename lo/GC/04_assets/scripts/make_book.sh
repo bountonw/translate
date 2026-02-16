@@ -5,12 +5,17 @@ echo "Making full book PDF including individual chapter PDFs for each chapter...
 
 # https://stackoverflow.com/a/7069755/3938401
 use_existing_tex_files=false
+debug_flag=""
 CHAP_NUM=42 # set to 42 for full book or a small number for testing
 while test $# -gt 0; do
   case "$1" in
     --use-existing-tex-files)
       use_existing_tex_files=true
       echo "Skipping remake of individual chapter tex files..."
+      shift
+      ;;
+    --debug)
+      debug_flag="--debug"
       shift
       ;;
     --max-chapter-override)
@@ -31,12 +36,12 @@ logfolder="pdf/logs/${timestamp}"
 # Now make introduction
 if [ "${use_existing_tex_files}" = false ]
 then
-    mkdir -p "${logfolder}" # make if does not exist already; logs are only output (right now) by make_pdf 
+    mkdir -p "${logfolder}" # make if does not exist already; logs are only output (right now) by make_pdf
     # so don't need folder made if using existing tex files
     for ((i=1;i<=CHAP_NUM;i++)); do
         echo "Processing chapter ${i}..."
         chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
-        scripts/make_pdf.sh "GC${chapNum}" --log-folder "${logfolder}"
+        scripts/make_pdf.sh "GC${chapNum}" ${debug_flag} --log-folder "${logfolder}"
         # Run LuaLaTeX with output directory
         echo "Making PDF for chapter ${i}..."
         if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then
@@ -57,7 +62,7 @@ fi
 # Now make introduction
 if [ "${use_existing_tex_files}" = false ]; then
     echo "Processing intro..."
-    scripts/make_pdf.sh "GC00_introduction" --log-folder "${logfolder}"
+    scripts/make_pdf.sh "GC00_introduction" ${debug_flag} --log-folder "${logfolder}"
     # Run LuaLaTeX with output directory
     echo "Making PDF for chapter ${i}..."
     if ! lualatex -output-directory=pdf/logs "temp/tex/GC00_introduction.tex"; then
@@ -96,7 +101,7 @@ fi
 
 echo "Running Module 3 to create one giant book..."
 chapNumLeadingZero=$(printf "%02d" $CHAP_NUM)
-if ! python3 scripts/module3_preprocess.py "GC[01..${chapNumLeadingZero}]" --debug --full; then
+if ! python3 scripts/module3_preprocess.py "GC[01..${chapNumLeadingZero}]" ${debug_flag} --full; then
     echo "ERROR: Module 3 failed for $1"
     exit 1
 fi
