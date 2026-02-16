@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Module 1: YAML Header Extraction & Initial Cleanup
 Lao Language TeX Preprocessing Pipeline
 
