@@ -1,4 +1,4 @@
-"""
+r"""
 md_spacing_punctuation_to_tex.py
 ---------------------------------
 
@@ -18,9 +18,12 @@ Commands Processed by This Helper:
     
     PUNCTUATION COMMANDS:
     • \nobreak{} - Prevent line breaks before/after punctuation
-    • \ellipsis{} - Standard ellipsis (…)
-    • \ellbefore{} - Ellipsis before punctuation
-    • \ellafter{} - Ellipsis after punctuation
+    • \elldotsLR{} - Ellipsis spaced both sides (word…word)
+    • \elldotsL{} - Ellipsis spaced left only (word…punct/EOL)
+    • \elldotsR{} - Ellipsis spaced right only (punct…word)
+    • \elldots{} - Bare ellipsis (punct…punct/EOL)
+    • \elldotsPR{} - Ender+ellipsis+space (;…word)
+    • \elldotsP{} - Ender+ellipsis bare (;…punct/EOL)
     • \laorepeat{} - Lao repetition mark (ໆ)
     • \laorepeatbefore{} - Lao repetition before punctuation
     
@@ -430,28 +433,35 @@ def needs_nobreak_protection(text: str) -> bool:
 # ============================================================================
 # ELLIPSES
 # ============================================================================
-
 def handle_ellipsis_with_context(text: str) -> str:
     """
     Convert U+2026 ellipses to context-aware LaTeX commands.
 
-    Variants (selection policy):
-      - prev punct, next not            -> \\ellafter{}
-      - next punct, prev not            -> \\ellbefore{}
-      - both sides punct                -> \\ellall{}   (tight both sides)
-      - no next (paragraph/section end) -> \\ellbefore{}
-      - special: \\laorepeatbefore{} … text   -> \\laorepeatbefore{}\\ellipsis{}
-      - special: \\laorepeatbefore{} … punct  -> \\laorepeatbefore{}\\ellall{}
+    Rule: thin space on each side that faces a word.
+      L = left side faces word, R = right side faces word.
+      P = left side faces an ender (;.?!,) — uses 0.22em
+          nobreak gap to match internal dot spacing.
+
+    Variants:
+      - word … word    -> \\elldotsLR{}
+      - word … punct   -> \\elldotsL{}
+      - word … EOL     -> \\elldotsL{}
+      - ender … word   -> \\elldotsPR{}
+      - ender … punct  -> \\elldotsP{}
+      - ender … EOL    -> \\elldotsP{}
+      - punct … word   -> \\elldotsR{}
+      - punct … punct  -> \\elldots{}
+      - punct … EOL    -> \\elldots{}
 
     Notes:
-      - Runs AFTER handle_lao_repetition_with_context(), so raw ໆ has already
-        become \\laorepeat{} / \\laorepeatbefore{}.
-      - Uses is_punctuation() from this module to classify neighbors.
-      - Skips ASCII spaces when scanning neighbors. Macros (\\something{...})
-        are treated as non-punctuation for neighbor tests, except the explicit
-        look-back for \\laorepeatbefore{} (special cases above).
-      - Macro internals (e.g., any \\nobreak{} policy) live in TeX; we only pick
-        the correct macro flavor here.
+      - Runs AFTER handle_lao_repetition_with_context(),
+        so raw ໆ is already \\laorepeat{} or
+        \\laorepeatbefore{}.
+      - \\laorepeatbefore{} is treated as word-like (ໆ
+        stands for a repeated word, not punctuation).
+      - Uses is_punctuation() from this module to classify
+        neighbors.
+      - Skips ASCII spaces when scanning neighbors.
     """
     if not text:
         return text
@@ -463,8 +473,8 @@ def handle_ellipsis_with_context(text: str) -> str:
 
     def _scan_prev(idx: int):
         """
-        Find the nearest non-space item to the left.
-        Returns: (prev_char, prev_is_punct, prev_is_repeatbefore)
+        Find nearest non-space item to the left.
+        Returns: (prev_char, prev_is_punct, prev_is_ender)
         """
         j = idx - 1
         while j >= 0 and text[j] == " ":
@@ -472,25 +482,22 @@ def handle_ellipsis_with_context(text: str) -> str:
         if j < 0:
             return ("", False, False)
 
-        # If we landed on the end of a macro, check for \laorepeatbefore{}
         if text[j] == "}":
             k = j - 1
-            # hop back to a backslash beginning this (flat) macro
             while k >= 0 and text[k] != "\\":
                 k -= 1
             if k >= 0:
                 macro = text[k:j + 1]
                 if macro == "\\laorepeatbefore{}":
-                    return ("", False, True)
-                # other macros: treat as non-punctuation context
+                    return ("ໆ", False, False)
                 return ("", False, False)
 
         ch = text[j]
-        return (ch, is_punctuation(ch), False)
+        return (ch, is_punctuation(ch), ch in _ENDERS)
 
     def _scan_next(idx: int):
         """
-        Find the nearest non-space item to the right.
+        Find nearest non-space item to the right.
         Returns: (next_char, next_is_punct, has_next)
         """
         j = idx + 1
@@ -498,11 +505,8 @@ def handle_ellipsis_with_context(text: str) -> str:
             j += 1
         if j >= n:
             return ("", False, False)
-
-        # If next token starts a macro, treat as non-punctuation (neighbor exists)
         if text[j] == "\\":
             return ("", False, True)
-
         ch = text[j]
         return (ch, is_punctuation(ch), True)
 
@@ -513,59 +517,67 @@ def handle_ellipsis_with_context(text: str) -> str:
             i += 1
             continue
 
-        prev_ch, prev_is_punct, prev_is_repeatbefore = _scan_prev(i)
-        next_ch, next_is_punct, has_next = _scan_next(i)
+        prev_ch, prev_is_punct, prev_is_ender = (
+            _scan_prev(i)
+        )
+        next_ch, next_is_punct, has_next = (
+            _scan_next(i)
+        )
 
-        # Special cases with \laorepeatbefore{} immediately to the left
-        if prev_is_repeatbefore and next_is_punct:
-            cmd = "\\ellall{}"
-            out.append(cmd)
-            i += 1
-            continue
-        if prev_is_repeatbefore and has_next and not next_is_punct:
-            # keep explicit order: \laorepeatbefore{}\ellipsis{}
-            out.append("\\ellipsis{}")
-            i += 1
-            continue
+        left_is_word = (
+            prev_ch != "" and not prev_is_punct
+        )
+        right_is_word = has_next and not next_is_punct
 
-        # General selection
-        if not has_next:
-            cmd = "\\ellbefore{}"
-        elif prev_is_punct and next_is_punct:
-            cmd = "\\ellall{}"
-        elif prev_is_punct:
-            cmd = "\\ellafter{}"
-        elif next_is_punct:
-            cmd = "\\ellbefore{}"
+        if prev_is_ender:
+            if right_is_word:
+                cmd = "\\elldotsPR{}"
+            else:
+                cmd = "\\elldotsP{}"
+        elif left_is_word:
+            if right_is_word:
+                cmd = "\\elldotsLR{}"
+            else:
+                cmd = "\\elldotsL{}"
         else:
-            cmd = "\\ellipsis{}"
+            if right_is_word:
+                cmd = "\\elldotsR{}"
+            else:
+                cmd = "\\elldots{}"
 
         out.append(cmd)
         i += 1
 
     return "".join(out)
 
-def get_ellipsis_command(prev_is_punct: bool, next_is_punct: bool, has_next: bool = True) -> str:
+def get_ellipsis_command(
+    left_is_word: bool,
+    right_is_word: bool,
+    left_is_ender: bool = False,
+) -> str:
     """
-    Selector for ellipsis variant when neighbors are already classified.
+    Selector for ellipsis variant when neighbors are
+    already classified.
 
     Args:
-        prev_is_punct: True if previous neighbor is punctuation
-        next_is_punct: True if next neighbor is punctuation
-        has_next:      False at paragraph/section end (default True)
+        left_is_word:   True if left neighbor is a word
+        right_is_word:  True if right neighbor is a word
+        left_is_ender:  True if left neighbor is ;.?!,
 
     Returns:
-        One of: \\ellipsis{}, \\ellafter{}, \\ellbefore{}, \\ellall{}
+        One of the six \\elldots variants.
     """
-    if not has_next:
-        return "\\ellbefore{}"
-    if prev_is_punct and next_is_punct:
-        return "\\ellall{}"
-    if prev_is_punct:
-        return "\\ellafter{}"
-    if next_is_punct:
-        return "\\ellbefore{}"
-    return "\\ellipsis{}"
+    if left_is_ender:
+        if right_is_word:
+            return "\\elldotsPR{}"
+        return "\\elldotsP{}"
+    if left_is_word:
+        if right_is_word:
+            return "\\elldotsLR{}"
+        return "\\elldotsL{}"
+    if right_is_word:
+        return "\\elldotsR{}"
+    return "\\elldots{}"
 
 # ============================================================================
 # SPACE CONVERSION
@@ -630,11 +642,6 @@ def load_compound_phrases_list() -> List[str]:
                 if not line or line.startswith("#"):
                     continue
                 
-                # Debug: Check what we're reading for lines with our target text
-                if "ເອຊະຣາ" in line and "ຮານລ໌" in line:
-                    print(f"DEBUG: Line {line_num} raw: {repr(raw.strip())}")
-                    print(f"DEBUG: Looking for pipe: {'|' in line}")
-                
                 # Strip trailing comment first
                 if "%" in line:
                     line = line.split("%", 1)[0].rstrip()
@@ -668,21 +675,12 @@ def load_compound_phrases_list() -> List[str]:
                 if left:
                     left = re.sub(r"\s+", " ", left)
                     
-                    # Debug for our target phrase
-                    if "ເອຊະຣາ" in left and "ຮານລ໌" in left:
-                        print(f"DEBUG: Extracted left side: '{left}'")
-                    
                     # Only add if it has multiple words
                     if " " in left:
                         phrases.append(left)
 
         # Deduplicate and prefer longer phrases first (more tokens -> earlier)
         phrases = sorted(set(phrases), key=lambda s: (-len(s.split()), s))
-        
-        # Final debug: check if our target is in the final list
-        target = "ເອຊະຣາ ຮານລ໌ ຈີເລັດ"
-        if target in phrases:
-            print(f"DEBUG: SUCCESS - Target phrase '{target}' is in final phrases list")
         
         return phrases
     except Exception as e:
@@ -719,23 +717,6 @@ def apply_compound_cs_joins(text: str, phrases: List[str]) -> str:
     # Gaps inside a phrase may be one-or-more spaces or tabs (not newlines).
     gap_pattern = r"[ \t]+"
     
-    # Debug: Check if the target phrase is in the phrases list
-    target_phrase = "ເອຊະຣາ ຮານລ໌ ຈີເລັດ"
-    if target_phrase in phrases:
-        print(f"DEBUG: Target phrase '{target_phrase}' found in phrases list")
-    else:
-        print(f"DEBUG: Target phrase '{target_phrase}' NOT in phrases list")
-        # Show what we have that's similar
-        for p in phrases:
-            if "ເອຊະຣາ" in p or "ຮານລ໌" in p or "ຈີເລັດ" in p:
-                print(f"  Found similar: '{p}'")
-    
-    # Debug: Check if the target phrase exists in the text
-    if target_phrase in text:
-        print(f"DEBUG: Target phrase found in text at position {text.index(target_phrase)}")
-    else:
-        print(f"DEBUG: Target phrase NOT found in text (might have different spacing)")
-
     for phrase in phrases:
         tokens = phrase.split(" ")
         if len(tokens) < 2:
@@ -744,27 +725,13 @@ def apply_compound_cs_joins(text: str, phrases: List[str]) -> str:
         # Build a flexible regex for the phrase: token1 <gap> token2 (<gap> tokenN)...
         core_tokens_regex = gap_pattern.join(re.escape(tok) for tok in tokens)
         phrase_regex = re.compile(core_tokens_regex, flags=re.UNICODE)
-        
-        # Debug: Check for matches
-        matches = list(phrase_regex.finditer(result_text))
-        if matches and "ເອຊະຣາ" in phrase:
-            print(f"DEBUG: Found {len(matches)} matches for phrase '{phrase}'")
-            for m in matches:
-                print(f"  Match: '{m.group(0)}' at position {m.start()}-{m.end()}")
 
         def replace_internal_gaps(match: re.Match) -> str:
             matched_text = match.group(0)
-            # Debug output for our target phrase
-            if "ເອຊະຣາ" in matched_text and "ຮານລ໌" in matched_text:
-                print(f"DEBUG: Replacing gaps in '{matched_text}'")
             # Collapse every inter-token gap to a single \cs{}
             result = re.sub(gap_pattern, r"\\cs{}", matched_text)
-            if "ເອຊະຣາ" in matched_text and "ຮານລ໌" in matched_text:
-                print(f"DEBUG: Result: '{result}'")
             return result
-
         result_text = phrase_regex.sub(replace_internal_gaps, result_text)
-
     return result_text
 
 def convert_ascii_spaces_to_spacecmd_with_protections(text: str) -> str:
