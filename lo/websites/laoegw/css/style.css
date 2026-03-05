@@ -53,3 +53,8 @@ nav.toc a:hover {
 p.chapter-links a.next-chapter-link {
   float: right;
 }
+
+span.egw {
+  color: rgb(51, 51, 51); /* 51 is 80% of black */
+  font-size: .8rem;
+}
