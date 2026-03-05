@@ -31,6 +31,8 @@ static string RemoveLwAndPTagsInText(string txt)
     }
     txt = Regex.Replace(txt, "\\\\lw{(.*?)}", m => $"{m.Groups[1].Value}");
     txt = Regex.Replace(txt, "\\\\p{(-?.*?)}", m => $"");
+    txt = txt.Replace("\\s", "");
+    txt = txt.Replace("\\S", "");
     return txt;
 }
 
