@@ -57,4 +57,5 @@ p.chapter-links a.next-chapter-link {
 span.egw {
   color: rgb(51, 51, 51); /* 51 is 80% of black */
   font-size: .8rem;
+  vertical-align: middle;
 }
