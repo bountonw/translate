@@ -198,6 +198,7 @@ static void ConvertFiles(Options args)
         // fix header <title> element
         var chapterTitle = metadata["lo"];
         var numberWithLoTitle = chapterNumber > 0 ? $"{chapterNumber}: {chapterTitle}" : $"{chapterTitle}";
+        numberWithLoTitle = RemoveLwAndPTagsInText(numberWithLoTitle);
         headerText = Regex.Replace(headerText, "<title>(.*?)</title>", $"<title>{numberWithLoTitle}</title>");
         // actually create output now
         var outputFileContents =
