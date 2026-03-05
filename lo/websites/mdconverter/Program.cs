@@ -188,6 +188,8 @@ static void ConvertFiles(Options args)
         chapterHtml = chapterHtml.Replace("h3", "h2");
         // find all egw reference text with format of {AB ##.#} and put into an egw tag
         chapterHtml = Regex.Replace(chapterHtml, "{([A-z]* \\d*.\\d*)}", m => $"<span class=\"egw\">{m.Groups[0].Value}</span>");
+        // find any remaining \emph tags and put it in <em></em> tags
+        chapterHtml = Regex.Replace(chapterHtml, "\\\\emph{(.*?)}", m => $"<em>{m.Groups[1].Value}</em>");
         var headerText = File.ReadAllText(headerFilePath);
         foreach (var replace in headerTextReplacements)
         {
