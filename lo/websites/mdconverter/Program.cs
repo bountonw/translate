@@ -23,6 +23,17 @@ static void HandleParseError(IEnumerable<Error> errs)
     errs.Output();
 }
 
+static string RemoveLwAndPTagsInText(string txt)
+{
+    if (string.IsNullOrWhiteSpace(txt))
+    {
+        return "";
+    }
+    txt = Regex.Replace(txt, "\\\\lw{(.*?)}", m => $"{m.Groups[1].Value}");
+    txt = Regex.Replace(txt, "\\\\p{(-?.*?)}", m => $"");
+    return txt;
+}
+
 static void ConvertFiles(Options args)
 {
     var mdFolderPath = ReplaceUnixHomeDir(args.MdFolderPath ?? "");
@@ -156,11 +167,7 @@ static void ConvertFiles(Options args)
                     {
                         outputLine = line[4..];
                     }
-                    if (line.Contains("lw{"))
-                    {
-                        outputLine = Regex.Replace(outputLine, "\\\\lw{(.*?)}", m => $"{m.Groups[1].Value}");
-                        outputLine = Regex.Replace(outputLine, "\\\\p{200(.*?)}", m => $"{m.Groups[1].Value}");
-                    }
+                    outputLine = RemoveLwAndPTagsInText(outputLine);
                     chapterContents.Add(outputLine);
                 }
             }
@@ -216,7 +223,7 @@ static void ConvertFiles(Options args)
             {
                 prevChapLink = prevChapLink.Replace(currChapDirName + "/", "");
             }
-            var prevChapterName = chapterData[prevChapNum].Item1["lo"];
+            var prevChapterName = RemoveLwAndPTagsInText(chapterData[prevChapNum].Item1["lo"]);
             linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{prevChapLink}\">{prevChapNum}: {prevChapterName}</a>";
         }
         if (chapterNumber != lastChapterNumber)
@@ -228,7 +235,7 @@ static void ConvertFiles(Options args)
             {
                 nextChapLink = nextChapLink.Replace(currChapDirName + "/", "");
             }
-            var nextChapterName = chapterData[nextChapNum].Item1["lo"];
+            var nextChapterName = RemoveLwAndPTagsInText(chapterData[nextChapNum].Item1["lo"]);
             linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{nextChapLink}\">{nextChapNum}: {nextChapterName}</a>";
         }
         outputFileContents += linksToPrevNext;
