@@ -192,7 +192,7 @@ static void ConvertFiles(Options args)
         chapterHtml = Regex.Replace(chapterHtml, "{([A-z]* \\d*.\\d*)}", m => $"<span class=\"egw\">{m.Groups[0].Value}</span>");
         // find any remaining \emph tags and put it in <em></em> tags
         chapterHtml = Regex.Replace(chapterHtml, "\\\\emph{(.*?)}", m => $"<em>{m.Groups[1].Value}</em>");
-        chapterHtml = Regex.Replace(chapterHtml, "\\\\thai{(.*?)}", m => $"<span class=\"thai\">{m.Groups[1].Value}</span>");
+        chapterHtml = Regex.Replace(chapterHtml, "\\\\thai{(.*?)}", m => $"<span lang=\"th\" class=\"thai\">{m.Groups[1].Value}</span>");
         // fix nbsp tags
         chapterHtml = chapterHtml.Replace("\\nbsp", "&nbsp;");
         var headerText = File.ReadAllText(headerFilePath);
