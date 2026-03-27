@@ -1,0 +1,2230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?aid style="50" type="snippet" readerVersion="6.0" featureSet="513" product="8.0(370)" ?>
+<?aid SnippetType="InCopyInterchange"?>
+<Document DOMVersion="8.0" Self="pandoc_doc">
+    <RootCharacterStyleGroup Self="pandoc_character_styles">
+      <CharacterStyle Self="$ID/NormalCharacterStyle" Name="Default" />
+      <CharacterStyle Self="CharacterStyle/Forbidden Break" Name="Forbidden Break">
+        <Properties>
+          <BasedOn type="object">$ID/NormalCharacterStyle</BasedOn>
+        </Properties>
+      </CharacterStyle>
+      <CharacterStyle Self="CharacterStyle/Forbidden Break Italic" Name="Forbidden Break Italic" FontStyle="Italic">
+        <Properties>
+          <BasedOn type="object">$ID/NormalCharacterStyle</BasedOn>
+        </Properties>
+      </CharacterStyle>
+      <CharacterStyle Self="CharacterStyle/Italic" Name="Italic" FontStyle="Italic">
+        <Properties>
+          <BasedOn type="object">$ID/NormalCharacterStyle</BasedOn>
+        </Properties>
+      </CharacterStyle>
+    </RootCharacterStyleGroup>
+    <RootParagraphStyleGroup Self="pandoc_paragraph_styles">
+      <ParagraphStyle Self="$ID/NormalParagraphStyle" Name="$ID/NormalParagraphStyle"
+          SpaceBefore="6" SpaceAfter="6"> <!-- paragraph spacing -->
+        <Properties>
+          <TabList type="list">
+            <ListItem type="record">
+              <Alignment type="enumeration">LeftAlign</Alignment>
+              <AlignmentCharacter type="string">.</AlignmentCharacter>
+              <Leader type="string"></Leader>
+              <Position type="unit">10</Position> <!-- first tab stop -->
+            </ListItem>
+          </TabList>
+        </Properties>
+      </ParagraphStyle>
+      <ParagraphStyle Self="ParagraphStyle/First &gt; Paragraph" Name="First &gt; Paragraph" LeftIndent="0">
+        <Properties>
+          <BasedOn type="object">$ID/NormalParagraphStyle</BasedOn>
+        </Properties>
+      </ParagraphStyle>
+      <ParagraphStyle Self="ParagraphStyle/Header1" Name="Header1" LeftIndent="0" PointSize="36">
+        <Properties>
+          <BasedOn type="object">$ID/NormalParagraphStyle</BasedOn>
+        </Properties>
+      </ParagraphStyle>
+      <ParagraphStyle Self="ParagraphStyle/Header2" Name="Header2" LeftIndent="0" PointSize="30">
+        <Properties>
+          <BasedOn type="object">$ID/NormalParagraphStyle</BasedOn>
+        </Properties>
+      </ParagraphStyle>
+      <ParagraphStyle Self="ParagraphStyle/Header3" Name="Header3" LeftIndent="0" PointSize="24">
+        <Properties>
+          <BasedOn type="object">$ID/NormalParagraphStyle</BasedOn>
+        </Properties>
+      </ParagraphStyle>
+      <ParagraphStyle Self="ParagraphStyle/Paragraph" Name="Paragraph" LeftIndent="0">
+        <Properties>
+          <BasedOn type="object">$ID/NormalParagraphStyle</BasedOn>
+        </Properties>
+      </ParagraphStyle>
+    </RootParagraphStyleGroup>
+    <RootTableStyleGroup Self="pandoc_table_styles">
+      <TableStyle Self="TableStyle/Table" Name="Table" />
+    </RootTableStyleGroup>
+    <RootCellStyleGroup Self="pandoc_cell_styles">
+      <CellStyle Self="CellStyle/Cell" AppliedParagraphStyle="ParagraphStyle/$ID/[No paragraph style]" Name="Cell" />
+    </RootCellStyleGroup>
+  <Story Self="pandoc_story"
+      TrackChanges="false"
+      StoryTitle=""
+      AppliedTOCStyle="n"
+      AppliedNamedGrid="n" >
+    <StoryPreference OpticalMarginAlignment="true" OpticalMarginSize="12" />
+
+<!-- body needs to be non-indented, otherwise code blocks are indented too far -->
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header2">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>3</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header1">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>การทดลองและการตกสู่ความบาป</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>การเคลื่อนไหวของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/First &gt; Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านไม่อาจก่อการกบฏในสวรรค์ได้อย่างเสรีอีกต่อไป มันจึงหันไปวางอุบายเพื่อทำลายมนุษยชาติด้วยความจงเกลียดจงชังที่มันมีต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านเห็นคู่บริสุทธิ์ในสวนเอเดนมีสันติสุข แล้วก็ย้อนคิดถึงความสุขสำราญที่ตนสูญเสียไปอย่างไม่มีวันหวนกลับ ด้วยความอิจฉาริษยามันจึงตัดสินใจยุยงอาดัมกับเอวาให้ฝ่าฝืน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า ซึ่งจะนำความผิดและโทษของความบาปให้ตกมาสู่พวกท่าน มันหมายมั่นที่จะหันเหความรักที่ทั้งสองมีต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าให้กลายเป็นความระแวงแคลงใจและให้เสียงเพลงสรรเสริญกลายเป็นเสียงบ่นต่อว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้างแทน ด้วยเหตุนี้มันจะไม่เพียงแต่นำผู้ไร้เดียงสาให้ถลำเข้ามาในความทุกข์ระทมที่ตนเองกำลังเผชิญอยู่เท่านั้น แต่ยังจะประณามหยามเหยียด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าและก่อความเศร้าสลดขึ้นในสวรรค์ด้วย {PP 52.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บรรพบุรุษคู่แรกของเรามิได้อยู่โดยปราศจากคำตักเตือนให้ระวังอันตรายที่กำลังคุกคามอยู่ ทูตสวรรค์มาเผยประวัติการทรยศของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านพร้อมกับชี้ให้เห็นถึงกลอุบายที่จะทำลายพวกท่านโดยอธิบายถึงลักษณะการปกครองของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าซึ่งเจ้าแห่งความชั่วร้าย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามล้มล้างอยู่ในขณะนั้น เพราะด้วยการฝ่าฝืน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติอันทรง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้านั่นเอง </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านและสมัครพรรคพวกจึงได้ตกสู่ความบาป ดังนั้นจึงเป็นเรื่องสำคัญยิ่งที่อาดัมกับเอวาควรต้องเคารพนับถือ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัตินั้น ซึ่งเป็นทางเดียวที่จะคงไว้ซึ่งระเบียบวินัยและความเที่ยง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รม {PP 52.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทรงทดสอบการเชื่อฟัง</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าศักดิ์สิทธิ์เท่าเทียมกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เอง ทั้งเผยให้เห็นน้ำ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ พร้อมกับแสดงออกถึงความรักและ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ปัญญาของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติและ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ลักษณะนิสัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เป็นแบบพิมพ์เดียวกัน บรรดาสรรพสิ่งที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงสร้างทั้งหลายทั้งปวงทั้งที่มีชีวิตและไม่มีชีวิตนั้น จะประสานกลมเกลียวกันได้ก็ต่อเมื่อทุกอย่างสอดคล้องกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้างทุกประการ ในการปกครองของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้านั้น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ทรงกำหนดกฎบัญญัติต่างๆ มิเพียงแต่สำหรับสิ่งมีชีวิตเท่านั้น แต่สำหรับกระบวนการทั้งหลายของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติด้วย สรรพสิ่งทั้งมวลอยู่ภายใต้กฎบัญญัติตายตัวที่ไม่อาจปฏิเสธได้ ถึงแม้ว่าสิ่งสารพัดขึ้นอยู่กับกฎ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติ แต่ท่ามกลางชีวิตทั้งหลายที่อาศัยอยู่ในโลกมีแต่มนุษย์เท่านั้นที่ต้องรับผิดชอบต่อกฎศีล</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รม </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงโปรดประทานให้มนุษย์มีความสามารถที่จะเข้าใจกฎเกณฑ์ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ได้ในฐานะที่เขาเป็นผลงานการทรงสร้างที่สำคัญที่สุด ทั้งยังสามารถตระหนักถึงประโยชน์และความยุติ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมแห่ง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์และเข้าใจว่าตนต้องซื่อสัตย์ต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติอันศักดิ์สิทธิ์นั้นแต่โดยดี {PP 52.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าประทานเวลาเพื่อพิสูจน์ความซื่อสัตย์ของชาวสวนเอเดน เช่นเดียวกับที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เคยประทานเวลาเพื่อพิสูจน์ความจงรักภักดีของเหล่าทูตสวรรค์ ถ้าเพียงแต่อาดัมกับเอวายึดเงื่อนไขนี้ไว้ คือซื่อสัตย์ต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้าง ท่านก็คงสามารถสงวนความสงบสุขของสวนเอเดนเอาไว้ได้ ท่านจะเชื่อฟังแล้วดำรงชีวิตต่อไปหรือจะฝ่าฝืนต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติแล้วพินาศก็ได้ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงอวย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>พรท่านอย่างเหลือล้น แต่หากเพิกเฉยต่อน้ำ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าแล้ว </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ผู้ทรงปล่อยเหล่าทูตสวรรค์ที่ทำบาปให้รับโทษก็จะไม่อาจช่วยท่านได้เช่นเดียวกัน การฝ่าฝืน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติจะเป็นเหตุให้ต้องสูญเสียของประทานจาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า และจะนำความทุกข์ทรมานและความพินาศมาให้ {PP 53.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เหล่าทูตสวรรค์เตือนท่านทั้งสองให้ระวังระไวให้ดีมิให้ประมาทต่อกลอุบายของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน เพราะมันจะหาทางหลอกล่อท่านอยู่อย่างไม่หยุดหย่อน เจ้าแห่งความชั่วนั้นไม่อาจทำอันตรายใดๆ แก่ท่านได้ ตราบใดที่ท่านยังคงเชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าอยู่ เพราะถ้าจำเป็น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าจะทรงใช้ทูตสวรรค์ทุกองค์ในสวรรค์ลงมาเพื่อช่วยเหลือท่าน ถ้าเพียงแต่ท่านปฏิเสธชั้นเชิงของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านระยะแรกได้อย่างแน่วแน่ ท่านก็คงจะปลอดภัยอย่างเดียวกับเหล่าทูตสวรรค์ แต่ถ้ายอมต่อการทดลองแม้เพียงครั้งเดียว </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติของท่านก็จะเสื่อมลงจนกระทั่งไม่มีอำนาจหรือความปรารถนาที่จะต้าน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านได้ {PP 53.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงให้ต้นไม้แห่งความรู้ดีรู้ชั่วเป็นเครื่องทดสอบการเชื่อฟังและความรักที่ท่านทั้งสองมีต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ทรงเห็นควรที่จะกำหนดข้อห้ามไว้เพียงข้อเดียวเกี่ยวกับการใช้สิ่งที่อยู่ในสวน แต่หากท่านทั้งสองมองข้ามน้ำ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าในข้อนี้ ก็จะต้องรับโทษของการฝ่าฝืน </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่ทรงอนุญาตให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านคอยติดตามทดลองอาดัมกับเอวาอยู่ตลอดเวลา แต่จะเข้าหาได้เฉพาะที่ต้นไม้หวงห้ามต้นนั้น ถ้าท่านขืนลองไปสำรวจต้นไม้ต้นนั้นเข้าก็จะเป็นการเปิดตัวเองให้กับเล่ห์กลของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน ทูตสวรรค์ได้กำชับให้เอาใจใส่ต่อคำตักเตือนของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าอย่างรอบคอบ และให้พอใจกับคำสั่งสอนที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ทรงดำริไว้ว่าเหมาะสมกับท่านแล้ว {PP 53.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เพื่อให้งานของมันสำเร็จโดยไม่ให้อาดัมกับเอวาไหวตัวทัน </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านเลือกใช้งูเป็นสื่อในการอำพรางตัว เพราะเหมาะกับเจตนาหลอกลวงของมัน ในสมัยนั้นงูเป็นสัตว์ที่มีปัญญาและความสวยงามมากที่สุดชนิดหนึ่งในโลก คือมีปีกและเมื่อบินก็จะมีสีสันแพรวพราวสว่างสุกใสราวกับทองคำที่ขัดเงา ขณะที่งูนั้นกำลังพักอยู่ที่กิ่งของต้นไม้หวงห้ามซึ่งเต็มไปด้วยผลดกอยู่นั่นเอง มันก็วางท่าทีอิ่มเอมอยู่กับผลไม้อันน่ารับประทาน หากใครได้ไปพบเห็นเข้าก็คงตะลึงและพลอยชื่นตาชื่นใจไปด้วย เจ้าผู้ทำลายคอยลอบหาเหยื่อในสวนแห่งสันติสุขเช่นนี้แหละ {PP 53.4}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เอวาหลงกล</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทูตสวรรค์เคยเตือนเอวาว่าเมื่อปฏิบัติภารกิจประจำวันในสวนนั้น ให้ระวังอย่าแยกตัวห่างจากสามี เพราะถ้าอยู่ด้วยกันจะเสี่ยงต่อการถูกทดลองน้อยกว่าการอยู่คนเดียว แต่เอวาสาละวนอยู่กับงานที่ตนเพลิดเพลินจึงพรากไปจากกายของสามีโดยไม่รู้ตัว เมื่อรู้ว่าอยู่คนเดียวนางก็รู้สึกหวาดกลัวถึงภัยอันตราย แต่กลับไม่แยแสต่อความกลัวนั้น โดยถือว่าตนมีสติปัญญาและพละกำลังเพียงพอที่จะแยกแยะความชั่วออกและต้านมันได้ นางเมินเฉยต่อการตักเตือนของเหล่าทูตสวรรค์ ในไม่ช้าก็พบว่าตัวเองกำลังเพ่งมองไปยังต้นไม้หวงห้ามด้วยความอยากรู้อยากเห็น และคิดว่าต้นไม้นั้นช่างน่าชื่นชม ผลก็สวยงามเหลือเกิน แล้วนางเกิดนึกสงสัยขึ้นมาว่า ทำไม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าต้องสงวนมันไว้จากพวกเขาด้วย คราวนี้แหละจอมหลอกลวงได้โอกาสของมันแล้ว งูก็ปรารภขึ้นราวกับสามารถล่วงรู้ถึงความนึกคิดในใจของเอวาได้ว่า “</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงหรือที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตรัสห้ามว่า ‘อย่ากินผลจากต้นไม้ใดๆ ในสวนนี้’” เอวาถึงกับตกตะลึงและประหลาดใจนักที่ได้ยินเสียงเหมือนสะท้อนมาจากความคิดของตนเอง แต่งูนั้นพูดต่อด้วยน้ำเสียงอันไพเราะราวกับเสียงดนตรี และชมโฉมเอวาอย่างชำนิชำนาญถึงความงดงามซึ่งหาที่เปรียบไม่ได้ คำพูดคำจาของมันล้วนแล้วแต่น่าฟัง แต่แทนที่เอวาจะรีบหลบหนีไปจากที่นั่น นางกลับอ้อยอิ่งอยู่ตรงนั้นด้วยความพิศวงที่เห็นงูพูดได้ ถ้าหากว่าผู้ที่สนทนากับนางนั้นมาในลักษณะอย่างทูตสวรรค์ก็คงทำให้หวาดหวั่นอยู่บ้าง แต่สำหรับงูที่ตรึงใจตัวนี้แล้ว นางไม่อาจคาดคิดได้เลยว่าเป็นสื่อของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านศัตรูผู้อัปยศ {PP 53.5}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เอวาตอบคำถามซึ่งเป็นกับดักของผู้หลอกลวงว่า “ผลของต้นไม้ต่างๆ ในสวนนี้เรากินได้ เว้นแต่ผลของต้นไม้ที่อยู่กลางสวนนั้น </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตรัสห้ามว่า ‘อย่ากินหรือถูกต้องเลย มิฉะนั้นจะตาย’ งูจึงพูดกับหญิงนั้นว่า ‘เจ้าจะไม่ตาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงดอก เพราะ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงทราบอยู่ว่า เจ้ากินผลไม้นั้นวันใด ตาของเจ้าจะสว่างขึ้นในวันนั้น แล้วเจ้าจะเป็นเหมือน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า คือสำนึกในความดีและความชั่ว’” {PP 54.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>งูบอกว่าถ้ารับประทานผลไม้นี้เข้าไปเมื่อใดก็จะบรรลุไปสู่สภาพที่สูงส่งกว่านี้ และจะเข้าสู่วิชาความรู้ที่กว้างไกลยิ่งๆ ขึ้นไป ตัวมันเองก็ยังได้กินผลไม้หวงห้ามเลย จึงสามารถพูดได้ มันยังพูดเป็นนัยๆ อีกว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงสงวนไว้ไม่ให้ท่านกินเพราะทรงหวงแหน กลัวว่ามนุษย์จะถูกยกขึ้นสู่สภาพที่เท่าเทียมกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ เนื่องจากสรรพคุณอันวิเศษในการอำนวยสติปัญญาและพละกำลังนี้เอง </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงทรงห้ามไม่ให้ท่านชิม หรือแม้แต่จะแตะต้องก็ไม่ให้ทำ มารผู้ทดลองป้อนความคิดว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าจะไม่ทรงลงโทษตามคำตักเตือนของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์หรอก </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เพียงแต่ขู่ไว้เท่านั้นเอง ท่านจะตายได้อย่างไรกันในเมื่อได้รับประทานผลจากต้นไม้แห่งชีวิต </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงกีดกันไม่ให้พวกท่านได้พัฒนาตัวเองไปสู่สภาพที่สูงส่งและพบความผาสุกยิ่งกว่าเดิมต่างหาก {PP 54.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>นี่แหละเป็นวิธีการที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านปฏิบัติมาตั้งแต่สมัยอาดัมจนถึงปัจจุบัน และประสบความสำเร็จอย่างเหลือล้น มันหลอกให้มนุษย์สงสัยใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ปัญญาและไม่ไว้ใจในความรักของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า มันเสาะแสวงหาอย่างไม่หยุดยั้งที่จะปลุกเร้าความอยากรู้อยากเห็นแบบไม่รู้จักเคารพยำเกรง มันคอยกระตุ้นให้กระสับกระส่ายใคร่หยั่งรู้ถึงความลี้ลับแห่ง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ปัญญาและฤทธานุภาพของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า คนจำนวนมากดิ้นรนแสวงหาสิ่งที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงสงวนไว้จากพวกเขาตามความพอ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ จนมองข้ามความ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงที่จำเป็นสำหรับความรอดที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงเผยแก่เขา </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านล่อลวงมนุษย์ไม่ให้เชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าโดยหลอกให้เชื่อว่าเขากำลังเข้าสู่อาณาจักรแห่งความรู้อันกว้างไกล แต่ทั้งหมดนี้ล้วนแต่เป็นการหลอกลวง หลายคนภาคภูมิใจกับวิสัยทัศน์ของตนเกี่ยวกับการพัฒนาจึงเหยียบย่ำกฎเกณฑ์ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า และก้าวลงบนหนทางที่นำไปสู่ความเสื่อมเสียและความตาย {PP 54.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านแสดงให้ผู้บริสุทธิ์คู่นี้เห็นว่า ท่านทั้งสองมีแต่จะได้จากการละเมิดกฎบัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า แล้วในทุกวันนี้เราก็ได้ยินคนอ้างเหตุผลในทำนองเดียวกันมิใช่หรือ หลายคนตำหนิผู้ที่ประพฤติตาม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติว่าปิดกั้นตัวเองอยู่ในโลกแคบๆ พวกเขาอ้างว่าตนต่างหากที่มีทัศนคติที่กว้างไกล ทั้งยังมีความสุขและอิสรภาพที่ยิ่งใหญ่กว่า นี่แหละเป็นประดุจเสียงสะท้อนจากสวนเอเดนที่ว่า “เจ้ากินผลไม้นั้นวันใด” คือเมื่อไหร่ที่ฝ่าฝืนกฎบัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า “แล้วเจ้าจะเป็นเหมือน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า” </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านอ้างว่าตนได้รับประโยชน์มากมายจากการรับประทานผลไม้หวงห้ามนั้น แต่มันไม่ได้เล่าว่าเพราะการฝ่าฝืนนั่นเองที่ตนต้องถูกขับไล่ออกจากสวรรค์ ถึงแม้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านได้ประสบด้วยตัวเองแล้วว่าความบาปเป็นเหตุให้ต้องเสียหายอย่างมหาศาล แต่มันก็ยังปิดบังความทุกข์ยากไว้เพื่อจะได้ชักนำผู้อื่นให้มาอยู่ในสภาพเดียวกันกับตน ในปัจจุบันนี้ก็เช่นเดียวกันที่ผู้ล่วงละเมิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามอำพรางอุปนิสัยที่แท้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงของตน เขาอาจอ้างว่าตนเองเป็นผู้สะอาดบริสุทธิ์ แต่ทว่าการยกตัวขึ้นอย่างนั้นมีแต่จะทำให้เขาเป็นผู้หลอกลวงที่อันตรายมากยิ่งขึ้น เขาอยู่ฝ่าย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน เหยียบย่ำ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า ทั้งชักนำคนอื่นให้กระทำตาม อันเป็นเหตุนำไปสู่ความพินาศ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>นิรันด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ร์กาล {PP 55.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ถูกหลอกลวง</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เอวาเชื่อคำของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านเอาเสีย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงๆ แต่ความเชื่อนั้นไม่ได้ช่วยนางให้พ้นโทษของความบาป นางไม่เชื่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ดำรัสของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า จึงเป็นเหตุให้นางต้องตกสู่ความบาป ในการพิพากษานั้น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าจะไม่ทรง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวโทษใครที่ไปหลงเชื่อความเท็จ แต่จะทรง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวโทษผู้ที่ไม่เชื่อความ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิง เพราะเขาเพิกเฉยต่อโอกาสที่จะเรียนรู้จักความ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิง ถึงแม้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านจะใช้เหตุผลจอมปลอมเพื่อตบตาก็ตามที แต่การไม่เชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าล้วนแล้วแต่ให้ผลที่เลวร้ายเสมอ เราจึงต้องปักใจแสวงหาความ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิง บทเรียนทั้งหลายที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงดลใจให้เขียนบันทึกไว้ใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>คัมภีร์ก็เพื่อตักเตือนและสั่งสอนพวกเรา </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ประทานให้เพื่อช่วยเราให้พ้นจากการถูกหลอกลวง ถ้าไม่เอาใจใส่ต่อคำตักเตือนเหล่านี้ก็เท่ากับนำความหายนะมาสู่ตน ให้เราแน่ใจว่าอะไรก็ตามที่ขัดกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>วจนะของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้ามาจาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านทั้งสิ้น {PP 55.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>งูนั้นได้เด็ดผลของต้นไม้ที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงหวงห้ามแล้ววางไว้ในมือของเอวาที่ไม่สู้จะเต็มใจรับ แล้วมันเอาถ้อยคำของนางเองมา</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวซ้ำที่ว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่ให้แตะต้องผลไม้นั้นมิฉะนั้นจะต้องตาย มันพูดต่อไปอีกว่าเอวาคงไม่รับพิษภัยอะไรในการรับประทานมากไปกว่าที่ได้รับจากการแตะต้อง เมื่อเอวาเห็นว่าสิ่งที่นางทำนั้นไม่เกิดผลร้ายแต่อย่างใด จึงมีใจกล้าขึ้นมาอีก เมื่อนาง “เห็นว่าต้นไม้นั้นน่ากินและน่าดูด้วย ทั้งเป็นต้นไม้ที่มุ่งหมายจะให้เกิดปัญญา จึงเก็บผลไม้นั้นมากิน” รสชาติของมันน่าอภิรมย์ ขณะที่กินเข้าไป ก็รู้สึกราวกับว่าได้เติมพลังแห่งชีวิต และจินตนาการว่าตนกำลังเข้าสู่สภาพที่สูงส่งกว่าเดิม นางเด็ดและกินผลไม้โดยไม่รู้สึกกลัว บัดนี้นางเองได้ล่วงละเมิดแล้ว จึงกลายเป็นเครื่องมือของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านในการนำความพินาศมาสู่สามี ขณะที่อยู่ในสภาพที่แปลกประหลาดและตื่นเต้นอย่างผิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมดานั้น นางไปหาสามีพร้อมกับผลไม้หวงห้ามอยู่เต็มมือและได้เล่าเหตุการณ์ทั้งหมดที่เกิดขึ้นให้ท่านฟัง {PP 55.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผลร้ายที่ตามมา</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ความเศร้าสลดปรากฏไปทั่วใบหน้าของอาดัม ท่านตกตะลึงไปหมดและ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวตอบเอวาว่า นี่คงเป็นศัตรูที่ทูตสวรรค์เตือนให้ระวัง และตามกฎของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าแล้วเอวาจะต้องตาย ส่วนเอวาก็ตอบด้วยอาการเร่งเร้าให้อาดัมกินผลไม้นั้นและย้ำคำพูดของงูที่ว่าท่านจะไม่ตาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงดอก นางให้เหตุผลว่าคำพูดนี้คงต้องเป็นความ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงแน่ เพราะนางไม่รู้สึกว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่พอ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยในตัวนางแต่อย่างใด แต่ตรงกันข้าม ผลไม้นั้นมีรสชาติดี นางรู้สึกตื่นเต้นกับชีวิตชีวาที่แปลกใหม่และซาบซ่านไปทั้งตัว ทำให้นางนึกไปว่าเหล่าทูตสวรรค์คงได้รับแรงกำลังอย่างเดียวกันนี้กระมัง {PP 56.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>อาดัมตระหนักว่าคู่ครองของท่านได้ล่วงละเมิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าและได้มองข้ามข้อห้ามเพียงข้อเดียวที่ทรงวางไว้เพื่อทดสอบความซื่อสัตย์และความรักของพวกท่าน แล้วก็เกิดการต่อสู้อยู่ในใจของอาดัมอย่างรุนแรง ท่านโศกเศร้าเสียใจที่ปล่อยให้เอวาพลัดห่างไปจากกายของตน แต่บัดนี้ก็สายไปเสียแล้ว ท่านจะต้องถูกแยกจากเอวาผู้ที่ท่านเคยอยู่ด้วยอย่างมีความสุข ท่านจะยอมได้อย่างไร อาดัมเคยมีความสุขสำราญในการเป็นมิตรกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าและเหล่าทูตสวรรค์ผู้บริสุทธิ์ ท่านเคยมองไปยัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>สิริของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้างและตระหนักถึงจุดหมายอันสูงส่งที่ทรงเปิดให้แก่มนุษยชาติหากเพียงแต่ท่านยังคงซื่อสัตย์ต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ ถึงกระนั้นก็ดีความกลัวที่จะสูญเสียของประทานที่ท่านถือว่าล้ำค่ากว่าสิ่งใดได้บังตาไว้ ทำให้มองไม่เห็น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>พรทั้งหลาย คือความรัก ความกตัญญู ความจงรักภักดีที่ท่านมีต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้าง ทั้งหมดถูกทับถมด้วยความรักที่มีต่อเอวา เอวาเป็นส่วนหนึ่งของท่านเอง และท่านทำใจไม่ได้ที่จะต้องแยกจากกัน โดยที่ไม่เข้าใจว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าผู้ทรงฤทธานุภาพอย่างไม่จำกัดผู้ทรงสร้างท่านมาจากผงคลีดินให้มีชีวิตและร่างกายที่งดงาม ทั้งได้ประทานคู่ครองให้ท่านด้วยความรักนั้นก็ทรงสามารถสร้างผู้ที่จะมาแทนที่เอวาได้ แต่อาดัมตัดสินใจที่จะร่วมชะตากับเอวา ถ้านางต้องตาย ท่านก็จะขอตายด้วย และแล้วอาดัมไตร่ตรองว่าคำพูดของงูฉลาดตัวนั้นอาจเป็น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงก็ได้ เอวาซึ่งอยู่ต่อหน้าท่านยังสวยงามและดูไปแล้วก็บริสุทธิ์เหมือนกับก่อนที่นางไม่เชื่อฟังมิใช่หรือ นางแสดงออกถึงความรักที่มีต่อท่านมากยิ่งกว่าเดิมด้วยซ้ำไป ไม่มีสัญลักษณ์แห่งความตายปรากฏในตัวนางเลย และท่านก็ตัดสินใจเผชิญหน้าต่อผลที่จะตามมา อาดัมคว้าเอาผลไม้นั้นมาแล้วกินเข้าไปอย่างรวดเร็ว {PP 56.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หลังจากล่วงละเมิดใหม่ๆ อาดัมก็นึกว่าตัวเองกำลังเข้าสู่สภาพที่สูงส่งกว่าเดิม แต่ในไม่ช้าท่านรู้สึกสยดสยองเมื่อคิดถึงความบาปที่ได้ทำไป อากาศที่มีอุณหภูมิพอเหมาะและสม่ำเสมอก่อนหน้านี้ ดูเหมือนจะเย็นลงสำหรับผู้กระทำผิดทั้งสอง ความรักและสันติสุขที่เคยมีได้หายไปหมดแล้ว และมีความรู้สึกถึงความบาป ความหวาดกลัวต่ออนาคต และความเปล่าเปลี่ยวของจิตวิญญาณเข้ามาแทนที่ ความสว่างที่เคยห่อหุ้มท่านไว้นั้นบัดนี้ได้สูญหายไป ท่าน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามเย็บสิ่งปกปิดร่างกายมาทดแทน เพราะไม่สามารถสบ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เนตรของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าหรือยืนอยู่ต่อหน้าทูตสวรรค์ได้ในขณะที่เปลือยกายอยู่ {PP 57.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัดนี้ท่านทั้งสองเริ่มเห็นถึงธาตุแท้ของความบาปที่ได้กระทำไป อาดัมตำหนิความโง่เขลาของเอวาที่ปลีกตัวคลาดสายตาท่านไปและยอมให้งูนั้นหลอกลวง แต่ทั้งสองเข้าข้างตัวเองว่า </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าผู้ทรงพิสูจน์ถึงความรักของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์มาหลายวิธีแล้ว คงจะทรงยกโทษให้ หรืออย่างน้อยก็คงไม่ต้องรับโทษสถานหนักอย่างที่เคยกลัว {PP 57.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านรื่นเริงยินดีในความสำเร็จของตน มันได้ทดลองผู้หญิงให้สงสัยใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ปัญญาและฝ่าฝืน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า ทั้งไม่ไว้ใจในความรักของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ และมันก็ใช้นางเป็นเครื่องมือในการเอาชนะอาดัมอีกด้วย {PP 57.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าเสด็จมาในสวน</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าผู้ประทาน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติกำลังจะเปิดเผยให้อาดัมกับเอวารู้จักผลของการล่วงละเมิด </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เสด็จมาในสวน แต่แทนที่จะต้อนรับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ด้วยความยินดีเหมือนครั้งที่ยังบริสุทธิ์ไร้มลทินนั้นท่านทั้งสองกลับวิ่งหนีด้วยความหวาดกลัว และ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามไปซ่อนตัวเสียในส่วนที่ลึกที่สุดของสวน แต่ “</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงเรียกชายนั้น และตรัสถามท่านว่า ‘เจ้าอยู่ที่ไหน’ ชายนั้นทูลว่า ‘ข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ได้ยิน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>สุรเสียงของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ในสวนก็เกรงกลัว เพราะข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์เปลือยกายอยู่จึงได้ซ่อนตัวเสีย’ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงตรัสว่า ‘ใครเล่าบอกเจ้าว่าเจ้าเปลือยกาย เจ้ากินผลไม้ที่เราห้ามมิให้กินนั้นแล้วหรือ’” {PP 57.4}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>อาดัมไม่อาจปฏิเสธหรือแก้ตัวในเรื่องบาปของตน แต่แทนที่จะแสดงถึงการสำนึกผิด ท่านกลับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามโยนความผิดให้ภรรยา และด้วยเหตุนี้จึงเป็นการโยนความผิดให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าเองด้วย “หญิงที่ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break Italic">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Italic">
+    <Content>องค์ประทานให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content> อยู่กินกับข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์นั้นส่งผลไม้นั้นให้ข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ ข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงรับประทาน” เพราะความรักที่อาดัมมีต่อเอวา ท่านจึงเลือกโดยใคร่ครวญไว้ก่อนแล้วที่จะสูญเสียทั้งการเป็นที่พอ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัยของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า การอยู่ในสวนเอเดน และชีวิต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>นิรันด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ร์ที่เต็มไปด้วยความสุข แต่บัดนี้เมื่อท่านตกสู่ความบาปแล้วอาดัมกลับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามให้คู่ครองของตนและแม้กระทั่ง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้างเองมารับผิดชอบการล่วงละเมิดนั้น อำนาจของความบาปช่างเลวร้ายเสียนี่กระไร {PP 57.5}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เมื่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตรัสถามหญิงนั้นว่า “เจ้าทำอะไรไป” นางทูลตอบว่า “งูล่อลวงข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ ข้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงได้รับประทาน” ‘ทำไม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงทรงสร้างงูนั้นเล่า ทำไม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จึงทรงยอมให้มันเข้ามาในสวนเอเดน’ คำถามอย่างนี้แหละที่แฝงอยู่ในคำแก้ตัวต่อความบาปของนาง ดังนั้นนางได้ทำอย่างเดียวกับอาดัม คือ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวหา</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าว่าเป็นความผิดของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ที่พวกท่านต้องตกสู่ความบาป นิสัยที่ชอบแก้ตัวมีจุดเริ่มต้นมาจาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านบิดาแห่งการมุสา และบรรพบุรุษคู่แรกของเราก็ได้คล้อยตามทันทีที่ยอมต่ออิทธิพลของมัน แล้วบรรดาลูกหลานทั้งหลายของอาดัมก็ได้แสดงออกถึงนิสัยที่ชอบแก้ตัวเช่นเดียวกัน แทนที่จะสารภาพความผิดบาปด้วยใจถ่อมเขา</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามปกป้องตัวเองโดยโยนความผิดให้ผู้อื่น โยนให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>สถานการ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ณ์หรือ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า แม้แต่ใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>พรของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ก็ยังหาเหตุให้ได้บ่นต่อว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ {PP 58.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าจึงทรง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวโทษงูนั้นว่า “เพราะเหตุที่เจ้าทำเช่นนี้ เจ้าจะต้องถูกสาปแช่งมากกว่าสัตว์ใช้งานและสัตว์ป่าทั้งปวง จะต้องเลื้อยไปด้วยท้อง จะต้องกินผงคลีดินจนตลอดชีวิต” เนื่องจากว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านได้ใช้งูเป็นสื่อ ดังนั้นมันจึงต้องมีส่วนร่วมในการรับโทษจาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า จากที่เป็นสัตว์ที่สวยที่สุดและได้รับการชมเชยมากที่สุดท่ามกลางบรรดาสัตว์แห่งทุ่งหญ้า มันจะต้องกลายเป็นสัตว์เลื้อยคลานต่ำๆ ที่คนและบรรดาสัตว์อื่นๆ เกลียดกลัวและขยะแขยงกันมากที่สุด </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ดำรัสที่ตรัสกับงูต่อไปก็หมายถึง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านเองโดยตรงและเล็งไปถึงความพ่ายแพ้และการถูกทำลายของมันในที่สุด “เราจะให้เจ้ากับหญิงนี้เป็นศัตรูกัน ทั้งพงศ์พันธุ์ของเจ้าและพงศ์พันธุ์ของเขาด้วย พงศ์พันธุ์ของหญิงจะทำให้หัวของเจ้าแหลก และเจ้าจะทำให้ส้นเท้าของเขาฟกช้ำ” {PP 58.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หญิงรับโทษ</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าได้ตรัสบอกเอวาถึงความเจ็บปวด และความทุกข์ระทมซึ่งนับแต่นี้ไปจะเป็นส่วนเคราะห์กรรมของนางว่า เจ้ายังจะ “ปรารถนาสามี และเขาจะปกครองตัวเจ้า” </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงสร้างเอวาให้มีความเท่าเทียมกับอาดัม ถ้าหากทั้งสองยังคงเชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า และประพฤติปฏิบัติสอดคล้องกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติแห่งความรักแล้ว ก็จะคงไว้ซึ่งความสมัครสมานสามัคคีกัน แต่ความบาปได้ก่อความแตกแยกกันขึ้น บัดนี้ท่านทั้งสองจะรักษาความเป็นน้ำหนึ่งใจเดียวกันไว้ได้ก็ด้วยการให้ฝ่ายหนึ่งยินยอมอยู่ภายใต้อีกฝ่ายหนึ่งเท่านั้น เอวาเป็นคนแรกที่ฝ่าฝืน นางได้ตกสู่การทดลองเพราะการแยกห่างจากสามี ซึ่งขัดกับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญชาของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า อาดัมทำบาปลงไปก็เพราะการชักชวนของนาง และบัดนี้นางต้องมาอยู่ภายใต้การปกครองของสามี ถึงแม้ว่าการลงโทษดัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>กล่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าวเป็นผลต่อเนื่องจากความบาปก็ตาม แต่ถ้าหากมนุษยชาติที่ตกสู่ความบาปได้ยึดมั่นในหลักการแห่ง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า การลงโทษนี้ก็ยังคงเป็น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>พรสำหรับท่านอยู่ แต่บุรุษโดยทั่วไปใช้อำนาจที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าประทานให้ผิดไป ซึ่งบ่อยครั้งทำให้สตรีมีชีวิตที่ขมขื่นยิ่งนักกับภาวะที่แบกรับอยู่ {PP 58.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เอวาเคยรู้สึกเป็นสุขใจที่ได้อยู่เคียงข้างสามีในนิวาสสถานแห่งสวนเอเดน และเช่นเดียวกับ ‘เอวา’ ทั้งหลายในยุคปัจจุบันที่กระเสือกกระสนวุ่นวายใจ เธอถูกยกยอให้หวังถึงสภาพที่เหนือกว่าที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงกำหนดให้ การที่เธอตะเกียกตะกายเพื่อขึ้นให้สูงกว่าตำแหน่งที่มีนั้น ทำให้ยิ่งตกต่ำกว่าเก่า ใครก็ตามที่ไม่ยอมรับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ภา</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ระหน้าที่ตาม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ประสงค์ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าด้วยใจยินดีก็จะรับผลตามมาในทำนองเดียวกันกับเอวา หลายคน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พยาย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ามไขว่คว้าเอื้อมให้ถึงตำแหน่งที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่ได้ทรงตระเตรียมให้เหมาะสมกับตน จึงละเลยงานที่เธออาจทำเพื่ออำนวยความสุขให้กับผู้อื่นไปเสีย ความปรารถนาที่จะมีสภาพสูงเกินตัวนั้นทำให้ผู้หญิงหลายคนสลัดศักดิ์ศรีอันแท้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงและอุปนิสัยอันสง่างามทิ้งเสียโดยละเลยหน้าที่ที่สวรรค์กำหนดให้เธอทำ {PP 59.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผลร้ายที่ชายต้องรับ</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตรัสกับอาดัมว่า “เพราะเหตุเจ้าเชื่อฟังคำพูดของภรรยา และกินผลไม้ที่เราห้าม แผ่นดินจึงต้องถูกสาปเพราะตัวเจ้า เจ้าจะต้องหากินบนแผ่นดินด้วยความทุกข์ลำบากจนตลอดชีวิต แผ่นดินจะให้ต้นไม้และพืชที่มีหนามแก่เจ้า และเจ้าจะกินพืชต่างๆ ของทุ่งนา เจ้าจะต้องหากินด้วยเหงื่ออาบหน้าจนเจ้ากลับเป็นดินไป เพราะเราสร้างเจ้ามาจากดิน เจ้าเป็นผงคลีดิน และจะต้องกลับเป็นผงคลีดินดังเดิม” {PP 59.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่มี</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ประสงค์ที่จะให้มนุษย์ไร้บาปคู่นี้รู้จักความชั่วแม้สักนิดเลย </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าประทานสิ่งที่ดีงามอย่างไม่เคยขาดสาย และทรงกันความชั่วร้ายไว้จากท่านทั้งคู่ แต่ท่านได้ขัดขืนต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญชาของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์โดยกินผลไม้หวงห้ามนั้น แต่นี้ไปก็ยังจะกินอยู่เรื่อยๆ คือจะรู้จักมักคุ้นอยู่กับความเลวร้ายไปตลอดชั่วชีวิต นับแต่นั้นมามนุษยชาติต้องทนต่อการทดลองของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าน แทนที่จะได้ทำงานที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงมอบหมายให้อย่างมีความสุขเหมือนก่อนหน้านั้น เคราะห์กรรมที่จะต้องรับคือความทุกข์ยากตรากตรำ ต้องทนต่อความผิดหวัง ความเศร้าโศก ความเจ็บปวดจนถึงความตายในที่สุด {PP 59.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผลกระทบใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติ</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผลของการถูกสาปแช่งได้ปรากฏอยู่ใน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติทั้งสิ้น ซึ่งเป็นพยานถึงธาตุแท้ของความบาป และผลของการกบฏต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า เมื่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ทรงสร้างมนุษย์ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ทรงสร้างให้ปกครองอยู่เหนือโลกและสรรพสัตว์ทั้งหลาย ตราบใดที่อาดัมยังคงซื่อสัตย์ต่อสวรรค์อยู่ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติทั้งหมดก็จะอยู่ภายใต้การควบคุมของท่าน แต่เมื่อท่านได้กบฏต่อ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า บรรดาสัตว์น้อยใหญ่ก็ได้กบฏต่อการปกครองของท่านด้วย ดังนั้นด้วย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เมตตาคุณอันใหญ่หลวงของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้านี้เอง </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์มี</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ประสงค์ที่จะสำแดงให้มนุษย์เห็นถึงความศักดิ์สิทธิ์แห่ง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติ และนำให้เห็นถึงภยันตรายของการละเมิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัตินั้นแม้เพียงเล็กน้อยผ่านประสบการณ์ของเขาเอง {PP 59.4}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ตั้งแต่นั้นมาชีวิตที่ดิ้นรนตรากตรำและทุกข์ยากกังวลอันเป็นชะตาของมนุษย์ก็ถูกกำหนดไว้ด้วยความรัก เป็นเสมือนครูฝึกที่จำเป็นเนื่องจากความบาปของมนุษย์เพื่อยับยั้งการสนองกิเลสตัณหา และเพื่อพัฒนานิสัยให้รู้จักควบคุมตนเอง ซึ่งเป็นส่วนหนึ่งในแผนการสำคัญของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าในการกอบกู้มนุษย์คืนมาจากความเสื่อมเสียและความล้มเหลวอันเนื่องจากความบาป {PP 60.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ต้นไม้แห่งชีวิต</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>คำเตือนที่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตรัสกับบรรพบุรุษคู่แรกของเราที่ว่า “ในวันใดที่เจ้าขืนกิน เจ้าจะต้องตายแน่” (</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ปฐมก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>าล 2:17 TH1971) ไม่ได้หมายความว่าท่านทั้งสองจะต้องเสียชีวิตทันทีในวันเดียวกันนั้นที่รับประทานผลไม้หวงห้าม แต่ในวันนั้นได้มีการประกาศบทลงโทษซึ่งไม่มีวันเพิกถอนได้ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าได้ทรงสัญญาว่าจะประทานชีวิตอมตะโดยมีเงื่อนไขว่าต้องเชื่อฟัง แต่ท่านต้องสูญเสียชีวิต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>นิรันด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ร์นั้นไปเพราะการฝ่าฝืน</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติ และในวันเดียวกันนั้นเองมีการชี้ชะตาว่าท่านทั้งสองจะต้องตาย {PP 60.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>มนุษย์จะต้องกินผลไม้แห่งชีวิตอย่างต่อเนื่องจึงจะรักษาชีวิตอมตะเอาไว้ได้ เมื่อถูกกีดกันไว้จากผลไม้เหล่านี้ กำลังวังชาของเขาจะค่อยๆ ถดถอยไปจนกว่าชีวิตจะหาไม่ เป็นแผนการของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านที่จะให้อาดัมกับเอวาไม่เชื่อฟังเพื่อทำให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่พอ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ทัย แล้วถ้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ไม่ทรงอภัยความผิดบาปนั้น </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านก็หวังว่าท่านทั้งสองจะรับประทานผลไม้แห่งชีวิตและดำรงชีวิตในความบาปและความทุกข์ระทมต่อไปโดยไม่รู้จบสิ้น แต่ทันทีที่มนุษย์ตกสู่ความบาป </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงใช้ทูตสวรรค์ให้เฝ้าต้นไม้แห่งชีวิตไว้ รอบๆ ทูตสวรรค์เหล่านี้มีลำแสงส่องประกายวาววับราวกับดาบที่สะท้อนแสงแวววาว ไม่มีผู้ใดในเชื้อสายของอาดัมได้รับอนุญาตให้ผ่านด่านเข้าไปรับประทานผลไม้อายุวัฒนะเหล่านั้น จึงไม่มีคนบาปคนใดที่มีชีวิตอมตะ {PP 60.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>โทษอันสาหัส</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หลายคนถือว่ากระแสแห่งความทุกข์โศกที่หลั่งไหลมาจากการล่วงละเมิดของบรรพบุรุษคู่แรกนั้นเป็นผลที่ร้ายแรงเกินไปสำหรับบาปที่ดูเล็กน้อยเช่นนั้น และเขาก็ยังตำหนิ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ปัญญาและความยุติ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ในการทรงจัดการกับมนุษย์ แต่ถ้าพวกเขาได้มองเจาะลึกเข้าไปในปัญหานี้ก็จะเห็นว่าเขาเข้าใจผิด </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงสร้างมนุษย์ตาม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ฉายาของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์โดยปราศจากความบาป </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้ามี</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ประสงค์ให้โลกเต็มไปด้วยมนุษย์ซึ่งมีศักดิ์ที่ต่ำกว่าทูตสวรรค์เพียงเล็กน้อย แต่ต้องพิสูจน์การเชื่อฟังเสียก่อน เพราะ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์จะไม่ทรงยอมให้โลกเต็มไปด้วยคนที่มองข้าม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ ถึงกระนั้นก็ตาม ด้วย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เมตตาคุณอันยิ่งใหญ่ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้ามิได้ทรงทดสอบอาดัมด้วยวิธีที่ยากเย็นแสนเข็ญแต่อย่างใด และเพราะการทดสอบแบบเบาๆ นี้เองทำให้บาปนั้นยิ่งหนักหนาขึ้นไปอีก ถ้าอาดัมไม่สามารถผ่านการทดสอบที่เล็กน้อยที่สุดแล้ว หาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าได้ทรงมอบหมายความรับผิดชอบที่สูงกว่านั้นให้ท่าน ท่านก็จะทำไม่ได้เช่นกัน {PP 60.4}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ถ้าสมมุติว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงทดสอบอาดัมด้วยวิธีที่ยากแล้ว คนทั้งหลายที่มีจิตใจโน้มเอียงไปในทางชั่วจะแก้ตัวว่า ‘นี่เป็นเรื่องพื้นๆ </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าคงไม่เข้มงวดกับเรื่องจิ๊บจ๊อยเช่นนี้หรอก’ แล้วก็จะมีการล่วงละเมิดกันอย่างต่อเนื่องในสิ่งต่างๆ ที่อ้างกันว่าเล็กน้อย ซึ่งไม่เป็นที่ถูกประณามในสังคม แต่</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงเผยให้เห็นอย่างชัดเจนว่าความบาปไม่ว่าเล็กหรือใหญ่ก็เป็นที่น่ารังเกียจทั้งสิ้นสำหรับ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ {PP 61.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>สำหรับเอวาแล้วการที่นางไม่เชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าโดยลิ้มรสผลจากต้นไม้หวงห้าม และล่อใจสามีให้ฝ่าฝืนด้วยนั้นดูเหมือนเป็นเรื่องเล็ก แต่ความบาปของท่านทั้งสองได้เปิดประตูให้ความทุกข์ยากลำบากหลั่งไหลเข้ามาในโลกอย่างท่วมท้น ขณะที่ถูกทดลองใครเล่าจะหยั่งรู้ได้ว่าก้าวผิดเพียงครั้งเดียวจะตามมาด้วยผลที่ร้ายแรงประการใด {PP 61.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หลายคนสอนว่า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าไม่เป็นที่บังคับใช้กับมนุษย์เขาบอกว่า เป็นไปไม่ได้ที่มนุษย์จะปฏิบัติตาม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติได้ ถ้าเป็นเช่นนั้น</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิง ทำไมอาดัมจึงต้องรับโทษเนื่องด้วยการล่วงละเมิดเล่า ความบาปของบรรพบุรุษคู่แรกได้นำความผิดและความโศกเศร้าเข้ามาในโลก และถ้าปราศจาก</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บารมีและ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เมตตาคุณของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าแล้ว มนุษยชาติคงถลำลงสู่ความหดหู่ไร้ความหวัง อย่าให้ใครหลงเลย “ค่าจ้างของความบาปคือความตาย” (</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>โรม</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content> 6:23 TH1971) บิดาผู้เป็นต้นกำเนิดของมนุษยชาติได้รับโทษของบาปฉันใด ผู้ที่ละเมิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติในสมัยปัจจุบันจะไม่มีโทษก็หามิได้ฉันนั้น {PP 61.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Header3">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ออกจากสวนเอเดน</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หลังจากอาดัมกับเอวาทำบาปแล้ว ก็ไม่สามารถอาศัยอยู่ในสวนเอเดนอีกต่อไป ท่านทั้งสองได้วิงวอนขอร้องที่จะอยู่ในนิวาสสถานแห่งความบริสุทธิ์สุขสำราญต่อไป ท่านยอมรับว่าได้สูญเสียสิทธิที่จะครอบครองที่อยู่อันรื่นรมย์ แต่ก็ได้ปฏิญาณว่า ต่อไปจะเชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าอย่างเคร่งครัด แต่ท่านได้รับการชี้แจงว่าความบาปได้ทำให้สภาพ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ธร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>รมชาติของท่านเสื่อมโทรมเสียแล้ว ซึ่งทำให้พลังในการต้านความชั่วลดน้อยลง และได้เปิดทางให้</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>ซาต</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>านเข้าหาพวกท่านง่ายขึ้น ท่านได้ยอมต่อการทดลองเมื่อยังบริสุทธิ์อยู่นั้นและบัดนี้กำลังในการรักษาความซื่อสัตย์จึงน้อยลงเมื่อท่านอยู่ในสภาพที่รู้สึกผิดอยู่ตลอดเวลา {PP 61.4}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ท่านทั้งสองได้อำลาบ้านอันสวยสดงดงามด้วยใจถ่อมและเศร้าสลดไร้คำบรรยาย แล้วได้ออกไปอาศัยในโลกซึ่งถูกสาปแช่งเพราะบาป บรรยากาศที่เคยมีอุณหภูมิพอเหมาะและสม่ำเสมอนั้น บัดนี้แปรปรวนไปมาก ด้วย</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เมตตาของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>องค์ได้ทรงจัดเตรียมเสื้อผ้าที่ทำด้วยหนังสัตว์ให้ท่านเพื่อป้องกันอากาศร้อนหนาวที่รุนแรง {PP 61.5}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ขณะที่อาดัมกับเอวาพินิจดูใบไม้ร่วงและดอกไม้เหี่ยวเฉาอันเป็นสัญญาณแรกของการเน่าเปื่อยนั้น ท่านทั้งสองคร่ำครวญอาลัยมากยิ่งกว่าคนในสมัยปัจจุบันไว้ทุกข์เมื่อสูญเสียคนใกล้ชิด เมื่อเห็นดอกไม้ที่อ่อนช้อยละเอียดประณีตตายนั้นก็น่าเศร้า</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงๆ แต่เมื่อต้นไม้สูงใหญ่ตระการตาสลัดใบเท่านั้นเอง อาดัมกับเอวาก็ตระหนักอย่างแจ่มแจ้งถึงข้อเท็จ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>จร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ิงที่หลีกเลี่ยงไม่ได้ว่าความตายเป็นมรดกของสิ่งมีชีวิตทั้งปวง {PP 62.1}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>สวนเอเดนยังคงอยู่ในโลกนี้ต่อไปอีกนานนับจากที่อาดัมถูกขับไล่ออกไปจากที่น่าอภิรมย์นั้น มนุษยชาติผู้หลงผิดได้รับอนุญาตให้มองไปยังบ้านที่เคยอยู่เมื่อครั้งยังบริสุทธิ์นั้นเป็นเวลานาน ทางเข้าสวนนั้นถูกรายล้อมไปด้วยเหล่าทูตสวรรค์ที่เฝ้ารักษาไม่ให้ใครล่วงล้ำเข้าไป </Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>สิริของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าทรงปรากฏอยู่ที่ประตูเข้าสวนเอเดนอันมีเหล่าเครูบคอยเฝ้าอยู่ อาดัมกับบุตรทั้งหลายไปที่นั่นเพื่อนมัสการ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้า และที่นั่นแหละท่านได้ปฏิญาณครั้งใหม่ที่จะเชื่อฟัง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติ ซึ่งที่ท่านต้องถูกขับไล่ออกจากสวนเอเดนก็เพราะการล่วงละเมิด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัตินั่นเอง เมื่อกระแสของความผิดบาปไหลแผ่กระจายไปทั่วโลก และความชั่วของมนุษย์เป็นเหตุให้เขาต้องถูกทำลายกวาดล้างด้วยน้ำท่วม ในตอนนั้นเอง</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>หัตถ์ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าที่ปลูกสวนเอเดนก็ได้รับมันขึ้นไปจากโลก แต่ว่าในวาระสุดปลายเมื่อสิ่งทั้งหลายกลับสู่สภาพเดิม เมื่อมี “ท้องฟ้าใหม่และแผ่นดินโลกใหม่” (</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>วิวร</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ณ์ 21:1 TH1971) สวนเอเดนจะถูกบูรณะให้รุ่งเรืองยิ่งกว่าเดิม {PP 62.2}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+<Br />
+<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/Paragraph">
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ในเวลานั้นบรรดาผู้ที่ได้รักษา</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>บัญญัติของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าจะกระฉับกระเฉงด้วยพลังอมตะภายใต้ต้นไม้แห่งชีวิต และผู้อาศัยในโลกอื่นๆ ซึ่งไม่เคยทำบาปจะได้เห็นสวนแห่งความปีติยินดีนั้นเป็นตัวอย่างแห่งการทรงสร้างที่สมบูรณ์แบบของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>เจ้าตลอดชั่วนิตย์</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>นิรันด</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ร์ ไม่มีร่องรอยของการถูกสาปแช่งเพราะความบาป ซึ่งสำแดงให้เห็นถึงสภาพที่โลกทั้งโลกคงเป็นถ้าเพียงแต่มนุษย์ได้ทำตามแผนการอันรุ่งโรจน์ของ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/Forbidden Break">
+    <Content>พระ</Content>
+  </CharacterStyleRange>
+  <CharacterStyleRange AppliedCharacterStyle="$ID/NormalCharacterStyle">
+    <Content>ผู้สร้างตั้งแต่แรก {PP 62.3}</Content>
+  </CharacterStyleRange>
+</ParagraphStyleRange>
+
+  </Story>
+  
+</Document>
