@@ -1,0 +1,126 @@
+= 45
+
+== Written From Rome
+
+==== This chapter is based on the Epistles to the Colossians and the Philippians.
+
+The apostle Paul early in his Christian experience was given special opportunities to learn the will of God concerning the followers of Jesus. He was “caught up to the third heaven,” “into paradise, and heard unspeakable words, which it is not lawful for a man to utter.” He himself acknowledged that many “visions and revelations” had been given him “of the Lord.” His understanding of the principles of gospel truth was equal to that of “the very chiefest apostles.” 2 Corinthians 12:2, 4, 1, 11. He had a clear, full comprehension of “the breadth, and length, and depth, and height” of “the love of Christ, which passeth knowledge.” Ephesians 3:18, 19.
+
+AA 469.1
+Paul could not tell all that he had seen in vision; for among his hearers were some who would have misapplied his words. But that which was revealed to him enabled him to labor as a leader and a wise teacher, and also molded the messages that he in later years sent to the churches. The impression that he received when in vision was ever with him, enabling him to give a correct representation of Christian character. By word of mouth and by letter he bore a message that ever since has brought help and strength to the church of God. To believers today this message speaks plainly of the dangers that will threaten the church, and the false doctrines that they will have to meet.
+
+AA 469.2
+The apostle’s desire for those to whom he addressed his letters of counsel and admonition was that they should “be no more children, tossed to and fro, and carried about with every wind of doctrine;” but that they should all come into “the unity of the faith, and of the knowledge of the Son of God, unto a perfect man, unto the measure of the stature of the fullness of Christ.” He entreated those who were followers of Jesus in heathen communities not to walk “as other Gentiles walk, in the vanity of their mind, having the understanding darkened, being alienated from the life of God ... because of the blindness of their heart,” but “circumspectly, not as fools, but as wise, redeeming the time.” Ephesians 4:14, 13, 17, 18; 5:15, 16. He encouraged the believers to look forward to the time when Christ, who “loved the church, and gave Himself for it,” would “present it to Himself a glorious church, not having spot, or wrinkle, or any such thing”—a church “holy and without blemish.” Ephesians 5:25, 27.
+
+AA 470.1
+These messages, written with a power not of man but of God, contain lessons which should be studied by all and which may with profit be often repeated. In them practical godliness is outlined, principles are laid down that should be followed in every church, and the way that leads to life eternal is made plain.
+
+AA 470.2
+In his letter to “the saints and faithful brethren in Christ which are at Colosse,” written while he was a prisoner in Rome, Paul makes mention of his joy over their steadfastness in the faith, tidings of which had been brought him by Epaphras, who, the apostle wrote, “declared unto us your love in the Spirit. For this cause,” he continued, “we also, since the day we heard it, do not cease to pray for you, and to desire that ye might be filled with the knowledge of His will in all wisdom and spiritual understanding; that ye might walk worthy of the Lord unto all pleasing, being fruitful in every good work, and increasing in the knowledge of God; strengthened with all might, according to His glorious power, unto all patience and long-suffering with joyfulness.”
+
+AA 471.1
+Thus Paul put into words his desire for the Colossian believers. How high the ideal that these words hold before the follower of Christ! They show the wonderful possibilities of the Christian life and make it plain that there is no limit to the blessings that the children of God may receive. Constantly increasing in a knowledge of God, they may go on from strength to strength, from height to height in Christian experience, until by “His glorious power” they are made “meet to be partakers of the inheritance of the saints in light.”
+
+AA 471.2
+The apostle exalted Christ before his brethren as the One by whom God had created all things and by whom He had wrought out their redemption. He declared that the hand that sustains the worlds in space, and holds in their orderly arrangements and tireless activity all things throughout the universe of God, is the hand that was nailed to the cross for them. “By Him were all things created,” Paul wrote, “that are in heaven, and that are in earth, visible and invisible, whether they be thrones, or dominions, or principalities, or powers: all things were created by Him, and for Him: and He is before all things, and by Him all things consist.” “And you, that were sometime alienated and enemies in your mind by wicked works, yet now hath He reconciled in the body of His flesh through death, to present you holy and unblamable and unreprovable in His sight.”
+
+AA 471.3
+The Son of God stooped to uplift the fallen. For this He left the sinless worlds on high, the ninety and nine that loved Him, and came to this earth to be “wounded for our transgressions” and “bruised for our iniquities.” Isaiah 53:5. He was in all things made like unto His brethren. He became flesh, even as we are. He knew what it meant to be hungry and thirsty and weary. He was sustained by food and refreshed by sleep. He was a stranger and a sojourner on the earth—in the world, but not of the world; tempted and tried as men and women of today are tempted and tried, yet living a life free from sin. Tender, compassionate, sympathetic, ever considerate of others, He represented the character of God. “The Word was made flesh, and dwelt among us, ... full of grace and truth.” John 1:14.
+
+AA 472.1
+Surrounded by the practices and influences of heathenism, the Colossian believers were in danger of being drawn away from the simplicity of the gospel, and Paul, in warning them against this, pointed them to Christ as the only safe guide. “I would that ye knew,” he wrote, “what great conflict I have for you, and for them at Laodicea, and for as many as have not seen my face in the flesh; that their hearts might be comforted, being knit together in love, and unto all riches of the full assurance of understanding, to the acknowledgment of the mystery of God, and of the Father, and of Christ; in whom are hid all the treasures of wisdom and knowledge.
+
+AA 473.1
+“And this I say, lest any man should beguile you with enticing words.... As ye have therefore received Christ Jesus the Lord, so walk ye in Him: rooted and built up in Him, and stablished in the faith, as ye have been taught, abounding therein with thanksgiving. Beware lest any man spoil you through philosophy and vain deceit, after the tradition of men, after the rudiments of the world, and not after Christ. For in Him dwelleth all the fullness of the Godhead bodily. And ye are complete in Him, which is the head of all principality and power.”
+
+AA 473.2
+Christ had foretold that deceivers would arise, through whose influence “iniquity” should “abound,” and “the love of many” should “wax cold.” Matthew 24:12. He had warned the disciples that the church would be in more danger from this evil than from the persecution of her enemies. Again and again Paul warned the believers against these false teachers. This peril, above all others, they must guard against; for by receiving false teachers, they would open the door to errors by which the enemy would dim the spiritual perceptions and shake the confidence of those newly come to the faith of the gospel. Christ was the standard by which they were to test the doctrines presented. All that was not in harmony with His teachings they were to reject. Christ crucified for sin, Christ risen from the dead, Christ ascended on high—this was the science of salvation that they were to learn and teach.
+
+AA 473.3
+The warnings of the word of God regarding the perils surrounding the Christian church belong to us today. As in the days of the apostles men tried by tradition and philosophy to destroy faith in the Scriptures, so today, by the pleasing sentiments of higher criticism, evolution, spiritualism, theosophy, and pantheism, the enemy of righteousness is seeking to lead souls into forbidden paths. To many the Bible is as a lamp without oil, because they have turned their minds into channels of speculative belief that bring misunderstanding and confusion. The work of higher criticism, in dissecting, conjecturing, reconstructing, is destroying faith in the Bible as a divine revelation. It is robbing God’s word of power to control, uplift, and inspire human lives. By spiritualism, multitudes are taught to believe that desire is the highest law, that license is liberty, and that man is accountable only to himself.
+
+AA 474.1
+The follower of Christ will meet with the “enticing words” against which the apostle warned the Colossian believers. He will meet with spiritualistic interpretations of the Scriptures, but he is not to accept them. His voice is to be heard in clear affirmation of the eternal truths of the Scriptures. Keeping his eyes fixed on Christ, he is to move steadily forward in the path marked out, discarding all ideas that are not in harmony with His teaching. The truth of God is to be the subject for his contemplation and meditation. He is to regard the Bible as the voice of God speaking directly to him. Thus he will find the wisdom which is divine.
+
+AA 474.2
+The knowledge of God as revealed in Christ is the knowledge that all who are saved must have. This is the knowledge that works transformation of character. Received into the life, it will re-create the soul in the image of Christ. This is the knowledge that God invites His children to receive, beside which all else is vanity and nothingness.
+
+AA 475.1
+In every generation and in every land the true foundation for character building has been the same—the principles contained in the word of God. The only safe and sure rule is to do what God says. “The statutes of the Lord are right,” and “he that doeth these things shall never be moved.” Psalms 19:8; 15:5. It was with the word of God that the apostles met the false theories of their day, saying, “Other foundation can no man lay than that is laid.” 1 Corinthians 3:11.
+
+AA 475.2
+At the time of their conversion and baptism the Colossian believers pledged themselves to put away beliefs and practices that had hitherto been a part of their lives, and to be true to their allegiance to Christ. In his letter, Paul reminded them of this, and entreated them not to forget that in order to keep their pledge they must put forth constant effort against the evils that would seek for mastery over them. “If ye then be risen with Christ,” he said, “seek those things which are above, where Christ sitteth on the right hand of God. Set your affection on things above, not on things on the earth. For ye are dead, and your life is hid with Christ in God.”
+
+AA 475.3
+“If any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.” 2 Corinthians 5:17. Through the power of Christ, men and women have broken the chains of sinful habit. They have renounced selfishness. The profane have become reverent, the drunken sober, the profligate pure. Souls that have borne the likeness of Satan have become transformed into the image of God. This change is in itself the miracle of miracles. A change wrought by the Word, it is one of the deepest mysteries of the Word. We cannot understand it; we can only believe, as declared by the Scriptures, it is “Christ in you, the hope of glory.”
+
+AA 476.1
+When the Spirit of God controls mind and heart, the converted soul breaks forth into a new song; for he realizes that in his experience the promise of God has been fulfilled, that his transgression has been forgiven, his sin covered. He has exercised repentance toward God for the violation of the divine law, and faith toward Christ, who died for man’s justification. “Being justified by faith,” he has “peace with God through our Lord Jesus Christ.” Romans 5:1.
+
+AA 476.2
+But because this experience is his, the Christian is not therefore to fold his hands, content with that which has been accomplished for him. He who has determined to enter the spiritual kingdom will find that all the powers and passions of unregenerate nature, backed by the forces of the kingdom of darkness, are arrayed against him. Each day he must renew his consecration, each day do battle with evil. Old habits, hereditary tendencies to wrong, will strive for the mastery, and against these he is to be ever on guard, striving in Christ’s strength for victory.
+
+AA 476.3
+“Mortify therefore your members which are upon the earth,” Paul wrote to the Colossians; “in the which ye also walked sometime, when ye lived in them. But now ye also put off all these: anger, wrath, malice, blasphemy, filthy communication out of your mouth.... Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, long-suffering; forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness. And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.”
+
+AA 477.1
+The letter to the Colossians is filled with lessons of highest value to all who are engaged in the service of Christ, lessons that show the singleness of purpose and the loftiness of aim which will be seen in the life of him who rightly represents the Saviour. Renouncing all that would hinder him from making progress in the upward way or that would turn the feet of another from the narrow path, the believer will reveal in his daily life mercy, kindness, humility, meekness, forbearance, and the love of Christ.
+
+AA 477.2
+The power of a higher, purer, nobler life is our great need. The world has too much of our thought, and the kingdom of heaven too little.
+
+AA 478.1
+In his efforts to reach God’s ideal for him, the Christian is to despair of nothing. Moral and spiritual perfection, through the grace and power of Christ, is promised to all. Jesus is the source of power, the fountain of life. He brings us to His word, and from the tree of life presents to us leaves for the healing of sin-sick souls. He leads us to the throne of God, and puts into our mouth a prayer through which we are brought into close contact with Himself. In our behalf He sets in operation the all-powerful agencies of heaven. At every step we touch His living power.
+
+AA 478.2
+God fixes no limit to the advancement of those who desire to be “filled with the knowledge of His will in all wisdom and spiritual understanding.” Through prayer, through watchfulness, through growth in knowledge and understanding, they are to be “strengthened with all might, according to His glorious power.” Thus they are prepared to work for others. It is the Saviour’s purpose that human beings, purified and sanctified, shall be His helping hand. For this great privilege let us give thanks to Him who “hath made us meet to be partakers of the inheritance of the saints in light: who hath delivered us from the power of darkness, and hath translated us into the kingdom of His dear Son.”
+
+AA 478.3
+Paul’s letter to the Philippians, like the one to the Colossians, was written while he was a prisoner at Rome. The church at Philippi had sent gifts to Paul by the hand of Epaphroditus, whom Paul calls “my brother, and companion in labor, and fellow soldier, but your messenger, and he that ministered to my wants.” While in Rome, Epaphroditus was sick, “nigh unto death: but God had mercy on him,” Paul wrote, “and not on him only, but on me also, lest I should have sorrow upon sorrow.” Hearing of the sickness of Epaphroditus, the believers at Philippi were filled with anxiety regarding him, and he decided to return to them. “He longed after you all,” Paul wrote, “and was full of heaviness, because that ye had heard that he had been sick.... I sent him therefore the more carefully, that, when ye see him again, ye may rejoice, and that I may be the less sorrowful. Receive him therefore in the Lord with all gladness; and hold such in reputation: because for the work of Christ he was nigh unto death, not regarding his life, to supply your lack of service toward me.”
+
+AA 479.1
+By Epaphroditus, Paul sent the Philippian believers a letter, in which he thanked them for their gifts to him. Of all the churches, that of Philippi had been the most liberal in supplying Paul’s wants. “Now ye Philippians know also,” the apostle said in his letter, “that in the beginning of the gospel, when I departed from Macedonia, no church communicated with me as concerning giving and receiving, but ye only. For even in Thessalonica ye sent once and again unto my necessity. Not because I desire a gift: but I desire fruit that may abound to your account. But I have all, and abound: I am full, having received of Epaphroditus the things which were sent from you, an odor of a sweet smell, a sacrifice acceptable, well-pleasing to God.”
+
+AA 479.2
+“Grace be unto you, and peace, from God our Father, and from the Lord Jesus Christ. I thank my God upon every remembrance of you, always in every prayer of mine for you all making request with joy, for your fellowship in the gospel from the first day until now; being confident of this very thing, that He which hath begun a good work in you will perform it until the day of Jesus Christ: even as it is meet for me to think this of you all, because I have you in my heart; inasmuch as both in my bonds, and in the defense and confirmation of the gospel, ye all are partakers of my grace. For God is my record, how greatly I long after you all.... And this I pray, that your love may abound yet more and more in knowledge and in all judgment; that ye may approve things that are excellent; that ye may be sincere and without offense till the day of Christ; being filled with the fruits of righteousness, which are by Jesus Christ, unto the glory and praise of God.”
+
+AA 480.1
+The grace of God sustained Paul in his imprisonment, enabling him to rejoice in tribulation. With faith and assurance he wrote to his Philippian brethren that his imprisonment had resulted in the furtherance of the gospel. “I would ye should understand, brethren,” he declared, “that the things which happened unto me have fallen out rather unto the furtherance of the gospel; so that my bonds with Christ are manifest in all the palace, and in all other places; and many of the brethren in the Lord, waxing confident by my bonds, are much more bold to speak the word without fear.”
+
+AA 480.2
+There is a lesson for us in this experience of Paul’s, for it reveals God’s way of working. The Lord can bring victory out of that which may seem to us discomfiture and defeat. We are in danger of forgetting God, of looking at the things which are seen, instead of beholding by the eye of faith the things which are unseen. When misfortune or calamity comes, we are ready to charge God with neglect or cruelty. If He sees fit to cut off our usefulness in some line, we mourn, not stopping to think that thus God may be working for our good. We need to learn that chastisement is a part of His great plan and that under the rod of affliction the Christian may sometimes do more for the Master than when engaged in active service.
+
+AA 481.1
+As their example in the Christian life, Paul pointed the Philippians to Christ, who, “being in the form of God, thought it not robbery to be equal with God: but made Himself of no reputation, and took upon Him the form of a servant, and was made in the likeness of men: and being found in a fashion as a man, He humbled Himself, and became obedient unto death, even the death of the cross.”
+
+AA 481.2
+“Wherefore, my beloved,” he continued, “as ye have always obeyed, not as in my presence only, but now much more in my absence, work out your own salvation with fear and trembling. For it is God which worketh in you both to will and to do His good pleasure. Do all things without murmurings and disputings: that ye may be blameless and harmless, the sons of God, without rebuke, in the midst of a crooked and perverse nation, among whom ye shine as lights in the world; holding forth the word of life; that I may rejoice in the day of Christ, that I have not run in vain, neither labored in vain.”
+
+AA 481.3
+These words were recorded for the help of every striving soul. Paul holds up the standard of perfection and shows how it may be reached. “Work out your own salvation,” he says, “for it is God which worketh in you.”
+
+AA 482.1
+The work of gaining salvation is one of copartnership, a joint operation. There is to be co-operation between God and the repentant sinner. This is necessary for the formation of right principles in the character. Man is to make earnest efforts to overcome that which hinders him from attaining to perfection. But he is wholly dependent upon God for success. Human effort of itself is not sufficient. Without the aid of divine power it avails nothing. God works and man works. Resistance of temptation must come from man, who must draw his power from God. On the one side there is infinite wisdom, compassion, and power; on the other, weakness, sinfulness, absolute helplessness.
+
+AA 482.2
+God wishes us to have the mastery over ourselves. But He cannot help us without our consent and co-operation. The divine Spirit works through the powers and faculties given to man. Of ourselves, we are not able to bring the purposes and desires and inclinations into harmony with the will of God; but if we are “willing to be made willing,” the Saviour will accomplish this for us, “Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ.” 2 Corinthians 10:5.
+
+AA 482.3
+He who would build up a strong, symmetrical character, he who would be a well-balanced Christian, must give all and do all for Christ; for the Redeemer will not accept divided service. Daily he must learn the meaning of self-surrender. He must study the word of God, learning its meaning and obeying its precepts. Thus he may reach the standard of Christian excellence. Day by day God works with him, perfecting the character that is to stand in the time of final test. And day by day the believer is working out before men and angels a sublime experiment, showing what the gospel can do for fallen human beings.
+
+AA 483.1
+“I count not myself to have apprehended,” Paul wrote; “but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.”
+
+AA 483.2
+Paul did many things. From the time that he gave his allegiance to Christ, his life was filled with untiring service. From city to city, from country to country, he journeyed, telling the story of the cross, winning converts to the gospel, and establishing churches. For these churches he had a constant care, and he wrote many letters of instruction to them. At times he worked at his trade to earn his daily bread. But in all the busy activities of his life, Paul never lost sight of one great purpose—to press toward the prize of his calling. One aim he kept steadfastly before him—to be faithful to the One who at the gate of Damascus had revealed Himself to him. From this aim nothing had power to turn him aside. To exalt the cross of Calvary—this was the all-absorbing motive that inspired his words and acts.
+
+AA 483.3
+The great purpose that constrained Paul to press forward in the face of hardship and difficulty should lead every Christian worker to consecrate himself wholly to God’s service. Worldly attractions will be presented to draw his attentions from the Saviour, but he is to press on toward the goal, showing to the world, to angels, and to men that the hope of seeing the face of God is worth all the effort and sacrifice that the attainment of this hope demands.
+
+AA 484.1
+Though he was a prisoner, Paul was not discouraged. Instead, a note of triumph rings through the letters that he wrote from Rome to the churches. “Rejoice in the Lord alway,” he wrote to the Philippians, “and again I say, Rejoice.... Be careful for nothing; but in everything by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus. Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.”
+
+AA 484.2
+“My God shall supply all your need according to His riches in glory by Christ Jesus.... The grace of our Lord Jesus Christ be with you all.”
+
+AA 484.3
