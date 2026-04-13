@@ -1,12 +1,11 @@
----
-chapter:
-  number: 30
-  title:
-    th: พลับพลาและพิธีกรรมต่างๆ
-    en: The Tabernacle and Its Services
-  url: https://egwwritings.org/?ref=en_PP.343&para=84.1538
-  basedon: อพยพบทที่ 25–40; เลวีนิติ 4–16
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.343&para=84.1538"
+// English title: The Tabernacle and Its Services
+
+#chapter(
+  number: 30,
+  title: "พลับพลาและพิธีกรรมต่างๆ",
+  basedon: "อพยพบทที่ 25–40; เลวีนิติ 4–16"
+)
 
 // {PP 343.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 25A
-  title:
-    th: ภาคผนวก 3
-    en: Appendix Note 3
-  url: https://egwwritings.org/?ref=en_PP.759.2&para=84.3601
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.759.2&para=84.3601"
+// English title: Appendix Note 3
+
+#chapter(
+  number: 25A,
+  title: "ภาคผนวก 3",
+  basedon: ""
+)
 
 // {PP 759.2}
 

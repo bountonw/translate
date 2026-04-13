@@ -1,12 +1,10 @@
----
-chapter:
-  number: 37
-  title:
-    th: ศิลาที่ถูกตี
-    en: The Smitten Rock 
-  url:
-  basedon: กันดารวิถี 20:1–13
----
+// English title: The Smitten Rock
+
+#chapter(
+  number: 37,
+  title: "ศิลาที่ถูกตี",
+  basedon: "กันดารวิถี 20:1–13"
+)
 
 // {PP 411.1}
 

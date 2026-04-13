@@ -1,12 +1,11 @@
----
-chapter:
-  number: 23A
-  title:
-    th: ภาคผนวก 1
-    en: Appendix Note 1
-  url: https://egwwritings.org/?ref=en_PP.757.1&para=84.3591
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.757.1&para=84.3591"
+// English title: Appendix Note 1
+
+#chapter(
+  number: 23A,
+  title: "ภาคผนวก 1",
+  basedon: ""
+)
 
 // {PP 757.1}
 

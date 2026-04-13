@@ -1,12 +1,11 @@
----
-chapter:
-  number: 7
-  title:
-    th: น้ำท่วมโลก
-    en: The Flood
-  url: https://legacy.egwwritings.org/?ref=en_PP.90&para=84.336
-  basedon: ปฐมกาล บทที่ 6–7
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.90&para=84.336"
+// English title: The Flood
+
+#chapter(
+  number: 7,
+  title: "น้ำท่วมโลก",
+  basedon: "ปฐมกาล บทที่ 6–7"
+)
 
 // {PP 90.1}
 

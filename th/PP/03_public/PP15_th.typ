@@ -1,12 +1,11 @@
----
-chapter:
-  number: 15
-  title:
-    th: การสมรสของอิสอัค
-    en: The Marriage of Isaac
-  url: https://legacy.egwwritings.org/?para=84.697
-  basedon: ปฐมกาล บทที่ 24
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.697"
+// English title: The Marriage of Isaac
+
+#chapter(
+  number: 15,
+  title: "การสมรสของอิสอัค",
+  basedon: "ปฐมกาล บทที่ 24"
+)
 
 // {PP 171.1}
 

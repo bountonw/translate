@@ -1,12 +1,11 @@
----
-chapter:
-  number: 32A
-  title:
-    th: ภาคผนวก 7
-    en: Appendix Note 7
-  url: https://legacy.egwwritings.org/?ref=en_PP.761.3&para=84.3613
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.761.3&para=84.3613"
+// English title: Appendix Note 7
+
+#chapter(
+  number: 32A,
+  title: "ภาคผนวก 7",
+  basedon: ""
+)
 
 // {PP 761.3}
 

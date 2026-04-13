@@ -1,12 +1,11 @@
----
-chapter:
-  number: 17
-  title:
-    th: ยาโคบหลบหนีไปอยู่ต่างแดน
-    en: Jacob's Flight and Excile
-  url: https://legacy.egwwritings.org/?para=84.758
-  basedon: ปฐมกาล บทที่ 28–31
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.758"
+// English title: Jacob's Flight and Excile
+
+#chapter(
+  number: 17,
+  title: "ยาโคบหลบหนีไปอยู่ต่างแดน",
+  basedon: "ปฐมกาล บทที่ 28–31"
+)
 
 // {PP 183.1}
 

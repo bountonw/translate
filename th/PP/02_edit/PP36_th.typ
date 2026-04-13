@@ -1,12 +1,11 @@
----
-chapter:
-  number: 36
-  title:
-    th: ในถิ่นทุรกันดาร
-    en: In the Wilderness
-  url: https://legacy.egwwritings.org/?ref=en_PP.406&para=84.1859
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.406&para=84.1859"
+// English title: In the Wilderness
+
+#chapter(
+  number: 36,
+  title: "ในถิ่นทุรกันดาร",
+  basedon: ""
+)
 
 // {PP 406.1}
 

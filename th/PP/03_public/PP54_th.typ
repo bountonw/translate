@@ -1,12 +1,11 @@
----
-chapter:
-  number: 54
-  title:
-    th: แซมสัน
-    en: Samson
-  url: https://legacy.egwwritings.org/?ref=en_PP.560&para=84.2620
-  basedon: ผู้วินิจฉัยบทที่ 13 ถึง 16
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.560&para=84.2620"
+// English title: Samson
+
+#chapter(
+  number: 54,
+  title: "แซมสัน",
+  basedon: "ผู้วินิจฉัยบทที่ 13 ถึง 16"
+)
 
 // {PP 560.1}
 

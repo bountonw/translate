@@ -1,12 +1,11 @@
----
-chapter:
-  number: 28B
-  title:
-    th: ภาคผนวก 5
-    en: Appendix Note 5
-  url: https://egwwritings.org/?ref=en_PP.760.3&para=84.3608
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.760.3&para=84.3608"
+// English title: Appendix Note 5
+
+#chapter(
+  number: 28B,
+  title: "ภาคผนวก 5",
+  basedon: ""
+)
 
 // {PP 760.3}
 

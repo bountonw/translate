@@ -1,12 +1,11 @@
----
-chapter:
-  number: 23
-  title:
-    th: ภัยพิบัติแห่งอียิปต์
-    en: The Plagues of Egypt
-  url: https://egwwritings.org/?ref=en_PP.257&para=84.1118
-  basedon: อพยพบทที่ 5–10
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.257&para=84.1118"
+// English title: The Plagues of Egypt
+
+#chapter(
+  number: 23,
+  title: "ภัยพิบัติแห่งอียิปต์",
+  basedon: "อพยพบทที่ 5–10"
+)
 
 // {PP 257.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 63
-  title:
-    th: ดาวิดกับโกลิอัท
-    en: David and Goliath
-  url: https://legacy.egwwritings.org/?ref=en_PP.643&para=84.3013
-  basedon: 1 ซามูเอล บทที่ 16:14–23; 17
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.643&para=84.3013"
+// English title: David and Goliath
+
+#chapter(
+  number: 63,
+  title: "ดาวิดกับโกลิอัท",
+  basedon: "1 ซามูเอล บทที่ 16:14–23; 17"
+)
 
 // {PP 643.1}
 

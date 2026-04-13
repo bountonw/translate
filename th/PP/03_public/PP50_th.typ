@@ -1,12 +1,11 @@
----
-chapter:
-  number: 50
-  title:
-    th: สิบลดและเงินถวาย
-    en: Tithes and Offerings
-  url: https://legacy.egwwritings.org/?ref=en_PP.525&para=84.2434
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.525&para=84.2434"
+// English title: Tithes and Offerings
+
+#chapter(
+  number: 50,
+  title: "สิบลดและเงินถวาย",
+  basedon: ""
+)
 
 // {PP 525.1}
 

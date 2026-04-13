@@ -1,12 +1,11 @@
----
-chapter:
-  number: 5
-  title:
-    th: การทดสอบคาอินกับอาแบล
-    en: Cain and Abel Tested
-  url: https://legacy.egwwritings.org/?ref=en_PP.71&para=84.254
-  basedon: ปฐมกาล บทที่ 4:1–15
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.71&para=84.254"
+// English title: Cain and Abel Tested
+
+#chapter(
+  number: 5,
+  title: "การทดสอบคาอินกับอาแบล",
+  basedon: "ปฐมกาล บทที่ 4:1–15"
+)
 
 // {PP 71.1}
 

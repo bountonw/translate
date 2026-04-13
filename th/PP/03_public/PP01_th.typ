@@ -1,12 +1,11 @@
----
-chapter:
-  number: 1
-  title:
-    th: ทำไมจึงยอมให้ความบาปเกิดขึ้น
-    en: Why was sin permitted?
-  url: https://legacy.egwwritings.org/?ref=en_PP.33&para=84.68
-  basedon: 
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.33&para=84.68"
+// English title: Why was sin permitted?
+
+#chapter(
+  number: 1,
+  title: "ทำไมจึงยอมให้ความบาปเกิดขึ้น",
+  basedon: ""
+)
 
 // {PP 33.1}
 

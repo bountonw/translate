@@ -1,12 +1,11 @@
----
-chapter:
-  number: 53
-  title:
-    th: ผู้วินิจฉัยรุ่นแรก
-    en: The Earlier Judges
-  url: https://legacy.egwwritings.org/?ref=en_PP.543&para=84.2538
-  basedon: ผู้วินิจฉัยบทที่ 6–8; 10
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.543&para=84.2538"
+// English title: The Earlier Judges
+
+#chapter(
+  number: 53,
+  title: "ผู้วินิจฉัยรุ่นแรก",
+  basedon: "ผู้วินิจฉัยบทที่ 6–8; 10"
+)
 
 // {PP 543.1}
 

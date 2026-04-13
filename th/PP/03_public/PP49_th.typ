@@ -1,12 +1,11 @@
----
-chapter:
-  number: 49
-  title:
-    th: คำสั่งเสียของโยชูวา
-    en: The Last Words of Joshua
-  url: https://egwwritings.org/?ref=en_PP.521&para=84.2414
-  basedon: โยชูวา 23 และ 24
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.521&para=84.2414"
+// English title: The Last Words of Joshua
+
+#chapter(
+  number: 49,
+  title: "คำสั่งเสียของโยชูวา",
+  basedon: "โยชูวา 23 และ 24"
+)
 
 // {PP 521.1}
 

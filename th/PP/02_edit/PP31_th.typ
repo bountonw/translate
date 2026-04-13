@@ -1,12 +1,11 @@
----
-chapter:
-  number: 31
-  title:
-    th: บาปของนาดับและอาบีฮู
-    en: The Sin of Nadab and Abihu
-  url: https://egwwritings.org/?ref=en_PP.359&para=84.1614
-  basedon: เลวีนิติบทที่ 10:1–11
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.359&para=84.1614"
+// English title: The Sin of Nadab and Abihu
+
+#chapter(
+  number: 31,
+  title: "บาปของนาดับและอาบีฮู",
+  basedon: "เลวีนิติบทที่ 10:1–11"
+)
 
 // {PP 359.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 56
-  title:
-    th: เอลีกับลูกชายทั้งสอง
-    en: Eli and His Sons
-  url: https://legacy.egwwritings.org/?ref=en_PP.575&para=84.2698
-  basedon: 1 ซามูเอล 2:12–36
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.575&para=84.2698"
+// English title: Eli and His Sons
+
+#chapter(
+  number: 56,
+  title: "เอลีกับลูกชายทั้งสอง",
+  basedon: "1 ซามูเอล 2:12–36"
+)
 
 // {PP 575.1}
 

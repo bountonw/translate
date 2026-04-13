@@ -1,12 +1,11 @@
----
-chapter:
-  number: 16
-  title:
-    th: ยาโคบกับเอซาว
-    en: Jacob and Esau
-  url: https://legacy.egwwritings.org/?para=84.729
-  basedon: ปฐมกาล บทที่ 25:19–34; 27
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.729"
+// English title: Jacob and Esau
+
+#chapter(
+  number: 16,
+  title: "ยาโคบกับเอซาว",
+  basedon: "ปฐมกาล บทที่ 25:19–34; 27"
+)
 
 // {PP 177.1}
 

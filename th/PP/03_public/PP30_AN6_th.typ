@@ -1,12 +1,11 @@
----
-chapter:
-  number: 30A
-  title:
-    th: ภาคผนวก 6
-    en: Appendix Note 6
-  url: https://egwwritings.org/?ref=en_PP.761.1&para=84.3611
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.761.1&para=84.3611"
+// English title: Appendix Note 6
+
+#chapter(
+  number: 30A,
+  title: "ภาคผนวก 6",
+  basedon: ""
+)
 
 // {PP 761.1}
 

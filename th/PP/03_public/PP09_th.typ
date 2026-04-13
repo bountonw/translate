@@ -1,12 +1,11 @@
----
-chapter:
-  number: 9
-  title:
-    th: วิทยาศาสตร์กับพระคัมภีร์
-    en: The Literal Week 
-  url: https://legacy.egwwritings.org/?para=84.428
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.428"
+// English title: The Literal Week
+
+#chapter(
+  number: 9,
+  title: "วิทยาศาสตร์กับพระคัมภีร์",
+  basedon: ""
+)
 
 // {PP 111.1}
 

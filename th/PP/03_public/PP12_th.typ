@@ -1,12 +1,11 @@
----
-chapter:
-  number: 12
-  title:
-    th: อับราฮัมในแผ่นดินคานาอัน
-    en: Abraham in Canaan
-  url: https://legacy.egwwritings.org/?para=84.517
-  basedon: ปฐมกาล บทที่ 13–15; 17:1–16; 18
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.517"
+// English title: Abraham in Canaan
+
+#chapter(
+  number: 12,
+  title: "อับราฮัมในแผ่นดินคานาอัน",
+  basedon: "ปฐมกาล บทที่ 13–15; 17:1–16; 18"
+)
 
 // {PP 132.1}
 

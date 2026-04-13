@@ -1,12 +1,11 @@
----
-chapter:
-  number: 13
-  title:
-    th: อับราฮัมในแผ่นดินคานาอัน
-    en: The Test of Faith
-  url: https://legacy.egwwritings.org/?para=84.584
-  basedon: ปฐมกาล บทที่ 16; 17:18–20; 21:1–14; 22:1–19
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.584"
+// English title: The Test of Faith
+
+#chapter(
+  number: 13,
+  title: "อับราฮัมในแผ่นดินคานาอัน",
+  basedon: "ปฐมกาล บทที่ 16; 17:18–20; 21:1–14; 22:1–19"
+)
 
 // {PP 145.1}
 

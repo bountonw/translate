@@ -1,12 +1,11 @@
----
-chapter:
-  number: 46
-  title:
-    th: คำอวยพรและคำสาปแช่ง
-    en: The Blessings and the Curses
-  url: https://egwwritings.org/?ref=en_PP.499&para=84.2302
-  basedon: โยชูวา 8
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.499&para=84.2302"
+// English title: The Blessings and the Curses
+
+#chapter(
+  number: 46,
+  title: "คำอวยพรและคำสาปแช่ง",
+  basedon: "โยชูวา 8"
+)
 
 // {PP 499.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 11
-  title:
-    th: การทรงเรียกอับราฮัม
-    en: The Call of Abraham
-  url: https://legacy.egwwritings.org/?para=84.488
-  basedon: ปฐมกาล บทที่ 11:27–32; 12:1–20
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.488"
+// English title: The Call of Abraham
+
+#chapter(
+  number: 11,
+  title: "การทรงเรียกอับราฮัม",
+  basedon: "ปฐมกาล บทที่ 11:27–32; 12:1–20"
+)
 
 // {PP 125.1}
 

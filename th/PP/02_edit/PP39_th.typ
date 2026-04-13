@@ -1,12 +1,10 @@
----
-chapter:
-  number: 39
-  title:
-    th: การพิชิตเมืองบาชาน
-    en: The Conquest of Bashan
-  url:
-  basedon: เฉลยธรรมบัญญัติ 2; 3:1–11.
----
+// English title: The Conquest of Bashan
+
+#chapter(
+  number: 39,
+  title: "การพิชิตเมืองบาชาน",
+  basedon: "เฉลยธรรมบัญญัติ 2; 3:1–11."
+)
 
 // {PP 433.1}
 

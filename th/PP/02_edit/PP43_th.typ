@@ -1,12 +1,11 @@
----
-chapter:
-  number: 43
-  title:
-    th: มรณกรรมของโมเสส
-    en: The Death of Moses
-  url: https://legacy.egwwritings.org/?ref=en_PP.469&para=84.2163
-  basedon: เฉลยธรรมบัญญัติบทที่ 31 – 34
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.469&para=84.2163"
+// English title: The Death of Moses
+
+#chapter(
+  number: 43,
+  title: "มรณกรรมของโมเสส",
+  basedon: "เฉลยธรรมบัญญัติบทที่ 31 – 34"
+)
 
 // {PP 469.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 41
-  title:
-    th: การละทิ้งพระเจ้าที่แม่น้ำจอร์แดน
-    en: Apostasy at the Jordan
-  url: https://legacy.egwwritings.org/?ref=en_PP.453&para=84.2085
-  basedon: กันดารวิถี บทที่ 25
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.453&para=84.2085"
+// English title: Apostasy at the Jordan
+
+#chapter(
+  number: 41,
+  title: "การละทิ้งพระเจ้าที่แม่น้ำจอร์แดน",
+  basedon: "กันดารวิถี บทที่ 25"
+)
 
 // {PP 453.1}
 
