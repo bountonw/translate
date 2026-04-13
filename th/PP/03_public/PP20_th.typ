@@ -2,7 +2,7 @@
 // English title: Joseph in Egypt
 
 #chapter(
-  number: 16,
+  number: 20,
   title: "โยเซฟในอียิปต์",
   basedon: "ปฐมกาล บทที่ 39–41"
 )
