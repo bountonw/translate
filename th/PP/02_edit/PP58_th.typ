@@ -1,12 +1,10 @@
----
-chapter:
-  number: 58
-  title:
-    th: โรงเรียนของผู้เผยพระวจนะ
-    en: The Schools of the Prophets
-  url: https://legacy.egwwritings.org/?ref=en_PP.592&para=84.2786
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.592&para=84.2786"
+// English title: The Schools of the Prophets
+
+#chapter(
+  number: 58,
+  title: "โรงเรียนของผู้เผยพระวจนะ",
+)
 
 // {PP 592.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 64
-  title:
-    th: ดาวิดหลบลี้หนีภัย
-    en: David a Fugitive
-  url: https://legacy.egwwritings.org/?ref=en_PP.649&para=84.3043
-  basedon: 1 ซามูเอล บทที่ 18 ถึง 22
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.649&para=84.3043"
+// English title: David a Fugitive
+
+#chapter(
+  number: 64,
+  title: "ดาวิดหลบลี้หนีภัย",
+  basedon: "1 ซามูเอล บทที่ 18 ถึง 22"
+)
 
 // {PP 649.1}
 

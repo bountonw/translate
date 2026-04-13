@@ -1,12 +1,11 @@
----
-chapter:
-  กันดารวิถี: 34
-  title:
-    th: ผู้สอดแนมสิบสองคน
-    en: The Twelve Spies
-  url: https://legacy.egwwritings.org/?ref=en_PP.387&para=84.1755
-  basedon: กันดารวิถี 13 และ 14
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.387&para=84.1755"
+// English title: The Twelve Spies
+
+#chapter(
+  number: ,
+  title: "ผู้สอดแนมสิบสองคน",
+  basedon: "กันดารวิถี 13 และ 14"
+)
 
 // {PP 387.1}
 

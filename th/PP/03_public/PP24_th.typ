@@ -1,12 +1,11 @@
----
-chapter:
- number: 24
- title:
-   th: ปัสกา
-   en: The Passover
- url: https://egwwritings.org/?ref=en_PP.273&para=84.1195
- basedon: อพยพบทที่ 11; 12:1–32
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.273&para=84.1195"
+// English title: The Passover
+
+#chapter(
+  number: 24,
+  title: "ปัสกา",
+  basedon: "อพยพบทที่ 11; 12:1–32"
+)
 
 // {PP 273.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 35
-  title:
-    th: การกบฏของโคราห์
-    en: The Rebellion of Korah
-  url: https://legacy.egwwritings.org/?ref=en_PP.395&para=84.1797
-  basedon: กันดารวิถี 16 และ 17
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.395&para=84.1797"
+// English title: The Rebellion of Korah
+
+#chapter(
+  number: 35,
+  title: "การกบฏของโคราห์",
+  basedon: "กันดารวิถี 16 และ 17"
+)
 
 // {PP 395.1}
 

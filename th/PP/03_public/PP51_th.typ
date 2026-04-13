@@ -1,12 +1,10 @@
----
-chapter:
-  number: 51
-  title:
-    th: พระเจ้าทรงดูแลคนยากไร้
-    en: God’s Care for the Poor
-  url: https://legacy.egwwritings.org/?ref=en_PP.525&para=84.2434
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.525&para=84.2434"
+// English title: God’s Care for the Poor
+
+#chapter(
+  number: 51,
+  title: "พระเจ้าทรงดูแลคนยากไร้",
+)
 
 // {PP 530.1}
 

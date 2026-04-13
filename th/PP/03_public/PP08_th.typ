@@ -1,12 +1,11 @@
----
-chapter:
-  number: 8
-  title:
-    th: หลังน้ำท่วม
-    en: After the Flood
-  url: https://legacy.egwwritings.org/?ref=en_PP.105&para=84.399
-  basedon: ปฐมกาล 7:20–9:17
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.105&para=84.399"
+// English title: After the Flood
+
+#chapter(
+  number: 8,
+  title: "หลังน้ำท่วม",
+  basedon: "ปฐมกาล 7:20–9:17"
+)
 
 // {PP 105.1}
 

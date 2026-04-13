@@ -1,12 +1,11 @@
----
-chapter:
-  number: 44
-  title:
-    th: ข้ามแม่น้ำจอร์แดน
-    en: Crossing the Jordan
-  url: https://egwwritings.org/?ref=en_PP.510&para=84.2352
-  basedon: โยชูวา 1–5:12
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.510&para=84.2352"
+// English title: Crossing the Jordan
+
+#chapter(
+  number: 44,
+  title: "ข้ามแม่น้ำจอร์แดน",
+  basedon: "โยชูวา 1–5:12"
+)
 
 // {PP 481.1}
 

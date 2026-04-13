@@ -1,12 +1,11 @@
----
-chapter:
-  number: 2
-  title:
-    th: การทรงสร้าง
-    en: The Creation
-  url: https://legacy.egwwritings.org/?ref=en_PP.44&para=84.117
-  basedon: ปฐมกาล บทที่ 1–2
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.44&para=84.117"
+// English title: The Creation
+
+#chapter(
+  number: 2,
+  title: "การทรงสร้าง",
+  basedon: "ปฐมกาล บทที่ 1–2"
+)
 
 // {PP 44.1}
 

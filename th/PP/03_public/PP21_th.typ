@@ -1,12 +1,11 @@
----
-chapter:
-  number: 21
-  title:
-    th: โยเซฟกับพี่น้องของท่าน
-    en: Joseph and his Brothers
-  url: https://legacy.egwwritings.org/?para=84.945
-  basedon: ปฐมกาลบทที่ 41:54–56; 42–50
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.945"
+// English title: Joseph and his Brothers
+
+#chapter(
+  number: 21,
+  title: "โยเซฟกับพี่น้องของท่าน",
+  basedon: "ปฐมกาลบทที่ 41:54–56; 42–50"
+)
 
 // {PP 224.1}
 

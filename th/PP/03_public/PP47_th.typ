@@ -1,12 +1,11 @@
----
-chapter:
-  number: 47
-  title:
-    th: ผูกมิตรกับชาวกิเบโอน
-    en: League With the Gibeonites
-  url: https://egwwritings.org/?ref=en_PP.505&para=84.2326
-  basedon: โยชูวา 9 และ 10
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.505&para=84.2326"
+// English title: League With the Gibeonites
+
+#chapter(
+  number: 47,
+  title: "ผูกมิตรกับชาวกิเบโอน",
+  basedon: "โยชูวา 9 และ 10"
+)
 
 // {PP 505.1}
 

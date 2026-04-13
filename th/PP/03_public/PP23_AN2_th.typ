@@ -1,12 +1,10 @@
----
-chapter:
-  number: 23B
-  title:
-    th: ภาคผนวก 2
-    en: Appendix Note 2
-  url: https://egwwritings.org/?ref=en_PP.757&para=84.3589
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.757&para=84.3589"
+// English title: Appendix Note 2
+
+#chapter(
+  number: 23B,
+  title: "ภาคผนวก 2",
+)
 
 // {PP 758.1}
 

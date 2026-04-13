@@ -1,12 +1,11 @@
----
-chapter:
-  number: 40
-  title:
-    th: บาลาอัม
-    en: Balaam
-  url: https://legacy.egwwritings.org/?ref=en_PP.438&para=84.2012
-  basedon: กันดารวิถี 22–24
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.438&para=84.2012"
+// English title: Balaam
+
+#chapter(
+  number: 40,
+  title: "บาลาอัม",
+  basedon: "กันดารวิถี 22–24"
+)
 
 // {PP 438.1}
 

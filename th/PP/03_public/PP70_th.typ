@@ -1,12 +1,11 @@
----
-chapter:
-  number: 70
-  title:
-    th: การปกครองของดาวิด
-    en: The Reign of David
-  url: https://legacy.egwwritings.org/?para=84.3303
-  basedon: 2 ซามูเอล 5:6–25; 6; 7; 9; 10
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3303"
+// English title: The Reign of David
+
+#chapter(
+  number: 70,
+  title: "การปกครองของดาวิด",
+  basedon: "2 ซามูเอล 5:6–25; 6; 7; 9; 10"
+)
 
 // {PP 703.1}
 

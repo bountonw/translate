@@ -1,12 +1,10 @@
----
-chapter:
-  number: 4
-  title:
-    th: แผนการทรงไถ่
-    en: The Plan of Redemption
-  url: https://legacy.egwwritings.org/?ref=en_PP.63&para=84.215
-  basedon: 
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.63&para=84.215"
+// English title: The Plan of Redemption
+
+#chapter(
+  number: 4,
+  title: "แผนการทรงไถ่",
+)
 
 // {PP 63.1}
 

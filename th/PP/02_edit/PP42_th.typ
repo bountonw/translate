@@ -1,12 +1,11 @@
----
-chapter:
-  number: 42
-  title:
-    th: ประกาศพระบัญญัติอีกครั้ง
-    en: The Law Repeated
-  url: https://legacy.egwwritings.org/?ref=en_PP.462&para=84.2127
-  basedon: เฉลยธรรมบัญญัติบทที่ 4–6, 28
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.462&para=84.2127"
+// English title: The Law Repeated
+
+#chapter(
+  number: 42,
+  title: "ประกาศพระบัญญัติอีกครั้ง",
+  basedon: "เฉลยธรรมบัญญัติบทที่ 4–6, 28"
+)
 
 // {PP 462.1}
 

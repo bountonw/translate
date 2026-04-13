@@ -1,12 +1,11 @@
----
-chapter:
-  number: 72
-  title:
-    th: การกบฏของอับซาโลม
-    en: The Rebellion of Absalom
-  url: https://legacy.egwwritings.org/?para=84.3447
-  basedon: 2 ซามูเอล 13–19
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3447"
+// English title: The Rebellion of Absalom
+
+#chapter(
+  number: 72,
+  title: "การกบฏของอับซาโลม",
+  basedon: "2 ซามูเอล 13–19"
+)
 
 // {PP 727.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 22
-  title:
-    th: โมเสส
-    en: Moses
-  url: https://egwwritings.org/?ref=en_PP.241&para=84.1042
-  basedon: อพยพบทที่ 1–4
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.241&para=84.1042"
+// English title: Moses
+
+#chapter(
+  number: 22,
+  title: "โมเสส",
+  basedon: "อพยพบทที่ 1–4"
+)
 
 // {PP 241.1}
 

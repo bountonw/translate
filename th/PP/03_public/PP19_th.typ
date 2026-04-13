@@ -1,12 +1,11 @@
----
-chapter:
-  number: 19
-  title:
-    th: กลับสู่คานาอัน
-    en: The Return to Canaan
-  url: https://legacy.egwwritings.org/?para=84.852
-  basedon: ปฐมกาลบทที่ 34–35, 37
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.852"
+// English title: The Return to Canaan
+
+#chapter(
+  number: 19,
+  title: "กลับสู่คานาอัน",
+  basedon: "ปฐมกาลบทที่ 34–35, 37"
+)
 
 // {PP 204.1}
 

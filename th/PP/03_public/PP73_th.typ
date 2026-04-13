@@ -1,12 +1,11 @@
----
-chapter:
-  number: 73
-  title:
-    th: บั้นปลายชีวิตของดาวิด
-    en: The Last Years of David
-  url: https://legacy.egwwritings.org/?para=84.3535
-  basedon: 2 ซามูเอล 24; 1 พงศ์กษัตริย์ 1; 1 พงศาวดาร 21; 28; 29
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3535"
+// English title: The Last Years of David
+
+#chapter(
+  number: 73,
+  title: "บั้นปลายชีวิตของดาวิด",
+  basedon: "2 ซามูเอล 24; 1 พงศ์กษัตริย์ 1; 1 พงศาวดาร 21; 28; 29"
+)
 
 // {PP 746.1}
 

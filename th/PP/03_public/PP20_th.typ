@@ -1,12 +1,11 @@
----
-chapter:
-  number: 16
-  title:
-    th: โยเซฟในอียิปต์
-    en: Joseph in Egypt
-  url: https://legacy.egwwritings.org/?para=84.584
-  basedon: ปฐมกาล บทที่ 39–41
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.584"
+// English title: Joseph in Egypt
+
+#chapter(
+  number: 20,
+  title: "โยเซฟในอียิปต์",
+  basedon: "ปฐมกาล บทที่ 39–41"
+)
 
 // {PP 213.1}
 

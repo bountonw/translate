@@ -1,12 +1,11 @@
----
-chapter:
-  number: 62
-  title:
-    th: การเจิมดาวิด
-    en: The Anointing of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.637&para=84.2996
-  basedon: 1 ซามูเอล บทที่ 16:1–13
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.637&para=84.2996"
+// English title: The Anointing of David
+
+#chapter(
+  number: 62,
+  title: "การเจิมดาวิด",
+  basedon: "1 ซามูเอล บทที่ 16:1–13"
+)
 
 // {PP 637.1}
 

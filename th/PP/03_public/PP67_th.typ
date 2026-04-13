@@ -1,12 +1,10 @@
----
-chapter:
-  number: 67
-  title:
-    th: ไสยศาสตร์ในยุคโบราณและในปัจจุบัน
-    en: Ancient and Modern Sorcery
-  url: https://legacy.egwwritings.org/?para=84.3203
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3203"
+// English title: Ancient and Modern Sorcery
+
+#chapter(
+  number: 67,
+  title: "ไสยศาสตร์ในยุคโบราณและในปัจจุบัน",
+)
 
 // {PP 683.1}
 
