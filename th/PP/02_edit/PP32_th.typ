@@ -4,7 +4,6 @@
 #chapter(
   number: 32,
   title: "ธรรมบัญญัติและพันธสัญญา",
-  basedon: ""
 )
 
 // {PP 363.1}

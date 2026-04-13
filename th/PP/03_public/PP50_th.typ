@@ -4,7 +4,6 @@
 #chapter(
   number: 50,
   title: "สิบลดและเงินถวาย",
-  basedon: ""
 )
 
 // {PP 525.1}

@@ -4,7 +4,6 @@
 #chapter(
   number: 36,
   title: "ในถิ่นทุรกันดาร",
-  basedon: ""
 )
 
 // {PP 406.1}

@@ -4,7 +4,6 @@
 #chapter(
   number: 4,
   title: "แผนการทรงไถ่",
-  basedon: ""
 )
 
 // {PP 63.1}

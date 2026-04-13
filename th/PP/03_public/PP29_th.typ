@@ -4,7 +4,6 @@
 #chapter(
   number: 29,
   title: "ซาตานเกลียดชังพระบัญญัติ",
-  basedon: ""
 )
 
 // {PP 331.1}

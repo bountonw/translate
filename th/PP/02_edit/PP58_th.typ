@@ -4,7 +4,6 @@
 #chapter(
   number: 58,
   title: "โรงเรียนของผู้เผยพระวจนะ",
-  basedon: ""
 )
 
 // {PP 592.1}

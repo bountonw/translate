@@ -4,7 +4,6 @@
 #chapter(
   number: 51,
   title: "พระเจ้าทรงดูแลคนยากไร้",
-  basedon: ""
 )
 
 // {PP 530.1}

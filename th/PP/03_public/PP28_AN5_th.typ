@@ -4,7 +4,6 @@
 #chapter(
   number: 28B,
   title: "ภาคผนวก 5",
-  basedon: ""
 )
 
 // {PP 760.3}

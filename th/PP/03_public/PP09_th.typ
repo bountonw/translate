@@ -4,7 +4,6 @@
 #chapter(
   number: 9,
   title: "วิทยาศาสตร์กับพระคัมภีร์",
-  basedon: ""
 )
 
 // {PP 111.1}
