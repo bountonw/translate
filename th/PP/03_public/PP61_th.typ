@@ -1,12 +1,11 @@
----
-chapter:
-  number: 61
-  title:
-    th: ซาอูลถูกปฏิเสธ
-    en: Saul Rejected
-  url: https://.egwwritings.org/?ref=en_PP.616&para=84.2900
-  basedon: 1 ซามูเอล บทที่ 15
----
+// Source-url: "https://.egwwritings.org/?ref=en_PP.616&para=84.2900"
+// English title: Saul Rejected
+
+#chapter(
+  number: 61,
+  title: "ซาอูลถูกปฏิเสธ",
+  basedon: "1 ซามูเอล บทที่ 15"
+)
 
 // {PP 627.1}
 

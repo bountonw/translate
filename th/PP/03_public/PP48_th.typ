@@ -1,12 +1,11 @@
----
-chapter:
-  number: 48
-  title:
-    th: การแบ่งแยกแผ่นดินคานาอัน
-    en: The Division of Canaan
-  url: https://egwwritings.org/?ref=en_PP.510&para=84.2352
-  basedon: โยชูวา 10:40–43; 11; 14–22
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.510&para=84.2352"
+// English title: The Division of Canaan
+
+#chapter(
+  number: 48,
+  title: "การแบ่งแยกแผ่นดินคานาอัน",
+  basedon: "โยชูวา 10:40–43; 11; 14–22"
+)
 
 // {PP 510.1}
 

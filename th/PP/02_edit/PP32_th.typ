@@ -1,12 +1,10 @@
----
-chapter:
-  number: 32
-  title:
-    th: ธรรมบัญญัติและพันธสัญญา
-    en: The Law and the Covenants
-  url: https://egwwritings.org/?ref=en_PP.363&para=84.1631
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.363&para=84.1631"
+// English title: The Law and the Covenants
+
+#chapter(
+  number: 32,
+  title: "ธรรมบัญญัติและพันธสัญญา",
+)
 
 // {PP 363.1}
 

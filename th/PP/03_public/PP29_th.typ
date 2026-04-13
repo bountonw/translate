@@ -1,12 +1,10 @@
----
-chapter:
-  number: 29
-  title:
-    th: ซาตานเกลียดชังพระบัญญัติ
-    en: Satan's Enmity Against the Law
-  url: https://egwwritings.org/?ref=en_PP.331&para=84.1479
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.331&para=84.1479"
+// English title: Satan's Enmity Against the Law
+
+#chapter(
+  number: 29,
+  title: "ซาตานเกลียดชังพระบัญญัติ",
+)
 
 // {PP 331.1}
 

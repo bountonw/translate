@@ -1,12 +1,11 @@
----
-chapter:
-  number: 28
-  title:
-    th: การไหว้รูปเคารพที่ภูเขาซีนาย
-    en: Idolatry at Sinai
-  url: https://egwwritings.org/?ref=en_PP.315&para=84.1403
-  basedon: อพยพ 32 ถึง 34
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.315&para=84.1403"
+// English title: Idolatry at Sinai
+
+#chapter(
+  number: 28,
+  title: "การไหว้รูปเคารพที่ภูเขาซีนาย",
+  basedon: "อพยพ 32 ถึง 34"
+)
 
 // {PP 315.1}
 

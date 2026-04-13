@@ -1,12 +1,10 @@
----
-chapter:
-  number: 59A
-  title:
-    th: ภาคผนวก 8
-    en: Appendix Note 8
-  url: https://legacy.egwwritings.org/?ref=en_PP.761.6&para=84.3616
-  basedon:
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.761.6&para=84.3616"
+// English title: Appendix Note 8
+
+#chapter(
+  number: 59A,
+  title: "ภาคผนวก 8",
+)
 
 // {PP 761.6}
 

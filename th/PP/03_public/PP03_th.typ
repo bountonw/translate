@@ -1,12 +1,11 @@
----
-chapter:
-  number: 3
-  title:
-    th: การทดลองและการตกสู่ความบาป
-    en: The Temptation and Fall
-  url: https://legacy.egwwritings.org/?ref=en_PP.52&para=84.155
-  basedon: ปฐมกาล บทที่ 3
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.52&para=84.155"
+// English title: The Temptation and Fall
+
+#chapter(
+  number: 3,
+  title: "การทดลองและการตกสู่ความบาป",
+  basedon: "ปฐมกาล บทที่ 3"
+)
 
 // {PP 52.1}
 

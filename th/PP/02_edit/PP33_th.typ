@@ -1,12 +1,11 @@
----
-chapter:
-  number: 33
-  title:
-    th: จากซีนายถึงคาเดช
-    en: From Sinai to Kadesh
-  url: https://legacy.egwwritings.org/?ref=en_PP.374&para=84.1687
-  basedon: กันดารวิถี 11 และ 12
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.374&para=84.1687"
+// English title: From Sinai to Kadesh
+
+#chapter(
+  number: 33,
+  title: "จากซีนายถึงคาเดช",
+  basedon: "กันดารวิถี 11 และ 12"
+)
 
 // {PP 374.1}
 

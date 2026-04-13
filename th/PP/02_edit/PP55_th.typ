@@ -1,12 +1,11 @@
----
-chapter:
-  number: 55
-  title:
-    th: ซามูเอลในวัยเด็ก
-    en: The Child Samuel
-  url: https://legacy.egwwritings.org/?ref=en_PP.569&para=84.2666
-  basedon: 1 ซามูเอล 1; 2:1–11
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.569&para=84.2666"
+// English title: The Child Samuel
+
+#chapter(
+  number: 55,
+  title: "ซามูเอลในวัยเด็ก",
+  basedon: "1 ซามูเอล 1; 2:1–11"
+)
 
 // {PP 569.1}
 

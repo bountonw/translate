@@ -1,12 +1,11 @@
----
-chapter:
-  number: 14
-  title:
-    th: เมืองโสโดมถึงคราวหายนะ
-    en: Destruction of Sodom
-  url: https://legacy.egwwritings.org/?para=84.632
-  basedon: ปฐมกาล บทที่ 19
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.632"
+// English title: Destruction of Sodom
+
+#chapter(
+  number: 14,
+  title: "เมืองโสโดมถึงคราวหายนะ",
+  basedon: "ปฐมกาล บทที่ 19"
+)
 
 // {PP 156.1}
 

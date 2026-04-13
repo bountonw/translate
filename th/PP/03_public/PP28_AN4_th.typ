@@ -1,12 +1,10 @@
----
-chapter:
-  number: 28A
-  title:
-    th: ภาคผนวก 4
-    en: Appendix Note 4
-  url: https://egwwritings.org/?ref=en_PP.760.1&para=84.3606
-  basedon:
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.760.1&para=84.3606"
+// English title: Appendix Note 4
+
+#chapter(
+  number: 28A,
+  title: "ภาคผนวก 4",
+)
 
 // {PP 760.1}
 

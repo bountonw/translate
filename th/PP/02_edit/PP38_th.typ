@@ -1,12 +1,10 @@
----
-chapter:
-  number: 38
-  title:
-    th: เดินทางเลี่ยงเอโดม
-    en: The Journey Around Edom
-  url:
-  basedon: กันดารวิถี 20:14–29; 21:1–9
----
+// English title: The Journey Around Edom
+
+#chapter(
+  number: 38,
+  title: "เดินทางเลี่ยงเอโดม",
+  basedon: "กันดารวิถี 20:14–29; 21:1–9"
+)
 
 // {PP 422.1}
 

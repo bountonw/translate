@@ -1,12 +1,11 @@
----
-chapter:
-  number: 45
-  title:
-    th: การพังทลายของเมืองเยรีโค
-    en: The fall of Jericho
-  url: https://egwwritings.org/?ref=en_PP.487&para=84.2245
-  basedon: โยชูวา 5:13–15; 6; 7
----
+// Source-url: "https://egwwritings.org/?ref=en_PP.487&para=84.2245"
+// English title: The fall of Jericho
+
+#chapter(
+  number: 45,
+  title: "การพังทลายของเมืองเยรีโค",
+  basedon: "โยชูวา 5:13–15; 6; 7"
+)
 
 // {PP 487.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 57
-  title:
-    th: ชาวฟีลิสเตียยึดหีบพันธสัญญา
-    en: The Ark Taken by the Philistines
-  url: https://legacy.egwwritings.org/?ref=en_PP.581&para=84.2726
-  basedon: 1 ซามูเอล 3 ถึง 7
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.581&para=84.2726"
+// English title: The Ark Taken by the Philistines
+
+#chapter(
+  number: 57,
+  title: "ชาวฟีลิสเตียยึดหีบพันธสัญญา",
+  basedon: "1 ซามูเอล 3 ถึง 7"
+)
 
 // {PP 581.1}
 

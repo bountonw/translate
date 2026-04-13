@@ -1,12 +1,11 @@
----
-chapter:
-  number: 68
-  title:
-    th: ดาวิดที่เมืองศิกลาก
-    en: David at Ziklag
-  url: https://legacy.egwwritings.org/?para=84.3236
-  basedon: 1 ซามูเอล 29; 30; 2 ซามูเอล 1
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3236"
+// English title: David at Ziklag
+
+#chapter(
+  number: 68,
+  title: "ดาวิดที่เมืองศิกลาก",
+  basedon: "1 ซามูเอล 29; 30; 2 ซามูเอล 1"
+)
 
 // {PP 690.1}
 

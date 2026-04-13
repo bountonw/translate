@@ -1,12 +1,11 @@
----
-chapter:
-  number: 69
-  title:
-    th: ทรงเรียกให้ดาวิดครองบัลลังก์
-    en: David Called to the Throne
-  url: https://legacy.egwwritings.org/?para=84.3274
-  basedon: 2 ซามูเอล 2 ถึงบทที่ 5:5
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.3274"
+// English title: David Called to the Throne
+
+#chapter(
+  number: 69,
+  title: "ทรงเรียกให้ดาวิดครองบัลลังก์",
+  basedon: "2 ซามูเอล 2 ถึงบทที่ 5:5"
+)
 
 // {PP 697.1}
 

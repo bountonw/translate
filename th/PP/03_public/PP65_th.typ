@@ -1,12 +1,11 @@
----
-chapter:
-  number: 65
-  title:
-    th: ความใจกว้างของดาวิด
-    en: The Magnanimity of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.660&para=84.3100
-  basedon: 1 ซามูเอล บทที่ 22:20–23; 23–27
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.660&para=84.3100"
+// English title: The Magnanimity of David
+
+#chapter(
+  number: 65,
+  title: "ความใจกว้างของดาวิด",
+  basedon: "1 ซามูเอล บทที่ 22:20–23; 23–27"
+)
 
 // {PP 660.1}
 

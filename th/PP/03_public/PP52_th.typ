@@ -1,12 +1,11 @@
----
-chapter:
-  number: 52
-  title:
-    th: เทศกาลประจำปี
-    en: The Annual Feasts
-  url: https://legacy.egwwritings.org/?ref=en_PP.537&para=84.2499
-  basedon: เลวีนิติ 23
----
+// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.537&para=84.2499"
+// English title: The Annual Feasts
+
+#chapter(
+  number: 52,
+  title: "เทศกาลประจำปี",
+  basedon: "เลวีนิติ 23"
+)
 
 // {PP 537.1}
 

@@ -1,12 +1,11 @@
----
-chapter:
-  number: 18
-  title:
-    th: ค่ำคืนแห่งการต่อสู้
-    en: The Night of Wrestling
-  url: https://legacy.egwwritings.org/?para=84.813
-  basedon: ปฐมกาล บทที่ 32–33
----
+// Source-url: "https://legacy.egwwritings.org/?para=84.813"
+// English title: The Night of Wrestling
+
+#chapter(
+  number: 18,
+  title: "ค่ำคืนแห่งการต่อสู้",
+  basedon: "ปฐมกาล บทที่ 32–33"
+)
 
 // {PP 195.1}
 
