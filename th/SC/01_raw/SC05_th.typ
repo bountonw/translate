@@ -1,10 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p108.160&index=0"
 // English title: Consecration
-// amnart word count: 48
 
 #chapter(
   number: 5,
-    title: "การอุทิศตน/ตัว)",
+    title: "การอุทิศตน",
 )
 
 พระเจ้าทรงสัญญว่า “เจ้าจะแสวงหาเราและพบเราเมื่อเจ้าแสวงหาเราด้วยสิ้นสุดใจของเจ้า” (เยเรมีย์ 29:13/*THSV*/) #EGW[\{SC 43.1\}]
