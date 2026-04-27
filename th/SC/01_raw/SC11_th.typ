@@ -96,7 +96,7 @@ Keep your wants, your joys, your sorrows, your cares, and your fears before God.
 
 // {SC 100.2}
 
-Jesus said, “Ye shall ask in My name: and I say not unto you, that I will pray the Father for you: for the Father Himself loveth you.” “I have chosen you: … that whatsoever ye shall ask of the Father in My name, He may give it you.” John 16:26, 27; 15:16. But to pray in the name of Jesus is something more than a mere mention of that name at the beginning and the ending of a prayer. It is to pray in the mind and spirit of Jesus, while we believe His promises, rely upon His grace, and work His works. #EGW[\{SC 100.2\}]
+Jesus said, “Ye shall ask in My name: and I say not unto you, that I will pray the Father for you: for the Father Himself loveth you.” “I have chosen you:…that whatsoever ye shall ask of the Father in My name, He may give it you.” John 16:26, 27; 15:16. But to pray in the name of Jesus is something more than a mere mention of that name at the beginning and the ending of a prayer. It is to pray in the mind and spirit of Jesus, while we believe His promises, rely upon His grace, and work His works. #EGW[\{SC 100.2\}]
 
 // {SC 101.1}
 

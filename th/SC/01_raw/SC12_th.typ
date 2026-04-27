@@ -28,7 +28,7 @@ The word of God, like the character of its divine Author, presents mysteries tha
 
 // {SC 107.1}
 
-The apostle Peter says that there are in Scripture “things hard to be understood, which they that are unlearned and unstable wrest … unto their own destruction.” 2 Peter 3:16. The difficulties of Scripture have been urged by skeptics as an argument against the Bible; but so far from this, they constitute a strong evidence of its divine inspiration. If it contained no account of God but that which we could easily comprehend; if His greatness and majesty could be grasped by finite minds, then the Bible would not bear the unmistakable credentials of divine authority. The very grandeur and mystery of the themes presented should inspire faith in it as the word of God. #EGW[\{SC 107.1\}]
+The apostle Peter says that there are in Scripture “things hard to be understood, which they that are unlearned and unstable wrest…unto their own destruction.” 2 Peter 3:16. The difficulties of Scripture have been urged by skeptics as an argument against the Bible; but so far from this, they constitute a strong evidence of its divine inspiration. If it contained no account of God but that which we could easily comprehend; if His greatness and majesty could be grasped by finite minds, then the Bible would not bear the unmistakable credentials of divine authority. The very grandeur and mystery of the themes presented should inspire faith in it as the word of God. #EGW[\{SC 107.1\}]
 
 // {SC 107.2}
 
@@ -48,7 +48,7 @@ If it were possible for created beings to attain to a full understanding of God 
 
 // {SC 109.2}
 
-God intends that even in this life the truths of His word shall be ever unfolding to His people. There is only one way in which this knowledge can be obtained. We can attain to an understanding of God’s word only through the illumination of that Spirit by which the word was given. “The things of God knoweth no man, but the Spirit of God;” “for the Spirit searcheth all things, yea, the deep things of God.” 1 Corinthians 2:11, 10. And the Saviour’s promise to His followers was, “When He, the Spirit of truth, is come, He will guide you into all truth… For He shall receive of Mine, and shall show it unto you.” John 16:13, 14. #EGW[\{SC 109.2\}]
+God intends that even in this life the truths of His word shall be ever unfolding to His people. There is only one way in which this knowledge can be obtained. We can attain to an understanding of God’s word only through the illumination of that Spirit by which the word was given. “The things of God knoweth no man, but the Spirit of God;” “for the Spirit searcheth all things, yea, the deep things of God.” 1 Corinthians 2:11, 10. And the Saviour’s promise to His followers was, “When He, the Spirit of truth, is come, He will guide you into all truth…For He shall receive of Mine, and shall show it unto you.” John 16:13, 14. #EGW[\{SC 109.2\}]
 
 // {SC 109.3}
 

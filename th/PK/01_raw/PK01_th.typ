@@ -107,11 +107,11 @@ The path of men who are placed as leaders is not an easy one. But they are to se
 
 // {PK 31.4}
 
-The wisdom that Solomon desired above riches, honor, or long life, God gave him. His petition for a quick mind, a large heart, and a tender spirit was granted. “God gave Solomon wisdom and understanding exceeding much, and largeness of heart, even as the sand that is on the seashore. And Solomon’s wisdom excelled the wisdom of all the children of the east country, and all the wisdom of Egypt. For he was wiser than all men; … and his fame was in all nations round about.” 1 Kings 4:29–31. #EGW[\{PK 31.4\}]
+The wisdom that Solomon desired above riches, honor, or long life, God gave him. His petition for a quick mind, a large heart, and a tender spirit was granted. “God gave Solomon wisdom and understanding exceeding much, and largeness of heart, even as the sand that is on the seashore. And Solomon’s wisdom excelled the wisdom of all the children of the east country, and all the wisdom of Egypt. For he was wiser than all men;…and his fame was in all nations round about.” 1 Kings 4:29–31. #EGW[\{PK 31.4\}]
 
 // {PK 32.1}
 
-“And all Israel … feared the king: for they saw that the wisdom of God was in him, to do judgment.” 1 Kings 3:28. The hearts of the people were turned toward Solomon, as they had been toward David, and they obeyed him in all things. “Solomon … was strengthened in his kingdom, and the Lord his God was with him, and magnified him exceedingly.” 2 Chronicles 1:1. #EGW[\{PK 32.1\}]
+“And all Israel…feared the king: for they saw that the wisdom of God was in him, to do judgment.” 1 Kings 3:28. The hearts of the people were turned toward Solomon, as they had been toward David, and they obeyed him in all things. “Solomon…was strengthened in his kingdom, and the Lord his God was with him, and magnified him exceedingly.” 2 Chronicles 1:1. #EGW[\{PK 32.1\}]
 
 // {PK 32.2}
 
