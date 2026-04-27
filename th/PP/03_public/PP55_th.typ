@@ -55,7 +55,7 @@
 
 // {PP 571.3}
 
-#quote(block: true, attribution: [(1 ซามูเอล 2:1–10 TH1971) #EGW[\\{PP 571.3\\}]])[
+#quote(block: true, attribution: [(1 ซามูเอล 2:1–10 TH1971) #EGW[\{PP 571.3\}]])[
 ```poetry
 “จิตใจของข้าพเจ้าชื่นชมในพระเจ้า
 

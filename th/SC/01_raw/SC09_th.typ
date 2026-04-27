@@ -40,7 +40,7 @@ God might have committed the message of the gospel, and all the work of loving m
 
 // {SC 79.3}
 
-We are brought into sympathy with Christ through the fellowship of His sufferings. Every act of self-sacrifice for the good of others strengthens the spirit of beneficence in the giver’s heart, allying him more closely to the Redeemer of the world, who “was rich, yet for your sakes ... became poor, that ye through His poverty might be rich.” 2 Corinthians 8:9. And it is only as we thus fulfill the divine purpose in our creation that life can be a blessing to us. #EGW[\{SC 79.3\}]
+We are brought into sympathy with Christ through the fellowship of His sufferings. Every act of self-sacrifice for the good of others strengthens the spirit of beneficence in the giver’s heart, allying him more closely to the Redeemer of the world, who “was rich, yet for your sakes…became poor, that ye through His poverty might be rich.” 2 Corinthians 8:9. And it is only as we thus fulfill the divine purpose in our creation that life can be a blessing to us. #EGW[\{SC 79.3\}]
 
 // {SC 80.1}
 
