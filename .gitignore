@@ -7,6 +7,8 @@
 # Ignore intermediate and temporary folders and files
 **/*temp*
 **/*tmp*
+!**/*temp*.typ
+!**/*tmp*.typ
 *.tmp   # Explicitly ignore .tmp files
 
 # Ignore local sandbox folders regardless of case
