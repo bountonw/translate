@@ -30,8 +30,8 @@ jobs:
       # Expose matched filters as job 'books' output variable
       books: ${{ steps.filter.outputs.changes }}
     steps:
-    - uses: actions/checkout@v4
-    - uses: dorny/paths-filter@v3
+    - uses: actions/checkout@v6
+    - uses: dorny/paths-filter@v4
       id: filter
       with:
         filters: |
@@ -52,7 +52,7 @@ jobs:
       image: mattleff/xelatex-swath
       options: --user 1001
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # This is required for retrieving the content last modified timestamps
           submodules: 'recursive'
@@ -66,7 +66,7 @@ jobs:
           BOOK_NAME=${{ matrix.book }}
           echo "BOOK_NAME=$(echo $BOOK_NAME | sed 's/\//-/g')" >> $GITHUB_ENV
       - name: Upload built docs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.BOOK_NAME }}_${{ env.CURRENT_TIME }}
           path: .tooling/latex/draft/${{ matrix.book }}
