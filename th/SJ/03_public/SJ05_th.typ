@@ -1,5 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p144.113&index=0"
 // English title: "Child Life of Jesus"
+
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 5,
   title: "ชีวิตวัยเด็กของพระเยซู",

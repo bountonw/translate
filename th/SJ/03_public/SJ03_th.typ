@@ -1,5 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p144.71&index=0"
 // English title: "The Visit of the Wise Men"
+
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 3,
   title: "นักปราชญ์เข้าเฝ้าพระเยซู",

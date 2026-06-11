@@ -1,5 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p144.13&index=0"
 // English title: "The Birth of Jesus"
+
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 1,
   title: "การประสูติของพระเยซู",
