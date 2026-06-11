@@ -1,7 +1,0 @@
-# Custom-built Typst binary — not tracked in git.
-# Obtain or build it separately; it is shared across other workflows.
-/typst-custom
-
-# The root .gitignore's '**/*temp*' rule also matches this folder because
-# "template" contains "temp". Re-include it so the book template source is tracked.
-!/04_assets/template/
