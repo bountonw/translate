@@ -1,0 +1,145 @@
+// =============================================================================
+// Components
+// Custom elements: chapter opener, callouts, illustrations, etc.
+// Components are mode-agnostic — paper and base margin come from apply-styles
+// in lib.typ. Components only override header/footer (and margin for
+// illustrations) via set page rules.
+// =============================================================================
+
+#import "config.typ": chapter-num-state, chapter-title-state, chapter-opening-top-space, illustration-margin
+
+// -----------------------------------------------------------------------------
+// Chapter opener
+// First page: header off, footer = page number, extra top space pushed in
+// with v(...). Subsequent pages: body header showing the chapter title.
+// -----------------------------------------------------------------------------
+#let chapter(number: 0, title: "", basedon: "") = {
+  counter(footnote).update(0)
+  pagebreak(weak: true)
+  // Update state instead of calling set page — apply-styles installed the
+  // smart header/footer once at document level, and they read this state.
+  chapter-num-state.update(number)
+  chapter-title-state.update(title)
+
+  [#metadata(none)<chapter-opening>]
+
+  v(chapter-opening-top-space)
+  align(center, {
+    text(size: 1.7em, weight: "light")[บทที่ #number]
+    heading(level: 1, numbering: none)[#title]
+    v(0.5em)
+    if basedon != "" {
+      text(size: 0.9em, style: "italic")[อ้างอิงจาก: #basedon]
+    }
+  })
+  v(1em)
+  // Restore the first-line indent on the chapter's opening paragraph.
+  // Typst suppresses first-line-indent on the first paragraph after a block,
+  // and the opening paragraph lives in the chapter file *after* this call, so a
+  // trailing h() here just lands in its own line (the bug we had). Instead emit
+  // an invisible, zero-height paragraph to occupy the "first paragraph after a
+  // block" slot; the real opening paragraph below then gets the normal indent.
+  // (Preferred over first-line-indent's `all: true`, which would also indent
+  // footnotes, headings, and the centered title text.)
+  {
+    set text(size: 0pt)
+    set par(leading: 0pt, spacing: 0pt)
+    box()
+    parbreak()
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Illustration page
+// Tighter margins, no header/footer. The next chapter() call will reset
+// header/footer; margin persists until the next chapter (acceptable since
+// illustrations are typically chapter-bookended).
+// -----------------------------------------------------------------------------
+#let illustration(path, caption: none, width: 100%) = {
+  pagebreak()
+  set page(margin: illustration-margin, header: none, footer: none)
+  align(center + horizon)[
+    #image(path, width: width)
+    #if caption != none {
+      v(1em)
+      text(size: 0.9em, style: "italic")[#caption]
+    }
+  ]
+  pagebreak()
+}
+
+// -----------------------------------------------------------------------------
+// Callout box
+// For notes, warnings, asides.
+// -----------------------------------------------------------------------------
+#let callout(type: "note", body) = {
+  let colors = (
+    note: rgb("#e7f3ff"),
+    warning: rgb("#fff4e5"),
+    quote: rgb("#f5f5f5"),
+  )
+  let bg = colors.at(type, default: colors.note)
+
+  block(
+    fill: bg,
+    inset: 1em,
+    radius: 4pt,
+    width: 100%,
+    body,
+  )
+}
+
+// -----------------------------------------------------------------------------
+// Scripture / verse reference
+// Inline reference formatting.
+// -----------------------------------------------------------------------------
+#let scripture(ref) = {
+  text(style: "italic")[#ref]
+}
+
+// -----------------------------------------------------------------------------
+// Italic markdown text
+// with no spaces there is an "unclosed delimiter" error
+// -----------------------------------------------------------------------------
+#let italic(words) = {
+  text(style: "italic")[#words]
+}
+
+// ─── EGW inline source-reference marker ──────────────────────────────────────
+// Placed at the end of each paragraph to cite the original EGW paragraph number.
+// Styled small and muted so it does not compete with the body text.
+
+#let EGW(content) = box(
+  text(
+    size: 0.72em,
+    fill: luma(170),
+    weight: "regular",
+    content
+  )
+)
+
+// -----------------------------------------------------------------------------
+// Poetry formatting for Block quotes
+// -----------------------------------------------------------------------------
+#show raw.where(lang: "poetry"): it => {
+  set par(leading: 0.76em) // increase spacing between lines
+  set text(font: "EB Garamond", size: 1em * 1.25) //factor of 1.25 cancels default raw font-size
+  set raw(theme: none)
+  let space-width = 0.5em
+  block(
+    inset: (x: 2em, y: 1em),
+    eval(
+      it.text
+        .replace(regex("\n\n+"), "#parbreak()")
+        .replace(regex("\n( *)"), (i) => {
+          "\ "
+          if i.captures.at(0).len() > 0 { "#h(" + repr(i.captures.at(0).len() * space-width) + ")" }
+        }),
+      mode: "markup",
+      scope: (
+        :
+        // add whatever you need here
+      )
+    )
+  )
+}

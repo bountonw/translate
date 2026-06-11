@@ -1,5 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p144.175(144.179)&index=0"
 // English title: "Days of Conflict"
+
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 6,
   title: "วันเวลาแห่งความขัดแย้ง",

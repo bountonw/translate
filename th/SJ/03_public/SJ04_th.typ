@@ -1,5 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p144.95&index=0"
 // English title: "The Flight Into Egypt"
+
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 4,
   title: "การหลบหนีไปยังประเทศอียิปต์",
