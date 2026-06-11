@@ -28,6 +28,9 @@ __pycache__/
 # Thumbnails
 ._*
 
+## Ignore custom typst install
+typst-custom
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
