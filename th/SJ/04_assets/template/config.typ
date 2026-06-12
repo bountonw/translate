@@ -24,7 +24,7 @@
 #let make-base(proofing: false) = if proofing {
   (paper: "a4", margin: (top: 36mm, bottom: 20mm, left: 24mm, right: 24mm))
 } else {
-  (paper: "iso-b5", margin: (top: 25mm, bottom: 16mm, outside: 16mm, inside: 24mm))
+  (paper: "a5", margin: (top: 24mm, bottom: 14mm, outside: 14mm, inside: 22mm))
 }
 
 // -----------------------------------------------------------------------------
