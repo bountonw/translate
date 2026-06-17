@@ -22,6 +22,7 @@
 #include "02_edit/SC04_th.typ"
 #include "02_edit/SC05_th.typ"
 #include "02_edit/SC06_th.typ"
+#include "02_edit/SC07_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter
