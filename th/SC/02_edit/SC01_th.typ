@@ -1,6 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p108.21"
 // English title: God’s Love for Man
 
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 1,
     title: "พระเจ้าทรงรักมนุษย์",
