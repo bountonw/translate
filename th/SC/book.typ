@@ -16,12 +16,12 @@
 // -----------------------------------------------------------------------------
 // Chapters
 // -----------------------------------------------------------------------------
-#include "03_public/SJ01_th.typ"
-#include "03_public/SJ02_th.typ"
-#include "03_public/SJ03_th.typ"
-#include "03_public/SJ04_th.typ"
-#include "03_public/SJ05_th.typ"
-#include "03_public/SJ06_th.typ"
+#include "02_edit/SC01_th.typ"
+#include "02_edit/SC02_th.typ"
+#include "02_edit/SC03_th.typ"
+#include "02_edit/SC04_th.typ"
+#include "02_edit/SC05_th.typ"
+#include "02_edit/SC06_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter
