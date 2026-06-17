@@ -1,6 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p108.139"
 // English title: Confession
 
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false, updated: "17 มิถุนา 2026"
+
 #chapter(
   number: 4,
     title: "การสารภาพบาป",
