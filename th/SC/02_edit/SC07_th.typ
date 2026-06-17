@@ -1,6 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p108.217"
 // English title: The Test of Discipleship
 
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false, updated: "17 มิถุนา 2026"
+
 #chapter(
   number: 7,
     title: "เกณฑ์ของการเป็นสาวก",
