@@ -2,7 +2,7 @@
 // English title: The Sinner’s Need of Christ
 
 #import "../04_assets/template/lib.typ": *
-#show: apply-styles.with(proofing: false)
+#show: apply-styles.with(proofing: false, updated: "17 มิถุนา 2026"
 
 #chapter(
   number: 2,
