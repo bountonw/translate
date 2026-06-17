@@ -1,6 +1,9 @@
 // Source-url: "https://egwwritings.org/read?panels=p108.52"
 // English title: The Sinner’s Need of Christ
 
+#import "../04_assets/template/lib.typ": *
+#show: apply-styles.with(proofing: false)
+
 #chapter(
   number: 2,
     title: "คนบาปต้องการพระเยซู",
