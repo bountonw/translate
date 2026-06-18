@@ -5,6 +5,17 @@
 // =============================================================================
 
 // -----------------------------------------------------------------------------
+// Book-mode override
+// book.typ flips this to true at the very top of the document. apply-styles reads
+// it (via context) and, when true, forces book layout even for chapter files that
+// carry `proofing: true` for standalone drafting. This is what lets the full-book
+// build win over each chapter's own proof setting — the chapters are included
+// inside book.typ's flow, so they see the flag. No build flag is needed: a
+// standalone chapter compile never flips it, so it still proofs (A4).
+// -----------------------------------------------------------------------------
+#let book-mode = state("force-book-mode", false)
+
+// -----------------------------------------------------------------------------
 // Language
 // -----------------------------------------------------------------------------
 #let text-lang = (lang: "th", region: "th")
@@ -47,12 +58,23 @@
 #let ellipsis-gap = 0.15em
 
 // -----------------------------------------------------------------------------
+// Margin spacings
+// -----------------------------------------------------------------------------
+
+// Extra top spacing pushed in by chapter() on the opening page (mode-agnostic).
+#let chapter-opening-top-space = 10mm
+
+// Margin used by full-page illustrations.
+#let illustration-margin = 1cm
+
+
+// -----------------------------------------------------------------------------
 // Page base — paper + outer margin. Proof mode swaps to A4 with equal borders.
 // -----------------------------------------------------------------------------
 #let make-base(proofing: false) = if proofing {
   (paper: "a4", margin: (top: 36mm, bottom: 20mm, left: 24mm, right: 24mm), header-ascent: 6mm,)
 } else {
-  (width: 152mm, height: 222mm, margin: (top: 20mm, bottom: 14mm, outside: 14mm, inside: 22mm), header-ascent: 4mm,)
+  (paper: "a5", margin: (top: 20mm, bottom: 14mm, outside: 14mm, inside: 22mm), header-ascent: 4mm,)
 }
 
 // -----------------------------------------------------------------------------
@@ -160,9 +182,3 @@
   if opening-page == none { return }       // pre-chapter (covers)
   align(center, text(size: 0.85em)[#here().page()])
 }
-
-// Extra top spacing pushed in by chapter() on the opening page (mode-agnostic).
-#let chapter-opening-top-space = 10mm
-
-// Margin used by full-page illustrations.
-#let illustration-margin = 1cm

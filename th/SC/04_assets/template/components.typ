@@ -124,35 +124,8 @@
 
 #let EGW(content) = box(
   text(
-    size: 0.72em,
-    fill: luma(170),
-    weight: "regular",
+    size: 0.75em,
+    weight: "light",
     content
   )
 )
-
-// -----------------------------------------------------------------------------
-// Poetry formatting for Block quotes
-// -----------------------------------------------------------------------------
-#show raw.where(lang: "poetry"): it => {
-  set par(leading: 0.76em) // increase spacing between lines
-  set text(font: "EB Garamond", size: 1em * 1.25) //factor of 1.25 cancels default raw font-size
-  set raw(theme: none)
-  let space-width = 0.5em
-  block(
-    inset: (x: 2em, y: 1em),
-    eval(
-      it.text
-        .replace(regex("\n\n+"), "#parbreak()")
-        .replace(regex("\n( *)"), (i) => {
-          "\ "
-          if i.captures.at(0).len() > 0 { "#h(" + repr(i.captures.at(0).len() * space-width) + ")" }
-        }),
-      mode: "markup",
-      scope: (
-        :
-        // add whatever you need here
-      )
-    )
-  )
-}

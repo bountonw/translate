@@ -6,7 +6,7 @@
 #import "dictionary.typ": protect-words, apply-soft-hyphens
 // Typography constants (fonts, sizes, leading, spacing) live in config.typ — the
 // leaf module — so components can reference them without importing styles.
-#import "config.typ": text-lang, make-base, chapter-header, chapter-footer, proof-header, proof-footer, font-body, font-heading, size-body, size-small, size-large, book-leading, book-spacing, proof-leading, proof-spacing, ellipsis-gap
+#import "config.typ": book-mode, text-lang, make-base, chapter-header, chapter-footer, proof-header, proof-footer, font-body, font-heading, size-body, size-small, size-large, book-leading, book-spacing, proof-leading, proof-spacing, ellipsis-gap
 // EGW tag, so the ```poetry eval can resolve it in its scope (see poetry-styles).
 #import "components.typ": EGW
 
@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 #let heading-styles(body) = {
   show heading.where(level: 1): it => {
-    set par(leading: 0.75em)
+    set par(leading: 1em)
     set text(size: 1.4em, weight: "light", font: font-heading)
     it
     v(0.3em)
@@ -188,8 +188,17 @@
 // Use as: #show: apply-styles                       (book mode, in book.typ)
 //         #show: apply-styles.with(proofing: true)  (proof mode, in chapter files)
 //         #show: apply-styles.with(proofing: true, updated: "17 มิถุนา 2026")
+//
+// A full-book build flips book-mode on (see config.typ + book.typ). Because the
+// body is wrapped in `context`, the page setup is decided at layout time and can
+// read that flag: when set, it overrides any chapter's own `proofing: true` so the
+// whole document renders as a book. A standalone chapter compile leaves the flag
+// at its default (false) and proofs exactly as before.
 // -----------------------------------------------------------------------------
-#let apply-styles(proofing: false, updated: none, body) = {
+#let apply-styles(proofing: false, updated: none, body) = context {
+  // The full-book build overrides each chapter's own proofing flag (see book-mode
+  // in config.typ) so the entire document renders as a book.
+  let proofing = proofing and not book-mode.get()
   // runt: 400% rescues a last line that would hold ONLY the citation tag (pulls
   // one word down). It can't guarantee 2+ words — Typst has no minimum-words knob,
   // so higher values do nothing more. For a hard 2-word rule, glue with `~`.
