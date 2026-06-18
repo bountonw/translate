@@ -6,7 +6,7 @@
 // illustrations) via set page rules.
 // =============================================================================
 
-#import "config.typ": chapter-num-state, chapter-title-state, chapter-opening-top-space, illustration-margin
+#import "config.typ": chapter-num-state, chapter-title-state, chapter-opening-top-space, illustration-margin, font-heading
 
 // -----------------------------------------------------------------------------
 // Chapter opener
@@ -19,20 +19,26 @@
   // Update state instead of calling set page — apply-styles installed the
   // smart header/footer once at document level, and they read this state.
   chapter-num-state.update(number)
-  chapter-title-state.update(title)
+  // Running header gets a single-line title: collapse any manual `\n` breaks
+  // (used to wrap the centered opener title) back into spaces. eval(.., markup)
+  // re-parses the title string as markup so its quotes/apostrophes get smart-
+  // quoted (a plain string is inserted as raw text and would stay straight).
+  chapter-title-state.update(eval(title.replace("\n", " "), mode: "markup"))
 
   [#metadata(none)<chapter-opening>]
 
   v(chapter-opening-top-space)
   align(center, {
-    text(size: 1.7em, weight: "light")[บทที่ #number]
-    heading(level: 1, numbering: none)[#title]
+    text(size: 1.7em, weight: "light", font: font-heading)[บทที่ #number]
+    // A `\n` in the title becomes a manual (centered) line break; each line is
+    // eval'd as markup so its quotes/apostrophes are smart-quoted.
+    heading(level: 1, numbering: none,
+      title.split("\n").map(s => eval(s, mode: "markup")).join(linebreak()))
     v(0.5em)
     if basedon != "" {
       text(size: 0.9em, style: "italic")[อ้างอิงจาก: #basedon]
     }
   })
-  v(1em)
   // Restore the first-line indent on the chapter's opening paragraph.
   // Typst suppresses first-line-indent on the first paragraph after a block,
   // and the opening paragraph lives in the chapter file *after* this call, so a
@@ -105,41 +111,21 @@
   text(style: "italic")[#words]
 }
 
+// -----------------------------------------------------------------------------
+// Soft line break (HTML-style `<br>`): a forced break within a paragraph, with
+// the broken line justified to the measure. Type `#br` in the text; no first-
+// line indent or paragraph spacing is added. Searchable/removable via `#br`.
+// -----------------------------------------------------------------------------
+#let br = linebreak(justify: true)
+
 // ─── EGW inline source-reference marker ──────────────────────────────────────
 // Placed at the end of each paragraph to cite the original EGW paragraph number.
 // Styled small and muted so it does not compete with the body text.
 
 #let EGW(content) = box(
   text(
-    size: 0.72em,
-    fill: luma(170),
-    weight: "regular",
+    size: 0.75em,
+    weight: "light",
     content
   )
 )
-
-// -----------------------------------------------------------------------------
-// Poetry formatting for Block quotes
-// -----------------------------------------------------------------------------
-#show raw.where(lang: "poetry"): it => {
-  set par(leading: 0.76em) // increase spacing between lines
-  set text(font: "EB Garamond", size: 1em * 1.25) //factor of 1.25 cancels default raw font-size
-  set raw(theme: none)
-  let space-width = 0.5em
-  block(
-    inset: (x: 2em, y: 1em),
-    eval(
-      it.text
-        .replace(regex("\n\n+"), "#parbreak()")
-        .replace(regex("\n( *)"), (i) => {
-          "\ "
-          if i.captures.at(0).len() > 0 { "#h(" + repr(i.captures.at(0).len() * space-width) + ")" }
-        }),
-      mode: "markup",
-      scope: (
-        :
-        // add whatever you need here
-      )
-    )
-  )
-}
