@@ -10,7 +10,7 @@
 *.tmp   # Explicitly ignore .tmp files
 # The '**/*temp*' rule also matches the following folder because
 # "template" contains "temp". Re-include it so the book template source is tracked.
-!/04_assets/template/
+!**/04_assets/template/
 
 # Ignore local sandbox folders regardless of case
 **/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
