@@ -26,6 +26,8 @@
 } else {
   (paper: "a5", margin: (top: 24mm, bottom: 14mm, outside: 14mm, inside: 22mm))
 }
+// For b5 size, replace the previous line with the following one.
+// (paper: "iso-b5", margin: (top: 25mm, bottom: 16mm, outside: 16mm, inside: 24mm))
 
 // -----------------------------------------------------------------------------
 // Shared header/footer (mode-agnostic — same in book and proof)
