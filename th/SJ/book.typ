@@ -22,6 +22,15 @@
 #include "03_public/SJ04_th.typ"
 #include "03_public/SJ05_th.typ"
 #include "03_public/SJ06_th.typ"
+#include "03_public/SJ07_th.typ"
+#include "03_public/SJ08_th.typ"
+#include "03_public/SJ09_th.typ"
+#include "03_public/SJ10_th.typ"
+#include "03_public/SJ11_th.typ"
+#include "03_public/SJ12_th.typ"
+#include "03_public/SJ13_th.typ"
+#include "03_public/SJ14_th.typ"
+#include "03_public/SJ15_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter
