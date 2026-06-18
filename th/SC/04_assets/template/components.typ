@@ -29,15 +29,14 @@
 
   v(chapter-opening-top-space)
   align(center, {
-    text(size: 1.7em, weight: "light", font: font-heading)[Chapter #number]
+    text(size: 1.7em, weight: "light", font: font-heading)[บทที่ #number]
     // A `\n` in the title becomes a manual (centered) line break; each line is
     // eval'd as markup so its quotes/apostrophes are smart-quoted.
     heading(level: 1, numbering: none,
       title.split("\n").map(s => eval(s, mode: "markup")).join(linebreak()))
     v(0.5em)
     if basedon != "" {
-      text(size: 0.9em, style: "italic")[Based on: #basedon]
-      v(1em)
+      text(size: 0.9em, style: "italic")[อ้างอิงจาก: #basedon]
     }
   })
   // Restore the first-line indent on the chapter's opening paragraph.
@@ -125,10 +124,35 @@
 
 #let EGW(content) = box(
   text(
-    size: 0.75em,
-    //fill: luma(170),
+    size: 0.72em,
+    fill: luma(170),
     weight: "regular",
     content
   )
 )
 
+// -----------------------------------------------------------------------------
+// Poetry formatting for Block quotes
+// -----------------------------------------------------------------------------
+#show raw.where(lang: "poetry"): it => {
+  set par(leading: 0.76em) // increase spacing between lines
+  set text(font: "EB Garamond", size: 1em * 1.25) //factor of 1.25 cancels default raw font-size
+  set raw(theme: none)
+  let space-width = 0.5em
+  block(
+    inset: (x: 2em, y: 1em),
+    eval(
+      it.text
+        .replace(regex("\n\n+"), "#parbreak()")
+        .replace(regex("\n( *)"), (i) => {
+          "\ "
+          if i.captures.at(0).len() > 0 { "#h(" + repr(i.captures.at(0).len() * space-width) + ")" }
+        }),
+      mode: "markup",
+      scope: (
+        :
+        // add whatever you need here
+      )
+    )
+  )
+}
