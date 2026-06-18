@@ -2,7 +2,7 @@
 // English title: Repentance
 
 #import "../04_assets/template/lib.typ": *
-#show: apply-styles.with(proofing: false, updated: "17 มิถุนา 2026"
+#show: apply-styles.with(proofing: true, updated: "17 มิถุนา 2026")
 
 #chapter(
   number: 3,
