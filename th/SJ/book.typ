@@ -37,6 +37,7 @@
 #include "03_public/SJ19_th.typ"
 #include "03_public/SJ20_th.typ"
 #include "03_public/SJ21_th.typ"
+#include "03_public/SJ22_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter
