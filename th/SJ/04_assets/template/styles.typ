@@ -70,6 +70,13 @@
     //indent: 1em,
   )
   show footnote.entry: set text(size: size-small)
+  // Raise the footnote numbers. Typst superscripts them by default; a negative
+  // baseline lifts them higher. Tune the two amounts independently.
+  show footnote: it => text(baseline: -0.2em, it)          // in-text marker
+  show footnote.entry: it => {                               // number in the note
+    show super: s => text(baseline: -0.3em, s)
+    it
+  }
   body
 }
 
