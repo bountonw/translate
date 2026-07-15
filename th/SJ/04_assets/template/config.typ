@@ -49,8 +49,8 @@
 // NOTE: both are measured the same way — the space between the BOTTOM of one
 // line and the TOP of the next line (not baseline-to-baseline). For a book it is
 // therefore recommended to keep leading and spacing EQUAL.
-#let book-leading = 1em
-#let book-spacing = 1em   // keep equal to book-leading (see note)
+#let book-leading = 0.875em
+#let book-spacing = 0.875em   // keep equal to book-leading (see note)
 #let proof-leading = 1.7em
 #let proof-spacing = 1.7em   // keep equal to proof-leading (see note)
 

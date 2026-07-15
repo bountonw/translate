@@ -16,7 +16,7 @@
 #let heading-styles(body) = {
   show heading.where(level: 1): it => {
     set par(leading: 1em)
-    set text(size: 1.4em, weight: "light", font: font-heading)
+    set text(size: 1.2em, weight: "light", font: font-heading)
     it
     v(0.3em)
   }
