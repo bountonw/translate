@@ -781,6 +781,6 @@
 )
 
 #let apply-soft-hyphens(body) = soft-hyphen-words.fold(body, (it, word) => {
-  show word.replace("-", "­"): word.replace("-", sym.hyph.soft)
+  show word.replace("-", ""): word.replace("-", sym.hyph.soft)
   it
 })
