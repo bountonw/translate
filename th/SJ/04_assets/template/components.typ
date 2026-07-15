@@ -32,8 +32,13 @@
     text(size: 1.7em, weight: "light", font: font-heading)[บทที่ #number]
     // A `\n` in the title becomes a manual (centered) line break; each line is
     // eval'd as markup so its quotes/apostrophes are smart-quoted.
+    // The body is prefixed with `box[บทที่ N ]` purely so the PDF bookmark reads
+    // "บทที่ N Title" — the number is otherwise outside the heading (the big line
+    // above) and would be missing from the outline. heading-styles strips this
+    // box on-page (it's a single child, so slice(1) drops it cleanly).
     heading(level: 1, numbering: none,
-      title.split("\n").map(s => eval(s, mode: "markup")).join(linebreak()))
+      box[บทที่ #number ]
+        + title.split("\n").map(s => eval(s, mode: "markup")).join(linebreak()))
     v(0.5em)
     if basedon != "" {
       text(size: 0.9em, style: "italic")[อ้างอิงจาก: #basedon]

@@ -17,7 +17,13 @@
   show heading.where(level: 1): it => {
     set par(leading: 1em)
     set text(size: 1.2em, weight: "light", font: font-heading)
-    it
+    // chapter() prefixes the body with `box[บทที่ N ]` so the PDF bookmark gets
+    // the number (see components.typ). Drop that leading box on-page — the number
+    // already shows as the large line above — while the bookmark keeps it (the
+    // PDF outline reads the heading's original body, not this show output).
+    if "children" in it.body.fields() and it.body.children.first().func() == box {
+      it.body.children.slice(1).sum(default: [])
+    } else { it }
     v(0.3em)
   }
 
