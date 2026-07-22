@@ -31,6 +31,23 @@
 #include "03_public/SJ13_th.typ"
 #include "03_public/SJ14_th.typ"
 #include "03_public/SJ15_th.typ"
+#include "03_public/SJ16_th.typ"
+#include "03_public/SJ17_th.typ"
+#include "03_public/SJ18_th.typ"
+#include "03_public/SJ19_th.typ"
+#include "03_public/SJ20_th.typ"
+#include "03_public/SJ21_th.typ"
+#include "03_public/SJ22_th.typ"
+#include "03_public/SJ23_th.typ"
+#include "03_public/SJ24_th.typ"
+#include "03_public/SJ25_th.typ"
+#include "03_public/SJ26_th.typ"
+#include "03_public/SJ27_th.typ"
+#include "03_public/SJ28_th.typ"
+#include "03_public/SJ29_th.typ"
+#include "03_public/SJ30_th.typ"
+#include "03_public/SJ31_th.typ"
+#include "03_public/SJ32_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter
