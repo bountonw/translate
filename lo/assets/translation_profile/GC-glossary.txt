@@ -1,126 +1,144 @@
-
 <!-- This glossary grows as new text is profiled. -->
 
 | English | Lao | Notes |
 |---|---|---|
+| Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
+| High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
+| Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
+| Monastic / Monasticism | ນັກບວດ / ສຳນັກນັກບວດ | [CHECK] NOT ວັດວາອາຮາມ |
+| Monastery / Monasteries / Cloister / Cloisters | ສຳນັກນັກບວດ | [CHECK] Replaces ສຳນັກສົງ, ສຳນັກບາດຫຼວງ, ອາຮາມນັກບວດ |
+| Convent / Convents | ສຳນັກນັກບວດ / ສຳນັກແມ່ຊີ | [CHECK] ສຳນັກແມ່ຊີ only for a house of nuns |
+| Friar / Friars | ພຣະກາໂຕລິກ | [CHECK] Mendicant and regular |
+| Religious order | ຄະນະນັກບວດ | Reference only; GC 83.2, 84.1, 228.1 |
+| Clergy | ນັກບວດ / ບາດຫຼວງ / ຜູ້ນຳຄຣິສຕະຈັກ / ສາສະໜາຈານ | [FLAG] estate → ນັກບວດ; Catholic → ບາດຫຼວງ ຫຼື ຜູ້ນຳຄຣິສຕະຈັກ; Protestant → ສາສະໜາຈານ |
+| Minister / Ministers / Pastor / Pastors | ສາສະໜາຈານ | [CHECK] Never for Catholic clergy |
+| Prelate / Prelates / Ecclesiastic / Ecclesiastics | ຜູ້ນຳຄຣິສຕະຈັກ | [CHECK] |
+| Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ |
+| Religious leaders (generic) | ຜູ້ນຳສາສະໜາ | |
+| Preacher / Preachers | ນັກເທດ | [CHECK] Office, not order |
+| Parish minister / churchman | ອາຈານປະຈຳໂບດ | |
+| Sacerdotal | ບາດຫຼວງ | [CHECK] GC 45.2 |
+| Paganism (the system) | ລັດທິນອກສາສະໜາ | [CHECK] Never the idol phrase. 549.2 |
+| Paganism (former faith) | ສາສະໜາເດີມ | Convert contexts only: 45.1, 58.2 |
+| Pagan (attributive) | ນອກສາສະໜາ | ຂອງຄົນນອກສາສະໜາ pattern, 574.1 |
+| Pagan / heathen (person) | ຄົນນອກສາສະໜາ / ຄົນທີ່ນັບຖືສາສະໜາອື່ນ / ຄົນທີ່ບໍ່ນັບຖືພຣະເຈົ້າ | [CHECK] Context chooses |
+| Heathenism (tribal) | ນັບຖືຜີສາງນາງໄມ້ | Saxons only: 62.3, 63.1 |
+| Idolatry / image worship | ການຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| Idol / Idols | ຮູບເຄົາລົບ | [CHECK] Religious category |
+| Image (physical object) | ຮູບປັ້ນ | Statue: 172.1, 174.3, 175.1 |
+| Idolater / Idolaters | ຄົນທີ່ຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| False god | ພຣະທຽມ | 49.2, 53.3, 453.1 |
 | The Reformation | ການປະຕິຮູບສາສະໜາ | |
-| Indulgences | ໃບລ້າງບາບ | |
-| Purgatory | ແດນຊຳລະ | |
-| Heretics | ພວກນອກຮີດ | |
-| Papacy / Popery | ລະບອບສັນຕະປາປາ / ຝ່າຍສັນຕະປາປາ | |
-| Reign of Terror | ສະໄໝທີ່ຄວາມໂຫດຫ້ຽມສະຫຍອງຂວັນຄອງເມືອງ | |
+| Indulgences | ໃບລ້າງບາບ | [CHECK] |
+| Purgatory | ແດນຊຳລະ | [CHECK] |
+| Heretics | ພວກນອກຮີດ | [CHECK] |
+| Papacy / Popery | ລະບອບສັນຕະປາປາ / ຝ່າຍສັນຕະປາປາ | [CHECK] |
+| Reign of Terror | ສະໄໝທີ່ຄວາມໂຫດຫ້ຽມສະຫຍອງຂວັນຄອງເມືອງ | [CHECK] |
 | Sanctuary | ສະຖານບໍຣິສຸດ / ສະຖານນະມັດສະການ | |
-| Investigative Judgment | ການພິພາກສາແບບສືບສວນ | |
-| Day of Atonement | ວັນລຶບລ້າງບາບອັນຍິ່ງໃຫຍ່ | |
-| Scapegoat | ແບ້ຮັບບາບ | |
-| Spiritualism | ລັດທິຕິດຕໍ່ກັບວິນຍານ | |
+| Investigative Judgment | ການພິພາກສາແບບສືບສວນ | [CHECK] |
+| Day of Atonement | ວັນລຶບລ້າງບາບອັນຍິ່ງໃຫຍ່ | [CHECK] |
+| Scapegoat | ແບ້ຮັບບາບ | [CHECK] |
+| Spiritualism | ລັດທິຕິດຕໍ່ກັບວິນຍານ | [CHECK] |
 | Mediums / Spirit channelers | ພວກໝໍຜີ ແລະ ນາງທຽມ | |
-| Universalism | ຄວາມເຊື່ອທີ່ວ່າມະນຸດທຸກຄົນຈະລອດພົ້ນ | |
+| Universalism | ຄວາມເຊື່ອທີ່ວ່າມະນຸດທຸກຄົນຈະລອດພົ້ນ | [CHECK] |
 | Immortal soul | ຈິດວິນຍານເປັນອະມະຕະ | |
 | Second Advent | ການສະເດັດມາຄັ້ງທີສອງຂອງພຣະຄຣິສ | |
 | Waldenses / Vaudois | ຊາວໂວດົວ | Used interchangeably |
-| Sabbath | ວັນສະບາໂຕ | |
+| Sabbath | ວັນສະບາໂຕ | [CHECK] |
 | Sunday (as false sabbath) | ວັນອາທິດ | |
-| Sunday sacredness | ຄວາມສັກສິດຂອງວັນອາທິດ | [tentative] |
+| Sunday sacredness | ຄວາມສັກສິດຂອງວັນອາທິດ | |
 | Roman Catholic Church | ຄຣິສຕະຈັກໂຣມັນກາໂຕລິກ / ນິກາຍກາໂຕລິກ | |
 | Protestantism / Protestants | ນິກາຍໂປຣແຕັສຕັງ / ພວກໂປຣແຕັສຕັງ | |
 | Protestant | ໂປຣແຕັສຕັງ | Uses ຣ |
 | Dark Ages | ຍຸກມືດ / ສະໄໝຍຸກມືດ | |
-| Paganism | ລັດທິຂາບໄຫວ້ຮູບເຄົາລົບ | Descriptive rendering |
 | Apostasy | ການພັດຫຼົງໄປຈາກຄວາມເຊື່ອ | |
-| Apostle(s) | ອັກຄະສາວົກ | |
-| Passover | ປັດສະຄາ / ເທດສະການປັດສະຄາ | |
-| Feast of Tabernacles | ເທດສະການ "ປຸກຕູບຢູ່" | Quotes around Lao term |
-| Catacombs | ຄອງອຸບມຸງ | |
-| Inquisition | ສານຄະດີນອກຮີດ | |
-| Idol worship | ການຂາບໄຫວ້ຮູບເຄົາລົບ | |
-| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງກະລຸນາ / ພຣະທີ່ນັ່ງກະລຸນາ | |
-| Gospel | ຂ່າວປະເສີດ | |
+| Apostle(s) | ອັກຄະສາວົກ | [CHECK] |
+| Passover | ປັດສະຄາ / ເທດສະການປັດສະຄາ | [CHECK] |
+| Feast of Tabernacles | ເທດສະການ "ປຸກຕູບຢູ່" | [CHECK] Quotes around Lao term |
+| Catacombs | ຄອງອຸບມຸງ | [CHECK] |
+| Inquisition | ສານຄະດີນອກຮີດ | [CHECK] |
+| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງກະລຸນາ / ພຣະທີ່ນັ່ງກະລຸນາ | [CHECK] |
+| Gospel | ຂ່າວປະເສີດ | [CHECK] |
 | Bishop of Rome | ຜູ້ນຳຄຣິສຕະຈັກໃນນະຄອນໂຣມ | Descriptive |
 | Dragon (Rev.) | ພະຍານາກ | |
 | Beast (Rev.) | ສັດຮ້າຍ | |
-| Second death | ຄວາມຕາຍຄັ້ງທີສອງ | |
-| Mendicant friars | ພວກພຣະກາໂຕລິກ | Generic "Catholics" used |
+| Second death | ຄວາມຕາຍຄັ້ງທີສອງ | [CHECK] |
 | Lollards | ໂລລາດ | Wycliffe's followers |
 | Hussites | ຊາວຮັສ | Huss's followers |
 | Crusade (religious war) | ສົງຄາມສາສະໜາ | |
 | Council (of the church) | ສະພາຄຣິສຕະຈັກ / ປະຊຸມສະພາ | |
-| 95 Theses | ຄຳປະທ້ວງ 95 ຂໍ້ | |
+| 95 Theses | ຄຳປະທ້ວງ 95 ຂໍ້ | [CHECK] |
 | Diet (assembly) | ສະພາ | E.g., Diet of Worms |
-| Mass (Catholic) | ພິທີສິນລະນຶກ | [tentative] |
+| Mass (Catholic) | ພິທີສິນລະນຶກ | [CHECK] |
 | Confession of faith | ຄຳປະກາດແຫ່ງຄວາມເຊື່ອ | |
-| Excommunication | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ | Descriptive |
-| Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | |
+| Excommunication | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ | [CHECK] Descriptive |
+| Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
 | Anathema | ຄຳສາບແຊ່ງ | |
-| Cardinal | ພຣະຄາດີນັນ | |
-| Satan / the Devil | ຊາຕານ / ມານຊາຕານ / ພະຍາມານ / ຜີສາດມານຮ້າຍ | Always ມັນ |
-| Jesuits | ຄະນະສົງເຢຊຸອິດ / ເຢຊຸອິດ | |
+| Cardinal | ພຣະຄາດີນັນ | [CHECK] |
+| Satan / the Devil | ຊາຕານ / ມານຊາຕານ / ພະຍາມານ / ຜີສາດມານຮ້າຍ / ຜີມານຊາຕານ| [CHECK] Always ມັນ for pronoun |
+| Jesuits | ຄະນະສົງເຢຊຸອິດ / ເຢຊຸອິດ | [CHECK] |
 | Transubstantiation | (describe, do not transliterate) | |
 | Thirty Years' War | ສົງຄາມ 30 ປີ | |
-| Goddess of Reason | ເທບທິດາແຫ່ງການໃຊ້ເຫດຜົນ | |
-| Huguenots | ຮູເກີໂນ | |
-| Puritans | ປູຣິຕັນ | [tentative] |
-| Methodists / Methodist Connection | ຊາວເມທໍດິສ / ເຄືອຂ່າຍກຸ່ມເມທໍດິສ | |
+| Goddess of Reason | ເທບທິດາແຫ່ງເຫດຜົນ | [CHECK] |
+| Huguenots | ຮູເກີໂນ | [CHECK] |
+| Puritans | ປູຣິຕັນ | [CHECK] |
+| Methodists / Methodist Connection | ຊາວເມທໍດິສ / ເຄືອຂ່າຍກຸ່ມເມທໍດິສ | [CHECK] |
 | Antinomianism | (describe: teaching that God's law is abolished) | |
-| Quakers / Quakerism | ຄະນະຄະເວເກີ | [tentative] |
-| Albigenses | ຊາວອັນບີເຈນ | |
-| Moravians | ຊາວໂມເຣເວຍ | |
-| Baptism | ບັບຕິສະມາ | |
-| Rebaptism | ການຮັບບັບຕິສະມາໃໝ່ | |
+| Quakers / Quakerism | ຄະນະຄະເວເກີ | [CHECK] |
+| Albigenses | ຊາວອັນບີເຈນ | [CHECK] |
+| Moravians | ຊາວໂມເຣເວຍ | [CHECK] |
+| Baptism | ບັບຕິສະມາ | [CHECK] |
+| Rebaptism | ການຮັບບັບຕິສະມາໃໝ່ | [CHECK] |
 | "The end justifies the means" | ການບັນລຸເປົ້າໝາຍລ້ວນແຕ່ສ້າງຄວາມຊອບທຳໃຫ້ແກ່ວິທີການ | Jesuit principle |
-| Adventists | ແອັດເວັນຕິສ | |
-| Midnight Cry | ສຽງຮ້ອງຍາມທ່ຽງຄືນ | |
-| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ | |
-| Cherubim | ເຄຣຸບ | |
-| Seraphim | ເສຣາຟິມ | |
-| High Priest | ມະຫາປະໂຣຫິດ | |
-| Priest | ປະໂຣຫິດ | |
-| Holy Communion | ມະຫາສະໜິດ | [tentative] |
+| Adventists | ແອັດເວັນຕິສ | [CHECK] |
+| Midnight Cry | ສຽງຮ້ອງຍາມທ່ຽງຄືນ | [CHECK] |
+| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ | [CHECK] |
+| Cherubim | ເຄຣຸບ | [CHECK] |
+| Seraphim | ເສຣາຟິມ | [CHECK] |
+| Holy Communion | ມະຫາສະໜິດ | |
 | First fruits (wave sheaf) | ຟ່ອນເຂົ້າຜົນທຳອິດ / ຜົນແລກ | |
-| Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | |
-| Image to the beast | ຮູບຈຳລອງຂອງສັດຮ້າຍ | |
-| Rationalism | ລັດທິເຫດຜົນນິຍົມ | |
-| Sacramentarianism | ການນິຍົມພິທີກຳ | [tentative] |
-| Presbyterian | ເປຣສະບິເທີຣຽນ | [tentative] |
-| Lutheran | ລູເທີແຣນ | |
+| Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | [CHECK] |
+| Image to the beast | ຮູບຈຳລອງຂອງສັດຮ້າຍ | [CHECK] |
+| Rationalism | ລັດທິເຫດຜົນນິຍົມ | [CHECK] |
+| Sacramentarianism | ການນິຍົມພິທີກຳ | [CHECK] |
+| Presbyterian | ເປຣສະບິເທີຣຽນ | [CHECK] |
+| Lutheran | ລູເທີແຣນ | [CHECK] |
 | Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
-| Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | Lao idiom alternates with literal |
-| New birth | ການບັງເກີດໃໝ່ | |
-| Mediator | ຜູ້ເປັນກາງ (ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ) | Descriptive |
-| Advocate / Intercessor | ຜູ້ວິງວອນ / ຜູ້ອ້ອນວອນ / ຜູ້ແກ້ຄວາມ | Context determines choice |
-| Covering cherub | ເຄຣຸບຜູ້ພິທັກ | |
-| Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | |
-| Book of remembrance | ໜັງສືທີ່ລະລຶກ | |
-| Ancient of Days | ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ / ຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ | [tentative] Varies by Bible version quoted |
-| Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | |
+| Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
+| New birth | ການບັງເກີດໃໝ່ | [CHECK] |
+| Mediator | ຜູ້ເປັນກາງ (ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ) | [CHECK] Descriptive |
+| Advocate / Intercessor | ຜູ້ວິງວອນ / ຜູ້ອ້ອນວອນ / ຜູ້ແກ້ຄວາມ | [CHECK] Context determines choice |
+| Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
+| Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
+| Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
+| Ancient of Days | ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ / ຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ | Varies by Bible version quoted |
+| Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
 | Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
 | Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
-| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ | [tentative] |
+| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ | [CHECK] |
 | Eternal torment / Hell | ການທໍລະມານຕະຫຼອດນິຣັນ / ຂຸມນະຣົກ | |
 | Immortality of the soul (doctrine) | ຄວາມເຊື່ອວ່າຈິດວິນຍານເປັນອະມະຕະ | Also: ດວງວິນຍານທີ່ອະມະຕະ |
 | Consciousness in death | ຄົນຍັງມີສະຕິຮູ້ສຶກຕົວຫຼັງຈາກຕາຍ | Descriptive |
 | Familiar spirits | ຄົນຊົງເຈົ້າເຂົ້າຜີ | GC 556.2 |
-| Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | |
+| Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | [CHECK] |
 | Resurrection | ການຟື້ນຄືນຊີບ / ການເປັນຄືນມາຈາກຕາຍ | |
-| Lamb (Rev./salvific) | ພຣະເມສານ້ອຍ | [tentative] |
-| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | |
+| Lamb (Rev. and salvific) | ພຣະເມສານ້ອຍ | |
+| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] |
 | Papal infallibility | (describe: claiming the church never erred and never will) | |
-| Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | [tentative] |
-| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [tentative] |
-| Monastery / Convent | ສຳນັກສົງ / ສຳນັກແມ່ຊີ | [tentative] |
-| Stake (execution) | ຫຼັກປະຫານ | [tentative] |
-| Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | |
-| Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | |
-| Latter rain | ຝົນປາຍລະດູ | Prophetic symbol |
-| Former rain | ຝົນຕົ້ນລະດູ | Prophetic symbol |
-| Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | Daniel 12:1 |
-| Jacob's trouble | ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | Jeremiah 30:7 [tentative] |
-| Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | [tentative] |
+| Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | |
+| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | |
+| Stake (execution) | ຫຼັກປະຫານ | |
+| Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | [CHECK] |
+| Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
+| Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
+| Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
+| Jacob's trouble | ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | [CHECK] Jeremiah 30:7 |
+| Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
 | Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
-| New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | |
-| Holy City | ນະຄອນບໍຣິສຸດ | |
-| New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | [tentative] |
-| Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | [tentative] |
+| New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
+| Holy City | ນະຄອນບໍຣິສຸດ | [CHECK] |
+| New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
+| Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | |
 | Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
 
 ---
@@ -129,24 +147,27 @@
 
 | Word | Correct | Incorrect | Notes |
 |---|---|---|---|
-| Holy / Pure | ບໍຣິສຸດ | ບໍລິສຸດ | ຣ root |
-| Epidemic / Plague | ໂຣກລະບາດ | ໂລກລະບາດ | ຣ root |
-| Glory / Radiance | ສະຫງ່າຣາສີ | ສະຫງ່າລາສີ | ຣ root |
-| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ / ຄິດສະຕຽນ | |
-| Holy (prefix) | ພຣະ | ພະ | |
-| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ / ລິດເດດ | |
-| Eternal | ນິຣັນ | ນິລັນ | |
-| Israel | ອິດສະຣາເອນ | ອິດສະລາເອນ | |
-| Heritage | ມໍລະດົກ | ມໍຣະດົກ | Exception: ລ |
-| Miracle | ອັດສະຈັນ | ອັດສະຈັນຍ໌ | |
-| Protestant | ໂປຣແຕັສຕັງ | ໂປລແຕັສຕັງ | ຣ root |
-| Radiance (divine) | ຣັດສະໝີ | ລັດສະໝີ | ຣ root |
-| Church (institution) | ຄຣິສຕະຈັກ | ຄລິສຕະຈັກ | |
-| Christ | ພຣະຄຣິສ | ພຣະຄລິສ | |
-| Royal vocabulary | ຣາຊາສັບ | ລາຊາສັບ | ຣ root |
-| Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | ຣ root |
-| Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | ຣ root |
-| Realm of the dead | ແດນມໍຣະນາ | | ຣ root; used for Sheol/grave |
+| Holy / Pure | ບໍຣິສຸດ | ບໍລິສຸດ | [CHECK] ຣ root |
+| Epidemic / Plague | ໂຣກລະບາດ | ໂລກລະບາດ | [CHECK] ຣ root |
+| Glory / Radiance | ສະຫງ່າຣາສີ | ສະຫງ່າລາສີ | [CHECK] ຣ root |
+| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ / ຄິດສະຕຽນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ພະຍາກອນ / ຜູ້ທຳນວາຍ | [CHECK] |
+| Christianity / the Christian faith | ສາສະໜາຄຣິສ / ຄຣິສຕະສາສະໜາ | Both forms in use; variation intentional |
+| Holy (prefix) | ພຣະ | ພະ |  |
+| insurgents | ພວກກະບົດ || [CHECK] |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ / ລິດເດດ | [CHECK] |
+| Eternal | ນິຣັນ | ນິລັນ | [CHECK] |
+| Israel | ອິດສະຣາເອນ | ອິດສະລາເອນ | [CHECK] |
+| Heritage | ມໍລະດົກ | ມໍຣະດົກ | [CHECK] Exception: ລ |
+| Miracle | ອັດສະຈັນ | ອັດສະຈັນຍ໌ | [CHECK] |
+| Protestant | ໂປຣແຕັສຕັງ | ໂປລແຕັສຕັງ | [CHECK] ຣ root |
+| Radiance (divine) | ຣັດສະໝີ | ລັດສະໝີ | [CHECK] ຣ root |
+| Church (institution) | ຄຣິສຕະຈັກ | ຄລິສຕະຈັກ | [CHECK] |
+| Christ | ພຣະຄຣິສ | ພຣະຄລິສ | [CHECK] |
+| Royal vocabulary | ຣາຊາສັບ | ລາຊາສັບ | [CHECK] ຣ root |
+| Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
+| Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
+| Realm of the dead | ແດນມໍຣະນາ |  | ຣ root; used for Sheol/grave |
 
 ---
 
@@ -156,192 +177,232 @@
 
 | English | Lao | Notes |
 |---|---|---|
-| Jerusalem | ເຢຣູຊາເລັມ | |
-| Mount of Olives / Olivet | ພູເຂົາໝາກກອກເທດ | |
-| Gethsemane | ເຄັດເຊມາເນ | |
-| Calvary | ຄານວາຣີ | |
-| Titus | ຕີໂຕ | Often: ແມ່ທັບຕີໂຕ |
-| Josephus | ໂຢເຊຟັດ | |
-| Cestius Gallus | ໄກອຸສ ເຊຕຽວ ກາລຸສ | Short: ແມ່ທັບເຊຕຽວ |
-| Pella | ເປລາ | |
-| Moriah | ໂມຣິຢາ | |
-| Ornan | ອາໂຣນາ | |
-| Nero | ເນໂຣ | |
-| Constantine | ຄອນສະຕັນຕິນ | |
-| Gregory VII | ເກຼັກກໍຣີທີ 7 | |
-| Wycliffe | ໄວຄຼິບ | |
-| Martin Luther | ມາຕິນ ລູເທີ | |
-| Solomon | ໂຊໂລໂມນ | |
-| David | ດາວິດ | |
-| Nebuchadnezzar | ເນບູກາດເນັດຊາ | |
-| Haggai | ຮັກກາຍ | |
-| Isaac | ອີຊາກ | |
-| Jacob | ຢາໂຄບ | |
-| Herod | ເຮໂຣດ | + ມະຫາຣາດ for "the Great" |
-| Milman | ມິນມານ | |
-| Wylie | ໄວລີ | |
-| Tertullian | ເທີທູລຽນ | |
-| Liberalis | ລີເບຣາລິດ | |
-| Perea | ເປເຣຍ | |
-| Lutterworth | ລັດເຕີເວີດ | [tentative] |
-| Oxford | ອັອກຟອດ | |
-| John Huss | ຈອນ ຮັສ | Short: ຮັສ |
-| Jerome (of Prague) | ເຈໂຣມ | |
-| Bohemia | ໂບຮີເມຍ | |
-| Prague | ປຣັກ | |
-| Constance | ຄອນສະຕັນ | (the city) |
-| Sigismund | ຊີກີມົງ | |
-| Bethlehem Chapel | ໂບດເບັດເລເຮັມ | |
-| Ziska | ຊິສກາ | [tentative] |
-| Moravia | ໂມເຣເວຍ | |
-| United Brethren | ກຸ່ມພີ່ນ້ອງຜູ້ເປັນໜຶ່ງດຽວ | Descriptive |
-| Staupitz | ສະເຕົາພິດ | |
-| Rome (city) | ນະຄອນໂຣມ | |
-| Erfurt | ແອີຟຸດ / ເອີເຟີດ | Two forms observed |
-| Wittenberg | ວິດເທນເບີກ / ວິດເທັນເບີກ | Two forms observed |
-| Tetzel | ເທດເຊລ | [tentative] |
-| Augsburg | ອອກເບີກ | |
-| Worms | ວອມ / ເວີມ | Two forms observed |
-| Saxony | ແຊັກຊັນນີ | |
-| Netherlands | ເນເທີແລນ | |
-| Spain | ແອັດສະປາຍ | |
-| Zwingli | ສວິງລີ | Short: ອຸນຣິກ ສວິງລີ |
-| Zurich | ຊູຣິກ | |
-| Melanchthon | ເມລັງໂທນ | |
-| D'Aubigné | ໂດບິນເຍ | Author citation |
-| Bonnechose | ບອນໂຊດ | Author citation |
-| Neander | ນຽນເດີ | Author citation |
-| Foxe | ຟັອກ | Author citation |
-| Lenfant | ລອງຟອງ | Author citation |
-| Lefevre | ເລີເຟວ | French reformer |
-| William Farel | ວິນລຽມ ແຟໂຣ | Short: ແຟໂຣ |
-| John Calvin | ຈອນ ຄາວິນ | Short: ຄາວິນ |
-| Olivetan | ໂອລີເວຕັນ | Calvin's cousin |
-| Louis de Berquin | ຫຼຸຍສ໌ ແຫ່ງເບີຄວິນ | Short: ເບີຄວິນ |
-| Beza | ເບຊາ | |
-| Erasmus | ເອີຣັສມາສ | |
-| Beda | ເບດາ | |
-| Francis I | ຟຣານຊິສທີ 1 | King of France |
-| Margaret (princess) | ມາກາເຣັດ | ເຈົ້າຍິງ |
-| Meaux | ເມືອງໂມ | City |
-| Paris | ນະຄອນປາຣີ | |
-| France | ປະເທດຝຣັ່ງ | |
-| Germany | ປະເທດເຢຍລະມັນ | |
-| Switzerland | ສວິສເຊີແລນ | |
-| Poitiers | ພົວເຈ | |
-| Geneva | ນະຄອນເຈນີວາ | |
-| Basel | ບາເຊັນ | [tentative] |
-| Charles V | ຊານສ໌ທີ 5 | Emperor |
-| Holland | ຮໍແລນ | |
-| Menno Simons | ເມັນໂນ ຊີໂມນ | Short: ເມັນໂນ |
-| Münster | ມຸນສະເຕີ | [tentative] |
-| William of Orange | ວິນລຽມແຫ່ງອໍເຣນ | |
-| Tausen | ທາວເຊັນ | Reformer of Denmark |
-| Cologne | ໂຄໂລນ | |
-| Denmark | ເດນມາກ | |
-| Sweden | ສະວີເດັນ | |
-| Olaf Petri | ໂອລັບ ເປຕຣີ | |
-| Laurentius Petri | ໂລເຣັນທີອັດ ເປຕຣີ | |
-| Orebro | ໂອເຣໂບ | |
-| Cappel | ກາເປນ | Battle site |
-| Oecolampadius | ເອໂກລຳພາດິອັດ | |
-| Froment | ໂຟມົງ | |
-| Morat | ໂມຣັດ | |
-| Neuchatel | ນິວຊາແຕວ | |
-| Philip II | ຟີລິບທີ 2 | |
-| Louis XVI | ຫຼຸຍສ໌ທີ 16 | |
-| Scandinavia | ສະແກນດິເນເວຍ | |
-| Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | |
-| Latimer | ລາຕິເມີ | |
-| Barnes | ບາເນດ | |
-| Frith | ຟຣິດ | |
-| Ridley | ຣິດລີ | |
-| Cranmer | ເຄນເມີ | |
-| Columba | ໂຄລຳບາ | |
-| Scotland | ສະກັອດແລນ | |
-| Hamilton | ແຮມິນຕັນ | |
-| Wishart | ວີຊາດ | |
-| John Knox | ຈອນ ນັອຄຊ໌ | |
-| Mary (Queen of Scots) | ຣາຊິນີມາຣີ | |
-| John Bunyan | ຈອນ ບັນຍັນ | |
-| Bedford | ເບດຟອດ | |
-| Baxter | ແບັກສະເຕີ | |
-| Flavel | ຟຼາເວວ | |
-| Alleine | ອາເລນ | |
-| Whitefield | ວິດຟຽວ | |
-| John Wesley | ຈອນ ເວສະລີ | Short: ເວສະລີ |
-| Charles Wesley | ຊານສ໌ ເວສະລີ | |
-| Savannah | ສະແວນນາ | |
-| London | ລອນດອນ / ນະຄອນລອນດອນ | |
-| Durham | ເດີຮາມ | |
-| England | ອັງກິດ / ປະເທດອັງກິດ | |
-| America | ອາເມຣິກາ | |
-| Piedmont | ພີດມົງ | |
-| Louis XV | ຫຼຸຍສ໌ທີ 15 | [tentative] |
-| Voltaire | ໂວລແຕ | [tentative] |
-| Walter Scott | ວອນເຕີ ສະກັອດ | Author citation |
-| Anderson | ແອນເດີສັນ | Author citation |
-| Martyn | ມາຕິນ | Author citation |
-| Bancroft | ບານຄອຟ | [tentative] |
-| Whitehead | ໄວເຮດ | Author citation |
-| Robinson | ໂຣບິນສັນ | [tentative] |
-| Roger Williams | ໂຣເຈີ ວິນລຽມ | [tentative] |
-| William Miller | ວິນລຽມ ມິນເລີ | Short: ມິນເລີ |
-| Lisbon | ລິສບອນ | [tentative] |
-| Wolff / Joseph Wolff | ໂຈເຊັບ ວໍຟ໌ | Short: ວໍຟ໌ |
-| Bengel | ເບນເກນ | |
-| Gaussen | ໂກເຊັນ | |
-| Lacunza | ລາຄູນຊາ | |
-| Mourant Brock | ໂມຣານ ບຣອກ | |
-| Robert Winter | ໂຣເບີດ ວິນເທີ | |
-| Charles Fitch | ຊານສ໌ ຟິດ | |
-| Artaxerxes | ອາກຕາເຊເຊັດ | |
-| Finney | ຟິນນີ | [tentative] |
-| Spurgeon | ສະເປີເຈນ | |
-| Guthrie | ກຸດຣີ | |
-| Hopkins | ຮົບກິນສ໌ | |
-| Challoner | ຊານໂລເນີ | |
-| Rollin | ໂຣລິນ | |
-| Habakkuk | ຮາບາກຸກ | |
-| Malachi | ມາລາກີ | |
-| Würtemberg | ເວີດເທັມເບີກ | [tentative] |
-| Bokhara | ບູຄາຣາ | [tentative] |
-| Yemen | ເຢເມນ | |
-| Tatary | ຕາຕາຣີ | [tentative] |
-| Wales | ເວລສ໌ | [tentative] |
-| Edward A. Park | ເອັດເວີດ ເອ. ພາກ | [tentative] GC 465.2 |
-| Balaam | ບາລາອາມ | [tentative] GC 529.2 |
-| Lucifer | ລູຊີເຟີ | Always ມັນ |
-| Adam | ອາດາມ | ເພິ່ນ pronoun |
-| Eve | ເອວາ | |
-| Eden | ເອເດນ / ສວນເອເດນ | |
-| Cain | ກາອິນ | |
-| Abel | ອາເບັນ | [tentative] |
-| Noah | ໂນອາ | |
-| Lot | ໂລດ | [tentative] |
-| Abraham | ອັບຣາຮາມ | |
-| Sodom | ໂຊໂດມ | [tentative] |
-| Hezekiah | ເຮເຊກີຢາ | ກະສັດ prefix |
-| Amnon | ອຳໂນນ | [tentative] |
-| Absalom | ອັບຊາໂລມ | [tentative] |
-| Adam Clarke | ອາດາມ ຄລາກ | ດຣ. prefix [tentative] |
-| E. Petavel | ອີ. ເປຕາແວນ | Author citation [tentative] |
-| Josiah Strong | ໂຢສີຢາ ສະຕອງ | Author citation [tentative] |
-| Mosheim | ໂມເຊມ | Author citation [tentative] |
-| Pius IX | ປີອູດທີ 9 | Pope [tentative] |
-| Gregory XVI | ເກຼັກກໍຣີທີ 16 | Pope [tentative] |
-| Eusebius | ເອີເຊບິອັດ | [tentative] |
-| Peter II of Aragon | ເປໂຕທີ 2 ແຫ່ງອາຣາກົງ | [tentative] |
-| Innocent III | ອິນໂນເຊັນທີ 3 | Pope [tentative] |
-| Abyssinia / Ethiopia | ເອທິໂອເປຍ | [tentative] |
-| St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ | [tentative] |
-| Esau | ເອຊາວ | |
-| Bethel | ເບັດເອນ | [tentative] |
-| Stephen | ສະເຕຟາໂນ | [tentative] |
-| Caiaphas | ໄກອາຟາ | [tentative] |
-| Michael (archangel) | ມີຄາເອນ | [tentative] |
-| Elijah | ເອລີຢາ | |
-| Joseph (OT) | ໂຢເຊັບ | [tentative] |
-| Pharaoh | ຟາໂຣ | [tentative] |
-| Jezebel | ເຢເຊເບນ | [tentative] |
+| Jerusalem | ເຢຣູຊາເລັມ | [CHECK] |
+| Mount of Olives / Olivet | ພູເຂົາໝາກກອກເທດ | [CHECK] |
+| Gethsemane | ເຄັດເຊມາເນ | [CHECK] |
+| Calvary | ຄານວາຣີ | [CHECK] |
+| Titus | ຕີໂຕ | [CHECK] Often: ແມ່ທັບຕີໂຕ |
+| Josephus | ໂຢເຊຟັດ | [CHECK] |
+| Cestius Gallus / Cestius | ໄກອຸສ ເຊຕຽວ ກາລຸສ / ເຊຕຽວ | [CHECK] Short: ແມ່ທັບເຊຕຽວ |
+| Pella | ເປລາ | [CHECK] |
+| Moriah | ໂມຣິຢາ | [CHECK] |
+| Ornan / Araunah | ອາໂຣນາ | [FLAG] spelling unresolved. Lao form follows Araunah (2 Sam 24); same man as Ornan (1 Chr 21) — verify against ພຄພ |
+| Nero | ເນໂຣ | [CHECK] |
+| Constantine | ຄອນສະຕັນຕິນ | [CHECK] |
+| Gregory VII | ເກຼັກກໍຣີທີ 7 | [CHECK] |
+| Wycliffe | ໄວຄຼິບ | [CHECK] |
+| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] |
+| Solomon | ໂຊໂລໂມນ | [CHECK] |
+| David | ດາວິດ | [CHECK] |
+| Nebuchadnezzar | ເນບູກາດເນັດຊາ | [CHECK] |
+| Haggai | ຮັກກາຍ | [CHECK] |
+| Isaac | ອີຊາກ | [CHECK] |
+| Jacob | ຢາໂຄບ | [CHECK] |
+| Herod | ເຮໂຣດ | [CHECK] + ມະຫາຣາດ for "the Great" |
+| Milman | ມິນມານ | [CHECK] |
+| Wylie | ໄວລີ | [CHECK] |
+| Tertullian | ເທີທູລຽນ | [CHECK] |
+| Liberalis | ລີເບຣາລິດ | [CHECK] |
+| Perea | ເປເຣຍ | [CHECK] |
+| Lutterworth | ລັດເຕີເວີດ | [CHECK] |
+| Oxford | ອັອກຟອດ | [CHECK] |
+| John Huss | ຈອນ ຮັສ | [CHECK] Short: ຮັສ |
+| Jerome (of Prague) | ເຈໂຣມ | [CHECK] |
+| Bohemia | ໂບຮີເມຍ | [CHECK] |
+| Prague | ປຣັກ | [CHECK] |
+| Constance | ຄອນສະຕັນ | [CHECK] (the city) |
+| Sigismund | ຊີກີມົງ | [CHECK] |
+| Bethlehem Chapel | ໂບດເບັດເລເຮັມ | [CHECK] |
+| Ziska | ຊິສກາ | [CHECK] |
+| Moravia | ໂມເຣເວຍ | [CHECK] |
+| United Brethren | ກຸ່ມພີ່ນ້ອງຜູ້ເປັນໜຶ່ງດຽວ | [CHECK] Descriptive |
+| Staupitz | ສະເຕົາພິດ | [CHECK] |
+| Rome (city) | ນະຄອນໂຣມ / ໂຣມ | [CHECK] |
+| Erfurt | ເອີເຟີດ | [CHECK] |
+| Wittenberg | ວິດເທັນເບີກ | [CHECK] |
+| Tetzel | ເທັດເຊັນ | [CHECK] |
+| Augsburg | ອອກເບີກ | [CHECK] |
+| Worms | ເວີມ | [CHECK] |
+| Saxony | ແຊັກຊັນນີ | [CHECK] |
+| Netherlands | ເນເທີແລນ | [CHECK] |
+| Spain | ແອັດສະປາຍ | [CHECK] |
+| Zwingli | ສວິງລີ | [CHECK] Short: ອຸນຣິກ ສວິງລີ |
+| Zurich | ຊູຣິກ | [CHECK] |
+| Melanchthon | ເມລັງໂທນ | [CHECK] |
+| D'Aubigné | ໂດບິນເຍ | [CHECK] Author citation |
+| Bonnechose | ບອນໂຊດ | [CHECK] Author citation |
+| Neander | ນຽນເດີ | [CHECK] Author citation |
+| Foxe | ຟັອກ | [CHECK] Author citation |
+| Lenfant | ລອງຟອງ | [CHECK] Author citation |
+| Lefevre | ເລີເຟວ | [CHECK] French reformer |
+| William Farel | ວິນລຽມ ແຟໂຣ | [CHECK] Short: ແຟໂຣ |
+| John Calvin | ຈອນ ຄາວິນ | [CHECK] Short: ຄາວິນ |
+| Olivetan | ໂອລີເວຕັນ | [CHECK] Calvin's cousin |
+| Louis de Berquin | ຫຼຸຍສ໌ ແຫ່ງເບີຄວິນ | [CHECK] Short: ເບີຄວິນ |
+| Beza | ເບຊາ | [CHECK] |
+| Erasmus | ເອີຣັສມາສ | [CHECK] |
+| Beda | ເບດາ | [CHECK] |
+| Francis I | ຟຣານຊິສທີ 1 | [CHECK] King of France |
+| Margaret (princess) | ມາກາເຣັດ | [CHECK] ເຈົ້າຍິງ |
+| Meaux | ເມືອງໂມ | [CHECK] City |
+| Paris | ນະຄອນປາຣີ / ປາຣີ | [CHECK] |
+| France | ປະເທດຝຣັ່ງ / ຝຣັ່ງ | [CHECK] |
+| Germany | ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ | [CHECK] |
+| Switzerland | ສວິສເຊີແລນ | [CHECK] |
+| Poitiers | ພົວເຈ | [CHECK] |
+| Geneva | ນະຄອນເຈນີວາ / ເຈນີວາ | [CHECK] |
+| Basel | ບາເຊັນ | [CHECK] |
+| Holland | ຮໍແລນ | [CHECK] |
+| Menno Simons | ເມັນໂນ ຊີໂມນ | [CHECK] Short: ເມັນໂນ |
+| Münster / Munsterites | ມຸນສະເຕີ | [CHECK] Source spells it Munsterites |
+| William of Orange | ວິນລຽມແຫ່ງອໍເຣນ | [CHECK] |
+| Tausen | ທາວເຊັນ | [CHECK] Reformer of Denmark |
+| Cologne | ໂຄໂລນ | [CHECK] |
+| Denmark | ເດນມາກ | [CHECK] |
+| Sweden | ສະວີເດັນ | [CHECK] |
+| Olaf Petri | ໂອລັບ ເປຕຣີ | [CHECK] |
+| Laurentius Petri | ໂລເຣັນທີອັດ ເປຕຣີ | [CHECK] |
+| Orebro | ໂອເຣໂບ | [CHECK] |
+| Cappel | ກາເປນ | [CHECK] Battle site |
+| Oecolampadius | ເອໂກລຳພາດິອັດ | [CHECK] |
+| Froment | ໂຟມົງ | [CHECK] |
+| Morat | ໂມຣັດ | [CHECK] |
+| Neuchatel | ນິວຊາແຕວ | [CHECK] |
+| Philip II | ຟີລິບທີ 2 | [CHECK] |
+| Louis XVI | ຫຼຸຍສ໌ທີ 16 | [CHECK] |
+| Scandinavia | ສະແກນດິເນເວຍ | [CHECK] |
+| Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | [CHECK] |
+| Latimer | ລາຕິເມີ | [CHECK] |
+| Barnes | ບາເນດ | [CHECK] |
+| Frith | ຟຣິດ | [CHECK] |
+| Ridley | ຣິດລີ | [CHECK] |
+| Cranmer | ເຄນເມີ | [CHECK] |
+| Columba | ໂຄລຳບາ | [CHECK] |
+| Scotland | ສະກັອດແລນ | [CHECK] |
+| Hamilton | ແຮມິນຕັນ | [CHECK] |
+| Wishart | ວີຊາດ | [CHECK] |
+| John Knox | ຈອນ ນັອຄຊ໌ | [CHECK] |
+| Mary (Queen of Scots) | ຣາຊິນີມາຣີ / ມາຣີ | [CHECK] |
+| John Bunyan | ຈອນ ບັນຍັນ | [CHECK] |
+| Bedford | ເບດຟອດ | [CHECK] |
+| Baxter | ແບັກສະເຕີ | [CHECK] |
+| Flavel | ຟຼາເວວ | [CHECK] |
+| Alleine | ອາເລນ | [CHECK] |
+| Whitefield | ວິດຟຽວ | [CHECK] |
+| John Wesley | ຈອນ ເວສະລີ | [CHECK] Short: ເວສະລີ |
+| Charles Wesley | ຊານສ໌ ເວສະລີ | [CHECK] |
+| Savannah | ສະແວນນາ | [CHECK] |
+| London | ລອນດອນ / ນະຄອນລອນດອນ | [CHECK] |
+| Durham | ເດີຮາມ | [CHECK] |
+| England | ອັງກິດ / ປະເທດອັງກິດ | [CHECK] |
+| America | ອາເມຣິກາ | [CHECK] |
+| Piedmont | ພີດມົງ | [CHECK] |
+| Louis XV | ຫຼຸຍສ໌ທີ 15 | [CHECK] |
+| Voltaire | ໂວນແຕ | [CHECK] |
+| Walter Scott | ວອນເຕີ ສະກັອດ | [CHECK] Author citation |
+| Anderson | ແອນເດີສັນ | [CHECK] Author citation |
+| Martyn | ມາຕິນ | [CHECK] Author citation |
+| Bancroft | ບານຄອຟ | [CHECK] |
+| Whitehead | ໄວເຮດ | [CHECK] Author citation |
+| Robinson | ໂຣບິນສັນ | [CHECK] |
+| Roger Williams | ໂຣເຈີ ວິນລຽມ | [CHECK] |
+| William Miller | ວິນລຽມ ມິນເລີ | [CHECK] Short: ມິນເລີ |
+| Lisbon | ລິສບອນ | [CHECK] |
+| Wolff / Joseph Wolff | ໂຈເຊັບ ວໍຟ໌ | [CHECK] Short: ວໍຟ໌ |
+| Bengel | ເບນເກນ | [CHECK] |
+| Gaussen | ໂກເຊັນ | [CHECK] |
+| Lacunza | ລາຄູນຊາ | [CHECK] |
+| Mourant Brock | ໂມຣານ ບຣອກ | [CHECK] |
+| Robert Winter | ໂຣເບີດ ວິນເທີ | [CHECK] |
+| Charles Fitch | ຊານສ໌ ຟິດ | [CHECK] |
+| Artaxerxes | ອາກຕາເຊເຊັດ | [CHECK] |
+| Finney | ຟິນນີ | [CHECK] |
+| Spurgeon | ສະເປີເຈນ | [CHECK] |
+| Guthrie | ກຸດຣີ | [CHECK] |
+| Hopkins | ຮົບກິນສ໌ | [CHECK] |
+| Challoner | ຊານໂລເນີ | [CHECK] |
+| Rollin | ໂຣລິນ | [CHECK] |
+| Habakkuk | ຮາບາກຸກ | [CHECK] |
+| Malachi | ມາລາກີ | [CHECK] |
+| Würtemberg | ເວີດເທັມເບີກ | [CHECK] |
+| Bokhara | ບູຄາຣາ | [CHECK] |
+| Yemen | ເຢເມນ | [CHECK] |
+| Tatary | ຕາຕາຣີ | [CHECK] |
+| Wales | ເວລສ໌ | [CHECK] |
+| Edward A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
+| Balaam | ບາລາອາມ | [CHECK] GC 529.2 |
+| Lucifer | ລູຊີເຟີ | [CHECK] Always ມັນ |
+| Adam | ອາດາມ | [CHECK] ເພິ່ນ pronoun |
+| Eve | ເອວາ | [CHECK] |
+| Eden | ເອເດນ / ສວນເອເດນ | [CHECK] |
+| Cain | ກາອິນ | [CHECK] |
+| Abel | ອາເບັນ | [CHECK] |
+| Noah | ໂນອາ | [CHECK] |
+| Lot | ໂລດ | [CHECK] |
+| Abraham | ອັບຣາຮາມ | [CHECK] |
+| Sodom | ໂຊໂດມ | [CHECK] |
+| Hezekiah | ເຮເຊກີຢາ | [CHECK] ກະສັດ prefix |
+| Amnon | ອຳໂນນ | [CHECK] |
+| Absalom | ອັບຊາໂລມ | [CHECK] |
+| Adam Clarke | ອາດາມ ຄລາກ | [CHECK] ດຣ. prefix |
+| E. Petavel | ອີ. ເປຕາແວນ | [CHECK] Author citation |
+| Josiah Strong | ໂຢສີຢາ ສະຕອງ | [CHECK] Author citation |
+| Mosheim | ໂມເຊມ | [CHECK] Author citation |
+| Pius IX | ປີອູດທີ 9 | [CHECK] Pope |
+| Gregory XVI | ເກຼັກກໍຣີທີ 16 | [CHECK] Pope |
+| Eusebius | ເອີເຊບິອັດ | [CHECK] |
+| Peter II of Aragon | ເປໂຕທີ 2 ແຫ່ງອາຣາກົງ | [CHECK] |
+| Innocent III | ອິນໂນເຊັນທີ 3 | [CHECK] Pope |
+| Abyssinia / Ethiopia | ເອທິໂອເປຍ | [FLAG] |
+| St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ / ເຊນຫຼຸຍສ໌ | [CHECK] |
+| Esau | ເອຊາວ | [CHECK] |
+| Bethel | ເບັດເອນ | [CHECK] |
+| Stephen | ສະເຕຟາໂນ | [CHECK] |
+| Caiaphas | ໄກອາຟາ | [CHECK] |
+| Michael (archangel) | ມີຄາເອນ | [CHECK] |
+| Elijah | ເອລີຢາ | [CHECK] |
+| Joseph (OT) | ໂຢເຊັບ | [CHECK] |
+| Pharaoh | ຟາໂຣ | [CHECK] |
+| Jezebel | ເຢເຊເບນ | [CHECK] |
 
+| Legislative Assembly (French Rev.) | ສະພານິຕິບັນຍັດແຫ່ງຊາດ | [CHECK] Three-tier system; do not collapse |
+| National Assembly (French Rev.) | ສະພາແຫ່ງຊາດ | [CHECK] |
+| National Convention (French Rev.) | ກອງປະຊຸມແຫ່ງຊາດ | [CHECK] NOT ສະພາ; see Diet/Council cross-ref |
+| Convention / the Convention | ກອງປະຊຸມແຫ່ງຊາດ | [FLAG] Session, not a place. Physical hall = ຫ້ອງປະຊຸມ. Readjudicate each occurrence |
+| President of the Convention | ປະທານກອງປະຊຸມ | [CHECK] |
+| Chair of a meeting | ປະທານທີ່ປະຊຸມ | Descriptive label; no English head in source |
+| Assembly chamber / hall | ຫ້ອງປະຊຸມ | Descriptive label; enforced via the Convention [FLAG] row |
+| Veil of Reason | ຜ້າມ່ານແຫ່ງເຫດຜົນ | [CHECK] GC 276.1 |
+| Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
+| Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
+| Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
+| Legate / nuncio | ຕົວແທນ / ອັກຄະທູດ | [CHECK] NOT ທະນາຍ |
+| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
+| Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
+| Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
+| Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ| [CHECK] ເດັກນ້ອຍ = children |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
+| Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
+| Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
+| Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
+| Chapter (citation) | ບົດ | [CHECK] |
+| People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
+| Territory (pre-modern) | ເຂດ / ສາຍພູ | [CHECK] NOT ແຂວງ (anachronism) |
+| Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
+| Charles IX | ກະສັດຊານສ໌ / ຊານສ໌ | [CHECK] King of France; NOT ຈັກກະພັດ |
+| Charles V | ຈັກກະພັດຊານສ໌ທີ 5 / ຊານສ໌ທີ 5 | [CHECK] Holy Roman Emperor |
+| Gregory XIII | ເກຼັກກໍຣີທີ 13 | [CHECK] Pope |
+| Pope (pronoun) | ເພິ່ນ | [CHECK] NOT ພິ່ນ |
+| Napoleon | ນາໂປເລອົງ | [CHECK] |
+| Notre Dame | ນໍເຕີດາມ | [CHECK] |
+| Seine | ແຊນ | [CHECK] |
+| Jacobin | ຢາໂກບິນ | [CHECK] |
+| Bartholomew | ບາຣະໂທໂລມາຍ | [CHECK] |
+| Gomorrah | ໂກໂມຣາ | [CHECK] |
+| Thiers | ເທຍ | [CHECK] Author citation |
+| Alison | ອາລິຊັນ | [CHECK] Author citation |
+| Lacretelle | ລາເຄເທວ | [CHECK] Author citation |
+| Henry White | ເຮນຣີ ໄວທ໌ | [CHECK] Author citation |
+| Buchez-Roux | ບູເຊດຣູ | [CHECK] Author citation |
+| G. de Félice | ຈີ. ເດ ເຟລີສ | [CHECK] Author citation |
