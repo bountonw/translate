@@ -14,6 +14,15 @@
 | Minister / Ministers / Pastor / Pastors | ສາສະໜາຈານ | [CHECK] Never for Catholic clergy |
 | Prelate / Prelates / Ecclesiastic / Ecclesiastics | ຜູ້ນຳຄຣິສຕະຈັກ | [CHECK] |
 | Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ |
+| Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
+| Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
+| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative) |
+| Representative (generic) | ຕົວແທນ | GC 92.2 |
+| Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
+| Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
+| Wycliffites | ນັກປະກາດຂອງໄວຄຼິບ | [CHECK] Descriptive; GC 94.3 |
+| Section (citation) | ໝວດ | [CHECK] |
+| Paragraph (citation) | ວັກ | [CHECK] |
 | Religious leaders (generic) | ຜູ້ນຳສາສະໜາ | |
 | Preacher / Preachers | ນັກເທດ | [CHECK] Office, not order |
 | Parish minister / churchman | ອາຈານປະຈຳໂບດ | |
@@ -106,7 +115,15 @@
 | Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
 | Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
 | New birth | ການບັງເກີດໃໝ່ | [CHECK] |
-| Mediator | ຜູ້ເປັນກາງ (ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ) | [CHECK] Descriptive |
+| Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it |
+| Crusade (religious war) | ສົງຄາມສາສະໜາ | [CHECK] |
+| Chaplain (royal) | ບາດຫຼວງປະຈຳຣາຊສຳນັກ | [CHECK] GC 82.1; ຣາຊ prefix |
+| Church Father (early) | ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ | [CHECK] NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate) |
+| Hierarchy (papal system) | ລະບອບສັນຕະປາປາ | [CHECK] Same form as Papacy row |
+| Royal ambassador | ທູດຫຼວງ | [CHECK] GC 84.3 |
+| Commissioners (papal) | ຄະນະຂ້າຫຼວງຂອງສັນຕະປາປາ | [CHECK] GC 84.3 |
+| Tract (published) | ບົດຄວາມ | GC 84.2 |
+| Inquisitors (persons) | ເຈົ້າໜ້າທີ່ສານຄະດີນອກຮີດ | [CHECK] |
 | Advocate / Intercessor | ຜູ້ວິງວອນ / ຜູ້ອ້ອນວອນ / ຜູ້ແກ້ຄວາມ | [CHECK] Context determines choice |
 | Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
 | Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
@@ -377,19 +394,26 @@
 | Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
 | Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
 | Legate / nuncio | ຕົວແທນ / ອັກຄະທູດ | [CHECK] NOT ທະນາຍ |
-| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
 | Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
 | Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ| [CHECK] ເດັກນ້ອຍ = children |
-| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
+| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at first use in book order |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ / ເຈົ້າແຂວງ | [CHECK] Full form where the electoral right is in view |
+| Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
+| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
+| Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
+| Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
 | Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
 | Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
 | Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
 | Chapter (citation) | ບົດ | [CHECK] |
 | People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
-| Territory (pre-modern) | ເຂດ / ສາຍພູ | [CHECK] NOT ແຂວງ (anachronism) |
 | Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
+| Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
+| Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
 | Charles IX | ກະສັດຊານສ໌ / ຊານສ໌ | [CHECK] King of France; NOT ຈັກກະພັດ |
 | Charles V | ຈັກກະພັດຊານສ໌ທີ 5 / ຊານສ໌ທີ 5 | [CHECK] Holy Roman Emperor |
 | Gregory XIII | ເກຼັກກໍຣີທີ 13 | [CHECK] Pope |
