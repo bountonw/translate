@@ -157,7 +157,13 @@
 | New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
 | Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | |
 | Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
-
+| Ordain / Ordination / Consecration (to sacred office) | ເຈີມຕັ້ງ | [CHECK] NOT ເຈີມ. Ecclesiastical office only. Attested: 70.2, 124.1, 173.2, 221.2, 238.3, 254.3, 274.1 |
+| Ordain (decree, appoint, institute) | ກຳນົດ / ແຕ່ງຕັ້ງ | NOT ເຈີມ; 69.2, 448.1, 449.1, 454.3, 592.1 |
+| Consecrate (self-dedication to God) | ອຸທິດຖວາຍຕົນ | NOT ເຈີມ; 176.4, 398.1, 400.2, 463.3, 606.2, 612.1 |
+| The Anointed One (Messiah) | ຜູ້ຖືກເຈີມ | [CHECK] Title; never ເຈີມຕັ້ງ. 327.1, 410.1 |
+| Anointing of the Spirit (Christ, narrative) | ເຈີມຕັ້ງ | [CHECK] The AD 27 anointing as messianic installation. 327.1, 346.4, 410.1 |
+| Unction (of His Spirit, on believers) | ເຈີມ | [CHECK] 606.2; no office conferred |
+| Anointed cherub (narrative echo) | ເຈີມຕັ້ງ | 497.1; echoes ເອເຊກຽນ 28:14 quoted at 493.3 |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -185,7 +191,16 @@
 | Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
 | Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
 | Realm of the dead | ແດນມໍຣະນາ |  | ຣ root; used for Sheol/grave |
-
+| Executioner | ເພັດຊະຄາດ | [CHECK] GC 114.8 |
+| Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
+| Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
+| Prince / princes (within a kingdom) | ຂຸນນາງ | [CHECK] Nobles subject to a crown — England, France, Spain; NOT ເຈົ້າແຂວງ. GC 85.3 |
+| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
+| Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
+| Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
+| Religious order | ຄະນະນັກບວດ | [CHECK] NOT ສຳນັກນັກບວດ (= the house) |
+| Pulpit (to ascend the ~) | ທຳມາດ | [CHECK] GC 124.1 |
+| Coronation | (defer — see GC-open-terms.md) | 666.1, 668.4; pairs with ມົງກຸດ at 669.1 |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -230,7 +245,8 @@
 | Constance | ຄອນສະຕັນ | [CHECK] (the city) |
 | Sigismund | ຊີກີມົງ | [CHECK] |
 | Bethlehem Chapel | ໂບດເບັດເລເຮັມ | [CHECK] |
-| Ziska | ຊິສກາ | [CHECK] |
+| Ziska | ຊີສະກາ | [CHECK] |
+| Rhine | ແມ່ນ້ຳໄຣນ໌ | [CHECK] GC 110.1 |
 | Moravia | ໂມເຣເວຍ | [CHECK] |
 | United Brethren | ກຸ່ມພີ່ນ້ອງຜູ້ເປັນໜຶ່ງດຽວ | [CHECK] Descriptive |
 | Staupitz | ສະເຕົາພິດ | [CHECK] |
@@ -400,8 +416,8 @@
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ| [CHECK] ເດັກນ້ອຍ = children |
 | Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
-| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at first use in book order |
-| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ / ເຈົ້າແຂວງ | [CHECK] Full form where the electoral right is in view |
+| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person and where the electoral right is in view; bare form anaphorically; restore full form where electors and non-elector princes share a scene |
 | Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
 | Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
 | Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
@@ -409,6 +425,8 @@
 | Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
 | Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
 | Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
+| Interdict | ການປະກາດຫ້າມທາງສາສະໜາ | [CHECK] GC 100.3, 101.1 |
+| Jubilee | ງານເທດສະການສະຫຼອງການຄົບຮອບ | [CHECK] GC 98.2 |
 | Chapter (citation) | ບົດ | [CHECK] |
 | People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
 | Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
