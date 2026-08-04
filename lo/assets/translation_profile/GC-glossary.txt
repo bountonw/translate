@@ -68,13 +68,11 @@
 | Inquisition | ສານຄະດີນອກຮີດ | [CHECK] |
 | Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງກະລຸນາ / ພຣະທີ່ນັ່ງກະລຸນາ | [CHECK] |
 | Gospel | ຂ່າວປະເສີດ | [CHECK] |
-| Bishop of Rome | ຜູ້ນຳຄຣິສຕະຈັກໃນນະຄອນໂຣມ | Descriptive |
 | Dragon (Rev.) | ພະຍານາກ | |
 | Beast (Rev.) | ສັດຮ້າຍ | |
 | Second death | ຄວາມຕາຍຄັ້ງທີສອງ | [CHECK] |
 | Lollards | ໂລລາດ | Wycliffe's followers |
 | Hussites | ຊາວຮັສ | Huss's followers |
-| Crusade (religious war) | ສົງຄາມສາສະໜາ | |
 | Council (of the church) | ສະພາຄຣິສຕະຈັກ / ປະຊຸມສະພາ | |
 | 95 Theses | ຄຳປະທ້ວງ 95 ຂໍ້ | [CHECK] |
 | Diet (assembly) | ສະພາ | E.g., Diet of Worms |
@@ -140,10 +138,9 @@
 | Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | [CHECK] |
 | Resurrection | ການຟື້ນຄືນຊີບ / ການເປັນຄືນມາຈາກຕາຍ | |
 | Lamb (Rev. and salvific) | ພຣະເມສານ້ອຍ | |
-| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] |
+| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] ຣ root |
 | Papal infallibility | (describe: claiming the church never erred and never will) | |
 | Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | |
-| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | |
 | Stake (execution) | ຫຼັກປະຫານ | |
 | Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | [CHECK] |
 | Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
@@ -164,6 +161,45 @@
 | Anointing of the Spirit (Christ, narrative) | ເຈີມຕັ້ງ | [CHECK] The AD 27 anointing as messianic installation. 327.1, 346.4, 410.1 |
 | Unction (of His Spirit, on believers) | ເຈີມ | [CHECK] 606.2; no office conferred |
 | Anointed cherub (narrative echo) | ເຈີມຕັ້ງ | 497.1; echoes ເອເຊກຽນ 28:14 quoted at 493.3 |
+| Christianity / the Christian faith | ສາສະໜາຄຣິສ / ຄຣິສຕະສາສະໜາ | Both forms in use; variation intentional |
+| Executioner | ເພັດຊະຄາດ | [CHECK] GC 114.8 |
+| Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
+| Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
+| Prince / princes (within a kingdom) | ຂຸນນາງ | [CHECK] Nobles subject to a crown — England, France, Spain; NOT ເຈົ້າແຂວງ. GC 85.3 |
+| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
+| Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
+| Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
+| Pulpit (to ascend the ~) | ທຳມາດ | [CHECK] GC 124.1 |
+| Coronation | (defer — see GC-open-terms.md) | 666.1, 668.4; pairs with ມົງກຸດ at 669.1 |
+| President of the Convention | ປະທານກອງປະຊຸມ | [CHECK] |
+| Chair of a meeting | ປະທານທີ່ປະຊຸມ | Descriptive label; no English head in source |
+| Assembly chamber / hall | ຫ້ອງປະຊຸມ | Descriptive label; enforced via the Convention [FLAG] row |
+| Veil of Reason | ຜ້າມ່ານແຫ່ງເຫດຜົນ | [CHECK] GC 276.1 |
+| Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
+| Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
+| Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
+| Legate / nuncio | ຕົວແທນ / ອັກຄະທູດ | [CHECK] NOT ທະນາຍ |
+| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
+| Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
+| Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
+| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person and where the electoral right is in view; bare form anaphorically; restore full form where electors and non-elector princes share a scene |
+| Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
+| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
+| Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
+| Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
+| Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
+| Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
+| Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
+| Interdict | ການປະກາດຫ້າມທາງສາສະໜາ | [CHECK] GC 100.3, 101.1 |
+| Jubilee | ງານເທດສະການສະຫຼອງການຄົບຮອບ | [CHECK] GC 98.2 |
+| Chapter (citation) | ບົດ | [CHECK] |
+| People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
+| Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
+| Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
+| Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -173,12 +209,13 @@
 | Holy / Pure | ບໍຣິສຸດ | ບໍລິສຸດ | [CHECK] ຣ root |
 | Epidemic / Plague | ໂຣກລະບາດ | ໂລກລະບາດ | [CHECK] ຣ root |
 | Glory / Radiance | ສະຫງ່າຣາສີ | ສະຫງ່າລາສີ | [CHECK] ຣ root |
-| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ / ຄິດສະຕຽນ | [CHECK] |
-| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ພະຍາກອນ / ຜູ້ທຳນວາຍ | [CHECK] |
-| Christianity / the Christian faith | ສາສະໜາຄຣິສ / ຄຣິສຕະສາສະໜາ | Both forms in use; variation intentional |
+| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ | [CHECK] |
+| Christian | ຄຣິສຕຽນ | ຄິດສະຕຽນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ພະຍາກອນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ທຳນວາຍ | [CHECK] |
 | Holy (prefix) | ພຣະ | ພະ |  |
-| insurgents | ພວກກະບົດ || [CHECK] |
-| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ / ລິດເດດ | [CHECK] |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ | [CHECK] |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດເດດ | [CHECK] |
 | Eternal | ນິຣັນ | ນິລັນ | [CHECK] |
 | Israel | ອິດສະຣາເອນ | ອິດສະລາເອນ | [CHECK] |
 | Heritage | ມໍລະດົກ | ມໍຣະດົກ | [CHECK] Exception: ລ |
@@ -190,17 +227,7 @@
 | Royal vocabulary | ຣາຊາສັບ | ລາຊາສັບ | [CHECK] ຣ root |
 | Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
 | Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
-| Realm of the dead | ແດນມໍຣະນາ |  | ຣ root; used for Sheol/grave |
-| Executioner | ເພັດຊະຄາດ | [CHECK] GC 114.8 |
-| Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
-| Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
-| Prince / princes (within a kingdom) | ຂຸນນາງ | [CHECK] Nobles subject to a crown — England, France, Spain; NOT ເຈົ້າແຂວງ. GC 85.3 |
-| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
-| Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
-| Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
-| Religious order | ຄະນະນັກບວດ | [CHECK] NOT ສຳນັກນັກບວດ (= the house) |
-| Pulpit (to ascend the ~) | ທຳມາດ | [CHECK] GC 124.1 |
-| Coronation | (defer — see GC-open-terms.md) | 666.1, 668.4; pairs with ມົງກຸດ at 669.1 |
+| Pope (pronoun) | ເພິ່ນ | ພິ່ນ / ລາວ / ທ່ານ | [CHECK] |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -402,40 +429,9 @@
 | National Assembly (French Rev.) | ສະພາແຫ່ງຊາດ | [CHECK] |
 | National Convention (French Rev.) | ກອງປະຊຸມແຫ່ງຊາດ | [CHECK] NOT ສະພາ; see Diet/Council cross-ref |
 | Convention / the Convention | ກອງປະຊຸມແຫ່ງຊາດ | [FLAG] Session, not a place. Physical hall = ຫ້ອງປະຊຸມ. Readjudicate each occurrence |
-| President of the Convention | ປະທານກອງປະຊຸມ | [CHECK] |
-| Chair of a meeting | ປະທານທີ່ປະຊຸມ | Descriptive label; no English head in source |
-| Assembly chamber / hall | ຫ້ອງປະຊຸມ | Descriptive label; enforced via the Convention [FLAG] row |
-| Veil of Reason | ຜ້າມ່ານແຫ່ງເຫດຜົນ | [CHECK] GC 276.1 |
-| Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
-| Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
-| Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
-| Legate / nuncio | ຕົວແທນ / ອັກຄະທູດ | [CHECK] NOT ທະນາຍ |
-| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
-| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
-| Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
-| Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
-| Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ| [CHECK] ເດັກນ້ອຍ = children |
-| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
-| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
-| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person and where the electoral right is in view; bare form anaphorically; restore full form where electors and non-elector princes share a scene |
-| Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
-| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
-| Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
-| Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
-| Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
-| Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
-| Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
-| Interdict | ການປະກາດຫ້າມທາງສາສະໜາ | [CHECK] GC 100.3, 101.1 |
-| Jubilee | ງານເທດສະການສະຫຼອງການຄົບຮອບ | [CHECK] GC 98.2 |
-| Chapter (citation) | ບົດ | [CHECK] |
-| People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
-| Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
-| Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
-| Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
 | Charles IX | ກະສັດຊານສ໌ / ຊານສ໌ | [CHECK] King of France; NOT ຈັກກະພັດ |
 | Charles V | ຈັກກະພັດຊານສ໌ທີ 5 / ຊານສ໌ທີ 5 | [CHECK] Holy Roman Emperor |
 | Gregory XIII | ເກຼັກກໍຣີທີ 13 | [CHECK] Pope |
-| Pope (pronoun) | ເພິ່ນ | [CHECK] NOT ພິ່ນ |
 | Napoleon | ນາໂປເລອົງ | [CHECK] |
 | Notre Dame | ນໍເຕີດາມ | [CHECK] |
 | Seine | ແຊນ | [CHECK] |
