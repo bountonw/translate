@@ -4,9 +4,13 @@
 |---|---|---|
 | Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
 | High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
+| Castle | ຜາສາດ | [CHECK] House form; NOT ຕຳນັກ, NOT ປາສາດ. 14 attestations corpus-wide; GC 129.2, 139.1, 140.2 |
 | Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
 | Monastic / Monasticism | ນັກບວດ / ສຳນັກນັກບວດ | [CHECK] NOT ວັດວາອາຮາມ |
 | Monastery / Monasteries / Cloister / Cloisters | ສຳນັກນັກບວດ | [CHECK] Replaces ສຳນັກສົງ, ສຳນັກບາດຫຼວງ, ອາຮາມນັກບວດ |
+| Scaffold (heretic execution) | ຫຼັກປະຫານ | [CHECK] GC 132.3; NOT ຕະແລງແກງ (= gallows). Heresy sentence is fire, not hanging |
+| Holy See / see of Rome | ສັນຕະສຳນັກ | [CHECK] GC 130.2 |
+| Heretic (singular) | ຄົນນອກຮີດ | [CHECK] Plural row is ພວກນອກຮີດ |
 | Convent / Convents | ສຳນັກນັກບວດ / ສຳນັກແມ່ຊີ | [CHECK] ສຳນັກແມ່ຊີ only for a house of nuns |
 | Friar / Friars | ພຣະກາໂຕລິກ | [CHECK] Mendicant and regular |
 | Religious order | ຄະນະນັກບວດ | Reference only; GC 83.2, 84.1, 228.1 |
@@ -16,10 +20,13 @@
 | Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ |
 | Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
 | Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
-| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative) |
+| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
 | Representative (generic) | ຕົວແທນ | GC 92.2 |
 | Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
 | Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
+| Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
+| Decree / Mandate (papal) | ຄຳສັ່ງ | [CHECK] GC 133.2, 141.1, 142.1; distinct from ໃບປະກາດພິເສດ = bull |
+| Canon law | ກົດລະບຽບຂອງຄຣິສຕະຈັກໂຣມ | [CHECK] GC 142.2 |
 | Wycliffites | ນັກປະກາດຂອງໄວຄຼິບ | [CHECK] Descriptive; GC 94.3 |
 | Section (citation) | ໝວດ | [CHECK] |
 | Paragraph (citation) | ວັກ | [CHECK] |
@@ -78,7 +85,8 @@
 | Diet (assembly) | ສະພາ | E.g., Diet of Worms |
 | Mass (Catholic) | ພິທີສິນລະນຶກ | [CHECK] |
 | Confession of faith | ຄຳປະກາດແຫ່ງຄວາມເຊື່ອ | |
-| Excommunication | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ | [CHECK] Descriptive |
+| Read aloud | ອ່ານອອກສຽງ | [CHECK] NOT ອ່ານດັງໆ (= loudly). Vocalization, opposed to ອ່ານໃນໃຈ. GC 136.3 |
+| Excommunication / Excommunicate | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ / ຕັດຊື່ + object + ອອກຈາກຄຣິສຕະຈັກ / ຕັດຄວາມເປັນສະມາຊິກຄຣິສຕະຈັກຂອງ + object | [CHECK] Split verbal frame where the object is short; ຄວາມເປັນສະມາຊິກ form where the object runs past one clause. GC 133.3, 136.4, 141.1, 143.2 |
 | Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
 | Anathema | ຄຳສາບແຊ່ງ | |
 | Cardinal | ພຣະຄາດີນັນ | [CHECK] |
@@ -107,6 +115,7 @@
 | Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | [CHECK] |
 | Image to the beast | ຮູບຈຳລອງຂອງສັດຮ້າຍ | [CHECK] |
 | Rationalism | ລັດທິເຫດຜົນນິຍົມ | [CHECK] |
+| Papal bull | ໃບປະກາດພິເສດຂອງສັນຕະປາປາ / ໃບປະກາດພິເສດ | [CHECK] Full form at first use per chapter, short form anaphorically. NOT ຄຳສັ່ງ (= decree, mandate); attested 141.3, 142.2, 143.2 |
 | Sacramentarianism | ການນິຍົມພິທີກຳ | [CHECK] |
 | Presbyterian | ເປຣສະບິເທີຣຽນ | [CHECK] |
 | Lutheran | ລູເທີແຣນ | [CHECK] |
@@ -116,7 +125,8 @@
 | Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it |
 | Crusade (religious war) | ສົງຄາມສາສະໜາ | [CHECK] |
 | Chaplain (royal) | ບາດຫຼວງປະຈຳຣາຊສຳນັກ | [CHECK] GC 82.1; ຣາຊ prefix |
-| Church Father (early) | ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ | [CHECK] NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate) |
+| Church Father (early) | ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ / ບັນດານັກຂຽນຄຣິສຕຽນໃນສະຕະວັດຕົ້ນໆ | [CHECK] NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate) |
+| Romanists / Papists | ພວກເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກຄົນເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກນິຍົມສັນຕະປາປາ |  Both forms in use; variation accepted. NOT ພວກຝ່າຍສັນຕະປາປາ. GC 132.3, 135.2, 137.3, 143.1, 143.3 |
 | Hierarchy (papal system) | ລະບອບສັນຕະປາປາ | [CHECK] Same form as Papacy row |
 | Royal ambassador | ທູດຫຼວງ | [CHECK] GC 84.3 |
 | Commissioners (papal) | ຄະນະຂ້າຫຼວງຂອງສັນຕະປາປາ | [CHECK] GC 84.3 |
@@ -141,8 +151,8 @@
 | Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] ຣ root |
 | Papal infallibility | (describe: claiming the church never erred and never will) | |
 | Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | |
-| Stake (execution) | ຫຼັກປະຫານ | |
 | Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | [CHECK] |
+| Stake (execution) | ຫຼັກປະຫານ | [CHECK] Also renders scaffold where a heretic is condemned |
 | Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
 | Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
 | Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
@@ -178,8 +188,8 @@
 | Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
 | Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
 | Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
-| Legate / nuncio | ຕົວແທນ / ອັກຄະທູດ | [CHECK] NOT ທະນາຍ |
 | Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Legate / nuncio | ຕົວແທນ / ຕົວແທນຂອງສັນຕະປາປາ / ທູດຂອງສັນຕະປາປາ | [CHECK] NOT ທະນາຍ; NOT bare ທູດ (collides with ທູດສະຫວັນ). Bare ຕົວແທນ anaphorically after ຕົວແທນຂອງສັນຕະປາປາ; ທູດຂອງສັນຕະປາປາ only where EN reads "ambassador," never at first mention in a chapter. GC 133.3, 135.1 |
 | Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
@@ -444,3 +454,10 @@
 | Henry White | ເຮນຣີ ໄວທ໌ | [CHECK] Author citation |
 | Buchez-Roux | ບູເຊດຣູ | [CHECK] Author citation |
 | G. de Félice | ຈີ. ເດ ເຟລີສ | [CHECK] Author citation |
+| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] Short: ລູເທີ. Bare ມາຕິນ only where EN reads "Martin"; see Martyn row for the citation collision. GC 138.3 |
+
+| Martyn | ມາຕິນ | [CHECK] Author citation. Latin gloss (Martyn) required in every citation lacking the work title; collides with ດຣ. ມາຕິນ / ມາຕິນ = Luther, which is correct where EN reads "Martin." Attested: GC 136.2 (with title, glossed), 138.3 (Luther, leave bare), 143.1 (short form, gloss) |
+
+| Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix | | Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
+
+| Gieseler | ກີສະເລີ | [CHECK] GC 127.2; ຈອນ ຊີ. ແອວ. ກີສະເລີ |
