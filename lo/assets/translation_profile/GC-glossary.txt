@@ -3,6 +3,7 @@
 | English | Lao | Notes |
 |---|---|---|
 | Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
+| Fanatic / Fanatics / Fanaticism | ພວກທີ່ຄັ່ງໄຄ້ / ຄວາມຄັ່ງໄຄ້ | [CHECK] GC 190.3–196.3 |
 | High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
 | Castle | ຜາສາດ | [CHECK] House form; NOT ຕຳນັກ, NOT ປາສາດ. 14 attestations corpus-wide; GC 129.2, 139.1, 140.2 |
 | Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
@@ -17,7 +18,7 @@
 | Clergy | ນັກບວດ / ບາດຫຼວງ / ຜູ້ນຳຄຣິສຕະຈັກ / ສາສະໜາຈານ | [FLAG] estate → ນັກບວດ; Catholic → ບາດຫຼວງ ຫຼື ຜູ້ນຳຄຣິສຕະຈັກ; Protestant → ສາສະໜາຈານ |
 | Minister / Ministers / Pastor / Pastors | ສາສະໜາຈານ | [CHECK] Never for Catholic clergy |
 | Prelate / Prelates / Ecclesiastic / Ecclesiastics | ຜູ້ນຳຄຣິສຕະຈັກ | [CHECK] |
-| Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ |
+| Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ. Renders EN bishop only; archbishop takes ເຈົ້າຄະນະໃຫຍ່. Follow the English head even where the historical figure held the higher rank (GC 274.1). Avoid ເຈົ້າຄະນະ + territory for a plain bishop — the territory forms are graded ranks in the source system |
 | Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
 | Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
 | Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
@@ -86,6 +87,9 @@
 | Mass (Catholic) | ພິທີສິນລະນຶກ | [CHECK] |
 | Confession of faith | ຄຳປະກາດແຫ່ງຄວາມເຊື່ອ | |
 | Read aloud | ອ່ານອອກສຽງ | [CHECK] NOT ອ່ານດັງໆ (= loudly). Vocalization, opposed to ອ່ານໃນໃຈ. GC 136.3 |
+| Archbishop | ເຈົ້າຄະນະໃຫຍ່ | [CHECK] One grade above ເຈົ້າຄະນະ = bishop; do not fold into the bishop row. NOT ອາຄະບິດຊົບ, NOT ອັກຄະເຈົ້າຄະນະ. Follows the sangha pattern where ເຈົ້າຄະນະ + territory is the ordinary grade and ເຈົ້າຄະນະໃຫຍ່ the senior one. GC 145.1 fn, 565.1, 565.2 |
+| Archbishop of <place> | ເຈົ້າຄະນະໃຫຍ່ແຫ່ງ + <place> | [CHECK] Same ແຫ່ງ connector as the bishop row; NOT ປະຈຳ. Attested: ນະຄອນເຊນຫຼຸຍສ໌ |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Only 2 occurrences corpus-wide: GC 149.2, 198.3. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
 | Excommunication / Excommunicate | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ / ຕັດຊື່ + object + ອອກຈາກຄຣິສຕະຈັກ / ຕັດຄວາມເປັນສະມາຊິກຄຣິສຕະຈັກຂອງ + object | [CHECK] Split verbal frame where the object is short; ຄວາມເປັນສະມາຊິກ form where the object runs past one clause. GC 133.3, 136.4, 141.1, 143.2 |
 | Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
 | Anathema | ຄຳສາບແຊ່ງ | |
@@ -193,7 +197,7 @@
 | Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
-| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing) |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
 | Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
 | Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person and where the electoral right is in view; bare form anaphorically; restore full form where electors and non-elector princes share a scene |
 | Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
@@ -296,8 +300,9 @@
 | Saxony | ແຊັກຊັນນີ | [CHECK] |
 | Netherlands | ເນເທີແລນ | [CHECK] |
 | Spain | ແອັດສະປາຍ | [CHECK] |
-| Zwingli | ສວິງລີ | [CHECK] Short: ອຸນຣິກ ສວິງລີ |
+| Zwingli | ສວິງລີ | [CHECK] Full: ອຸນຣິກ ສວິງລີ; short: ສວິງລີ |
 | Zurich | ຊູຣິກ | [CHECK] |
+| Council of Zurich (civic) | ສະພານະຄອນຊູຣິກ | [CHECK] GC 179.1, 180.3. Governing council of the city-state — legislature, court and executive in one. NOT ຄະນະປົກຄອງເມືອງ (executive only); NOT bare ສະພາ (collides with Diet); distinct from ສະພາຄຣິສຕະຈັກ. Full form at both occurrences |
 | Melanchthon | ເມລັງໂທນ | [CHECK] |
 | D'Aubigné | ໂດບິນເຍ | [CHECK] Author citation |
 | Bonnechose | ບອນໂຊດ | [CHECK] Author citation |
@@ -459,5 +464,5 @@
 | Martyn | ມາຕິນ | [CHECK] Author citation. Latin gloss (Martyn) required in every citation lacking the work title; collides with ດຣ. ມາຕິນ / ມາຕິນ = Luther, which is correct where EN reads "Martin." Attested: GC 136.2 (with title, glossed), 138.3 (Luther, leave bare), 143.1 (short form, gloss) |
 
 | Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix | | Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
-
+| Aleander | ອະລີອັນເດີ | [CHECK] Papal nuncio at Worms |
 | Gieseler | ກີສະເລີ | [CHECK] GC 127.2; ຈອນ ຊີ. ແອວ. ກີສະເລີ |
