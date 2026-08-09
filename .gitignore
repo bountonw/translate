@@ -15,6 +15,9 @@
 # Ignore local sandbox folders regardless of case
 **/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
 
+# Ignore folders
+**/04_assets/pdf/
+
 # Ignore mac generated files
 .DS_Store
 .AppleDouble
