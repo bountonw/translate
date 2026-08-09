@@ -26,7 +26,13 @@
       "Bash(git branch --delete:*)",
       "Bash(git branch --move:*)",
       "Edit(~/programming/translate/.git/**)",
-      "Edit(~/programming/translate/lo/GC/04_assets/sandbox*/**)"
+      "Edit(~/programming/translate/lo/GC/04_assets/sandbox*/**)",
+      "Edit(~/programming/translate/**/backup--typst-custom)",
+      "Edit(~/programming/translate/**/backup--typst-custom/**)",
+      "Edit(~/programming/translate/**/book.pdf)",
+      "Edit(~/claude-sandbox/**/backup--typst-custom)",
+      "Edit(~/claude-sandbox/**/backup--typst-custom/**)",
+      "Edit(~/claude-sandbox/**/book.pdf)"
     ],
     "allow": [
       "Bash(git fetch:*)"
