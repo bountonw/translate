@@ -15,8 +15,10 @@
 # Ignore local sandbox folders regardless of case
 **/*[Ss][Aa][Nn][Dd][Bb][Oo][Xx]*/
 
-# Ignore folders
+# Ignore files and folders
 **/04_assets/pdf/
+**/backup--typst-custom
+**/book.pdf
 
 # Ignore mac generated files
 .DS_Store
