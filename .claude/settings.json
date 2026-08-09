@@ -32,7 +32,10 @@
       "Edit(~/programming/translate/**/book.pdf)",
       "Edit(~/claude-sandbox/**/backup--typst-custom)",
       "Edit(~/claude-sandbox/**/backup--typst-custom/**)",
-      "Edit(~/claude-sandbox/**/book.pdf)"
+      "Edit(~/claude-sandbox/**/book.pdf)",
+      "Edit(~/programming/translate/lo/assets/dictionaries/AA-glossary.txt)",
+      "Edit(~/programming/translate/lo/assets/translation_profile/GC-glossary.txt)",
+      "Edit(~/programming/translate/lo/assets/translation_profile/glossary-extraction-prompt.txt)"
     ],
     "allow": [
       "Bash(git fetch:*)"
