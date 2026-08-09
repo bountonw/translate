@@ -199,8 +199,9 @@
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
 | Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
 | Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
-| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person and where the electoral right is in view; bare form anaphorically; restore full form where electors and non-elector princes share a scene |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
 | Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Sole site GC 149.2 (Duke George). GC 198.3 (Duke John) is excluded — EGW's *Duke* there is courtesy usage; John held the electorate from 1525 and GC 11 calls him *the elector* nine times, so ເຈົ້າແຂວງ governs. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
 | Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
 | Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
 | Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
@@ -433,7 +434,7 @@
 | Esau | ເອຊາວ | [CHECK] |
 | Bethel | ເບັດເອນ | [CHECK] |
 | Stephen | ສະເຕຟາໂນ | [CHECK] |
-| Caiaphas | ໄກອາຟາ | [CHECK] |
+| Caiaphas | ກາຢະຟາ | [CHECK] |
 | Michael (archangel) | ມີຄາເອນ | [CHECK] |
 | Elijah | ເອລີຢາ | [CHECK] |
 | Joseph (OT) | ໂຢເຊັບ | [CHECK] |
