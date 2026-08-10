@@ -33,6 +33,8 @@ Invoke it with that exact relative path from the repository root, and always pas
 
 1.E. Session files in ~/claude-sandbox/gc-audit/: gcNN-companion.md, gcNN-glossary-proposals.txt. First batch creates them (companion: title line; proposals: the four section headers of 8.A). Later batches insert under the existing headers.
 
+1.F. Read your range, not the book. Both manuscript files are anchored by "## {GC ###.#}" headings, so cut your range out with sed or awk on those anchors and read that, rather than reading a whole chapter file to audit half of it. This matters: context you load is the dominant cost of a run, and a batch that reads both files end to end costs several times what it needs to. Corpus-wide evidence is different and is still expected — gather it with grep, which returns matching lines rather than whole files, and never by reading another chapter.
+
 ## 2. Procedure
 
 2.A. Pre-pass: run gc_termcheck.py --reverse with --from and --to set to your range. Output is candidates, not findings; apply judgment and drop what context licenses. A clean pre-pass means nothing tagged was violated, not that no term problems exist.
@@ -89,8 +91,10 @@ The paragraph's {GC ###.#} anchor plus the marker's position locate the issue. N
 
 A note beginning verify: marks an open question, not a deletion proposal. Two genuinely distinct candidate fixes may stand as new1 / new2; never pad alternatives to look thorough.
 
-4.E. Notes are brief plain English with filenames written out and the authority named where one exists ("closed decision in GC-clergy-fixes.md: bishop", "glossary row: Christendom", "deferred in GC-open-terms.md"). No bare section codes. No transliteration.
+4.E. An OMISSION or ADDITION note states both sides: what the English has and what the Lao has, in the same sentence. A note that quotes only the English reads as though it is quoting the very thing it calls missing, and Brian cannot tell the finding from a mistake without opening the source. Notes are otherwise brief plain English with filenames written out and the authority named where one exists ("closed decision in GC-clergy-fixes.md: bishop", "glossary row: Christendom", "deferred in GC-open-terms.md"). No bare section codes. No transliteration.
 4.F. Do not place markers inside YAML frontmatter. Body text, subheadings, and footnote lines are all markable.
+
+4.G. Carry the English inline. Every marker whose finding depends on the source — OMISSION, ADDITION, FACT, REF, ALIGN, CLARITY — quotes the English in its own note, in double quotes, quoted and not paraphrased, before your explanation. Quote the minimal span that settles the point. Brian resolves at the cursor, and a note that sends him to another file to find out what the English says has failed at its job. SPELL, TERM and GRAM findings are Lao-internal and quote nothing.
 
 ## 5. Never report
 
