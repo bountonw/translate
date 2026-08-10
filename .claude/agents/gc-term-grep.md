@@ -11,7 +11,12 @@ renderings, and never edit anything.
 
 ## 1. Corpus
 
-1.A. English: lo/GC/00_source/GC*_en.md Lao:     lo/GC/03_public/GC*_lo.md Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
+1.A. The corpus:
+
+    English: lo/GC/00_source/GC*_en.md
+    Lao:     lo/GC/03_public/GC*_lo.md
+
+Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
 1.B. Introduction files (GC00*) are excluded unless the request names them.
 
 ## 2. Method

@@ -19,10 +19,13 @@ resolution.
 
 ## 1. Inputs and scope
 
-1.A. From the conductor: chapter NN. Chapter: lo/GC/03_public/GCNN_lo.md
-1.B. The measurement window is git. HEAD holds the clean pre-run chapter; the working tree holds the resolved one. Use git diff -U0 to list changed lines (one line is one paragraph) and git diff --word-diff to locate the splice points within them. Read-only git commands only.
+1.A. From the conductor: chapter NN.
+
+    chapter: lo/GC/03_public/GCNN_lo.md
+
+1.B. The measurement window is git. HEAD holds the clean pre-run chapter; the working tree holds the resolved one. Scope both commands to the chapter: git diff -U0 -- lo/GC/03_public/GCNN_lo.md lists the changed lines (one line is one paragraph), and git diff --word-diff -- lo/GC/03_public/GCNN_lo.md locates the splice points within them. Read-only git commands only.
 1.C. If the diff is empty, report that the working tree matches HEAD and stop — Brian may already have committed, and he will tell you what to diff against. Do not guess at a commit.
-1.D. Spelling reference: glossary section 10 in lo/assets/translation_profile/GC-glossary.txt (known-incorrect forms).
+1.D. Spelling reference: glossary section 10 in lo/GC/04_assets/translation_profile/GC-glossary.txt (known-incorrect forms).
 
 ## 2. Pass 1 — marker residue (chapter-wide)
 
