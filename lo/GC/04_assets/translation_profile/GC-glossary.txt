@@ -89,7 +89,6 @@
 | Read aloud | ອ່ານອອກສຽງ | [CHECK] NOT ອ່ານດັງໆ (= loudly). Vocalization, opposed to ອ່ານໃນໃຈ. GC 136.3 |
 | Archbishop | ເຈົ້າຄະນະໃຫຍ່ | [CHECK] One grade above ເຈົ້າຄະນະ = bishop; do not fold into the bishop row. NOT ອາຄະບິດຊົບ, NOT ອັກຄະເຈົ້າຄະນະ. Follows the sangha pattern where ເຈົ້າຄະນະ + territory is the ordinary grade and ເຈົ້າຄະນະໃຫຍ່ the senior one. GC 145.1 fn, 565.1, 565.2 |
 | Archbishop of <place> | ເຈົ້າຄະນະໃຫຍ່ແຫ່ງ + <place> | [CHECK] Same ແຫ່ງ connector as the bishop row; NOT ປະຈຳ. Attested: ນະຄອນເຊນຫຼຸຍສ໌ |
-| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Only 2 occurrences corpus-wide: GC 149.2, 198.3. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
 | Excommunication / Excommunicate | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ / ຕັດຊື່ + object + ອອກຈາກຄຣິສຕະຈັກ / ຕັດຄວາມເປັນສະມາຊິກຄຣິສຕະຈັກຂອງ + object | [CHECK] Split verbal frame where the object is short; ຄວາມເປັນສະມາຊິກ form where the object runs past one clause. GC 133.3, 136.4, 141.1, 143.2 |
 | Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
 | Anathema | ຄຳສາບແຊ່ງ | |
@@ -200,9 +199,9 @@
 | Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
 | Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
 | Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
-| Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
-| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Sole site GC 149.2 (Duke George). GC 198.3 (Duke John) is excluded — EGW's *Duke* there is courtesy usage; John held the electorate from 1525 and GC 11 calls him *the elector* nine times, so ເຈົ້າແຂວງ governs. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
-| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
+| Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks. Duke is NOT collapsed here — it has its own row, and both of its two corpus occurrences are already settled there |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Sole site GC 149.2 (Duke George). GC 198.3 (Duke John) is excluded — EGW's *Duke* there is courtesy usage; John held the electorate from 1525 and GC 11 calls him *the elector* nine times, so ເຈົ້າແຂວງ governs. Only 2 occurrences corpus-wide: GC 149.2, 198.3. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
+| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler. Second sense: "the civil magistrate," the civil power as against the church, takes ອຳນາດລັດ or ເຈົ້າໜ້າທີ່ຂອງລັດ and never ເຈົ້າເມືອງ; site GC 203.4 (D'Aubigné). Corpus: ອຳນາດລັດ 28, ເຈົ້າໜ້າທີ່ຂອງລັດ 3, ເຈົ້າເມືອງ 4 |
 | Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
 | Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
 | Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
@@ -215,6 +214,9 @@
 | Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
 | Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
 | Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
+| Edict (imperial) | ຣາຊໂອງການ | [CHECK] Distinct from ຄຳສັ່ງ (papal decree, mandate); ຄຳປະກາດ retained at GC 202.1 only, where EN contrasts edict with imperial decree inside one clause. Attested GC 197.3, 202.1, 202.4, 203.1 |
+| Confession (Augsburg) | ຄຳປະກາດຫຼັກຂໍ້ເຊື່ອ / ຫຼັກຂໍ້ເຊື່ອ | Manuscript also uses ບົດສະຫຼຸບຫຼັກຂໍ້ເຊື່ອ, ການປະກາດຫຼັກຂໍ້ເຊື່ອ. Distinct from the Confession of faith row. GC 206.2, 207.1, 208.1, 208.2, 208.3 |
+| Prince (sovereign, in address) | ເຈົ້າຊີວິດ | Emperor or king addressed as "prince"; NOT ຂຸນນາງ, NOT ເຈົ້າແຂວງ. GC 203.2 |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -243,6 +245,9 @@
 | Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
 | Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
 | Pope (pronoun) | ເພິ່ນ | ພິ່ນ / ລາວ / ທ່ານ | [CHECK] |
+| Church (institution) | ຄຣິສຕະຈັກ | ຄຣິສຈັກ | [CHECK] Dropped syllable, distinct from the existing row that guards the ລ spelling. One occurrence, GC 237.1, marker 1 |
+| Diligence / Perseverance | ຄວາມອຸດສາຫະພາກພຽນ | ຄວາມອຸດສາພາກພຽນ | [CHECK] Dropped ຫະ syllable. One occurrence, GC 241.1, marker 7; GC02 and GC14 carry the full form |
+| Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. Whether this section's ຣ policy is a prefix rule or a per-word list is still open; see GC-open-terms.md |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -265,7 +270,6 @@
 | Constantine | ຄອນສະຕັນຕິນ | [CHECK] |
 | Gregory VII | ເກຼັກກໍຣີທີ 7 | [CHECK] |
 | Wycliffe | ໄວຄຼິບ | [CHECK] |
-| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] |
 | Solomon | ໂຊໂລໂມນ | [CHECK] |
 | David | ດາວິດ | [CHECK] |
 | Nebuchadnezzar | ເນບູກາດເນັດຊາ | [CHECK] |
@@ -323,7 +327,7 @@
 | Meaux | ເມືອງໂມ | [CHECK] City |
 | Paris | ນະຄອນປາຣີ / ປາຣີ | [CHECK] |
 | France | ປະເທດຝຣັ່ງ / ຝຣັ່ງ | [CHECK] |
-| Germany | ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ | [CHECK] |
+| Germany | ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ / ອານາຈັກເຢຍລະມັນ | [CHECK] ອານາຈັກເຢຍລະມັນ only for the Holy Roman polity — the Empire as a political body; Germany the country keeps ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ. NOT ຣາຊອານາຈັກເຢຍລະມັນ. Corpus: ອານາຈັກເຢຍລະມັນ 22 (GC03, GC07, GC08, GC10, GC11), ປະເທດເຢຍລະມັນ 13, ຣາຊອານາຈັກເຢຍລະມັນ 0 — the NOT is preventive |
 | Switzerland | ສວິສເຊີແລນ | [CHECK] |
 | Poitiers | ພົວເຈ | [CHECK] |
 | Geneva | ນະຄອນເຈນີວາ / ເຈນີວາ | [CHECK] |
@@ -344,7 +348,7 @@
 | Froment | ໂຟມົງ | [CHECK] |
 | Morat | ໂມຣັດ | [CHECK] |
 | Neuchatel | ນິວຊາແຕວ | [CHECK] |
-| Philip II | ຟີລິບທີ 2 | [CHECK] |
+| Philip II | ກະສັດຟີລິບທີ 2 / ຟີລິບທີ 2 | King of Spain and lord of the Netherlands; never Holy Roman Emperor, so NOT ຈັກກະພັດ, on the pattern of the Charles IX row. GC 239.3, 240.3 (EGW's "the monarch") |
 | Louis XVI | ຫຼຸຍສ໌ທີ 16 | [CHECK] |
 | Scandinavia | ສະແກນດິເນເວຍ | [CHECK] |
 | Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | [CHECK] |
@@ -377,7 +381,6 @@
 | Voltaire | ໂວນແຕ | [CHECK] |
 | Walter Scott | ວອນເຕີ ສະກັອດ | [CHECK] Author citation |
 | Anderson | ແອນເດີສັນ | [CHECK] Author citation |
-| Martyn | ມາຕິນ | [CHECK] Author citation |
 | Bancroft | ບານຄອຟ | [CHECK] |
 | Whitehead | ໄວເຮດ | [CHECK] Author citation |
 | Robinson | ໂຣບິນສັນ | [CHECK] |
@@ -464,6 +467,13 @@
 
 | Martyn | ມາຕິນ | [CHECK] Author citation. Latin gloss (Martyn) required in every citation lacking the work title; collides with ດຣ. ມາຕິນ / ມາຕິນ = Luther, which is correct where EN reads "Martin." Attested: GC 136.2 (with title, glossed), 138.3 (Luther, leave bare), 143.1 (short form, gloss) |
 
-| Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix | | Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
+| Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix |
+| Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
 | Aleander | ອະລີອັນເດີ | [CHECK] Papal nuncio at Worms |
 | Gieseler | ກີສະເລີ | [CHECK] GC 127.2; ຈອນ ຊີ. ແອວ. ກີສະເລີ |
+| Spires | ເມືອງສະປາຍ / ສະປາຍ | [CHECK] ສະພາແຫ່ງເມືອງສະປາຍ for the Diet, ການປະທ້ວງແຫ່ງເມືອງສະປາຍ for the Protest |
+| Ferdinand | ເຟີດິນັນ | [CHECK] ກະສັດ prefix; supplied by name where EN reads "the king". GC 201.3, 202.1, 202.3, 205.1, 205.4 |
+| Simon Grynaeus | ຊີໂມນ ກິນເນອັດ | [CHECK] Short: ກິນເນອັດ |
+| Faber | ເຟເບີ | [CHECK] ດຣ. prefix at GC 205.2, ທ່ານ at GC 198.2 |
+| Heidelberg | ໄຮດັນເບີກ | [CHECK] ມະຫາວິທະຍາໄລແຫ່ງເມືອງໄຮດັນເບີກ |
+| Coburg | ໂຄເບີກ | [CHECK] |
