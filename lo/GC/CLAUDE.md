@@ -10,7 +10,7 @@
 2.A. Chapter under audit: lo/GC/03_public/GCNN_lo.md
 2.B. English source:      lo/GC/00_source/GCNN_en.md
 2.C. Governing files:     lo/GC/04_assets/translation_profile/ (GC-glossary.txt, GC-clergy-fixes.md, GC-open-terms.md)
-2.D. Term-check script:   lo/GC/04_assets/scripts/gc_termcheck.py
+2.D. Audit scripts, all under lo/GC/04_assets/scripts/ and all invoked by that exact relative path from the repository root so the permission allow-rules match: gc_termcheck.py is the batch pre-pass over a ref range, gc_resolvecheck.py is the mechanical post-resolution sweep over the changed lines, and gc_resolution_sheet.py builds Brian's resolution sheet. Each belongs to one phase and none duplicates another.
 2.E. Session outputs:     ~/claude-sandbox/gc-audit/
 2.F. Introduction files (GC00*) are out of scope unless Brian names them explicitly.
 2.G. lo/GC/lookahead_decisions.log belongs to the LaTeX typesetting workflow and is not audit input. Never read it, never cite it.
@@ -22,7 +22,9 @@
 3.C. Dispatch gc-batch-auditor per batch, SEQUENTIALLY, never in parallel (marker numbering and file appends depend on order). Each dispatch states: chapter NN, ref range, starting marker number, and whether it is the first batch (first batch creates the session files). Next batch's starting number = previous batch's reported last number + 1. A batch that wrote no markers reports a last number one below its starting number; the following batch then keeps that same starting number.
 3.D. After the last batch, dispatch gc-run-check with three inputs: the chapter number, the expected total marker count, and the scoping paragraph required by 4.F. The expected total is the last marker number reported by the last batch that wrote any marker — not the sum of the per-batch counts. If no batch wrote a marker, skip the run-check and tell Brian the chapter came back clean.
 3.E. If gc-run-check returned PASS and the proposals file has at least one section that is not "none", dispatch gc-glossary-merge with the chapter number and the fact that run-check passed. Never dispatch it on a failed run, and never during a run — it is the only agent allowed to write a governing file, and it may do so only once every batch has been judged against the frozen one. If run-check failed, skip the merge and say so.
-3.F. Report to Brian: the counts table from gcNN-report.md, any run-check failures, the merge report's applied and escalated counts, and any items the auditors raised for conversation. Nothing else. Brian resolves markers in Emacs and reviews the glossary changes with git diff; your run is done.
+3.F. Generate the resolution sheet before you report, with python3 lo/GC/04_assets/scripts/gc_resolution_sheet.py --chapter NN, and give Brian its path in your report. It writes one block per standing marker carrying that marker's anchor, note, proposed change and the full English paragraph, so he resolves without opening the source or the companion. It also reports damaged markers and unterminated brackets, which is how a stripped marker header gets caught before it reaches a check. Regenerate it whenever markers change or he says he has questions; it only reads, so running it again is always safe.
+
+3.G. Report to Brian: the counts table from gcNN-report.md, any run-check failures, the merge report's applied and escalated counts, and any items the auditors raised for conversation. Nothing else. Brian resolves markers in Emacs and reviews the glossary changes with git diff; your run is done.
 
 ## 4. Rules
 

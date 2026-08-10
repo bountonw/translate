@@ -55,7 +55,12 @@ def anchor_of(text, idx):
 
 
 def incorrect_forms():
-    """Known-incorrect spellings from glossary section 10.
+    """Known-incorrect spellings from the glossary's spelling table.
+
+    The table is located the way gc_termcheck.py locates it, by its header row rather
+    than by a section number. Anchoring on "## 10." meant that renumbering or retitling
+    the section made this return nothing at all, and a spelling pass that checks no
+    forms reports clean — a silent pass rather than an error.
 
     Guards match gc_termcheck.py, which already settled this: only [CHECK] rows count,
     and forms shorter than MIN_SPELL_LEN are skipped because a short Lao string sits
@@ -64,14 +69,19 @@ def incorrect_forms():
     """
     if not GLOSSARY.exists():
         return []
-    text = GLOSSARY.read_text(encoding="utf-8")
-    sec = re.search(r"^##\s*10\..*?$(.*?)^##\s*11\.", text, re.M | re.S)
-    if not sec:
-        return []
-    forms = []
-    for row in sec.group(1).splitlines():
-        cells = [c.strip() for c in row.strip().strip("|").split("|")]
-        if len(cells) < 4 or not cells[0] or set(cells[0]) <= set("-: "):
+    forms, in_spelling = [], False
+    for row in GLOSSARY.read_text(encoding="utf-8").splitlines():
+        row = row.strip()
+        if not row.startswith("|"):
+            continue
+        cells = [c.strip() for c in row.strip("|").split("|")]
+        if not cells or not cells[0] or set(cells[0]) <= set("-: "):
+            continue
+        head = cells[0].lower()
+        if head in ("english", "word"):
+            in_spelling = head == "word"
+            continue
+        if not in_spelling or len(cells) < 4:
             continue
         if "[CHECK]" not in cells[3].upper():
             continue
