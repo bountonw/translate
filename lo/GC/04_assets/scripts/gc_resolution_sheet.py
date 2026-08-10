@@ -36,8 +36,8 @@ QUESTION_RE = re.compile(r"\{\{Q(?P<num>#\d+)?\s*\|?(?P<q>.*?)\}\}", re.DOTALL)
 ASKED_RE = re.compile(r"\?|\bI \b|\bI'|\bexplain\b|\bexpand in chat\b|\bwe are talking\b"
                       r"|^\s*Note:|\bcan't\b|\bdoesn't\b",
                       re.IGNORECASE)
-HEADER_RE = re.compile(r"^(?P<cls>[A-Z]+)\s+(?P<sev>[A-Z]+)\s+#(?P<num>\d+)\|(?P<rest>.*)$", re.DOTALL)
-NUMONLY_RE = re.compile(r"^#?(?P<num>\d+)\|(?P<rest>.*)$", re.DOTALL)
+HEADER_RE = re.compile(r"^(?P<cls>[A-Z]+)\s+(?P<sev>[A-Z]+)\s+#(?P<num>\d+[a-z]?)\|(?P<rest>.*)$", re.DOTALL)
+NUMONLY_RE = re.compile(r"^#?(?P<num>\d+[a-z]?)\|(?P<rest>.*)$", re.DOTALL)
 
 DEFAULT_REPO = os.path.expanduser("~/programming/translate")
 DEFAULT_OUT_DIR = os.path.expanduser("~/claude-sandbox/gc-audit")
@@ -102,13 +102,13 @@ def parse_markers(text):
         hm = HEADER_RE.match(body)
         if hm:
             old, new, note = split_change(hm.group("rest"))
-            markers.append(dict(kind="ok", num=int(hm.group("num")), cls=hm.group("cls"),
+            markers.append(dict(kind="ok", num=hm.group("num"), cls=hm.group("cls"),
                                 sev=hm.group("sev"), ref=ref, old=old, new=new, note=note))
             continue
         nm = NUMONLY_RE.match(body)
         if nm:
             old, new, note = split_change(nm.group("rest"))
-            markers.append(dict(kind="residue", num=int(nm.group("num")), cls=None,
+            markers.append(dict(kind="residue", num=nm.group("num"), cls=None,
                                 sev=None, ref=ref, old=old, new=new, note=note,
                                 raw=nm.group("rest").strip(),
                                 why="class and severity are missing from the header"))
