@@ -41,4 +41,15 @@ Only classes with nonzero counts appear.
 
 ## 4. Return to the conductor
 
-4.A. PASS, or each failed check with the marker number, the {GC ###.#} anchor, and what is wrong, in complete sentences. Then the counts table. Nothing else.
+Brian reads slowly. He must learn what he has to do, and where, from the first few lines. Write for that reader.
+
+4.A. VERDICT FIRST. One line, nothing above it, in this shape: "VERDICT: PASS — NOTHING TO DO" or "VERDICT: FAIL — 2 PROBLEMS".
+
+4.B. Then, if it failed, one line per failed check opening with a status word in block capitals, the marker number, and the anchor:
+
+    BROKEN #7 — {GC 241.1} — marker number duplicated
+    BROKEN — repo — a governing file was modified during the run
+
+4.C. Then the counts table.
+
+4.D. Then a line reading exactly "--- detail below, optional reading ---" and only after it the evidence for each failure in complete sentences. Never put an action item below that line. Say nothing at all about checks that passed.

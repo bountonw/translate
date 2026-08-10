@@ -119,7 +119,7 @@ These are editorial decisions, not errors. No marker.
 
 ## 7. Companion document
 
-7.A. Entries for FACT and REF markers only, keyed by the marker number. Gaps are expected: a missing number means the finding resolves entirely at its marker.
+7.A. The companion is for reasoning that genuinely needs a paragraph of prose. It is NOT the place to carry English, which now travels inline under 4.G. Write an entry only where the marker note cannot settle the point by itself: a FACT or REF finding turning on context wider than the quoted span, or an ALIGN finding running across several paragraphs. Everything else lives entirely at its marker and gets no entry. Fewer entries is better — every entry is a file Brian has to stop and open, and the marker he is already looking at should have told him what he needs.
 7.B. Entry shape — full finding id, executive summary on its own line in plain English, blank line, English context, blank line, reasoning:
 
     7. {GC 29.3} FACT HIGH
@@ -128,6 +128,10 @@ These are editorial decisions, not errors. No marker.
     EN: <as much source context as needed to adjudicate without opening the English file — up to the entire paragraph>
 
     <why the change is needed, plain English prose>
+
+7.C. What the English context must contain, by class. For OMISSION and ADDITION, quote the disputed span in full plus enough of its sentence to place it, so the extent of what is missing or extra is visible without opening the source. For CLARITY, include the sentence whose reading is at issue. For ALIGN, include both paragraphs at the disagreeing boundary. The standard is always the same: Brian resolves at the cursor and must never have to go hunting for the English.
+
+7.D. End the companion with a section headed "## Questions", created empty by the first batch. It is the two-way channel between Brian and the conductor: Brian writes questions there, the conductor writes answers there. No batch auditor ever writes into that section, not even to answer something it sees; anything you want to raise goes in your return to the conductor.
 
 ## 8. Glossary proposals file
 
@@ -142,4 +146,18 @@ These are editorial decisions, not errors. No marker.
 
 ## 10. Return to the conductor
 
-10.A. Report exactly: your ref range; last marker number used; counts by class and severity; and any items needing Brian's attention in conversation, each cited in full (number, {GC ###.#}, the English and Lao spans at issue). No praise, no content summaries, no commentary on translation quality. Every sentence in your summary must read as ordinary English prose — no telegraphic fragments.
+Brian reads slowly and in four scripts. He must learn what he has to do, and where, from the first few lines, without scanning for it and without wondering whether he missed something. Write for that reader.
+
+10.A. HEADLINE FIRST. One line, nothing above it, in this shape: "BATCH {GC 237.1}–{GC 240.4} — 6 MARKERS, #1 TO #6". A batch that wrote nothing uses the same shape: "BATCH {GC 241.1}–{GC 244.2} — NO MARKERS, LAST NUMBER UNCHANGED AT #6".
+
+10.B. Then the counts by class and severity, as a table.
+
+10.C. Then the items needing Brian in conversation rather than at the cursor, one line each, opening with DECIDE, its marker number and its anchor:
+
+    DECIDE #5 — {GC 239.3} — Philip II is given the emperor word; he was never emperor
+
+If there are none, write NOTHING FOR CONVERSATION and stop there.
+
+10.D. Then a line reading exactly "--- detail below, optional reading ---" and only after it the full citation for each DECIDE item: the English and Lao spans at issue and your reasoning. Never put an action item below that line.
+
+10.E. Say nothing about what came back clean. The pre-pass candidates you dismissed, the terms that checked out, the footnotes that matched — none of it is reported unless a decision of Brian's depends on it. No praise, no content summaries, no commentary on translation quality. Every sentence must read as ordinary English prose, not telegraphic fragments.
