@@ -121,7 +121,7 @@
 | Papal bull | ໃບປະກາດພິເສດຂອງສັນຕະປາປາ / ໃບປະກາດພິເສດ | [CHECK] Full form at first use per chapter, short form anaphorically. NOT ຄຳສັ່ງ (= decree, mandate); attested 141.3, 142.2, 143.2 |
 | Sacramentarianism | ການນິຍົມພິທີກຳ | [CHECK] |
 | Presbyterian | ເປຣສະບິເທີຣຽນ | [CHECK] |
-| Lutheran | ລູເທີແຣນ | [CHECK] |
+| Lutheran | ລູເທີແຣນ / ຄະນະລູເທີແຣນ| [CHECK] |
 | Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
 | Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
 | New birth | ການບັງເກີດໃໝ່ | [CHECK] |
@@ -217,6 +217,9 @@
 | Edict (imperial) | ຣາຊໂອງການ | [CHECK] Distinct from ຄຳສັ່ງ (papal decree, mandate); ຄຳປະກາດ retained at GC 202.1 only, where EN contrasts edict with imperial decree inside one clause. Attested GC 197.3, 202.1, 202.4, 203.1 |
 | Confession (Augsburg) | ຄຳປະກາດຫຼັກຂໍ້ເຊື່ອ / ຫຼັກຂໍ້ເຊື່ອ | Manuscript also uses ບົດສະຫຼຸບຫຼັກຂໍ້ເຊື່ອ, ການປະກາດຫຼັກຂໍ້ເຊື່ອ. Distinct from the Confession of faith row. GC 206.2, 207.1, 208.1, 208.2, 208.3 |
 | Prince (sovereign, in address) | ເຈົ້າຊີວິດ | Emperor or king addressed as "prince"; NOT ຂຸນນາງ, NOT ເຈົ້າແຂວງ. GC 203.2 |
+| Canton (Swiss) | ກຸ່ມເມືອງ | [CHECK] Polity; NOT ແຂວງ. GC 211.2 |
+| Lutheranism | ນິກາຍລູເທີແຣນ / ຄຳສອນຂອງລູເທີແຣນ | NOT ຄະນະ (= religious order). GC 215.3 |
+| Ambassador (secular envoy) | ທູດຫຼວງ | ປະຈຳ + country for the posting. GC 216.2; cf. Royal ambassador, GC 84.3 |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -248,6 +251,7 @@
 | Church (institution) | ຄຣິສຕະຈັກ | ຄຣິສຈັກ | [CHECK] Dropped syllable, distinct from the existing row that guards the ລ spelling. One occurrence, GC 237.1, marker 1 |
 | Diligence / Perseverance | ຄວາມອຸດສາຫະພາກພຽນ | ຄວາມອຸດສາພາກພຽນ | [CHECK] Dropped ຫະ syllable. One occurrence, GC 241.1, marker 7; GC02 and GC14 carry the full form |
 | Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. Whether this section's ຣ policy is a prefix rule or a per-word list is still open; see GC-open-terms.md |
+| Encyclopedia / Cyclopedia | ສາລານຸກົມ | ສານຸກົມ | [CHECK] Dropped syllable, same pattern as the ຄຣິສຈັກ row. Settled and applied: all 3 corpus occurrences now read ສາລານຸກົມ (GC 17 footnote 14; GC 261.1 footnote 18, was marker 21; GC 363.2 footnote 19) |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -477,3 +481,9 @@
 | Faber | ເຟເບີ | [CHECK] ດຣ. prefix at GC 205.2, ທ່ານ at GC 198.2 |
 | Heidelberg | ໄຮດັນເບີກ | [CHECK] ມະຫາວິທະຍາໄລແຫ່ງເມືອງໄຮດັນເບີກ |
 | Coburg | ໂຄເບີກ | [CHECK] |
+| Edward VI | ເອັດເວີດທີ 6 | [CHECK] GC 248.1, in the title of Latimer's first sermon before the king. Distinct from the existing Edward A. Park row |
+| Morin | ໂມຣິນ | [CHECK] GC 225.2; ທ້າວ prefix. Royal detective under Francis I |
+| Italy | ອີຕາລີ | [CHECK] |
+| Europe | ເອີຣົບ | [CHECK] |
+| Zechariah (book) | ເຊກາຣີຢາ | [CHECK] |
+| 1 Corinthians (book) | 1 ໂກຣິນໂທ | [CHECK] |
