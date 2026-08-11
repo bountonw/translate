@@ -127,7 +127,7 @@
 | Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
 | Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
 | New birth | ການບັງເກີດໃໝ່ | [CHECK] |
-| Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it |
+| Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it. NOT for "intercessor" — see the Intercessor row. ຄົນກາງ renders mediator or mediation at 16 anchors and the single exception, GC 346.4, stands against the rest. 20 attestations |
 | Crusade (religious war) | ສົງຄາມສາສະໜາ | [CHECK] |
 | Chaplain (royal) | ບາດຫຼວງປະຈຳຣາຊສຳນັກ | [CHECK] GC 82.1; ຣາຊ prefix |
 | Church Father (early) | ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ / ບັນດານັກຂຽນຄຣິສຕຽນໃນສະຕະວັດຕົ້ນໆ | [CHECK] NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate) |
@@ -137,7 +137,9 @@
 | Commissioners (papal) | ຄະນະຂ້າຫຼວງຂອງສັນຕະປາປາ | [CHECK] GC 84.3 |
 | Tract (published) | ບົດຄວາມ | GC 84.2 |
 | Inquisitors (persons) | ເຈົ້າໜ້າທີ່ສານຄະດີນອກຮີດ | [CHECK] |
-| Advocate / Intercessor | ຜູ້ວິງວອນ / ຜູ້ອ້ອນວອນ / ຜູ້ແກ້ຄວາມ | [CHECK] Context determines choice |
+| Intercessor | ຜູ້ອ້ອນວອນ | [CHECK] One who pleads for another before God. Distinct from the Mediator row: a mediator stands between two parties and has standing with both, an intercessor pleads for one of them. The phrase "without an intercessor" is ໂດຍບໍ່ມີຜູ້ອ້ອນວອນ at all three of its sites — GC 220.3, 614.1, 648.3. NOT ຄົນກາງ, NOT ຜູ້ແກ້ຄວາມ. 8 attestations; GC 220.3, 415.3, 428.3, 429.1, 610.3, 614.1, 648.3 |
+| Advocate | ຜູ້ແກ້ຄວາມ / ຜູ້ວິງວອນ | [CHECK] The forensic head, one who speaks for the accused at the bar. ຜູ້ແກ້ຄວາມ is the default and carries the 1 John 2:1 quotation "we have an advocate with the Father" at GC 416.3 and GC 482.4; ຜູ້ວິງວອນ is a narrative variant standing beside it in the same paragraph at GC 482.4. ຜູ້ອ້ອນວອນ also renders "Advocate" once, at GC 483.1. 4 attestations; GC 81.1, 416.3, 482.4 |
+| Penance | ບຳເພັນຕົນເພື່ອຊົດໃຊ້ບາບ | [CHECK] The act the church prescribes to make satisfaction for sin, not self-mortification. EGW separates the two inside one sentence at GC 567.3 — "more palatable to human nature to do penance than to renounce sin; it is easier to mortify the flesh by sackcloth" — so ທໍລະມານ belongs to "mortify" and to "torture" (GC 72.2) and never to penance standing alone. ບຳເພັນບຸນ is merit-making and widens penance to good works in general. ຊົດໃຊ້ is this corpus's atone verb, so the head names what the act claims to do while the context denies it. Applied at GC 220.3 and GC 567.3; head only, existing tail kept, at GC 55.3. Open for resolution at GC 213.2 (GC12 #76), GC 129.1 (GC07 #1), GC 72.2 (GC04 #1) and GC 55.3 (GC03 #1) |
 | Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
 | Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
 | Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
@@ -222,9 +224,13 @@
 | Canton (Swiss) | ກຸ່ມເມືອງ | [CHECK] Polity; NOT ແຂວງ. GC 211.2 |
 | Lutheranism | ນິກາຍລູເທີແຣນ / ຄຳສອນຂອງລູເທີແຣນ | NOT ຄະນະ (= religious order). GC 215.3 |
 | Ambassador (secular envoy) | ທູດຫຼວງ | ປະຈຳ + country for the posting. GC 216.2; cf. Royal ambassador, GC 84.3 |
+| In the capacity of / as (status) | ໃນຖານະ | Settled, Brian's decision at GC12. Capacity or status sense, and the form keeps its final ະ. Distinct in sense from the charge frame, which takes ໃນຖານ; see the ໃນຖານ row. The two are not interchangeable and neither is a variant spelling of the other |
+| On the ground of (charge, offence) | ໃນຖານ | Settled, Brian's decision at GC12. Charge frame only: ໃນຖານ + the offence charged, in a punishment or accusation. NOT a misspelling of ໃນຖານະ, and never to be marked as one. Corpus: ໃນຖານະ over 100 sites, all capacity sense; ໃນຖານ exactly 2, both punishment frames — GC 224.3 ("as agitators dangerous to the stability of the throne") and GC 48.2 (punished on the ground of an offence against Christ) |
 ---
 
 ## 10. Lao Spelling Glossary
+
+<!-- Not every settled spelling-shaped question is in this table. A form that is correct in one grammatical frame and wrong in another has no honest row here, because an empty Incorrect cell reads as a spelling to fix and invites a mechanical sweep across sites that are right; such a decision lives in the main table under its own English head instead. The standing example is ໃນຖານ, the charge frame, against ໃນຖານະ, the capacity frame — both correct, neither a variant spelling of the other. Compound word-order pairs are in section 12. Check both places before marking a form as misspelled. -->
 
 | Word | Correct | Incorrect | Notes |
 |---|---|---|---|
@@ -252,7 +258,7 @@
 | Pope (pronoun) | ເພິ່ນ | ພິ່ນ / ລາວ / ທ່ານ | [CHECK] |
 | Church (institution) | ຄຣິສຕະຈັກ | ຄຣິສຈັກ | [CHECK] Dropped syllable, distinct from the existing row that guards the ລ spelling. One occurrence, GC 237.1, marker 1 |
 | Diligence / Perseverance | ຄວາມອຸດສາຫະພາກພຽນ | ຄວາມອຸດສາພາກພຽນ | [CHECK] Dropped ຫະ syllable. One occurrence, GC 241.1, marker 7; GC02 and GC14 carry the full form |
-| Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. Whether this section's ຣ policy is a prefix rule or a per-word list is still open; see GC-open-terms.md |
+| Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. §10's ຣ policy is settled as a per-word list, not a prefix rule: see GC-open-terms.md |
 | Encyclopedia / Cyclopedia | ສາລານຸກົມ | ສານຸກົມ | [CHECK] Dropped syllable, same pattern as the ຄຣິສຈັກ row. Settled and applied: all 3 corpus occurrences now read ສາລານຸກົມ (GC 17 footnote 14; GC 261.1 footnote 18, was marker 21; GC 363.2 footnote 19) |
 ---
 
