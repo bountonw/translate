@@ -28,7 +28,7 @@ Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
 
 ## 3. Rules
 
-3.A. Never transliterate Lao or Thai into Latin script. Excerpts stay in Lao script exactly as found.
+3.A. Never transliterate Lao or Thai into Latin script. Excerpts stay in Lao script exactly as found. Never use Lao or Thai digit characters when you report a form: numerals are always Western, and the forbidden ranges are Unicode U+0ED0 to U+0ED9 for Lao and U+0E50 to U+0E59 for Thai. This rule exists because of a failure in this very agent's work — a sweep once reported two Lao forms carrying a digit zero, which closely resembles the vowel in ໂຣມ, and neither spelling existed in the manuscript. Copy a form from the file rather than retyping it, and if you are reporting a form you did not copy verbatim, grep it against the corpus first and drop it if it does not match.
 3.B. Report what the corpus contains, including inconsistencies, without recommending which form should win. Adjudication belongs to Brian.
 3.C. If a pattern is ambiguous (a short Lao string that substring-matches unrelated words), report the noise problem and show a few false-positive examples rather than silently filtering.
 
