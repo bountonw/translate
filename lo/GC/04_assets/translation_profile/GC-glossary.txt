@@ -5,7 +5,9 @@
 | Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
 | Fanatic / Fanatics / Fanaticism | ພວກທີ່ຄັ່ງໄຄ້ / ຄວາມຄັ່ງໄຄ້ | [CHECK] GC 190.3–196.3 |
 | High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
-| Castle | ຜາສາດ | [CHECK] House form; NOT ຕຳນັກ, NOT ປາສາດ. 14 attestations corpus-wide; GC 129.2, 139.1, 140.2 |
+| Castle | ຜາສາດຫີນ | [CHECK] The head for every English *castle*; NOT ຕຳນັກ, NOT ປາສາດ. Bare ຜາສາດ is licensed anaphorically, but only where the full form is already established for the same referent in the same chapter and a proper name or an immediate antecedent pins it — GC 187.4 ຜາສາດຫີນແຫ່ງວາດເບີກ, then GC 188.4 ຜາສາດວາດເບີກ. An unpinned bare ຜາສາດ reads as a palace, which is what went wrong at GC 140.2. ຫໍຜາສາດຫີນ is an accepted expansion (GC 57.3, 221.4). 10 attestations; GC 129.2, 168.1, 215.3 |
+| Palace / Mansions | ຜາສາດ | [CHECK] A churchman's or a noble's house, and "mansions" in the John 14:2 sense (GC 301.1, 548.2, 674.4). ຕຳນັກ is an accepted variant for a papal or pontifical residence, and GC 60.2 sets the two against each other in one sentence deliberately (ຕຳນັກ of the popes, ຜາສາດ of the prelates); cf. GC 576.1. NOT for a king's house — see the royal row. 8 attestations; GC 60.2, 228.3, 636.3 |
+| Palace (royal) | ພຣະຣາຊວັງ / ຣາຊວັງ | [CHECK] A king's residence only, and distinct from ຜາສາດ; where EGW contrasts the castles of nobles with the palaces of kings, both heads appear in the one sentence. 16 attestations; GC 140.2, 215.3 |
 | Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
 | Monastic / Monasticism | ນັກບວດ / ສຳນັກນັກບວດ | [CHECK] NOT ວັດວາອາຮາມ |
 | Monastery / Monasteries / Cloister / Cloisters | ສຳນັກນັກບວດ | [CHECK] Replaces ສຳນັກສົງ, ສຳນັກບາດຫຼວງ, ອາຮາມນັກບວດ |
