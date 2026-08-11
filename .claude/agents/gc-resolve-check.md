@@ -38,7 +38,7 @@ resolution.
 ## 3. Pass 2 — mechanical (changed lines only)
 
 3.A. Doubled spaces, missing space at a splice seam, and space before punctuation.
-3.B. ASCII letters embedded in Lao text outside parentheses. Parenthetical romanizations such as (Menno Simons) are an established convention and are not defects.
+3.B. ASCII letters embedded in Lao text outside parentheses. Parenthetical romanizations such as (Menno Simons) are an established convention and are not defects, and neither are the backslash codes \s and \S, which are the typesetting pipeline's flex and rigid space markers.
 3.C. Known-incorrect spellings from glossary section 10, and the same word spelled two ways within the changed paragraphs.
 
 ## 4. Pass 3 — footnote chain (chapter-wide)

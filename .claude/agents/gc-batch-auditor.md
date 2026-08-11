@@ -101,7 +101,7 @@ A note beginning verify: marks an open question, not a deletion proposal. Two ge
 These are editorial decisions, not errors. No marker.
 
 5.A. Word choice, synonyms, register, honorific level; restructuring, merging, or reordering that preserves content; idioms rendered non-literally.
-5.B. Punctuation, spacing, orthography — unless an actual spelling error or the same word spelled two ways.
+5.B. Punctuation, spacing, orthography — unless an actual spelling error or the same word spelled two ways. The backslash codes \s and \S are the typesetting pipeline's flex and rigid space markers, not stray literals. A transposed compound is decided once and then looked up, never judged afresh: if the pair stands in glossary section 12 it is settled and gets no marker whichever order this chapter uses, and if it does not, it gets a SPELL marker whose note begins verify: and gives both orders, plus a section 12 row in the proposals file so the answer is recorded where the next chapter will find it. Never assume a transposition is a literary variant, because a translator transposing a compound by slip produces exactly the same evidence as one choosing the other order.
 5.C. The wording of Bible quotations: scripture is quoted from a Lao Bible (ພຄພ / LCV / LO2015), not translated from the English. Citation accuracy, quotation extent, and presence remain in scope (REF, OMISSION).
 5.D. Citations Brian added as editorial apparatus, and subheadings in the Lao absent from the English. Intentional. Check their wording and accuracy, never their existence.
 5.E. Footnote apparatus style (ibid vs full form, abbreviation, punctuation). The substance of what is cited is NOTE scope; footnote numbering collisions are in scope.

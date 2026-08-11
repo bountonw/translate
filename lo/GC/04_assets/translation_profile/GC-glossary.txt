@@ -487,3 +487,14 @@
 | Europe | ເອີຣົບ | [CHECK] |
 | Zechariah (book) | ເຊກາຣີຢາ | [CHECK] |
 | 1 Corinthians (book) | 1 ໂກຣິນໂທ | [CHECK] |
+| Paul (the apostle) | ອາຈານໂປໂລ / ອັກຄະສາວົກໂປໂລ | [CHECK] Both honorifics are established and correct; Brian's decision at GC12 resolution. Corpus over lo/GC/03_public: ອາຈານໂປໂລ 65 sites, ອັກຄະສາວົກໂປໂລ 24 — the counts record usage and establish no preference, and the order in the Lao cell is not a ranking. Neither form is ever to be marked in favour of the other, and the choice at any site is the translator's. The GC12 audit marked ອາຈານໂປໂລ at GC 214.1 and proposed ອັກຄະສາວົກໂປໂລ reasoning from that batch's local usage alone; the marker was deleted and that substitution is not to be proposed again. This row governs Paul's honorifics only. It does not reserve ອາຈານ to Paul, which serves other referents in this corpus — Lefevre in the same GC12 batch; cf. the Parish minister / churchman row |
+---
+
+## 12. Lao Compound Word-Order Pairs (GC)
+
+<!-- Lookup table, not a check list. A transposed compound is decided once and then looked up: a pair standing here is settled and gets no marker whichever order the chapter uses. A pair not standing here is asked once, as a SPELL marker whose note begins verify:, and the answer is added here. -->
+
+| Pair | Verdict | Decided | Notes |
+|---|---|---|---|
+| ຫານກ້າ / ກ້າຫານ | Both orders stand | GC12 resolution | ຫານກ້າ at GC 216.3 and GC 224.3; ກ້າຫານ is the commoner order corpus-wide. Reverses the earlier decision at GC 185.2, which treated this transposition as a defect; that decision was never written into a governing file and GC 185.2 still reads ຫານກ້າ, so nothing was unwound. Never marked again |
+| ຊົມຊື່ນ / ຊື່ນຊົມ | Both orders stand | GC12 resolution | ຊົມຊື່ນ at GC 218.2; ຊື່ນຊົມ at GC 218.1 and GC 220.4. Both orders are well attested corpus-wide. Never marked again |
