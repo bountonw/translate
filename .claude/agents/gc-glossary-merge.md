@@ -51,6 +51,8 @@ Your standing bias is to apply less than you could. A row you decline to apply c
 
 4.I. Term-family shape. Where a family's Lao forms are generated compositionally — a head-word plus a word of allegiance plus an institution, say — write the row so that the PATTERN is what approves a form, and give the attested forms as examples rather than as a closed set: an exhaustive whitelist leaves the family open, because the next chapter audited meets a further form built the same way and it is flagged again. Never write a row that both accepts variation and forbids a form the manuscript actually uses, and where such a row is already in place, escalate it rather than acting on either half — that contradiction, not the translation, is what makes a pre-pass report an established rendering as a missing mapping. The full policy is at the head of GC-glossary.txt.
 
+4.J. The [PROVISIONAL] tag. A provisional row records a term NOT attested in this corpus, added for reuse by another project, making no claim about this book. Tag a row provisional when Brian asks for a term the corpus does not contain, and state in its Notes which pieces of the Lao are attested and where, so that construction stays distinguishable from evidence. A provisional row is never reported as a missing mapping and no manuscript site is ever edited to match it. Never promote a provisional row to an ordinary one and never demote an ordinary row to provisional: both are Brian's alone. The glossary's header comment defines the tag.
+
 ## 5. Never
 
 5.A. Never delete a row, an option, a Notes cell, or an open-terms entry.

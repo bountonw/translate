@@ -73,3 +73,9 @@ Objection is narrower: the Holy Roman Empire is an ອານາຈັກ, not a 
 ## Glossary row (pending the two unchecked sites)
 
 | Imperial Diet (the assembly) | ສະພາ / ສະພາແຫ່ງອານາຈັກ | [CHECK] NOT ສະພາຄຣິສຕະຈັກ (church council, distinct body). ສະພາແຫ່ງເມືອງ + place for a named Diet. EGW's "national council" (GC 202.3) is the same body |
+
+# GC 12 — "Pope (pronoun)" row is right but noisy
+
+ທ່ານ and ລາວ are everyday pronouns, so the scripts flag every use, not just papal ones. GC12: 15 hits, 0 real.
+The row still holds — within 70 characters of ສັນຕະປາປາ the corpus reads ເພິ່ນ 106, ລາວ 14, ທ່ານ 5, and none of those 19 is the Pope.
+Cure belongs in gc_termcheck.py and gc_resolvecheck.py, not in the row: flag these two only when ສັນຕະປາປາ is nearby.
