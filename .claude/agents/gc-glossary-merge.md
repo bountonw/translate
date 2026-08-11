@@ -49,6 +49,8 @@ Your standing bias is to apply less than you could. A row you decline to apply c
 4.G. ESCALATE — cross-file. The proposal implies a change to GC-clergy-fixes.md, or its Notes contradict a closed decision recorded there.
 4.H. The open-terms section: apply an addition when it records a new occurrence or a new deferral that no existing entry covers. When an entry for that family already exists, extend it with the new refs rather than writing a second entry for the same family. When the proposal argues for closing a deferral, escalate — closing a deferral is a corpus-wide decision and is Brian's alone.
 
+4.I. Term-family shape. Where a family's Lao forms are generated compositionally — a head-word plus a word of allegiance plus an institution, say — write the row so that the PATTERN is what approves a form, and give the attested forms as examples rather than as a closed set: an exhaustive whitelist leaves the family open, because the next chapter audited meets a further form built the same way and it is flagged again. Never write a row that both accepts variation and forbids a form the manuscript actually uses, and where such a row is already in place, escalate it rather than acting on either half — that contradiction, not the translation, is what makes a pre-pass report an established rendering as a missing mapping. The full policy is at the head of GC-glossary.txt.
+
 ## 5. Never
 
 5.A. Never delete a row, an option, a Notes cell, or an open-terms entry.
