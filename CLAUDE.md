@@ -13,7 +13,7 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 1.C. Name the subject on every line, and say what actually changes. A pronoun, a quantifier or a bare label points at nothing on his screen, and a description that refers to a change instead of stating it — "replace it with the right wording", "fix the duplication" — fails the same way, because he then has to read the detail section to learn what the line is proposing.
 
-1.D. Nothing in a report sits outside a numbered item: a file you created, a correction you made in passing, a check that found nothing, each is a NOTE and never a loose sentence. An agent reporting to a conductor rather than to Brian may open with one headline line of bookkeeping, and that is the only exception.
+1.D. Nothing in a report sits outside a numbered item: a file you created, a correction you made in passing, a check that found nothing, each is a NOTE and never a loose sentence. An offer, a recommendation and a question are items in their own right, never a clause inside another item's evidence — anything Brian might answer has to be findable in the summary list, because that list is what he reads. An agent reporting to a conductor rather than to Brian may open with one headline line of bookkeeping, and that is the only exception.
 
 1.E. The detail section repeats each summary line as its heading, in the same order, and gives a labelled block beneath it.
 
@@ -52,7 +52,7 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 5.A. Numerals are Western unless Brian states otherwise for the file you are working in. Never use Lao digits (U+0ED0–U+0ED9) or Thai digits (U+0E50–U+0E59). The substitution is invisible: the Lao digit zero closely resembles a vowel character, so a correct word silently becomes a variant that no later search will find.
 
-5.B. Never insert a zero-width space (U+200B) or any other invisible character. If you find one already in the text, report it as a NOTE rather than deleting it, since it may be carrying a line break the typesetting depends on.
+5.B. Never insert a zero-width space (U+200B) or any other invisible character, and strip any you find in a Lao manuscript. The GC typesetting pipeline wraps every Lao word in \lw{} and supplies its own break opportunities, so a zero-width space there is redundant, and being invisible in the editor it silently breaks a later search. Check how a new project's pipeline breaks lines before carrying this rule over to it.
 
 5.C. Never transliterate Lao or Thai. Copy a Lao or Thai form out of the file rather than retyping it, and grep any form you did not copy before it reaches Brian.
 

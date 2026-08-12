@@ -30,6 +30,7 @@ MIN_SPELL_LEN = 4
 SETTLED = {
     "281.3": {"ທ່ານ"},  # honorific before a personal name: ທ່ານ ໂວນແຕ (Voltaire)
     "299.1": {"ທ່ານ"},  # same honorific: ທ່ານ ເອນົກ (Enoch), ທ່ານ ໂຢບ (Job)
+    "370.2": {"ທ່ານ"},  # second person in Matthew 24 and Revelation 3, and of Jesus; not the Pope
 }
 LAO = re.compile(r"[຀-໿]")
 
