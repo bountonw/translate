@@ -535,6 +535,7 @@
 | Isaiah Thomas | ເອຊາຢາ ໂທມັດ | [CHECK] Author citation; GC 307.4 |
 | Samuel Tenney | ຊາມູເອນ ເທັນນີ | [CHECK] Author citation; ດຣ. prefix; GC 307.4 |
 | Massachusetts Historical Society Collections | ປະມວນເອກະສານຂອງສະມາຄົມປະຫວັດສາດຂອງລັດແມັສຊາຊູເສັດ | [CHECK] Cited work; sole occurrence, the footnote at GC 307.4 |
+| (periodical and newspaper titles) | footnote: kind-word + full English title, Latin, italicised. Inline: kind-word + Lao name + English in parentheses | GC-wide, applied. Footnotes are consulted, so print the title exactly, nothing dropped. Running text is read and most Lao readers cannot read English, so never bare English there. Kind-word must fit the work — ໜັງສືພິມ newspaper, ວາລະສານ magazine, ປຶ້ມ book — and never repeats a Journal or Magazine already in the title. Books keep their rendering; only the kind-word is fixed |
 ---
 
 ## 12. Lao Compound Word-Order Pairs (GC)
