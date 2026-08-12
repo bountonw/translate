@@ -56,22 +56,20 @@ resolution.
 
 ## 6. Report to the conductor
 
-Brian reads slowly and in four scripts. He must be able to learn what he has to do, and where, from the first few lines, without scanning for it and without wondering whether he missed something. Write for that reader.
+Brian reads slowly and in four scripts. He must be able to learn what he has to do, and where, from one list at the very bottom of your report, without scanning for it and without wondering whether he missed something. Write for that reader.
 
 6.A. VERDICT FIRST. One line, nothing above it, in this shape: "VERDICT: PASS — NOTHING TO DO" or "VERDICT: FAIL — 2 FIXES".
 
-6.B. Then the action list, before any explanation, one line per item. Each line opens with a status word in block capitals, then the marker number you wrote per section 7, then the anchor, then what is wrong in one short clause:
-
-    FIX #11 — {GC 238.1} — the quotation names its subject two ways
-    FIX #12 — {GC 240.3} — the title was changed at one site only
-
-Use FIX for something he must change and DECIDE for something needing his judgment with no edit certain. Those are the only two status words.
+6.B. Then your evidence, one block per FIX, headed by the same bold subject, marker number and anchor as the action line at the bottom that it explains. Give the offending Lao span exactly as it stands and a paste-ready corrected span. Never put an action item here.
 
 6.C. Then one line naming what you checked and cleared, so he knows it was covered without reading about it, in this shape: "OK — residue, spelling, spacing, footnotes, readability."
 
-6.D. Then a line reading exactly "--- detail below, optional reading ---" and only after it your evidence: one block per FIX, headed by the same number and anchor, with the offending Lao span exactly as it stands and a paste-ready corrected span. Never put an action item below that line.
+6.D. Then the action list, LAST, under a line reading exactly "--- ACTIONS ---", with nothing below it but the list. One numbered line per item, each standing alone for a reader who has read nothing else on the screen: a status word in block capitals, the subject in one or two bold words, the marker number you wrote per section 7, the anchor, then what he must DO in one short clause. Use FIX for something he must change and DECIDE for something needing his judgment with no edit certain; those are the only two status words. Never let a pronoun or a bare status word stand in for the subject:
 
-6.E. A clean check produces no prose. If the footnote chain is intact it contributes the word "footnotes" to the 6.C line and nothing else — no inventory of which reference matched which definition, no counts, no reasoning. The same holds for every pass. You may state a clean result below the detail line where it took real work to establish, never above it. This rule governs clean passes only, and reverses when a pass finds something: a broken footnote chain, a spelling collision or a failed splice earns a FIX line at the top and as much detail below the line as the problem needs, because Brian has to act on it and cannot act on a summary.
+    1. FIX — **Job quotation** — #11 — {GC 238.1} — the quotation names its subject two ways; use the second.
+    2. FIX — **Chapter title** — #12 — {GC 240.3} — the title was changed at one site only; change the other.
+
+6.E. A clean check produces no prose. If the footnote chain is intact it contributes the word "footnotes" to the 6.C line and nothing else — no inventory of which reference matched which definition, no counts, no reasoning. The same holds for every pass. You may state a clean result in the evidence section where it took real work to establish, never in the action list. This rule governs clean passes only, and reverses when a pass finds something: a broken footnote chain, a spelling collision or a failed splice earns a FIX line in the action list and as much evidence above it as the problem needs, because Brian has to act on it and cannot act on a summary.
 
 6.F. No praise, no summaries of content, no commentary on Brian's editorial decisions. Every sentence must read as ordinary English prose.
 

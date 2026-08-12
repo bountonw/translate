@@ -29,6 +29,7 @@ MIN_SPELL_LEN = 4
 # here only once the site has been judged, never to quiet a live finding.
 SETTLED = {
     "281.3": {"ທ່ານ"},  # honorific before a personal name: ທ່ານ ໂວນແຕ (Voltaire)
+    "299.1": {"ທ່ານ"},  # same honorific: ທ່ານ ເອນົກ (Enoch), ທ່ານ ໂຢບ (Job)
 }
 LAO = re.compile(r"[຀-໿]")
 
@@ -130,6 +131,15 @@ def main():
              f"Lao or Thai digit character U+{ord(m.group()):04X}; numerals must be Western",
              text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
 
+    # --- pass 0b: zero-width spaces, chapter-wide ---
+    # A verse pasted from an online Bible arrives with U+200B between every
+    # word. It is invisible in the editor and survives into print, so the file
+    # must carry none before it is committed.
+    for m in re.finditer("​", text):
+        flag("BROKEN", anchor_of(text, m.start()),
+             "zero-width space U+200B; strip before committing",
+             text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
+
     # --- pass 1: marker residue, chapter-wide ---
     for pat, msg in [(r"\[\[", "unresolved or half-deleted marker"),
                      (r"\]\]", "marker close bracket"),
@@ -161,7 +171,9 @@ def main():
         # A closing quotation mark or an ellipsis after the mark is likewise
         # correct and takes no space -- ,” and ;… are how a quoted clause ends
         # -- so they are excluded rather than re-offered on every run.
-        if re.search(r"(?<!\d)[,;:](?=[^\s”’\"'…])", line):
+        # A footnote marker attaches directly to the punctuation it follows
+        # (ຊາເລັມ,[^16]), which is correct typography and takes no space.
+        if re.search(r"(?<!\d)[,;:](?=[^\s”’\"'…\[])", line):
             flag("FIX", anchor, "punctuation with no following space")
         stripped = re.sub(r"\([^)]*\)", "", line)
         # A cited periodical or work title is given as the Lao kind-word plus
