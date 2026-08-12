@@ -20,6 +20,16 @@ GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
 
 CLASSES = "OMISSION ADDITION FACT REF NOTE ALIGN SPELL TERM GRAM CLARITY FIX".split()
 MIN_SPELL_LEN = 4
+
+# Section 10 candidates Brian has already adjudicated, keyed by {GC ###.#}
+# anchor. A section 10 row can be context-dependent -- ທ່ານ is a wrong form
+# only of the Pope, and correct as an ordinary honorific before a personal
+# name -- so a site that is right in its own context would otherwise be
+# re-offered on every run and cost a pass to re-clear each time. Add a ref
+# here only once the site has been judged, never to quiet a live finding.
+SETTLED = {
+    "281.3": {"ທ່ານ"},  # honorific before a personal name: ທ່ານ ໂວນແຕ (Voltaire)
+}
 LAO = re.compile(r"[຀-໿]")
 
 
@@ -111,6 +121,15 @@ def main():
     def flag(kind, anchor, msg, span=""):
         findings.append((kind, anchor, msg, span))
 
+    # --- pass 0: Lao and Thai digits, chapter-wide ---
+    # Numerals are always Western (CLAUDE.md 4.J). The substitution is invisible
+    # in print — the Lao digit zero closely resembles a vowel — so it is swept
+    # mechanically here rather than left to a reader's eye. Costs milliseconds.
+    for m in re.finditer(r"[໐-໙๐-๙]", text):
+        flag("BROKEN", anchor_of(text, m.start()),
+             f"Lao or Thai digit character U+{ord(m.group()):04X}; numerals must be Western",
+             text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
+
     # --- pass 1: marker residue, chapter-wide ---
     for pat, msg in [(r"\[\[", "unresolved or half-deleted marker"),
                      (r"\]\]", "marker close bracket"),
@@ -139,9 +158,16 @@ def main():
             flag("FIX", anchor, "space before punctuation")
         # A digit before the mark means a scripture citation or a thousands
         # separator (4:18, 1,000), neither of which takes a following space.
-        if re.search(r"(?<!\d)[,;:](?=\S)", line):
+        # A closing quotation mark or an ellipsis after the mark is likewise
+        # correct and takes no space -- ,” and ;… are how a quoted clause ends
+        # -- so they are excluded rather than re-offered on every run.
+        if re.search(r"(?<!\d)[,;:](?=[^\s”’\"'…])", line):
             flag("FIX", anchor, "punctuation with no following space")
         stripped = re.sub(r"\([^)]*\)", "", line)
+        # A cited periodical or work title is given as the Lao kind-word plus
+        # the full English title in Latin script, italicised. That English is
+        # deliberate, so an italicised span is exempt from the ASCII rule.
+        stripped = re.sub(r"\*[^*\n]+\*", "", stripped)
         stripped = re.sub(r"\[\^\d+\]:?", "", stripped)
         stripped = re.sub(r"\{GC [\d.]+\}", "", stripped)
         for m in re.finditer(r"[A-Za-z]{2,}", stripped):
@@ -152,6 +178,8 @@ def main():
             if bad in line.replace(good, "\x00" * len(good)):
                 # CHECK, not FIX: some section 10 rows are context-dependent
                 # (ທ່ານ is wrong only of the Pope), so these are candidates.
+                if bad in SETTLED.get(anchor, ()):
+                    continue
                 flag("CHECK", anchor, f"possible incorrect spelling, row says {good}", bad)
 
     # --- pass 3b: footnote chain, chapter-wide ---

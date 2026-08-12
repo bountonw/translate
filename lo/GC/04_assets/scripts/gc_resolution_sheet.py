@@ -36,6 +36,11 @@ QUESTION_RE = re.compile(r"\{\{Q(?P<num>#\d+)?\s*\|?(?P<q>.*?)\}\}", re.DOTALL)
 ASKED_RE = re.compile(r"\?|\bI \b|\bI'|\bexplain\b|\bexpand in chat\b|\bwe are talking\b"
                       r"|^\s*Note:|\bcan't\b|\bdoesn't\b",
                       re.IGNORECASE)
+# An auditor's note quotes the English it is reporting on, and quoted scripture
+# is full of first person ("in my flesh shall I see God"), which reads to
+# ASKED_RE exactly like Brian writing in his own voice. Strip quoted spans
+# before testing, so his voice is detected only in the auditor's own prose.
+QUOTED_RE = re.compile(r"\"[^\"]*\"|“[^”]*”|‘[^’]*’")
 HEADER_RE = re.compile(r"^(?P<cls>[A-Z]+)\s+(?P<sev>[A-Z]+)\s+#(?P<num>\d+[a-z]?)\|(?P<rest>.*)$", re.DOTALL)
 NUMONLY_RE = re.compile(r"^#?(?P<num>\d+[a-z]?)\|(?P<rest>.*)$", re.DOTALL)
 
@@ -133,7 +138,7 @@ def parse_markers(text):
             mk["note"] = body.strip()
             questions.append(dict(num=str(mk["num"]) if mk["num"] else None,
                                   ref=mk["ref"], text=asked.strip(), sure=True))
-        elif ASKED_RE.search(note):
+        elif ASKED_RE.search(QUOTED_RE.sub(" ", note)):
             # He more often types straight into the note with no delimiter, so
             # flag anything that reads as his voice rather than the auditor's.
             questions.append(dict(num=str(mk["num"]) if mk["num"] else None,
