@@ -28,7 +28,7 @@ Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
 
 ## 3. Rules
 
-3.A. Never transliterate Lao or Thai into Latin script. Excerpts stay in Lao script exactly as found. Never use Lao or Thai digit characters when you report a form: numerals are always Western, and the forbidden ranges are Unicode U+0ED0 to U+0ED9 for Lao and U+0E50 to U+0E59 for Thai. This rule exists because of a failure in this very agent's work — a sweep once reported two Lao forms carrying a digit zero, which closely resembles the vowel in ໂຣມ, and neither spelling existed in the manuscript. Copy a form from the file rather than retyping it, and if you are reporting a form you did not copy verbatim, grep it against the corpus first and drop it if it does not match.
+3.A. Never transliterate Lao or Thai into Latin script. Excerpts stay in Lao script exactly as found. Never use Lao or Thai digits (U+0ED0 to U+0ED9 for Lao, U+0E50 to U+0E59 for Thai) when you report a form. Copy a form out of the file rather than retyping it, and grep any form you did not copy before you report it, dropping it if it does not match.
 3.B. Report what the corpus contains, including inconsistencies, without recommending which form should win. Adjudication belongs to Brian.
 3.C. If a pattern is ambiguous (a short Lao string that substring-matches unrelated words), report the noise problem and show a few false-positive examples rather than silently filtering.
 3.D. A [PROVISIONAL] row in GC-glossary.txt records a term that is NOT attested in this corpus, kept so another project mining the glossary can inherit it. Never report a provisional row's form as missing, never count its absence as a finding, and never present its Lao as established usage; where you mention one, say that it is provisional and unattested. The glossary's header comment defines the tag.
@@ -36,13 +36,23 @@ Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
 
 ## 4. Report
 
-Brian reads slowly and in four scripts. He must learn what he has to do, and where, from the first few lines. Write for that reader.
+4.A. The repository CLAUDE.md is not in your context, so the format is given here in full. Your report reaches Brian as you write it. It has three sections: the summary list, the detail, then the summary list repeated in full at the bottom.
 
-4.A. VERDICT FIRST. One line, nothing above it, giving the total count and whether anything looks wrong: "VERDICT: 2 OCCURRENCES — NOTHING WRONG" or "VERDICT: 9 OCCURRENCES — 2 FORMS DISAGREE".
+The summary list is one line per item, grouped in priority order FIX, DECIDE, NOTE, RESOLVED. Each line carries a number, the label in block capitals, the reference that locates the item — a {GC ###.#} anchor or a full path and line — and then a short description in ordinary English. A DECIDE line ends with the option you recommend and the reason for it, in one sentence or two at most. Name the subject on every line: a pronoun, a quantifier or a bare label points at nothing on his screen, and a description that refers to a change instead of stating it fails the same way. Nothing in the report sits outside a numbered item.
 
-4.B. Then one line per item, each opening with a status word in block capitals, then the ref, then one short clause. FLAG means something is wrong and he must look; OK means checked and fine. Never write FLAG on a line whose own clause says there is no issue — that is the single most common way this report wastes his time. A run where everything checks out contributes one OK line for the whole inventory, not one per ref.
+The detail section repeats each summary line as its heading, in the same order, with a labelled block beneath it:
 
-4.C. Then a line reading exactly "--- detail below, optional reading ---" and only below it the full inventory with quoted spans and counts. Never put an action item below that line.
+    EN:    the English source, quoted verbatim, with enough context to place it and the words at issue in **bold**
+    LO:    the Lao as it stands, quoted verbatim, with the same context and the words at issue in **bold**
+    ISSUE: what is wrong, in one or two plain sentences
+    FIX1:  the option you recommend, with the reason in a short clause
+    FIX2:  the next option, with its consequence
 
-4.D. Never write a preamble. Do not narrate your search, do not announce that you are about to compile the report, and do not close with a conclusion restating the verdict. The first characters of your reply are "VERDICT:".
+Drop any field that does not apply, and give no block at all to an item that needs no evidence. Write brief, complete English throughout and never clip a line into fragments.
+
+4.B. Use FIX for a form that is wrong and must change, DECIDE for a disagreement between forms that Brian must settle, and NOTE for a form that is correct as it stands. The reference mark on each line is the {GC ###.#} anchor. An inventory in which everything checks out contributes one NOTE line for the whole inventory, not one per ref.
+
+4.C. The detail section carries the full inventory: the quoted spans and their counts, with the form at issue in **bold**. Give a block only to an item Brian has to look at.
+
+4.D. Never write a preamble. Do not narrate your search, do not announce that you are about to compile the report, and do not close with a conclusion restating what the summary list already says.
 

@@ -17,5 +17,5 @@ Then act on: $ARGUMENTS
 
 Two preflight checks before you dispatch anything, both of which fail runs for reasons unrelated to the audit:
 
-1. Cleanliness, which CLAUDE.md 4.F defines and 3.A applies. Run `git status --short -- lo/GC` and read it per chapter, never tree-wide: your chapter's file must be unmodified, while another chapter's manuscript, or governing-file rows from another chapter's merge, are expected and are never a reason to stop. The rule is stated in 4.F and only in 4.F — do not restate it here, because the copy that used to live in this file contradicted 4.F and halted a good run.
+1. Cleanliness, which CLAUDE.md 4.D defines and 3.A applies. Run `git status --short -- lo/GC` and read it per chapter, never tree-wide: your chapter's file must be unmodified, while another chapter's manuscript, or governing-file rows from another chapter's merge, are expected and are never a reason to stop. The rule is stated in 4.D and only in 4.D — do not restate it here, because the copy that used to live in this file contradicted 4.D and halted a good run.
 2. The five gc-* agents must be listed as available. If they are not, they are not registered, and dispatching them silently falls back to a generic agent with none of its instructions — stop and tell Brian instead.

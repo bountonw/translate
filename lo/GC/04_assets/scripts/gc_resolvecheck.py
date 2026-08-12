@@ -123,10 +123,10 @@ def main():
         findings.append((kind, anchor, msg, span))
 
     # --- pass 0: Lao and Thai digits, chapter-wide ---
-    # Numerals are always Western (CLAUDE.md 4.J). The substitution is invisible
+    # Numerals are always Western (root CLAUDE.md 5.A). The substitution is invisible
     # in print — the Lao digit zero closely resembles a vowel — so it is swept
     # mechanically here rather than left to a reader's eye. Costs milliseconds.
-    for m in re.finditer(r"[໐-໙๐-๙]", text):
+    for m in re.finditer(r"[\u0ED0-\u0ED9\u0E50-\u0E59]", text):
         flag("BROKEN", anchor_of(text, m.start()),
              f"Lao or Thai digit character U+{ord(m.group()):04X}; numerals must be Western",
              text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
@@ -135,9 +135,21 @@ def main():
     # A verse pasted from an online Bible arrives with U+200B between every
     # word. It is invisible in the editor and survives into print, so the file
     # must carry none before it is committed.
-    for m in re.finditer("​", text):
+    for m in re.finditer("\u200B", text):
         flag("BROKEN", anchor_of(text, m.start()),
              "zero-width space U+200B; strip before committing",
+             text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
+
+    # --- pass 0c: Thai letters, chapter-wide ---
+    # A wrong keyboard produces Thai where Lao was meant, and the two scripts
+    # resemble each other closely enough that the eye slides over it. Thai
+    # inside \thai{...} is deliberate — GC09 cites the Thai spelling of a word
+    # in a footnote — so that span is masked, length preserved so offsets hold.
+    # Thai digits are excluded here; pass 0 already reports them.
+    masked = re.sub(r"\\thai\{[^}]*\}", lambda m: " " * len(m.group()), text)
+    for m in re.finditer(r"[\u0E00-\u0E4F\u0E5A-\u0E7F]", masked):
+        flag("BROKEN", anchor_of(text, m.start()),
+             f"Thai character U+{ord(m.group()):04X} in Lao text; wrong keyboard",
              text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
 
     # --- pass 1: marker residue, chapter-wide ---
