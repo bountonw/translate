@@ -232,6 +232,7 @@
 | Ambassador (secular envoy) | ທູດຫຼວງ | ປະຈຳ + country for the posting. GC 216.2; cf. Royal ambassador, GC 84.3 |
 | In the capacity of / as (status) | ໃນຖານະ | Settled, Brian's decision at GC12. Capacity or status sense, and the form keeps its final ະ. Distinct in sense from the charge frame, which takes ໃນຖານ; see the ໃນຖານ row. The two are not interchangeable and neither is a variant spelling of the other |
 | On the ground of (charge, offence) | ໃນຖານ | Settled, Brian's decision at GC12. Charge frame only: ໃນຖານ + the offence charged, in a punishment or accusation. NOT a misspelling of ໃນຖານະ, and never to be marked as one. Corpus: ໃນຖານະ over 100 sites, all capacity sense; ໃນຖານ exactly 2, both punishment frames — GC 224.3 ("as agitators dangerous to the stability of the throne") and GC 48.2 (punished on the ground of an offence against Christ) |
+| Calvinists | ພວກຄະນະຄາວິນ | [CHECK] The persons who hold Calvin's teaching. Head is the John Calvin row's short form ຄາວິນ, built the same way as ຄະນະລູເທີແຣນ in the Lutheran row. Attested GC 292.1, inside the Robinson farewell quotation, where it stands against ພວກຄະນະລູເທີແຣນ in the same sentence. The English word occurs only twice in the book, GC13 and GC16; the other site, GC 244.2, renders it descriptively as ຕາມຄາວິນ paired with ຄຳສອນຂອງລູເທີ where the English pairs Calvinists with Lutherans, and that variation is accepted rather than narrowed |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -502,6 +503,38 @@
 | Zechariah (book) | ເຊກາຣີຢາ | [CHECK] |
 | 1 Corinthians (book) | 1 ໂກຣິນໂທ | [CHECK] |
 | Paul (the apostle) | ອາຈານໂປໂລ / ອັກຄະສາວົກໂປໂລ | [CHECK] Both honorifics are established and correct; Brian's decision at GC12 resolution. Corpus over lo/GC/03_public: ອາຈານໂປໂລ 65 sites, ອັກຄະສາວົກໂປໂລ 24 — the counts record usage and establish no preference, and the order in the Lao cell is not a ranking. Neither form is ever to be marked in favour of the other, and the choice at any site is the translator's. The GC12 audit marked ອາຈານໂປໂລ at GC 214.1 and proposed ອັກຄະສາວົກໂປໂລ reasoning from that batch's local usage alone; the marker was deleted and that substitution is not to be proposed again. This row governs Paul's honorifics only. It does not reserve ອາຈານ to Paul, which serves other referents in this corpus — Lefevre in the same GC12 batch; cf. the Parish minister / churchman row |
+| Palfrey / J. G. Palfrey | ເຈ. ຈີ. ພານຟີ | [CHECK] Author citation; work *ປະຫວັດນິວອິງແລນ* (History of New England). Sole occurrence in the book, the footnote at GC 290.2 |
+| Neal / D. Neal | ດີ. ນຽວ | [CHECK] Author citation; work *ປະຫວັດສາດຂອງຄະນະປູຣິຕັນ* (History of the Puritans). Sole occurrence in the book, the footnote at GC 292.1 |
+| J. Brown | ເຈ. ບຣາວ | [CHECK] Author citation; work *ກຸ່ມປິນກຣິມລຸ້ນບຸກເບີກ* (The Pilgrim Fathers), which is also the Lao chapter title of GC 16. Sole occurrence in the book, the footnote at GC 291.3 |
+| New England | ນິວອິງແລນ | [CHECK] 4 occurrences, in GC 16, GC 17 and GC 18, one form at every site |
+| Massachusetts / Massachusetts Bay Colony | ແມັສຊາຊູເສັດ / ອານານິຄົມແຫ່ງອ່າວແມັສຊາຊູເສັດ | [CHECK] 6 occurrences, in GC 16, GC 17 and GC 25, one base form at every site. The colony form adds ອ່າວ for the bay and carries the Latin gloss (Massachusetts Bay Colony) at first use, GC 292.3 |
+| Africa | ອາຟຣິກາ | [CHECK] ທະວີບອາຟຣິກາ for the continent; GC 304.2 |
+| Greenland | ກຣີນແລນ | [CHECK] GC 304.2 |
+| West Indies | ໝູ່ເກາະແຄຣິບຽນ | [CHECK] Rendered by the modern name of the island group; GC 304.2 |
+| Madeira | ມາເດຣາ | [CHECK] ເກາະ prefix; GC 304.2 |
+| Norway | ນໍເວ | [CHECK] ປະເທດ prefix; GC 304.2 |
+| Ireland | ໄອແລນ | [CHECK] GC 304.2; ເກາະ prefix at GC 62.2 |
+| Algiers | ອານເຊຍ | [CHECK] ເມືອງ prefix; GC 304.2 |
+| Morocco | ໂມຣັອກໂຄ | [CHECK] GC 304.2, where the Lao supplies ເມືອງຫຼວງຂອງ for Ellen White's city of Morocco |
+| Cadiz | ກາດິສ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 304.3 |
+| Patmos | ປັດໂມ | [CHECK] ເກາະ prefix; GC 301.2, 302.3 |
+| Enoch | ເອນົກ | [CHECK] ທ່ານ prefix; GC 299.1 |
+| Job | ໂຢບ | [CHECK] ທ່ານ prefix; GC 299.1 |
+| Charles Lyell | ຊານສ໌ ໄລອັນ | [CHECK] Author citation; ເຊີ prefix at GC 304.3 |
+| Daniel T. Taylor | ດານີເອນ ທີ ເທເລີ | [CHECK] Author citation; GC 302.4 |
+| Salem | ຊາເລັມ | [CHECK] ເມືອງ prefix; GC 307.2. Sole occurrence of the Massachusetts town in the corpus; a grep for the bare form also matches the last syllables of ເຢຣູຊາເລັມ, so search ເມືອງຊາເລັມ |
+| Falmouth | ຟັນມາວ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 307.3 |
+| Connecticut | ຄັອນເນັກຕິກັດ | [CHECK] ລັດ prefix, Latin gloss at first use; GC 307.3 |
+| Albany | ອານບານີ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 307.3 |
+| Exeter | ແອັກສະເທີ | [CHECK] ເມືອງ prefix; footnote at GC 307.4 |
+| New Hampshire | ນິວແຮມຊາຍ | [CHECK] ລັດ prefix; footnote at GC 307.4 |
+| Nathanael Whittaker | ນະທານາເອັນ ວິດທາເກີ | [CHECK] ດຣ. prefix, Latin-script footnote gloss at first use; GC 307.2 |
+| Tabernacle church (Salem) | ໂບດແທເບີແນເກີນ | [CHECK] GC 307.2, where the pastor is ອາຈານປະຈຳໂບດ per the Minister row |
+| R. M. Devens | ອາ. ເອັມ. ເດເວນ | [CHECK] Author citation; work *ສະຕະວັດທຳອິດຂອງພວກເຮົາ* (Our First Century); GC 306.2, and once more in GC 18 |
+| William Gordon | ວິນລຽມ ໂກດອນ | [CHECK] Author citation; GC 307.3 |
+| Isaiah Thomas | ເອຊາຢາ ໂທມັດ | [CHECK] Author citation; GC 307.4 |
+| Samuel Tenney | ຊາມູເອນ ເທັນນີ | [CHECK] Author citation; ດຣ. prefix; GC 307.4 |
+| Massachusetts Historical Society Collections | ປະມວນເອກະສານຂອງສະມາຄົມປະຫວັດສາດຂອງລັດແມັສຊາຊູເສັດ | [CHECK] Cited work; sole occurrence, the footnote at GC 307.4 |
 ---
 
 ## 12. Lao Compound Word-Order Pairs (GC)
