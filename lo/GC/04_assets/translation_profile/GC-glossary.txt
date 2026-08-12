@@ -173,7 +173,7 @@
 | Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
 | Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
 | New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
-| Holy City | ນະຄອນບໍຣິສຸດ | [CHECK] |
+| Holy City | ນະຄອນບໍຣິສຸດ / ນະຄອນສັກສິດ | Varies by Bible version quoted. Ellen White's own prose takes the first form; a scripture quotation takes whatever the quoted Lao version reads, which is the second form at Revelation and Matthew sites. Both are correct; never report either as a missing mapping |
 | New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
 | Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | |
 | Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
@@ -535,6 +535,7 @@
 | Isaiah Thomas | ເອຊາຢາ ໂທມັດ | [CHECK] Author citation; GC 307.4 |
 | Samuel Tenney | ຊາມູເອນ ເທັນນີ | [CHECK] Author citation; ດຣ. prefix; GC 307.4 |
 | Massachusetts Historical Society Collections | ປະມວນເອກະສານຂອງສະມາຄົມປະຫວັດສາດຂອງລັດແມັສຊາຊູເສັດ | [CHECK] Cited work; sole occurrence, the footnote at GC 307.4 |
+| Portugal | ປອກຕຸຍການ | ປະເທດ prefix; GC 304.3 |
 | (periodical and newspaper titles) | footnote: kind-word + full English title, Latin, italicised. Inline: kind-word + Lao name + English in parentheses | GC-wide, applied. Footnotes are consulted, so print the title exactly, nothing dropped. Running text is read and most Lao readers cannot read English, so never bare English there. Kind-word must fit the work — ໜັງສືພິມ newspaper, ວາລະສານ magazine, ປຶ້ມ book — and never repeats a Journal or Magazine already in the title. Books keep their rendering; only the kind-word is fixed |
 ---
 
