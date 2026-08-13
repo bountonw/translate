@@ -44,7 +44,7 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 3.A. Deferring is Brian's decision, never yours. If an issue is worth raising, put it in the same report: state it in one sentence and give it numbered options in the shape set out in 1.E and 1.F. Never write "not urgent" or "worth revisiting later" in place of putting the choice in front of him.
 
-3.B. When he does defer one, add it to `SIDEQUESTS.md` at the repository root in the same reply that defers it, and say in that reply which position it took. That file is the queue and it is the only answer to "how many side quests are open and in what order" — never answer that from memory or from a chat. Delete an entry when its work is finished rather than marking it done, because a finished quest is in the git history.
+3.B. When he does defer one, add it to `lo/GC/04_assets/planning/SIDEQUESTS.md` in the same reply that defers it, and say in that reply which position it took. That file is the queue and it is the only answer to "how many side quests are open and in what order" — never answer that from memory or from a chat. Delete an entry when its work is finished rather than marking it done, because a finished quest is in the git history. It sits under a numbered-stage assets directory because `.tooling/textlint/index.js` excludes those from every check; a document with no paragraph anchors cannot satisfy the reference-code rule and does not belong anywhere the linter walks.
 
 ## 4. Parallel sessions
 
