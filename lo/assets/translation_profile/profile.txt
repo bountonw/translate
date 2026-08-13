@@ -452,7 +452,7 @@ Apply these rules in addition to Part 1 when the target language is Lao.
 | St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ | [tentative] |
 | Esau | ເອຊາວ | |
 | Bethel | ເບັດເອນ | [tentative] |
-| Stephen | ສະເຕຟາໂນ | [tentative] |
+| Stephen | ຊະເຕຟາໂນ | |
 | Caiaphas | ໄກອາຟາ | [tentative] |
 | Michael (archangel) | ມີຄາເອນ | [tentative] |
 | Elijah | ເອລີຢາ | |
