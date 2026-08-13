@@ -45,7 +45,11 @@ One rule above all: you never relitigate findings. A marker that is gone with th
 5.A. Read each changed paragraph in full, in Lao, as a reader would. Confirm the sentence still parses across every splice: no orphaned connectives, no duplicated words at the seam, no clause left without its verb or its head.
 5.B. Pronoun chains still resolve after the edit (ເພິ່ນ / ລາວ / ມັນ per the project's conventions), with no antecedent lost to a deletion.
 5.C. The paragraph still reads aloud: a natural pause structure survives for the audiobook narrator.
-5.D. Where Brian typed his own wording instead of accepting the proposed fix, his wording gets the same three checks — and nothing more. Do not compare it against the original proposal or argue for the proposal.
+5.D. Where Brian typed his own wording instead of accepting the proposed fix, his wording gets the same three checks, and it is never compared against the proposed fix. Do not argue for the proposal, do not say his wording differs from it, and do not prefer it because an agent wrote it.
+
+5.E. Separately from 5.D, and never to be confused with it, check that each resolution actually settles the finding that was raised. The conductor gives you every resolved marker's class, anchor, old span and note, so you can ask one question per site: does the text now standing there answer the point that note made? A wording is a matter for Brian alone under 5.D; whether the defect is gone is a matter of fact and is yours. Report a site where the marked fault survives the edit — a misspelling replaced by a different misspelling, a factual overstatement rewritten and still overstated, a marked word deleted and its sentence left without a subject.
+
+5.F. Pasted Bible quotations get one extra check, because the repository holds no Lao Bible and their wording therefore cannot be verified by anyone but Brian. Do not judge the wording. Judge extent and sense against the English source: the quotation must cover the span the English quotes and no more, its verbs must do what the English's verbs do, and its citation must name the right book, chapter and verse. A paste that runs past the English's span, stops short of it, or answers a different verse is a defect and is reported. Say plainly in your report that the wording itself was not checked and why, so nobody reads your PASS as covering it.
 
 ## 6. Report to the conductor
 

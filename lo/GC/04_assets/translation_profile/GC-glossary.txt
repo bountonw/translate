@@ -10,7 +10,7 @@
 
 | English | Lao | Notes |
 |---|---|---|
-| Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
+| Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ / ຜູ້ນຳສາສະໜາ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ; non-Christian cleric → ຜູ້ນຳສາສະໜາ, GC 362.1 |
 | Fanatic / Fanatics / Fanaticism | ພວກທີ່ຄັ່ງໄຄ້ / ຄວາມຄັ່ງໄຄ້ | [CHECK] GC 190.3–196.3 |
 | High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
 | Castle | ຜາສາດຫີນ | [CHECK] The head for every English *castle*; NOT ຕຳນັກ, NOT ປາສາດ. Bare ຜາສາດ is licensed anaphorically, but only where the full form is already established for the same referent in the same chapter and a proper name or an immediate antecedent pins it — GC 187.4 ຜາສາດຫີນແຫ່ງວາດເບີກ, then GC 188.4 ຜາສາດວາດເບີກ. An unpinned bare ຜາສາດ reads as a palace, which is what went wrong at GC 140.2. ຫີນ alone marks the castle sense. ຫໍ is a free building classifier that attaches to either head without changing it — ຫໍຜາສາດຫີນ is still a castle (GC 57.3, 221.4), ຫໍຜາສາດ still a palace (GC 228.3, 636.3). 10 attestations; GC 129.2, 168.1, 215.3 |
@@ -84,7 +84,7 @@
 | Feast of Tabernacles | ເທດສະການ "ປຸກຕູບຢູ່" | [CHECK] Quotes around Lao term |
 | Catacombs | ຄອງອຸບມຸງ | [CHECK] |
 | Inquisition | ສານຄະດີນອກຮີດ | [CHECK] |
-| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງກະລຸນາ / ພຣະທີ່ນັ່ງກະລຸນາ | [CHECK] |
+| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງພຣະກະລຸນາ | [CHECK] Mark any other form. Never mark the Hebrews 9 quotation at GC 411.1 |
 | Gospel | ຂ່າວປະເສີດ | [CHECK] |
 | Dragon (Rev.) | ພະຍານາກ | |
 | Beast (Rev.) | ສັດຮ້າຍ | |
@@ -212,7 +212,7 @@
 | Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
-| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດຕ່າງໆທີ່ມີພື້ນຖານຄຣິສຕຽນ / ທຸກປະເທດທີ່ຄົນສ່ວນໃຫຍ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
 | Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
 | Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
 | Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks. Duke is NOT collapsed here — it has its own row, and both of its two corpus occurrences are already settled there |
@@ -239,6 +239,7 @@
 | In the capacity of / as (status) | ໃນຖານະ | Settled, Brian's decision at GC12. Capacity or status sense, and the form keeps its final ະ. Distinct in sense from the charge frame, which takes ໃນຖານ; see the ໃນຖານ row. The two are not interchangeable and neither is a variant spelling of the other |
 | On the ground of (charge, offence) | ໃນຖານ | Settled, Brian's decision at GC12. Charge frame only: ໃນຖານ + the offence charged, in a punishment or accusation. NOT a misspelling of ໃນຖານະ, and never to be marked as one. Corpus: ໃນຖານະ over 100 sites, all capacity sense; ໃນຖານ exactly 2, both punishment frames — GC 224.3 ("as agitators dangerous to the stability of the throne") and GC 48.2 (punished on the ground of an offence against Christ) |
 | Calvinists | ພວກຄະນະຄາວິນ | [CHECK] The persons who hold Calvin's teaching. Head is the John Calvin row's short form ຄາວິນ, built the same way as ຄະນະລູເທີແຣນ in the Lutheran row. Attested GC 292.1, inside the Robinson farewell quotation, where it stands against ພວກຄະນະລູເທີແຣນ in the same sentence. The English word occurs only twice in the book, GC13 and GC16; the other site, GC 244.2, renders it descriptively as ຕາມຄາວິນ paired with ຄຳສອນຂອງລູເທີ where the English pairs Calvinists with Lutherans, and that variation is accepted rather than narrowed |
+| Deist / Deists | ດິອິສ / ລັດທິດິອິສ | [CHECK] ພວກ or ຄົນ prefixes either form for persons; Latin gloss (Deist) at first use |
 ---
 
 ## 10. Lao Spelling Glossary
@@ -273,6 +274,10 @@
 | Diligence / Perseverance | ຄວາມອຸດສາຫະພາກພຽນ | ຄວາມອຸດສາພາກພຽນ | [CHECK] Dropped ຫະ syllable. One occurrence, GC 241.1, marker 7; GC02 and GC14 carry the full form |
 | Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. §10's ຣ policy is settled as a per-word list, not a prefix rule: see GC-open-terms.md |
 | Encyclopedia / Cyclopedia | ສາລານຸກົມ | ສານຸກົມ | [CHECK] Dropped syllable, same pattern as the ຄຣິສຈັກ row. Settled and applied: all 3 corpus occurrences now read ສາລານຸກົມ (GC 17 footnote 14; GC 261.1 footnote 18, was marker 21; GC 363.2 footnote 19) |
+| Overthrow / fell | ໂຄ່ນ | ໂຄ້ນ | [CHECK] Tone mark only. One occurrence, GC 334.4 |
+| Rabbi | ຣັບບີ | ຣາບີ | [CHECK] Brian decided; all sites corrected at GC 314.1, GC 315.2, GC 363.1 |
+| Adventure (book title) | ຜະຈົນໄພ | ພະຈົນໄພ | [CHECK] Sole corpus occurrence, footnote at GC 357.2 |
+| Low / humble | ຕ່ຳຕ້ອຍ | ຕໍ່າຕ້ອຍ | [CHECK] Separated vowel spelling; Incorrect form only at GC 369.3 and GC 221.3 |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -428,10 +433,10 @@
 | Rollin | ໂຣລິນ | [CHECK] |
 | Habakkuk | ຮາບາກຸກ | [CHECK] |
 | Malachi | ມາລາກີ | [CHECK] |
-| Würtemberg | ເວີດເທັມເບີກ | [CHECK] |
+| Württemberg | ເວີດເທັມເບີກ | [CHECK] |
 | Bokhara | ບູຄາຣາ | [CHECK] |
 | Yemen | ເຢເມນ | [CHECK] |
-| Tatary | ຕາຕາຣີ | [CHECK] |
+| Tatary / Tatar | ຕາຕາຣີ / ຊາວຕາຕ້າ | [CHECK] Land ຕາຕາຣີ, people ຊາວຕາຕ້າ, mirroring the English pair. GC 362.1 |
 | Wales | ເວລສ໌ | [CHECK] |
 | Edward A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
 | Balaam | ບາລາອາມ | [CHECK] GC 529.2 |
@@ -457,11 +462,11 @@
 | Eusebius | ເອີເຊບິອັດ | [CHECK] |
 | Peter II of Aragon | ເປໂຕທີ 2 ແຫ່ງອາຣາກົງ | [CHECK] |
 | Innocent III | ອິນໂນເຊັນທີ 3 | [CHECK] Pope |
-| Abyssinia / Ethiopia | ເອທິໂອເປຍ | [FLAG] |
+| Abyssinia / Ethiopia | ເອທີໂອເປຍ | [CHECK] |
 | St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ / ເຊນຫຼຸຍສ໌ | [CHECK] |
 | Esau | ເອຊາວ | [CHECK] |
 | Bethel | ເບັດເອນ | [CHECK] |
-| Stephen | ສະເຕຟາໂນ | [CHECK] |
+| Stephen | ຊະເຕຟາໂນ | [CHECK] NOT ສະເຕຟາໂນ |
 | Caiaphas | ກາຢະຟາ | [CHECK] |
 | Michael (archangel) | ມີຄາເອນ | [CHECK] |
 | Elijah | ເອລີຢາ | [CHECK] |
@@ -573,3 +578,4 @@
 | ຫານກ້າ / ກ້າຫານ | Both orders stand | GC12 resolution | ຫານກ້າ at GC 216.3 and GC 224.3; ກ້າຫານ is the commoner order corpus-wide. Reverses the earlier decision at GC 185.2, which treated this transposition as a defect; that decision was never written into a governing file and GC 185.2 still reads ຫານກ້າ, so nothing was unwound. Never marked again |
 | ຊົມຊື່ນ / ຊື່ນຊົມ | Both orders stand | GC12 resolution | ຊົມຊື່ນ at GC 218.2; ຊື່ນຊົມ at GC 218.1 and GC 220.4. Both orders are well attested corpus-wide. Never marked again |
 | ອົດທົນ / ທົນອົດ | Both orders stand; ທົນອົດ is intended emphasis | Brian, GC 16 | Only site GC 296.2. Never mark |
+| ຊື່ສັດ / ສັດຊື່ | Both orders stand | Brian, GC 20 | Poetic variation; vary both in positive and negative constructions. Never mark |

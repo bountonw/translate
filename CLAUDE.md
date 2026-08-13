@@ -6,7 +6,7 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 1.A. Every report has three sections: the summary list, the detail, then the summary list repeated in full at the bottom. Repeat it so that Brian sees what is his to do without scrolling in either direction.
 
-1.B. The summary list is one line per item, grouped in priority order FIX, DECIDE, NOTE, RESOLVED. Each line carries a number, the label in block capitals, the reference that locates the item — a paragraph anchor, a marker number, or a full path and line — and then a short description in ordinary English. A DECIDE line ends with the option you recommend.
+1.B. The summary list is one line per item, grouped in priority order FIX, DECIDE, NOTE, RESOLVED. Each line carries a number, the label in block capitals, the reference that locates the item — a paragraph anchor, a marker number, or a full path and line — and then a short description in ordinary English. A DECIDE line ends with the option you recommend. Anchored prose is located by its anchor and never by a line number: a manuscript and its English source are anchored paragraph for paragraph but numbered quite differently, so a line number sends Brian to the wrong paragraph the moment he opens the other file, and it goes stale as soon as either file is edited. A line number is right for code, for a script, and for a governing file such as GC-glossary.txt whose rows carry no anchor.
 
     1. FIX {GC 299.1} — stray consonant in the Job quotation.
     2. DECIDE lo/GC/04_assets/translation_profile/GC-glossary.txt:62 — the Day of Atonement row keeps the word DECIDED or takes a checkmark; I recommend DECIDED.
