@@ -6,7 +6,23 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 1. Wire the forbidden-terms list into the audit pre-pass
+## 1. Reduce AA-fix-stephen to the one commit that belongs on it
+
+The branch was cut from `GC-QA2-continued` rather than from `main`, so its pull request carries 55 commits where only one is AA work. Brian cannot merge it as it stands and does not want the GC branch landing on main by accident.
+
+The AA commit is `276ef1c Fix spelling of Stephen`, and it is the only one of the 55 that touches nothing outside `lo/AA/`. It changes 11 occurrences of the spelling ສະເຕຟາໂນ to ຊະເຕຟາໂນ across AA10, AA11 and AA12, verified as the only difference from its parent in those files.
+
+The likely shape, to be confirmed against the real branch state before running:
+
+    git switch -c AA-stephen main
+    git cherry-pick 276ef1c
+    git push -u origin AA-stephen --force-with-lease
+
+Then repoint or reopen the pull request against the new branch and delete `AA-fix-stephen`. Check first whether anyone has pulled the old branch, and close the existing PR rather than leaving two open.
+
+Detail: none needed beyond this entry.
+
+## 2. Wire the forbidden-terms list into the audit pre-pass
 
 Two lists of known-wrong spellings exist and neither knows about the other. `.tooling/forbidden_terms/lao.txt` holds 313 terms in `forbidden # correct` form and drives the textlint CI job; section 10 of `lo/GC/04_assets/translation_profile/GC-glossary.txt` holds 30 forms and drives `gc_termcheck.py` and `gc_resolvecheck.py`. So a batch auditor can pass a chapter that CI then fails, which is how ຍຶດເອົາ reached a commit in GC12 and came back as a lint error.
 
@@ -14,7 +30,7 @@ Make the audit scripts read the linter's list as well as section 10, so a forbid
 
 Detail: none written yet. `.tooling/textlint/rules/lo.js` line 6 shows how the list is loaded.
 
-## 2. Footnote author-gloss sweep
+## 3. Footnote author-gloss sweep
 
 Every author cited in a footnote carries the English name in parentheses after the Lao form, so a Lao reader can pronounce it and also look it up: `[^19]: ມາຕິນ (Martyn), ເຫຼັ້ມ 5, ໜ້າ 417.`
 
@@ -22,7 +38,7 @@ Brian ranked this above everything else in the queue. 240 of 272 sites remain ac
 
 Detail: `~/claude-sandbox/gc-audit/footnote-gloss-sweep-prompt.md`, with the per-chapter worklist beside it in `footnote-gloss-worklist.md`.
 
-## 3. Dictionary sync check when a spelling changes
+## 4. Dictionary sync check when a spelling changes
 
 Confirm that `lo/assets/dictionaries/main.txt` is updated whenever a spelling decision changes a form in the manuscripts, and find out what currently keeps the two in step. The Stephen sweep touched the dictionary by hand, which suggests nothing does it automatically.
 
@@ -30,7 +46,7 @@ Open questions for the quest itself: which decisions are supposed to reach the d
 
 Detail: none written yet. Small to size, unknown to fix.
 
-## 4. Governing-file size reduction
+## 5. Governing-file size reduction
 
 The three files under `lo/GC/04_assets/translation_profile/` are loaded by every agent on every dispatch. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch.
 
@@ -38,7 +54,7 @@ Scope after Brian's rulings of 13 August: 17 oversized `GC-open-terms.md` entrie
 
 Detail: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
 
-## 5. ລົບລ້າງ against ລຶບລ້າງ — normalise, or leave both
+## 6. ລົບລ້າງ against ລຶບລ້າງ — normalise, or leave both
 
 Both spellings are accurate and the editors want both, which is the ruling of GC 15 and stands. The open question is whether the book should normalise to one form anyway. Brian never read the argument for normalising when it was first put, so it was held rather than closed.
 
@@ -46,7 +62,7 @@ The evidence is already gathered: corpus counts are ລຶບລ້າງ 78 aga
 
 Detail: the `NOTE-SPELL ລົບລ້າງ and ລຶບລ້າງ` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md`.
 
-## 6. Where `unwrap.py` belongs
+## 7. Where `unwrap.py` belongs
 
 `~/claude-sandbox/scripts/unwrap.py` is the only tool that does what root `CLAUDE.md` 7.A requires of every instruction file, it operates on repository files, and nothing names it. Under 8.A it belongs in the repository. Decide whether it goes to `lo/GC/04_assets/scripts/` or to a `scripts/` directory at the repository root, which depends on whether it will be used on the Thai and Lao projects too.
 
