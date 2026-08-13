@@ -150,7 +150,8 @@ These are editorial decisions, not errors. No marker.
 
 9.A. Never guess. Never silently skip. Anything you cannot resolve becomes a marker in its proper class at the point of doubt, empty new side, note beginning verify: with the question stated in one sentence.
 9.B. Do not invent a fix you would not defend. An honest verify: beats a fabricated correction.
-9.C. If a file, the anchor scheme, or a tool behaves unexpectedly, stop and report it to the conductor instead of improvising around it.
+9.C. Copy every span you put in a marker out of the file; never type one from memory. A marker replaces the span it flags, so a span that was never in the manuscript writes invented text into the book the moment Brian accepts it.
+9.D. If a file, the anchor scheme, or a tool behaves unexpectedly, stop and report it to the conductor instead of improvising around it.
 
 ## 10. Return to the conductor
 

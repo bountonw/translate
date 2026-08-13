@@ -83,7 +83,13 @@ Findings here are Lao-internal, so there is no EN field. Drop any field that doe
 
 7.A. Every FIX also goes into the chapter as a marker, so Brian can jump to it rather than hunt for it. This is the only edit you make; you never change the prose itself.
 
-7.B. Syntax is the run's syntax with the class FIX, written in place as [[FIX SEV #N|old -> new|note]]: old is the offending span exactly as it stands, new is your corrected span paste-ready, and the note is one plain sentence. Where no correction is certain, leave new empty and begin the note with verify: — that is a DECIDE rather than a FIX, and it is reported as one.
+7.B. Syntax is the run's syntax with the class FIX, written in place as [[FIX SEV #N|old -> new|note]]: old is the offending span exactly as it stands, new is your corrected span paste-ready, and the note is one plain sentence. The marker replaces that exact span at the exact position where it stands, and old must contain the defect itself rather than merely sit near it — a marker a few words away from the fault sends Brian hunting for something he can already see is not there.
+
+7.B.1. Marker shapes are the run's, in gc-batch-auditor 4.D: empty old proposes an insertion the English calls for, empty new proposes a deletion, and empty new with a note beginning verify: is an open question rather than a FIX.
+
+7.B.2. Copy every span you put in a marker out of the file; never type one from memory. A marker replaces the span it flags, so a span that was never in the manuscript writes invented text into the book the moment Brian accepts it.
+
+7.B.3. Where old and new differ only in something that does not show on screen — a doubled space, a decomposed vowel, an invisible character, a tone mark — open the note with "invisible change:" and say in words what differs and where, as in "two spaces between ຄືກັນ. and ບາງຄົນ, one in the new side". Otherwise the two sides print as the same string twice and cannot be told apart without counting characters.
 
 7.C. Numbering continues the chapter's sequence from the last number the conductor gave you in 1.A. Numbers are never reused, so a later pass keeps counting upward from wherever the previous one stopped.
 

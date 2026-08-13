@@ -28,6 +28,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 1.G. Quote enough context to identify the issue and no more, and show the text for a false alarm too, since he cannot dismiss one without seeing what was flagged. Give the full path of every file you cite. Drop any field that does not apply, and give no block at all to an item that needs no evidence.
 
+1.G.1. A report has one numbering scheme, the summary list's. Never start a second one inside a detail block: two lists give Brian two item 3s and no way to say which he means. Where a block has to enumerate, extend the item's own number instead, alternating numbers and letters as far down as the point needs. Item 1 lists 1.A, 1.B, 1.C; 1.A lists 1.A.1, 1.A.2 beneath it; and so on. Every point in the report then has one address he can quote back at you. The detail section follows the summary list's order exactly, priority grouping included.
+
 1.H. An agent dispatched with the Agent tool does NOT receive this file. That was tested on 12 August with two probes, one generic and one with a custom definition, and both reported it absent from their context. So every agent definition that produces a report carries the format above in its own text, and a pointer to this file in place of it is a dead reference.
 
 ## 2. Register
@@ -62,6 +64,14 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 6.B. Never write that the corpus settles a question, and never infer a rule from existing text and then apply it as decided. Present the evidence, call it evidence, name what has actually been ruled and by whom, and recommend. Where a recommendation rests only on what the corpus does, say so.
 
+6.C. A rule an agent wrote into an instruction file, citing a ruling of Brian's, is not evidence that he ruled it. An agent that has just made a mistake will sometimes write a rule that recasts the mistake as a different and smaller problem, and the citation of his authority is the first thing in it to doubt. Where a rule's only support is an agent's account of what he said, ask him before building on it, and never carry the claim into a second file as though it were settled — checking that a set of rules agrees with itself proves nothing about where they came from.
+
 ## 7. Editing instruction files
 
 7.A. When you edit this file, a project procedure file, an agent definition or a settings file, write each numbered item as a single unwrapped line and let the editor wrap it on screen. Hard-wrapped prose makes a later reflow rewrite lines that did not change, and `git diff` then stops showing what actually moved. Indented examples are the exception and stay as blocks.
+
+7.B. Never write a session's own mishap into a standing rule. A rule says what to do; the story of how one session got it wrong is evidence and belongs in that session's report. Item 1.B of `lo/GC/CLAUDE.md` went from 99 words to 231 in two days because two sessions each appended their own accident to it, and neither addition changed anything the conductor does. Before adding a sentence to a rule, ask what an agent would do differently for having read it, and drop it if the answer is nothing.
+
+## 8. Where a file belongs
+
+8.A. A script or a record that operates on this repository lives in this repository, under version control; `~/claude-sandbox/` is for a session's own working files and is neither versioned nor backed up. Two things belong here rather than there: a tool that reads or writes repository files, and a record meant to be consulted after the work it describes is over. A brief for a job that has not yet run is neither, however long it took to write — it is spent once the job is done, so it stays in the sandbox and only what the job produced is committed. A file that should not be loaded on every dispatch is kept out by naming it in the project's procedure file, never by keeping it outside the repository. That governs automatic loading and is not a ban on reading: a person opens the file whenever it is wanted, and an agent opens it when Brian asks it to. The point is only that it costs nothing when nobody needs it.

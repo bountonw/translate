@@ -24,6 +24,7 @@ Read-only with respect to the repository: the only file written is the sheet.
 """
 
 import argparse
+import subprocess
 import os
 import re
 import sys
@@ -152,6 +153,52 @@ def parse_markers(text):
     # An opening bracket with no closing one never reaches the regex at all.
     unclosed = text.count("[[") - len(markers)
     return markers, unclosed, questions
+
+
+def committed_text(lo_path, repo):
+    """The chapter as HEAD holds it, with any marker stripped back out.
+
+    HEAD is the manuscript before this pass touched it, so it is the only
+    honest reference for whether a marker's old side is real. Markers are
+    stripped in case an earlier pass's markers were committed.
+    """
+    rel = os.path.relpath(os.path.abspath(lo_path), repo)
+    proc = subprocess.run(["git", "-C", repo, "show", f"HEAD:{rel}"],
+                          capture_output=True, text=True)
+    if proc.returncode != 0:
+        return None
+    return MARKER_RE.sub("", proc.stdout)
+
+
+def unreal_spans(markers, lo_path, repo):
+    """Markers whose old side is not in the committed chapter.
+
+    This is the check that catches a fabricated marker. A marker stands in
+    place of the span it flags, so accepting one replaces the marker with
+    its new side: if old was never in the manuscript, then new is not a
+    correction of anything and accepting it writes invented text into the
+    book. The web-app import path has verified this since it was written
+    (gc_import_handoff.py verify()); the agent-written path never did, and
+    an agent that invented both sides of a marker produced text that read
+    plausibly and was caught only because Brian diffed it by hand.
+
+    Whitespace is compared exactly and deliberately. A doubled space is a
+    real defect an auditor is meant to find, so normalising it here would
+    blind the check to the very edits hardest to review on screen.
+    """
+    committed = committed_text(lo_path, repo)
+    if committed is None:
+        return None, []
+    unreal = []
+    for mk in markers:
+        if mk["kind"] != "ok":
+            continue
+        old = mk.get("old")
+        if not old:
+            continue                      # an insertion proposes no old span
+        if old not in committed:
+            unreal.append(mk)
+    return committed, unreal
 
 
 def quote(text):
@@ -283,6 +330,7 @@ def main():
 
     paras = parse_english(read(en_path))
     markers, unclosed, questions = parse_markers(read(lo_path))
+    committed, unreal = unreal_spans(markers, lo_path, args.repo)
     sheet = build(chapter, lo_path, en_path, paras, markers, unclosed, questions)
 
     out = args.out or os.path.join(DEFAULT_OUT_DIR, f"gc{chapter}-resolution-sheet.md")
@@ -293,7 +341,17 @@ def main():
     damaged = sum(1 for m in markers if m["kind"] == "residue")
     print(f"wrote {out}")
     print(f"{intact} intact marker(s), {damaged} damaged, {unclosed} unterminated bracket(s), "
-          f"{len(questions)} question(s)")
+          f"{len(questions)} question(s), {len(unreal)} with an old side not in the chapter")
+
+    if committed is None:
+        print("NOTE: the chapter is not in HEAD, so old sides could not be verified.")
+    for mk in unreal:
+        print(f"\nUNREAL #{mk['num']} {{GC {mk['ref']}}} {mk['cls']} {mk['sev']}")
+        print(f"  old: {mk['old'][:160]}")
+        print(f"  This span is not in the committed chapter, so the marker does not")
+        print(f"  stand in place of anything. Accepting it writes its new side into")
+        print(f"  the manuscript as invented text. Delete the marker; do not resolve it.")
+
 
 
 if __name__ == "__main__":
