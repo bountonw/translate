@@ -25,14 +25,17 @@ The English file is the reference. great-controversy.eu may be consulted to veri
     lo/GC/04_assets/translation_profile/GC-clergy-fixes.md
     lo/GC/04_assets/translation_profile/GC-open-terms.md
 
-1.D. Two scripts:
+1.D. Three scripts:
 
     lo/GC/04_assets/scripts/gc_termcheck.py
     lo/GC/04_assets/scripts/gc_punctcheck.py
+    lo/GC/04_assets/scripts/gc_formfind.py
 
 Invoke each by that exact relative path from the repository root, and always pass gc_termcheck.py --glossary explicitly; the permission allow-rule matches on the command prefix, so a different spelling of the same path prompts on every batch.
 
-1.E. Session files in ~/claude-sandbox/gc-audit/: gcNN-companion.md and gcNN-glossary-proposals.txt, and nothing else outside the chapter. The first batch creates them — the companion with the title line "# GC NN — companion document" and no class named in it, the proposals file with the four section headers of 8.A — and later batches insert under those headers. gcNN-report.md belongs to gc-run-check alone: never create it, never append to it, and if a dispatch names it, say so in your return and leave it alone.
+1.D.1. Any corpus-wide question about a Lao form is answered with gc_formfind.py and never with a grep of your own. It takes one or more forms, accepts --project GC to scope the search, and groups every occurrence by the words on either side. That grouping is the point: a raw count of a short form silently includes matches that span a word boundary and are not the form at all, and a batch that counted ປ່ອຍປະ by hand reported seven sites where three were real, because ປົດປ່ອຍ|ປະເທດ and ປ່ອຍ|ປະຊາຊົນ each look like a hit. The script separates those into visibly different groups; a count cannot. Read the groups before you quote a number to the conductor, and quote the table rather than a prose summary of it.
+
+1.E. Session files in ~/claude-sandbox/gc-audit/: gcNN-companion.md and gcNN-glossary-proposals.txt, and nothing else outside the chapter. The first batch creates the proposals file, with the four section headers of 8.A, and later batches insert under those headers. The companion is created by whichever batch first has an entry to write, and by no batch before then: it opens with the title line "# GC NN — companion document" and no class named in it, and the batch that creates it adds the "## Questions" section of 7.D at the end. A chapter in which no batch ever needs an entry therefore ends with no companion file at all, which is Brian's ruling of 14 August — the file's existence has to mean it holds something, or he opens it for nothing. Never create it empty to reserve the name, and never report its absence as a defect. gcNN-report.md belongs to gc-run-check alone: never create it, never append to it, and if a dispatch names it, say so in your return and leave it alone.
 
 1.F. Read your range, not the book. Both manuscript files are anchored by "## {GC ###.#}" headings, so cut your range out with sed or awk and read that; context you load is the dominant cost of a run. Corpus-wide evidence is still expected, gathered with grep, which returns lines rather than files, and never by reading another chapter.
 
@@ -66,6 +69,7 @@ Invoke each by that exact relative path from the repository root, and always pas
 3.C. CLARITY threshold: report only if you can name, in one sentence, the specific wrong reading. Referential or attachment ambiguity, negation or coordination scope, stacked pre-verb clauses, no pause point for an audiobook narrator. If you cannot name the misreading, no marker.
 3.D. The audiobook constraint is live: every proposed fix must survive being read aloud, and pronoun chains must resolve without visual context.
 3.E. Scope-narrowing is a FACT error at MED or higher: Christendom rendered as Europe, "thousands" given a precise count, a broad group rendered as a narrow subset.
+3.F. Content added or dropped is ALWAYS marked, even where you judge it licensed, and section 5 never reaches it. Where the Lao carries a clause the English does not, or drops one the English has, write the ADDITION or OMISSION marker and say in the note why you think it may stand — the same shape 2.A.1 requires of a punctuation finding you disagree with. Judging it licensed and leaving it unmarked puts the decision inside your head, where Brian cannot reach it; marking it puts the decision at his cursor, which is where it belongs, and a marker he dismisses at a glance costs him far less than a difference he never sees. This is Brian's ruling of 14 August, given after a batch found two such differences in one paragraph and marked neither.
 
 ## 4. Marker syntax
 
@@ -102,7 +106,7 @@ A note beginning verify: marks an open question, not a deletion proposal. Two ge
 
 ## 5. Never report
 
-These are editorial decisions, not errors. No marker.
+These are editorial decisions, not errors. No marker. None of them reaches a clause the Lao adds or drops, which item 3.F always marks.
 
 5.A. Word choice, synonyms, register, honorific level; restructuring, merging, or reordering that preserves content; idioms rendered non-literally.
 5.B. The style of punctuation and spacing — where a comma falls, whether a clause takes a dash — unless an actual spelling error or the same word spelled two ways. The backslash codes \s and \S are the typesetting pipeline's flex and rigid space markers, not stray literals. A transposed compound is looked up, never judged afresh: if the pair stands in glossary section 12 it is settled and gets no marker whichever order this chapter uses; if it does not, it gets a SPELL marker whose note begins verify: and gives both orders, plus a section 12 row in the proposals file so the next chapter finds the answer. Never assume a transposition is a literary variant — a slip and a deliberate choice produce identical evidence.
@@ -141,18 +145,19 @@ These are editorial decisions, not errors. No marker.
 
 7.C. What the English context must contain: for OMISSION and ADDITION, the disputed span in full plus enough of its sentence to place it; for CLARITY, the sentence whose reading is at issue; for ALIGN, both paragraphs at the disagreeing boundary. Brian resolves at the cursor and must never hunt for the English.
 
-7.D. End the companion with a section headed "## Questions", created empty by the first batch. It is the two-way channel between Brian and the conductor: Brian writes questions there, the conductor writes answers there. No batch auditor ever writes into that section, not even to answer something it sees; anything you want to raise goes in your return to the conductor.
+7.D. End the companion with a section headed "## Questions", added by whichever batch creates the file under 1.E. It is the two-way channel between Brian and the conductor: Brian writes questions there, the conductor writes answers there. No batch auditor ever writes into that section, not even to answer something it sees; anything you want to raise goes in your return to the conductor. Where no batch had an entry and so no companion exists, that channel has no file for the chapter, and it is the conductor who creates one if Brian asks a question there.
 
 ## 8. Glossary proposals file
 
-8.A. Four labeled sections, each present even when empty (write: none): main terms; spelling (glossary section 10); proper nouns (glossary section 11); GC-open-terms.md additions.
-8.B. The three glossary sections contain paste-ready pipe-delimited rows in the destination table's exact column structure — rows only, no table headers, no separator rows. Context travels in the Notes cell. The open-terms section contains full entry text, paste-ready.
+8.A. Five labeled sections, each present even when empty (write: none): main terms; spelling (glossary section 10); proper nouns (glossary section 11); compound word-order pairs (glossary section 12); GC-open-terms.md additions. Each names where the row is going, and section 12 is the one item 5.B already requires you to write.
+8.B. The four glossary sections contain paste-ready pipe-delimited rows in the destination table's exact column structure — rows only, no table headers, no separator rows. Context travels in the Notes cell. The open-terms section contains full entry text, paste-ready.
 8.C. Size binds every row and entry you propose, because what you write lands in a file every agent loads on every dispatch. A Notes cell and an open-terms entry each carry at most 15 words of prose, refs excluded, on one line: the approved form and the operative rule, nothing else. Counts, per-site refs and reasoning go in your return to the conductor, or in the companion where the point needs a paragraph, never into the row.
 
 ## 9. When uncertain
 
 9.A. Never guess. Never silently skip. Anything you cannot resolve becomes a marker in its proper class at the point of doubt, empty new side, note beginning verify: with the question stated in one sentence.
 9.B. Do not invent a fix you would not defend. An honest verify: beats a fabricated correction.
+9.B.1. Where the manuscript and a governing file disagree, mark the site with both forms and let Brian choose. Never write no marker on the ground that the text is right: the book has been the wrong side often enough that being in it is not evidence.
 9.C. Copy every span you put in a marker out of the file; never type one from memory. A marker replaces the span it flags, so a span that was never in the manuscript writes invented text into the book the moment Brian accepts it.
 9.D. If a file, the anchor scheme, or a tool behaves unexpectedly, stop and report it to the conductor instead of improvising around it.
 
@@ -162,7 +167,7 @@ These are editorial decisions, not errors. No marker.
 
 10.B. Your report goes to the conductor, who rewrites it for Brian, so give him numbered items, each carrying a label from FIX, DECIDE, NOTE, RESOLVED, the reference that locates it, and one plain sentence in complete English. The shape of Brian's report is the conductor's problem, not yours.
 
-10.C. Use DECIDE for an item that needs Brian in conversation rather than at the cursor, and NOTE for the counts by class and severity. The reference mark is the marker number and its anchor:
+10.C. Use DECIDE for an item that needs Brian in conversation rather than at the cursor, and NOTE for the counts by class and severity. A "verify: DECIDE" marker under 4.H is not automatically a DECIDE item here: it becomes one only where the decision reaches past its own site, into another chapter or several places in this one. Otherwise it stays in the file and he settles it at the cursor. The reference mark is the marker number and its anchor:
 
     1. DECIDE #5 {GC 239.3} — Philip II is given the emperor word, and he was never emperor.
     2. NOTE — counts by class and severity are in the detail section.

@@ -16,7 +16,7 @@
     gc_resolvecheck.py      the mechanical post-resolution sweep over the changed lines
     gc_resolution_sheet.py  the integrity count you read before reporting, per 3.F
 
-Three more are run by hand — by Brian, or by you on a side quest he has asked for. No batch agent invokes them.
+Four more are run by hand — by Brian, or by you on a side quest he has asked for. Two of them are also invoked by gc-batch-auditor and are not yours alone: gc_formfind.py under its 1.D.1, which requires it for every corpus-wide question about a Lao form, and gc_punctcheck.py under its 2.A.1 on every batch. Only gc_govcheck.py and gc_import_handoff.py are never invoked by an agent.
 
     gc_govcheck.py          proves a reduction of the 2.C governing files lost nothing;
                             test_gc_govcheck.py proves it still fails when it should
@@ -44,7 +44,7 @@ Three more are run by hand — by Brian, or by you on a side quest he has asked 
 3.E. If gc-run-check returned PASS and the proposals file has at least one section that is not "none", dispatch gc-glossary-merge with the chapter number and the fact that run-check passed. Never dispatch it on a failed run, and never during a run — it is the only agent allowed to write a governing file, and it may do so only once every batch has been judged against the frozen one. If run-check failed, skip the merge and say so.
 3.F. Run python3 lo/GC/04_assets/scripts/gc_resolution_sheet.py --chapter NN before you report and read its summary line: intact markers, damaged markers, unterminated brackets, and markers whose old side is not in the committed chapter. That last count means an agent typed a span from memory instead of copying it, so delete those markers and establish the finding again. The sheet the script writes is not a deliverable and Brian does not need its path; he resolves from your report and the marker notes. It only reads, so re-run it whenever markers change.
 
-3.G. Report to Brian: the counts table from gcNN-report.md, any run-check failures, the merge report's applied and escalated counts, and any items the auditors raised for conversation. Nothing else. Brian resolves markers in Emacs and reviews the glossary changes with git diff; your run is done.
+3.G. Report to Brian: the counts table from gcNN-report.md, any run-check failures, the merge report's applied and escalated counts, and those auditor items whose effects reach past their own site — outside the chapter, or several places inside it. Nothing else: a decision confined to one marker is settled at the cursor, and repeating it in the report makes him read the same thing twice. He resolves markers in Emacs and reviews the glossary changes with git diff; your run is done.
 
 ## 4. Rules
 

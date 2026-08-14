@@ -34,6 +34,11 @@ REF = re.compile(r'\s*\{GC\s+[\d.]+\}\s*$')
 FOOTREF = re.compile(r'(\[\^\d+\])+\s*$')
 FOOTDEF = re.compile(r'^\[\^\d+\]:')
 CITATION = re.compile(r'\([^()]*\)$')
+# An audit marker holds English prose in its note, which punctuates by its own
+# rules. Replace each marker with the old side it stands in front of, so the rest
+# of the paragraph is still checked; skipping the whole line hides real defects
+# for as long as any marker remains on it.
+MARKER = re.compile(r'\[\[[A-Z]+ [A-Z]+ #\d+[a-z]?\|([^|]*)\|.*?\]\]', re.S)
 
 TERMINAL = '.!?…'
 CLOSERS = '”’)»*'
@@ -71,7 +76,9 @@ def paragraphs(path, first=None, last=None):
             if match:
                 anchor = match.group(1)
                 continue
-            if not line or line.startswith('#') or '[[' in line:
+            if '[[' in line:
+                line = MARKER.sub(lambda m: m.group(1).split(' -> ')[0], line)
+            if not line or line.startswith('#'):
                 continue
             if low or high:
                 key = ref_key(anchor)
@@ -87,10 +94,13 @@ def strip_trailing(text):
     return FOOTREF.sub('', REF.sub('', text)).rstrip()
 
 
-# A hyphen is legitimate only inside a Latin-script token such as THA-ER or
-# Shiro-Phoenician, and in the \nbsp{}-\nbsp{} construction. An em dash is
-# legitimate only inside an italic English title. Anything else is a finding.
-LATIN_HYPHEN = re.compile(r'[A-Za-z]-[A-Za-z]')
+# A hyphen is legitimate where it joins two letters, and a finding anywhere else.
+# It joins Latin letters in an acronym or name such as THA-ER, and Lao letters in
+# a compound of two proper nouns, as at {GC 515.2} where Syrophenician is written
+# ຊາວຊີເຣຍ-ໂຟນີເຊຍ; Brian ruled on 14 August that the Lao compound stands. The
+# \nbsp{}-\nbsp{} construction is the typesetting pipeline's and is also allowed.
+# An em dash is legitimate only inside an italic English title.
+WORD_HYPHEN = re.compile(r'[A-Za-z຀-໿]-[A-Za-z຀-໿]')
 NBSP_DASH = re.compile(r'\\nbsp\{\}-\\nbsp\{\}')
 
 
@@ -118,7 +128,10 @@ def check_chapter(path, out, first=None, last=None):
                     'paragraph ends with no sentence-final punctuation', text[-60:])
 
         # 2. period belongs inside the closing quote
-        if text.endswith(RQUOTE) and len(text) > 1 and text[-2] not in TERMINAL + '’':
+        # An italic span may close between the period and the quotation mark, as
+        # in *ສະພາບນີ້ໄດ້ເກີດຂຶ້ນໃນທຸກຄະນະນິກາຍ.*” — the period is still inside the quote.
+        inner = text[:-1].rstrip('*_') if text.endswith(RQUOTE) else ''
+        if inner and inner[-1] not in TERMINAL + '’':
             out('quote-no-period', anchor, name, num,
                 'closing quote with no period before it', text[-50:])
 
@@ -149,10 +162,10 @@ def check_chapter(path, out, first=None, last=None):
         # 6. dashes: a hyphen belongs inside a Latin word, an em dash inside a title
         for match in re.finditer(r'-', text):
             window = text[max(0, match.start() - 1):match.end() + 1]
-            if LATIN_HYPHEN.search(window) or NBSP_DASH.search(text):
+            if WORD_HYPHEN.search(window) or NBSP_DASH.search(text):
                 continue
             out('stray-hyphen', anchor, name, num,
-                'hyphen outside a Latin-script word',
+                'hyphen not joining two letters',
                 text[max(0, match.start() - 30):match.end() + 20])
         for match in re.finditer(r'—', text):
             if '*' in text:
@@ -216,7 +229,7 @@ CHECKS = {
     'space-before-punct': 'whitespace before a punctuation mark',
     'doubled-punct': 'the same punctuation mark twice',
     'colon-no-quote': 'paragraph ends with a colon but no quotation follows',
-    'stray-hyphen': 'hyphen outside a Latin-script word',
+    'stray-hyphen': 'hyphen not joining two letters, Latin or Lao',
     'stray-em-dash': 'em dash outside an italic title',
     'paren-unbalanced': 'parentheses do not balance',
     'bracket-unbalanced': 'square brackets do not balance',

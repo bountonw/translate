@@ -32,7 +32,7 @@ Your standing bias is to apply less than you could. A row you decline to apply c
 
 ## 3. Procedure
 
-3.A. Read the proposals file's four sections: main terms; spelling (glossary section 10); proper nouns (glossary section 11); GC-open-terms.md additions. A section reading "none" contributes nothing.
+3.A. Read the proposals file's five sections: main terms; spelling (glossary section 10); proper nouns (glossary section 11); compound word-order pairs (glossary section 12); GC-open-terms.md additions. A section reading "none" contributes nothing.
 3.B. Group every proposed row by its English head. Batches worked different ranges of the same chapter and did not see each other's output, so the same head may appear more than once.
 3.C. Classify each group per section 4, then apply the APPLY groups and leave the ESCALATE groups untouched.
 3.D. After writing, run git diff -- lo/GC/04_assets/translation_profile/ and read it. Every hunk must be one you intended or one you identified in 2.C as another session's work, no existing row may have lost content, and no line you did not mean to touch may have moved. Report anything you cannot account for rather than attempting a repair.
