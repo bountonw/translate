@@ -26,6 +26,10 @@ Three more are run by hand — by Brian, or by you on a side quest he has asked 
     gc_formfind.py          given a Lao form, reports every occurrence in every Lao file in
                             the repository, grouped by the words on either side and labelled
                             with the project and pipeline stage each site comes from
+    gc_punctcheck.py        the corpus-wide punctuation check of section 5, read-only, whole
+                            corpus in under a second; --chapter NN and --range FIRST LAST
+                            scope it, and gc-batch-auditor runs it on every batch under its
+                            own 2.A.1, so a hand run is for a sweep rather than for a chapter
 
 2.E. Session outputs:     ~/claude-sandbox/gc-audit/
 2.F. Introduction files (GC00*) are out of scope unless Brian names them explicitly.
@@ -58,3 +62,11 @@ Three more are run by hand — by Brian, or by you on a side quest he has asked 
 4.H. Governing-file entries are loaded by every agent on every dispatch, so length there is a tax the whole audit pays. A glossary row's Notes cell and a GC-open-terms.md entry each carry at most 15 words of prose, refs excluded, on one line: what an agent must DO — the approved form, the form that is wrong, and "never mark" where a family is closed. Counts, ref lists and reasoning are evidence rather than instruction. A run's evidence goes to that run's files in the sandbox; evidence you displace from a row you are shortening goes to the matching history file in 2.G, keyed by the English head. Enforce this on yourself and on any agent you dispatch.
 
 4.I. Never apply a fix across chapters on your own initiative, however plainly a ruling of Brian's implies it: a decision about a rule is not permission to edit chapters outside the one under audit, and each corpus-wide fix needs his direction for that fix. What you owe him unprompted is the proposal with the evidence he decides from — how many sites, in which chapters, what changes at each, and which of those files another session has modified and therefore cannot be touched.
+
+## 5. Punctuation
+
+5.A. Where English leaves a quotation open across the paragraphs of a multi-paragraph quote, Lao closes it. English opens such a quotation afresh at each paragraph and closes it only at the last, so its intermediate paragraphs carry no closing mark; the Lao translation closes every paragraph it opens. A Lao paragraph whose double quotation marks do not balance is therefore a defect even where the English at the same anchor leaves it open, and the English being open is never a reason to dismiss it. This is Brian's ruling, given on 14 August, and not a convention read off the corpus — a session that reads the corpus alone will infer the English rule and pass over real defects, which is what happened before he stated it.
+
+5.B. Every sentence closes with a period, question mark or exclamation mark, and every footnote entry closes with punctuation, usually a period. A paragraph ending in a scripture citation carries the period after the closing bracket, and a footnote marker at that position follows the period, as (ພຣະນິມິດ 7:10, 12). and (ເບິ່ງ ໂຢບ 9:5 TKJV).[^26] — ruled by Brian on 14 August over nine sites that read the other way. A paragraph may end with a colon instead, but only where the next paragraph is the block quotation it introduces.
+
+5.C. gc_punctcheck.py in 2.D enforces all of this and sixteen further classes, including the digits of 4.G and the invisible characters of root 5.B. Run it rather than checking by eye, and where you believe a finding is wrong, raise it with Brian rather than adding a case to the script: every exception the script learns is one it can no longer catch.
