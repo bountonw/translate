@@ -11,7 +11,7 @@
 | English | Lao | Notes |
 |---|---|---|
 | Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ / ຜູ້ນຳສາສະໜາ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ; non-Christian cleric → ຜູ້ນຳສາສະໜາ, GC 362.1 |
-| Fanatic / Fanatics / Fanaticism | ພວກທີ່ຄັ່ງໄຄ້ / ຄວາມຄັ່ງໄຄ້ | [CHECK] GC 190.3–196.3 |
+| Fanatic / Fanatics / Fanaticism | ຄັ່ງໄຄ້ / ຄັ່ງສາສະໜາ / ຄັ່ງໄຄ້ສາສະໜາ / ຄັ່ງໄຄ້ຫຼົງໄຫຼ / ບ້າສາສະໜາ | DECIDED by Brian at GC 22 and GC 23. These five cores accepted under any prefix; mark any other form. ບ້າສາສະໜາ is sneering register. GC 190.3–196.3, 336.2, 410.3 |
 | High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
 | Castle | ຜາສາດຫີນ | [CHECK] The head for every English *castle*; NOT ຕຳນັກ, NOT ປາສາດ. Bare ຜາສາດ is licensed anaphorically, but only where the full form is already established for the same referent in the same chapter and a proper name or an immediate antecedent pins it — GC 187.4 ຜາສາດຫີນແຫ່ງວາດເບີກ, then GC 188.4 ຜາສາດວາດເບີກ. An unpinned bare ຜາສາດ reads as a palace, which is what went wrong at GC 140.2. ຫີນ alone marks the castle sense. ຫໍ is a free building classifier that attaches to either head without changing it — ຫໍຜາສາດຫີນ is still a castle (GC 57.3, 221.4), ຫໍຜາສາດ still a palace (GC 228.3, 636.3). 10 attestations; GC 129.2, 168.1, 215.3 |
 | Palace / Mansions | ຜາສາດ | [CHECK] A churchman's or a noble's house, and "mansions" in the John 14:2 sense (GC 301.1, 548.2, 674.4). ຕຳນັກ is an accepted variant for a papal or pontifical residence, and GC 60.2 sets the two against each other in one sentence deliberately (ຕຳນັກ of the popes, ຜາສາດ of the prelates); cf. GC 576.1. ຫໍຜາສາດ is this head carrying the building classifier (GC 228.3, 636.3), not a ຫໍຜາສາດຫີນ that has lost its ຫີນ. NOT for a king's house — see the royal row. 7 attestations; GC 60.2, 228.3, 636.3 |
@@ -119,7 +119,7 @@
 | Rebaptism | ການຮັບບັບຕິສະມາໃໝ່ | [CHECK] |
 | "The end justifies the means" | ການບັນລຸເປົ້າໝາຍລ້ວນແຕ່ສ້າງຄວາມຊອບທຳໃຫ້ແກ່ວິທີການ | Jesuit principle |
 | Adventists | ແອັດເວັນຕິສ | [CHECK] |
-| Midnight Cry | ສຽງຮ້ອງຍາມທ່ຽງຄືນ | [CHECK] |
+| Midnight Cry | ສຽງຮ້ອງປະກາດຍາມທ່ຽງຄືນ | [CHECK] DECIDED by Brian at GC 22. Mark any other form. GC 398.2, 400.1, 402.1, 408.1 |
 | Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ | [CHECK] |
 | Cherubim | ເຄຣຸບ | [CHECK] |
 | Seraphim | ເສຣາຟິມ | [CHECK] |
@@ -212,7 +212,8 @@
 | Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
 | Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
 | Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
-| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດຕ່າງໆທີ່ມີພື້ນຖານຄຣິສຕຽນ / ທຸກປະເທດທີ່ຄົນສ່ວນໃຫຍ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດຕ່າງໆທີ່ມີພື້ນຖານຄຣິສຕຽນ / ທຸກປະເທດທີ່ຄົນສ່ວນໃຫຍ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທີ່ຄົນສ່ວນໃຫຍ່ເປັນຄຣິສຕຽນ / ວົງການຄຣິສຕຽນ / ໂລກຄຣິສຕຽນ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ. ວົງການຄຣິສຕຽນ for the religious sphere only. GC 382.2, GC 396.2 |
+| Christian world | ວົງການຄຣິສຕຽນ / ໂລກຄຣິສຕຽນ | [CHECK] DECIDED by Brian at GC 22. Both forms are options; mark any other. GC 464.1, 478.1, 547.3, 574.1, 584.1, 586.2, 589.2, 592.2 |
 | Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
 | Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
 | Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks. Duke is NOT collapsed here — it has its own row, and both of its two corpus occurrences are already settled there |
@@ -278,6 +279,8 @@
 | Rabbi | ຣັບບີ | ຣາບີ | [CHECK] Brian decided; all sites corrected at GC 314.1, GC 315.2, GC 363.1 |
 | Adventure (book title) | ຜະຈົນໄພ | ພະຈົນໄພ | [CHECK] Sole corpus occurrence, footnote at GC 357.2 |
 | Low / humble | ຕ່ຳຕ້ອຍ | ຕໍ່າຕ້ອຍ | [CHECK] Separated vowel spelling; Incorrect form only at GC 369.3 and GC 221.3 |
+| Magazine / Journal | ວາລະສານ | ວໍລະສານ | [CHECK] Footnote apparatus. GC 401.2 |
+| Water (and AM generally) | ນ້ຳ | ນໍ້າ | [CHECK] Incorrect cell decomposes AM as U+0ECD plus U+0EB2; composed U+0EB3 only. GC 407.1 |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
@@ -383,7 +386,7 @@
 | Scandinavia | ສະແກນດິເນເວຍ | [CHECK] |
 | Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | [CHECK] |
 | Latimer | ລາຕິເມີ | [CHECK] |
-| Barnes | ບາເນດ | [CHECK] |
+| Barnes | ບານສ໌ | [CHECK] Robert Barnes GC 248.2; Albert Barnes GC 376.3. Never ບາເນດ |
 | Frith | ຟຣິດ | [CHECK] |
 | Ridley | ຣິດລີ | [CHECK] |
 | Cranmer | ເຄນເມີ | [CHECK] |
@@ -567,6 +570,23 @@
 | Bethlehem | ເບັດເລເຮັມ | [CHECK] ເມືອງ prefix; the town, not the Bethlehem Chapel row. GC 339.3 |
 | Galilee | ຄາລີເລ | [CHECK] ແຂວງ for the region, ຊາວ for its people. GC 339.2 |
 | (periodical and newspaper titles) | footnote: kind-word + full English title, Latin, italicised. Inline: kind-word + Lao name + English in parentheses | GC-wide, applied. Footnotes are consulted, so print the title exactly, nothing dropped. Running text is read and most Lao readers cannot read English, so never bare English there. Kind-word must fit the work — ໜັງສືພິມ newspaper, ວາລະສານ magazine, ປຶ້ມ book — and never repeats a Journal or Magazine already in the title. Books keep their rendering; only the kind-word is fixed |
+| The Wesleys | ສອງອ້າຍນ້ອງເວສະລີ | [CHECK] John and Charles named together; GC 253.1, 253.2, 256.4, 257.1, 257.3, 396.1 |
+| Nineveh | ນີເນເວ | [CHECK] Only corpus occurrences; GC 406.1 |
+| James White / J. White | ເຈມສ໌ ໄວທ໌ | [CHECK] Author citation, Life of Wm. Miller; GC 406.2 |
+| Philadelphia | ຟີລາເດັນເຟຍ | [CHECK] GC 376.3; also GC 20 |
+| Oberlin College | ວິທະຍາໄລ ໂອເບີລິນ | [CHECK] English follows in parentheses at first use. GC 377.1 |
+| Religious Telescope | ກ້ອງສ່ອງຝ່າຍສາສະໜາ | [CHECK] Periodical; English follows in parentheses in running text. GC 377.2 |
+| Babylon | ບາບີໂລນ | [CHECK] GC 381.1 |
+| Babel | ບາເບນ | [CHECK] Source of the name Babylon. GC 381.1 |
+| Gavazzi | ກາວາຊີ | [CHECK] Footnote author. GC 384.5 |
+| Howard Crosby | ຮາວວາດ ໂກຣສະບີ | [CHECK] Quoted author. GC 387.1 |
+| Washburn | ວາສະເບີນ | [CHECK] Governor of Wisconsin, quoted. GC 387.3 |
+| Wisconsin | ວິສະຄອນຊິນ | [CHECK] English follows in parentheses at first use. GC 387.3 |
+| Robert Atkins | ໂຣເບີດ ແອັດຄິນສ໌ | [CHECK] Preacher quoted from a London sermon. GC 388.1 |
+| New York Independent | ນິວຢອກອິນດີເພັນເດັນ | [CHECK] Periodical; English follows in parentheses. GC 386.2 |
+| Charles Beecher | ຊານສ໌ ບີເຊີ | [CHECK] Follows the ຊານສ໌ of the other Charles rows. GC 388.3; also GC 444.3 |
+| Indiana | ອິນດີແອນາ | [CHECK] GC 388.3 footnote; also GC 444.3 |
+| Fort Wayne | ຟັອດເວນ | [CHECK] GC 388.3 footnote; also GC 444.3 |
 ---
 
 ## 12. Lao Compound Word-Order Pairs (GC)
@@ -579,3 +599,5 @@
 | ຊົມຊື່ນ / ຊື່ນຊົມ | Both orders stand | GC12 resolution | ຊົມຊື່ນ at GC 218.2; ຊື່ນຊົມ at GC 218.1 and GC 220.4. Both orders are well attested corpus-wide. Never marked again |
 | ອົດທົນ / ທົນອົດ | Both orders stand; ທົນອົດ is intended emphasis | Brian, GC 16 | Only site GC 296.2. Never mark |
 | ຊື່ສັດ / ສັດຊື່ | Both orders stand | Brian, GC 20 | Poetic variation; vary both in positive and negative constructions. Never mark |
+| ຫຸ້ມຫໍ່ / ຫໍ່ຫຸ້ມ | Both orders stand | Brian, GC 23 | Poetic licence. Never mark |
+| ປະປ່ອຍ / ປ່ອຍປະ | Both orders stand | Brian, GC 23 | Poetic licence. Never mark |
