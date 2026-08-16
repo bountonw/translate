@@ -173,7 +173,7 @@ def context(hit, width):
     return f"{lead}{before}[{text[start:end]}]{after}{tail}"
 
 
-def report(form, hits, order, width, per_group, show_all):
+def report(form, hits, order, width, per_group, show_all, max_groups):
     if not hits:
         print(f"{form} — no occurrence in any corpus searched.")
         print("The form is unattested in this corpus. That is not a verdict "
@@ -203,12 +203,16 @@ def report(form, hits, order, width, per_group, show_all):
     def tabulate(title, ordered):
         print()
         print(f"{title} — {len(ordered)} distinct")
-        for label, members in ordered:
+        shown = ordered if show_all else ordered[:max_groups]
+        for label, members in shown:
             where = defaultdict(int)
             for hit in members:
                 where[hit["source"]] += 1
             spread = " ".join(f"{s}:{where[s]}" for s in order if where[s])
             print(f"  {label}  —  {len(members)}  ({spread})")
+        if len(shown) < len(ordered):
+            print(f"  … and {len(ordered) - len(shown)} further constructions, "
+                  "largest first; pass --all or raise --max-groups")
 
     ordered = grouped("follows", hits)
     tabulate("WHAT FOLLOWS IT", ordered)
@@ -219,7 +223,9 @@ def report(form, hits, order, width, per_group, show_all):
             return
         print()
         print(heading)
-        for token, members in grouped("follows", subset):
+        groups = grouped("follows", subset)
+        capped = groups if show_all else groups[:max_groups]
+        for token, members in capped:
             print(f"  {token}")
             shown = members if show_all else members[:per_group]
             for hit in shown:
@@ -229,6 +235,10 @@ def report(form, hits, order, width, per_group, show_all):
             if not show_all and len(members) > per_group:
                 print(f"    … and {len(members) - per_group} more; "
                       "pass --all to see them")
+            print()
+        if len(capped) < len(groups):
+            print(f"  … and {len(groups) - len(capped)} further constructions "
+                  "not listed; pass --all or raise --max-groups")
             print()
 
     sites(hits, "SITES, grouped by what follows the form")
@@ -252,6 +262,10 @@ def main():
                              "(default 2)")
     parser.add_argument("--per-group", type=int, default=3, metavar="N",
                         help="sites to show per construction (default 3)")
+    parser.add_argument("--max-groups", type=int, default=25, metavar="N",
+                        help="constructions to list, largest first "
+                             "(default 25); guards against a common form "
+                             "returning hundreds of thousands of characters")
     parser.add_argument("--all", action="store_true",
                         help="show every site, not just the first few")
     args = parser.parse_args()
@@ -279,7 +293,8 @@ def main():
         if index:
             print("\n" + "─" * 70 + "\n")
         hits = find(form, files, lexicon, longest, args.span, args.near)
-        report(form, hits, order, args.context, args.per_group, args.all)
+        report(form, hits, order, args.context, args.per_group, args.all,
+               args.max_groups)
     return 0
 
 

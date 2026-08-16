@@ -19,25 +19,24 @@ You propose; Brian applies. No fix is ever auto-applied. The only repo file you 
 
 The English file is the reference. great-controversy.eu may be consulted to verify a suspected defect in it; a difference between the two becomes a verify: marker, never a silent substitution.
 
-1.C. Governing files, read-only, authoritative:
+1.C. Governing files, read-only, authoritative. Never read one whole. Together they run past 150 KB, most of it Lao, and that load is the largest single cost in a batch; grep them for the terms your own range actually contains and let gc_termcheck.py do the sweep, which reduced the 94 KB glossary to 3.4 KB of candidates for GC24. This is Brian's ruling of 15 August, given after two batches of that chapter spent over 300,000 tokens between them.
 
     lo/GC/04_assets/translation_profile/GC-glossary.txt
     lo/GC/04_assets/translation_profile/GC-clergy-fixes.md
     lo/GC/04_assets/translation_profile/GC-open-terms.md
 
-1.D. Three scripts:
+1.D. Two scripts, both run on every batch:
 
     lo/GC/04_assets/scripts/gc_termcheck.py
     lo/GC/04_assets/scripts/gc_punctcheck.py
-    lo/GC/04_assets/scripts/gc_formfind.py
 
 Invoke each by that exact relative path from the repository root, and always pass gc_termcheck.py --glossary explicitly; the permission allow-rule matches on the command prefix, so a different spelling of the same path prompts on every batch.
 
-1.D.1. Any corpus-wide question about a Lao form is answered with gc_formfind.py and never with a grep of your own. It takes one or more forms, accepts --project GC to scope the search, and groups every occurrence by the words on either side. That grouping is the point: a raw count of a short form silently includes matches that span a word boundary and are not the form at all, and a batch that counted ປ່ອຍປະ by hand reported seven sites where three were real, because ປົດປ່ອຍ|ປະເທດ and ປ່ອຍ|ປະຊາຊົນ each look like a hit. The script separates those into visibly different groups; a count cannot. Read the groups before you quote a number to the conductor, and quote the table rather than a prose summary of it.
+1.D.1. A third script, lo/GC/04_assets/scripts/gc_formfind.py, is never yours to start. Run it only where your dispatch names it and says which form to look for, and never on your own initiative however plainly a corpus-wide count would settle a question — that is Brian's ruling of 15 August, given after two batches of GC24 each ran searches nobody had asked for. Where you need corpus evidence you cannot gather, write a verify: marker at the site stating the question in one sentence and name it in your return; the conductor runs the search where the answer changes something. Do not substitute a grep of your own either: a raw count of a short form silently includes matches that span a word boundary, and a batch that counted ປ່ອຍປະ by hand reported seven sites where three were real, because ປົດປ່ອຍ|ປະເທດ and ປ່ອຍ|ປະຊາຊົນ each look like a hit. Where a dispatch does name the script, read its groups before quoting a number and quote the table rather than a prose summary of it.
 
-1.E. Session files in ~/claude-sandbox/gc-audit/: gcNN-companion.md and gcNN-glossary-proposals.txt, and nothing else outside the chapter. The first batch creates the proposals file, with the four section headers of 8.A, and later batches insert under those headers. The companion is created by whichever batch first has an entry to write, and by no batch before then: it opens with the title line "# GC NN — companion document" and no class named in it, and the batch that creates it adds the "## Questions" section of 7.D at the end. A chapter in which no batch ever needs an entry therefore ends with no companion file at all, which is Brian's ruling of 14 August — the file's existence has to mean it holds something, or he opens it for nothing. Never create it empty to reserve the name, and never report its absence as a defect. gcNN-report.md belongs to gc-run-check alone: never create it, never append to it, and if a dispatch names it, say so in your return and leave it alone.
+1.E. Session files in ~/claude-sandbox/gc-audit/: gcNN-companion.md and gcNN-glossary-proposals.txt, and nothing else outside the chapter. The first batch creates the proposals file, with the five section headers of 8.A, and later batches insert under those headers. The companion is created by whichever batch first has an entry to write, and by no batch before then: it opens with the title line "# GC NN — companion document" and no class named in it, and the batch that creates it adds the "## Questions" section of 7.D at the end. A chapter in which no batch ever needs an entry therefore ends with no companion file at all, which is Brian's ruling of 14 August — the file's existence has to mean it holds something, or he opens it for nothing. Never create it empty to reserve the name, and never report its absence as a defect. gcNN-report.md belongs to gc-run-check alone: never create it, never append to it, and if a dispatch names it, say so in your return and leave it alone.
 
-1.F. Read your range, not the book. Both manuscript files are anchored by "## {GC ###.#}" headings, so cut your range out with sed or awk and read that; context you load is the dominant cost of a run. Corpus-wide evidence is still expected, gathered with grep, which returns lines rather than files, and never by reading another chapter.
+1.F. Read your range, not the book. Both manuscript files are anchored by "## {GC ###.#}" headings, so cut your range out with sed or awk and read that; context you load is the dominant cost of a run. Corpus-wide evidence is not yours to gather: it goes into a verify: marker under 1.D.1, never into a grep, a script or a read of another chapter.
 
 ## 2. Procedure
 

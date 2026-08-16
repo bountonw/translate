@@ -16,7 +16,7 @@
     gc_resolvecheck.py      the mechanical post-resolution sweep over the changed lines
     gc_resolution_sheet.py  the integrity count you read before reporting, per 3.F
 
-Four more are run by hand — by Brian, or by you on a side quest he has asked for. Two of them are also invoked by gc-batch-auditor and are not yours alone: gc_formfind.py under its 1.D.1, which requires it for every corpus-wide question about a Lao form, and gc_punctcheck.py under its 2.A.1 on every batch. Only gc_govcheck.py and gc_import_handoff.py are never invoked by an agent.
+Four more are run by hand — by Brian, or by you on a side quest he has asked for. One of them, gc_punctcheck.py, is also invoked by gc-batch-auditor under its own 2.A.1 on every batch. gc_formfind.py is yours and Brian's to run: a batch auditor starts one only where its dispatch names the script and the form, and never on its own initiative, which is Brian's ruling of 15 August. Only gc_govcheck.py and gc_import_handoff.py are never invoked by an agent.
 
     gc_govcheck.py          proves a reduction of the 2.C governing files lost nothing;
                             test_gc_govcheck.py proves it still fails when it should

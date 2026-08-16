@@ -120,7 +120,7 @@
 | "The end justifies the means" | ການບັນລຸເປົ້າໝາຍລ້ວນແຕ່ສ້າງຄວາມຊອບທຳໃຫ້ແກ່ວິທີການ | Jesuit principle |
 | Adventists | ແອັດເວັນຕິສ | [CHECK] |
 | Midnight Cry | ສຽງຮ້ອງປະກາດຍາມທ່ຽງຄືນ | [CHECK] DECIDED by Brian at GC 22. Mark any other form. GC 398.2, 400.1, 402.1, 408.1 |
-| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ | [CHECK] |
+| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ / ການຊຳລະສະຖານນະມັດສະການ | [CHECK] Both heads stand, as in the Sanctuary row. GC 426.1 |
 | Cherubim | ເຄຣຸບ | [CHECK] |
 | Seraphim | ເສຣາຟິມ | [CHECK] |
 | Holy Communion | ມະຫາສະໜິດ | |
@@ -155,7 +155,7 @@
 | Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
 | Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
 | Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
-| Ancient of Days | ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ / ຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ | Varies by Bible version quoted |
+| Ancient of Days | ອົງຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ (LCV, NTCV) / ຜູ້ມີຊີວິດຢູ່ຕະຫຼອດໄປ (LO2012, LO2015) / ຜູ້ຈະເລີນດ້ວຍໄວຍະວຸດ (TKJV) / ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ (NTV) / ພຣະເຈົ້າອົງນິຣັນ | [CHECK] Form follows the version cited; ພຣະເຈົ້າອົງນິຣັນ outside Daniel 7 only. GC 424.2, 454.3, 479.1 |
 | Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
 | Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
 | Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
@@ -175,13 +175,14 @@
 | Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
 | Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
 | Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
+| Thousands | ຫຼາຍພັນຄົນ / ຫຼາຍໝື່ນຄົນ / ຄົນຈຳນວນຫຼວງຫຼາຍ | Translate for sense, not literally; never mark. GC 427.1 |
 | Jacob's trouble | ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | [CHECK] Jeremiah 30:7 |
 | Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
 | Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
 | New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
 | Holy City | ນະຄອນບໍຣິສຸດ / ນະຄອນສັກສິດ | Varies by Bible version quoted. EGW's prose takes the first, a scripture quotation the second. Both correct; never report either |
 | New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
-| Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | |
+| Close of probation | ເວລາແຫ່ງພຣະກະລຸນາ | Base form; ສິ້ນສຸດ or ໝົດ follows it. GC 428.2, 429.1 |
 | Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
 | Ordain / Ordination / Consecration (to sacred office) | ເຈີມຕັ້ງ | [CHECK] NOT ເຈີມ. Ecclesiastical office only. Attested: 70.2, 124.1, 173.2, 221.2, 238.3, 254.3, 274.1 |
 | Ordain (decree, appoint, institute) | ກຳນົດ / ແຕ່ງຕັ້ງ | NOT ເຈີມ; 69.2, 448.1, 449.1, 454.3, 592.1 |
