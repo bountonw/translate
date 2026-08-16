@@ -16,7 +16,9 @@ Detail: none written; this entry is the whole brief.
 
 Remove the name Brian in every form from the instruction files and replace it with "the user" or another generic term. The name appears 78 times across the eight core instruction files — root `CLAUDE.md`, `lo/GC/CLAUDE.md`, the five `gc-*` agent definitions and `.claude/commands/gc.md` — and about 25 more times in the audit scripts, the governing files, this queue and `04_assets/history/`.
 
-The count understates the work. Those files also carry roughly 54 third-person pronouns — he, his, him, himself — that refer to the same person and read wrongly the moment the noun becomes "the user", so a find-and-replace on the name alone leaves the prose broken. Decide the replacement term and the pronoun it takes before any editing starts.
+The count understates the work. Those files also carry roughly 54 third-person pronouns — he, his, him, himself — that refer to the same person and read wrongly the moment the noun becomes generic, so a find-and-replace on the name alone leaves the prose broken.
+
+The replacement term was decided on 16 August: "the translator". The new th/SC instruction files already use it and avoid third-person pronouns entirely, which is the pattern for the sweep. The sweep itself stays queued and does not run until scheduled.
 
 Two boundaries to settle as part of the quest. The translator credit in `th/LBF/assets/LBF00_copyright.md` is a real byline and not an instruction, so it is presumably out of scope. The saved memories under `~/.claude/projects/` use the name throughout and are not repository files, so whether they are in scope is a separate decision.
 
@@ -99,3 +101,15 @@ This file sits at `lo/GC/04_assets/planning/SIDEQUESTS.md`, and four of its entr
 Deciding it means moving the file to a repository-level planning directory and repointing root `CLAUDE.md` 3.B and this file's own preamble, or leaving it and accepting that a GC path holds the whole repository's queue. Take it together with entry 8, which asks the same question about `unwrap.py`, since both turn on whether a repository-level home is opened at all.
 
 Detail: none needed beyond this entry.
+
+## 13. Run the deferred term "justification by faith" to a finish
+
+The glossary row was decided on 16 August and written into `lo/GC/04_assets/translation_profile/GC-glossary.txt` as `| Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |`, with no exception recorded in it for any chapter. The quest is to grep the corpus for the sites that do not conform and bring them to the row, chapter by chapter, with Brian deciding each.
+
+The inventory is already gathered. The English phrase occurs five times in the book. Two sites already carry the row's word and need nothing: GC 07 at {GC 140.3} reads ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ, which is where the row's form comes from, and GC 09 at {GC 178.2} reads ມະນຸດສາມາດຮັບການອະໄພບາບ ແລະ ເປັນຄົນຊອບທຳໄດ້ໂດຍຜ່ານພຣະໂລຫິດຂອງພຣະຄຣິສ, using the same word as a verb clause because the English there pairs "forgiveness and justification" and the Lao keeps that pair. Brian confirmed both on 16 August. GC 28 at {GC 483.3} renders the bare noun ຄວາມຊອບທຳ and was checked earlier.
+
+Three sites in GC 14 do not conform and are the substance of the quest: the subheading above {GC 253.2} reads ຄວາມລອດໂດຍທາງຄວາມເຊື່ອ, the main text at {GC 253.2} reads ຄວາມລອດພົ້ນໂດຍທາງຄວາມເຊື່ອ, and {GC 256.3} reads ຄວາມລອດດ້ວຍຄວາມເຊື່ອໃນພຣະໂລຫິດຂອງພຣະຄຣິສ. The argument for changing them is that the English sentence at 253.2 uses justification and salvation as two different words and the Lao gives both ຄວາມລອດ, so Luther's doctrine and Rome's goal end up sharing one name. The corpus supports the split: across the public chapters ຄວາມລອດ occurs 107 times against 112 occurrences of "salvation" in the English, and ຄວາມຊອບທຳ occurs 70 times against 84 of "righteousness". The proposal on the table is ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ at the subheading and at 253.2, and ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອໃນພຣະໂລຫິດຂອງພຣະຄຣິສ at 256.3. Nothing has been marked in GC 14; the decision is Brian's and the quest begins there.
+
+One correction belongs to this quest as well. The `DEFER-TERM "justification by faith"` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md` claims the GC 14 sites were DECIDED by Brian, and that claim has no support. The GC 14 run's own proposals file of 10 August ends the entry with "not adjudicated in batch", and the "Brian ruled" sentences first enter the repository in commit 66c183e of 11 August, written by an agent after the run. Strike them when the quest runs, and replace the whole entry with a pointer to the glossary row once GC 14 is settled. That file was modified by another session on 16 August, so it was left untouched then.
+
+Detail: this entry is the whole brief. Small once GC 14 is decided; the corpus grep is one pass.

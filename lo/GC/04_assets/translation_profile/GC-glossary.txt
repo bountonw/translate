@@ -241,6 +241,7 @@
 | In the capacity of / as (status) | ໃນຖານະ | Settled, Brian's decision at GC12. Capacity or status sense, and the form keeps its final ະ. Distinct in sense from the charge frame, which takes ໃນຖານ; see the ໃນຖານ row. The two are not interchangeable and neither is a variant spelling of the other |
 | On the ground of (charge, offence) | ໃນຖານ | Settled, Brian's decision at GC12. Charge frame only: ໃນຖານ + the offence charged, in a punishment or accusation. NOT a misspelling of ໃນຖານະ, and never to be marked as one. Corpus: ໃນຖານະ over 100 sites, all capacity sense; ໃນຖານ exactly 2, both punishment frames — GC 224.3 ("as agitators dangerous to the stability of the throne") and GC 48.2 (punished on the ground of an offence against Christ) |
 | Calvinists | ພວກຄະນະຄາວິນ | [CHECK] The persons who hold Calvin's teaching. Head is the John Calvin row's short form ຄາວິນ, built the same way as ຄະນະລູເທີແຣນ in the Lutheran row. Attested GC 292.1, inside the Robinson farewell quotation, where it stands against ພວກຄະນະລູເທີແຣນ in the same sentence. The English word occurs only twice in the book, GC13 and GC16; the other site, GC 244.2, renders it descriptively as ຕາມຄາວິນ paired with ຄຳສອນຂອງລູເທີ where the English pairs Calvinists with Lutherans, and that variation is accepted rather than narrowed |
+| Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |
 | Deist / Deists | ດິອິສ / ລັດທິດິອິສ | [CHECK] ພວກ or ຄົນ prefixes either form for persons; Latin gloss (Deist) at first use |
 ---
 
