@@ -34,6 +34,8 @@
 | Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
 | Representative (generic) | ຕົວແທນ | GC 92.2 |
 | Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
+| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Divine name follows the version cited; the third avoids the Tetragrammaton, after TH1971. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
+| Almighty (divine title) | ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Also renders Lord of hosts, avoiding the Tetragrammaton. GC 638.1, 676.4 |
 | Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
 | Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
 | Decree / Mandate (papal) | ຄຳສັ່ງ | [CHECK] GC 133.2, 141.1, 142.1; distinct from ໃບປະກາດພິເສດ = bull |
@@ -155,7 +157,7 @@
 | Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
 | Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
 | Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
-| Ancient of Days | ອົງຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ (LCV, NTCV) / ຜູ້ມີຊີວິດຢູ່ຕະຫຼອດໄປ (LO2012, LO2015) / ຜູ້ຈະເລີນດ້ວຍໄວຍະວຸດ (TKJV) / ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ (NTV) / ພຣະເຈົ້າອົງນິຣັນ | [CHECK] Form follows the version cited; ພຣະເຈົ້າອົງນິຣັນ outside Daniel 7 only. GC 424.2, 454.3, 479.1 |
+| Ancient of Days | ອົງຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ (LCV, TNCV) / ຜູ້ມີຊີວິດຢູ່ຕະຫຼອດໄປ (LO2012, LO2015) / ຜູ້ຈະເລີນດ້ວຍໄວຍະວຸດ (TKJV) / ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ (NTV) / ພຣະເຈົ້າອົງນິຣັນ | [CHECK] Form follows the version cited; ພຣະເຈົ້າອົງນິຣັນ outside Daniel 7 only. GC 424.2, 454.3, 479.1 |
 | Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
 | Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
 | Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
@@ -443,7 +445,7 @@
 | Yemen | ເຢເມນ | [CHECK] |
 | Tatary / Tatar | ຕາຕາຣີ / ຊາວຕາຕ້າ | [CHECK] Land ຕາຕາຣີ, people ຊາວຕາຕ້າ, mirroring the English pair. GC 362.1 |
 | Wales | ເວລສ໌ | [CHECK] |
-| Edward A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
+| Edwards A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
 | Balaam | ບາລາອາມ | [CHECK] GC 529.2 |
 | Lucifer | ລູຊີເຟີ | [CHECK] Always ມັນ |
 | Adam | ອາດາມ | [CHECK] ເພິ່ນ pronoun |
@@ -512,7 +514,7 @@
 | Faber | ເຟເບີ | [CHECK] ດຣ. prefix at GC 205.2, ທ່ານ at GC 198.2 |
 | Heidelberg | ໄຮດັນເບີກ | [CHECK] ມະຫາວິທະຍາໄລແຫ່ງເມືອງໄຮດັນເບີກ |
 | Coburg | ໂຄເບີກ | [CHECK] |
-| Edward VI | ເອັດເວີດທີ 6 | [CHECK] GC 248.1, in the title of Latimer's first sermon before the king. Distinct from the existing Edward A. Park row |
+| Edward VI | ເອັດເວີດທີ 6 | [CHECK] GC 248.1, in the title of Latimer's first sermon before the king. Distinct from the Edwards A. Park row |
 | Morin | ໂມຣິນ | [CHECK] GC 225.2; ທ້າວ prefix. Royal detective under Francis I |
 | Italy | ອີຕາລີ | [CHECK] |
 | Europe | ເອີຣົບ | [CHECK] |
