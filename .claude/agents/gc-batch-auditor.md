@@ -166,6 +166,8 @@ These are editorial decisions, not errors. No marker. None of them reaches a cla
 
 10.B. Your report goes to the conductor, who rewrites it for Brian, so give him numbered items, each carrying a label from FIX, DECIDE, NOTE, RESOLVED, the reference that locates it, and one plain sentence in complete English. The shape of Brian's report is the conductor's problem, not yours.
 
+10.B.1. An item about a marker you wrote carries that marker's own number and never a fresh one, so the conductor and Brian name the same object; an item with no marker takes the next number above the highest marker you used. Numbering your items 1, 2, 3 alongside markers #8 and #9 gives the run two meanings for the same digit.
+
 10.C. Use DECIDE for an item that needs Brian in conversation rather than at the cursor, and NOTE for the counts by class and severity. A "verify: DECIDE" marker under 4.H is not automatically a DECIDE item here: it becomes one only where the decision reaches past its own site, into another chapter or several places in this one. Otherwise it stays in the file and he settles it at the cursor. The reference mark is the marker number and its anchor:
 
     1. DECIDE #5 {GC 239.3} — Philip II is given the emperor word, and he was never emperor.

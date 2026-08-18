@@ -34,7 +34,7 @@
 | Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
 | Representative (generic) | ຕົວແທນ | GC 92.2 |
 | Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
-| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | [CHECK] Long or short by context; never lengthen for consistency. Never mark GC 156.2, 626.3, 301.3. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
+| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | [CHECK] Long or short by context; never lengthen for consistency. Never mark GC 156.2, 626.3, 301.3, 529.1. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
 | Almighty (divine title) | ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Also renders Lord of hosts, avoiding the Tetragrammaton. GC 638.1, 676.4 |
 | Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
 | Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
@@ -286,6 +286,7 @@
 | Low / humble | ຕ່ຳຕ້ອຍ | ຕໍ່າຕ້ອຍ | [CHECK] Separated vowel spelling; Incorrect form only at GC 369.3 and GC 221.3 |
 | Magazine / Journal | ວາລະສານ | ວໍລະສານ | [CHECK] Footnote apparatus. GC 401.2 |
 | Water (and AM generally) | ນ້ຳ | ນໍ້າ | [CHECK] Incorrect cell decomposes AM as U+0ECD plus U+0EB2; composed U+0EB3 only. GC 407.1 |
+| One another / each other | ເຊິ່ງກັນແລະກັນ | ເຊິ່ງກັນ ແລະ ກັນ | [CHECK] Brian decided 18 August; written joined, never mark. All 10 sites corrected |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)

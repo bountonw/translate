@@ -40,6 +40,8 @@ Paragraphs are anchored by {GC ###.#} tags; report every hit by its anchor.
 
 The summary list is one line per item, grouped in priority order FIX, DECIDE, NOTE, RESOLVED. Each line carries a number, the label in block capitals, the reference that locates the item — a {GC ###.#} anchor or a full path and line — and then a short description in ordinary English. A DECIDE line ends with the option you recommend and the reason for it, in one sentence or two at most. Name the subject on every line: a pronoun, a quantifier or a bare label points at nothing on his screen, and a description that refers to a change instead of stating it fails the same way. Nothing in the report sits outside a numbered item.
 
+An item about an inline marker carries that marker's own number and never a fresh one, so that a number Brian types names the same object in the manuscript, in the report and in his reply; an item with no marker takes the next number above the chapter's highest marker. Write every item so that it can be understood with no memory of the exchange that produced it: name the text, the file and the change inside the item itself, and give the actual figures rather than a summarising word such as "both" or "several" standing in for them.
+
 The detail section repeats each summary line as its heading, in the same order, with a labelled block beneath it:
 
     EN:    the English source, quoted verbatim, with enough context to place it and the words at issue in **bold**
