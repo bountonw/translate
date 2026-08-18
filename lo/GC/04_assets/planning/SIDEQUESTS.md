@@ -72,11 +72,11 @@ Detail: none needed. A move and one line in a procedure file.
 
 ## 9. Set up the SC Thai project
 
-`th/SC/` has the stage directories and a Typst pipeline — `book.typ` and `typst-custom/` — but none of the audit scaffolding that `lo/GC/` carries. There is no procedure file, no `04_assets/translation_profile/` with governing files, and no agent that knows the project. Nine chapters sit in `02_edit` and two in `03_public`, so the work is in progress and an audit has something to run against.
+Scaffolding was built on 16 August: the procedure file `th/SC/CLAUDE.md`, the `sc-batch-auditor` and `th-glossary-miner` agents, the `/sc` command, and the English sources copied into `th/SC/00_source/`. Nine chapters sit in `02_edit`, two in `03_public`, and SC12 and SC13 in `01_raw` await the pre-processing round.
 
-Decide as part of the quest how much of the GC apparatus a Thai project should inherit and how much is GC-specific. The chapter files are Typst rather than Markdown, so the paragraph-anchor convention the GC agents rely on has to be checked before anything is ported.
+Remaining: the decisions in the 16 August session report (QA round scope, Thai glossary home, citation style, default Bible version), the glossary mining run over `th/PP`, and the Google Docs pipeline build.
 
-Detail: none written yet.
+Detail: `th/SC/CLAUDE.md` and `th/SC/04_assets/planning/gdocs-workflow.md`.
 
 ## 10. Set up the SJ Thai project
 
