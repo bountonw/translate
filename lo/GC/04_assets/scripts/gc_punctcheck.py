@@ -44,6 +44,9 @@ TERMINAL = '.!?…'
 CLOSERS = '”’)»*'
 # A quote may run across paragraphs; each continuing paragraph reopens it.
 LQUOTE, RQUOTE = '“', '”'
+# The inner quotation. RSINGLE doubles as the apostrophe, which is why only an
+# excess of LSINGLE is ever reported; see check 3b.
+LSINGLE, RSINGLE = '‘', '’'
 
 
 def ref_key(anchor):
@@ -145,6 +148,15 @@ def check_chapter(path, out, first=None, last=None):
             out('quote-orphan-close', anchor, name, num,
                 'paragraph closes a quotation it did not open', text[:50])
 
+        # 3b. The same rule for the inner single quotation. Only an excess of
+        # opening marks is a finding: the closing mark is also the apostrophe, so
+        # a paragraph holding more closers than openers is ambiguous rather than
+        # wrong, and reporting that direction would bury the real ones.
+        singles = line.count(LSINGLE) - line.count(RSINGLE)
+        if singles > 0:
+            out('single-quote-unclosed', anchor, name, num,
+                'paragraph opens an inner quotation it does not close', text[-50:])
+
         # 4. stray and doubled punctuation
         for match in re.finditer(r'\s+([,.;:!?])', text):
             out('space-before-punct', anchor, name, num,
@@ -226,6 +238,7 @@ CHECKS = {
     'quote-no-period': 'closing quote with no period before it',
     'quote-unclosed': 'quote opens, is never closed, and the next paragraph does not reopen it',
     'quote-orphan-close': 'closing quote with no opening quote',
+    'single-quote-unclosed': 'inner quotation opens and is never closed',
     'space-before-punct': 'whitespace before a punctuation mark',
     'doubled-punct': 'the same punctuation mark twice',
     'colon-no-quote': 'paragraph ends with a colon but no quotation follows',

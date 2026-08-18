@@ -158,9 +158,14 @@ def parse_markers(text):
 def committed_text(lo_path, repo):
     """The chapter as HEAD holds it, with any marker stripped back out.
 
-    HEAD is the manuscript before this pass touched it, so it is the only
-    honest reference for whether a marker's old side is real. Markers are
-    stripped in case an earlier pass's markers were committed.
+    HEAD stands in for the manuscript as it was before this pass began, and
+    it is the only reference the script has. Markers are stripped in case an
+    earlier pass's markers were committed.
+
+    The substitution only holds while the chapter is unmodified. Brian
+    resolves markers between rounds and commits when a chapter is finished,
+    so during a run his own resolved text is in the working tree and not in
+    HEAD, and a marker written over it looks fabricated. See uncommitted().
     """
     rel = os.path.relpath(os.path.abspath(lo_path), repo)
     proc = subprocess.run(["git", "-C", repo, "show", f"HEAD:{rel}"],
@@ -168,6 +173,20 @@ def committed_text(lo_path, repo):
     if proc.returncode != 0:
         return None
     return MARKER_RE.sub("", proc.stdout)
+
+
+def uncommitted(lo_path, repo):
+    """True when the chapter in the working tree differs from HEAD.
+
+    When it does, HEAD is a stale reference and an UNREAL verdict cannot be
+    trusted: the old side may be Brian's own uncommitted resolution rather
+    than an invented span. The finding is still worth printing, but as a
+    question rather than as an instruction to delete.
+    """
+    rel = os.path.relpath(os.path.abspath(lo_path), repo)
+    proc = subprocess.run(["git", "-C", repo, "diff", "--quiet", "HEAD", "--", rel],
+                          capture_output=True, text=True)
+    return proc.returncode != 0
 
 
 def unreal_spans(markers, lo_path, repo):
@@ -345,12 +364,19 @@ def main():
 
     if committed is None:
         print("NOTE: the chapter is not in HEAD, so old sides could not be verified.")
+    stale = unreal and uncommitted(lo_path, args.repo)
     for mk in unreal:
         print(f"\nUNREAL #{mk['num']} {{GC {mk['ref']}}} {mk['cls']} {mk['sev']}")
         print(f"  old: {mk['old'][:160]}")
-        print(f"  This span is not in the committed chapter, so the marker does not")
-        print(f"  stand in place of anything. Accepting it writes its new side into")
-        print(f"  the manuscript as invented text. Delete the marker; do not resolve it.")
+        if stale:
+            print(f"  This span is not in the committed chapter, but the chapter has")
+            print(f"  uncommitted changes, so it may be Brian's own resolved text and")
+            print(f"  not an invented span. Search the working file for it before you")
+            print(f"  act: delete the marker only if it is absent there too.")
+        else:
+            print(f"  This span is not in the committed chapter, so the marker does not")
+            print(f"  stand in place of anything. Accepting it writes its new side into")
+            print(f"  the manuscript as invented text. Delete the marker; do not resolve it.")
 
 
 

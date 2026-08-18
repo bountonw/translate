@@ -21,6 +21,44 @@ GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
 CLASSES = "OMISSION ADDITION FACT REF NOTE ALIGN SPELL TERM GRAM CLARITY FIX".split()
 MIN_SPELL_LEN = 4
 
+# A whole, well-formed marker. Passes 1 to 3 hunt for the debris a half-deleted
+# marker leaves behind — a close bracket, an arrow, a pipe, a note fragment —
+# and every one of those is also a normal part of an intact marker. Reporting
+# them against an intact marker produced six BROKEN lines describing a marker
+# that was perfectly sound, which buries the one line that matters when a
+# marker really has been torn open. So an intact marker is masked out of those
+# passes and reported once, on its own line, as still standing.
+MARKER_FULL = re.compile(
+    r"\[\[(?:" + "|".join(CLASSES) + r") (?:HIGH|MED|LOW) #(\d+[a-z]?)\|([^|]*)\|.*?\]\]",
+    re.S)
+
+
+def mask_markers(text):
+    """The text with every intact marker blanked, and the markers found.
+
+    Blanks are the same length as what they replace, so every character offset
+    taken from the masked text still points at the right place in the original
+    and anchor_of keeps working.
+    """
+    found = []
+
+    def blank(m):
+        found.append((m.group(1), m.start()))
+        return " " * len(m.group())
+
+    return MARKER_FULL.sub(blank, text), found
+
+
+def resolve_markers(line):
+    """One line with each intact marker replaced by the span it stands over.
+
+    Blanking would leave a run of spaces that the doubled-space check reports,
+    and deleting would close two words up against each other. Putting the old
+    side back gives the line the shape it has once the marker is resolved,
+    which is the text these line-by-line passes are meant to judge.
+    """
+    return MARKER_FULL.sub(lambda m: m.group(2).split(" -> ")[0], line)
+
 # Section 10 candidates Brian has already adjudicated, keyed by {GC ###.#}
 # anchor. A section 10 row can be context-dependent -- ທ່ານ is a wrong form
 # only of the Pope, and correct as an ordinary honorific before a personal
@@ -31,6 +69,7 @@ SETTLED = {
     "281.3": {"ທ່ານ"},  # honorific before a personal name: ທ່ານ ໂວນແຕ (Voltaire)
     "299.1": {"ທ່ານ"},  # same honorific: ທ່ານ ເອນົກ (Enoch), ທ່ານ ໂຢບ (Job)
     "370.2": {"ທ່ານ"},  # second person in Matthew 24 and Revelation 3, and of Jesus; not the Pope
+    "494.1": {"ທ່ານ"},  # "Thou hast said" of Isaiah 14:13, addressed to Lucifer; not the Pope
 }
 LAO = re.compile(r"[຀-໿]")
 
@@ -56,8 +95,18 @@ def changed_lines(rel, base):
 
 
 def anchor_of(text, idx):
-    """The {GC ###.#} heading governing a character offset."""
-    heads = [(m.start(), m.group(1)) for m in re.finditer(r"\{GC (\d+\.\d+)\}", text)]
+    """The {GC ###.#} heading governing a character offset.
+
+    Only a heading line counts. A marker note cites other paragraphs by
+    anchor, and counting those made a finding at {GC 494.1} report itself as
+    {GC 45.1}, a paragraph in another chapter, because that ref stood inside
+    the note. A wrong anchor is worse than none: it sends the reader to real
+    text that has nothing to do with the finding.
+    """
+    heads = [(m.start(), m.group(1))
+             for m in re.finditer(r"^##\s*\{GC (\d+\.\d+)\}\s*$", text, re.M)]
+    if not heads:
+        heads = [(m.start(), m.group(1)) for m in re.finditer(r"\{GC (\d+\.\d+)\}", text)]
     cur = "?"
     for pos, a in heads:
         if pos > idx:
@@ -153,6 +202,13 @@ def main():
              f"Thai character U+{ord(m.group()):04X} in Lao text; wrong keyboard",
              text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
 
+    # --- intact markers: reported once each, then masked out of passes 1 to 3 ---
+    swept, standing = mask_markers(text)
+    swept_changed = [(ln, resolve_markers(line), line) for ln, line in changed]
+    for num, pos in standing:
+        flag("BROKEN", anchor_of(text, pos),
+             f"marker #{num} still standing; resolve it before this check")
+
     # --- pass 1: marker residue, chapter-wide ---
     for pat, msg in [(r"\[\[", "unresolved or half-deleted marker"),
                      (r"\]\]", "marker close bracket"),
@@ -160,21 +216,21 @@ def main():
                      (r"\}\}", "inline question close"),
                      (r"verify:", "marker note fragment"),
                      (r"\b(" + "|".join(CLASSES) + r") (HIGH|MED|LOW) #", "marker header fragment")]:
-        for m in re.finditer(pat, text):
+        for m in re.finditer(pat, swept):
             flag("BROKEN", anchor_of(text, m.start()), msg,
                  text[max(0, m.start() - 25):m.start() + 25].replace("\n", " "))
 
     # --- pass 2: splice leftovers, changed lines only ---
-    for ln, line in changed:
+    for ln, line, raw in swept_changed:
         for pat, msg in [(r"->", "splice arrow left in the text"),
                          (r"\|", "stray pipe from a marker field")]:
             if re.search(pat, line):
-                flag("BROKEN", anchor_of(text, text.find(line)), msg, line[:60])
+                flag("BROKEN", anchor_of(text, text.find(raw)), msg, line[:60])
 
     # --- pass 3: mechanical, changed lines only ---
     bad_forms = incorrect_forms()
-    for ln, line in changed:
-        anchor = anchor_of(text, text.find(line)) if line.strip() else "?"
+    for ln, line, raw in swept_changed:
+        anchor = anchor_of(text, text.find(raw)) if line.strip() else "?"
         if "  " in line:
             flag("FIX", anchor, "doubled space")
         if re.search(r"\s+[,.;:!?]", line):
