@@ -161,3 +161,43 @@ proof that the manuscript keeps the two titles strictly apart, and the first
 version of these rows was built on that reading. It proves only that both
 forms are available at one site; the choice between them at any given site
 follows the version cited, not the English head.
+
+## Prince (titles of rank) — one row added by Brian's ruling at GC 29
+
+Why the row exists. The pre-pass reported "prince of angels" at GC 494.1 and
+"the prince of evil" at GC 501.2 as candidates for the Prince / princes
+(within a kingdom) row, which expects ຂຸນນາງ, a noble subject to a crown.
+Neither is a civil noble. Brian asked whether misunderstandings were arising
+from these renderings and ruled on 18 August that the two senses be carried
+by one combined row rather than by a row each.
+
+What the corpus does. ເຈົ້າແຫ່ງ plus the domain is the manuscript's formula
+for these titles, and no competing head noun appears at any site.
+
+    ເຈົ້າແຫ່ງຄວາມມືດ        prince of darkness   GC 45.1, 50.2, 59.3, 507.3,
+                                                 514.2, 534.1, 553.3
+    ເຈົ້າແຫ່ງຄວາມຊົ່ວຮ້າຍ    prince of evil       GC 501.2, 551.2, 570.1, 584.2
+    ອົງສັນຕິຣາດ             Prince of Peace      GC 46.3, 86.2 (Isaiah 9:6)
+    ເມຊີອາຜູ້ເປັນປະມຸກ       Messiah the Prince   GC 326.1, 327.1, 345.1
+                                                 (Daniel 9:25)
+    ຜູ້ປົກຄອງໂລກນີ້          prince of this world GC 623.1 (John 14:30)
+
+Why ຊາຕານ and ມານຮ້າຍ stand in the row. At about ten further sites the
+English carries the title and the Lao simply names him, at GC 55.1, 76.1,
+342.1, 395.2, 396.1, 513.1, 593.1, 615.1, 634.1 and 663.1. A slash in the
+Lao cell means any listed option satisfies the row, so listing them stops the
+row reporting a false candidate at every one of those sites. The cost is that
+the row can no longer catch a site where the title is dropped altogether
+while Satan is still named. Strike the two forms if the title is later ruled
+obligatory.
+
+Whether Christ shares the title. He does not. "Prince of angels" occurs once
+in the whole English corpus, at GC 494.1, and it names Lucifer. Christ is
+"the Prince of heaven" once, at GC 667.1, and "the Archangel" four times,
+always inside the quotation of 1 Thessalonians 4:16. That last fact is why a
+Lao rendering built on the archangel idea is wrong for Lucifer here.
+
+GC 494.1 is the one open site. The Lao read ເທວະເທບອົງນີ້, which drops the
+rank and which stands nowhere else in the forty-two chapters; ທູດສະຫວັນ is
+the corpus word for an angel. Marker #22 carries the decision, and the ruled
+form is added to this row's Lao cell once Brian settles it.

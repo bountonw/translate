@@ -34,7 +34,7 @@
 | Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
 | Representative (generic) | ຕົວແທນ | GC 92.2 |
 | Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
-| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Divine name follows the version cited; the third avoids the Tetragrammaton, after TH1971. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
+| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | [CHECK] Long or short by context; never lengthen for consistency. Never mark GC 156.2, 626.3, 301.3. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
 | Almighty (divine title) | ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Also renders Lord of hosts, avoiding the Tetragrammaton. GC 638.1, 676.4 |
 | Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
 | Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
@@ -161,7 +161,7 @@
 | Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
 | Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
 | Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
-| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ | [CHECK] |
+| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ / ທູດສະຫວັນປະຈຳຕົວ | [CHECK] Both forms stand; never mark either. GC 512.2 |
 | Eternal torment / Hell | ການທໍລະມານຕະຫຼອດນິຣັນ / ຂຸມນະຣົກ | |
 | Immortality of the soul (doctrine) | ຄວາມເຊື່ອວ່າຈິດວິນຍານເປັນອະມະຕະ | Also: ດວງວິນຍານທີ່ອະມະຕະ |
 | Consciousness in death | ຄົນຍັງມີສະຕິຮູ້ສຶກຕົວຫຼັງຈາກຕາຍ | Descriptive |
@@ -198,6 +198,7 @@
 | Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
 | Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
 | Prince / princes (within a kingdom) | ຂຸນນາງ | [CHECK] Nobles subject to a crown — England, France, Spain; NOT ເຈົ້າແຂວງ. GC 85.3 |
+| Prince of evil / prince of darkness / prince of angels / Prince of Peace / Messiah the Prince / prince of this world | ເຈົ້າແຫ່ງຄວາມຊົ່ວຮ້າຍ / ເຈົ້າແຫ່ງຄວາມມືດ / ອົງສັນຕິຣາດ / ເມຊີອາຜູ້ເປັນປະມຸກ / ຜູ້ປົກຄອງໂລກນີ້ / ຊາຕານ / ມານຮ້າຍ | [CHECK] A title of rank, never ຂຸນນາງ; naming him plainly also passes. GC 45.1, 46.3, 50.2, 59.3, 86.2, 326.1, 327.1, 345.1, 494.1, 501.2, 507.3, 514.2, 534.1, 551.2, 553.3, 570.1, 584.2, 623.1 |
 | Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
 | Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
 | Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
@@ -592,6 +593,16 @@
 | Indiana | ອິນດີແອນາ | [CHECK] GC 388.3 footnote; also GC 444.3 |
 | Fort Wayne | ຟັອດເວນ | [CHECK] GC 388.3 footnote; also GC 444.3 |
 | Roman Empire (ancient) | ອານາຈັກໂຣມ | [CHECK] The realm; ຈັກກະພັດໂຣມ titles an emperor. DECIDED by Brian at GC 25. GC 438.2, 439.1 |
+| Palestine | ປາແລັດສະໄຕ | [CHECK] Usually ດິນແດນປາແລັດສະໄຕ |
+| Assyria / Assyrian | ອັດຊີເຣຍ | [CHECK] The king is ກະສັດອັດຊີເຣຍ |
+| Sennacherib | ເຊັນນາເກຣິບ | [CHECK] |
+| Capernaum | ກາເປນາອູມ | [CHECK] Usually ເມືອງກາເປນາອູມ |
+| Philippi | ຟີລິບປອຍ | [CHECK] Usually ເມືອງຟີລິບປອຍ |
+| Silas | ຊີລາ | [CHECK] |
+| Syrophoenician | ຊີເຣຍ-ໂຟນີເຊຍ | [CHECK] The woman of Mark 7 |
+| Gadara / Gadarenes | ເຄຣາເຊນ | [CHECK] EGW writes Gadara; Lao takes the Gerasene form, footnoted at GC 514.2 |
+| Simon Magus | ຊີໂມນໝໍເວດມົນຄາຖາ | [CHECK] |
+| Elymas the sorcerer | ເອລີມາໝໍເວດມົນຄາຖາ | [CHECK] |
 ---
 
 ## 12. Lao Compound Word-Order Pairs (GC)
@@ -606,3 +617,4 @@
 | ຊື່ສັດ / ສັດຊື່ | Both orders stand | Brian, GC 20 | Poetic variation; vary both in positive and negative constructions. Never mark |
 | ຫຸ້ມຫໍ່ / ຫໍ່ຫຸ້ມ | Both orders stand | Brian, GC 23 | Poetic licence. Never mark |
 | ປະປ່ອຍ / ປ່ອຍປະ | Both orders stand | Brian, GC 23 | Poetic licence. Never mark |
+| ກຳລັງເຫື່ອແຮງ / ເຫື່ອແຮງກຳລັງ | Both orders stand | Brian, GC 30 | Poetic licence. Never mark |
