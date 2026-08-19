@@ -70,6 +70,7 @@ SETTLED = {
     "299.1": {"ທ່ານ"},  # same honorific: ທ່ານ ເອນົກ (Enoch), ທ່ານ ໂຢບ (Job)
     "370.2": {"ທ່ານ"},  # second person in Matthew 24 and Revelation 3, and of Jesus; not the Pope
     "494.1": {"ທ່ານ"},  # "Thou hast said" of Isaiah 14:13, addressed to Lucifer; not the Pope
+    "559.1": {"ທ່ານ"},  # second person inside the Isaiah 8:19 quotation; not the Pope
 }
 LAO = re.compile(r"[຀-໿]")
 
