@@ -36,6 +36,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 1.H. An agent dispatched with the Agent tool does NOT receive this file. That was tested on 12 August with two probes, one generic and one with a custom definition, and both reported it absent from their context. So every agent definition that produces a report carries the format above in its own text, and a pointer to this file in place of it is a dead reference.
 
+1.I. A dispatched agent writes its full report to a file under ~/claude-sandbox/ and returns the path; the conductor copies the report into chat from that file rather than retelling it, so nothing is lost to regeneration and parallel agents cannot write over one another.
+
 ## 2. Register
 
 2.A. Write brief, complete English in every section. Never clip a line into fragments to save words: that is the defect Brian calls caveman talk, and he wants none of it anywhere in a report.
@@ -49,6 +51,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 3.A. Deferring is Brian's decision, never yours. If an issue is worth raising, put it in the same report: state it in one sentence and give it numbered options in the shape set out in 1.E and 1.F. Never write "not urgent" or "worth revisiting later" in place of putting the choice in front of him.
 
 3.B. When he does defer one, add it to `lo/GC/04_assets/planning/SIDEQUESTS.md` in the same reply that defers it, and say in that reply which position it took. That file is the queue and it is the only answer to "how many side quests are open and in what order" — never answer that from memory or from a chat. Delete an entry when its work is finished rather than marking it done, because a finished quest is in the git history. It sits under a numbered-stage assets directory because `.tooling/textlint/index.js` excludes those from every check; a document with no paragraph anchors cannot satisfy the reference-code rule and does not belong anywhere the linter walks.
+
+3.C. The drill command "model: X/Y/Z" — "fable: 7/3/1" is the default, and a bare "7/3/1" means that — asks for candidate wordings: dispatch the named model (Fable when none is named) at xhigh effort to weigh up to X candidates, show the top Y ranked in the report, and write the top Z into the inline marker as its proposal. "Up to" is literal: stop where the genuinely good options run out, and never pad toward X. In Brian's replies, "N. fixK" orders fix K applied inline at marker N with the marker deleted, and "N. applied" reports work he has already done himself.
 
 ## 4. Parallel sessions
 
