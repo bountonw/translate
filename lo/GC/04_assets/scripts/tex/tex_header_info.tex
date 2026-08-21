@@ -39,7 +39,8 @@
 % =============================================================================
 \makeatletter
 % Footnote mark in text: superscripted number
-\renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}}}
+\newcommand{\fnmarksep}{0.15em}
+\renewcommand{\@makefnmark}{\hbox{\textsuperscript{\normalfont\@thefnmark}\kern\fnmarksep}}
 
 % Footnote text: superscript number + space + content
 \renewcommand{\@makefntext}[1]{%

@@ -1,0 +1,56 @@
+// =============================================================================
+// Main book entry point
+// Always renders book mode (A5, book margins) — never proofs.
+// Compiles the complete book by including all chapters in order.
+// =============================================================================
+
+#import "04_assets/template/lib.typ": *
+
+#show: apply-styles
+
+// -----------------------------------------------------------------------------
+// Front matter
+// -----------------------------------------------------------------------------
+#include "04_assets/template/covers.typ"
+
+// -----------------------------------------------------------------------------
+// Chapters
+// -----------------------------------------------------------------------------
+#include "03_public/SJ01_th.typ"
+#include "03_public/SJ02_th.typ"
+#include "03_public/SJ03_th.typ"
+#include "03_public/SJ04_th.typ"
+#include "03_public/SJ05_th.typ"
+#include "03_public/SJ06_th.typ"
+#include "03_public/SJ07_th.typ"
+#include "03_public/SJ08_th.typ"
+#include "03_public/SJ09_th.typ"
+#include "03_public/SJ10_th.typ"
+#include "03_public/SJ11_th.typ"
+#include "03_public/SJ12_th.typ"
+#include "03_public/SJ13_th.typ"
+#include "03_public/SJ14_th.typ"
+#include "03_public/SJ15_th.typ"
+#include "03_public/SJ16_th.typ"
+#include "03_public/SJ17_th.typ"
+#include "03_public/SJ18_th.typ"
+#include "03_public/SJ19_th.typ"
+#include "03_public/SJ20_th.typ"
+#include "03_public/SJ21_th.typ"
+#include "03_public/SJ22_th.typ"
+#include "03_public/SJ23_th.typ"
+#include "03_public/SJ24_th.typ"
+#include "03_public/SJ25_th.typ"
+#include "03_public/SJ26_th.typ"
+#include "03_public/SJ27_th.typ"
+#include "03_public/SJ28_th.typ"
+#include "03_public/SJ29_th.typ"
+#include "03_public/SJ30_th.typ"
+#include "03_public/SJ31_th.typ"
+#include "03_public/SJ32_th.typ"
+
+// -----------------------------------------------------------------------------
+// Back matter
+// -----------------------------------------------------------------------------
+// #include "04_assets/template/glossary.typ"
+// #include "04_assets/template/index.typ"

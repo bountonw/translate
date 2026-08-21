@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "~/claude-sandbox"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(unlink:*)",
+      "Bash(shred:*)",
+      "Bash(git rm:*)",
+      "Bash(git clean:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(git switch -f:*)",
+      "Bash(git switch --discard-changes:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git branch -d:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch -m:*)",
+      "Bash(git branch -M:*)",
+      "Bash(git branch --delete:*)",
+      "Bash(git branch --move:*)",
+      "Edit(~/programming/translate/.git/**)",
+      "Edit(~/programming/translate/lo/GC/04_assets/sandbox*/**)",
+      "Edit(~/programming/translate/**/backup--typst-custom)",
+      "Edit(~/programming/translate/**/backup--typst-custom/**)",
+      "Edit(~/programming/translate/**/book.pdf)",
+      "Edit(~/claude-sandbox/**/backup--typst-custom)",
+      "Edit(~/claude-sandbox/**/backup--typst-custom/**)",
+      "Edit(~/claude-sandbox/**/book.pdf)",
+      "Edit(~/programming/translate/lo/assets/dictionaries/AA-glossary.txt)",
+      "Edit(~/programming/translate/lo/assets/translation_profile/GC-glossary.txt)",
+      "Edit(~/programming/translate/lo/assets/translation_profile/glossary-extraction-prompt.txt)"
+    ],
+    "allow": [
+      "Bash(git fetch:*)"
+    ],
+    "ask": [
+      "Bash(git pull:*)",
+      "Bash(git mv:*)",
+      "Bash(mv:*)"
+    ]
+  }
+}
