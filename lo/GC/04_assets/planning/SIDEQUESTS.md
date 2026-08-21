@@ -124,6 +124,14 @@ Seven things to know before touching AA text.
 
 Detail: none written; this entry is the whole brief.
 
+Two Claude web-app projects describe the AA project better than anything in this repository does, and importing them is the first step of the set-up rather than an afterthought. Ask Brian for them before designing a procedure file or governing files, because whatever they settle about scope, glossary or pipeline should shape those files rather than be reconciled with them afterwards.
+
+One chapter carries a problem that must be settled before AA06 is edited again. Chapter 6 exists in three states. The committed manuscript is the August 2025 line: Brian's Google Docs edits merged in, then the pre-edit spelling round of 88 corrections, all verified. Separately, months earlier, Gemini was given the AA translation profile and produced its own version of the chapter as a standalone file. Brian diffed that file against the chapter in this repository and began working through the resulting diff, accepting a hunk, declining it or rewording it as he went, until he stopped part-way.
+
+That partially resolved diff is parked at `lo/AA/04_assets/planning/AA06-gemini-partial.typ` in the AA repository, with a README beside it. It is neither a manuscript nor a rewrite: prose that reads cleanly in it has already been resolved and is Brian's decision, whichever side of the diff it came from, while the 18 parenthetical groups are the hunks he had not yet reached and hold the competing readings. Eleven of those groups have brackets the diff left unbalanced, from the clean (ພວມ/ກຳລັງ) to ((ຂ່າວສານແຫ່ງ))) and ( ແລະ ພາ)(ໄປຂັງຄຸກ)), and one carries an English gloss as a fourth option. It covers {AA 57.1} to {AA 62.1} only, with {AA 62.1} holding its anchor and no body, its tags are bare {AA 57.1} rather than #EGW[\{AA 57.1\}], and the AM vowel is decomposed throughout.
+
+Finishing it means resuming the diff from where Brian stopped, settling each remaining parenthetical group, deciding what happens to {AA 62.1} through {AA 69.1} which the diff never reached, and re-running the spelling round on the result. His instruction of 21 August was that this must not be attempted piecemeal in a chat and belongs to the project set-up, and that the work must not be lost, which is why the file is under version control rather than in a sandbox.
+
 ## 13. Where this queue belongs
 
 This file sits at `lo/GC/04_assets/planning/SIDEQUESTS.md`, and four of its entries — the three project set-ups and the anonymise sweep — are not GC work. Brian deferred the question on 14 August rather than deciding it, so it is recorded here rather than left in a chat.
