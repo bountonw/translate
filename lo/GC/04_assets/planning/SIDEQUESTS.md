@@ -24,7 +24,7 @@ Detail: none written; this entry is the whole brief.
 
 ## 3. Anonymise the instruction files
 
-Remove the name Brian in every form from the instruction files and replace it with "the user" or another generic term. The name appears 78 times across the eight core instruction files — root `CLAUDE.md`, `lo/GC/CLAUDE.md`, the five `gc-*` agent definitions and `.claude/commands/gc.md` — and about 25 more times in the audit scripts, the governing files, this queue and `04_assets/history/`.
+Remove the name Brian in every form from the instruction files and replace it with "the user" or another generic term. The name appears 78 times across the eight core instruction files — root `CLAUDE.md`, `lo/GC/CLAUDE.md`, the five `gc-*` agent definitions and `.claude/commands/gc.md` — and about 25 more times in the audit scripts, the governing files, this queue and `04_assets/history/`. The glossary part is already done: all 32 occurrences were removed from `lo/GC/04_assets/translation_profile/GC-glossary.txt` on 21 August, leaving the rest of each sentence intact.
 
 The count understates the work. Those files also carry roughly 54 third-person pronouns — he, his, him, himself — that refer to the same person and read wrongly the moment the noun becomes generic, so a find-and-replace on the name alone leaves the prose broken.
 
@@ -100,11 +100,29 @@ Detail: none written yet.
 
 ## 12. Set up the AA Lao project
 
-`lo/AA/` has the fullest raw material of the three — 62 English source files, 55 raw translations, four chapters in `02_edit` — and nothing in `03_public` but a placeholder. Like the others it has no procedure file, no `04_assets/translation_profile/` and no agents; its `04_assets` holds only temporary Typst source files.
+`lo/AA/` has the fullest raw material of the three — 58 English source files, 54 raw translations, four chapters in `02_edit` — and nothing in `03_public` but a placeholder. It has no procedure file, no `04_assets/translation_profile/` and no agents; its `04_assets` holds only temporary Typst source files. The chapter files are Typst rather than Markdown, which is the same portability question as SC and SJ.
 
-It is the closest of the three to GC, being Lao rather than Thai, so the glossary, the forbidden-terms list and the Lao-specific rules in root `CLAUDE.md` section 5 apply directly. The chapter files are Typst rather than Markdown, which is the same portability question as SC and SJ.
+Done on 21 August, before the project existed. A pre-edit spelling round ran over all 58 chapters on the `AA-fix-spelling` branch, in three commits, correcting roughly 4,900 sites. It fixed only spelling and mechanical character defects, on Brian's instruction of "absolutely zero editing". The three passes were: mechanical normalisation, which composed 4,049 decomposed AM vowels, stripped 327 zero-width spaces, and repaired 50 doubled tone or vowel marks, 5 misordered marks and one Thai fragment left untranslated at AA38 {AA 406.1}; a list-driven pass of about 400 corrections from `common-spelling.txt` and the linter's forbidden-terms list; and a word-form pass in which eight agents triaged 554 forms the dictionaries did not recognise, yielding 202 corrections. AA06 was excluded throughout because Brian is editing it on `AA06-edit`, and is being handled there.
 
-Detail: none written yet.
+Still to do. The project scaffolding itself, on the GC model: a procedure file, governing files under `04_assets/translation_profile/`, and agent definitions. About twenty single-occurrence forms remain that no authority can settle, including ປົກງັວມ at AA35 {AA 379.3}, ໂອຫັວ at AA41 {AA 434.4}, ດູມໍ in AA21 and ຖະນຸ; each needs the English at its anchor rather than a corpus lookup. AA06 also needs a structural check of the kind that found a missing paragraph in it.
+
+Seven things to know before touching AA text.
+
+1. Never add a word to any file under `lo/assets/dictionaries/`. The dictionaries and the GC corpus are the authority and the manuscript is corrected toward them. An unrecognised form is usually a typo, not a gap: `main.txt` carries ໂກຣິນໂທ and the manuscript's ໂກລິນໂທ was simply wrong. This is Brian's instruction of 21 August.
+
+2. In `lo/assets/dictionaries/common-spelling.txt` the left column is the correct form and the right lists the wrong variants, notwithstanding the file's own header, which reads `# bad | good` and is stale. Its row `ບົກຜ່ອງ | ບົກຜ່ອງ` carries the same form on both sides and does nothing.
+
+3. Two Lao forbidden-terms lists exist and they disagree. Use `.tooling/forbidden_terms/lao.txt` in this repository, which holds 313 rows in `wrong # correct` form, drives the textlint job, and agrees with the published GC chapters at every row. Never use `markdownlint/forbidden_terms/lao.txt` in the `translate-tooling` repository: it supplies no corrections and four of its entries flag the correct spelling rather than the wrong one, so a round driven by it changes ບົກຜ່ອງ, ປັດຈຸບັນ, ຫຸ້ນສ່ວນ and ຫຼີກລ່ຽງ away from the form GC uses.
+
+4. Lao running text has no word spaces, so a word-boundary regex such as `(?<![\u0e80-\u0eff])` matches almost nothing and a scan built on one reports a clean file when it is not. Match substrings and confirm each hit against a dictionary segmentation.
+
+5. Correct the whole word, never a bare syllable. This is Brian's ruling of 21 August, and it earned itself: ໜຸນ sat in three different words, one of which needed two syllables changed to reach ສະໜັບສະໜູນ, so a syllable swap would have left a form that is still wrong and no longer flagged.
+
+6. A correction whose wrong form is contained in its correct form will fire inside words that are already right. Applying ຟີເລໂມ to ຟີເລໂມນ turned 19 correct instances into ຟີເລໂມນນ. Guard such a pair with a lookaround, and check the count of the correct form before and after.
+
+7. A form that GC contains is not a misspelling. Rejecting any proposal whose wrong side appears in GC is what stopped ວາມ being rewritten to ຄວາມ at 3,843 sites, where ວາມ was only the tail of ຄວາມ left by a failed segmentation.
+
+Detail: none written; this entry is the whole brief.
 
 ## 13. Where this queue belongs
 
@@ -125,3 +143,25 @@ Three sites in GC 14 do not conform and are the substance of the quest: the subh
 One correction belongs to this quest as well. The `DEFER-TERM "justification by faith"` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md` claims the GC 14 sites were DECIDED by Brian, and that claim has no support. The GC 14 run's own proposals file of 10 August ends the entry with "not adjudicated in batch", and the "Brian ruled" sentences first enter the repository in commit 66c183e of 11 August, written by an agent after the run. Strike them when the quest runs, and replace the whole entry with a pointer to the glossary row once GC 14 is settled. That file was modified by another session on 16 August, so it was left untouched then.
 
 Detail: this entry is the whole brief. Small once GC 14 is decided; the corpus grep is one pass.
+
+## 15. Feed the Thai GC hyphenation candidates into the SC and SJ typesetting dictionaries
+
+Thai running text has no word spaces, so the Typst pipeline has to be told where a long word may break. Both Thai projects do this with `04_assets/template/dictionary.typ`, and the two files are separate copies of the same mechanism at very different stages: SJ carries 457 entries and SC carries 92.
+
+The Thai printed edition of GC supplies 133 more, taken from the places its own typesetter chose to break a word. They are in `th/GC/04_assets/editions/print/HYPHEN-CANDIDATES.tsv`, one per line, giving the break as `คริสต-จักร`, the joined word, how often the print breaks it, how often the word occurs unbroken elsewhere in the book, the first page it appears on, and a confidence note. Converting a row to an entry is mechanical: `คริสต-จักร` becomes `(word: "คริสตจักร", parts: ("คริสต", "จักร"))`.
+
+Only 17 of the 133 are already in SJ and 5 in SC, so this roughly doubles SC's dictionary.
+
+Two things need judgment. 125 rows are confirmed by the word appearing unbroken elsewhere in the book, but eight occur once only and their boundary was supplied by a reader rather than by evidence: อาชญา-กรรม, นักขัต-ฤกษ์, คริสตธรรม-กิตติคุณ, อสังหา-ริมทรัพย์, วิทเทม-บาก, พระราช-ชนนี, กรีน-แลนด์ and คอนเนต-ทิกัต. Those eight want a Thai reader before they go in. And the existing entries often break a word into every syllable, as `("พระ", "วิญ", "ญาณ", "บริ", "สุทธิ์")`, where these rows give a single morpheme boundary; settle whether the two styles coexist or whether the new rows should be broken further.
+
+The larger question the quest should answer is whether the two projects keep separate dictionaries at all. Hyphenation is a fact about Thai words rather than about a book, so a shared file with each project importing it would stop SC and SJ diverging, and would give SC the benefit of SJ's 457 entries at once.
+
+Order matters here. SC goes to print first and has a worktree already started, so SC is where the work lands and is proved. SJ has the larger dictionary and is the better source to merge from.
+
+Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
+
+## 16. Check the default Bible version's published year
+
+Establish which Lao Bible version the book treats as its default and what year that version was published, so the front matter and any version note can state it. The question arose on 21 August from the ruling that a quotation taken from the book's standard version carries no version label in its citation: the label is omitted precisely because the version is the default, so which version that is has to be recorded somewhere a reader can find it. The version abbreviations already in use across the chapters are the starting inventory.
+
+Detail: none written yet. Small; a lookup and one line of front matter.
