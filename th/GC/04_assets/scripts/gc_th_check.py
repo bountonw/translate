@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Mechanical checks on the extracted Thai printed edition.
+"""Mechanical checks on an extracted Thai edition.
 
 Everything here is decidable without judgment, so it runs on every file after
 every extraction rather than being sampled.  The paragraph-tag check compares
-the tags the print carries against the English source in lo/GC/00_source/,
-which is what makes it authoritative rather than merely self-consistent.
+the tags the Thai edition carries against the English source in
+lo/GC/00_source/, which is what makes it authoritative rather than merely
+self-consistent.
 
 Usage:
-    python3 th/GC/04_assets/scripts/gc_th_check.py DIR [--source lo/GC/00_source]
+    python3 th/GC/04_assets/scripts/gc_th_check.py DIR [--suffix print|alt]
+                                                       [--source lo/GC/00_source]
 """
 
 import argparse
@@ -51,12 +53,14 @@ def source_tags(source_dir, chapter, name):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("directory")
+    ap.add_argument("--suffix", default="print", help="print or alt")
     ap.add_argument("--source", default="lo/GC/00_source")
     args = ap.parse_args()
 
+    pattern = os.path.join(args.directory, f"GC*_{args.suffix}_th.typ")
     failures = 0
     total_tags = 0
-    for path in sorted(glob.glob(os.path.join(args.directory, "GC*_print_th.typ"))):
+    for path in sorted(glob.glob(pattern)):
         name = os.path.basename(path)
         chapter = int(re.search(r"GC(\d+)_", name).group(1))
         text = open(path, encoding="utf-8").read()
@@ -85,6 +89,10 @@ def main():
                 f"({len(comments)} against {len(tags)})"
             )
 
+        repeated = sorted({t for t in tags if tags.count(t) > 1})
+        if repeated:
+            problems.append(f"tags carried by more than one paragraph: {', '.join(repeated)}")
+
         expected = source_tags(args.source, chapter, name)
         if expected is not None:
             extra = [t for t in tags if t not in expected]
@@ -95,10 +103,9 @@ def main():
             if order != sorted(order):
                 problems.append("tags are out of the English source's order")
             if missing:
-                dupes = sorted({t for t in tags if tags.count(t) > 1})
                 problems.append(
-                    f"tags the print does not carry: {', '.join(missing)}"
-                    + (f" (the print repeats {', '.join(dupes)} instead)" if dupes else "")
+                    f"tags this edition does not carry: {', '.join(missing)}"
+                    + (f" (it repeats {', '.join(repeated)} instead)" if repeated else "")
                 )
 
         if problems:
@@ -107,7 +114,7 @@ def main():
             for p in problems:
                 print(f"    {p}")
 
-    print(f"\nfiles checked: {len(glob.glob(os.path.join(args.directory, 'GC*_print_th.typ')))}")
+    print(f"\nfiles checked: {len(glob.glob(pattern))}")
     print(f"paragraph tags: {total_tags}")
     print(f"files with something to look at: {failures}")
     return 0

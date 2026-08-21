@@ -1,7 +1,9 @@
-// The other Thai edition of The Great Controversy, from GC_th_alt-original.pdf.
-// Extracted from the print, not translated or edited. Only the paragraphs the
-// book tags with a {GC ###.#} number are kept; the publisher's own material is
-// listed in EXTRACTION-NOTES-ALT.tsv.
+// The other Thai edition of The Great Controversy, from GC_alt_th.pdf.
+// Extracted from the print, not translated or edited. Only text matching the
+// English chapter is kept: the publisher's pop-out boxes, end-of-chapter
+// filler, inserted headings and added comment were all deleted after
+// comparing every paragraph against lo/GC/00_source/, and the print's bold
+// and italic markup was removed because the English original carries none.
 
 // {GC 451.1}
 

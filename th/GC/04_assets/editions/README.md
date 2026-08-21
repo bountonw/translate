@@ -17,7 +17,15 @@ Every one of the 647 printed pages was read against a photograph of that page by
 
 ## What is in `alt/`
 
-One file per chapter, `GC01_alt_th.typ` through `GC42_alt_th.typ`, holding the 1,790 paragraphs that book tags with a `{GC ###.#}` number. That edition is 804 pages against the English book's 678, because its editors added a great deal of their own material: a 27-page introduction, a 41-page back section, 27 pages of portraits and English quotation graphics with Thai captions, a title and comment page in front of every chapter, and comment scattered through the text. None of that is in these files, and all of it is listed in `EXTRACTION-NOTES-ALT.tsv` with the page it came from and its opening words.
+One file per chapter, `GC01_alt_th.typ` through `GC42_alt_th.typ`, plus `GC00_intro_alt_th.typ` for the Introduction, holding 1,812 paragraphs in all.
+
+Four English paragraphs are not fully here. `{GC 67.3}` in GC04 and `{GC 410.3}` in GC23 are not in the Thai book at all. `{GC 98.2}` in GC06 renders only the last of its six English sentences. `{GC 356.1}` in GC20 quotes John 17:2 where the English has "the son of perdition". Everything else corresponds one paragraph to one paragraph.
+
+These files hold only text that matches the English original. That edition runs to 804 pages against the English book's 678, because its publisher added a great deal of its own: a 27-page introduction, a 41-page back section, 27 pages of portraits and English quotation graphics with Thai captions, a title and comment page in front of every chapter, pop-out boxes reprinting body sentences in decorated panels, filler padding the last page of a chapter, and headings, dates, reading lists and editorial comment printed between paragraphs. Every chapter was compared paragraph by paragraph against `lo/GC/00_source/` and all of it was deleted. `CLEANED.md` records each deletion by the paragraph it stood in, and `EXTRACTION-NOTES-ALT.tsv` lists by page and kind what the extraction had already set aside before that comparison began.
+
+Explanatory words the translator put inside a sentence were kept, including bracketed glosses and the English term printed beside a Thai one, because those are part of how this translator rendered the sentence. The printed edition's bold and italic markup was removed everywhere, because the English original carries no emphasis of any kind.
+
+`GC00_intro_alt_th.typ` is a special case. This edition prints no paragraph numbers at all in its Introduction, so the `{GC v.1}` through `{GC xii.2}` numbers in that file are ours, taken from the English paragraph each Thai paragraph renders. The file's own header says so.
 
 Its Unicode tables work, so the characters need no decoding table, but the SARA AM vowel is set as a ligature that those tables map to the replacement character, and all 10,071 are composed on the way out. The printed page number sits at the start of the last line of every page and is removed.
 
@@ -27,7 +35,7 @@ Both Thai books misprint a few `{GC ###.#}` numbers, almost always by repeating 
 
 The print edition needed five corrections, and `print/RENUMBERED.tsv` names each one, the file it stands in, and what it was changed from. The alt edition needed twelve, and `alt/RENUMBERED-ALT.tsv` does the same.
 
-`alt/RENUMBERED-ALT.tsv` also lists nine English paragraph numbers that the alt edition carries no paragraph for at all, because it runs those English paragraphs together with a neighbour. Nothing was invented to fill those gaps.
+Two English paragraphs are not in the alt edition at all, `{GC 67.3}` in GC04 and `{GC 410.3}` in GC23, and nothing was invented for either. Every other English paragraph now has exactly one Thai paragraph. Nine numbers the extraction had lost were recovered, and `alt/CLEANED.md` says how each was found.
 
 The English source was checked before it was used to judge the Thai. The paragraphs on the eight English pages concerned were counted by hand in a printed English *Great Controversy*, and every count matched `lo/GC/00_source/` except two headings, `## {GC 74.3}` in `GC04_en.md` and `## {GC 220.4}` in `GC12_en.md`, each of which had stood over two paragraphs and named only the second. Both were corrected.
 
@@ -50,6 +58,8 @@ To rebuild the whole thing from the PDF:
     python3 th/GC/04_assets/scripts/gc_th_check.py th/GC/04_assets/editions/print
 
 `gc_th_pagedump.py` prints one page in reading order for checking against the printed page, and is what the verification pass compared its images against.
+
+The alt files cannot be rebuilt this way. Running `gc_th_extract_alt.py` reproduces the raw extraction, which still carries all of the publisher's own material, and the deletions recorded in `alt/CLEANED.md` were made by judgment against the English source rather than by rule. `gc_th_flatten_alt.py` removes the bold and italic markup and is the one step of that work a script can repeat.
 
 ## What the extraction changes, and what it leaves alone
 

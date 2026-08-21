@@ -1,7 +1,9 @@
-// The other Thai edition of The Great Controversy, from GC_th_alt-original.pdf.
-// Extracted from the print, not translated or edited. Only the paragraphs the
-// book tags with a {GC ###.#} number are kept; the publisher's own material is
-// listed in EXTRACTION-NOTES-ALT.tsv.
+// The other Thai edition of The Great Controversy, from GC_alt_th.pdf.
+// Extracted from the print, not translated or edited. Only text matching the
+// English chapter is kept: the publisher's pop-out boxes, end-of-chapter
+// filler, inserted headings and added comment were all deleted after
+// comparing every paragraph against lo/GC/00_source/, and the print's bold
+// and italic markup was removed because the English original carries none.
 
 // {GC 662.1}
 
@@ -33,7 +35,7 @@
 
 // {GC 665.1}
 
-บัดนี้พระคริสต์ทรงปรากฏให้ศัตรูของพระองค์เห็นอีกครั้งหนึ่ง อยู่ไกลขึ้นไปเหนือเมืองนั้นมีบัลลังก์เทิดไว้สูงบนฐานทองคำเงาระยิบตั้งอยู่ พระบุตรของพระเจ้าประทับอยู่บนบัลลังก์นี้ และประชากรในอาณาจักรของพระองค์ก็อยู่ล้อม (อยู่-เลื่อนไปอยู่ก่อนจุดนี้)รอบพระองค์ อำนาจและความงามสง่าของพระคริสต์นั้น ไม่มีภาษาใดจะพรรณนาและไม่มีปากกาใดจะเขียนบรรยายได้ พระสิริของพระบิดาผู้ทรงชนม์อยู่เป็นนิตย์ล้อมอยู่รอบพระบุตร แสงเจิดจ้าจากการสถิตอยู่ของพระองค์ส่องสว่างเต็มเมืองของพระเจ้าและส่องออกไปนอกประตูเมือง ความสว่างนั้นส่องกระจายออกไปทั่วทั้งโลก #EGW[\{GC 665.1\}]
+บัดนี้พระคริสต์ทรงปรากฏให้ศัตรูของพระองค์เห็นอีกครั้งหนึ่ง อยู่ไกลขึ้นไปเหนือเมืองนั้นมีบัลลังก์เทิดไว้สูงบนฐานทองคำเงาระยิบตั้งอยู่ พระบุตรของพระเจ้าประทับอยู่บนบัลลังก์นี้ และประชากรในอาณาจักรของพระองค์ก็อยู่ล้อมรอบพระองค์ อำนาจและความงามสง่าของพระคริสต์นั้น ไม่มีภาษาใดจะพรรณนาและไม่มีปากกาใดจะเขียนบรรยายได้ พระสิริของพระบิดาผู้ทรงชนม์อยู่เป็นนิตย์ล้อมอยู่รอบพระบุตร แสงเจิดจ้าจากการสถิตอยู่ของพระองค์ส่องสว่างเต็มเมืองของพระเจ้าและส่องออกไปนอกประตูเมือง ความสว่างนั้นส่องกระจายออกไปทั่วทั้งโลก #EGW[\{GC 665.1\}]
 
 // {GC 665.2}
 
