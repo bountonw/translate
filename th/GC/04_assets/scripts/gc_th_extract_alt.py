@@ -15,8 +15,13 @@ with a {GC ###.#} tag.
 Every paragraph that is dropped is written to the notes file with its page and
 its opening words, so nothing disappears without a record.
 
+The source PDF is not in this repository.  Set GC_ALT_PDF to a local copy of it
+so that the picture plates can be found; without it every page is treated as
+text, which is safe but leaves the plate pages in the notes file.
+
 Usage:
-    python3 th/GC/04_assets/scripts/gc_th_extract_alt.py QDF OUT_DIR [--report R]
+    GC_ALT_PDF=/path/to/GC_alt_th.pdf \
+        python3 th/GC/04_assets/scripts/gc_th_extract_alt.py QDF OUT_DIR [--report R]
 """
 
 import argparse
@@ -44,9 +49,7 @@ SARA_AM = "ำ"
 TONE_MARKS = set("็่้๊๋์")
 FIRST_TEXT_PAGE = 28
 LAST_TEXT_PAGE = 763
-SOURCE_PDF = os.path.expanduser(
-    "~/claude-sandbox/gc-audit/GC_th_alt-original.pdf"
-)
+SOURCE_PDF = os.path.expanduser(os.environ.get("GC_ALT_PDF", ""))
 
 
 def source_chapters(source_dir):

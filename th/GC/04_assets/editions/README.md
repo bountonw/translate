@@ -41,12 +41,14 @@ The English source was checked before it was used to judge the Thai. The paragra
 
 ## Where the text comes from
 
-Not from OCR. `04_assets/thai_original_pdfs/GC_print_th.pdf` carries a complete text layer, but its Thai is set in subsetted BrowalliaUPC fonts with Identity-H encoding and no ToUnicode table, so every general-purpose extractor reads it as Latin gibberish and silently drops every digit and every period. The scripts in `04_assets/scripts/` decode that glyph stream directly through a character table, which makes the characters exact by construction: a glyph either has a table entry or the run stops.
+Neither source PDF is kept in this repository. `GC_print_th.pdf` and `GC_alt_th.pdf` are two publishers' own editions, held outside it, and the commands below take the path to a local copy.
+
+Not from OCR. `GC_print_th.pdf` carries a complete text layer, but its Thai is set in subsetted BrowalliaUPC fonts with Identity-H encoding and no ToUnicode table, so every general-purpose extractor reads it as Latin gibberish and silently drops every digit and every period. The scripts in `04_assets/scripts/` decode that glyph stream directly through a character table, which makes the characters exact by construction: a glyph either has a table entry or the run stops.
 
 To rebuild the whole thing from the PDF:
 
     qpdf --qdf --object-streams=disable --stream-data=uncompress \
-        th/GC/04_assets/thai_original_pdfs/GC_print_th.pdf /tmp/gc-th.pdf
+        /path/to/GC_print_th.pdf /tmp/gc-th.pdf
     python3 th/GC/04_assets/scripts/gc_th_cidmap.py /tmp/gc-th.pdf /tmp/harvest.tsv
     python3 th/GC/04_assets/scripts/gc_th_buildmap.py /tmp/harvest.tsv \
         th/GC/04_assets/scripts/browallia_cid_map.tsv

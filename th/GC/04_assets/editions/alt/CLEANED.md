@@ -6,7 +6,7 @@ The publisher's additions fall into four kinds. Some are pop-out boxes, where se
 
 Explanatory words the translator put inside a sentence were kept throughout, including bracketed glosses and the English term printed beside a Thai one, because those are part of how this translator rendered the sentence rather than publisher's furniture.
 
-This file names the kind of material removed at each paragraph rather than reproducing it. What the printed book says at any of these points can be read in `04_assets/thai_original_pdfs/GC_alt_th.pdf`, and the whole uncleaned extraction can be regenerated from that file with `gc_th_extract_alt.py`.
+This file names the kind of material removed at each paragraph rather than reproducing it. What the printed book says at any of these points has to be read in the book itself, `GC_alt_th.pdf`, which is not in this repository. Given that file, `gc_th_extract_alt.py` regenerates the whole uncleaned extraction.
 
 The printed edition's bold and italic markup was removed everywhere, because the English original carries no emphasis of any kind.
 
