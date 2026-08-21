@@ -63,6 +63,8 @@ Four more are run by hand — by Brian, or by you on a side quest he has asked f
 
 4.I. Never apply a fix across chapters on your own initiative, however plainly a ruling of Brian's implies it: a decision about a rule is not permission to edit chapters outside the one under audit, and each corpus-wide fix needs his direction for that fix. What you owe him unprompted is the proposal with the evidence he decides from — how many sites, in which chapters, what changes at each, and which of those files another session has modified and therefore cannot be touched.
 
+4.J. A brief that asks an agent to judge wording must say that the glossary guides and does not rule, and that the argument comes from the passage. An agent you dispatch knows only what the brief tells it.
+
 ## 5. Punctuation
 
 5.A. Where English leaves a quotation open across the paragraphs of a multi-paragraph quote, Lao closes it. English opens such a quotation afresh at each paragraph and closes it only at the last, so its intermediate paragraphs carry no closing mark; the Lao translation closes every paragraph it opens. A Lao paragraph whose double quotation marks do not balance is therefore a defect even where the English at the same anchor leaves it open, and the English being open is never a reason to dismiss it. This is Brian's ruling, given on 14 August, and not a convention read off the corpus — a session that reads the corpus alone will infer the English rule and pass over real defects, which is what happened before he stated it.

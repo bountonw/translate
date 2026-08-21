@@ -6,13 +6,23 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 1. Encode the 14 August rulings from the GC 421.3 litigation
+## 1. Rehash the pope as Vicar of Christ and as God's representative
+
+Revisit how the Lao GC renders the pope's claimed title, and be ready to reverse the ruling of 19 August rather than defend it. The Thai GC uses ตัวแทน, the cognate of Lao ຕົວແທນ, which is the word that ruling moved the title away from; if the Thai is right the Lao should follow it and the day's changes are undone.
+
+In scope: the six sites moved from ຕົວແທນ to ຜູ້ແທນ that day, {GC 51.3}, {GC 53.2}, {GC 55.1} and {GC 59.1} in GC03 and {GC 101.1} and {GC 102.1} in GC06; the two emissary sites at {GC 62.4} in GC04, which moved the other way; the Vicar of Christ, Legate and Deputy rows of `lo/GC/04_assets/translation_profile/GC-glossary.txt`; and the sites deliberately left on ຕົວແທນ, which are {GC 50.2} and the first instance at {GC 53.2}, {GC 92.2}, {GC 567.3} and {GC 591.1}.
+
+One obstacle comes first: the Thai GC text is not in this repository, since `th/GC` holds no files, so the Thai evidence has to be supplied or pointed to before any comparison can be made.
+
+Detail: the 19 August litigation and its evidence sit in `lo/GC/04_assets/history/GC-glossary-history.md` under the Vicar of Christ and Legate heads. Medium; Fable for the language judgment.
+
+## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
 Four rulings need writing into the instruction files where agents will see them; Opus or Sonnet work, small. (a) Glossary and corpus attestation support a rendering but never decide it — sentence meaning and paragraph flow rule. (b) In sentence-litigation mode the draft goes above the old paragraph in the manuscript and the old text stays for comparison until Brian finalizes. (c) A translator-added naming gloss stays where the quoted Bible versions use different terms for the same referent. (d) A Fable session works translation issues only; updates like these go to the top of this queue for a smaller model.
 
 Detail: none written; this entry is the whole brief.
 
-## 2. Anonymise the instruction files
+## 3. Anonymise the instruction files
 
 Remove the name Brian in every form from the instruction files and replace it with "the user" or another generic term. The name appears 78 times across the eight core instruction files — root `CLAUDE.md`, `lo/GC/CLAUDE.md`, the five `gc-*` agent definitions and `.claude/commands/gc.md` — and about 25 more times in the audit scripts, the governing files, this queue and `04_assets/history/`.
 
@@ -24,7 +34,7 @@ Two boundaries to settle as part of the quest. The translator credit in `th/LBF/
 
 Detail: none written yet.
 
-## 3. Wire the forbidden-terms list into the audit pre-pass
+## 4. Wire the forbidden-terms list into the audit pre-pass
 
 Two lists of known-wrong spellings exist and neither knows about the other. `.tooling/forbidden_terms/lao.txt` holds 313 terms in `forbidden # correct` form and drives the textlint CI job; section 10 of `lo/GC/04_assets/translation_profile/GC-glossary.txt` holds 30 forms and drives `gc_termcheck.py` and `gc_resolvecheck.py`. So a batch auditor can pass a chapter that CI then fails, which is how ຍຶດເອົາ reached a commit in GC12 and came back as a lint error.
 
@@ -32,7 +42,7 @@ Make the audit scripts read the linter's list as well as section 10, so a forbid
 
 Detail: none written yet. `.tooling/textlint/rules/lo.js` line 6 shows how the list is loaded.
 
-## 4. Footnote author-gloss sweep
+## 5. Footnote author-gloss sweep
 
 Every author cited in a footnote carries the English name in parentheses after the Lao form, so a Lao reader can pronounce it and also look it up: `[^19]: ມາຕິນ (Martyn), ເຫຼັ້ມ 5, ໜ້າ 417.`
 
@@ -40,7 +50,7 @@ Brian ranked this above everything else in the queue. 240 of 272 sites remain ac
 
 Detail: `~/claude-sandbox/gc-audit/footnote-gloss-sweep-prompt.md`, with the per-chapter worklist beside it in `footnote-gloss-worklist.md`.
 
-## 5. Dictionary sync check when a spelling changes
+## 6. Dictionary sync check when a spelling changes
 
 Confirm that `lo/assets/dictionaries/main.txt` is updated whenever a spelling decision changes a form in the manuscripts, and find out what currently keeps the two in step. The Stephen sweep touched the dictionary by hand, which suggests nothing does it automatically.
 
@@ -48,7 +58,7 @@ Open questions for the quest itself: which decisions are supposed to reach the d
 
 Detail: none written yet. Small to size, unknown to fix.
 
-## 6. Governing-file size reduction
+## 7. Governing-file size reduction
 
 The three files under `lo/GC/04_assets/translation_profile/` are loaded by every agent on every dispatch. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch.
 
@@ -56,7 +66,7 @@ Scope after Brian's rulings of 13 August: 17 oversized `GC-open-terms.md` entrie
 
 Detail: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
 
-## 7. ລົບລ້າງ against ລຶບລ້າງ — normalise, or leave both
+## 8. ລົບລ້າງ against ລຶບລ້າງ — normalise, or leave both
 
 Both spellings are accurate and the editors want both, which is the ruling of GC 15 and stands. The open question is whether the book should normalise to one form anyway. Brian never read the argument for normalising when it was first put, so it was held rather than closed.
 
@@ -64,13 +74,13 @@ The evidence is already gathered: corpus counts are ລຶບລ້າງ 78 aga
 
 Detail: the `NOTE-SPELL ລົບລ້າງ and ລຶບລ້າງ` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md`.
 
-## 8. Where `unwrap.py` belongs
+## 9. Where `unwrap.py` belongs
 
 `~/claude-sandbox/scripts/unwrap.py` is the only tool that does what root `CLAUDE.md` 7.A requires of every instruction file, it operates on repository files, and nothing names it. Under 8.A it belongs in the repository. Decide whether it goes to `lo/GC/04_assets/scripts/` or to a `scripts/` directory at the repository root, which depends on whether it will be used on the Thai and Lao projects too.
 
 Detail: none needed. A move and one line in a procedure file.
 
-## 9. Set up the SC Thai project
+## 10. Set up the SC Thai project
 
 Scaffolding was built on 16 August: the procedure file `th/SC/CLAUDE.md`, the `sc-batch-auditor` and `th-glossary-miner` agents, the `/sc` command, and the English sources copied into `th/SC/00_source/`. Nine chapters sit in `02_edit`, two in `03_public`, and SC12 and SC13 in `01_raw` await the pre-processing round.
 
@@ -78,7 +88,7 @@ Remaining: the decisions in the 16 August session report (QA round scope, Thai g
 
 Detail: `th/SC/CLAUDE.md` and `th/SC/04_assets/planning/gdocs-workflow.md`.
 
-## 10. Set up the SJ Thai project
+## 11. Set up the SJ Thai project
 
 `th/SJ/` is further along than SC in one sense and further behind in another: 32 chapters are already in `03_public`, but the project has no `00_source` and no `02_edit`, so the English it was translated from is not in the repository beside it. It has the same Typst pipeline and the same absence of a procedure file, governing files and agents.
 
@@ -86,7 +96,7 @@ The missing source is the first question of the quest, because a GC-style audit 
 
 Detail: none written yet.
 
-## 11. Set up the AA Lao project
+## 12. Set up the AA Lao project
 
 `lo/AA/` has the fullest raw material of the three — 62 English source files, 55 raw translations, four chapters in `02_edit` — and nothing in `03_public` but a placeholder. Like the others it has no procedure file, no `04_assets/translation_profile/` and no agents; its `04_assets` holds only temporary Typst source files.
 
@@ -94,7 +104,7 @@ It is the closest of the three to GC, being Lao rather than Thai, so the glossar
 
 Detail: none written yet.
 
-## 12. Where this queue belongs
+## 13. Where this queue belongs
 
 This file sits at `lo/GC/04_assets/planning/SIDEQUESTS.md`, and four of its entries — the three project set-ups and the anonymise sweep — are not GC work. Brian deferred the question on 14 August rather than deciding it, so it is recorded here rather than left in a chat.
 
@@ -102,7 +112,7 @@ Deciding it means moving the file to a repository-level planning directory and r
 
 Detail: none needed beyond this entry.
 
-## 13. Run the deferred term "justification by faith" to a finish
+## 14. Run the deferred term "justification by faith" to a finish
 
 The glossary row was decided on 16 August and written into `lo/GC/04_assets/translation_profile/GC-glossary.txt` as `| Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |`, with no exception recorded in it for any chapter. The quest is to grep the corpus for the sites that do not conform and bring them to the row, chapter by chapter, with Brian deciding each.
 

@@ -52,7 +52,7 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 3.B. When he does defer one, add it to `lo/GC/04_assets/planning/SIDEQUESTS.md` in the same reply that defers it, and say in that reply which position it took. That file is the queue and it is the only answer to "how many side quests are open and in what order" — never answer that from memory or from a chat. Delete an entry when its work is finished rather than marking it done, because a finished quest is in the git history. It sits under a numbered-stage assets directory because `.tooling/textlint/index.js` excludes those from every check; a document with no paragraph anchors cannot satisfy the reference-code rule and does not belong anywhere the linter walks.
 
-3.C. The drill command "model: X/Y/Z" — "fable: 7/3/1" is the default, and a bare "7/3/1" means that — asks for candidate wordings: dispatch the named model (Fable when none is named) at xhigh effort to weigh up to X candidates, show the top Y ranked in the report, and write the top Z into the inline marker as its proposal. "Up to" is literal: stop where the genuinely good options run out, and never pad toward X. In Brian's replies, "N. fixK" orders fix K applied inline at marker N with the marker deleted, and "N. applied" reports work he has already done himself.
+3.C. The drill command "model: X/Y/Z" — "fable: 7/3/1" is the default, and a bare "7/3/1" means that — asks for candidate wordings: dispatch the named model (Fable when none is named) at xhigh effort to weigh up to X candidates, show the top Y ranked in the report, and write the top Z into the inline marker as its proposal. "Up to" is literal: stop where the genuinely good options run out, and never pad toward X. Context is king: weigh every candidate by how it flows in the whole passage — glossary rows only lightly guide literary prose (genuinely set terms still match), and Thai readers' aversion to repetition can make variety the better choice, so when repetition is the question, survey the book's existing renderings first. In Brian's replies, "N. fixK" orders fix K applied inline at marker N with the marker deleted, and "N. applied" reports work he has already done himself.
 
 ## 4. Parallel sessions
 
@@ -67,6 +67,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 5.B. Never insert a zero-width space (U+200B) or any other invisible character, and strip any you find in a Lao manuscript. The GC typesetting pipeline wraps every Lao word in \lw{} and supplies its own break opportunities, so a zero-width space there is redundant, and being invisible in the editor it silently breaks a later search. Check how a new project's pipeline breaks lines before carrying this rule over to it.
 
 5.C. Never transliterate Lao or Thai. Copy a Lao or Thai form out of the file rather than retyping it, and grep any form you did not copy before it reaches Brian.
+
+5.D. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word the reader can apply to the religious authority they know is allowed in place of the exact Christian term. Where the passage tells history, the exact term stands, because the history is about those particular men.
 
 ## 6. Evidence and judgment
 
