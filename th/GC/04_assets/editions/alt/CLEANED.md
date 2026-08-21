@@ -6,6 +6,8 @@ The publisher's additions fall into four kinds. Some are pop-out boxes, where se
 
 Explanatory words the translator put inside a sentence were kept throughout, including bracketed glosses and the English term printed beside a Thai one, because those are part of how this translator rendered the sentence rather than publisher's furniture.
 
+This file names the kind of material removed at each paragraph rather than reproducing it. What the printed book says at any of these points can be read in `04_assets/thai_original_pdfs/GC_alt_th.pdf`, and the whole uncleaned extraction can be regenerated from that file with `gc_th_extract_alt.py`.
+
 The printed edition's bold and italic markup was removed everywhere, because the English original carries no emphasis of any kind.
 
 ## Deletions by chapter
@@ -22,11 +24,11 @@ The printed edition's bold and italic markup was removed everywhere, because the
     GC07  {GC 132.2}  the citation "(ยอห์น 6: 45)", which the English paragraph does not give
     GC11  {GC 203.4}  the citation "(กิจการ 5: 29 KJV)" glued between two sentences
     GC12  {GC 234.2}  "(ค.ศ. 1540 สันตะปาปาเห็นด้วยกับการก่อตั้ง)", a founding date for the Jesuit order
-    GC12  {GC 235.2}  the publisher's own account of the Inquisition, including a figure of 50 to 150 million killed
-    GC12  {GC 235.2}  a reading list of websites, books and a YouTube search appended to the paragraph
-    GC21  {GC 390.2}  a 2,099-character essay about Rome, Galileo, Copernicus, Pope Francis, evolution and global warming, with Google and YouTube citations
+    GC12  {GC 235.2}  the publisher's own account of the Inquisition, carrying a casualty figure
+    GC12  {GC 235.2}  a reading list of websites, books and a video search appended to the paragraph
+    GC21  {GC 390.2}  a 2,099-character essay on the church, science and modern politics, with web and video citations
     GC23  {GC 415.3}  the malformed tag "{GC 41532}", debris from the printing
-    GC25  {GC 439.1}  the decorated duplicate at the end of the file, carrying an English "THE GREATEST ATROCITY" passage, two web addresses and two video references
+    GC25  {GC 439.1}  the decorated duplicate at the end of the file, carrying an English polemical passage, two web addresses and two video references
     GC32  {GC 522.4}  a stray ". " opening the paragraph
     GC32  {GC 528.3}  a stray ". " opening the paragraph
     GC35  {GC 563.1}  an Isaiah 28:17,18 epigraph, the chapter number, the chapter title and an editorial heading glued to the chapter's opening paragraph
@@ -39,8 +41,8 @@ The printed edition's bold and italic markup was removed everywhere, because the
     GC35  {GC 566.1}  a front-of-chapter copy that quoted the English untranslated inside a warning box
     GC35  {GC 568.3}  a summary heading in front of the paragraph
     GC35  {GC 569.2}  a decorated pop-out copy at the head of the file
-    GC35  {GC 569.2}  a "50-100 million killed" claim in front of the paragraph and half a web address after it
-    GC35  {GC 569.3}  the other half of that web address, "pacinst.com"
+    GC35  {GC 569.2}  a casualty claim in front of the paragraph and half a web address after it
+    GC35  {GC 569.3}  the other half of that web address
     GC35  {GC 570.2}  filler quoting fragments of {GC 565.3} and {GC 570.1} rather than this paragraph's own text
     GC35  {GC 571.1}  a note questioning the authenticity of the Luke 9:54-56 quotation
     GC35  {GC 571.1}  a second, redundant heading
