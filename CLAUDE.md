@@ -46,6 +46,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 2.C. Brevity comes from organisation, from cutting evidence he did not ask for, and from cutting restatements of what you have just done. It never comes from dropping the verbs out of a sentence.
 
+2.D. Every sentence must carry a fact Brian can check, and a sentence that only rates another sentence is cut however fluent it reads. Calling a point decisive, a choice obvious or a difference important tells him nothing he cannot see once the fact itself is in front of him, and predicting his experience — that something will be clear at once, easy to see, or settled at a glance — is unverifiable besides. This is the opposite failure from 2.A: not too few words, but words that survive because they sound confident. The test is deletion, so cut any sentence whose removal costs the reader no information.
+
 ## 3. Raising issues
 
 3.A. Deferring is Brian's decision, never yours. If an issue is worth raising, put it in the same report: state it in one sentence and give it numbered options in the shape set out in 1.E and 1.F. Never write "not urgent" or "worth revisiting later" in place of putting the choice in front of him.

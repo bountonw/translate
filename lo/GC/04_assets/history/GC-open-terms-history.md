@@ -37,3 +37,39 @@ What the ruling does not cover. GC 18 adds ຄົນບ້າສາສະໜາ 
 in a sneering register. That form is built on ບ້າ rather than on ຄັ່ງ, so
 Brian's decision about the ຄັ່ງ family does not reach it and it remains
 unadjudicated. It was raised to him separately in the GC 22 report.
+
+## DEFER-TERM "coronation" — closed by Brian at GC 42
+
+The ruling. Brian chose the crowning image over the anointing one and applied
+it himself at both anchors, dropping the trailing ເປັນກະສັດ that the audit
+marker had proposed. {GC 666.1} now reads ພິທີອັນສຸດທ້າຍໃນການສວມມົງກຸດໃຫ້ພຣະບຸດ
+ຂອງພຣະເຈົ້າ and {GC 668.4} reads ພິທີສວມມົງກຸດໃຫ້ພຣະບຸດຂອງພຣະເຈົ້າ. His reason
+for dropping ເປັນກະສັດ was that the chapter states the kingship immediately
+afterwards — {GC 666.1}'s next sentence opens ໃນຖານະກະສັດເໜືອກະສັດທັງປວງ — and
+that the chapter's own context establishes what crown this is and what role
+Christ is taking, so the modifier only made the reader wait to be told twice.
+The two anchors therefore share ສວມມົງກຸດໃຫ້ພຣະບຸດຂອງພຣະເຈົ້າ while their
+frames differ, which names one rite without a verbatim echo two pages apart.
+
+The evidence the deferral carried. The Lao at both anchors rendered EGW's
+*coronation* as ການເຈີມ...ເປັນກະສັດ, an anointing, while {GC 669.1} already
+read ເອົາມົງກຸດມາສວມໃຫ້ພຣະຄຣິສ, a crowning, so the reader met two rites where
+the English names one event. Two candidates stood: ພິທີສວມມົງກຸດ, plain and
+matching 669.1, against ພິທີຣາຊາພິເສກ, the standard royal register, which
+carries the anointing sense etymologically through abhisheka.
+
+How it was decided. A corpus report over lo/GC and th/PP was commissioned,
+then a ranked wording drill read that report. The corpus showed ສວມມົງກຸດ at
+eight sites in the published chapters, ຣາຊາພິເສກ at none outside the marker
+and this entry, and ເຈີມ elsewhere always rendering actual anointing or
+ordination rather than a coronation; the Thai project uses เจิมตั้ง at ten
+sites, which parallels the anointing reading but offers no crown precedent.
+The drill ranked ພິທີສວມມົງກຸດ first on the ground that these paragraphs tell
+an event rather than teach a principle, so the exact term stands, and that
+sharing verb, noun and dative with {GC 669.1} makes the three anchors narrate
+one rite. Brian took that wording and shortened it further.
+
+What stays open. The ເຈີມ and ເຈີມຕັ້ງ split is a separate question and was
+never part of this deferral. It now carries its own DEFER-TERM entry, keyed
+"anoint": ເຈີມຕັ້ງ stands at fourteen sites across eleven chapters and bare
+ເຈີມ at about five, and nothing here rules on which belongs where.

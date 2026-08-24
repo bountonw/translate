@@ -110,7 +110,7 @@ Seven things to know before touching AA text.
 
 1. Never add a word to any file under `lo/assets/dictionaries/`. The dictionaries and the GC corpus are the authority and the manuscript is corrected toward them. An unrecognised form is usually a typo, not a gap: `main.txt` carries ໂກຣິນໂທ and the manuscript's ໂກລິນໂທ was simply wrong. This is Brian's instruction of 21 August.
 
-2. In `lo/assets/dictionaries/common-spelling.txt` the left column is the correct form and the right lists the wrong variants, notwithstanding the file's own header, which reads `# bad | good` and is stale. Its row `ບົກຜ່ອງ | ບົກຜ່ອງ` carries the same form on both sides and does nothing.
+2. In `lo/assets/dictionaries/common-spelling.txt` the left column is the correct form and the right lists the wrong variants, as its header now says. Its row `ບົກຜ່ອງ | ບົກຜ່ອງ` carries the same form on both sides and does nothing.
 
 3. Two Lao forbidden-terms lists exist and they disagree. Use `.tooling/forbidden_terms/lao.txt` in this repository, which holds 313 rows in `wrong # correct` form, drives the textlint job, and agrees with the published GC chapters at every row. Never use `markdownlint/forbidden_terms/lao.txt` in the `translate-tooling` repository: it supplies no corrections and four of its entries flag the correct spelling rather than the wrong one, so a round driven by it changes ບົກຜ່ອງ, ປັດຈຸບັນ, ຫຸ້ນສ່ວນ and ຫຼີກລ່ຽງ away from the form GC uses.
 
