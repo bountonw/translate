@@ -12,7 +12,7 @@ Revisit how the Lao GC renders the pope's claimed title, and be ready to reverse
 
 In scope: the six sites moved from ຕົວແທນ to ຜູ້ແທນ that day, {GC 51.3}, {GC 53.2}, {GC 55.1} and {GC 59.1} in GC03 and {GC 101.1} and {GC 102.1} in GC06; the two emissary sites at {GC 62.4} in GC04, which moved the other way; the Vicar of Christ, Legate and Deputy rows of `lo/GC/04_assets/translation_profile/GC-glossary.txt`; and the sites deliberately left on ຕົວແທນ, which are {GC 50.2} and the first instance at {GC 53.2}, {GC 92.2}, {GC 567.3} and {GC 591.1}.
 
-One obstacle comes first: the Thai GC text is not in this repository, since `th/GC` holds no files, so the Thai evidence has to be supplied or pointed to before any comparison can be made.
+The Thai evidence has been in the repository since 23 August: both Thai editions of GC are on `origin/main` under `th/GC/04_assets/editions/print/` and `th/GC/04_assets/editions/alt/` (for example `print/GC03_print_th.typ`), and they are checked out in the worktree at `/home/ton/programming/translate-th-GC`. Read the matching paragraph there or with `git show origin/main:PATH`; never merge to reach it. QA3 settles this entry under section 6 of `lo/GC/CLAUDE.md`, and the entry leaves the queue when its sites are resolved.
 
 Detail: the 19 August litigation and its evidence sit in `lo/GC/04_assets/history/GC-glossary-history.md` under the Vicar of Christ and Legate heads. Medium; Fable for the language judgment.
 
@@ -173,3 +173,13 @@ Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/G
 Establish which Lao Bible version the book treats as its default and what year that version was published, so the front matter and any version note can state it. The question arose on 21 August from the ruling that a quotation taken from the book's standard version carries no version label in its citation: the label is omitted precisely because the version is the default, so which version that is has to be recorded somewhere a reader can find it. The version abbreviations already in use across the chapters are the starting inventory.
 
 Detail: none written yet. Small; a lookup and one line of front matter.
+
+## 17. Rework the glossary system: one glossary per language, with book-specific overlays
+
+Brian's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
+
+Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao Spelling Glossary`, `## 11. Lao Proper Noun Glossary (GC)`, `## 12. Lao Compound Word-Order Pairs (GC)` in `lo/GC/04_assets/translation_profile/GC-glossary.txt` — a numbering left over from a structure that no longer exists, and the rework renumbers it. And the QA3 record under `lo/GC/04_assets/qa3/`, which gives Fable's in-context verdict on every change QA1 and QA2 made, is the evidence the rework reads before it keeps, loosens or drops any rule the GC runs wrote; every DECIDED, closed or ruled label in the current files is re-examined against that record rather than carried over, because many of those labels were an agent's extrapolation and not a ruling.
+
+Entry 7 (governing-file size reduction) is absorbed by this, and entry 3 (anonymise) runs alongside it; settle the order when the rework is scheduled.
+
+Detail: none written yet; this entry is the whole brief. Large; Fable for the design.

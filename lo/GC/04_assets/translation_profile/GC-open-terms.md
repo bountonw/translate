@@ -1,4 +1,5 @@
 # GC Open Terms
+NOTE-SPELL Proper nouns follow the Lao Bible (LCV, LO2012). Never coin or derive a spelling.
 NOTE-SPELL ກາລັນ ໌: personal names only, where the syllable cannot carry the final (ໄວທ໌, ຊານສ໌). Place names bare (ປາແລັດສະໄຕ).
 DEFER-TERM ບາດຫຼວງ for "monk" — 18 solo paragraphs (Tier 2).
   56.1 123.2 124.2 125.2 154.2 154.3 177.2 180.3 207.2 215.2
