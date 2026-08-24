@@ -143,9 +143,12 @@ Many were undeceived in regard to the claims of Rome. They saw how vain is the m
 
 The assurance of a Saviour’s love seemed too much for some of these poor tempest-tossed souls to realize. So great was the relief which it brought, such a flood of light was shed upon them, that they seemed transported to heaven. Their hands were laid confidingly in the hand of Christ; their feet were planted upon the Rock of Ages. All fear of death was banished. They could now covet the prison and the fagot if they might thereby honor the name of their Redeemer. {GC 74.2}
 
-## {GC 75.1}
+## {GC 74.3}
 
 In secret places the word of God was thus brought forth and read, sometimes to a single soul, sometimes to a little company who were longing for light and truth. Often the entire night was spent in this manner. So great would be the wonder and admiration of the listeners that the messenger of mercy was not infrequently compelled to cease his reading until the understanding could grasp the tidings of salvation. Often would words like these be uttered: “Will God indeed accept my offering? Will He smile upon me? Will He pardon me?” The answer was read: “Come unto Me, all ye that labor and are heavy-laden, and I will give you rest.” Matthew 11:28. {GC 74.3}
+
+## {GC 75.1}
+
 Faith grasped the promise, and the glad response was heard: “No more long pilgrimages to make; no more painful journeys to holy shrines. I may come to Jesus just as I am, sinful and unholy, and He will not spurn the penitential prayer. ‘Thy sins be forgiven thee.’ Mine, even mine, may be forgiven!” {GC 75.1}
 
 ## {GC 75.2}
