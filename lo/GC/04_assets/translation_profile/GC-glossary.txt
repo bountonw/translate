@@ -178,7 +178,7 @@
 | Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
 | Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
 | Thousands | ຫຼາຍພັນຄົນ / ຫຼາຍໝື່ນຄົນ / ຄົນຈຳນວນຫຼວງຫຼາຍ | Translate for sense, not literally; never mark. GC 427.1 |
-| Jacob's trouble | ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | [CHECK] Jeremiah 30:7 |
+| Jacob's trouble | ເວລາທຸກຍາກຂອງຢາໂຄບ (period) / ຄວາມທຸກຍາກຂອງຢາໂຄບ (affliction) / ເວລາທຸກໃຈຂອງຢາໂຄບ (TKJV) / ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | Reference only. Never mark any of these; a longer phrase built on one also stands. Jeremiah 30:7. GC 616.1, 648.3 |
 | Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
 | Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
 | New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
@@ -248,6 +248,8 @@
 | Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |
 | Deist / Deists | ດິອິສ / ລັດທິດິອິສ | [CHECK] ພວກ or ຄົນ prefixes either form for persons; Latin gloss (Deist) at first use |
 | Prophet (of another god) | ຜູ້ທຳນວາຍ | DECIDED. Use for a non-Israelite god's prophet, under any prefix. GC 626.2 |
+| Elder / Elders (Jewish council) | ພວກເຖົ້າແກ່ / ພວກຄົນເຖົ້າຄົນແກ່ | Undecided; never mark either form. LCV reads ພວກເຖົ້າແກ່ຂອງປະຊາຊົນ at Matthew 26:47; not prescriptive. GC 311.1, 313.2, 557.1, 643.4 |
+| False sabbath / Spurious sabbath | ວັນສະບາໂຕປອມ / ວັນສະບາໂຕທຽມເທັດ | DECIDED. Both heads: prefer ວັນສະບາໂຕປອມ; ວັນສະບາໂຕທຽມເທັດ also correct, never mark it. Wrong: ວັນພັກປອມ. GC 536.3, 580.1, 605.2, 640.1; ວັນສະບາໂຕທຽມເທັດ GC 448.3, 604.2 |
 ---
 
 ## 10. Lao Spelling Glossary
