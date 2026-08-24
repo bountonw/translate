@@ -167,7 +167,7 @@
 | Consciousness in death | ຄົນຍັງມີສະຕິຮູ້ສຶກຕົວຫຼັງຈາກຕາຍ | Descriptive |
 | Familiar spirits | ຄົນຊົງເຈົ້າເຂົ້າຜີ | Names the human medium, not the spirit. GC 559.1; the spirits themselves at GC 556.2 |
 | Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | [CHECK] |
-| Resurrection | ການຟື້ນຄືນຊີບ / ການເປັນຄືນມາຈາກຕາຍ | |
+| Resurrection | ຟື້ນຄືນຊີບ / ຟື້ນຄືນຊີວິດ / ຟື້ນຈາກຄວາມຕາຍ / ຄືນມາ / ຄືນພຣະຊົນ / ຟື້ນພຣະຊົນ | [CHECK] ພຣະຊົນ forms only of Christ. |
 | Lamb (Rev. and salvific) | ພຣະເມສານ້ອຍ | |
 | Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] ຣ root |
 | Papal infallibility | (describe: claiming the church never erred and never will) | |
@@ -291,6 +291,7 @@
 | Magazine / Journal | ວາລະສານ | ວໍລະສານ | [CHECK] Footnote apparatus. GC 401.2 |
 | Water (and AM generally) | ນ້ຳ | ນໍ້າ | [CHECK] Incorrect cell decomposes AM as U+0ECD plus U+0EB2; composed U+0EB3 only. GC 407.1 |
 | One another / each other | ເຊິ່ງກັນແລະກັນ | ເຊິ່ງກັນ ແລະ ກັນ | [CHECK] Decided 18 August; written joined, never mark. All 10 sites corrected |
+| Palestine | ປາແລັດສະໄຕ | ປາແລັດສະໄຕນ໌ / ປາແລສໄຕນ໌ / ປາເລສຕິນ / ຟີລິດສະຕິນ / ຟີຣິດສະຕິນ |  |
 ---
 
 ## 11. Lao Proper Noun Glossary (GC)
