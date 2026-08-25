@@ -32,6 +32,8 @@ When the English text contains ambiguous pronouns, implicit metaphors, or cultur
 2. **Bracketed Clarification:** Use brackets `[ ]` for brief inline context when a direct translation would obscure the original noun but the reader needs immediate help (e.g., `[referring to the Pope]`).
 3. **Footnote:** Use footnotes for longer historical context, difficult concepts, or where any inline addition would disrupt narrative flow. (See §4.C for footnote types.)
 
+* **Replace Obscure Technical Terms with Their Natural Meaning:** When a technical or doctrinal word would be obscure to the target reader, translate the natural meaning it carries in context instead of reproducing the term, whenever that helps the paragraph communicate. E.g., "revelation" meaning the written word of God → the target-language word for the Bible; the simplified English edition of Steps to Christ makes the same move.
+
 ## 4. Citation & Footnote Protocol
 
 ### 4.A. Biblical Citations
@@ -452,7 +454,7 @@ Apply these rules in addition to Part 1 when the target language is Lao.
 | St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ | [tentative] |
 | Esau | ເອຊາວ | |
 | Bethel | ເບັດເອນ | [tentative] |
-| Stephen | ສະເຕຟາໂນ | [tentative] |
+| Stephen | ຊະເຕຟາໂນ | |
 | Caiaphas | ໄກອາຟາ | [tentative] |
 | Michael (archangel) | ມີຄາເອນ | [tentative] |
 | Elijah | ເອລີຢາ | |

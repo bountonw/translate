@@ -197,7 +197,7 @@ While the Christian’s life will be characterized by humility, it should not be
 
 ## {GC 477.3}
 
-Through Jesus the fallen sons of Adam become “sons of God.” “Both He that sanctifieth and they who are sanctified are all of one: for which cause He is not ashamed to call them brethren.” Hebrews 2:11. The Christian’s life should be one of faith, of victory, and joy in God. “Whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.” 1 John 5:4. Truly spoke God’s servant Nehemiah: “The joy of the Lord is your strength.” Nehemiah 8:10. And Paul says: “Rejoice in the Lord alway: and again I say, Rejoice.” “Rejoice evermore. Pray without ceasing. In everything give thanks: for this is the will of God in Christ Jesus concerning you.” Philippians 4:4; 1 Thessalonians 5:16-18. {GC 477.3}
+Through Jesus the fallen sons of Adam become “sons of God.” “Both He that sanctifieth and they who are sanctified are all of one: for which cause He is not ashamed to call them brethren.” Hebrews 2:11. The Christian’s life should be one of faith, of victory, and joy in God. “Whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.” 1 John 5:4. Truly spoke God’s servant Nehemiah: “The *joy* of the Lord is your strength.” Nehemiah 8:10. And Paul says: “Rejoice in the Lord alway: and again I say, Rejoice.” “Rejoice evermore. Pray without ceasing. In everything give thanks: for this is the will of God in Christ Jesus concerning you.” Philippians 4:4; 1 Thessalonians 5:16-18. {GC 477.3}
 
 ## {GC 478.1}
 

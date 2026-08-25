@@ -1,0 +1,649 @@
+<!-- This glossary grows as new text is profiled. -->
+<!-- Where the detail went, stated once so no row ever spends words on it. An entry here carries only what an agent must DO. The reasoning behind it, the corpus counts, the per-site refs and the record of how it was decided live in lo/GC/04_assets/history/GC-glossary-history.md and GC-open-terms-history.md, keyed by the English head, for a question, a deep dive, or a later QA pass. No agent loads those files and no row ever cites a path to them: the English head is the key. Nothing is deleted when an entry is shortened, it is moved there. -->
+
+<!-- Tag [PROVISIONAL]. A PROVISIONAL row records a term that is NOT attested in this corpus: it exists so another project mining this glossary inherits a term built on GC's settled patterns, and it makes no claim about this book. Four consequences bind every agent that reads this table. A provisional row is never a finding. Its absence from the manuscript is never reported. The batch pre-pass never treats it as a missing mapping. No manuscript site is ever edited to match it. A provisional row becomes an ordinary row only when it is ruled that it does, once the term actually appears in the text; no agent promotes one on its own, and no agent demotes an ordinary row to provisional. Where a provisional row's Lao is composed from attested pieces rather than found whole, its Notes say which pieces and where they are attested, so the reader can see what is evidence and what is construction. -->
+<!-- Term-family policy, decided. Where one English term has several Lao renderings, the variation is accepted unless there is a positive argument for narrowing it: several renderings are not a defect on their face, and the burden of proof runs toward narrowing, not toward variation. Where a family's forms are generated compositionally, approve the pattern and list attested forms as examples, because an exhaustive whitelist will flag the next form built the same way and the family never closes. A row must never both accept variation and forbid a form the manuscript actually uses; that contradiction, and not the translation, is what makes a batch pre-pass report an established rendering as a missing mapping. A deferred family is closed decisively — either every site is fixed, or each site is ruled to warrant its own reading — and is never left open to be re-flagged in every chapter that meets it. See the Romanist and Papist rows for a worked example. -->
+
+<!-- Script in running text, decided. Most Lao readers do not read English, so running text must be readable as Lao throughout: the Lao form stands first and the English follows in parentheses wherever the original has to be preserved. Bare Latin script inside a paragraph is a defect however accurate the English is, because a reader who cannot decode it loses that piece of the sentence. Footnotes are the one exception, being consulted rather than read: a cited periodical or newspaper title is printed there exactly as in English. This governs every name and term, not only the cited titles the periodical row covers. -->
+
+<!-- Footnote markers, established from the corpus. A marker inherits whatever spacing already stood at its position: it never creates a space and never closes one. After punctuation it keeps the space that followed; on a bare word mid-phrase it runs straight into the next letter, because in Lao a space asserts a phrase boundary and a marker must not assert one the author did not write. -->
+
+| English | Lao | Notes |
+|---|---|---|
+| Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ / ຜູ້ນຳສາສະໜາ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ; non-Christian cleric → ຜູ້ນຳສາສະໜາ, GC 362.1 |
+| Fanatic / Fanatics / Fanaticism | ຄັ່ງໄຄ້ / ຄັ່ງສາສະໜາ / ຄັ່ງໄຄ້ສາສະໜາ / ຄັ່ງໄຄ້ຫຼົງໄຫຼ / ບ້າສາສະໜາ | DECIDED at GC 22 and GC 23. These five cores accepted under any prefix; mark any other form. ບ້າສາສະໜາ is sneering register. GC 190.3–196.3, 336.2, 410.3 |
+| High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
+| Castle | ຜາສາດຫີນ | [CHECK] The head for every English *castle*; NOT ຕຳນັກ, NOT ປາສາດ. Bare ຜາສາດ is licensed anaphorically, but only where the full form is already established for the same referent in the same chapter and a proper name or an immediate antecedent pins it — GC 187.4 ຜາສາດຫີນແຫ່ງວາດເບີກ, then GC 188.4 ຜາສາດວາດເບີກ. An unpinned bare ຜາສາດ reads as a palace, which is what went wrong at GC 140.2. ຫີນ alone marks the castle sense. ຫໍ is a free building classifier that attaches to either head without changing it — ຫໍຜາສາດຫີນ is still a castle (GC 57.3, 221.4), ຫໍຜາສາດ still a palace (GC 228.3, 636.3). 10 attestations; GC 129.2, 168.1, 215.3 |
+| Palace / Mansions | ຜາສາດ | [CHECK] A churchman's or a noble's house, and "mansions" in the John 14:2 sense (GC 301.1, 548.2, 674.4). ຕຳນັກ is an accepted variant for a papal or pontifical residence, and GC 60.2 sets the two against each other in one sentence deliberately (ຕຳນັກ of the popes, ຜາສາດ of the prelates); cf. GC 576.1. ຫໍຜາສາດ is this head carrying the building classifier (GC 228.3, 636.3), not a ຫໍຜາສາດຫີນ that has lost its ຫີນ. NOT for a king's house — see the royal row. 7 attestations; GC 60.2, 228.3, 636.3 |
+| Palace (royal) | ພຣະຣາຊວັງ / ຣາຊວັງ | [CHECK] A king's residence only, and distinct from ຜາສາດ; where EGW contrasts the castles of nobles with the palaces of kings, both heads appear in the one sentence. 16 attestations; GC 140.2, 215.3 |
+| Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
+| Monastic / Monasticism | ນັກບວດ / ສຳນັກນັກບວດ | [CHECK] NOT ວັດວາອາຮາມ |
+| Monastery / Monasteries / Cloister / Cloisters | ສຳນັກນັກບວດ | [CHECK] Replaces ສຳນັກສົງ, ສຳນັກບາດຫຼວງ, ອາຮາມນັກບວດ |
+| Scaffold (heretic execution) | ຫຼັກປະຫານ | [CHECK] GC 132.3; NOT ຕະແລງແກງ (= gallows). Heresy sentence is fire, not hanging. One decided exception, closed, not a defect: GC 229.2 and GC 230.2 keep ເວທີ. Ellen White repeats one noun across the two processions, the 1535 heretic-burning platforms and the 1793 guillotine platforms (ເວທີສີດຳ), and her "again ... again" echo rests on that shared noun; ຫຼັກປະຫານ cannot carry the 1793 half, where this row does not apply. Do not flag either site. |
+| Holy See / see of Rome | ສັນຕະສຳນັກ | [CHECK] GC 130.2 |
+| Heretic (singular) | ຄົນນອກຮີດ | [CHECK] Plural row is ພວກນອກຮີດ |
+| Convent / Convents | ສຳນັກນັກບວດ / ສຳນັກແມ່ຊີ | [CHECK] ສຳນັກແມ່ຊີ only for a house of nuns |
+| Friar / Friars | ພຣະກາໂຕລິກ | [CHECK] Mendicant and regular |
+| Religious order | ຄະນະນັກບວດ | Reference only; GC 83.2, 84.1, 228.1 |
+| Clergy | ບາດຫຼວງ / ຜູ້ນຳຄຣິສຕະຈັກ / ສາສະໜາຈານ / ຜູ້ສອນສາສະໜາ / ຜູ້ນຳສາສະໜາ | [FLAG] Rome chapters: ບາດຫຼວງ; leadership corps → ຜູ້ນຳຄຣິສຕະຈັກ. Elsewhere ສາສະໜາຈານ; broader ຜູ້ສອນສາສະໜາ / ຜູ້ນຳສາສະໜາ allowed where context warrants. NOT ນັກບວດ (= monk). See GC-open-terms.md |
+| Minister / Ministers / Pastor / Pastors | ສາສະໜາຈານ default and general; ອາຈານປະຈຳໂບດ where the context makes it the better reading | [CHECK] Never for Catholic clergy. DECIDED at GC 14, on the ruling that a minister can be an ອາຈານປະຈຳໂບດ if the context says that is the best usage. The two forms are NOT interchangeable and this cell is deliberately not a slash pair: the sense selects the form, as in the Hierarchy split, and unlike the freely variable Romanist and Papist rows, where any listed form satisfies any site, a site here is never edited from one form to the other. ສາສະໜາຈານ is the default and carries English *minister* and *pastor* generally, including the office named in the abstract or as a class. ອາຈານປະຈຳໂບດ is licensed where the English gives the man a standing charge over a particular congregation — a settled parish minister, named with his church, his village or his position rather than as an instance of the office. Neither form is forbidden and neither is a defect at a site where its own reading fits. Verified by exact grep: the form ອາຈານປະຈຳໂບດ has 8 corpus occurrences, of which 5 stand at a *minister* or *pastor* head — GC 70.2 twice (the Vaudois pastors, ອາຈານປະຈຳໂບດຢູ່ບ້ານ, and "the pastor's life"), GC 252.1 ("thousands of pastors were expelled from their positions"), GC 307.2 ("pastor of the Tabernacle church in Salem") and GC 595.2 (pastors set beside bishops and professors of theology). All five are correct as they stand and no manuscript site is edited on account of this row. The form also has its own head at the Parish minister / churchman row, which records the remaining 3 occurrences and points back here; that row is not displaced by this one, and an auditor meeting ອາຈານປະຈຳໂບດ where the English says *minister* or *pastor* has an approving mapping in this cell and reports no missing mapping. ສາສະໜາຈານ has 66 corpus occurrences, a figure shared with the Clergy row's Protestant and modern sense and not a count of this head alone. Bare ອາຈານ without the ປະຈຳໂບດ tail is also correct; DECIDED at GC 443.3. |
+| Prelate / Prelates / Ecclesiastic / Ecclesiastics | ຜູ້ນຳຄຣິສຕະຈັກ | [CHECK] |
+| Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ. Renders EN bishop only; archbishop takes ເຈົ້າຄະນະໃຫຍ່. Follow the English head even where the historical figure held the higher rank (GC 274.1). Avoid ເຈົ້າຄະນະ + territory for a plain bishop — the territory forms are graded ranks in the source system |
+| Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
+| Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
+| Vicar of Christ / vicegerent (papal title) | ຜູ້ແທນຂອງພຣະຄຣິສ / ຜູ້ແທນຂອງພຣະເຈົ້າ | [CHECK] Pope's claimed title only; NOT ຕົວແທນ. ຜູ້ແທນ also serves civil deputies elsewhere. GC 51.3, 55.1, 91.2, 140.4, 570.2, 577.3 |
+| Representative (generic) | ຕົວແທນ | GC 92.2 |
+| Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
+| Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | [CHECK] Long or short by context; never lengthen for consistency. Never mark GC 156.2, 626.3, 301.3, 529.1. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
+| Almighty (divine title) | ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | Also renders Lord of hosts, avoiding the Tetragrammaton. GC 638.1, 676.4 |
+| Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
+| Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
+| Decree / Mandate (papal) | ຄຳສັ່ງ | [CHECK] GC 133.2, 141.1, 142.1; distinct from ໃບປະກາດພິເສດ = bull |
+| Canon law | ກົດລະບຽບຂອງຄຣິສຕະຈັກໂຣມ | [CHECK] GC 142.2 |
+| Wycliffites | ນັກປະກາດຂອງໄວຄຼິບ | [CHECK] Descriptive; GC 94.3 |
+| Section (citation) | ໝວດ / ຂໍ້ | [CHECK] Rendered by rank, never word for word: ໝວດ above ບົດ, ຂໍ້ below it. GC 59.2, 95.2, 127.2, 564.1, 575.3, 580.3 |
+| Paragraph (citation) | ວັກ | [CHECK] Counted paragraphs only; a numbered section below ບົດ takes ຂໍ້. GC 41.3, 547.2, 565.2 |
+| Religious leaders (generic) | ຜູ້ນຳສາສະໜາ | |
+| Preacher / Preachers | ນັກເທດ | [CHECK] Office, not order |
+| Parish minister / churchman | ອາຈານປະຈຳໂບດ | The head for a settled parish charge and the home of the form ອາຈານປະຈຳໂບດ. Cross-reference added at GC 14: this same form is ALSO licensed under the Minister / Ministers / Pastor / Pastors row, whose default is ສາສະໜາຈານ, wherever the English says *minister* or *pastor* and the context gives the man a standing charge over a particular congregation — ruled that a minister can be an ອາຈານປະຈຳໂບດ if the context says that is the best usage. An auditor meeting ອາຈານປະຈຳໂບດ at a *minister* or *pastor* site is therefore looking at an approved rendering, not a missing mapping, and reports no gap; that row states the condition and lists the sites. The licence runs one way only in the sense that neither form is ever corrected to the other where its own reading fits, and the two are not interchangeable. Verified by exact grep, 8 corpus occurrences of the form in all: 5 at a *minister* or *pastor* head, recorded in the Minister row (GC 70.2 twice, GC 252.1, GC 307.2, GC 595.2); GC 85.2, where the English is Wycliffe's appointment to the rectory of Lutterworth; GC 176.3, where the English is the duties of the chaplain; and GC 257.2, where the English is *clergy* roused to zeal in their own parishes and the Clergy row already licenses this form for Anglican parish clergy. All 8 are correct as they stand and no manuscript site is edited on account of this row. |
+| Sacerdotal | ບາດຫຼວງ | [CHECK] GC 45.2 |
+| Paganism (the system) | ລັດທິນອກສາສະໜາ | [CHECK] Never the idol phrase. 549.2 |
+| Paganism (former faith) | ສາສະໜາເດີມ | Convert contexts only: 45.1, 58.2 |
+| Pagan (attributive) | ນອກສາສະໜາ | ຂອງຄົນນອກສາສະໜາ pattern, 574.1 |
+| Pagan / heathen (person) | ຄົນນອກສາສະໜາ / ຄົນທີ່ນັບຖືສາສະໜາອື່ນ / ຄົນທີ່ບໍ່ນັບຖືພຣະເຈົ້າ | [CHECK] Context chooses |
+| Heathenism (tribal) | ນັບຖືຜີສາງນາງໄມ້ | Saxons only: 62.3, 63.1 |
+| Idolatry / image worship | ການຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| Idol / Idols | ຮູບເຄົາລົບ | [CHECK] Religious category |
+| Image (physical object) | ຮູບປັ້ນ | Statue: 172.1, 174.3, 175.1 |
+| Idolater / Idolaters | ຄົນທີ່ຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| False god | ພຣະທຽມ | 49.2, 53.3, 453.1 |
+| The Reformation | ການປະຕິຮູບສາສະໜາ | |
+| Indulgences | ໃບລ້າງບາບ | [CHECK] |
+| Purgatory | ແດນຊຳລະ | [CHECK] |
+| Heretics | ພວກນອກຮີດ | [CHECK] |
+| Papacy / Popery | ລະບອບສັນຕະປາປາ / ຝ່າຍສັນຕະປາປາ | [CHECK] |
+| Reign of Terror | ສະໄໝທີ່ຄວາມໂຫດຫ້ຽມສະຫຍອງຂວັນຄອງເມືອງ | [CHECK] |
+| Sanctuary | ສະຖານບໍຣິສຸດ / ສະຖານນະມັດສະການ | |
+| Investigative Judgment | ການພິພາກສາແບບສືບສວນ | [CHECK] |
+| Day of Atonement | ວັນລຶບລ້າງບາບ / ວັນລຶບລ້າງຄວາມບາບ / ວັນລຶບລ້າງມົນທິນບາບ / ວັນສຳຄັນແຫ່ງການລຶບລ້າງຄວາມບາບ | DECIDED. Mark only forms outside this list. ອັນຍິ່ງໃຫຍ່ = *great*. ວັນສຳຄັນແຫ່ງ… = *great* or emphasis. Wrong: ລຶບ without ລ້າງ |
+| Scapegoat | ແບ້ຮັບບາບ | [CHECK] |
+| Spiritualism | ລັດທິຕິດຕໍ່ກັບວິນຍານ / ລັດທິຕິດຕໍ່ວິນຍານ / ລັດທິການຕິດຕໍ່ກັບວິນຍານ / ການຕິດຕໍ່ກັບວິນຍານ / ການຕິດຕໍ່ພົວພັນກັບວິນຍານ / ການສື່ສານກັບວິນຍານ / ຄຳສອນເລື່ອງການຕິດຕໍ່ກັບວິນຍານ | Core is ຕິດຕໍ່ or ສື່ສານ plus ວິນຍານ; any nominalising prefix approved; mark any other form. GC 551.2, 553.1, 556.3, 560.3, 588.2, 588.3, 589.1 |
+| Mediums / Spirit channelers | ພວກໝໍຜີ ແລະ ນາງທຽມ | |
+| Universalism | ຄວາມເຊື່ອທີ່ວ່າມະນຸດທຸກຄົນຈະລອດພົ້ນ | [CHECK] |
+| Immortal soul | ຈິດວິນຍານເປັນອະມະຕະ | |
+| Second Advent | ການສະເດັດມາຄັ້ງທີສອງຂອງພຣະຄຣິສ | |
+| Waldenses / Vaudois | ຊາວໂວດົວ | Used interchangeably |
+| Sabbath | ວັນສະບາໂຕ | [CHECK] |
+| Sunday (as false sabbath) | ວັນອາທິດ | |
+| Sunday sacredness | ຄວາມສັກສິດຂອງວັນອາທິດ | |
+| Roman Catholic Church | ຄຣິສຕະຈັກໂຣມັນກາໂຕລິກ / ນິກາຍກາໂຕລິກ | |
+| Protestantism / Protestants | ນິກາຍໂປຣແຕັສຕັງ / ພວກໂປຣແຕັສຕັງ | |
+| Protestant | ໂປຣແຕັສຕັງ | Uses ຣ |
+| Dark Ages | ຍຸກມືດ / ສະໄໝຍຸກມືດ | [CHECK] Both forms accepted; neither is an error where it stands. Counts verified by grep: English "dark ages" 6 occurrences; Lao ຍຸກມືດ 16, of which 12 are inside ສະໄໝຍຸກມືດ, leaving 4 where the bare form stands alone; ສະໄໝຍຸກມືດ 12. ສະໄໝຍຸກມືດ is the running-prose form and is the default for new and edited work. The counts suggest that the fuller form is a first mention and the bare form its anaphor, and the sites do not bear that out, so no such rule is recorded: three of the four bare uses are display text — the GC03 chapter title ຍຸກມືດຝ່າຍຈິດວິນຍານ, the section heading between GC 54.2 and GC 55.1, and the section heading between GC 570.2 and GC 571.1 — and in GC03 the bare heading stands before the full prose form rather than after it. The fourth bare use is prose, GC 577.3, "amid the gloom of the Dark Ages", in a chapter where the full form already stands at GC 563.2, GC 571.1 and GC 572.3; anaphora is possible there but is not the governing rule. Bare ຍຸກມືດ is therefore licensed in headings and titles, where the shorter form is wanted for display. The six English sites are GC 55.1, GC 93.1, GC 235.3, GC 556.2, GC 572.3 and GC 577.3; five of them take ສະໄໝຍຸກມືດ and GC 577.3 takes the bare form. The Lao uses the term 16 times against the English 6 because it also renders other English wording for the same era: "ages of darkness" at GC 61.2 and GC 69.2, "the hours of darkness" at GC 79.2, "in no dark age" at GC 271.3, "the centuries of ignorance and darkness" at GC 563.2, "the darkest ages" at GC 571.1, and once in the introduction. That surplus is the Lao naming the era where the English describes it, and it is not reported. |
+| Apostasy | ການປະຖິ້ມຄວາມເຊື່ອ / ການພັດຫຼົງໄປຈາກຄວາມເຊື່ອ | Default is ການປະຖິ້ມຄວາມເຊື່ອ; second form only for drifting away. GC 551.1, GC 49.1 |
+| Apostle(s) | ອັກຄະສາວົກ | [CHECK] |
+| Passover | ປັດສະຄາ / ເທດສະການປັດສະຄາ | [CHECK] |
+| Feast of Tabernacles | ເທດສະການ "ປຸກຕູບຢູ່" | [CHECK] Quotes around Lao term |
+| Catacombs | ຄອງອຸບມຸງ | [CHECK] |
+| Inquisition | ສານຄະດີນອກຮີດ | [CHECK] |
+| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງພຣະກະລຸນາ | [CHECK] Mark any other form. Never mark the Hebrews 9 quotation at GC 411.1 |
+| Gospel | ຂ່າວປະເສີດ | [CHECK] |
+| Dragon (Rev.) | ພະຍານາກ | |
+| Beast (Rev.) | ສັດຮ້າຍ | |
+| Second death | ຄວາມຕາຍຄັ້ງທີສອງ | [CHECK] |
+| Lollards | ໂລລາດ | Wycliffe's followers |
+| Hussites | ຊາວຮັສ | Huss's followers |
+| Council (of the church) | ສະພາຄຣິສຕະຈັກ / ປະຊຸມສະພາ | |
+| 95 Theses | ຄຳປະທ້ວງ 95 ຂໍ້ | [CHECK] |
+| Diet (assembly) | ສະພາ | E.g., Diet of Worms |
+| Mass (Catholic) | ພິທີສິນລະນຶກ | [CHECK] |
+| Confession of faith | ຄຳປະກາດແຫ່ງຄວາມເຊື່ອ | |
+| Read aloud | ອ່ານອອກສຽງ | [CHECK] NOT ອ່ານດັງໆ (= loudly). Vocalization, opposed to ອ່ານໃນໃຈ. GC 136.3 |
+| Archbishop | ເຈົ້າຄະນະໃຫຍ່ | [CHECK] One grade above ເຈົ້າຄະນະ = bishop; do not fold into the bishop row. NOT ອາຄະບິດຊົບ, NOT ອັກຄະເຈົ້າຄະນະ. Follows the sangha pattern where ເຈົ້າຄະນະ + territory is the ordinary grade and ເຈົ້າຄະນະໃຫຍ່ the senior one. GC 145.1 fn, 565.1, 565.2 |
+| Archbishop of <place> | ເຈົ້າຄະນະໃຫຍ່ແຫ່ງ + <place> | [CHECK] Same ແຫ່ງ connector as the bishop row; NOT ປະຈຳ. Attested: ນະຄອນເຊນຫຼຸຍສ໌ |
+| Excommunication / Excommunicate | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ / ຕັດຊື່ + object + ອອກຈາກຄຣິສຕະຈັກ / ຕັດຄວາມເປັນສະມາຊິກຄຣິສຕະຈັກຂອງ + object | [CHECK] Split verbal frame where the object is short; ຄວາມເປັນສະມາຊິກ form where the object runs past one clause. GC 133.3, 136.4, 141.1, 143.2 |
+| Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
+| Anathema | ຄຳສາບແຊ່ງ | |
+| Cardinal | ພຣະຄາດີນັນ | [CHECK] |
+| Satan / the Devil | ຊາຕານ / ມານຊາຕານ / ພະຍາມານ / ຜີສາດມານຮ້າຍ / ຜີມານຊາຕານ| [CHECK] Always ມັນ for pronoun |
+| Jesuits | ຄະນະສົງເຢຊຸອິດ / ເຢຊຸອິດ | [CHECK] Decided, closed — do not flag and do not standardize. ຄະນະສົງ is reserved for the Jesuits and is used at every one of its ten occurrences in the book: GC 234.2, 235.1 and 235.2 in chapter 12, GC 279.2 in chapter 15, GC 363.1 in chapter 20. Every other religious order takes ຄະນະນັກບວດ instead — the monastic system at GC 84.1, the four orders of friars at GC 87.3 and GC 228.1, Luther's own order at GC 123.2, the Dominicans' order at GC 172.2 — and the two words never cross, in either direction. The same English phrase "their order" therefore takes different Lao at GC 172.2 and GC 235.1, which is correct: the distinction is carried by which order is meant, not by the English noun. A grep or pre-pass that surfaces both words together is looking at a decided distinction. The register is settled elsewhere in the manuscript as well: ພວກພຣະກາໂຕລິກ renders monks and friars as persons at fifteen sites, including GC 228.1 in chapter 12, where both registers stand in one sentence and read without strain. |
+| Transubstantiation | (describe, do not transliterate) | |
+| Thirty Years' War | ສົງຄາມ 30 ປີ | |
+| Goddess of Reason | ເທບທິດາແຫ່ງເຫດຜົນ | [CHECK] |
+| Huguenots | ຮູເກີໂນ | [CHECK] |
+| Puritans | ປູຣິຕັນ | [CHECK] |
+| Methodists / Methodist Connection | ຊາວເມທໍດິສ / ເຄືອຂ່າຍກຸ່ມເມທໍດິສ | [CHECK] |
+| Antinomianism | (describe: teaching that God's law is abolished) | |
+| Quakers / Quakerism | ຄະນະຄະເວເກີ | [CHECK] |
+| Albigenses | ຊາວອັນບີເຈນ | [CHECK] |
+| Moravians | ຊາວໂມເຣເວຍ | [CHECK] |
+| Baptism | ບັບຕິສະມາ | [CHECK] |
+| Rebaptism | ການຮັບບັບຕິສະມາໃໝ່ | [CHECK] |
+| "The end justifies the means" | ການບັນລຸເປົ້າໝາຍລ້ວນແຕ່ສ້າງຄວາມຊອບທຳໃຫ້ແກ່ວິທີການ | Jesuit principle |
+| Adventists | ແອັດເວັນຕິສ | [CHECK] |
+| Midnight Cry | ສຽງຮ້ອງປະກາດຍາມທ່ຽງຄືນ | [CHECK] DECIDED at GC 22. Mark any other form. GC 398.2, 400.1, 402.1, 408.1 |
+| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ / ການຊຳລະສະຖານນະມັດສະການ | [CHECK] Both heads stand, as in the Sanctuary row. GC 426.1 |
+| Cherubim | ເຄຣຸບ | [CHECK] |
+| Seraphim | ເສຣາຟິມ | [CHECK] |
+| Holy Communion | ມະຫາສະໜິດ | |
+| First fruits (wave sheaf) | ຟ່ອນເຂົ້າຜົນທຳອິດ / ຜົນແລກ | |
+| Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | [CHECK] |
+| Image to the beast | ຮູບຈຳລອງໃຫ້ແກ່ສັດຮ້າຍ where EN is *to*; ຮູບຈຳລອງຂອງສັດຮ້າຍ where EN is *of* | [CHECK] The English preposition selects the connector; never edit between them. GC 442.3, 443.1 |
+| Rationalism | ລັດທິເຫດຜົນນິຍົມ | [CHECK] |
+| Papal bull | ໃບປະກາດພິເສດຂອງສັນຕະປາປາ / ໃບປະກາດພິເສດ | [CHECK] Full form at first use per chapter, short form anaphorically. NOT ຄຳສັ່ງ (= decree, mandate); attested 141.3, 142.2, 143.2 |
+| Sacramentarianism | ການນິຍົມພິທີກຳ | [CHECK] |
+| Presbyterian | ເປຣສະບິເທີຣຽນ | [CHECK] |
+| Lutheran | ລູເທີແຣນ / ຄະນະລູເທີແຣນ| [CHECK] |
+| Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
+| Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
+| New birth | ການບັງເກີດໃໝ່ | [CHECK] |
+| Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it. NOT for "intercessor" — see the Intercessor row. ຄົນກາງ renders mediator or mediation at 16 anchors and the single exception, GC 346.4, stands against the rest. 20 attestations |
+| Crusade (religious war) | ສົງຄາມສາສະໜາ | [CHECK] |
+| Chaplain (royal) | ບາດຫຼວງປະຈຳຣາຊສຳນັກ | [CHECK] GC 82.1; ຣາຊ prefix |
+| Church Father (early) | optional plural marker + ນັກຂຽນ + optional ຄຣິສຕຽນ + tail; long form ນັກຂຽນຄຣິສຕຽນ + tail, as ບັນດານັກຂຽນຄຣິສຕຽນຍຸກເລີ່ມຕົ້ນ; short anaphoric form ນັກຂຽນ + tail, as ນັກຂຽນຍຸກເລີ່ມຕົ້ນ | [CHECK] DECIDED at GC 14, replacing the earlier two-form cell. The family had drifted to eight different Lao forms across its nine sites, because each translator built a fresh description instead of using a name. The approving rule is the pattern, not a closed list: an optional plural marker, plus ນັກຂຽນ, plus an optional ຄຣິສຕຽນ, plus a licensed tail. The plural markers ບັນດາ, ພວກ and ເຫຼົ່າ are optional and interchangeable and carry no distinction. LONG FORM, for the first mention of the referent in a chapter: ນັກຂຽນຄຣິສຕຽນ plus tail, as ບັນດານັກຂຽນຄຣິສຕຽນຍຸກເລີ່ມຕົ້ນ. SHORT FORM, anaphoric only: ນັກຂຽນ plus tail, dropping ຄຣິສຕຽນ, as ນັກຂຽນຍຸກເລີ່ມຕົ້ນ; licensed only where the long form is already established for the same referent in the same chapter and an immediate antecedent pins it, on the model of the Castle row. An unpinned short form reads as early writers generally rather than as the church Fathers specifically, which is the loss this row exists to prevent. TAILS, all licensed and interchangeable, chosen at each site to avoid repeating a word already in the paragraph: ຍຸກເລີ່ມຕົ້ນ is the default, and ສະຕະວັດຕົ້ນໆ, ລຸ້ນທຳອິດ, ຍຸກທຳອິດ and ລຸ້ນບຸກເບີກ are equally licensed. ສະຕະວັດຕົ້ນໆ is judged the most accurate of the five, with ຍຸກເລີ່ມຕົ້ນ as the default for length alone, so the default is not a claim of superior accuracy. Counts verified by grep: ນັກຂຽນຄຣິສຕຽນ 5 uses, ຍຸກເລີ່ມຕົ້ນ 3, ສະຕະວັດຕົ້ນໆ 9, ລຸ້ນທຳອິດ 12, ຍຸກທຳອິດ 7, ລຸ້ນບຸກເບີກ 6, ຍຸກອັກຄະສາວົກ 5, ສະໄໝບູຮານ 28. ຍຸກເລີ່ມຕົ້ນ at 3 uses is a chosen head rather than the most frequent form, and ນັກຂຽນ plus tail is new to the book because no site in GC is a second mention. TAILS EXCLUDED, with the reason, so no later audit reaches for them: NOT ສະໄໝບູຮານ, which at 28 uses is the book's general word for antiquity and makes the Fathers merely old rather than specifically early-church; NOT ຍຸກອັກຄະສາວົກ, which denotes the apostolic age, one generation earlier than the Fathers — that tail is the licensed one for the narrower Apostolic Fathers row immediately below, so the two rows record a distinction and not an inconsistency. NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate); that warning matters more than before, because ພວກຜູ້ນຳຄຣິສຕະຈັກ is approved for the Hierarchy (persons) row and for clergy and prelates, so the collision is live in three other heads. ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ is retained, not deleted, for GC 82.2 alone, where the English is "early Fathers of the Roman Church" and the Lao reads ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກໂຣມ; it is not the general head. Nine sites carry the patristic sense. Already correct in structure, keeping the person-core: GC 136.1 ("sayings of") and GC 208.2 ("writings of"). Retained as its own form: GC 82.2. Pending correction to the long form and NOT yet corrected: GC 243.2, GC 249.1, GC 335.3, GC 448.2, GC 455.1, where the Lao left only ຄຣິສຕຽນ, so "the teachings of the Fathers" became ancient Christian teachings generally and lost the appeal to named patristic authority that is EGW's point. Four of those five sites are in chapters not under audit in this session and the fifth is in chapter 14; no manuscript file is edited on account of this row. The Fathers are in every case the early writers being cited by a later age and are never themselves medieval, so no site places them in the Dark Ages and an early-era tail is right at all nine. The English never says "apostolic fathers", zero occurrences, so that patristic category does not arise in this book. |
+| Apostolic Fathers | ນັກຂຽນຄຣິສຕຽນຍຸກອັກຄະສາວົກ; short anaphoric form ນັກຂຽນຍຸກອັກຄະສາວົກ | [PROVISIONAL] UNATTESTED IN GC. English "apostolic fathers" has zero occurrences in the GC source and no Lao site renders it; the row is added for reuse by another project that will mine this glossary, and not for this book. No audit of GC should hunt for this form or report its absence, and the batch pre-pass must not treat it as a missing mapping. The form is composed, not attested: the compound ນັກຂຽນຄຣິສຕຽນຍຸກອັກຄະສາວົກ has zero occurrences, while both of its pieces are settled and attested separately — ນັກຂຽນຄຣິສຕຽນ at 5 uses, the Fathers core fixed in the Church Father (early) row above, and ຍຸກອັກຄະສາວົກ at 5 uses. The tail is deliberately the one the Church Father row excludes: ຍຸກອັກຄະສາວົກ denotes the apostolic age, one generation earlier than the Fathers generally, and the Apostolic Fathers are precisely the writers of that earlier generation, Clement of Rome, Ignatius and Polycarp, so the tail barred from the general head is the licensed tail for this narrower one. The ຍຸກ-headed tail is used rather than a ສະໄໝ one so the family keeps one shape: ນັກຂຽນຄຣິສຕຽນຍຸກເລີ່ມຕົ້ນ for the Fathers, ນັກຂຽນຄຣິສຕຽນຍຸກອັກຄະສາວົກ for the Apostolic Fathers. Structure as in the row above: the plural markers ບັນດາ, ພວກ and ເຫຼົ່າ are optional and interchangeable, and the short form drops ຄຣິສຕຽນ under the same first-mention licence. This row is the group of people and not the period: "apostolic days", "apostolic times" and "apostolic age", nine English sites between them, name a period and are ruled on in the Apostolic days row immediately below, where ສະໄໝຂອງພວກອັກຄະສາວົກ and ຍຸກອັກຄະສາວົກ both stand as options. |
+| Apostolic days / Apostolic times / Apostolic age (the period) | ສະໄໝຂອງພວກອັກຄະສາວົກ / ຍຸກອັກຄະສາວົກ | [CHECK] DECIDED at GC 14. Both forms work and both stand as options: the slash pair means either one satisfies this row, and a site is never edited from one to the other. The pair is not an unresolved disagreement and does not carry the danger a slash list carried for the Hierarchy split, because these two are genuinely interchangeable renderings of one sense rather than two senses that select different forms; there is nothing here left to choose. Counts verified by grep and re-checked before writing: ສະໄໝຂອງພວກອັກຄະສາວົກ 7 uses, at GC 193.3, 250.5, 252.2, 303.4, 379.1, 401.3 and 464.1; ຍຸກອັກຄະສາວົກ 5 uses, at GC 39.1, 64.2, 68.1, 76.2 and 208.1. The English head covers three wordings, nine sites between them: "apostolic days" 6 occurrences, "apostolic times" 2, "apostolic age" 1. Seven of those carry a GC ref — GC 68.1, 95.1, 208.1, 219.2, 252.2, 379.1 and 464.1 — and the remaining two are in the introduction. Five of the English sites take one of the two forms (GC 68.1, 208.1, 252.2, 379.1, 464.1); GC 95.1 and GC 219.2 render the period with other wording and are not corrected on account of this row. The Lao uses beyond those five render other English wording for the same era: ຍຸກອັກຄະສາວົກ at GC 39.1, 64.2 and 76.2, and ສະໄໝຂອງພວກອັກຄະສາວົກ at GC 193.3, 250.5, 303.4 and 401.3. THIS ROW NAMES A PERIOD, and the two neighbouring heads name groups of people: Church Father (early) and Apostolic Fathers are separate rows, and a person-phrase is not rendered by a bare period form nor a period by a person-phrase. ຍຸກອັກຄະສາວົກ stands in both this row and the Apostolic Fathers row, there as the tail of a person-phrase in ນັກຂຽນຄຣິສຕຽນຍຸກອັກຄະສາວົກ and here as the name of the period itself. That is deliberate and not a duplication to be consolidated: a tail inside a person-phrase and a standalone period name are two jobs for one word. The Church Father (early) row's exclusion of ຍຸກອັກຄະສາວົກ as a tail concerns which people are meant, the Fathers being a generation later than the apostolic age, and it does not bear on this period head. |
+| Romanist / Romanists (persons) | person-head + allegiance + ຄຣິສຕະຈັກໂຣມ; attested ພວກຝ່າຍຄຣິສຕະຈັກໂຣມ / ພວກທີ່ສະໜັບສະໜູນຄຣິສຕະຈັກໂຣມ / ຄົນທີ່ສະໜັບສະໜູນຄຣິສຕະຈັກໂຣມ / ຄົນຝ່າຍຄຣິສຕະຈັກໂຣມ / ຄົນໃນຄຣິສຕະຈັກໂຣມ | DECIDED, variation accepted, no forbidden form. Mark only where the institution word makes the referent unclear, never for conformity alone. The approving rule is the pattern, not a closed list: a person-head (ພວກ, ຄົນ or ຜູ້, alone or with ທີ່) plus a word of allegiance (ຝ່າຍ, ນິຍົມ, ເຄັ່ງໃນ, ສະໜັບສະໜູນ or ໃນ) plus the institution ຄຣິສຕະຈັກໂຣມ. A form built that way, rendering English *Romanist*, is approved and is not flagged, whether or not it appears in the examples. The head-word marks the human plural and carries no distinction. Attested: ພວກຝ່າຍຄຣິສຕະຈັກໂຣມ at GC 153.1, 160.4, 181.4, 183.4, 224.3, 254.2; ພວກທີ່ສະໜັບສະໜູນຄຣິສຕະຈັກໂຣມ at GC 161.1, 167.3, 187.3; ຄົນທີ່ສະໜັບສະໜູນຄຣິສຕະຈັກໂຣມ at GC 102.2, 216.1; ຄົນຝ່າຍຄຣິສຕະຈັກໂຣມ at GC 217.1; ຄົນໃນຄຣິສຕະຈັກໂຣມ at GC 216.3. The one thing that must be got right is the institution: English *Romanist* takes ຄຣິສຕະຈັກໂຣມ and English *papist* takes a ສັນຕະປາປາ form from the Papist row. The split is deliberate and the paragraphs carrying both English words keep it (GC 167.3, GC 216.1). Roman Catholics and Catholics as a people take the separate ກາໂຕລິກ forms and are not this family. Ruling and evidence in GC-open-terms.md |
+| Papist / Papists (persons) | person-head + allegiance + ສັນຕະປາປາ or ລະບອບສັນຕະປາປາ; attested ພວກຝ່າຍສັນຕະປາປາ / ພວກທີ່ຢູ່ຝ່າຍສັນຕະປາປາ / ພວກເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກຄົນເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກທີ່ສະໜັບສະໜູນສັນຕະປາປາ / ຄົນທີ່ສະໜັບສະໜູນລະບອບສັນຕະປາປາ / ຄົນທີ່ຢູ່ຝ່າຍສັນຕະປາປາ / ຜູ້ສະໜັບສະໜູນລະບອບສັນຕະປາປາ / ຜູ້ນິຍົມສັນຕະປາປາ | DECIDED, variation accepted, no forbidden form. Mark only where the institution word makes the referent unclear, never for conformity alone. The approving rule is the pattern, not a closed list: a person-head (ພວກ, ຄົນ or ຜູ້, alone or with ທີ່) plus a word of allegiance (ຝ່າຍ, ນິຍົມ, ເຄັ່ງໃນ, ສະໜັບສະໜູນ or ໃນ) plus ສັນຕະປາປາ or ລະບອບສັນຕະປາປາ. A form built that way, rendering English *papist*, is approved and is not flagged, whether or not it appears in the examples. The head-word marks the human plural and carries no distinction. No single preferred form; choose by sentence sense; ພວກນິຍົມສັນຕະປາປາ never for new work (GC 143.3, 216.1). ພວກຝ່າຍສັນຕະປາປາ is the most frequent form in the family, 21 sites across GC04, GC05, GC07, GC08, GC09, GC12, GC13, GC14 and GC16, including GC 143.1, 223.1, 226.2 and 227.1; those sites are accepted where they stand, are not errors and are not reported. Other attestations: ພວກທີ່ຢູ່ຝ່າຍສັນຕະປາປາ at GC 56.1; ພວກເຄັ່ງໃນລະບອບສັນຕະປາປາ at GC 132.3, 137.3; ພວກຄົນເຄັ່ງໃນລະບອບສັນຕະປາປາ at GC 135.2; ພວກທີ່ສະໜັບສະໜູນສັນຕະປາປາ at GC 111.1, 190.1, 448.2; ຄົນທີ່ສະໜັບສະໜູນລະບອບສັນຕະປາປາ at GC 195.2; ຄົນທີ່ຢູ່ຝ່າຍສັນຕະປາປາ at GC 245.2; ຜູ້ສະໜັບສະໜູນລະບອບສັນຕະປາປາ at GC 212.1; ຜູ້ນິຍົມສັນຕະປາປາ at GC 198.2. The one thing that must be got right is the institution: English *papist* takes ສັນຕະປາປາ and English *Romanist* takes ຄຣິສຕະຈັກໂຣມ from the Romanist row. GC 607.1 ກາໂຕລິກ for *papists* beside ໂປຣແຕັສຕັງ is closed as appropriate in context; do not report it. ພວກຜູ້ນຳໃນລະບອບສັນຕະປາປາ at GC 249.4 renders "the papist leaders" and belongs to the Papacy row, not here. Ruling and evidence in GC-open-terms.md |
+| Hierarchy (the papal system) | ລະບອບສັນຕະປາປາ | DECIDED at GC 14 — the family splits by sense into two rows rather than into one row with a slash list, because the two forms are not interchangeable and the sense selects the form. This row is the institution as an entity: its corruption, its power, its fears, its re-establishment. Same form as the Papacy row. 16 sites, every one correct and none edited: GC 59.3, 84.3, 89.4, 97.2, 100.1, 107.2, 149.2, 195.3, 199.3, 234.1, 249.3, 266.3, 445.1, 563.1, 564.3, 576.1. Where the English names people who act — rage, malice, a plural verb with a personal referent — the persons row governs and this form is wrong at that site. Do not widen this cell with a persons form and do not merge the two rows: the sense boundary is what was decided. A later chapter's merge arriving with further attestations adds them as evidence under whichever of the two rows carries their sense, and reopens nothing. {GC 64.2} "not the proud hierarchy enthroned in the world's great capital" is ambiguous in the English itself and its Lao reads ຄຣິສຕະຈັກ; that is recorded as ambiguity in the source, not as a defect in the Lao, and the site is not reported. Ruling and evidence in GC-open-terms.md |
+| Hierarchy (persons, the body of church leaders) | ພວກຜູ້ນຳ + optional ຂອງ + ຄຣິສຕະຈັກ or ຄຣິສຕະຈັກໂຣມ; attested ພວກຜູ້ນຳຄຣິສຕະຈັກ / ພວກຜູ້ນຳຄຣິສຕະຈັກໂຣມ / ພວກຜູ້ນຳຂອງຄຣິສຕະຈັກໂຣມ | DECIDED at GC 14 — the persons half of the split above, for English *hierarchy* where the referent is the men and not the institution. The approving rule is the pattern, not a closed list: the person-head ພວກຜູ້ນຳ, plus ຂອງ or nothing, plus the institution ຄຣິສຕະຈັກ or ຄຣິສຕະຈັກໂຣມ. A form built that way, rendering English *hierarchy* in the persons sense, is approved and is not flagged whether or not it appears in the examples; ຂອງ is optional and carries no distinction. Attested and verified site by site: ພວກຜູ້ນຳຄຣິສຕະຈັກ at GC 215.2 ("the rage of the hierarchy"), ພວກຜູ້ນຳຄຣິສຕະຈັກໂຣມ at GC 216.1 ("the malice of the hierarchy"), ພວກຜູ້ນຳຂອງຄຣິສຕະຈັກໂຣມ at GC 223.1 ("the hierarchy were not idle"). All three are correct as they stand and no site is edited on account of this row. NOT ລະບອບສັນຕະປາປາ here — that is the system row and naming the institution where the English names people is the one error this split exists to catch. Overlap, recorded and accepted rather than open: ພວກຜູ້ນຳຄຣິສຕະຈັກ is also the approved rendering of *clergy* (Catholic sense) and of *prelate / prelates* where those name the body of leaders, as at GC 228.1 and GC 230.1, so it is shared across three English heads by design — the leadership corps viewed as an acting body is one object under three English names, and a later audit does not normalise one head's sites to a different form on account of the others. Ruling and evidence in GC-open-terms.md |
+| Royal ambassador | ທູດຫຼວງ | [CHECK] GC 84.3 |
+| Commissioners (papal) | ຄະນະຂ້າຫຼວງຂອງສັນຕະປາປາ | [CHECK] GC 84.3 |
+| Tract (published) | ບົດຄວາມ | GC 84.2 |
+| Inquisitors (persons) | ເຈົ້າໜ້າທີ່ສານຄະດີນອກຮີດ | [CHECK] |
+| Intercessor | ຜູ້ອ້ອນວອນ / ຜູ້ຊ່ວຍອ້ອນວອນແທນ | [CHECK] One who pleads for another before God. Distinct from the Mediator row: a mediator stands between two parties and has standing with both, an intercessor pleads for one of them. The phrase "without an intercessor" is ໂດຍບໍ່ມີຜູ້ອ້ອນວອນ at GC 614.1 and 648.3, and ໂດຍບໍ່ມີຜູ້ຊ່ວຍອ້ອນວອນແທນ at GC 220.3; both stand. NOT ຄົນກາງ, NOT ຜູ້ແກ້ຄວາມ. 8 attestations; GC 220.3, 415.3, 428.3, 429.1, 610.3, 614.1, 648.3 |
+| Advocate | ຜູ້ແກ້ຄວາມ / ຜູ້ວິງວອນ | [CHECK] The forensic head, one who speaks for the accused at the bar. ຜູ້ແກ້ຄວາມ is the default and carries the 1 John 2:1 quotation "we have an advocate with the Father" at GC 416.3 and GC 482.4; ຜູ້ວິງວອນ is a narrative variant standing beside it in the same paragraph at GC 482.4. ຜູ້ອ້ອນວອນ also renders "Advocate" once, at GC 483.1. 4 attestations; GC 81.1, 416.3, 482.4 |
+| Penance | ບຳເພັນຕົນເພື່ອຊົດໃຊ້ບາບ | [CHECK] The act the church prescribes to make satisfaction for sin, not self-mortification. EGW separates the two inside one sentence at GC 567.3 — "more palatable to human nature to do penance than to renounce sin; it is easier to mortify the flesh by sackcloth" — so ທໍລະມານ belongs to "mortify" and to "torture" (GC 72.2) and never to penance standing alone. ບຳເພັນບຸນ is merit-making and widens penance to good works in general. ຊົດໃຊ້ is this corpus's atone verb, so the head names what the act claims to do while the context denies it. Applied at GC 220.3, GC 567.3 and GC 72.2; head only, with the existing tail kept, at GC 55.3. Two variants are licensed. ທໍລະມານຕົນເພື່ອຊົດໃຊ້ບາບ at GC 129.1, because Luther's penance genuinely was mortification and EGW ascribes fastings, vigils and scourgings to him elsewhere, so the head keeps the mortification verb but takes the satisfaction purpose. ບຳເພັນບຸນ at GC 213.2, kept short because the sentence there is already long. At the second English pair in GC 55.3, "gifts or acts of penance", the Lao ການເຮັດບຸນຖວາຍກຸສົນ stays fused: ຖວາຍ carries the gifts, so nothing is missing, only collapsed. Nothing open. |
+| Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
+| Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
+| Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
+| Ancient of Days | ອົງຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ (LCV, TNCV) / ຜູ້ມີຊີວິດຢູ່ຕະຫຼອດໄປ (LO2012, LO2015) / ຜູ້ຈະເລີນດ້ວຍໄວຍະວຸດ (TKJV) / ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ (NTV) / ພຣະເຈົ້າອົງນິຣັນ | [CHECK] Form follows the version cited; ພຣະເຈົ້າອົງນິຣັນ outside Daniel 7 only. GC 424.2, 454.3, 479.1 |
+| Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
+| Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
+| Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
+| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ / ທູດສະຫວັນປະຈຳຕົວ | [CHECK] Both forms stand; never mark either. GC 512.2 |
+| Eternal torment / Hell | ການທໍລະມານຕະຫຼອດນິຣັນ / ຂຸມນະຣົກ | |
+| Immortality of the soul (doctrine) | ຄວາມເຊື່ອວ່າຈິດວິນຍານເປັນອະມະຕະ | Also: ດວງວິນຍານທີ່ອະມະຕະ |
+| Consciousness in death | ຄົນຍັງມີສະຕິຮູ້ສຶກຕົວຫຼັງຈາກຕາຍ | Descriptive |
+| Familiar spirits | ຄົນຊົງເຈົ້າເຂົ້າຜີ | Names the human medium, not the spirit. GC 559.1; the spirits themselves at GC 556.2 |
+| Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | [CHECK] |
+| Resurrection | ຟື້ນຄືນຊີບ / ຟື້ນຄືນຊີວິດ / ຟື້ນຈາກຄວາມຕາຍ / ຄືນມາ / ຄືນພຣະຊົນ / ຟື້ນພຣະຊົນ | [CHECK] ພຣະຊົນ forms only of Christ. |
+| Lamb (Rev. and salvific) | ພຣະເມສານ້ອຍ | |
+| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] ຣ root |
+| Papal infallibility | (describe: claiming the church never erred and never will) | |
+| Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | |
+| Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | [CHECK] |
+| Stake (execution) | ຫຼັກປະຫານ | [CHECK] Also renders scaffold where a heretic is condemned |
+| Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
+| Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
+| Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
+| Thousands | ຫຼາຍພັນຄົນ / ຫຼາຍໝື່ນຄົນ / ຄົນຈຳນວນຫຼວງຫຼາຍ | Translate for sense, not literally; never mark. GC 427.1 |
+| Jacob's trouble | ເວລາທຸກຍາກຂອງຢາໂຄບ (period) / ຄວາມທຸກຍາກຂອງຢາໂຄບ (affliction) / ເວລາທຸກໃຈຂອງຢາໂຄບ (TKJV) / ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | Reference only. Never mark any of these; a longer phrase built on one also stands. Jeremiah 30:7. GC 616.1, 648.3 |
+| Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
+| Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
+| New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
+| Holy City | ນະຄອນບໍຣິສຸດ / ນະຄອນສັກສິດ | Varies by Bible version quoted. EGW's prose takes the first, a scripture quotation the second. Both correct; never report either |
+| New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
+| Close of probation | ເວລາແຫ່ງພຣະກະລຸນາ | Base form; ສິ້ນສຸດ or ໝົດ follows it. GC 428.2, 429.1 |
+| Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
+| Ordain / Ordination / Consecration (to sacred office) | ເຈີມຕັ້ງ | [CHECK] NOT ເຈີມ. Ecclesiastical office only. Attested: 70.2, 124.1, 173.2, 221.2, 238.3, 254.3, 274.1 |
+| Ordain (decree, appoint, institute) | ກຳນົດ / ແຕ່ງຕັ້ງ | NOT ເຈີມ; 69.2, 448.1, 449.1, 454.3, 592.1 |
+| Consecrate (self-dedication to God) | ອຸທິດຖວາຍຕົນ | NOT ເຈີມ; 176.4, 398.1, 400.2, 463.3, 606.2, 612.1 |
+| The Anointed One (Messiah) | ຜູ້ຖືກເຈີມ | [CHECK] Title; never ເຈີມຕັ້ງ. 327.1, 410.1 |
+| Anointing of the Spirit (Christ, narrative) | ເຈີມຕັ້ງ | [CHECK] The AD 27 anointing as messianic installation. 327.1, 346.4, 410.1 |
+| Unction (of His Spirit, on believers) | ເຈີມ | [CHECK] 606.2; no office conferred |
+| Anointed cherub (narrative echo) | ເຈີມຕັ້ງ | 497.1; echoes ເອເຊກຽນ 28:14 quoted at 493.3 |
+| Christianity / the Christian faith | ສາສະໜາຄຣິສ / ຄຣິສຕະສາສະໜາ | Both forms in use; variation intentional |
+| Executioner | ເພັດຊະຄາດ | [CHECK] GC 114.8 |
+| Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
+| Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
+| Prince / princes (within a kingdom) | ຂຸນນາງ / ເຈົ້າຊາຍ | [CHECK] Context decides: ຂຸນນາງ for nobles under a crown, ເຈົ້າຊາຍ for the biblical honorific; NOT ເຈົ້າແຂວງ. GC 85.3, 622.3 |
+| Prince of evil / prince of darkness / prince of angels / Prince of Peace / Messiah the Prince / prince of this world | ເຈົ້າແຫ່ງຄວາມຊົ່ວຮ້າຍ / ເຈົ້າແຫ່ງຄວາມມືດ / ອົງສັນຕິຣາດ / ເມຊີອາຜູ້ເປັນປະມຸກ / ຜູ້ປົກຄອງໂລກນີ້ / ຊາຕານ / ມານຮ້າຍ | [CHECK] A title of rank, never ຂຸນນາງ; naming him plainly also passes. GC 45.1, 46.3, 50.2, 59.3, 86.2, 326.1, 327.1, 345.1, 494.1, 501.2, 507.3, 514.2, 534.1, 551.2, 553.3, 570.1, 584.2, 623.1 |
+| Lawyer (legal profession) | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific. The Mosaic-law sense takes ທຳມະບັນດິດ on its own row |
+| Lawyer (teacher of the law of Moses) | ທຳມະບັນດິດ | [CHECK] Luke 10:25 questioner; the sense selects the form, never ນັກກົດໝາຍ here. GC 598.1 |
+| Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
+| Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
+| Pulpit (to ascend the ~) | ທຳມາດ | [CHECK] GC 124.1 |
+| Coronation | (defer — see GC-open-terms.md) | 666.1, 668.4; pairs with ມົງກຸດ at 669.1 |
+| President of the Convention | ປະທານກອງປະຊຸມ | [CHECK] |
+| Chair of a meeting | ປະທານທີ່ປະຊຸມ | Descriptive label; no English head in source |
+| Assembly chamber / hall | ຫ້ອງປະຊຸມ | Descriptive label; enforced via the Convention [FLAG] row |
+| Veil of Reason | ຜ້າມ່ານແຫ່ງເຫດຜົນ | [CHECK] GC 276.1 |
+| Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
+| Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
+| Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
+| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Legate / nuncio / papal emissary | ຕົວແທນ / ຕົວແທນຂອງສັນຕະປາປາ / ທູດຂອງສັນຕະປາປາ | [CHECK] NOT ທະນາຍ, NOT bare ທູດ. Full form first; ທູດຂອງສັນຕະປາປາ only where EN reads ambassador. GC 62.4, 133.3, 135.1, 225.2 |
+| Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
+| Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
+| Young / Youth | ຊາວໜຸ່ມ / ຄົນໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດຕ່າງໆທີ່ມີພື້ນຖານຄຣິສຕຽນ / ທຸກປະເທດທີ່ຄົນສ່ວນໃຫຍ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທີ່ຄົນສ່ວນໃຫຍ່ເປັນຄຣິສຕຽນ / ວົງການຄຣິສຕຽນ / ໂລກຄຣິສຕຽນ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ. ວົງການຄຣິສຕຽນ for the religious sphere only. GC 382.2, GC 396.2 |
+| Christian world | ວົງການຄຣິສຕຽນ / ໂລກຄຣິສຕຽນ | [CHECK] DECIDED at GC 22. Both forms are options; mark any other. GC 464.1, 478.1, 547.3, 574.1, 584.1, 586.2, 589.2, 592.2 |
+| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
+| Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks. Duke is NOT collapsed here — it has its own row, and both of its two corpus occurrences are already settled there |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Sole site GC 149.2 (Duke George). GC 198.3 (Duke John) is excluded — EGW's *Duke* there is courtesy usage; John held the electorate from 1525 and GC 11 calls him *the elector* nine times, so ເຈົ້າແຂວງ governs. Only 2 occurrences corpus-wide: GC 149.2, 198.3. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
+| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Two English words share this head, and both are the town sense. "Magistrate" where the officeholders of a named city act — GC 106.1, 137.3, 151.2, 196.1, 224.1, 232.1 — and "dignitaries of the city" at GC 104.3, where ຄະນະເຈົ້າເມືອງ renders that phrase and not "magistrates"; the four chief magistrates in the same sentence are ເຈົ້າໜ້າທີ່ສູງສີ່ຄົນຂອງເມືອງ, left as it stands because it names the city descriptively. Civic office only; never a territorial ruler. Second sense, "the civil magistrate", is the civil power as against the church and never takes ເຈົ້າເມືອງ: it takes ອຳນາດລັດ, ເຈົ້າໜ້າທີ່ຂອງລັດ, ເຈົ້າໜ້າທີ່ລັດ, ເຈົ້າໜ້າທີ່ຝ່າຍປົກຄອງ or ເຈົ້າໜ້າທີ່ບ້ານເມືອງ at GC 203.4, 240.1, 248.1, 292.3, 293.1, 294.2. Corpus: ອຳນາດລັດ 28, ເຈົ້າເມືອງ 8, ເຈົ້າໜ້າທີ່ຝ່າຍປົກຄອງ 4, ເຈົ້າໜ້າທີ່ລັດ 4, ເຈົ້າໜ້າທີ່ບ້ານເມືອງ 4, ເຈົ້າໜ້າທີ່ຂອງລັດ 3 |
+| Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
+| Deputy / Deputies / Deputation (civil) | ຜູ້ແທນ / ຕົວແທນ | [CHECK] Both attested; never mark either. ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ for royal envoys. GC 108.2, 180.3, 201.1, 201.2 |
+| Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
+| Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
+| Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
+| Interdict | ການປະກາດຫ້າມທາງສາສະໜາ | [CHECK] GC 100.3, 101.1 |
+| Jubilee | ງານເທດສະການສະຫຼອງການຄົບຮອບ | [CHECK] GC 98.2 |
+| Chapter (citation) | ບົດ | [CHECK] |
+| People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
+| Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
+| Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
+| Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
+| Edict (royal, imperial) | ຣາຊໂອງການ | [CHECK] Any monarch, king or emperor; NOT papal (ຄຳສັ່ງ). ດຳລັດຈາກກະສັດ retained GC 89.4, 242.1; ຄຳປະກາດ retained GC 202.1. Attested GC 197.3, 202.1, 202.4, 203.1, 574.1, 574.2 |
+| Confession (Augsburg) | ຄຳປະກາດຫຼັກຂໍ້ເຊື່ອ / ຫຼັກຂໍ້ເຊື່ອ | Manuscript also uses ບົດສະຫຼຸບຫຼັກຂໍ້ເຊື່ອ, ການປະກາດຫຼັກຂໍ້ເຊື່ອ. Distinct from the Confession of faith row. GC 206.2, 207.1, 208.1, 208.2, 208.3 |
+| Prince (sovereign, in address) | ເຈົ້າຊີວິດ | Emperor or king addressed as "prince"; NOT ຂຸນນາງ, NOT ເຈົ້າແຂວງ. GC 203.2 |
+| Canton (Swiss) | ກຸ່ມເມືອງ | [CHECK] Polity; NOT ແຂວງ. GC 211.2 |
+| Lutheranism | ນິກາຍລູເທີແຣນ / ຄຳສອນຂອງລູເທີແຣນ | NOT ຄະນະ (= religious order). GC 215.3 |
+| Ambassador (secular envoy) | ທູດຫຼວງ | ປະຈຳ + country for the posting. GC 216.2; cf. Royal ambassador, GC 84.3 |
+| In the capacity of / as (status) | ໃນຖານະ | Settled at GC12. Capacity or status sense, and the form keeps its final ະ. Distinct in sense from the charge frame, which takes ໃນຖານ; see the ໃນຖານ row. The two are not interchangeable and neither is a variant spelling of the other |
+| On the ground of (charge, offence) | ໃນຖານ | Settled at GC12. Charge frame only: ໃນຖານ + the offence charged, in a punishment or accusation. NOT a misspelling of ໃນຖານະ, and never to be marked as one. Corpus: ໃນຖານະ over 100 sites, all capacity sense; ໃນຖານ exactly 2, both punishment frames — GC 224.3 ("as agitators dangerous to the stability of the throne") and GC 48.2 (punished on the ground of an offence against Christ) |
+| Calvinists | ພວກຄະນະຄາວິນ | [CHECK] The persons who hold Calvin's teaching. Head is the John Calvin row's short form ຄາວິນ, built the same way as ຄະນະລູເທີແຣນ in the Lutheran row. Attested GC 292.1, inside the Robinson farewell quotation, where it stands against ພວກຄະນະລູເທີແຣນ in the same sentence. The English word occurs only twice in the book, GC13 and GC16; the other site, GC 244.2, renders it descriptively as ຕາມຄາວິນ paired with ຄຳສອນຂອງລູເທີ where the English pairs Calvinists with Lutherans, and that variation is accepted rather than narrowed |
+| Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |
+| Deist / Deists | ດິອິສ / ລັດທິດິອິສ | [CHECK] ພວກ or ຄົນ prefixes either form for persons; Latin gloss (Deist) at first use |
+| Prophet (of another god) | ຜູ້ທຳນວາຍ | DECIDED. Use for a non-Israelite god's prophet, under any prefix. GC 626.2 |
+| Elder / Elders (Jewish council) | ພວກເຖົ້າແກ່ / ພວກຄົນເຖົ້າຄົນແກ່ | Undecided; never mark either form. LCV reads ພວກເຖົ້າແກ່ຂອງປະຊາຊົນ at Matthew 26:47; not prescriptive. GC 311.1, 313.2, 557.1, 643.4 |
+| False sabbath / Spurious sabbath | ວັນສະບາໂຕປອມ / ວັນສະບາໂຕທຽມເທັດ | DECIDED. Both heads: prefer ວັນສະບາໂຕປອມ; ວັນສະບາໂຕທຽມເທັດ also correct, never mark it. Wrong: ວັນພັກປອມ. GC 536.3, 580.1, 605.2, 640.1; ວັນສະບາໂຕທຽມເທັດ GC 448.3, 604.2 |
+---
+
+## 10. Lao Spelling Glossary
+
+<!-- Not every settled spelling-shaped question is in this table. A form that is correct in one grammatical frame and wrong in another has no honest row here, because an empty Incorrect cell reads as a spelling to fix and invites a mechanical sweep across sites that are right; such a decision lives in the main table under its own English head instead. The standing example is ໃນຖານ, the charge frame, against ໃນຖານະ, the capacity frame — both correct, neither a variant spelling of the other. Compound word-order pairs are in section 12. Check both places before marking a form as misspelled. -->
+
+| Word | Correct | Incorrect | Notes |
+|---|---|---|---|
+| Holy / Pure | ບໍຣິສຸດ | ບໍລິສຸດ | [CHECK] ຣ root |
+| Epidemic / Plague | ໂຣກລະບາດ | ໂລກລະບາດ | [CHECK] ຣ root |
+| Glory / Radiance | ສະຫງ່າຣາສີ | ສະຫງ່າລາສີ | [CHECK] ຣ root |
+| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ | [CHECK] |
+| Christian | ຄຣິສຕຽນ | ຄິດສະຕຽນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ພະຍາກອນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ທຳນວາຍ | [CHECK] Wrong at this head only; the main table licenses ຜູ້ທຳນວາຍ for a non-Israelite god's prophet. GC 626.2 |
+| Holy (prefix) | ພຣະ | ພະ |  |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ | [CHECK] |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດເດດ | [CHECK] |
+| Eternal | ນິຣັນ | ນິລັນ | [CHECK] |
+| Israel | ອິດສະຣາເອນ | ອິດສະລາເອນ | [CHECK] |
+| Heritage | ມໍລະດົກ | ມໍຣະດົກ | [CHECK] Exception: ລ |
+| Miracle | ອັດສະຈັນ | ອັດສະຈັນຍ໌ | [CHECK] |
+| Protestant | ໂປຣແຕັສຕັງ | ໂປລແຕັສຕັງ | [CHECK] ຣ root |
+| Radiance (divine) | ຣັດສະໝີ | ລັດສະໝີ | [CHECK] ຣ root |
+| Church (institution) | ຄຣິສຕະຈັກ | ຄລິສຕະຈັກ | [CHECK] |
+| Christ | ພຣະຄຣິສ | ພຣະຄລິສ | [CHECK] |
+| Royal vocabulary | ຣາຊາສັບ | ລາຊາສັບ | [CHECK] ຣ root |
+| Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
+| Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
+| Pope (pronoun) | ເພິ່ນ | ພິ່ນ / ລາວ / ທ່ານ | [CHECK] |
+| Church (institution) | ຄຣິສຕະຈັກ | ຄຣິສຈັກ | [CHECK] Dropped syllable, distinct from the existing row that guards the ລ spelling. One occurrence, GC 237.1 |
+| Diligence / Perseverance | ຄວາມອຸດສາຫະພາກພຽນ | ຄວາມອຸດສາພາກພຽນ | [CHECK] Dropped ຫະ syllable. One occurrence, GC 241.1; GC02 and GC14 carry the full form |
+| Retinue / Entourage | ບໍລິວານ | ບໍຣິວານ | [CHECK] ລ form, settled. Corpus: ບໍລິວານ 3 (GC 206.1 ຄະນະບໍລິວານ, 514.3, 530.1), ບໍຣິວານ 0 — the Incorrect form is preventive, guarding against the ບໍຣິສຸດ / ບໍຣິບູນ analogy. §10's ຣ policy is settled as a per-word list, not a prefix rule: see GC-open-terms.md |
+| Encyclopedia / Cyclopedia | ສາລານຸກົມ | ສານຸກົມ | [CHECK] Dropped syllable, same pattern as the ຄຣິສຈັກ row. Settled and applied: all 3 corpus occurrences now read ສາລານຸກົມ (GC 17 footnote 14; GC 261.1 footnote 18; GC 363.2 footnote 19) |
+| Overthrow / fell | ໂຄ່ນ | ໂຄ້ນ | [CHECK] Tone mark only. One occurrence, GC 334.4 |
+| Rabbi | ຣັບບີ | ຣາບີ | [CHECK] Decided; all sites corrected at GC 314.1, GC 315.2, GC 363.1 |
+| Adventure (book title) | ຜະຈົນໄພ | ພະຈົນໄພ | [CHECK] Sole corpus occurrence, footnote at GC 357.2 |
+| Low / humble | ຕ່ຳຕ້ອຍ | ຕໍ່າຕ້ອຍ | [CHECK] Separated vowel spelling; Incorrect form only at GC 369.3 and GC 221.3 |
+| Magazine / Journal | ວາລະສານ | ວໍລະສານ | [CHECK] Footnote apparatus. GC 401.2 |
+| Water (and AM generally) | ນ້ຳ | ນໍ້າ | [CHECK] Incorrect cell decomposes AM as U+0ECD plus U+0EB2; composed U+0EB3 only. GC 407.1 |
+| One another / each other | ເຊິ່ງກັນແລະກັນ | ເຊິ່ງກັນ ແລະ ກັນ | [CHECK] Decided 18 August; written joined, never mark. All 10 sites corrected |
+| Palestine | ປາແລັດສະໄຕ | ປາແລັດສະໄຕນ໌ / ປາແລສໄຕນ໌ / ປາເລສຕິນ / ຟີລິດສະຕິນ / ຟີຣິດສະຕິນ |  |
+| Gamaliel | ຄາມາລິເອັນ | ຄາເມລິເອນ / ຄາເມລິເອັນ / ຄາມາລິເອນ / ຄາມາລີເອັນ | LCV, LO2012 |
+| John the Baptist | ໂຢຮັນບັບຕິສະໂຕ | ໂຢຮັນບັບຕິດສະໂຕ | LCV, LO2012 |
+---
+
+## 11. Lao Proper Noun Glossary (GC)
+
+<!-- GC-specific. Proper nouns from other EGW books (PP, AA, MB, Ed, etc.) should be added in separate tables or merged as needed. -->
+
+| English | Lao | Notes |
+|---|---|---|
+| Jerusalem | ເຢຣູຊາເລັມ | [CHECK] |
+| Mount of Olives / Olivet | ພູເຂົາໝາກກອກເທດ | [CHECK] |
+| Gethsemane | ເຄັດເຊມາເນ | [CHECK] |
+| Calvary | ຄານວາຣີ | [CHECK] |
+| Titus | ຕີໂຕ | [CHECK] Often: ແມ່ທັບຕີໂຕ |
+| Josephus | ໂຢເຊຟັດ | [CHECK] |
+| Cestius Gallus / Cestius | ໄກອຸສ ເຊຕຽວ ກາລຸສ / ເຊຕຽວ | [CHECK] Short: ແມ່ທັບເຊຕຽວ |
+| Pella | ເປລາ | [CHECK] |
+| Moriah | ໂມຣິຢາ | [CHECK] |
+| Ornan / Araunah | ອາໂຣນາ | [FLAG] spelling unresolved. Lao form follows Araunah (2 Sam 24); same man as Ornan (1 Chr 21) — verify against ພຄພ |
+| Nero | ເນໂຣ | [CHECK] |
+| Constantine | ຄອນສະຕັນຕິນ | [CHECK] |
+| Gregory VII | ເກຼັກກໍຣີທີ 7 | [CHECK] |
+| Wycliffe | ໄວຄຼິບ | [CHECK] |
+| Solomon | ໂຊໂລໂມນ | [CHECK] |
+| David | ດາວິດ | [CHECK] |
+| Nebuchadnezzar | ເນບູກາດເນັດຊາ | [CHECK] |
+| Haggai | ຮັກກາຍ | [CHECK] |
+| Isaac | ອີຊາກ | [CHECK] |
+| Jacob | ຢາໂຄບ | [CHECK] |
+| Herod | ເຮໂຣດ | [CHECK] + ມະຫາຣາດ for "the Great" |
+| Milman | ມິນມານ | [CHECK] |
+| Wylie | ໄວລີ | [CHECK] |
+| Tertullian | ເທີທູລຽນ | [CHECK] |
+| Liberalis | ລີເບຣາລິດ | [CHECK] |
+| Perea | ເປເຣຍ | [CHECK] |
+| Lutterworth | ລັດເຕີເວີດ | [CHECK] |
+| Oxford | ອັອກຟອດ | [CHECK] |
+| John Huss | ຈອນ ຮັສ | [CHECK] Short: ຮັສ |
+| Jerome (of Prague) | ເຈໂຣມ | [CHECK] |
+| Bohemia | ໂບຮີເມຍ | [CHECK] |
+| Prague | ປຣັກ | [CHECK] |
+| Constance | ຄອນສະຕັນ | [CHECK] (the city) |
+| Sigismund | ຊີກີມົງ | [CHECK] |
+| Bethlehem Chapel | ໂບດເບັດເລເຮັມ | [CHECK] |
+| Ziska | ຊີສະກາ | [CHECK] |
+| Rhine | ແມ່ນ້ຳໄຣນ໌ | [CHECK] GC 110.1 |
+| Moravia | ໂມເຣເວຍ | [CHECK] |
+| United Brethren | ກຸ່ມພີ່ນ້ອງຜູ້ເປັນໜຶ່ງດຽວ | [CHECK] Descriptive |
+| Staupitz | ສະເຕົາພິດ | [CHECK] |
+| Rome (city) | ນະຄອນໂຣມ / ໂຣມ | [CHECK] |
+| Erfurt | ເອີເຟີດ | [CHECK] |
+| Wittenberg | ວິດເທັນເບີກ | [CHECK] |
+| Tetzel | ເທັດເຊັນ | [CHECK] |
+| Augsburg | ອອກເບີກ | [CHECK] |
+| Worms | ເວີມ | [CHECK] |
+| Saxony | ແຊັກຊັນນີ | [CHECK] |
+| Netherlands | ເນເທີແລນ | [CHECK] |
+| Spain | ແອັດສະປາຍ | [CHECK] |
+| Zwingli | ສວິງລີ | [CHECK] Full: ອຸນຣິກ ສວິງລີ; short: ສວິງລີ |
+| Zurich | ຊູຣິກ | [CHECK] |
+| Council of Zurich (civic) | ສະພານະຄອນຊູຣິກ | [CHECK] GC 179.1, 180.3. Governing council of the city-state — legislature, court and executive in one. NOT ຄະນະປົກຄອງເມືອງ (executive only); NOT bare ສະພາ (collides with Diet); distinct from ສະພາຄຣິສຕະຈັກ. Full form at both occurrences |
+| Melanchthon | ເມລັງໂທນ | [CHECK] |
+| D'Aubigné | ໂດບິນເຍ | [CHECK] Author citation |
+| Bonnechose | ບອນໂຊດ | [CHECK] Author citation |
+| Neander | ນຽນເດີ | [CHECK] Author citation |
+| Foxe | ຟັອກ | [CHECK] Author citation |
+| Lenfant | ລອງຟອງ | [CHECK] Author citation |
+| Lefevre | ເລີເຟວ | [CHECK] French reformer |
+| William Farel | ວິນລຽມ ແຟໂຣ | [CHECK] Short: ແຟໂຣ |
+| John Calvin | ຈອນ ຄາວິນ | [CHECK] Short: ຄາວິນ |
+| Olivetan | ໂອລີເວຕັນ | [CHECK] Calvin's cousin |
+| Louis de Berquin | ຫຼຸຍສ໌ ແຫ່ງເບີຄວິນ | [CHECK] Short: ເບີຄວິນ |
+| Beza | ເບຊາ | [CHECK] |
+| Erasmus | ເອີຣັສມາສ | [CHECK] |
+| Beda | ເບດາ | [CHECK] |
+| Francis I | ຟຣານຊິສທີ 1 | [CHECK] King of France |
+| Margaret (princess) | ມາກາເຣັດ | [CHECK] ເຈົ້າຍິງ |
+| Meaux | ເມືອງໂມ | [CHECK] City |
+| Paris | ນະຄອນປາຣີ / ປາຣີ | [CHECK] |
+| France | ປະເທດຝຣັ່ງ / ຝຣັ່ງ | [CHECK] |
+| Germany | ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ / ອານາຈັກເຢຍລະມັນ | [CHECK] ອານາຈັກເຢຍລະມັນ only for the Holy Roman polity — the Empire as a political body; Germany the country keeps ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ. NOT ຣາຊອານາຈັກເຢຍລະມັນ. Corpus: ອານາຈັກເຢຍລະມັນ 22 (GC03, GC07, GC08, GC10, GC11), ປະເທດເຢຍລະມັນ 13, ຣາຊອານາຈັກເຢຍລະມັນ 0 — the NOT is preventive |
+| Switzerland | ສວິສເຊີແລນ | [CHECK] |
+| Poitiers | ພົວເຈ | [CHECK] |
+| Geneva | ນະຄອນເຈນີວາ / ເຈນີວາ | [CHECK] |
+| Basel | ບາເຊັນ | [CHECK] |
+| Holland | ຮໍແລນ | [CHECK] |
+| Menno Simons | ເມັນໂນ ຊີໂມນ | [CHECK] Short: ເມັນໂນ |
+| Münster / Munsterites | ມຸນສະເຕີ | [CHECK] Source spells it Munsterites |
+| William of Orange | ວິນລຽມແຫ່ງອໍເຣນ | [CHECK] |
+| Tausen | ທາວເຊັນ | [CHECK] Reformer of Denmark |
+| Cologne | ໂຄໂລນ | [CHECK] |
+| Denmark | ເດນມາກ | [CHECK] |
+| Sweden | ສະວີເດັນ | [CHECK] |
+| Olaf Petri | ໂອລັບ ເປຕຣີ | [CHECK] |
+| Laurentius Petri | ໂລເຣັນທີອັດ ເປຕຣີ | [CHECK] |
+| Orebro | ໂອເຣໂບ | [CHECK] |
+| Cappel | ກາເປນ | [CHECK] Battle site |
+| Oecolampadius | ເອໂກລຳພາດິອັດ | [CHECK] |
+| Froment | ໂຟມົງ | [CHECK] |
+| Morat | ໂມຣັດ | [CHECK] |
+| Neuchatel | ນິວຊາແຕວ | [CHECK] |
+| Philip II | ກະສັດຟີລິບທີ 2 / ຟີລິບທີ 2 | King of Spain and lord of the Netherlands; never Holy Roman Emperor, so NOT ຈັກກະພັດ, on the pattern of the Charles IX row. GC 239.3, 240.3 (EGW's "the monarch") |
+| Louis XVI | ຫຼຸຍສ໌ທີ 16 | [CHECK] |
+| Scandinavia | ສະແກນດິເນເວຍ | [CHECK] |
+| Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | [CHECK] |
+| Latimer | ລາຕິເມີ | [CHECK] |
+| Barnes | ບານສ໌ | [CHECK] Robert Barnes GC 248.2; Albert Barnes GC 376.3. Never ບາເນດ |
+| Frith | ຟຣິດ | [CHECK] |
+| Ridley | ຣິດລີ | [CHECK] |
+| Cranmer | ເຄນເມີ | [CHECK] |
+| Columba | ໂຄລຳບາ | [CHECK] |
+| Scotland | ສະກັອດແລນ | [CHECK] |
+| Hamilton | ແຮມິນຕັນ | [CHECK] |
+| Wishart | ວີຊາດ | [CHECK] |
+| John Knox | ຈອນ ນັອຄຊ໌ | [CHECK] |
+| Mary (Queen of Scots) | ຣາຊິນີມາຣີ / ມາຣີ | [CHECK] |
+| John Bunyan | ຈອນ ບັນຍັນ | [CHECK] |
+| Bedford | ເບດຟອດ | [CHECK] |
+| Baxter | ແບັກສະເຕີ | [CHECK] |
+| Flavel | ຟຼາເວວ | [CHECK] |
+| Alleine | ອາເລນ | [CHECK] |
+| Whitefield | ວິດຟຽວ | [CHECK] |
+| John Wesley | ຈອນ ເວສະລີ | [CHECK] Short: ເວສະລີ |
+| Charles Wesley | ຊານສ໌ ເວສະລີ | [CHECK] |
+| Savannah | ສະແວນນາ | [CHECK] |
+| London | ລອນດອນ / ນະຄອນລອນດອນ | [CHECK] |
+| Durham | ເດີຮາມ | [CHECK] |
+| England | ອັງກິດ / ປະເທດອັງກິດ | [CHECK] |
+| America | ອາເມຣິກາ | [CHECK] |
+| Piedmont | ພີດມົງ | [CHECK] |
+| Louis XV | ຫຼຸຍສ໌ທີ 15 | [CHECK] |
+| Voltaire | ໂວນແຕ | [CHECK] |
+| Walter Scott | ວອນເຕີ ສະກັອດ | [CHECK] Author citation |
+| Anderson | ແອນເດີສັນ | [CHECK] Author citation |
+| Bancroft | ບານຄຣອບ | [CHECK] Author citation. DECIDED GC 16: row matches manuscript; 5 GC 16 footnotes |
+| Whitehead | ໄວເຮດ | [CHECK] Author citation |
+| Robinson | ໂຣບິນສັນ | [CHECK] |
+| Roger Williams | ໂຣເຈີ ວິນລຽມ | [CHECK] |
+| William Miller | ວິນລຽມ ມິນເລີ | [CHECK] Short: ມິນເລີ |
+| Lisbon | ລິສບອນ | [CHECK] |
+| Wolff / Joseph Wolff | ໂຈເຊັບ ວໍຟ໌ | [CHECK] Short: ວໍຟ໌ |
+| Bengel | ເບນເກນ | [CHECK] |
+| Gaussen | ໂກເຊັນ | [CHECK] |
+| Lacunza | ລາຄູນຊາ | [CHECK] |
+| Mourant Brock | ໂມຣານ ບຣອກ | [CHECK] |
+| Robert Winter | ໂຣເບີດ ວິນເທີ | [CHECK] |
+| Charles Fitch | ຊານສ໌ ຟິດ | [CHECK] |
+| Artaxerxes | ອາກຕາເຊເຊັດ | [CHECK] |
+| Finney | ຟິນນີ | [CHECK] |
+| Spurgeon | ສະເປີເຈນ | [CHECK] |
+| Guthrie | ກຸດຣີ | [CHECK] |
+| Hopkins | ຮົບກິນສ໌ | [CHECK] |
+| Challoner | ຊານໂລເນີ | [CHECK] |
+| Rollin | ໂຣລິນ | [CHECK] |
+| Habakkuk | ຮາບາກຸກ | [CHECK] |
+| Malachi | ມາລາກີ | [CHECK] |
+| Württemberg | ເວີດເທັມເບີກ | [CHECK] |
+| Bokhara | ບູຄາຣາ | [CHECK] |
+| Yemen | ເຢເມນ | [CHECK] |
+| Tatary / Tatar | ຕາຕາຣີ / ຊາວຕາຕ້າ | [CHECK] Land ຕາຕາຣີ, people ຊາວຕາຕ້າ, mirroring the English pair. GC 362.1 |
+| Wales | ເວລສ໌ | [CHECK] |
+| Edwards A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
+| Balaam | ບາລາອາມ | [CHECK] GC 529.2 |
+| Lucifer | ລູຊີເຟີ | [CHECK] Always ມັນ |
+| Adam | ອາດາມ | [CHECK] ເພິ່ນ pronoun |
+| Eve | ເອວາ | [CHECK] |
+| Eden | ເອເດນ / ສວນເອເດນ | [CHECK] |
+| Cain | ກາອິນ | [CHECK] |
+| Abel | ອາເບັນ | [CHECK] |
+| Noah | ໂນອາ | [CHECK] |
+| Lot | ໂລດ | [CHECK] |
+| Abraham | ອັບຣາຮາມ | [CHECK] |
+| Sodom | ໂຊໂດມ | [CHECK] |
+| Hezekiah | ເຮເຊກີຢາ | [CHECK] ກະສັດ prefix |
+| Amnon | ອຳໂນນ | [CHECK] |
+| Absalom | ອັບຊາໂລມ | [CHECK] |
+| Adam Clarke | ອາດາມ ຄລາກ | [CHECK] ດຣ. prefix |
+| E. Petavel | ອີ. ເປຕາແວນ | [CHECK] Author citation |
+| Josiah Strong | ໂຢສີຢາ ສະຕອງ | [CHECK] Author citation |
+| Mosheim | ໂມເຊມ | [CHECK] Author citation |
+| Pius IX | ປີອູດທີ 9 | [CHECK] Pope |
+| Gregory XVI | ເກຼັກກໍຣີທີ 16 | [CHECK] Pope |
+| Eusebius | ເອີເຊບິອັດ | [CHECK] DECIDED 19 August; manuscript aligned at GC 574.2. |
+| Peter II of Aragon | ປີເຕີທີ 2 ແຫ່ງອາຣາກອນ | [CHECK] Manuscript spelling; DECIDED 19 August. GC 580.3 |
+| Innocent III | ອິນໂນເຊັນທີ 3 | [CHECK] Pope |
+| Abyssinia / Ethiopia | ເອທີໂອເປຍ | [CHECK] |
+| St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ / ເຊນຫຼຸຍສ໌ | [CHECK] |
+| Esau | ເອຊາວ | [CHECK] |
+| Bethel | ເບັດເອນ | [CHECK] |
+| Stephen | ຊະເຕຟາໂນ | [CHECK] NOT ສະເຕຟາໂນ |
+| Caiaphas | ກາຢະຟາ | [CHECK] |
+| Michael (archangel) | ມີຄາເອນ | [CHECK] |
+| Elijah | ເອລີຢາ | [CHECK] |
+| Joseph (OT) | ໂຢເຊັບ | [CHECK] |
+| Pharaoh | ຟາໂຣ | [CHECK] |
+| Jezebel | ເຢເຊເບນ | [CHECK] |
+
+| Legislative Assembly (French Rev.) | ສະພານິຕິບັນຍັດແຫ່ງຊາດ | [CHECK] Three-tier system; do not collapse |
+| National Assembly (French Rev.) | ສະພາແຫ່ງຊາດ | [CHECK] |
+| National Convention (French Rev.) | ກອງປະຊຸມແຫ່ງຊາດ | [CHECK] NOT ສະພາ; see Diet/Council cross-ref |
+| Convention / the Convention | ກອງປະຊຸມແຫ່ງຊາດ | [FLAG] Session, not a place. Physical hall = ຫ້ອງປະຊຸມ. Readjudicate each occurrence |
+| Charles IX | ກະສັດຊານສ໌ / ຊານສ໌ | [CHECK] King of France; NOT ຈັກກະພັດ |
+| Charles V | ຈັກກະພັດຊານສ໌ທີ 5 / ຊານສ໌ທີ 5 | [CHECK] Holy Roman Emperor |
+| Gregory XIII | ເກຼັກກໍຣີທີ 13 | [CHECK] Pope |
+| Napoleon | ນາໂປເລອົງ | [CHECK] |
+| Notre Dame | ນໍເຕີດາມ | [CHECK] |
+| Seine | ແຊນ | [CHECK] |
+| Jacobin | ຢາໂກບິນ | [CHECK] |
+| Bartholomew | ບາຣະໂທໂລມາຍ | [CHECK] |
+| Gomorrah | ໂກໂມຣາ | [CHECK] |
+| Thiers | ເທຍ | [CHECK] Author citation |
+| Alison | ອາລິຊັນ | [CHECK] Author citation |
+| Lacretelle | ລາເຄເທວ | [CHECK] Author citation |
+| Henry White | ເຮນຣີ ໄວທ໌ | [CHECK] Author citation |
+| Buchez-Roux | ບູເຊດຣູ | [CHECK] Author citation |
+| G. de Félice | ຈີ. ເດ ເຟລີສ | [CHECK] Author citation |
+| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] Short: ລູເທີ. Bare ມາຕິນ only where EN reads "Martin"; see Martyn row for the citation collision. GC 138.3 |
+
+| Martyn | ມາຕິນ | [CHECK] Author citation, always gloss (Martyn). ມາຕິນ ລູເທີ is Luther, not this head |
+
+| Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix |
+| Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
+| Aleander | ອະລີອັນເດີ | [CHECK] Papal nuncio at Worms |
+| Gieseler | ກີສະເລີ | [CHECK] GC 127.2; ຈອນ ຊີ. ແອວ. ກີສະເລີ |
+| Spires | ເມືອງສະປາຍ / ສະປາຍ | [CHECK] ສະພາແຫ່ງເມືອງສະປາຍ for the Diet, ການປະທ້ວງແຫ່ງເມືອງສະປາຍ for the Protest |
+| Ferdinand | ເຟີດິນັນ | [CHECK] ກະສັດ prefix; supplied by name where EN reads "the king". GC 201.3, 202.1, 202.3, 205.1, 205.4 |
+| Simon Grynaeus | ຊີໂມນ ກິນເນອັດ | [CHECK] Short: ກິນເນອັດ |
+| Faber | ເຟເບີ | [CHECK] ດຣ. prefix at GC 205.2, ທ່ານ at GC 198.2 |
+| Heidelberg | ໄຮດັນເບີກ | [CHECK] ມະຫາວິທະຍາໄລແຫ່ງເມືອງໄຮດັນເບີກ |
+| Coburg | ໂຄເບີກ | [CHECK] |
+| Edward VI | ເອັດເວີດທີ 6 | [CHECK] GC 248.1, in the title of Latimer's first sermon before the king. Distinct from the Edwards A. Park row |
+| Morin | ໂມຣິນ | [CHECK] GC 225.2; ທ້າວ prefix. Royal detective under Francis I |
+| Italy | ອີຕາລີ | [CHECK] |
+| Europe | ເອີຣົບ | [CHECK] |
+| Zechariah (book) | ເຊກາຣີຢາ | [CHECK] |
+| 1 Corinthians (book) | 1 ໂກຣິນໂທ | [CHECK] |
+| Paul (the apostle) | ອາຈານໂປໂລ / ອັກຄະສາວົກໂປໂລ | [CHECK] Both honorifics are established and correct; decided at the GC12 resolution. Corpus over lo/GC/03_public: ອາຈານໂປໂລ 65 sites, ອັກຄະສາວົກໂປໂລ 24 — the counts record usage and establish no preference, and the order in the Lao cell is not a ranking. Neither form is ever to be marked in favour of the other, and the choice at any site is the translator's. The GC12 audit marked ອາຈານໂປໂລ at GC 214.1 and proposed ອັກຄະສາວົກໂປໂລ reasoning from that batch's local usage alone; the marker was deleted and that substitution is not to be proposed again. This row governs Paul's honorifics only. It does not reserve ອາຈານ to Paul, which serves other referents in this corpus — Lefevre in the same GC12 batch; cf. the Parish minister / churchman row |
+| Palfrey / J. G. Palfrey | ເຈ. ຈີ. ພານຟີ | [CHECK] Author citation; work *ປະຫວັດນິວອິງແລນ* (History of New England). Sole occurrence in the book, the footnote at GC 290.2 |
+| Neal / D. Neal | ດີ. ນຽວ | [CHECK] Author citation; work *ປະຫວັດສາດຂອງຄະນະປູຣິຕັນ* (History of the Puritans). Sole occurrence in the book, the footnote at GC 292.1 |
+| J. Brown | ເຈ. ບຣາວ | [CHECK] Author citation; work *ກຸ່ມປິນກຣິມລຸ້ນບຸກເບີກ* (The Pilgrim Fathers), which is also the Lao chapter title of GC 16. Sole occurrence in the book, the footnote at GC 291.3 |
+| New England | ນິວອິງແລນ | [CHECK] 4 occurrences, in GC 16, GC 17 and GC 18, one form at every site |
+| Massachusetts / Massachusetts Bay Colony | ແມັສຊາຊູເສັດ / ອານານິຄົມແຫ່ງອ່າວແມັສຊາຊູເສັດ | [CHECK] 6 occurrences, in GC 16, GC 17 and GC 25, one base form at every site. The colony form adds ອ່າວ for the bay and carries the Latin gloss (Massachusetts Bay Colony) at first use, GC 292.3 |
+| Africa | ອາຟຣິກາ | [CHECK] ທະວີບອາຟຣິກາ for the continent; GC 304.2 |
+| Greenland | ກຣີນແລນ | [CHECK] GC 304.2 |
+| West Indies | ໝູ່ເກາະແຄຣິບຽນ | [CHECK] Rendered by the modern name of the island group; GC 304.2 |
+| Madeira | ມາເດຣາ | [CHECK] ເກາະ prefix; GC 304.2 |
+| Norway | ນໍເວ | [CHECK] ປະເທດ prefix; GC 304.2 |
+| Ireland | ໄອແລນ | [CHECK] GC 304.2; ເກາະ prefix at GC 62.2 |
+| Algiers | ອານເຊຍ | [CHECK] ເມືອງ prefix; GC 304.2 |
+| Morocco | ໂມຣັອກໂຄ | [CHECK] GC 304.2, where the Lao supplies ເມືອງຫຼວງຂອງ for Ellen White's city of Morocco |
+| Cadiz | ກາດິສ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 304.3 |
+| Patmos | ປັດໂມ | [CHECK] ເກາະ prefix; GC 301.2, 302.3 |
+| Enoch | ເອນົກ | [CHECK] ທ່ານ prefix; GC 299.1 |
+| Job | ໂຢບ | [CHECK] ທ່ານ prefix; GC 299.1 |
+| Charles Lyell | ຊານສ໌ ໄລອັນ | [CHECK] Author citation; ເຊີ prefix at GC 304.3 |
+| Daniel T. Taylor | ດານີເອນ ທີ ເທເລີ | [CHECK] Author citation; GC 302.4 |
+| Salem | ຊາເລັມ | [CHECK] ເມືອງ prefix; GC 307.2. Sole occurrence of the Massachusetts town in the corpus; a grep for the bare form also matches the last syllables of ເຢຣູຊາເລັມ, so search ເມືອງຊາເລັມ |
+| Falmouth | ຟັນມາວ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 307.3 |
+| Connecticut | ຄັອນເນັກຕິກັດ | [CHECK] ລັດ prefix, Latin gloss at first use; GC 307.3 |
+| Albany | ອານບານີ | [CHECK] ເມືອງ prefix, Latin gloss at first use; GC 307.3 |
+| Exeter | ແອັກສະເທີ | [CHECK] ເມືອງ prefix; footnote at GC 307.4 |
+| New Hampshire | ນິວແຮມຊາຍ | [CHECK] ລັດ prefix; footnote at GC 307.4 |
+| Nathanael Whittaker | ນະທານາເອັນ ວິດທາເກີ | [CHECK] ດຣ. prefix, Latin-script footnote gloss at first use; GC 307.2 |
+| Tabernacle church (Salem) | ໂບດແທເບີແນເກີນ | [CHECK] GC 307.2, where the pastor is ອາຈານປະຈຳໂບດ per the Minister row |
+| R. M. Devens | ອາ. ເອັມ. ເດເວນ | [CHECK] Author citation; work *ສະຕະວັດທຳອິດຂອງພວກເຮົາ* (Our First Century); GC 306.2, and once more in GC 18 |
+| William Gordon | ວິນລຽມ ໂກດອນ | [CHECK] Author citation; GC 307.3 |
+| Isaiah Thomas | ເອຊາຢາ ໂທມັດ | [CHECK] Author citation; GC 307.4 |
+| Samuel Tenney | ຊາມູເອນ ເທັນນີ | [CHECK] Author citation; ດຣ. prefix; GC 307.4 |
+| Massachusetts Historical Society Collections | ປະມວນເອກະສານຂອງສະມາຄົມປະຫວັດສາດຂອງລັດແມັສຊາຊູເສັດ | [CHECK] Cited work; sole occurrence, the footnote at GC 307.4 |
+| Portugal | ປອກຕຸຍການ | ປະເທດ prefix; GC 304.3 |
+| Bliss / S. Bliss | ບຼິສ / ເອັສ. ບຼິສ | [CHECK] Author citation, Memoirs of William Miller; 15 sites in GC18, GC21, GC22 |
+| Gabriel | ຄັບຣີເອນ | [CHECK] The angel. GC 186.3, 325.1 |
+| Cyrus | ໄຊຣັດ | [CHECK] Persian king in the Ezra decree. GC 326.3 |
+| Darius | ດາຣິອຸດ | [CHECK] Persian king in the Ezra decree. GC 326.3 |
+| Sanhedrin | ສະພາຊັນເຮດຣິນ | [CHECK] The Jewish council. GC 328.1 |
+| Cornelius | ໂກເນລີໂອ | [CHECK] The centurion of Caesarea. GC 328.1 |
+| Caesarea | ກາຍຊາເຣຍ | [CHECK] ເມືອງ prefix. GC 328.1 |
+| Elisha | ເອລີຊາ | [CHECK] The prophet called from the plow. GC 331.1 |
+| Baptist Church | ຄຣິສຕະຈັກຄະນະບັບຕິສ | [CHECK] Miller's denomination. GC 332.1 |
+| Silliman | ສິນລິມັນ | [CHECK] ສາດສະດາຈານ prefix; his journal. GC 333.1 |
+| F. Reed | ເອຟ. ຣີດ | [CHECK] Footnote author. GC 333.2 |
+| New York | ນິວຢອກ | [CHECK] GC 334.1 |
+| Josiah Litch | ໂຢສີຢາ ລິດຈ໌ | [CHECK] Millerite preacher of the Ottoman prophecy. GC 334.4 |
+| Ottoman Empire | ອານາຈັກໂອໂຕມັນ | [CHECK] ຂອງຊາວເທີກ glossed at first use. GC 334.4 |
+| Deacozes | ດີໂກເຊ | [CHECK] Byzantine emperor in Litch's calculation. GC 334.4 |
+| Constantinople | ຄອນສະແຕນຕິນໂອເປິນ | [CHECK] ນະຄອນ prefix. GC 334.4 |
+| Turkey | ຕຸຣະກີ | [CHECK] People are ຊາວເທີກ. GC 335.1 |
+| Bethlehem | ເບັດເລເຮັມ | [CHECK] ເມືອງ prefix; the town, not the Bethlehem Chapel row. GC 339.3 |
+| Galilee | ຄາລີເລ | [CHECK] ແຂວງ for the region, ຊາວ for its people. GC 339.2 |
+| (periodical and newspaper titles) | footnote: kind-word + full English title, Latin, italicised. Inline: kind-word + Lao name + English in parentheses | GC-wide, applied. Footnotes are consulted, so print the title exactly, nothing dropped. Running text is read and most Lao readers cannot read English, so never bare English there. Kind-word must fit the work — ໜັງສືພິມ newspaper, ວາລະສານ magazine, ປຶ້ມ book — and never repeats a Journal or Magazine already in the title. Books keep their rendering; only the kind-word is fixed |
+| The Wesleys | ສອງອ້າຍນ້ອງເວສະລີ | [CHECK] John and Charles named together; GC 253.1, 253.2, 256.4, 257.1, 257.3, 396.1 |
+| Nineveh | ນີເນເວ | [CHECK] Only corpus occurrences; GC 406.1 |
+| James White / J. White | ເຈມສ໌ ໄວທ໌ | [CHECK] Author citation, Life of Wm. Miller; GC 406.2 |
+| Philadelphia | ຟີລາເດັນເຟຍ | [CHECK] GC 376.3; also GC 20 |
+| Oberlin College | ວິທະຍາໄລ ໂອເບີລິນ | [CHECK] English follows in parentheses at first use. GC 377.1 |
+| Religious Telescope | ກ້ອງສ່ອງຝ່າຍສາສະໜາ | [CHECK] Periodical; English follows in parentheses in running text. GC 377.2 |
+| Babylon | ບາບີໂລນ | [CHECK] GC 381.1 |
+| Babel | ບາເບນ | [CHECK] Source of the name Babylon. GC 381.1 |
+| Gavazzi | ກາວາຊີ | [CHECK] Footnote author. GC 384.5 |
+| Howard Crosby | ຮາວວາດ ໂກຣສະບີ | [CHECK] Quoted author. GC 387.1 |
+| Washburn | ວາສະເບີນ | [CHECK] Governor of Wisconsin, quoted. GC 387.3 |
+| Wisconsin | ວິສະຄອນຊິນ | [CHECK] English follows in parentheses at first use. GC 387.3 |
+| Robert Atkins | ໂຣເບີດ ແອັດຄິນສ໌ | [CHECK] Preacher quoted from a London sermon. GC 388.1 |
+| New York Independent | ນິວຢອກອິນດີເພັນເດັນ | [CHECK] Periodical; English follows in parentheses. GC 386.2 |
+| Charles Beecher | ຊານສ໌ ບີເຊີ | [CHECK] Follows the ຊານສ໌ of the other Charles rows. GC 388.3; also GC 444.3 |
+| Indiana | ອິນດີແອນາ | [CHECK] GC 388.3 footnote; also GC 444.3 |
+| Fort Wayne | ຟັອດເວນ | [CHECK] GC 388.3 footnote; also GC 444.3 |
+| Roman Empire (ancient) | ອານາຈັກໂຣມ | [CHECK] The realm; ຈັກກະພັດໂຣມ titles an emperor. DECIDED at GC 25. GC 438.2, 439.1 |
+| Palestine | ປາແລັດສະໄຕ | [CHECK] Usually ດິນແດນປາແລັດສະໄຕ |
+| Assyria / Assyrian | ອັດຊີເຣຍ | [CHECK] The king is ກະສັດອັດຊີເຣຍ |
+| Sennacherib | ເຊັນນາເກຣິບ | [CHECK] |
+| Capernaum | ກາເປນາອູມ | [CHECK] Usually ເມືອງກາເປນາອູມ |
+| Philippi | ຟີລິບປອຍ | [CHECK] Usually ເມືອງຟີລິບປອຍ |
+| Silas | ຊີລາ | [CHECK] |
+| Syrophoenician | ຊີເຣຍ-ໂຟນີເຊຍ | [CHECK] The woman of Mark 7 |
+| Gadara / Gadarenes | ເຄຣາເຊນ | [CHECK] EGW writes Gadara; Lao takes the Gerasene form, footnoted at GC 514.2 |
+| Simon Magus | ຊີໂມນໝໍເວດມົນຄາຖາ | [CHECK] |
+| Elymas the sorcerer | ເອລີມາໝໍເວດມົນຄາຖາ | [CHECK] |
+| Baal | ບາອານ | [CHECK] Running text takes ພຣະບາອານ; the sun-god of Phoenicia. GC 583.1 |
+| Phoenicia | ໂຟນີເຊຍ | [CHECK] The people take ຊາວໂຟນີເຊຍ. GC 583.1 |
+| Jehovah | ພຣະເຢໂຮວາ | [CHECK] Running text; Lao Bible quotations carry ພຣະເຈົ້າຢາເວ. GC 582.2, 583.1, 589.2 |
+| O'Connor / Bishop O'Connor | ໂອຄອນເນີ | [CHECK] Takes the ເຈົ້າຄະນະ prefix. GC 565.1 |
+| Second Vatican Council | ສະພາວາຕິກັນທີສອງ | [CHECK] Translator's footnote only; absent from the English. GC 565.3 |
+| Michael Geddes | ໄມເຄິນ ເກັດເດສ | [CHECK] Author citation; work *ປະຫວັດສາດຄຣິສຕະຈັກໃນເອທີໂອເປຍ* (Church History of Ethiopia). GC 577.3 |
+| John Dowling | ຈອນ ດາວລິງ | [CHECK] Author citation; work *ປະຫວັດສາດຂອງລະບອບໂຣມ* (The History of Romanism). GC 580.3 |
+<!-- Calendar months. The Lao cell holds the month name alone; ເດືອນ prefixes it in running text, as ເດືອນກັນຍາ. Deliberately untagged reference rows, so the pre-pass never reports an English month name. -->
+| January | ມັງກອນ |  |
+| February | ກຸມພາ |  |
+| March | ມີນາ |  |
+| April | ເມສາ |  |
+| May | ພຶດສະພາ |  |
+| June | ມິຖຸນາ |  |
+| July | ກໍລະກົດ |  |
+| August | ສິງຫາ |  |
+| September | ກັນຍາ |  |
+| October | ຕຸລາ |  |
+| November | ພະຈິກ |  |
+| December | ທັນວາ |  |
+---
+
+## 12. Lao Compound Word-Order Pairs (GC)
+
+<!-- Lookup table, not a check list. A transposed compound is decided once and then looked up: a pair standing here is settled and gets no marker whichever order the chapter uses. A pair not standing here is asked once, as a SPELL marker whose note begins verify:, and the answer is added here. -->
+
+| Pair | Verdict | Decided | Notes |
+|---|---|---|---|
+| ຫານກ້າ / ກ້າຫານ | Both orders stand | GC12 resolution | ຫານກ້າ at GC 216.3 and GC 224.3; ກ້າຫານ is the commoner order corpus-wide. Reverses the earlier decision at GC 185.2, which treated this transposition as a defect; that decision was never written into a governing file and GC 185.2 still reads ຫານກ້າ, so nothing was unwound. Never marked again |
+| ຊົມຊື່ນ / ຊື່ນຊົມ | Both orders stand | GC12 resolution | ຊົມຊື່ນ at GC 218.2; ຊື່ນຊົມ at GC 218.1 and GC 220.4. Both orders are well attested corpus-wide. Never marked again |
+| ອົດທົນ / ທົນອົດ | Both orders stand; ທົນອົດ is intended emphasis | GC 16 | Only site GC 296.2. Never mark |
+| ຊື່ສັດ / ສັດຊື່ | Both orders stand | GC 20 | Poetic variation; vary both in positive and negative constructions. Never mark |
+| ຫຸ້ມຫໍ່ / ຫໍ່ຫຸ້ມ | Both orders stand | GC 23 | Poetic licence. Never mark |
+| ປະປ່ອຍ / ປ່ອຍປະ | Both orders stand | GC 23 | Poetic licence. Never mark |
+| ກຳລັງເຫື່ອແຮງ / ເຫື່ອແຮງກຳລັງ | Both orders stand | GC 30 | Poetic licence. Never mark |
+| ພະຍາດໂຣຄາ / ໂຣຄາພະຍາດ | Both orders stand | GC 36 | Poetic alternatives. Both orders at GC 589.3; ພະຍາດໂຣຄາ also at GC 589.1. Never mark |
