@@ -22,7 +22,7 @@ effort: xhigh
 
 2.B. The packet, built by lo/GC/04_assets/scripts/gc_qa3_packet.py, holds one block per changed paragraph: the anchor, EN (the English paragraph), PRE-QA (the Lao before QA1 — the text that was prepared for printing; the book has not yet been printed), CURRENT (the Lao now), and CHANGED (each differing line with the old run in [- -] and the new run in {+ +}). Read your range of the packet and nothing else; never open the manuscript or the English source whole. Where you need a neighbouring paragraph for a pronoun chain or a repeated word, grep lo/GC/03_public/GCNN_lo.md for its anchor and read that paragraph alone.
 
-2.C. The governing files under lo/GC/04_assets/translation_profile/ are not loaded and are never read whole. Grep GC-glossary.txt for a Lao form only to learn why a change was made. Never edit any of them, and never write a glossary proposal: QA3 leaves those files alone.
+2.C. The governing files under lo/GC/04_assets/translation_profile/ are not loaded and are never read whole. Grep GC-glossary.txt for a Lao form only to learn why a change was made. Never edit any of them, and never write a glossary proposal: QA3 leaves those files alone. Where a finding is genuinely glossary business — a row that should change, a row that is missing — say so in your report as its own item; the conductor queues it for the glossary rework, and nothing about it is decided in this pass.
 
 2.D. Corpus evidence is gathered with grep over lo/GC/03_public/, which returns lines. A pattern the book already follows is evidence of what the translator intended and nothing more; the translation was made over years without a translation memory, so a pattern may be a decision, a repeated accident, or wrong. Only the translator rules.
 
@@ -46,7 +46,7 @@ effort: xhigh
 
 3.I. Consistency follows the passage and not the row. Where your verdict at a changed site implies the same word at an unchanged site in the same paragraph or the next, say so in the marker note and leave the unchanged site alone; the translator decides whether it follows.
 
-3.J. Carried-over sites. The conductor may name sites whose text did not change but whose wording is an open question the translator has already agreed to settle in this pass. Judge each exactly as a changed run under 3.H, quoting the current run as old, and where the conductor names an outside text to compare — the Thai GC, for instance — read only the paragraph at the matching anchor and say in the note what it does.
+3.J. Carried-over sites. The conductor may name sites whose text did not change but whose wording is an open question the translator has already agreed to settle in this pass. Judge each exactly as a changed run under 3.H, quoting the current run as old, and where the conductor names an outside text to compare — the Thai GC editions, for instance — read only the paragraph at the matching anchor and say in the note what it does. The two Thai GC editions in this repository are poor translations kept for reference: what they did is a data point to report, never an authority, and a Thai reading enters a candidate only where it is a real improvement judged from the English and the Lao passage on their own merits.
 
 3.K. Dictionary tokens. A token the conductor names from the dictionary check is either a typo the QA passes introduced, which takes a FIX marker like any other finding, or a genuine word the typesetting dictionaries do not know, which takes no marker: list it in your report with a proposed row for lo/assets/dictionaries/main.txt in that file's own shape — the word, a pipe, the word again with ~ break marks at its syllable joins, then a space and % — and one clause on what the word means. You never edit a dictionary; the conductor appends rows only after the translator reviews them.
 
@@ -60,7 +60,7 @@ CLASS is REVERT, REWORD or FIX; SEV is HIGH or MED; #N continues from your start
 
 4.B. old is the minimal differing run of CURRENT text, copied from the file and never retyped, extended only far enough to be unambiguous in the paragraph, and it must contain the defect itself rather than sit near it. new is the full replacement for that run. The two must differ visibly; where the difference is a single character or a space, the note says in words what differs and where.
 
-4.C. The note opens with the reason for the verdict in one sentence, then the English run in quotation marks wherever the finding depends on the source, then the ranked candidates under 3.H where there are any. It shows only what differs; a note that restates the paragraph wastes the translator's time.
+4.C. The note opens with the reason for the verdict in one sentence, then always the English behind the span in quotation marks — the translator reviews every marker against the English and must never have to open the source file to see it — then the ranked candidates under 3.H where there are any. It shows only what differs; a note that restates the paragraph wastes the translator's time.
 
 4.D. A marker is never empty on its new side, never placed inside YAML frontmatter, and never placed away from the run it describes. Every marker changes something the translator can apply at the cursor; a question that cannot be applied belongs in the record and in your report, not in the manuscript.
 
