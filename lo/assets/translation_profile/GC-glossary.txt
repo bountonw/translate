@@ -1,0 +1,469 @@
+<!-- This glossary grows as new text is profiled. -->
+
+| English | Lao | Notes |
+|---|---|---|
+| Priest / Priests / Priesthood / Priestly | ບາດຫຼວງ / ປະໂຣຫິດ / ມະຫາປະໂຣຫິດ | [FLAG] Roman office → ບາດຫຼວງ; sacrificial cultus → ປະໂຣຫິດ |
+| Fanatic / Fanatics / Fanaticism | ພວກທີ່ຄັ່ງໄຄ້ / ຄວາມຄັ່ງໄຄ້ | [CHECK] GC 190.3–196.3 |
+| High priest | ມະຫາປະໂຣຫິດ | [CHECK] Biblical only |
+| Castle | ຜາສາດ | [CHECK] House form; NOT ຕຳນັກ, NOT ປາສາດ. 14 attestations corpus-wide; GC 129.2, 139.1, 140.2 |
+| Monk / Monks / Monkish | ນັກບວດ | [FLAG] NOT ບາດຫຼວງ; footnote at first use, GC 120.3 |
+| Monastic / Monasticism | ນັກບວດ / ສຳນັກນັກບວດ | [CHECK] NOT ວັດວາອາຮາມ |
+| Monastery / Monasteries / Cloister / Cloisters | ສຳນັກນັກບວດ | [CHECK] Replaces ສຳນັກສົງ, ສຳນັກບາດຫຼວງ, ອາຮາມນັກບວດ |
+| Scaffold (heretic execution) | ຫຼັກປະຫານ | [CHECK] GC 132.3; NOT ຕະແລງແກງ (= gallows). Heresy sentence is fire, not hanging |
+| Holy See / see of Rome | ສັນຕະສຳນັກ | [CHECK] GC 130.2 |
+| Heretic (singular) | ຄົນນອກຮີດ | [CHECK] Plural row is ພວກນອກຮີດ |
+| Convent / Convents | ສຳນັກນັກບວດ / ສຳນັກແມ່ຊີ | [CHECK] ສຳນັກແມ່ຊີ only for a house of nuns |
+| Friar / Friars | ພຣະກາໂຕລິກ | [CHECK] Mendicant and regular |
+| Religious order | ຄະນະນັກບວດ | Reference only; GC 83.2, 84.1, 228.1 |
+| Clergy | ນັກບວດ / ບາດຫຼວງ / ຜູ້ນຳຄຣິສຕະຈັກ / ສາສະໜາຈານ | [FLAG] estate → ນັກບວດ; Catholic → ບາດຫຼວງ ຫຼື ຜູ້ນຳຄຣິສຕະຈັກ; Protestant → ສາສະໜາຈານ |
+| Minister / Ministers / Pastor / Pastors | ສາສະໜາຈານ | [CHECK] Never for Catholic clergy |
+| Prelate / Prelates / Ecclesiastic / Ecclesiastics | ຜູ້ນຳຄຣິສຕະຈັກ | [CHECK] |
+| Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ. Renders EN bishop only; archbishop takes ເຈົ້າຄະນະໃຫຍ່. Follow the English head even where the historical figure held the higher rank (GC 274.1). Avoid ເຈົ້າຄະນະ + territory for a plain bishop — the territory forms are graded ranks in the source system |
+| Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
+| Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
+| Vicar of Christ | ຜູ້ແທນຂອງພຣະຄຣິສ | [CHECK] NOT ຕົວແທນ (reserved for legate and generic representative). Also renders "vicegerent." GC 140.4 |
+| Representative (generic) | ຕົວແທນ | GC 92.2 |
+| Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
+| Lollard towers | ຫໍຄອຍຂັງພວກໂລລາດ | [CHECK] GC 95.1; footnote at first use |
+| Decretal / Decretals | ຄຳຕັດສິນຂອງສັນຕະປາປາ / ຄຳຕັດສິນ | [CHECK] GC 125.1, 142.2; NOT ຄຳປະກາດ |
+| Decree / Mandate (papal) | ຄຳສັ່ງ | [CHECK] GC 133.2, 141.1, 142.1; distinct from ໃບປະກາດພິເສດ = bull |
+| Canon law | ກົດລະບຽບຂອງຄຣິສຕະຈັກໂຣມ | [CHECK] GC 142.2 |
+| Wycliffites | ນັກປະກາດຂອງໄວຄຼິບ | [CHECK] Descriptive; GC 94.3 |
+| Section (citation) | ໝວດ | [CHECK] |
+| Paragraph (citation) | ວັກ | [CHECK] |
+| Religious leaders (generic) | ຜູ້ນຳສາສະໜາ | |
+| Preacher / Preachers | ນັກເທດ | [CHECK] Office, not order |
+| Parish minister / churchman | ອາຈານປະຈຳໂບດ | |
+| Sacerdotal | ບາດຫຼວງ | [CHECK] GC 45.2 |
+| Paganism (the system) | ລັດທິນອກສາສະໜາ | [CHECK] Never the idol phrase. 549.2 |
+| Paganism (former faith) | ສາສະໜາເດີມ | Convert contexts only: 45.1, 58.2 |
+| Pagan (attributive) | ນອກສາສະໜາ | ຂອງຄົນນອກສາສະໜາ pattern, 574.1 |
+| Pagan / heathen (person) | ຄົນນອກສາສະໜາ / ຄົນທີ່ນັບຖືສາສະໜາອື່ນ / ຄົນທີ່ບໍ່ນັບຖືພຣະເຈົ້າ | [CHECK] Context chooses |
+| Heathenism (tribal) | ນັບຖືຜີສາງນາງໄມ້ | Saxons only: 62.3, 63.1 |
+| Idolatry / image worship | ການຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| Idol / Idols | ຮູບເຄົາລົບ | [CHECK] Religious category |
+| Image (physical object) | ຮູບປັ້ນ | Statue: 172.1, 174.3, 175.1 |
+| Idolater / Idolaters | ຄົນທີ່ຂາບໄຫວ້ຮູບເຄົາລົບ | [CHECK] |
+| False god | ພຣະທຽມ | 49.2, 53.3, 453.1 |
+| The Reformation | ການປະຕິຮູບສາສະໜາ | |
+| Indulgences | ໃບລ້າງບາບ | [CHECK] |
+| Purgatory | ແດນຊຳລະ | [CHECK] |
+| Heretics | ພວກນອກຮີດ | [CHECK] |
+| Papacy / Popery | ລະບອບສັນຕະປາປາ / ຝ່າຍສັນຕະປາປາ | [CHECK] |
+| Reign of Terror | ສະໄໝທີ່ຄວາມໂຫດຫ້ຽມສະຫຍອງຂວັນຄອງເມືອງ | [CHECK] |
+| Sanctuary | ສະຖານບໍຣິສຸດ / ສະຖານນະມັດສະການ | |
+| Investigative Judgment | ການພິພາກສາແບບສືບສວນ | [CHECK] |
+| Day of Atonement | ວັນລຶບລ້າງບາບອັນຍິ່ງໃຫຍ່ | [CHECK] |
+| Scapegoat | ແບ້ຮັບບາບ | [CHECK] |
+| Spiritualism | ລັດທິຕິດຕໍ່ກັບວິນຍານ | [CHECK] |
+| Mediums / Spirit channelers | ພວກໝໍຜີ ແລະ ນາງທຽມ | |
+| Universalism | ຄວາມເຊື່ອທີ່ວ່າມະນຸດທຸກຄົນຈະລອດພົ້ນ | [CHECK] |
+| Immortal soul | ຈິດວິນຍານເປັນອະມະຕະ | |
+| Second Advent | ການສະເດັດມາຄັ້ງທີສອງຂອງພຣະຄຣິສ | |
+| Waldenses / Vaudois | ຊາວໂວດົວ | Used interchangeably |
+| Sabbath | ວັນສະບາໂຕ | [CHECK] |
+| Sunday (as false sabbath) | ວັນອາທິດ | |
+| Sunday sacredness | ຄວາມສັກສິດຂອງວັນອາທິດ | |
+| Roman Catholic Church | ຄຣິສຕະຈັກໂຣມັນກາໂຕລິກ / ນິກາຍກາໂຕລິກ | |
+| Protestantism / Protestants | ນິກາຍໂປຣແຕັສຕັງ / ພວກໂປຣແຕັສຕັງ | |
+| Protestant | ໂປຣແຕັສຕັງ | Uses ຣ |
+| Dark Ages | ຍຸກມືດ / ສະໄໝຍຸກມືດ | |
+| Apostasy | ການພັດຫຼົງໄປຈາກຄວາມເຊື່ອ | |
+| Apostle(s) | ອັກຄະສາວົກ | [CHECK] |
+| Passover | ປັດສະຄາ / ເທດສະການປັດສະຄາ | [CHECK] |
+| Feast of Tabernacles | ເທດສະການ "ປຸກຕູບຢູ່" | [CHECK] Quotes around Lao term |
+| Catacombs | ຄອງອຸບມຸງ | [CHECK] |
+| Inquisition | ສານຄະດີນອກຮີດ | [CHECK] |
+| Mercy seat | ພຣະທີ່ນັ່ງແຫ່ງກະລຸນາ / ພຣະທີ່ນັ່ງກະລຸນາ | [CHECK] |
+| Gospel | ຂ່າວປະເສີດ | [CHECK] |
+| Dragon (Rev.) | ພະຍານາກ | |
+| Beast (Rev.) | ສັດຮ້າຍ | |
+| Second death | ຄວາມຕາຍຄັ້ງທີສອງ | [CHECK] |
+| Lollards | ໂລລາດ | Wycliffe's followers |
+| Hussites | ຊາວຮັສ | Huss's followers |
+| Council (of the church) | ສະພາຄຣິສຕະຈັກ / ປະຊຸມສະພາ | |
+| 95 Theses | ຄຳປະທ້ວງ 95 ຂໍ້ | [CHECK] |
+| Diet (assembly) | ສະພາ | E.g., Diet of Worms |
+| Mass (Catholic) | ພິທີສິນລະນຶກ | [CHECK] |
+| Confession of faith | ຄຳປະກາດແຫ່ງຄວາມເຊື່ອ | |
+| Read aloud | ອ່ານອອກສຽງ | [CHECK] NOT ອ່ານດັງໆ (= loudly). Vocalization, opposed to ອ່ານໃນໃຈ. GC 136.3 |
+| Archbishop | ເຈົ້າຄະນະໃຫຍ່ | [CHECK] One grade above ເຈົ້າຄະນະ = bishop; do not fold into the bishop row. NOT ອາຄະບິດຊົບ, NOT ອັກຄະເຈົ້າຄະນະ. Follows the sangha pattern where ເຈົ້າຄະນະ + territory is the ordinary grade and ເຈົ້າຄະນະໃຫຍ່ the senior one. GC 145.1 fn, 565.1, 565.2 |
+| Archbishop of <place> | ເຈົ້າຄະນະໃຫຍ່ແຫ່ງ + <place> | [CHECK] Same ແຫ່ງ connector as the bishop row; NOT ປະຈຳ. Attested: ນະຄອນເຊນຫຼຸຍສ໌ |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Only 2 occurrences corpus-wide: GC 149.2, 198.3. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
+| Excommunication / Excommunicate | ການຕັດຊື່ອອກຈາກຄຣິສຕະຈັກ / ຕັດຊື່ + object + ອອກຈາກຄຣິສຕະຈັກ / ຕັດຄວາມເປັນສະມາຊິກຄຣິສຕະຈັກຂອງ + object | [CHECK] Split verbal frame where the object is short; ຄວາມເປັນສະມາຊິກ form where the object runs past one clause. GC 133.3, 136.4, 141.1, 143.2 |
+| Safe-conduct | ໃບຮັບຮອງຄວາມປອດໄພ | [CHECK] |
+| Anathema | ຄຳສາບແຊ່ງ | |
+| Cardinal | ພຣະຄາດີນັນ | [CHECK] |
+| Satan / the Devil | ຊາຕານ / ມານຊາຕານ / ພະຍາມານ / ຜີສາດມານຮ້າຍ / ຜີມານຊາຕານ| [CHECK] Always ມັນ for pronoun |
+| Jesuits | ຄະນະສົງເຢຊຸອິດ / ເຢຊຸອິດ | [CHECK] |
+| Transubstantiation | (describe, do not transliterate) | |
+| Thirty Years' War | ສົງຄາມ 30 ປີ | |
+| Goddess of Reason | ເທບທິດາແຫ່ງເຫດຜົນ | [CHECK] |
+| Huguenots | ຮູເກີໂນ | [CHECK] |
+| Puritans | ປູຣິຕັນ | [CHECK] |
+| Methodists / Methodist Connection | ຊາວເມທໍດິສ / ເຄືອຂ່າຍກຸ່ມເມທໍດິສ | [CHECK] |
+| Antinomianism | (describe: teaching that God's law is abolished) | |
+| Quakers / Quakerism | ຄະນະຄະເວເກີ | [CHECK] |
+| Albigenses | ຊາວອັນບີເຈນ | [CHECK] |
+| Moravians | ຊາວໂມເຣເວຍ | [CHECK] |
+| Baptism | ບັບຕິສະມາ | [CHECK] |
+| Rebaptism | ການຮັບບັບຕິສະມາໃໝ່ | [CHECK] |
+| "The end justifies the means" | ການບັນລຸເປົ້າໝາຍລ້ວນແຕ່ສ້າງຄວາມຊອບທຳໃຫ້ແກ່ວິທີການ | Jesuit principle |
+| Adventists | ແອັດເວັນຕິສ | [CHECK] |
+| Midnight Cry | ສຽງຮ້ອງຍາມທ່ຽງຄືນ | [CHECK] |
+| Cleansing of the sanctuary | ການຊຳລະສະຖານບໍຣິສຸດ | [CHECK] |
+| Cherubim | ເຄຣຸບ | [CHECK] |
+| Seraphim | ເສຣາຟິມ | [CHECK] |
+| Holy Communion | ມະຫາສະໜິດ | |
+| First fruits (wave sheaf) | ຟ່ອນເຂົ້າຜົນທຳອິດ / ຜົນແລກ | |
+| Mark of the beast | ເຄື່ອງໝາຍຂອງສັດຮ້າຍ | [CHECK] |
+| Image to the beast | ຮູບຈຳລອງຂອງສັດຮ້າຍ | [CHECK] |
+| Rationalism | ລັດທິເຫດຜົນນິຍົມ | [CHECK] |
+| Papal bull | ໃບປະກາດພິເສດຂອງສັນຕະປາປາ / ໃບປະກາດພິເສດ | [CHECK] Full form at first use per chapter, short form anaphorically. NOT ຄຳສັ່ງ (= decree, mandate); attested 141.3, 142.2, 143.2 |
+| Sacramentarianism | ການນິຍົມພິທີກຳ | [CHECK] |
+| Presbyterian | ເປຣສະບິເທີຣຽນ | [CHECK] |
+| Lutheran | ລູເທີແຣນ | [CHECK] |
+| Sanctification | ການຊຳລະໃຫ້ບໍຣິສຸດ | |
+| Conversion (spiritual) | ການກັບໃຈໃໝ່ / ການຖິ້ມໃຈເກົ່າເອົາໃຈໃໝ່ | [CHECK] Lao idiom alternates with literal |
+| New birth | ການບັງເກີດໃໝ່ | [CHECK] |
+| Mediator | ຜູ້ເປັນກາງ / ຄົນກາງ | [CHECK] Descriptive; ລະຫວ່າງພຣະເຈົ້າກັບມະນຸດ where context needs it |
+| Crusade (religious war) | ສົງຄາມສາສະໜາ | [CHECK] |
+| Chaplain (royal) | ບາດຫຼວງປະຈຳຣາຊສຳນັກ | [CHECK] GC 82.1; ຣາຊ prefix |
+| Church Father (early) | ຜູ້ນຳລຸ້ນບຸກເບີກຂອງຄຣິສຕະຈັກ / ບັນດານັກຂຽນຄຣິສຕຽນໃນສະຕະວັດຕົ້ນໆ | [CHECK] NOT ຜູ້ນຳຄຣິສຕະຈັກ (= prelate) |
+| Romanists / Papists | ພວກເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກຄົນເຄັ່ງໃນລະບອບສັນຕະປາປາ / ພວກນິຍົມສັນຕະປາປາ |  Both forms in use; variation accepted. NOT ພວກຝ່າຍສັນຕະປາປາ. GC 132.3, 135.2, 137.3, 143.1, 143.3 |
+| Hierarchy (papal system) | ລະບອບສັນຕະປາປາ | [CHECK] Same form as Papacy row |
+| Royal ambassador | ທູດຫຼວງ | [CHECK] GC 84.3 |
+| Commissioners (papal) | ຄະນະຂ້າຫຼວງຂອງສັນຕະປາປາ | [CHECK] GC 84.3 |
+| Tract (published) | ບົດຄວາມ | GC 84.2 |
+| Inquisitors (persons) | ເຈົ້າໜ້າທີ່ສານຄະດີນອກຮີດ | [CHECK] |
+| Advocate / Intercessor | ຜູ້ວິງວອນ / ຜູ້ອ້ອນວອນ / ຜູ້ແກ້ຄວາມ | [CHECK] Context determines choice |
+| Covering cherub | ເຄຣຸບຜູ້ພິທັກ | [CHECK] |
+| Book of life | ທະບຽນແຫ່ງຊີວິດ / ໜັງສືແຫ່ງຊີວິດ | [CHECK] |
+| Book of remembrance | ໜັງສືທີ່ລະລຶກ | [CHECK] |
+| Ancient of Days | ອົງຜູ້ດຳລົງຊີວິດຢັ້ງຢືນຕະຫຼອດການ / ຜູ້ດຳລົງຢູ່ຕັ້ງແຕ່ດຶກດຳບັນ | Varies by Bible version quoted |
+| Decalogue / Ten Commandments | ພຣະບັນຍັດສິບປະການ | [CHECK] |
+| Royal law (James 2:8) | ພຣະຣາຊບັນຍັດ | Uses ຣາຊ prefix |
+| Counterfeit | ຂອງປອມ / ການຟື້ນຟູປອມ | Context-dependent |
+| Guardian angel | ທູດສະຫວັນຜູ້ປົກປ້ອງ | [CHECK] |
+| Eternal torment / Hell | ການທໍລະມານຕະຫຼອດນິຣັນ / ຂຸມນະຣົກ | |
+| Immortality of the soul (doctrine) | ຄວາມເຊື່ອວ່າຈິດວິນຍານເປັນອະມະຕະ | Also: ດວງວິນຍານທີ່ອະມະຕະ |
+| Consciousness in death | ຄົນຍັງມີສະຕິຮູ້ສຶກຕົວຫຼັງຈາກຕາຍ | Descriptive |
+| Familiar spirits | ຄົນຊົງເຈົ້າເຂົ້າຜີ | GC 556.2 |
+| Tree of life | ຕົ້ນໄມ້ແຫ່ງຊີວິດ | [CHECK] |
+| Resurrection | ການຟື້ນຄືນຊີບ / ການເປັນຄືນມາຈາກຕາຍ | |
+| Lamb (Rev. and salvific) | ພຣະເມສານ້ອຍ | |
+| Sheol / Grave (realm of dead) | ແດນມໍຣະນາ | [CHECK] ຣ root |
+| Papal infallibility | (describe: claiming the church never erred and never will) | |
+| Encyclical letter | ຈົດໝາຍອະທິບາຍຄວາມເຊື່ອ | |
+| Seal of God | ຕາປະທັບຂອງພຣະເຈົ້າ | [CHECK] |
+| Stake (execution) | ຫຼັກປະຫານ | [CHECK] Also renders scaffold where a heretic is condemned |
+| Latter rain | ຝົນປາຍລະດູ | [CHECK] Prophetic symbol |
+| Former rain | ຝົນຕົ້ນລະດູ | [CHECK] Prophetic symbol |
+| Time of trouble | ເວລາແຫ່ງຄວາມທຸກຍາກລຳບາກ | [CHECK] Daniel 12:1 |
+| Jacob's trouble | ເວລາແຫ່ງຄວາມທຸກຍາກຂອງຢາໂຄບ | [CHECK] Jeremiah 30:7 |
+| Seven last plagues | ໄພພິບັດ (7 ຢ່າງສຸດທ້າຍ) | |
+| Angel of the covenant | ທູດແຫ່ງພັນທະສັນຍາ | = pre-incarnate Christ |
+| New Jerusalem | ນະຄອນເຢຣູຊາເລັມໃໝ່ | [CHECK] |
+| Holy City | ນະຄອນບໍຣິສຸດ | [CHECK] |
+| New earth | ໂລກທີ່ໄດ້ຮັບການສ້າງຂຶ້ນໃໝ່ | |
+| Close of probation | ໂອກາດສິ້ນສຸດ / ເວລາແຫ່ງໂອກາດສິ້ນສຸດ | |
+| Great controversy | ການຕໍ່ສູ້ມະຫາກາບ / ສົງຄາມການຕໍ່ສູ້ | |
+| Ordain / Ordination / Consecration (to sacred office) | ເຈີມຕັ້ງ | [CHECK] NOT ເຈີມ. Ecclesiastical office only. Attested: 70.2, 124.1, 173.2, 221.2, 238.3, 254.3, 274.1 |
+| Ordain (decree, appoint, institute) | ກຳນົດ / ແຕ່ງຕັ້ງ | NOT ເຈີມ; 69.2, 448.1, 449.1, 454.3, 592.1 |
+| Consecrate (self-dedication to God) | ອຸທິດຖວາຍຕົນ | NOT ເຈີມ; 176.4, 398.1, 400.2, 463.3, 606.2, 612.1 |
+| The Anointed One (Messiah) | ຜູ້ຖືກເຈີມ | [CHECK] Title; never ເຈີມຕັ້ງ. 327.1, 410.1 |
+| Anointing of the Spirit (Christ, narrative) | ເຈີມຕັ້ງ | [CHECK] The AD 27 anointing as messianic installation. 327.1, 346.4, 410.1 |
+| Unction (of His Spirit, on believers) | ເຈີມ | [CHECK] 606.2; no office conferred |
+| Anointed cherub (narrative echo) | ເຈີມຕັ້ງ | 497.1; echoes ເອເຊກຽນ 28:14 quoted at 493.3 |
+| Christianity / the Christian faith | ສາສະໜາຄຣິສ / ຄຣິສຕະສາສະໜາ | Both forms in use; variation intentional |
+| Executioner | ເພັດຊະຄາດ | [CHECK] GC 114.8 |
+| Youth (life stage) | ສະໄໝເປັນໜຸ່ມ / ໄວໜຸ່ມ | [CHECK] Not the Young/Youth persons row; GC 113.2 |
+| Turk (period usage) | ຊາວມຸດສະລິມ | Religious sense intended, not the nationality; GC 114.2 |
+| Prince / princes (within a kingdom) | ຂຸນນາງ | [CHECK] Nobles subject to a crown — England, France, Spain; NOT ເຈົ້າແຂວງ. GC 85.3 |
+| Lawyer | ນັກກົດໝາຍ | [CHECK] ທະນາຍຄວາມ is courtroom-specific |
+| Heralds of the gospel | ຜູ້ປະກາດຂ່າວປະເສີດ | [CHECK] GC 120.2; NOT ສາວົກ |
+| Beg from house to house (mendicant) | ບິນທະບາດ | GC 123.1; deliberate Lao idiom |
+| Pulpit (to ascend the ~) | ທຳມາດ | [CHECK] GC 124.1 |
+| Coronation | (defer — see GC-open-terms.md) | 666.1, 668.4; pairs with ມົງກຸດ at 669.1 |
+| President of the Convention | ປະທານກອງປະຊຸມ | [CHECK] |
+| Chair of a meeting | ປະທານທີ່ປະຊຸມ | Descriptive label; no English head in source |
+| Assembly chamber / hall | ຫ້ອງປະຊຸມ | Descriptive label; enforced via the Convention [FLAG] row |
+| Veil of Reason | ຜ້າມ່ານແຫ່ງເຫດຜົນ | [CHECK] GC 276.1 |
+| Senate of Freedom | ສະພາອັນຊົງກຽດແຫ່ງເສລີພາບ | [CHECK] GC 276.1 |
+| Profligate woman | ແມ່ຍິງເສເພ | [CHECK] GC 275.1 |
+| Constitutional (of clergy) | ຝ່າຍລັດຖະທຳມະນູນ | [CHECK] 1790 oath; footnote on first use |
+| Church dignitaries | ເຈົ້າໜ້າທີ່ຂອງຄຣິສຕະຈັກ / ເຈົ້າໜ້າທີ່ຄຣິສຕະຈັກ | [CHECK] NOT ເຈົ້ານາຍທາງຄຣິສຕະຈັກ |
+| Legate / nuncio | ຕົວແທນ / ຕົວແທນຂອງສັນຕະປາປາ / ທູດຂອງສັນຕະປາປາ | [CHECK] NOT ທະນາຍ; NOT bare ທູດ (collides with ທູດສະຫວັນ). Bare ຕົວແທນ anaphorically after ຕົວແທນຂອງສັນຕະປາປາ; ທູດຂອງສັນຕະປາປາ only where EN reads "ambassador," never at first mention in a chapter. GC 133.3, 135.1 |
+| Captain (military rank) | ຮ້ອຍເອກ | [CHECK] ນາຍພັນ = Major–Colonel |
+| Insurgents | ພວກກະບົດ | [CHECK] ຫົວກະບົດ = ringleader |
+| Young / Youth | ຊົນໜຸ່ມ / ຊາວໜຸ່ມ / ໜຸ່ມສາວ | [CHECK] ເດັກນ້ອຍ = children |
+| Christendom | ຄົນໃນປະເທດຕ່າງໆທີ່ນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ມີການນັບຖືສາສະໜາຄຣິສ / ທຸກປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ / ປະເທດທັງຫຼາຍທີ່ນັບຖືສາສະໜາຄຣິສ / ບັນດາປະເທດທີ່ນັບຖືສາສະໜາຄຣິສ | [CHECK] NOT ເອີຣົບ (scope narrowing); NOT ທຸກປະເທດໃນເອີຣົບ |
+| Prince of the empire / princes of the empire | ເຈົ້າແຂວງ | [CHECK] Hereditary territorial ruler under the emperor; NOT ເຈົ້າຊາຍ, NOT ຂຸນນາງ; footnote at GC 57.3 |
+| Elector / Electors (imperial) | ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຈັກກະພັດ / ຜູ້ມີສິດເລືອກຈັກກະພັດ / ເຈົ້າແຂວງ | [CHECK] Full form at first application to a person, where the electoral right is itself in view, and where electors and non-elector princes are contrasted as classes. Bare form anaphorically, and where a territory or personal name already individuates the man — the mere presence of other princes in the paragraph is not a trigger. Connector ຜູ້, NOT ທີ່. NOT ເຈົ້າແຂວງຜູ້ມີສິດເລືອກຕັ້ງ. Headless ຜູ້ມີສິດເລືອກຈັກກະພັດ where ເຈົ້າແຂວງ already stands in the paragraph. Footnoted GC 57.3, 138.1, 145.1, 198.3. Attested: 145.1, 167.3, 198.3, 206.2, 207.1 |
+| Duke / Margrave / Landgrave / Count palatine | ເຈົ້າແຂວງ | [CHECK] Collapse to the class term; DEFER any sentence contrasting two of these ranks |
+| Duke | ທ່ານດະຍຸກ | [CHECK] NOT ເຈົ້າແຂວງ (reserved for the princes/electors class). Sole site GC 149.2 (Duke George). GC 198.3 (Duke John) is excluded — EGW's *Duke* there is courtesy usage; John held the electorate from 1525 and GC 11 calls him *the elector* nine times, so ເຈົ້າແຂວງ governs. Footnote at first body use; in-text gloss wherever an elector shares the scene; bare ທ່ານດະຍຸກ anaphorically |
+| Magistrate / city dignitary | ເຈົ້າເມືອງ | [CHECK] Civic office only; never a territorial ruler |
+| Empire (Holy Roman) | ອານາຈັກ | [CHECK] NOT ຣາຊອານາຈັກ |
+| Royal deputies (envoys of kings) | ຄະນະຜູ້ແທນຂອງບັນດາກະສັດ | [CHECK] GC 108.2 |
+| Old Testament | ພຣະຄຳພີເດີມ | [CHECK] NOT ພຣະຄຳພີເກົ່າ |
+| Talent (unit of measure) | ຕະລັນຕົນ | [CHECK] ພຄພ ມັດທາຍ 25:15 |
+| Book / volume (citation) | ເຫຼັ້ມ | [CHECK] |
+| Interdict | ການປະກາດຫ້າມທາງສາສະໜາ | [CHECK] GC 100.3, 101.1 |
+| Jubilee | ງານເທດສະການສະຫຼອງການຄົບຮອບ | [CHECK] GC 98.2 |
+| Chapter (citation) | ບົດ | [CHECK] |
+| People-group (non-state) | ຊົນເຜົ່າ | [CHECK] NOT ຊົນຊາດ |
+| Anvil | ທັ່ງຕີເຫຼັກ | [CHECK] GC 288.2 |
+| Territory (pre-modern, terrain) | ເຂດ / ສາຍພູ | [CHECK] Valleys, districts, mountain regions. NOT ແຂວງ |
+| Territory (pre-modern, polity) | ແຂວງ / ເຈົ້າແຂວງ | Settled usage: ແຂວງແຊັກຊັນນີ, ເຈົ້າແຂວງ. [CHECK] |
+---
+
+## 10. Lao Spelling Glossary
+
+| Word | Correct | Incorrect | Notes |
+|---|---|---|---|
+| Holy / Pure | ບໍຣິສຸດ | ບໍລິສຸດ | [CHECK] ຣ root |
+| Epidemic / Plague | ໂຣກລະບາດ | ໂລກລະບາດ | [CHECK] ຣ root |
+| Glory / Radiance | ສະຫງ່າຣາສີ | ສະຫງ່າລາສີ | [CHECK] ຣ root |
+| Christian | ຄຣິສຕຽນ | ຄລິດສະຕຽນ | [CHECK] |
+| Christian | ຄຣິສຕຽນ | ຄິດສະຕຽນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ພະຍາກອນ | [CHECK] |
+| prophet (Jewish, Christian) | ຜູ້ເຜີຍພຣະທຳ | ຜູ້ທຳນວາຍ | [CHECK] |
+| Holy (prefix) | ພຣະ | ພະ |  |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດອຳນາດ | [CHECK] |
+| Power / Authority | ຣິດອຳນາດ / ຣິດເດດ | ລິດເດດ | [CHECK] |
+| Eternal | ນິຣັນ | ນິລັນ | [CHECK] |
+| Israel | ອິດສະຣາເອນ | ອິດສະລາເອນ | [CHECK] |
+| Heritage | ມໍລະດົກ | ມໍຣະດົກ | [CHECK] Exception: ລ |
+| Miracle | ອັດສະຈັນ | ອັດສະຈັນຍ໌ | [CHECK] |
+| Protestant | ໂປຣແຕັສຕັງ | ໂປລແຕັສຕັງ | [CHECK] ຣ root |
+| Radiance (divine) | ຣັດສະໝີ | ລັດສະໝີ | [CHECK] ຣ root |
+| Church (institution) | ຄຣິສຕະຈັກ | ຄລິສຕະຈັກ | [CHECK] |
+| Christ | ພຣະຄຣິສ | ພຣະຄລິສ | [CHECK] |
+| Royal vocabulary | ຣາຊາສັບ | ລາຊາສັບ | [CHECK] ຣ root |
+| Sovereign power | ຣິດທານຸພາບ | ລິດທານຸພາບ | [CHECK] ຣ root |
+| Complete / Perfect | ບໍຣິບູນ | ບໍລິບູນ | [CHECK] ຣ root |
+| Pope (pronoun) | ເພິ່ນ | ພິ່ນ / ລາວ / ທ່ານ | [CHECK] |
+---
+
+## 11. Lao Proper Noun Glossary (GC)
+
+<!-- GC-specific. Proper nouns from other EGW books (PP, AA, MB, Ed, etc.) should be added in separate tables or merged as needed. -->
+
+| English | Lao | Notes |
+|---|---|---|
+| Jerusalem | ເຢຣູຊາເລັມ | [CHECK] |
+| Mount of Olives / Olivet | ພູເຂົາໝາກກອກເທດ | [CHECK] |
+| Gethsemane | ເຄັດເຊມາເນ | [CHECK] |
+| Calvary | ຄານວາຣີ | [CHECK] |
+| Titus | ຕີໂຕ | [CHECK] Often: ແມ່ທັບຕີໂຕ |
+| Josephus | ໂຢເຊຟັດ | [CHECK] |
+| Cestius Gallus / Cestius | ໄກອຸສ ເຊຕຽວ ກາລຸສ / ເຊຕຽວ | [CHECK] Short: ແມ່ທັບເຊຕຽວ |
+| Pella | ເປລາ | [CHECK] |
+| Moriah | ໂມຣິຢາ | [CHECK] |
+| Ornan / Araunah | ອາໂຣນາ | [FLAG] spelling unresolved. Lao form follows Araunah (2 Sam 24); same man as Ornan (1 Chr 21) — verify against ພຄພ |
+| Nero | ເນໂຣ | [CHECK] |
+| Constantine | ຄອນສະຕັນຕິນ | [CHECK] |
+| Gregory VII | ເກຼັກກໍຣີທີ 7 | [CHECK] |
+| Wycliffe | ໄວຄຼິບ | [CHECK] |
+| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] |
+| Solomon | ໂຊໂລໂມນ | [CHECK] |
+| David | ດາວິດ | [CHECK] |
+| Nebuchadnezzar | ເນບູກາດເນັດຊາ | [CHECK] |
+| Haggai | ຮັກກາຍ | [CHECK] |
+| Isaac | ອີຊາກ | [CHECK] |
+| Jacob | ຢາໂຄບ | [CHECK] |
+| Herod | ເຮໂຣດ | [CHECK] + ມະຫາຣາດ for "the Great" |
+| Milman | ມິນມານ | [CHECK] |
+| Wylie | ໄວລີ | [CHECK] |
+| Tertullian | ເທີທູລຽນ | [CHECK] |
+| Liberalis | ລີເບຣາລິດ | [CHECK] |
+| Perea | ເປເຣຍ | [CHECK] |
+| Lutterworth | ລັດເຕີເວີດ | [CHECK] |
+| Oxford | ອັອກຟອດ | [CHECK] |
+| John Huss | ຈອນ ຮັສ | [CHECK] Short: ຮັສ |
+| Jerome (of Prague) | ເຈໂຣມ | [CHECK] |
+| Bohemia | ໂບຮີເມຍ | [CHECK] |
+| Prague | ປຣັກ | [CHECK] |
+| Constance | ຄອນສະຕັນ | [CHECK] (the city) |
+| Sigismund | ຊີກີມົງ | [CHECK] |
+| Bethlehem Chapel | ໂບດເບັດເລເຮັມ | [CHECK] |
+| Ziska | ຊີສະກາ | [CHECK] |
+| Rhine | ແມ່ນ້ຳໄຣນ໌ | [CHECK] GC 110.1 |
+| Moravia | ໂມເຣເວຍ | [CHECK] |
+| United Brethren | ກຸ່ມພີ່ນ້ອງຜູ້ເປັນໜຶ່ງດຽວ | [CHECK] Descriptive |
+| Staupitz | ສະເຕົາພິດ | [CHECK] |
+| Rome (city) | ນະຄອນໂຣມ / ໂຣມ | [CHECK] |
+| Erfurt | ເອີເຟີດ | [CHECK] |
+| Wittenberg | ວິດເທັນເບີກ | [CHECK] |
+| Tetzel | ເທັດເຊັນ | [CHECK] |
+| Augsburg | ອອກເບີກ | [CHECK] |
+| Worms | ເວີມ | [CHECK] |
+| Saxony | ແຊັກຊັນນີ | [CHECK] |
+| Netherlands | ເນເທີແລນ | [CHECK] |
+| Spain | ແອັດສະປາຍ | [CHECK] |
+| Zwingli | ສວິງລີ | [CHECK] Full: ອຸນຣິກ ສວິງລີ; short: ສວິງລີ |
+| Zurich | ຊູຣິກ | [CHECK] |
+| Council of Zurich (civic) | ສະພານະຄອນຊູຣິກ | [CHECK] GC 179.1, 180.3. Governing council of the city-state — legislature, court and executive in one. NOT ຄະນະປົກຄອງເມືອງ (executive only); NOT bare ສະພາ (collides with Diet); distinct from ສະພາຄຣິສຕະຈັກ. Full form at both occurrences |
+| Melanchthon | ເມລັງໂທນ | [CHECK] |
+| D'Aubigné | ໂດບິນເຍ | [CHECK] Author citation |
+| Bonnechose | ບອນໂຊດ | [CHECK] Author citation |
+| Neander | ນຽນເດີ | [CHECK] Author citation |
+| Foxe | ຟັອກ | [CHECK] Author citation |
+| Lenfant | ລອງຟອງ | [CHECK] Author citation |
+| Lefevre | ເລີເຟວ | [CHECK] French reformer |
+| William Farel | ວິນລຽມ ແຟໂຣ | [CHECK] Short: ແຟໂຣ |
+| John Calvin | ຈອນ ຄາວິນ | [CHECK] Short: ຄາວິນ |
+| Olivetan | ໂອລີເວຕັນ | [CHECK] Calvin's cousin |
+| Louis de Berquin | ຫຼຸຍສ໌ ແຫ່ງເບີຄວິນ | [CHECK] Short: ເບີຄວິນ |
+| Beza | ເບຊາ | [CHECK] |
+| Erasmus | ເອີຣັສມາສ | [CHECK] |
+| Beda | ເບດາ | [CHECK] |
+| Francis I | ຟຣານຊິສທີ 1 | [CHECK] King of France |
+| Margaret (princess) | ມາກາເຣັດ | [CHECK] ເຈົ້າຍິງ |
+| Meaux | ເມືອງໂມ | [CHECK] City |
+| Paris | ນະຄອນປາຣີ / ປາຣີ | [CHECK] |
+| France | ປະເທດຝຣັ່ງ / ຝຣັ່ງ | [CHECK] |
+| Germany | ປະເທດເຢຍລະມັນ / ເຢຍລະມັນ | [CHECK] |
+| Switzerland | ສວິສເຊີແລນ | [CHECK] |
+| Poitiers | ພົວເຈ | [CHECK] |
+| Geneva | ນະຄອນເຈນີວາ / ເຈນີວາ | [CHECK] |
+| Basel | ບາເຊັນ | [CHECK] |
+| Holland | ຮໍແລນ | [CHECK] |
+| Menno Simons | ເມັນໂນ ຊີໂມນ | [CHECK] Short: ເມັນໂນ |
+| Münster / Munsterites | ມຸນສະເຕີ | [CHECK] Source spells it Munsterites |
+| William of Orange | ວິນລຽມແຫ່ງອໍເຣນ | [CHECK] |
+| Tausen | ທາວເຊັນ | [CHECK] Reformer of Denmark |
+| Cologne | ໂຄໂລນ | [CHECK] |
+| Denmark | ເດນມາກ | [CHECK] |
+| Sweden | ສະວີເດັນ | [CHECK] |
+| Olaf Petri | ໂອລັບ ເປຕຣີ | [CHECK] |
+| Laurentius Petri | ໂລເຣັນທີອັດ ເປຕຣີ | [CHECK] |
+| Orebro | ໂອເຣໂບ | [CHECK] |
+| Cappel | ກາເປນ | [CHECK] Battle site |
+| Oecolampadius | ເອໂກລຳພາດິອັດ | [CHECK] |
+| Froment | ໂຟມົງ | [CHECK] |
+| Morat | ໂມຣັດ | [CHECK] |
+| Neuchatel | ນິວຊາແຕວ | [CHECK] |
+| Philip II | ຟີລິບທີ 2 | [CHECK] |
+| Louis XVI | ຫຼຸຍສ໌ທີ 16 | [CHECK] |
+| Scandinavia | ສະແກນດິເນເວຍ | [CHECK] |
+| Tyndale / William Tyndale | ທິນເດວ / ວິນລຽມ ທິນເດວ | [CHECK] |
+| Latimer | ລາຕິເມີ | [CHECK] |
+| Barnes | ບາເນດ | [CHECK] |
+| Frith | ຟຣິດ | [CHECK] |
+| Ridley | ຣິດລີ | [CHECK] |
+| Cranmer | ເຄນເມີ | [CHECK] |
+| Columba | ໂຄລຳບາ | [CHECK] |
+| Scotland | ສະກັອດແລນ | [CHECK] |
+| Hamilton | ແຮມິນຕັນ | [CHECK] |
+| Wishart | ວີຊາດ | [CHECK] |
+| John Knox | ຈອນ ນັອຄຊ໌ | [CHECK] |
+| Mary (Queen of Scots) | ຣາຊິນີມາຣີ / ມາຣີ | [CHECK] |
+| John Bunyan | ຈອນ ບັນຍັນ | [CHECK] |
+| Bedford | ເບດຟອດ | [CHECK] |
+| Baxter | ແບັກສະເຕີ | [CHECK] |
+| Flavel | ຟຼາເວວ | [CHECK] |
+| Alleine | ອາເລນ | [CHECK] |
+| Whitefield | ວິດຟຽວ | [CHECK] |
+| John Wesley | ຈອນ ເວສະລີ | [CHECK] Short: ເວສະລີ |
+| Charles Wesley | ຊານສ໌ ເວສະລີ | [CHECK] |
+| Savannah | ສະແວນນາ | [CHECK] |
+| London | ລອນດອນ / ນະຄອນລອນດອນ | [CHECK] |
+| Durham | ເດີຮາມ | [CHECK] |
+| England | ອັງກິດ / ປະເທດອັງກິດ | [CHECK] |
+| America | ອາເມຣິກາ | [CHECK] |
+| Piedmont | ພີດມົງ | [CHECK] |
+| Louis XV | ຫຼຸຍສ໌ທີ 15 | [CHECK] |
+| Voltaire | ໂວນແຕ | [CHECK] |
+| Walter Scott | ວອນເຕີ ສະກັອດ | [CHECK] Author citation |
+| Anderson | ແອນເດີສັນ | [CHECK] Author citation |
+| Martyn | ມາຕິນ | [CHECK] Author citation |
+| Bancroft | ບານຄອຟ | [CHECK] |
+| Whitehead | ໄວເຮດ | [CHECK] Author citation |
+| Robinson | ໂຣບິນສັນ | [CHECK] |
+| Roger Williams | ໂຣເຈີ ວິນລຽມ | [CHECK] |
+| William Miller | ວິນລຽມ ມິນເລີ | [CHECK] Short: ມິນເລີ |
+| Lisbon | ລິສບອນ | [CHECK] |
+| Wolff / Joseph Wolff | ໂຈເຊັບ ວໍຟ໌ | [CHECK] Short: ວໍຟ໌ |
+| Bengel | ເບນເກນ | [CHECK] |
+| Gaussen | ໂກເຊັນ | [CHECK] |
+| Lacunza | ລາຄູນຊາ | [CHECK] |
+| Mourant Brock | ໂມຣານ ບຣອກ | [CHECK] |
+| Robert Winter | ໂຣເບີດ ວິນເທີ | [CHECK] |
+| Charles Fitch | ຊານສ໌ ຟິດ | [CHECK] |
+| Artaxerxes | ອາກຕາເຊເຊັດ | [CHECK] |
+| Finney | ຟິນນີ | [CHECK] |
+| Spurgeon | ສະເປີເຈນ | [CHECK] |
+| Guthrie | ກຸດຣີ | [CHECK] |
+| Hopkins | ຮົບກິນສ໌ | [CHECK] |
+| Challoner | ຊານໂລເນີ | [CHECK] |
+| Rollin | ໂຣລິນ | [CHECK] |
+| Habakkuk | ຮາບາກຸກ | [CHECK] |
+| Malachi | ມາລາກີ | [CHECK] |
+| Würtemberg | ເວີດເທັມເບີກ | [CHECK] |
+| Bokhara | ບູຄາຣາ | [CHECK] |
+| Yemen | ເຢເມນ | [CHECK] |
+| Tatary | ຕາຕາຣີ | [CHECK] |
+| Wales | ເວລສ໌ | [CHECK] |
+| Edward A. Park | ເອັດເວີດ ເອ. ພາກ | [CHECK] GC 465.2 |
+| Balaam | ບາລາອາມ | [CHECK] GC 529.2 |
+| Lucifer | ລູຊີເຟີ | [CHECK] Always ມັນ |
+| Adam | ອາດາມ | [CHECK] ເພິ່ນ pronoun |
+| Eve | ເອວາ | [CHECK] |
+| Eden | ເອເດນ / ສວນເອເດນ | [CHECK] |
+| Cain | ກາອິນ | [CHECK] |
+| Abel | ອາເບັນ | [CHECK] |
+| Noah | ໂນອາ | [CHECK] |
+| Lot | ໂລດ | [CHECK] |
+| Abraham | ອັບຣາຮາມ | [CHECK] |
+| Sodom | ໂຊໂດມ | [CHECK] |
+| Hezekiah | ເຮເຊກີຢາ | [CHECK] ກະສັດ prefix |
+| Amnon | ອຳໂນນ | [CHECK] |
+| Absalom | ອັບຊາໂລມ | [CHECK] |
+| Adam Clarke | ອາດາມ ຄລາກ | [CHECK] ດຣ. prefix |
+| E. Petavel | ອີ. ເປຕາແວນ | [CHECK] Author citation |
+| Josiah Strong | ໂຢສີຢາ ສະຕອງ | [CHECK] Author citation |
+| Mosheim | ໂມເຊມ | [CHECK] Author citation |
+| Pius IX | ປີອູດທີ 9 | [CHECK] Pope |
+| Gregory XVI | ເກຼັກກໍຣີທີ 16 | [CHECK] Pope |
+| Eusebius | ເອີເຊບິອັດ | [CHECK] |
+| Peter II of Aragon | ເປໂຕທີ 2 ແຫ່ງອາຣາກົງ | [CHECK] |
+| Innocent III | ອິນໂນເຊັນທີ 3 | [CHECK] Pope |
+| Abyssinia / Ethiopia | ເອທິໂອເປຍ | [FLAG] |
+| St. Louis (city) | ນະຄອນເຊນຫຼຸຍສ໌ / ເຊນຫຼຸຍສ໌ | [CHECK] |
+| Esau | ເອຊາວ | [CHECK] |
+| Bethel | ເບັດເອນ | [CHECK] |
+| Stephen | ສະເຕຟາໂນ | [CHECK] |
+| Caiaphas | ກາຢະຟາ | [CHECK] |
+| Michael (archangel) | ມີຄາເອນ | [CHECK] |
+| Elijah | ເອລີຢາ | [CHECK] |
+| Joseph (OT) | ໂຢເຊັບ | [CHECK] |
+| Pharaoh | ຟາໂຣ | [CHECK] |
+| Jezebel | ເຢເຊເບນ | [CHECK] |
+
+| Legislative Assembly (French Rev.) | ສະພານິຕິບັນຍັດແຫ່ງຊາດ | [CHECK] Three-tier system; do not collapse |
+| National Assembly (French Rev.) | ສະພາແຫ່ງຊາດ | [CHECK] |
+| National Convention (French Rev.) | ກອງປະຊຸມແຫ່ງຊາດ | [CHECK] NOT ສະພາ; see Diet/Council cross-ref |
+| Convention / the Convention | ກອງປະຊຸມແຫ່ງຊາດ | [FLAG] Session, not a place. Physical hall = ຫ້ອງປະຊຸມ. Readjudicate each occurrence |
+| Charles IX | ກະສັດຊານສ໌ / ຊານສ໌ | [CHECK] King of France; NOT ຈັກກະພັດ |
+| Charles V | ຈັກກະພັດຊານສ໌ທີ 5 / ຊານສ໌ທີ 5 | [CHECK] Holy Roman Emperor |
+| Gregory XIII | ເກຼັກກໍຣີທີ 13 | [CHECK] Pope |
+| Napoleon | ນາໂປເລອົງ | [CHECK] |
+| Notre Dame | ນໍເຕີດາມ | [CHECK] |
+| Seine | ແຊນ | [CHECK] |
+| Jacobin | ຢາໂກບິນ | [CHECK] |
+| Bartholomew | ບາຣະໂທໂລມາຍ | [CHECK] |
+| Gomorrah | ໂກໂມຣາ | [CHECK] |
+| Thiers | ເທຍ | [CHECK] Author citation |
+| Alison | ອາລິຊັນ | [CHECK] Author citation |
+| Lacretelle | ລາເຄເທວ | [CHECK] Author citation |
+| Henry White | ເຮນຣີ ໄວທ໌ | [CHECK] Author citation |
+| Buchez-Roux | ບູເຊດຣູ | [CHECK] Author citation |
+| G. de Félice | ຈີ. ເດ ເຟລີສ | [CHECK] Author citation |
+| Martin Luther | ມາຕິນ ລູເທີ | [CHECK] Short: ລູເທີ. Bare ມາຕິນ only where EN reads "Martin"; see Martyn row for the citation collision. GC 138.3 |
+
+| Martyn | ມາຕິນ | [CHECK] Author citation. Latin gloss (Martyn) required in every citation lacking the work title; collides with ດຣ. ມາຕິນ / ມາຕິນ = Luther, which is correct where EN reads "Martin." Attested: GC 136.2 (with title, glossed), 138.3 (Luther, leave bare), 143.1 (short form, gloss) |
+
+| Frederick (the Elector) | ເຟຣເດີຣິກ | [CHECK] GC 138.1; ທ່ານ prefix | | Augustine | ອໍກັສຕິນ | [CHECK] GC 140.3 |
+| Aleander | ອະລີອັນເດີ | [CHECK] Papal nuncio at Worms |
+| Gieseler | ກີສະເລີ | [CHECK] GC 127.2; ຈອນ ຊີ. ແອວ. ກີສະເລີ |

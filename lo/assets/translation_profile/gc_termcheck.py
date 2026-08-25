@@ -25,15 +25,8 @@ import argparse
 import re
 import unicodedata
 import sys
-from pathlib import Path
 
-# Sibling of this script's directory: lo/GC/04_assets/translation_profile/.
-# Callers should still pass --glossary explicitly; this default only keeps
-# the script usable by hand.
-DEFAULT_GLOSSARY = str(
-    Path(__file__).resolve().parent.parent
-    / 'translation_profile' / 'GC-glossary.txt'
-)
+DEFAULT_GLOSSARY = '/mnt/project/GC-glossary.txt'
 ANCHOR = re.compile(r'^## \{GC ([0-9]+\.[0-9]+)\}\s*$', re.M)
 INLINE_ANCHOR = re.compile(r'\{GC [0-9]+\.[0-9]+\}')
 FOOTNOTE_MARK = re.compile(r'\[\^[0-9]+\]')
