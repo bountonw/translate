@@ -52,6 +52,8 @@ effort: xhigh
 
 3.K. Dictionary tokens. A token the conductor names from the dictionary check is either a typo the QA passes introduced, which takes a FIX marker like any other finding, or a genuine word the typesetting dictionaries do not know, which takes no marker: list it in your report with a proposed row for lo/assets/dictionaries/main.txt in that file's own shape — the word, a pipe, the word again with ~ break marks at its syllable joins, then a space and % — and one clause on what the word means. You never edit a dictionary; the conductor appends rows only after the translator reviews them.
 
+3.L. LaTeX in the manuscript — \s, \S, {\;}, \thai{} and any other macro — is typesetting markup, not audit material: report neither its presence nor its absence, and judge a change that only adds or removes such markup STANDS without comment. The exception is a mangled macro — a backslash or brace lost so that stray letters sit in the Lao text — which is an introduced typo and takes a FIX marker under 3.E. This is the translator's ruling of 26 August.
+
 ## 4. Markers
 
 4.A. Form, written in place in lo/GC/03_public/GCNN_lo.md, replacing the flagged run:
