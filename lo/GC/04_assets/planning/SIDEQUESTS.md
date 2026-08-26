@@ -6,16 +6,6 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 1. Rehash the pope as Vicar of Christ and as God's representative
-
-Revisit how the Lao GC renders the pope's claimed title, and be ready to reverse the ruling of 19 August rather than defend it. The Thai GC uses ตัวแทน, the cognate of Lao ຕົວແທນ, which is the word that ruling moved the title away from; if the Thai is right the Lao should follow it and the day's changes are undone.
-
-In scope: the six sites moved from ຕົວແທນ to ຜູ້ແທນ that day, {GC 51.3}, {GC 53.2}, {GC 55.1} and {GC 59.1} in GC03 and {GC 101.1} and {GC 102.1} in GC06; the two emissary sites at {GC 62.4} in GC04, which moved the other way; the Vicar of Christ, Legate and Deputy rows of `lo/GC/04_assets/translation_profile/GC-glossary.txt`; and the sites deliberately left on ຕົວແທນ, which are {GC 50.2} and the first instance at {GC 53.2}, {GC 92.2}, {GC 567.3} and {GC 591.1}.
-
-The Thai evidence has been in the repository since 23 August: both Thai editions of GC are on `origin/main` under `th/GC/04_assets/editions/print/` and `th/GC/04_assets/editions/alt/` (for example `print/GC03_print_th.typ`), and they are checked out in the worktree at `/home/ton/programming/translate-th-GC`. Read the matching paragraph there or with `git show origin/main:PATH`; never merge to reach it. QA3 settles this entry under section 6 of `lo/GC/CLAUDE.md`, and the entry leaves the queue when its sites are resolved.
-
-Detail: the 19 August litigation and its evidence sit in `lo/GC/04_assets/history/GC-glossary-history.md` under the Vicar of Christ and Legate heads. Medium; Fable for the language judgment.
-
 ## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
 Four rulings need writing into the instruction files where agents will see them; Opus or Sonnet work, small. (a) Glossary and corpus attestation support a rendering but never decide it — sentence meaning and paragraph flow rule. (b) In sentence-litigation mode the draft goes above the old paragraph in the manuscript and the old text stays for comparison until Brian finalizes. (c) A translator-added naming gloss stays where the quoted Bible versions use different terms for the same referent. (d) A Fable session works translation issues only; updates like these go to the top of this queue for a smaller model.

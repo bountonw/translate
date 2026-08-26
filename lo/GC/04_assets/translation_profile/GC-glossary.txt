@@ -31,7 +31,7 @@
 | Bishop / Bishops | ເຈົ້າຄະນະ | [CHECK] NOT ບາດຫຼວງ. Renders EN bishop only; archbishop takes ເຈົ້າຄະນະໃຫຍ່. Follow the English head even where the historical figure held the higher rank (GC 274.1). Avoid ເຈົ້າຄະນະ + territory for a plain bishop — the territory forms are graded ranks in the source system |
 | Bishop of <place> | ເຈົ້າຄະນະແຫ່ງ + <place> | [CHECK] NOT ປະຈຳ (= functional posting, cf. ບາດຫຼວງປະຈຳຣາຊສຳນັກ). ນະຄອນ for capitals, ເມືອງ for towns. Rome: gloss ກໍຄືສັນຕະປາປາ at first use. Attested: ນະຄອນໂຣມ, ນະຄອນປາຣີ, ເມືອງໂມ, ເມືອງຄອນສະຕັນ |
 | Bishop of Rome | ເຈົ້າຄະນະແຫ່ງນະຄອນໂຣມ | [CHECK] NOT ປະຈຳ; gloss ກໍຄືສັນຕະປາປາ at first use |
-| Vicar of Christ / vicegerent (papal title) | ຜູ້ແທນຂອງພຣະຄຣິສ / ຜູ້ແທນຂອງພຣະເຈົ້າ | [CHECK] Pope's claimed title only; NOT ຕົວແທນ. ຜູ້ແທນ also serves civil deputies elsewhere. GC 51.3, 55.1, 91.2, 140.4, 570.2, 577.3 |
+| Vicar of Christ / vicegerent (papal title) | ຕົວແທນຂອງພຣະຄຣິສ / ຕົວແທນຂອງພຣະເຈົ້າ | DECIDED 26 August: NOT ຜູ້ແທນ, which stays for civil deputies; mark any other form. GC 51.3, 53.2, 55.1, 59.1, 91.2, 101.1, 102.1, 140.4, 150.5, 570.2, 577.3 |
 | Representative (generic) | ຕົວແທນ | GC 92.2 |
 | Lord of Sabaoth | ພຣະເຈົ້າອົງຊົງຣິດ | [CHECK] GC 94.3 |
 | Lord of hosts | ພຣະເຈົ້າຢາເວອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຢໂຮວາຜູ້ຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ / ພຣະເຈົ້າອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ | [CHECK] Long or short by context; never lengthen for consistency. Never mark GC 156.2, 626.3, 301.3, 529.1. GC 23.2, 424.3, 425.3, 471.1, 503.3, 633.2, 634.1, 638.1, 673.1 |
