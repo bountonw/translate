@@ -373,7 +373,7 @@ Apply these rules in addition to Part 1 when the target language is Lao.
 | Barnes | ບາເນດ | |
 | Frith | ຟຣິດ | |
 | Ridley | ຣິດລີ | |
-| Cranmer | ເຄນເມີ | |
+| Cranmer | ເຄຼນເມີ | ຼ carries the English r; GC 248.2 |
 | Columba | ໂຄລຳບາ | |
 | Scotland | ສະກັອດແລນ | |
 | Hamilton | ແຮມິນຕັນ | |
