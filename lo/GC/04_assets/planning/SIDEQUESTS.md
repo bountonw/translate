@@ -6,11 +6,63 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 18. Cut the stale justification-by-faith passage from the GC procedure file
+## 20. Settle the divine name in the quoted verses
 
-Item 6.G of `lo/GC/CLAUDE.md` carries the three justification-by-faith anchors into the QA3 pass as sites a batch must be told about, and says the entry leaves the queue when its sites are resolved. Those sites were resolved in commit 65c51b93, "QA3 Batch 4", so the instruction has already fired and now names three anchors that need no special handling. Restored entry 14 is about a governing file rather than about manuscript sites, so nothing replaces the passage. Cut it and keep the Vicar of Christ sentence that follows, which is a separate ruling and still stands.
+The Lao Bible the book quotes writes the divine name two ways. Where the Hebrew has the name, the online 2012 text writes ພຣະເຈົ້າຢາເວ; where the Hebrew has the title, it writes ອົງພຣະຜູ້ເປັນເຈົ້າ. The book follows that text at 40 of the 43 quotations whose verse carries the name. The three that do not are GC17 {GC 300.1}, {GC 310.1} and {GC 310.3}, and five more were switched to ພຣະເຈົ້າຢາເວ during the quotation pass and carry revert markers: GC01 {GC 26.2} twice, GC03 {GC 56.2}, GC15 {GC 269.2} twice, GC15 {GC 274.3} and GC17 {GC 308.1}.
 
-Detail: none needed beyond this entry. Opus or Sonnet work, very small; one passage in one file, written as a single unwrapped line per item 7.A of the root instructions.
+The translator would rather the book did not use ຢາເວ where a good alternative exists, and other versions are available at each verse: LCV, and for the gospels the Thai versions the book already cites. The rule agreed on 30 August is that a quotation follows one text throughout, so a verse cannot keep ອົງພຣະຜູ້ເປັນເຈົ້າ while taking the online wording around it; the whole verse has to come from whichever text is chosen, and the citation is labelled accordingly.
+
+The job is to go through those verses one at a time, read each against the online 2012 text, the printed 2012 Bible, LCV and where the verse is in the gospels the Thai versions, and choose one text per site. Then apply the citation label the choice calls for.
+
+Detail: `lo/GC/04_assets/planning/bible-quotation-check.md` and the markers standing in the chapters. Medium; forty-three verses to look at and eight that already need a decision.
+
+## 21. Find the unlabelled quotations that are LCV rather than the 2012 edition
+
+The introduction tells the reader that a quotation whose citation carries no version code comes from the Lao 2012 edition. `gc_versecheck.py` does not enforce that. It accepts an unlabelled quotation whose wording matches either the online 2012 text or LCV, so a quotation that is really LCV wording passes the check without a word and the reader is told the wrong version.
+
+Nobody has counted how many such quotations exist. It may be none.
+
+The job is one run and a label at each hit. After the Bible-quotation markers are resolved, run the checker in a mode that lists only the unlabelled quotations matching LCV and not the 2012 text, then add the LCV code to each citation it names. That repair is already in the book at GC01 {GC 37.1}, whose citation reads ມັດທາຍ 24:30, 31 LCV.
+
+Detail: `lo/GC/04_assets/scripts/gc_versecheck.py`, where LAO_TEXTS names the two Lao texts the check accepts. Small; one run, then one label per hit.
+
+## 22. Check every scripture touched since the QA2 commit against the English
+
+Three QA rounds checked that a Lao quotation does not run past the English it renders. The Bible-quotation pass of 30 August wrote markers whose proposed wording came from the Lao Bible verse rather than from the English sentence, and where a marker was taken the quotation can now carry words the English never quotes, or drop an ellipsis the English has.
+
+Two examples found by hand on 31 August. At GC17 {GC 309.2} a marker proposed inserting the whole of ລູກາ 21:34, which the paragraph already quotes in the sentence before. At GC27 {GC 475.3} the English abridges with an ellipsis, "Come out from among them, and be ye separate, ... and touch not the unclean", and the Lao carries no ellipsis.
+
+The job is to take every scripture quotation the chapters changed after the QA2 commit, read it against the English at its anchor, and confirm three things: that the Lao quotes no more than the English quotes, that an ellipsis in the English has one in the Lao, and that the quotation marks nest correctly.
+
+Detail: the changed quotations are the ones this pass touched, and the repository history from the QA2 commit onward gives the list. Medium; the count is the number of markers that were taken.
+
+## 16. Resolve the Bible-quotation markers against the printed and online 2012 texts
+
+The book's unlabelled quotations come from the Lao 2012 edition, and two texts of that edition exist: the printed Bible the translator holds, and the online text on the publisher's website, which has been revised since the printing and sits machine-readable at `~/programming/bible/LO2012/`.
+
+`python3 lo/GC/04_assets/scripts/gc_versecheck.py` compared all the unlabelled quotations against the online text, and `gc_versemark.py` wrote every difference into the chapters as a numbered marker. The markers are the work.
+
+The method agreed on 30 August: read each marker's right side, which is the online wording. If it is acceptable, take it and leave the citation bare. If it is not, open the printed 2012 Bible at that verse. Where the printed page supports the chapter's wording, keep the chapter's wording and label the citation LO2012, so that a bare citation means the online text and a LO2012 label means the printed page. A quotation follows one text throughout; a name is never spliced from one text into wording from the other, so keeping the chapter's wording means checking the whole verse against print, not just the marked span.
+
+Detail: the two scripts above and the markers in the chapters. `gc_versecheck.py` must be run on chapters carrying no markers, so use `gc_versemark.py --undo` first.
+
+## 23. Add four words to the typesetting dictionary and drop the line-break markers
+
+`lo/GC/03_public/GC00_introduction_lo.md` carries `\lw{}` wrappers on two rows of the Bible version list and nowhere else in the book. They are there because the typesetting dictionary cannot segment four of the words in those two sentences — ອອນລາຍ, ກຳກັບ, ອີງໃສ່ and ບໍ່ມີ — so the pipeline cannot decide where the line may break and the breaks were supplied by hand.
+
+Add the four to `lo/assets/dictionaries/main.txt` under a comment line naming this run, confirm that the pipeline segments both sentences, then delete the wrappers from the 2012 row and the LCV row so the front matter is plain Lao again. The translator runs the pipeline by hand to see the result, so this cannot be done in a session that does not stop for him to look at the page.
+
+It waits until the Bible-quotation work is finished. Changing what the pipeline knows in the middle of that work would mean re-reading pages that were already right.
+
+Detail: the two rows are lines 18 and 19 of the introduction. Small; four dictionary rows, one pipeline run, and two lines to strip.
+
+## 19. Run the dictionary coverage check over the whole book before typesetting
+
+`lo/assets/dictionaries/main.txt` tells the typesetting pipeline where a long Lao word may break at the end of a line, and a word it cannot segment breaks in the wrong place on the printed page. QA3 keeps it in step chapter by chapter, because `gc_dictcheck.py` runs when a chapter's packet is built and again at its resolve-check, and confirmed new words are appended to `main.txt`.
+
+That leaves one step, and this entry exists so that it is not skipped. When QA3 has finished every chapter and before the book is typeset, run `python3 lo/GC/04_assets/scripts/gc_dictcheck.py` over all 42 chapters at once, judge every token it reports, and append the confirmed rows to `main.txt` under a comment line saying which run they came from. The translator reviews them with `git diff` before committing.
+
+Detail: none needed beyond this entry. Small; one run and a review.
 
 ## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
@@ -164,12 +216,6 @@ Order matters here. SC goes to print first and has a worktree already started, s
 
 Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
 
-## 16. Check the default Bible version's published year
-
-Establish which Lao Bible version the book treats as its default and what year that version was published, so the front matter and any version note can state it. The question arose on 21 August from the ruling that a quotation taken from the book's standard version carries no version label in its citation: the label is omitted precisely because the version is the default, so which version that is has to be recorded somewhere a reader can find it. The version abbreviations already in use across the chapters are the starting inventory.
-
-Detail: none written yet. Small; a lookup and one line of front matter.
-
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
 Brian's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
@@ -239,3 +285,5 @@ GC29 {GC 503.3} — no row exists for "the Lord of hosts": ອົງຊົງຣ
 GC30 {GC 508.1} — the Christian world row at GC-glossary.txt:221 approves only ວົງການຄຣິສຕຽນ and ໂລກຄຣິສຕຽນ, but ວົງການຄຣິສຕຽນທົ່ວໂລກ stands at GC25, GC30 and GC33 and ວົງການຄຣິສຕຽນທົ່ວໄປ at GC32 and GC42, and the modifier-carrying forms read better than the bare ones where they stand; widen the row.
 
 GC30 {GC 505.2} — no row governs the apostasy family: ການປະຖິ້ມຄວາມເຊື່ອ stands at 15 sites across ten chapters, ຜູ້ປະຖິ້ມຄວາມເຊື່ອ at GC36 and QA2's ຜູ້ທີ່ປະຖິ້ມຄວາມເຊື່ອ at GC30; the rework decides whether a row is wanted and which agent-noun form it fixes.
+
+Bible version codes — three rows of section 11 cite LO2012 as their source (the Gamaliel and John the Baptist rows among them) while the book's own code for that version is LO2015, which `lo/GC/03_public/GC00_introduction_lo.md` gives as the printed edition of 2012 and 2015; the rework should settle on one code.
