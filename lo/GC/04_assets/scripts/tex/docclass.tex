@@ -150,6 +150,10 @@
 % An increase to 10.95 removes shape errors but adds too many spaces
 \AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
 
+% Latin letters of a Bible version code, sized to sit level with the Lao body text.
+% Used only where a manuscript writes it (the GC00 introduction's version list).
+\newcommand{\GCcode}[1]{{\fontsize{9.5pt}{12.6pt}\selectfont #1}}
+
 % Customize superscript positioning
 \renewcommand{\textsuperscript}[1]{%
   {\fontsize{7}{7}\selectfont\raisebox{1.4ex}{#1}}%
