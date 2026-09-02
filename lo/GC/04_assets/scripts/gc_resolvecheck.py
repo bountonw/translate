@@ -17,6 +17,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
+# The textlint job's list of known-wrong Lao spellings, in "wrong # correct" rows.
+# Section 10 of the glossary and this file are two lists of the same kind, and a
+# form held only here used to reach a commit and come back as a CI failure.
+FORBIDDEN = ROOT / ".tooling" / "forbidden_terms" / "lao.txt"
 
 CLASSES = "OMISSION ADDITION FACT REF NOTE ALIGN SPELL TERM GRAM CLARITY FIX REVERT REWORD".split()
 MIN_SPELL_LEN = 4
@@ -151,7 +155,32 @@ def incorrect_forms():
             bad = bad.strip()
             if len(bad) >= MIN_SPELL_LEN and LAO.search(bad):
                 forms.append((bad, cells[1]))
+    seen = {bad for bad, _ in forms}
+    for bad, good in linter_forms():
+        if bad not in seen:
+            forms.append((bad, good))
     return forms
+
+
+def linter_forms():
+    """Known-wrong forms from the textlint job's list, as (wrong, correct) pairs.
+
+    Every row there is a settled correction, so no [CHECK] gate applies. The
+    MIN_SPELL_LEN guard still does, because a short Lao string sits inside
+    unrelated words and would report a correct word as misspelled.
+    """
+    if not FORBIDDEN.exists():
+        return []
+    out = []
+    for row in FORBIDDEN.read_text(encoding="utf-8").splitlines():
+        row = row.strip()
+        if not row or row.startswith("#"):
+            continue
+        bad, _, good = row.partition("#")
+        bad, good = bad.strip(), good.strip()
+        if len(bad) >= MIN_SPELL_LEN and good and LAO.search(bad):
+            out.append((bad, good))
+    return out
 
 
 def main():

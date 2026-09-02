@@ -34,6 +34,15 @@ DEFAULT_GLOSSARY = str(
     Path(__file__).resolve().parent.parent
     / 'translation_profile' / 'GC-glossary.txt'
 )
+
+# The textlint job's own list of known-wrong Lao spellings, in
+# "wrong # correct" rows. Section 10 of the glossary and this file are two
+# lists of the same kind that used to know nothing about each other, so a
+# chapter could pass the pre-pass and then fail CI on a form this file holds.
+# Reading both here closes that gap.
+DEFAULT_FORBIDDEN = str(
+    Path(__file__).resolve().parents[4] / '.tooling' / 'forbidden_terms' / 'lao.txt'
+)
 ANCHOR = re.compile(r'^## \{GC ([0-9]+\.[0-9]+)\}\s*$', re.M)
 INLINE_ANCHOR = re.compile(r'\{GC [0-9]+\.[0-9]+\}')
 FOOTNOTE_MARK = re.compile(r'\[\^[0-9]+\]')
@@ -117,6 +126,31 @@ def parse_glossary(path):
         notes = cells[2] if len(cells) > 2 else ''
         rows.append(Row(cells[0], lo, notes, kind, n))
     return rows, spelling
+
+
+def parse_forbidden(path):
+    """The linter's forbidden-terms rows as spelling tuples.
+
+    Each row is "wrong # correct". The tuples take the shape parse_glossary
+    returns so that run() checks both lists through one code path, and they
+    carry [CHECK] in the notes cell because every row in this file is a
+    settled correction rather than a context-dependent one.
+    """
+    out = []
+    try:
+        lines = open(path, encoding='utf-8').read().splitlines()
+    except OSError:
+        return out
+    for n, line in enumerate(lines, 1):
+        s = line.strip()
+        if not s or s.startswith('#'):
+            continue
+        wrong, _, correct = s.partition('#')
+        wrong, correct = wrong.strip(), correct.strip()
+        if not wrong or not correct:
+            continue
+        out.append(('forbidden-terms list', correct, wrong, '[CHECK]', n))
+    return out
 
 
 def parse_paragraphs(path):
@@ -278,12 +312,15 @@ def main():
     p.add_argument('--en', required=True)
     p.add_argument('--lo', required=True)
     p.add_argument('--glossary', default=DEFAULT_GLOSSARY)
+    p.add_argument('--forbidden', default=DEFAULT_FORBIDDEN)
     p.add_argument('--from', dest='start', default=None)
     p.add_argument('--to', dest='end', default=None)
     p.add_argument('--reverse', action='store_true')
     args = p.parse_args()
 
     rows, spelling = parse_glossary(args.glossary)
+    seen = {t[2] for t in spelling}
+    spelling += [t for t in parse_forbidden(args.forbidden) if t[2] not in seen]
     en_paras = parse_paragraphs(args.en)
     lo_paras = parse_paragraphs(args.lo)
 

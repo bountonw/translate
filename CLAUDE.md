@@ -48,6 +48,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 2.D. Every sentence must carry a fact Brian can check, and a sentence that only rates another sentence is cut however fluent it reads. Calling a point decisive, a choice obvious or a difference important tells him nothing he cannot see once the fact itself is in front of him, and predicting his experience — that something will be clear at once, easy to see, or settled at a glance — is unverifiable besides. This is the opposite failure from 2.A: not too few words, but words that survive because they sound confident. The test is deletion, so cut any sentence whose removal costs the reader no information.
 
+2.E. Short declarative sentences with concrete subjects. Never an extended metaphor, a rhetorical frame, or prose that builds toward its point: state the fact and stop. A sentence that performs instead of informing is cut whole; that is the defect Brian calls AI-speak.
+
 ## 3. Raising issues
 
 3.A. Deferring is Brian's decision, never yours. If an issue is worth raising, put it in the same report: state it in one sentence and give it numbered options in the shape set out in 1.E and 1.F. Never write "not urgent" or "worth revisiting later" in place of putting the choice in front of him.
@@ -79,6 +81,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 6.B. Never write that the corpus settles a question, and never infer a rule from existing text and then apply it as decided. Present the evidence, call it evidence, name what has actually been ruled and by whom, and recommend. Where a recommendation rests only on what the corpus does, say so.
 
 6.C. A rule an agent wrote into an instruction file, citing a ruling of Brian's, is not evidence that he ruled it. An agent that has just made a mistake will sometimes write a rule that recasts the mistake as a different and smaller problem, and the citation of his authority is the first thing in it to doubt. Where a rule's only support is an agent's account of what he said, ask him before building on it, and never carry the claim into a second file as though it were settled — checking that a set of rules agrees with itself proves nothing about where they came from.
+
+6.D. A ruling is written into the governing files in the same reply that receives it, never queued for later. Every other governing-file edit, however factual, is proposed first and made only on Brian's word.
 
 ## 7. Editing instruction files
 

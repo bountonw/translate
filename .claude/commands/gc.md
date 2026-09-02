@@ -12,7 +12,7 @@ Then act on: $ARGUMENTS
 - A bare chapter name (GC13, or 13) — run the full chapter procedure in section 3 of that file.
 - `check GCNN` — Brian has finished resolving; follow 1.B exactly. It begins by grepping the chapter for [[ before anything is dispatched, and it tells you what to pass gc-resolve-check and how to relay its report.
 - `import GCNN` — import a web-app handoff document; the procedure is at the end of ~/claude-sandbox/gc-audit/web-handoff-prompt.md.
-- `qa3 GCNN` or `qa3 G1` — run QA3 on one chapter or on a group; the procedure is section 6 of that file, and it reads only the paragraphs QA1 and QA2 changed.
+- `qa3 GCNN` or `qa3 G1` — run QA3 on one chapter or on a group; a group may be named GN, BN, batchN or groupN, with or without a space before the number, and every one of those forms means group N of section 6.B. The procedure is section 6 of that file, and it reads only the paragraphs QA1 and QA2 changed.
 - Anything naming a term family or asking a corpus question — dispatch gc-term-grep.
 - Anything else — ask rather than guess.
 

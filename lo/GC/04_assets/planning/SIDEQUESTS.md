@@ -6,15 +6,13 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 1. Rehash the pope as Vicar of Christ and as God's representative
+## 19. Run the dictionary coverage check over the whole book before typesetting
 
-Revisit how the Lao GC renders the pope's claimed title, and be ready to reverse the ruling of 19 August rather than defend it. The Thai GC uses ตัวแทน, the cognate of Lao ຕົວແທນ, which is the word that ruling moved the title away from; if the Thai is right the Lao should follow it and the day's changes are undone.
+`lo/assets/dictionaries/main.txt` tells the typesetting pipeline where a long Lao word may break at the end of a line, and a word it cannot segment breaks in the wrong place on the printed page. QA3 keeps it in step chapter by chapter, because `gc_dictcheck.py` runs when a chapter's packet is built and again at its resolve-check, and confirmed new words are appended to `main.txt`.
 
-In scope: the six sites moved from ຕົວແທນ to ຜູ້ແທນ that day, {GC 51.3}, {GC 53.2}, {GC 55.1} and {GC 59.1} in GC03 and {GC 101.1} and {GC 102.1} in GC06; the two emissary sites at {GC 62.4} in GC04, which moved the other way; the Vicar of Christ, Legate and Deputy rows of `lo/GC/04_assets/translation_profile/GC-glossary.txt`; and the sites deliberately left on ຕົວແທນ, which are {GC 50.2} and the first instance at {GC 53.2}, {GC 92.2}, {GC 567.3} and {GC 591.1}.
+That leaves one step, and this entry exists so that it is not skipped. When QA3 has finished every chapter and before the book is typeset, run `python3 lo/GC/04_assets/scripts/gc_dictcheck.py` over all 42 chapters at once, judge every token it reports, and append the confirmed rows to `main.txt` under a comment line saying which run they came from. The translator reviews them with `git diff` before committing.
 
-The Thai evidence has been in the repository since 23 August: both Thai editions of GC are on `origin/main` under `th/GC/04_assets/editions/print/` and `th/GC/04_assets/editions/alt/` (for example `print/GC03_print_th.typ`), and they are checked out in the worktree at `/home/ton/programming/translate-th-GC`. Read the matching paragraph there or with `git show origin/main:PATH`; never merge to reach it. QA3 settles this entry under section 6 of `lo/GC/CLAUDE.md`, and the entry leaves the queue when its sites are resolved.
-
-Detail: the 19 August litigation and its evidence sit in `lo/GC/04_assets/history/GC-glossary-history.md` under the Vicar of Christ and Legate heads. Medium; Fable for the language judgment.
+Detail: none needed beyond this entry. Small; one run and a review.
 
 ## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
@@ -34,21 +32,13 @@ Two boundaries to settle as part of the quest. The translator credit in `th/LBF/
 
 Detail: none written yet.
 
-## 4. Wire the forbidden-terms list into the audit pre-pass
+## 4. Forbidden-terms lists — decide whether the two merge
 
-Two lists of known-wrong spellings exist and neither knows about the other. `.tooling/forbidden_terms/lao.txt` holds 313 terms in `forbidden # correct` form and drives the textlint CI job; section 10 of `lo/GC/04_assets/translation_profile/GC-glossary.txt` holds 30 forms and drives `gc_termcheck.py` and `gc_resolvecheck.py`. So a batch auditor can pass a chapter that CI then fails, which is how ຍຶດເອົາ reached a commit in GC12 and came back as a lint error.
+The wiring is done. On 29 August `gc_termcheck.py` and `gc_resolvecheck.py` were changed to read `.tooling/forbidden_terms/lao.txt` alongside section 10 of `lo/GC/04_assets/translation_profile/GC-glossary.txt`, so a form the textlint job forbids is now caught at the pre-pass instead of after the push. The two lists overlap at three forms; the linter supplies 299 the glossary did not have.
 
-Make the audit scripts read the linter's list as well as section 10, so a forbidden term is caught at the pre-pass rather than after the push. Decide as part of the quest whether the two lists should merge, and whether section 10 rows that are context-dependent can live in the linter's flat format at all. There is a Thai list beside the Lao one, `.tooling/forbidden_terms/`, so whatever is built should serve both.
+What remains is the question the wiring does not answer: whether the two lists should become one. Section 10 rows carry a Notes cell that says where a correction applies — "Wrong at this head only", "Exception: ລ" — and the linter's flat `wrong # correct` format has nowhere to put that, which is why four of its rules are hand-written lookarounds rather than rows. A Thai list sits beside the Lao one and will want the same answer when a Thai project gets a pre-pass of its own.
 
-Detail: none written yet. `.tooling/textlint/rules/lo.js` line 6 shows how the list is loaded.
-
-## 5. Footnote author-gloss sweep
-
-Every author cited in a footnote carries the English name in parentheses after the Lao form, so a Lao reader can pronounce it and also look it up: `[^19]: ມາຕິນ (Martyn), ເຫຼັ້ມ 5, ໜ້າ 417.`
-
-Brian ranked this above everything else in the queue. 240 of 272 sites remain across 31 chapters; 170 resolve from existing glossary rows and 102 need the English source and probably a new proper-noun row. Done so far: 14 Martyn sites, 15 Bliss sites in GC18, GC21 and GC22, and 3 Wolff journal titles in GC20.
-
-Detail: `~/claude-sandbox/gc-audit/footnote-gloss-sweep-prompt.md`, with the per-chapter worklist beside it in `footnote-gloss-worklist.md`.
+Detail: none written. `.tooling/textlint/rules/lo.js` line 6 shows how the linter loads its list.
 
 ## 6. Dictionary sync check when a spelling changes
 
@@ -67,14 +57,6 @@ Scope after Brian's rulings of 13 August: 17 oversized `GC-open-terms.md` entrie
 The largest single case measured so far is the Clergy entry of `GC-open-terms.md`, which stands at 806 words against the 15-word limit set by item 4.H of `lo/GC/CLAUDE.md`, in a file of 5,333 words that every agent loads on every dispatch. The GC38 audit of 21 August measured it and Brian deferred the cut, expecting to adjudicate it around Monday 24 August; the entry records a decision it calls closed at GC 15, so what has to stay is the three-way mapping the row states and what goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md` is the site-by-site reasoning behind it.
 
 Detail: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
-
-## 8. ລົບລ້າງ against ລຶບລ້າງ — normalise, or leave both
-
-Both spellings are accurate and the editors want both, which is the ruling of GC 15 and stands. The open question is whether the book should normalise to one form anyway. Brian never read the argument for normalising when it was first put, so it was held rather than closed.
-
-The evidence is already gathered: corpus counts are ລຶບລ້າງ 78 against ລົບລ້າງ 16, the two are not distinguished by sense, GC 287.1 carries both a sentence apart, and the large count is inflated by the fixed phrase in the Day of Atonement glossary row. Not to be raised in a chapter audit meanwhile.
-
-Detail: the `NOTE-SPELL ລົບລ້າງ and ລຶບລ້າງ` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md`.
 
 ## 9. Where `unwrap.py` belongs
 
@@ -140,18 +122,6 @@ Deciding it means moving the file to a repository-level planning directory and r
 
 Detail: none needed beyond this entry.
 
-## 14. Run the deferred term "justification by faith" to a finish
-
-The glossary row was decided on 16 August and written into `lo/GC/04_assets/translation_profile/GC-glossary.txt` as `| Justification by faith | ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ | Decided 16 August |`, with no exception recorded in it for any chapter. The quest is to grep the corpus for the sites that do not conform and bring them to the row, chapter by chapter, with Brian deciding each.
-
-The inventory is already gathered. The English phrase occurs five times in the book. Two sites already carry the row's word and need nothing: GC 07 at {GC 140.3} reads ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ, which is where the row's form comes from, and GC 09 at {GC 178.2} reads ມະນຸດສາມາດຮັບການອະໄພບາບ ແລະ ເປັນຄົນຊອບທຳໄດ້ໂດຍຜ່ານພຣະໂລຫິດຂອງພຣະຄຣິສ, using the same word as a verb clause because the English there pairs "forgiveness and justification" and the Lao keeps that pair. Brian confirmed both on 16 August. GC 28 at {GC 483.3} renders the bare noun ຄວາມຊອບທຳ and was checked earlier.
-
-Three sites in GC 14 do not conform and are the substance of the quest: the subheading above {GC 253.2} reads ຄວາມລອດໂດຍທາງຄວາມເຊື່ອ, the main text at {GC 253.2} reads ຄວາມລອດພົ້ນໂດຍທາງຄວາມເຊື່ອ, and {GC 256.3} reads ຄວາມລອດດ້ວຍຄວາມເຊື່ອໃນພຣະໂລຫິດຂອງພຣະຄຣິສ. The argument for changing them is that the English sentence at 253.2 uses justification and salvation as two different words and the Lao gives both ຄວາມລອດ, so Luther's doctrine and Rome's goal end up sharing one name. The corpus supports the split: across the public chapters ຄວາມລອດ occurs 107 times against 112 occurrences of "salvation" in the English, and ຄວາມຊອບທຳ occurs 70 times against 84 of "righteousness". The proposal on the table is ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອ at the subheading and at 253.2, and ຄວາມຊອບທຳໂດຍຄວາມເຊື່ອໃນພຣະໂລຫິດຂອງພຣະຄຣິສ at 256.3. Nothing has been marked in GC 14; the decision is Brian's and the quest begins there.
-
-One correction belongs to this quest as well. The `DEFER-TERM "justification by faith"` entry in `lo/GC/04_assets/translation_profile/GC-open-terms.md` claims the GC 14 sites were DECIDED by Brian, and that claim has no support. The GC 14 run's own proposals file of 10 August ends the entry with "not adjudicated in batch", and the "Brian ruled" sentences first enter the repository in commit 66c183e of 11 August, written by an agent after the run. Strike them when the quest runs, and replace the whole entry with a pointer to the glossary row once GC 14 is settled. That file was modified by another session on 16 August, so it was left untouched then.
-
-Detail: this entry is the whole brief. Small once GC 14 is decided; the corpus grep is one pass.
-
 ## 15. Feed the Thai GC hyphenation candidates into the SC and SJ typesetting dictionaries
 
 Thai running text has no word spaces, so the Typst pipeline has to be told where a long word may break. Both Thai projects do this with `04_assets/template/dictionary.typ`, and the two files are separate copies of the same mechanism at very different stages: SJ carries 457 entries and SC carries 92.
@@ -168,12 +138,6 @@ Order matters here. SC goes to print first and has a worktree already started, s
 
 Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
 
-## 16. Check the default Bible version's published year
-
-Establish which Lao Bible version the book treats as its default and what year that version was published, so the front matter and any version note can state it. The question arose on 21 August from the ruling that a quotation taken from the book's standard version carries no version label in its citation: the label is omitted precisely because the version is the default, so which version that is has to be recorded somewhere a reader can find it. The version abbreviations already in use across the chapters are the starting inventory.
-
-Detail: none written yet. Small; a lookup and one line of front matter.
-
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
 Brian's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
@@ -183,3 +147,16 @@ Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao
 Entry 7 (governing-file size reduction) is absorbed by this, and entry 3 (anonymise) runs alongside it; settle the order when the rework is scheduled.
 
 Detail: none written yet; this entry is the whole brief. Large; Fable for the design.
+
+QA3 findings for the rework, one line per chapter as they land:
+
+GC28 {GC 489.3} — "so many professed Christians" reads ຜູ້ທີ່ອ້າງວ່າເປັນຄຣິສຕຽນ, identical to GC36's rendering of the identical English phrase, and ອ້າງວ່າເປັນ marks a professed or claimed identity at 32 corpus sites; no row governs "professed", and the rework decides whether one is wanted.
+
+GC29 {GC 503.3} — no row exists for "the Lord of hosts": ອົງຊົງຣິດອຳນາດຍິ່ງໃຫຍ່ carries three English heads across 14 sites in 8 chapters — "the Most High", "Power", and, with ພຣະເຈົ້າຢາເວ or ອົງພຣະຜູ້ເປັນເຈົ້າ prefixed, "the LORD of hosts" — and ຈອມໂຍທາ appears nowhere in the book; a row fixing the full form for "Lord of hosts" and leaving the bare form to "the Most High" would have prevented the QA3 marker at this site.
+
+GC30 {GC 505.2} — no row governs the apostasy family: ການປະຖິ້ມຄວາມເຊື່ອ stands at 15 sites across ten chapters, ຜູ້ປະຖິ້ມຄວາມເຊື່ອ at GC36 and QA2's ຜູ້ທີ່ປະຖິ້ມຄວາມເຊື່ອ at GC30; the rework decides whether a row is wanted and which agent-noun form it fixes.
+
+GC32 {GC 529.1} — a second attestation for the "Lord of hosts" head the GC29 line above proposes: the English source uses the title in nine chapters (GC01, 08, 24, 27, 29, 32, 39, 40, 42) while ຈອມໂຍທາ has zero hits in the Lao book, and at {GC 529.1} the narrator's added attribution renders it with the short title ອົງພຣະຜູ້ເປັນເຈົ້າ, judged STANDS in its paragraph; every site shortens the title independently because no row governs it.
+
+GC35 {GC 578.3} — no row governs "the Old World": QA3 marker #4 proposes reverting ທະວີບເກົ່າ, a calque Lao does not have, to ທະວີບເອີຣົບ; {GC 573.1} renders "the Old World" as ເອີຣົບ in pre-QA and current text alike and GC25 {GC 440.1} expands the phrase to named continents, so the body text never uses the calque, and the rework decides whether a row is wanted.
+
