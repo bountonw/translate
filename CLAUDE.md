@@ -82,6 +82,8 @@ This repository holds translation projects into Lao and Thai. These rules apply 
 
 6.C. A rule an agent wrote into an instruction file, citing a ruling of Brian's, is not evidence that he ruled it. An agent that has just made a mistake will sometimes write a rule that recasts the mistake as a different and smaller problem, and the citation of his authority is the first thing in it to doubt. Where a rule's only support is an agent's account of what he said, ask him before building on it, and never carry the claim into a second file as though it were settled — checking that a set of rules agrees with itself proves nothing about where they came from.
 
+6.D. A ruling is written into the governing files in the same reply that receives it, never queued for later. Every other governing-file edit, however factual, is proposed first and made only on Brian's word.
+
 ## 7. Editing instruction files
 
 7.A. When you edit this file, a project procedure file, an agent definition or a settings file, write each numbered item as a single unwrapped line and let the editor wrap it on screen. Hard-wrapped prose makes a later reflow rewrite lines that did not change, and `git diff` then stops showing what actually moved. Indented examples are the exception and stay as blocks.

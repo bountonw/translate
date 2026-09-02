@@ -4498,4 +4498,5 @@
 ໝໍ້| ໝໍ້ %
 ໝໍ້ຂາງ| ໝໍ້~~ຂາງ %
 ເອີເຊບິອັດ| ເອີເຊບິອັດ % Eusebius, name
-ອອນລາຍ| ອອນ~~ລາຍ % online, loanword
+ອອນລາຍ| ອອນລາຍ % online, loanword; never split
+ໂອໂຕມັນ| ໂອໂຕມັນ % Ottoman, name; never split
