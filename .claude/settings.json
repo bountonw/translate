@@ -34,20 +34,11 @@
       "Edit(~/claude-sandbox/**/backup--typst-custom/**)",
       "Edit(~/claude-sandbox/**/book.pdf)",
       "Edit(~/programming/translate/lo/assets/dictionaries/AA-glossary.txt)",
-      "Edit(~/programming/translate/lo/assets/translation_profile/glossary-extraction-prompt.txt)",
-      "Edit(~/programming/translate/lo/GC/04_assets/translation_profile/GC-clergy-fixes.md)"
+      "Edit(~/programming/translate/lo/assets/translation_profile/GC-glossary.txt)",
+      "Edit(~/programming/translate/lo/assets/translation_profile/glossary-extraction-prompt.txt)"
     ],
     "allow": [
-      "Bash(git fetch:*)",
-      "Bash(python3 lo/GC/04_assets/scripts/gc_termcheck.py:*)",
-      "Bash(python3 lo/GC/04_assets/scripts/gc_resolvecheck.py:*)",
-      "Bash(python3 lo/GC/04_assets/scripts/gc_resolution_sheet.py:*)",
-      "Bash(python3 lo/GC/04_assets/scripts/gc_qa3_packet.py:*)",
-      "Bash(python3 lo/GC/04_assets/scripts/gc_dictcheck.py:*)",
-      "Edit(~/programming/translate/lo/GC/03_public/GC*_lo.md)",
-      "Edit(~/programming/translate/lo/GC/04_assets/translation_profile/GC-glossary.txt)",
-      "Edit(~/programming/translate/lo/GC/04_assets/translation_profile/GC-open-terms.md)",
-      "Edit(~/claude-sandbox/gc-audit/**)"
+      "Bash(git fetch:*)"
     ],
     "ask": [
       "Bash(git pull:*)",

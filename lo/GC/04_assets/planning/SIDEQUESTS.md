@@ -6,13 +6,41 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 19. Run the dictionary coverage check over the whole book before typesetting
+## 26. Generate the website HTML for the shipped book
 
-`lo/assets/dictionaries/main.txt` tells the typesetting pipeline where a long Lao word may break at the end of a line, and a word it cannot segment breaks in the wrong place on the printed page. QA3 keeps it in step chapter by chapter, because `gc_dictcheck.py` runs when a chapter's packet is built and again at its resolve-check, and confirmed new words are appended to `main.txt`.
+The print file went to the press on 2 September 2026 and the website should now serve the same text. Run the converter at `lo/websites/mdconverter/` (a dotnet program; `Program.cs`) over the 42 chapters and the introduction in `lo/GC/03_public/`, against the website folder with its `chapter_header.html`, `chapter_footer.html` and `metadata/chapter-key.txt`. The converter already strips every TeX carry-over the manuscripts contain — `\lw`, `\p`, `\GCcode`, `\newpage` — and the chapter-end page fixes of 2 September live in module 2's TeX path only, so the manuscripts are clean for the web without further work. Verify all 43 files convert, the prev/next links resolve against the chapter key, and the served text matches the press text.
 
-That leaves one step, and this entry exists so that it is not skipped. When QA3 has finished every chapter and before the book is typeset, run `python3 lo/GC/04_assets/scripts/gc_dictcheck.py` over all 42 chapters at once, judge every token it reports, and append the confirmed rows to `main.txt` under a comment line saying which run they came from. The translator reviews them with `git diff` before committing.
+Detail: none written; this entry is the whole brief. Small — a build, a run, and a check pass.
 
-Detail: none needed beyond this entry. Small; one run and a review.
+## 27. Build a landing page for the website
+
+The front page of the website is basically blank. Build a landing page: the book title ປາຍທາງແຫ່ງຄວາມຫວັງ and author, a short description of what the book is, the way into the text (the introduction and chapter 1, or a table of contents), a note that the first printing is September 2026, and the contact address the introduction gives (laoegw@proton.me, with the online home www.laoegw.com/GC). Design choices are the translator's; the quest starts with a mock to react to, not a finished page.
+
+Detail: none written; this entry is the whole brief. Small to medium.
+
+## 28. Cleanup from the 2 September pre-press session
+
+Four pieces, none urgent, all known.
+
+First, signature padding in the build. The shipped file's two trailing blank pages were made by hand in typst. A self-adjusting pad — module 3 appends a TeX loop to the full book only, filling with truly blank pages to the next multiple of 8 — was designed and verified the same day: 520 pages on the real book, final blanks empty at text and pixel level, chapter proofs untouched. It was not applied to the repository because the file had already gone. Apply it (the verified copy sits in `~/claude-sandbox/gc-audit/book-build/lo/GC/04_assets/scripts/module3_preprocess.py`) or decide against it and write the typst step down instead, so the next printing's build makes a press-shaped file by itself.
+
+Second, the second-printing wrap program. The line-break audit of the shipped book read all 13,353 spaceless line breaks and classified 550 flags into four tiers; the file is `wrap-audit-20260902.tsv` beside this queue. Tier A is eleven verified mis-segmentations where the dictionary knows the compound and the segmenter split it anyway; tier B is sixty reviewed splits of genuine single words the lexicon holds as two (ນ້ຳມັນ, ຫົວໃຈ, ເຄື່ອງມື, ວັນອາທິດ and the rest); roughly seventy compound rows follow from A and B, and about sixteen sites compose actively wrong readings. Adding the rows re-wraps the whole book, which is why the work waits for the second printing. The loose line at {GC 456.2} (foot of printed page 340) rechecks itself then. This folds naturally into entry 17's glossary rework or runs beside it.
+
+Third, dictionary row tidy. `GC21_lo.txt` and `GC_lo.txt` both carry the same ຟັອດເວນ row (harmless duplicate; the book-level one suffices). In `patch.txt`, the ນາຍຊ່າງ row duplicates `main.txt` byte for byte, and the bare ນາມນີ້ row no longer fires anywhere now that ມີນາມນີ້ covers the only site. Review and drop the dead rows.
+
+Fourth, record the binding segmentation gate. The pre-press dictcheck answers whether a token can be covered by dictionary words; the pipeline's segmenter chooses greedily and can still strand letters that print in red. The gate that actually binds is: run modules 1 and 2 for every chapter and require `grep -c nodict temp/*_stage2.tex` to be zero everywhere. Write that into the pre-press procedure so the next book's final check tests the real thing.
+
+Detail: this entry and the wrap-audit file are the brief. First and third are small, fourth is a paragraph in a procedure file, second is large and scheduled with entry 17.
+
+## 29. Separate the FB-lo branch from the GC work it carries
+
+The `FB-lo` branch holds two files that belong to the Lao Fundamental Beliefs project and a long history of GC work that does not. Brian's instruction of 24 August was that only `lo/FB/statements.txt` and `lo/FB/statements_lo.txt`, both added by the tip commit `01f5a85c "Begin translation of Fundamental Beliefs"`, belong on that branch, and that everything else it carries belongs to the GC line of work that sat on `GC-QA2-continued` that day. The work is to be done in a worktree of its own at `/home/ton/programming/translate-lo-FB`, which leaves the main checkout on its own branch.
+
+The first step is creating that worktree, which has not happened. The directory exists and was still empty on 3 September, and the command is `git worktree add /home/ton/programming/translate-lo-FB FB-lo`.
+
+Re-verify the branch before touching it, because these figures are from 24 August and the book has gone to press since. On that day `FB-lo` matched `origin/FB-lo` at `01f5a85c`, stood 122 commits ahead of `main` and 2 behind it, and its diff against the merge base touched 57 files: the two Fundamental Beliefs files, the QA1 and QA2 history of 41 GC chapters, `lo/assets/translation_profile/GC-glossary.txt`, three TeX files under `lo/GC/04_assets/scripts/tex/`, and the Lao dictionaries. Nothing could be re-checked on 3 September, because git commands were blocked in that session. The question that sizes the job is whether those GC commits have since reached `main`: if they have, rebuild `FB-lo` as the two Fundamental Beliefs files on top of current `main`; if they have not, land them on a GC branch before reducing `FB-lo`.
+
+Detail: none written; this entry is the whole brief. Small if the GC commits are already on `main`, medium if they are not.
 
 ## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
