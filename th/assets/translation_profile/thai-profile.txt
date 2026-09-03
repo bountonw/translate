@@ -1,0 +1,15 @@
+# Thai Translation Profile
+
+<!-- Being built from mining runs over th/PP and the finished SC chapters, adjudicated by the translator. Part 1 of lo/assets/translation_profile/profile.txt — the universal, language-agnostic philosophy — applies to every Thai project and is not restated here. This file holds the Thai counterparts of that file's Lao parts: register and royal vocabulary (ราชาศัพท์), orthography, and Bible version rules. -->
+
+## 1. Bible versions
+
+Default version: THSV. An unlabelled quotation is THSV; every other version is labelled after the verse reference. Ruled by the translator on 16 August 2026.
+
+## 2. Register
+
+(awaiting adjudicated mining evidence)
+
+## 3. Orthography
+
+(awaiting adjudicated mining evidence)
