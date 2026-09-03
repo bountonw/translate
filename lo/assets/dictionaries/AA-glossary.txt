@@ -124,7 +124,7 @@ Status: Chapters 1–58 extracted (complete). Living document.
 | Huss | ຮັສ | Reformer. Translator included English gloss. Ch58. |
 | Jerome | ເຈໂຣມ | Reformer. Translator included English gloss. Ch58. |
 | Zwingli | ສວິງລີ | Reformer. Translator included English gloss. Ch58. |
-| Cranmer | ເຄນເມີ | Reformer. Translator included English gloss. Ch58. |
+| Cranmer | ເຄຼນເມີ | Reformer. Translator included English gloss. Ch58. |
 | Latimer | ລາຕິເມີ | Reformer. Translator included English gloss. Ch58. |
 | Knox | ນັອຄຊ໌ | Reformer. Translator included English gloss. Ch58. |
 | John Wesley | ຈອນ ເວສະລີ | [tentative] Reformer. Translator included English gloss. Ch58. |
