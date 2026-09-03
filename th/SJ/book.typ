@@ -6,6 +6,11 @@
 
 #import "04_assets/template/lib.typ": *
 
+// Force book layout for the whole document, including every included chapter.
+// Chapter files carry `proofing: true` for standalone drafting; this flag (read
+// by apply-styles) overrides that so the full build always renders as a book.
+#book-mode.update(true)
+
 #show: apply-styles
 
 // -----------------------------------------------------------------------------

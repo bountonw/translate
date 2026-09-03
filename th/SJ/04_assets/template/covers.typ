@@ -24,7 +24,7 @@
 // -----------------------------------------------------------------------------
 #align(center + bottom)[
   #text(size: 0.9em)[
-    © #datetime.today().year() #book-metadata.author
+    #datetime.today().year()
   ]
 ]
 
@@ -33,8 +33,13 @@
 // -----------------------------------------------------------------------------
 // Table of contents
 // -----------------------------------------------------------------------------
+#align(center)[
+  #text(size: 1.2em)[
+    *สารบัญ*
+  ]
+]
 #outline(
-  title: text(size: 1em, weight: "regular")[สารบัญ],
+  title: none,
   depth: 2,
 )
 
