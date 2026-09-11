@@ -1,4 +1,5 @@
-# bad | good
+# good | bad
+# Note that .tooling/forbidden_terms/lao.txt uses the opposite order, wrong form first.
 
 ກະຈາຍ | ກະຈ່າຍ
 ກະຕືລືລົ້ນ | ກະຕືຮືລົ້ນ
@@ -160,6 +161,7 @@
 ພຣະໂອດ | ພະໂອດ
 ພຣະໄທ | ພະໄທ
 ພະລັງຣິດເດດ | ພະລັງລິດເດດ
+ພຸ່ງ | ພຸ້ງ
 ຝີພຣະຫັດ | ສີພຣະຫັດ
 ຝີມື | ສີມື
 ຝຶກ | ເຝິກ
