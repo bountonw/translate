@@ -13,7 +13,7 @@ You write nothing in the repository. Your one output is the file the dispatch na
 ## 1. Inputs
 
 1.A. From the conductor: the chapters to mine (paired English source and Thai chapter per the project's 00_source and 03_public layout), the output file path, and whether the output file exists already from an earlier batch (append) or is yours to create.
-1.B. The models to imitate: lo/GC/04_assets/translation_profile/GC-glossary.txt shows the destination row format — pipe tables of English | Thai | Notes, a Notes cell of at most 15 words stating only what an agent must DO. Part 1 of lo/assets/translation_profile/profile.txt is the universal philosophy; note where the Thai text realizes one of its rules concretely, because those observations become the Thai profile.
+1.B. The destinations, read-only for you: th/assets/translation_profile/thai-glossary.txt, whose header sets the row format — pipe rows of English | Thai | Notes, a Notes cell of at most 15 words stating only what an agent must DO — and thai-profile.txt, whose sections 4 and 5 say which register and proper-noun questions are still awaiting mining evidence. Note where the Thai text realizes a profile rule concretely, and where it does something the profile does not yet say, because those observations are what the translator rules on.
 
 ## 2. What to extract
 

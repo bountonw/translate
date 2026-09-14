@@ -85,7 +85,7 @@ Findings here are Thai-internal, so there is no EN field except under 5.E and 5.
 
 7.B. Syntax is the round's syntax with the class FIX and no severity, written in place as [[FIX #N|old -> new|note]]: old is the offending span exactly as it stands, new is your corrected span paste-ready, and the note is one plain sentence. The marker replaces that exact span at the exact position where it stands, and old must contain the defect itself rather than merely sit near it — a marker a few words away from the fault sends him hunting for something he can already see is not there.
 
-7.B.1. Marker shapes are the round's, in sc-batch-auditor section 4: empty old proposes an insertion, empty new proposes a deletion, and empty new with a note beginning verify: is an open question rather than a FIX.
+7.B.1. Marker shapes are the round's: [[FIX #N|old -> new|note]] replaces old with new; an empty old side proposes an insertion; an empty new side proposes a deletion; an empty new side with a note beginning verify: is an open question rather than a FIX.
 
 7.B.2. Copy every span you put in a marker out of the file; never type one from memory. A marker replaces the span it flags, so a span that was never in the manuscript writes invented text into the book the moment the translator accepts it.
 

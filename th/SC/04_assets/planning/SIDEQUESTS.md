@@ -4,9 +4,9 @@ Work that is agreed but not scheduled, in the order it will be done. When Brian 
 
 ## 3. Bring SC's typesetting dictionary up to SJ's, and feed in the Thai GC hyphenation candidates
 
-th/SJ/04_assets/template/dictionary.typ carries 457 entries and SC's carries 92; the Thai printed GC supplies 133 candidates in th/GC/04_assets/editions/print/HYPHEN-CANDIDATES.tsv. The question is whether the two projects share one dictionary. Entry 15 of lo/GC/04_assets/planning/SIDEQUESTS.md is the full brief.
+th/SJ/04_assets/template/dictionary.typ carries 457 entries and SC's carries 92. The Thai printed edition of GC supplies 133 more in th/GC/04_assets/editions/print/HYPHEN-CANDIDATES.tsv, one per line as คริสต-จักร with the joined word, its break count, its unbroken count and a confidence note; a row becomes an entry mechanically, as (word: "คริสตจักร", parts: ("คริสต", "จักร")). Two things need judgment: eight of the rows occur once only and want a Thai reader before they go in, and the existing entries break a word at every syllable where the new rows give one morpheme boundary, so the two styles have to be reconciled. The larger question is whether SC and SJ keep separate dictionaries at all, since hyphenation is a fact about Thai words and not about a book.
 
-Detail: that GC entry. Small if the dictionaries stay separate, medium if they merge.
+Detail: this entry. Small if the dictionaries stay separate, medium if they merge.
 
 ## 4. Google Docs round trip
 
@@ -16,7 +16,7 @@ Detail: th/SC/04_assets/planning/gdocs-workflow.md. Medium.
 
 ## 5. QA3 reader agent and packet script
 
-Written after QA2 has run on a first chapter, per th/SC/CLAUDE.md 3.E. The models are gc-qa3-reader and lo/GC/04_assets/scripts/gc_qa3_packet.py on the GC-instructions branch; the packet script has to be re-written for Typst anchors.
+Written after QA2 has run on a first chapter, per th/SC/CLAUDE.md 3.E: a packet script that collects every paragraph QA1 and QA2 changed, with the English, the pre-QA Thai, the current Thai and the changed runs, and a Fable reader agent that judges each change in its whole paragraph and writes REVERT, REWORD or FIX markers only where a change should not stand.
 
 Detail: th/SC/CLAUDE.md 3.E. Medium.
 
@@ -25,3 +25,9 @@ Detail: th/SC/CLAUDE.md 3.E. Medium.
 SC04_en.md carries one "## {SC 37.1}" heading for eleven paragraphs; every other chapter's source has one heading per paragraph. The scripts anchor an English paragraph by its closing "{SC ###.#}" tag when the heading is missing, so the rounds run on SC04 as it stands. The repair is ten heading lines inserted above their paragraphs, in both copies of the file (th/SC/00_source and source/SC), reviewed in the diff.
 
 Detail: none needed. Trivial; deferred on 11 September because no manuscript or source file is edited that day.
+
+## 7. Mine the published MB and PP chapters 1 to 20 for the register and proper-noun sections of thai-profile.txt
+
+Sections 4.C and 5.A of th/assets/translation_profile/thai-profile.txt are awaiting evidence: the pronouns used for the reader, the author and the people in a narrative; the honorifics for prophets, apostles and historical figures; the measure of royal vocabulary for Deity; and whether a transliterated name carries its English in parentheses at first appearance. The translator named the published MB and PP chapters 1 to 20 as his style on 14 September, so th-glossary-miner runs over those books with its register and proper-noun sections as the deliverable, and the translator rules the observations into the profile in chunks.
+
+Detail: th-glossary-miner sections 2.B and 2.C. Medium; one mining run and one adjudication session.
