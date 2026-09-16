@@ -17,13 +17,16 @@ PROJECT = ROOT / "th" / "SC"
 STAGES = ("03_public", "02_edit", "01_raw")
 SOURCE_DIRS = (PROJECT / "00_source", ROOT / "source" / "SC")
 SANDBOX = Path(os.path.expanduser("~/claude-sandbox/sc-audit"))
+# The offline Bible corpus: one directory per version, one file per book. Set
+# BIBLE_CORPUS in the environment to point elsewhere.
+BIBLE = Path(os.path.expanduser(os.environ.get("BIBLE_CORPUS", "~/programming/bible")))
 
 COMMENT_ANCHOR = re.compile(r"^\s*//\s*\{SC\s+(\d+\.\d+)\}\s*$")
 TAG_ANCHOR = re.compile(r"#EGW\[\\\{SC\s+(\d+\.\d+)\\\}\]")
 EN_ANCHOR = re.compile(r"^##\s*\{SC\s+(\d+\.\d+)\}\s*$")
 
 CLASSES = ("CHOICE OMISSION ADDITION FACT REF NOTE ALIGN SPELL TERM GRAM CLARITY "
-           "EDIT FIX REVERT REWORD").split()
+           "READ EDIT FIX REVERT REWORD").split()
 MARKER = re.compile(
     r"\[\[(?P<cls>" + "|".join(CLASSES) + r")(?: (?P<sev>HIGH|MED|LOW))? #(?P<num>\d+[a-z]?)"
     r"\|(?P<old>[^|]*?) -> (?P<new>[^|]*?)\|(?P<note>.*?)\]\]", re.S)
