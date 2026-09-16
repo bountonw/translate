@@ -1,0 +1,53 @@
+# Thai Glossary — shared by every Thai project (PP, SC, SJ, MB, PK, ...)
+
+<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/PP and the finished SC chapters. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. -->
+
+## 1. Theological and historical terms
+
+| English | Thai | Notes |
+|---|---|---|
+| revelation | พระคัมภีร์ / การเปิดเผย | Render the natural meaning: พระคัมภีร์ when it means the written word, otherwise การเปิดเผย |
+| mystery (God's deep truth) | ความล้ำลึก | [CHECK] Divine truth beyond human grasp; anchored by THSV, 1 โครินธ์ 2:10. SC 26.4, SC 105.3 |
+| mystery (deliberate hiding) | ความลึกลับ | [CHECK] Satan's concealment and "mystery of iniquity"; never ความล้ำลึก here. PP 41.2 |
+| mysterious (storytelling) | (free choice) | Ordinary strange happenings; never marked. PP 291.3, PP 470.3 |
+| perplexity (confusion) | ความสับสน | [CHECK] Where "confusion" reads true in the English sentence. PP 193.1, SC 108.2 |
+| perplexity (troubles) | ความยุ่งยาก / ข้อยุ่งยากใจ | [CHECK] Where "troubles" reads true; both true means free choice. SC 71.2, SC 105.1 |
+| psalmist | ผู้ประพันธ์พระธรรมสดุดี | [CHECK] Standardized; bare สดุดี can read as a tribute. SC 34.3 |
+| temptation | การทดลอง | [CHECK] Being lured to sin; the Bible's own word. มัทธิว 6:13, MB 116.2 |
+| trial (God testing) | การทดสอบ | [CHECK] God proving faith or character. PP 48.4, PP 60.4 |
+| trials (everyday hardships) | ความทุกข์ / ความทุกข์ยาก | [CHECK] Plain hardship word; never การทดลอง, which is temptation. SC 9.3 |
+| doubt | ความสงสัย / สงสัย | Noun and verb. SC 47.1, PP 54.3 |
+| finite mind | สมองอันจำกัด | SC 105.3, PP 114.2 |
+| inspiration | การดลใจจากพระเจ้า / ทรงดลใจ | Noun and verb. PP 117.2, PP 708.6 |
+| skeptic | นักสงสัย / ความสงสัย | The person, then the attitude. PP 114.1 |
+| infidel | ผู้ที่ไม่เชื่อในพระเจ้า | Family head; wording may flex. PP 113.1, PP 123.4 |
+| evidence | หลักฐาน | SC 64.2, PP 38.2 |
+| majesty | ความน่าเกรงขาม / ความยิ่งใหญ่ | Context chooses. SC 73.1, PP 95.3 |
+| Almighty, the | องค์ผู้ทรงมหิทธิฤทธิ์ | PP 116.1 |
+| Infinite One, the | องค์ผู้สูงสุด | PP 116.1 |
+| testimony | หลักฐาน / คำยืนยัน | No fixed form; settled at each site. SC 89.3, PP 77.1 |
+| Sermon on the Mount | คำเทศนาบนภูเขา | MB's title and SJ agree. MB vii.1, SJ 60.2 |
+| great white throne | พระที่นั่งใหญ่สีขาว | MB 90.2 |
+| resurrection | การฟื้นจากความตาย | The doctrine; royal ฟื้นพระชนม์ / คืนพระชนม์ for Christ's own rising. PP 478.4, MB 129.2 |
+| assurance (felt certainty) | ความมั่นใจ | SC 53.2, PP 466.3 |
+| assurance (pledge given) | พระสัญญา / การรับรอง | SC 93.3, PP 449.1 |
+| benediction | คำอวยพร / พระพร | Spoken blessing, then the blessing itself. PP 471.1, MB 1.1 |
+| redeemed, the | ผู้ที่ได้รับการไถ่ / ผู้ที่พระองค์ทรงไถ่ | Provisional; the translator is unsure it holds — revisit when issues appear. SC 88.3 |
+| divine (adjective) | ของพระเจ้า / จากพระเจ้า / โดยพระเจ้า | The preposition follows the sentence: of, by, or from God as the text requires |
+| divinity (of Christ) | ความเป็นพระเจ้า | SC 118.1 |
+| divine test | การทดสอบจากพระเจ้า | Composed per the divine row and the trial row. SC 118.1 |
+| Man of Sorrows | ทรงเป็นผู้รับความเจ็บปวดและคุ้นเคยกับความทุกข์ยาก | Starting point only; fit each sentence; other Isaiah 53:3 version wordings allowed. PP 762.2, SC 120.3 |
+| incarnation (of Christ) | การบังเกิดเป็นมนุษย์ของพระคริสต์ / ทรงบังเกิดเป็นมนุษย์ | [CHECK] Noun and verb shapes. SC 106.2, SC 14.3 |
+| regeneration | การบังเกิดใหม่ | [CHECK] The new birth; a possessor such as ของผู้เชื่อ may follow. SC 106.2, MB 141.3 |
+| reverence | ความเคารพยำเกรง / ความยำเกรง | Awe-respect before God; in a doublet ความเชื่อศรัทธา may cover it. SC 109.3 |
+
+## 2. Proper nouns
+
+| English | Thai | Notes |
+|---|---|---|
+| Europe | ยุโรป | SC 116.3 |
+
+## 3. Spelling
+
+| Word | Correct | Incorrect | Notes |
+|---|---|---|---|
