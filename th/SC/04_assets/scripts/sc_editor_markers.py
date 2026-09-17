@@ -5,7 +5,7 @@
     python3 th/SC/04_assets/scripts/sc_editor_markers.py --chapter 12 --markers 12 14
 
 Run only on the translator's "editor SCNN". Each marker becomes a parenthesis in
-his own convention, the current wording first: (old/new), or (old/new1/new2)
+his own convention, the current wording first: ((old/new)), or ((old/new1/new2))
 where the note carried a second candidate as new2. An insertion (empty old)
 becomes (/new) and a proposed deletion (empty new) becomes (old/). A marker
 whose note begins verify: offers no wording and is left standing. The chapter
@@ -33,8 +33,8 @@ def convert(m, wanted):
     if n2:
         cands.append(n2.group(1).strip())
     if not cands:
-        return f"({old}/)", num
-    return "(" + "/".join([old] + cands) + ")", num
+        return f"(({old}/))", num
+    return "((" + "/".join([old] + cands) + "))", num
 
 
 def main():

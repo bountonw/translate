@@ -10,6 +10,9 @@ is mechanical. A batch auditor passes --range with its own batch so consecutive
 batches do not report the same finding twice. Intact [[ ]] markers are replaced
 by their old side before checking, so a marker's English note is never flagged
 while the paragraph around it still is. Exit status 1 when anything was found.
+The spelling check reports every form the glossary's spelling table lists as
+incorrect (th/assets/translation_profile/thai-glossary.txt, section 3). An
+editor's choice, ((A/B)), is printed as a NOTE line and is not a finding.
 
 No Lao or GC punctuation rule is applied: Thai sentences carry no final period,
 questions usually carry no question mark, and spaces mark phrase boundaries.
@@ -46,6 +49,40 @@ LATIN = re.compile(r"[A-Za-z]{2,}")
 SPACE_BEFORE_CLOSE = re.compile(r" [”)\]]")
 BLOCK_COMMENT = re.compile(r"/\*.*?\*/", re.S)
 LINE_COMMENT = re.compile(r"(?<!:)//.*$", re.M)
+EDITOR_CHOICE = re.compile(r"\(\([^()]*\)\)")
+GLOSSARY = ROOT / "th" / "assets" / "translation_profile" / "thai-glossary.txt"
+
+
+def load_spelling(path=GLOSSARY):
+    """(incorrect, correct) pairs from the glossary's spelling table.
+
+    The table sits under the heading "## 3. Spelling" with the columns
+    Word | Correct | Incorrect | Notes; "/" in the Incorrect cell separates
+    several wrong forms. No file or no table means no spelling check.
+    """
+    pairs = []
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return pairs
+    inside = False
+    for line in lines:
+        if line.startswith("## "):
+            inside = "Spelling" in line
+            continue
+        if not inside or not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 3 or cells[1] in ("Correct", "") or set(cells[1]) <= {"-"}:
+            continue
+        for wrong in cells[2].split("/"):
+            wrong = wrong.strip()
+            if wrong:
+                pairs.append((wrong, cells[1]))
+    return pairs
+
+
+SPELLING = load_spelling()
 
 CHECKS = {
     "thai-digit": "a Thai digit U+0E50–U+0E59; Western digits only",
@@ -61,6 +98,7 @@ CHECKS = {
     "marker-open": "a [[ that does not open an intact marker",
     "combining-order": "a Thai combining mark with nothing to combine with",
     "typst-comment": "a /* */ or // comment inside a paragraph: a translator's working note that must be resolved before print",
+    "spelling": "a form the glossary's spelling table lists as incorrect; the finding names the correct form",
 }
 
 
@@ -109,6 +147,10 @@ def check_para(p, out):
             if not ("฀" <= prev <= "๿"):
                 out(p, "combining-order", f"{unicodedata.name(c, hex(ord(c)))} at: {context(body, i)}")
         prev = c
+
+    for wrong, right in SPELLING:
+        for m in re.finditer(re.escape(wrong), body):
+            out(p, "spelling", f"{wrong} -> {right}: {context(body, m.start())}")
 
     for m in BLOCK_COMMENT.finditer(body):
         out(p, "typst-comment", m.group(0)[:80])
@@ -170,6 +212,10 @@ def main():
     if not paras:
         print(f"{path}: no anchor comments found; is this a chapter file?")
         return 1
+    for p in paras:
+        if in_range(p.anchor, first, last):
+            for m in EDITOR_CHOICE.finditer(p.text):
+                print(f"{{SC {p.anchor}}} NOTE editor-choice: {m.group(0)[:80]}")
     for f in findings:
         print(f)
     try:

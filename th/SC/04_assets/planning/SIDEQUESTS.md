@@ -31,3 +31,15 @@ Detail: none needed. Trivial; deferred on 11 September because no manuscript or 
 Sections 4.C and 5.A of th/assets/translation_profile/thai-profile.txt are awaiting evidence: the pronouns used for the reader, the author and the people in a narrative; the honorifics for prophets, apostles and historical figures; the measure of royal vocabulary for Deity; and whether a transliterated name carries its English in parentheses at first appearance. The translator named the published MB and PP chapters 1 to 20 as his style on 14 September, so th-glossary-miner runs over those books with its register and proper-noun sections as the deliverable, and the translator rules the observations into the profile in chunks.
 
 Detail: th-glossary-miner sections 2.B and 2.C. Medium; one mining run and one adjudication session.
+
+## 8. SC01 notes for qa2
+
+Sites to weigh in qa2, each in its own sentence and never by the row alone: {SC 9.1} ดาวิด for the psalmist, which the row allows; {SC 9.3} กฎเกณฑ์ของพระเจ้า for God's law beside the row's พระบัญญัติของพระเจ้า; {SC 10.2} คุณความดี without พระ beside the goodness row; {SC 13.2} and {SC 14.1} บาปกรรม, a word with no Bible occurrence, for "our redemption" and "your liabilities"; {SC 15.1} ลูกของพระเจ้า beside บุตรของพระเจ้า elsewhere in the chapter, against the children row's one-form-per-book note; {SC 11.2}, {SC 12.2} and {SC 15.2} "tender" folded into ความเมตตากรุณา. The three editor's choices at {SC 9.3} and {SC 11.2} go to Google Docs as they stand. Other chapters, from the SC01 studies: {SC 30.1} renders "the unfallen universe" as สวรรค์, narrowing every unfallen world to heaven, for SC03; {SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11.
+
+Detail: this entry. Small.
+
+## 9. Glossary rows awaiting adjudication
+
+restitution: ชดใช้ in its repayment sense, kept apart from the propitiation row's verb use. Not in SC01; rule it when a chapter carries it.
+
+Detail: this entry. Small.
