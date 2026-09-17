@@ -26,7 +26,7 @@ import sys
 from pathlib import Path
 
 from sc_common import (chapter_path, source_path, parse_thai, parse_english,
-                       mask_markers, in_range, ROOT, BIBLE)
+                       mask_markers, in_range, ROOT, BIBLE, version_dir)
 
 HERE = Path(__file__).resolve().parent
 KNOWN_LABELS = {"THSV", "TNCV", "TKJV", "TH1940", "TH1971", "THA-ERV", "ERV", "TCV", "NTV", "TFB", "KJV"}
@@ -63,7 +63,7 @@ def load_books():
 def load_bounds():
     """code -> {chapter: last verse}, from the WEB pipe files; empty when absent."""
     bounds = {}
-    d = BIBLE / "WEB"
+    d = version_dir("WEB")
     if not d.is_dir():
         return bounds
     for f in d.glob("*.txt"):
@@ -85,11 +85,24 @@ def load_version(label, code):
     key = (label, code)
     if key in _versions:
         return _versions[key]
-    files = list((BIBLE / label).glob(f"*{code}.txt")) if (BIBLE / label).is_dir() else []
+    vd = version_dir(label)
+    files = list(vd.glob(f"*{code}.txt")) if vd.is_dir() else []
     if not files:
         _versions[key] = None
         return None
     verses, ch, last = {}, 0, None
+    text = files[0].read_text(encoding="utf-8")
+    if "|" in text[:20]:
+        # Pipe layout: "VER|BOOK|ch|v|text"; a heading has H in the verse field.
+        for raw in text.splitlines():
+            parts = raw.split("|", 4)
+            if len(parts) == 5 and parts[2].isdigit() and parts[3].isdigit():
+                t = re.sub(r"\{[HG]\d+\}", "", parts[4]).replace("\u200b", "")
+                t = re.sub(r"\s*§\d*\s*", " ", t).replace("¶", " ")
+                t = re.sub(r"\s+", " ", t).strip()
+                verses[(int(parts[2]), int(parts[3]))] = t
+        _versions[key] = verses
+        return verses
     for raw in files[0].read_text(encoding="utf-8").splitlines():
         line = raw.strip()
         m = HEADER.match(line)

@@ -16,6 +16,8 @@ BUDGET = {
     "th/SC/CLAUDE.md": 1350,
     ".claude/commands/th-sc.md": 120,
     ".claude/agents/sc-batch-auditor.md": 1750,
+    ".claude/agents/sc-batch-auditor-qa2.md": 120,
+    ".claude/agents/th-term-study.md": 600,
     ".claude/agents/sc-resolve-check.md": 900,
     ".claude/agents/th-glossary-miner.md": 450,
     "th/assets/translation_profile/thai-profile.txt": 900,

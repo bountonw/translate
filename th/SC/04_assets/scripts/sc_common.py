@@ -21,6 +21,14 @@ SANDBOX = Path(os.path.expanduser("~/claude-sandbox/sc-audit"))
 # BIBLE_CORPUS in the environment to point elsewhere.
 BIBLE = Path(os.path.expanduser(os.environ.get("BIBLE_CORPUS", "~/programming/bible")))
 
+
+def version_dir(label):
+    """A version's directory: bible/th/<label>, bible/en/<label>, or bible/<label>."""
+    for d in (BIBLE / "th" / label, BIBLE / "en" / label, BIBLE / label):
+        if d.is_dir():
+            return d
+    return BIBLE / label
+
 COMMENT_ANCHOR = re.compile(r"^\s*//\s*\{SC\s+(\d+\.\d+)\}\s*$")
 TAG_ANCHOR = re.compile(r"#EGW\[\\\{SC\s+(\d+\.\d+)\\\}\]")
 EN_ANCHOR = re.compile(r"^##\s*\{SC\s+(\d+\.\d+)\}\s*$")
