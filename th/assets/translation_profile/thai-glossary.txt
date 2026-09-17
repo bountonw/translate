@@ -1,21 +1,26 @@
 # Thai Glossary — shared by every Thai project (PP, SC, SJ, MB, PK, ...)
 
-<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/PP and the finished SC chapters. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. -->
+<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/MB and th/PP, whose published chapters (MB, PP 1–20) are the strong precedent; SC chapters supply the questions. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. A Notes cell may name wordings that stand when found and are never proposed. -->
 
 ## 1. Theological and historical terms
 
 | English | Thai | Notes |
 |---|---|---|
-| revelation | พระคัมภีร์ / การเปิดเผย | Render the natural meaning: พระคัมภีร์ when it means the written word, otherwise การเปิดเผย |
+| revelation | การเปิดเผย / พระคัมภีร์ | [CHECK] Natural meaning: พระคัมภีร์ for the written word, otherwise การเปิดเผย; a recast raises a question. SC 9.1 |
 | mystery (God's deep truth) | ความล้ำลึก | [CHECK] Divine truth beyond human grasp; anchored by THSV, 1 โครินธ์ 2:10. SC 26.4, SC 105.3 |
 | mystery (deliberate hiding) | ความลึกลับ | [CHECK] Satan's concealment and "mystery of iniquity"; never ความล้ำลึก here. PP 41.2 |
 | mysterious (storytelling) | (free choice) | Ordinary strange happenings; never marked. PP 291.3, PP 470.3 |
 | perplexity (confusion) | ความสับสน | [CHECK] Where "confusion" reads true in the English sentence. PP 193.1, SC 108.2 |
 | perplexity (troubles) | ความยุ่งยาก / ข้อยุ่งยากใจ | [CHECK] Where "troubles" reads true; both true means free choice. SC 71.2, SC 105.1 |
-| psalmist | ผู้ประพันธ์พระธรรมสดุดี | [CHECK] Standardized; bare สดุดี can read as a tribute. SC 34.3 |
-| temptation | การทดลอง | [CHECK] Being lured to sin; the Bible's own word. มัทธิว 6:13, MB 116.2 |
-| trial (God testing) | การทดสอบ | [CHECK] God proving faith or character. PP 48.4, PP 60.4 |
-| trials (everyday hardships) | ความทุกข์ / ความทุกข์ยาก | [CHECK] Plain hardship word; never การทดลอง, which is temptation. SC 9.3 |
+| psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him. PP 33.2, SC 9.1 |
+| temptation | การทดลอง / ถูกทดลอง | [CHECK] Enticement to sin; the Bible's word. ถูกทดลอง is the verb. มัทธิว 6:13, MB 116.2 |
+| trial (God testing) | การทดสอบ / ทดสอบ / ถูกทดสอบ / ลองใจ / การทดลองใจ | [CHECK] God proving faith or character; THSV writes ทดลอง here too, ambiguous but not wrong. ปฐมกาล 22:1, PP 48.4 |
+| trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
+| tempt (Satan lures) | ล่อลวง / ทดลอง / หลอกล่อ / ชักนำ | [CHECK] Satan as agent: ล่อลวง where luring is the point, ทดลอง where testing is. ยากอบ 1:14, PP 54.3 |
+| tempter, the | ผู้ทดลอง / มารผู้ทดลอง / ซาตาน | The name may replace the title. มัทธิว 4:3, PP 54.2 |
+| test (proof, criterion) | พิสูจน์ / บทพิสูจน์ / เกณฑ์วัด | A standard something is measured by, not God's testing. MB 145.1, PP 707.2 |
+| chastening | การตีสอน | Trials sent as discipline; the Bible's word. ฮีบรู 12:10, MB 11.3 |
+| tempt God, provoke | ลองดี | Israel provoking God; TNCV's word at Massah. PP 298.3 |
 | doubt | ความสงสัย / สงสัย | Noun and verb. SC 47.1, PP 54.3 |
 | finite mind | สมองอันจำกัด | SC 105.3, PP 114.2 |
 | inspiration | การดลใจจากพระเจ้า / ทรงดลใจ | Noun and verb. PP 117.2, PP 708.6 |
@@ -36,11 +41,61 @@
 | divine (adjective) | ของพระเจ้า / จากพระเจ้า / โดยพระเจ้า | The preposition follows the sentence: of, by, or from God as the text requires |
 | divinity (of Christ) | ความเป็นพระเจ้า | SC 118.1 |
 | divine test | การทดสอบจากพระเจ้า | Composed per the divine row and the trial row. SC 118.1 |
-| Man of Sorrows | ทรงเป็นผู้รับความเจ็บปวดและคุ้นเคยกับความทุกข์ยาก | Starting point only; fit each sentence; other Isaiah 53:3 version wordings allowed. PP 762.2, SC 120.3 |
+| Man of Sorrows (Isaiah 53:3) | ผู้รับความเจ็บปวด | [CHECK] The title's half of the verse. SC 13.1, PP 762.2 |
+| acquainted with grief (Isaiah 53:3) | คุ้นเคยกับความทุกข์ยาก | The verse's second half. PP 762.2 |
 | incarnation (of Christ) | การบังเกิดเป็นมนุษย์ของพระคริสต์ / ทรงบังเกิดเป็นมนุษย์ | [CHECK] Noun and verb shapes. SC 106.2, SC 14.3 |
 | regeneration | การบังเกิดใหม่ | [CHECK] The new birth; a possessor such as ของผู้เชื่อ may follow. SC 106.2, MB 141.3 |
 | reverence | ความเคารพยำเกรง / ความยำเกรง | Awe-respect before God; in a doublet ความเชื่อศรัทธา may cover it. SC 109.3 |
 | Creator | พระผู้สร้าง | SC 9.1 |
+| transgression, transgress (of God's law) | การล่วงละเมิด / ละเมิด / ฝ่าฝืน / ทำบาป | [CHECK] Crossing God's law; ฝ่าฝืน a specific command; ทำบาป where sin is meant; quotations follow their version. PP 42.4, MB 104.3, PP 49.1, PP 723.2 |
+| transgressor | ผู้ล่วงละเมิด / ผู้ละเมิด / คนบาป | [CHECK] Before the law ผู้ล่วงละเมิด or ผู้ละเมิด; คนบาป where God pleads with the sinner. PP 349.2, MB 79.1, MB 105.2 |
+| God's law, law of God | พระบัญญัติของพระเจ้า / ธรรมบัญญัติของพระเจ้า | [CHECK] Primary, then secondary. MB 18.1, MB 49.2 |
+| law of love | พระบัญญัติแห่งความรัก / กฎแห่งความรัก | [CHECK] Both stand. PP 34.3, MB 97.3 |
+| curse, verb and noun | สาปแช่ง / คำสาปแช่ง / การสาปแช่ง | [CHECK] The verb, then the two nouns. MB 17.3, MB 1.1, PP 78.2 |
+| character (of God, of Christ) | พระลักษณะ / พระลักษณะนิสัย / พระอุปนิสัย | [CHECK] In this order of preference. MB 49.2, MB 77.1, MB 54.1 |
+| goodness (of God) | พระคุณความดี / ความดีของพระเจ้า | [CHECK] MB 26.3, PP 74.1 |
+| glory (of God) | พระสิริ / พระเกียรติสิริ | [CHECK] The Bible versions' words: พระสิริ in TH1971 and THSV, พระเกียรติสิริ in TNCV. MB 26.2, MB 43.1 |
+| the enemy of good | ศัตรูแห่งความดี | Follows SC 10.3; PP and MB have no site for the phrase |
+| ruin and degradation; degradation | ความตกต่ำ / ความเสื่อมทราม / ความเสื่อมเสีย / ความเสื่อมโทรม | [CHECK] Pair ความหายนะ or ความพินาศ with ความตกต่ำ or ความเสื่อมทราม; เสื่อมเสีย means disgrace. SC 14.3, MB 69.2 |
+| only begotten Son | พระบุตรองค์เดียว | [CHECK] PP 63.3 |
+| disciple | สาวก | [CHECK] PP 77.1 |
+| gospel | ข่าวประเสริฐ / ข่าวดี | [CHECK] Default ข่าวประเสริฐ. PP 117.3, MB 108.3 |
+| took man's nature | รับสภาพมนุษย์ / รับสภาพธรรมชาติของมนุษย์ / รับสภาพของมนุษย์ | [CHECK] PP 69.3, PP 64.3, MB 104.3 |
+| hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก | [CHECK] PP majority first. PP 475.3, PP 523.1 |
+| unbelief | ขาดความเชื่อ / ไม่เชื่อ / การไม่เชื่อ / ไม่มีความเชื่อ | [CHECK] PP's order of use; ไม่เชื่อ covers the shorter forms. PP 292.2, PP 72.4, PP 95.2, PP 298.3 |
+| iniquity | ความผิดบาป / ความชั่วร้าย / ความชั่ว / ความอธรรม / ความชั่วช้า / ความบาป | [CHECK] Guilt borne or pardoned ความผิดบาป; prevailing wickedness ความชั่วร้าย, ความชั่ว; lawlessness ความอธรรม; depravity ความชั่วช้า. PP 138.4, PP 166.4, PP 67.3, PP 92.1 |
+| Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
+| anointing (of Christ) | ทรงเจิม / เจิมตั้ง / การเจิม / ผู้รับการเจิม | [CHECK] The versions' verb for God anointing Christ; Lao GC uses ເຈີມຕັ້ງ. กิจการ 10:38, SC 11.2 |
+| propitiation, atoning sacrifice, expiate | เครื่องบูชาไถ่บาป / เครื่องบูชาลบบาป / ลบล้างความบาป / ชดใช้ | [CHECK] The two nouns first; ลบล้างความบาป and ชดใช้ are verb reworkings. SC 13.2, PP 279.1, PP 63.2 |
+| atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision as a whole การทรงไถ่; reconciliation คืนดี; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2 |
+| Day of Atonement | วันลบมลทินบาป | [CHECK] The Thai Adventist name; the versions write วันลบมลทิน, วันทำการลบมลทิน, วันลบบาป. เลวีนิติ 23:27, PP 355.2 |
+| mercy seat | พระที่นั่งกรุณา | [CHECK] THSV at all 22 verses and TKJV ฮีบรู 9:5; never พระที่นั่งกรุณาธิคุณ, the throne of grace. PP 348.3 |
+| reconcile, reconciliation | คืนดี | [CHECK] All four versions, โรม 5:10–11, 2 โครินธ์ 5:18–20; a secular reconcile may recast. MB 115.1, PP 114.1 |
+| Substitute and Surety (Christ's paired title) | ผู้ทรงรับโทษแทนและเป็นประกันของเรา | [CHECK] SC 14.1, PP 366.1 |
+| Substitute (Christ, in our stead) | รับโทษแทน / ตายแทน / สิ้นพระชนม์แทน / ผู้รับโทษแทน | [CHECK] Penal substitution; the person replaced follows แทน; never ตัวแทน or ผู้แทน, which mean agent. SC 14.1, SC 31.2, PP 366.1 |
+| Surety (Christ) | เป็นประกัน / ผู้ค้ำประกัน / นายประกัน | [CHECK] Takes ของเรา or ให้เรา; ผู้ค้ำประกัน is THSV and TNCV's at ฮีบรู 7:22. MB 8.2, SC 14.1 |
+| fallen (race, man, men, world, souls, humanity) | ตกสู่ความบาป / ตกอยู่ในความบาป / หลงผิด / หลงในความบาป / จมอยู่ในความบาป | [CHECK] Event ตกสู่; state ตกอยู่ใน; astray หลง; sunk จม. A recast stands once the fall is told. PP 63.2, SC 21.1, PP 62.2, SC 14.3 |
+| the Fall, fall of man (the event) | ตกสู่ความบาป / หลงทำบาป / หลงผิด | [CHECK] Genesis 3 as an event; ตกสู่ความบาป keeps the fall from a height. PP 63.1, PP 80.3, SC 62.1 |
+| unfallen (worlds, universe, beings) | ไม่ได้ตกสู่ความบาป / ไม่เคยทำบาป | [CHECK] Never fell; the Lao GC writes ບໍ່ເຄີຍຕົກສູ່ຄວາມບາບ and ບໍ່ເຄີຍເຮັດບາບ. MB 104.2, PP 522.2, PP 62.3 |
+| sinless (beings, angels, Christ, Adam) | ปราศจากบาป / ไม่มีบาป / ไร้บาป / ไร้ความบาป | [CHECK] ฮีบรู 4:15 ปราศจากบาป; บริสุทธิ์ may stand where purity is the point, never proposed. PP 331.1, MB 116.1, PP 154.3, PP 69.3 |
+| fallen nature, sinful nature, fallen condition | ธรรมชาติบาป / ธรรมชาติของความบาป / ธรรมชาติแห่งความบาป | [CHECK] Since the Fall; เนื้อหนัง, a description or a recast may stand, never proposed; วิสัยบาป only quoted. PP 80.1, PP 238.2, PP 373.1 |
+| justify, justification, Justifier (God's act) | ให้เป็นคนชอบธรรม / ให้เป็นผู้ชอบธรรม / นับเป็นผู้ชอบธรรม / ชำระให้ชอบธรรม / ชำระให้เป็นคนชอบธรรม | [CHECK] God declaring the believer righteous, the versions' verb shapes; แก้ตัว is the excuse sense only. โรม 3:26, SC 14.1, MB 27.2, PP 373.1 |
+| cross | ไม้กางเขน / กางเขน | [CHECK] MB 10.1, SC 13.1 |
+| angel, angels (of God) | ทูตสวรรค์ / ทูตของพระเจ้า / ทูตแห่งพันธสัญญา / ทูตขององค์พระผู้เป็นเจ้า | [CHECK] ทูตสวรรค์ unmodified; a modifier replaces สวรรค์, as ทูตของพระเจ้า, ทูตมรณะ. MB 106.2, PP 145.3 |
+| evil angels, angels of Satan | ทูตของซาตาน / ทูตของมาร / ทูตแห่งความชั่ว / ทูตบริวารของมัน | [CHECK] Never ทูตสวรรค์ for Satan's angels. PP 64.3, MB 29.2 |
+| Advocate | ผู้ทูลแก้ต่าง / ผู้ช่วยทูลขอพระบิดา | [CHECK] TNCV and THSV at 1 ยอห์น 2:1. SC 14.3 |
+| Son of man | บุตรมนุษย์ | [CHECK] MB 40.2, SC 14.3 |
+| holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] MB 10.2, SC 14.3 |
+| apostle | อัครทูต | [CHECK] อัครสาวก is the older Bible's word and is not used from now on. MB 137.1 |
+| adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too. PP 36.3, PP 91.2, PP 63.3 |
+| sons of God, children of God | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า | [CHECK] One form within a book unless the context asks otherwise. MB 10.1, SC 15.1 |
+| heavenly King, King of heaven | องค์ราชันแห่งฟ้าสวรรค์ / พระราชาแห่งสวรรค์ / พระมหากษัตริย์แห่งสวรรค์ | [CHECK] SC 15.2, PP 214.1, PP 324.2 |
+| redeem, redemption | ทรงไถ่ / ไถ่ / การไถ่ / การทรงไถ่ / ค่าไถ่ / ไถ่บาป | [CHECK] PP 63.2, PP 69.2, PP 63.3, MB 20.1, PP 68.1, PP 137.1 |
+| Redeemer | พระผู้ไถ่ / ผู้ทรงไถ่ | [CHECK] MB 14.2, PP 64.3 |
+| mission | พันธกิจ / ภารกิจ | [CHECK] พันธกิจ a commission or calling; ภารกิจ a task carried out or an errand. MB 27.2, PP 244.2 |
+| wilderness | ถิ่นทุรกันดาร / ถิ่นกันดาร / ป่า | [CHECK] Default ถิ่นทุรกันดาร; ป่า where the English means wild country. PP 248.3, PP 379.1, PP 453.3 |
+| mercy | พระเมตตา / ความเมตตา / เมตตา / พระเมตตากรุณา / เมตตากรุณา / พระกรุณา / ความกรุณา | [CHECK] PP's order of use; พระ forms for God's mercy. PP 39.1, PP 41.1, PP 35.3, PP 469.2, PP 162.1, PP 167.2, PP 664.1 |
+| kindness | ความรักมั่นคง / ความเมตตา / ความกรุณา / ความเมตตากรุณา / มีน้ำใจ | [CHECK] ความรักมั่นคง in quotations for God's loving-kindness; มีน้ำใจ for goodwill between people. PP 107.2, PP 134.2, PP 519.5, MB 44.4, PP 714.2 |
 
 ## 2. Proper nouns
 
@@ -48,8 +103,12 @@
 |---|---|---|
 | Europe | ยุโรป | SC 116.3 |
 | Satan | ซาตาน | SC 10.3 |
+| Gethsemane | เกทเสมนี / สวนเกทเสมนี | [CHECK] SC 13.1, PP 475.3 |
+| Calvary | ไม้กางเขนแห่งคาลวารี / เนินเขาคาลวารี / ภูเขาคาลวารี / ไม้กางเขน | [CHECK] Means nothing to a new reader alone; write it with the cross or the hill. PP 69.3, MB 43.2 |
 
 ## 3. Spelling
 
 | Word | Correct | Incorrect | Notes |
 |---|---|---|---|
+| ทูตสวรรค์ (angel) | ทูตสวรรค์ | ทูตสรรค์ | PP 40.3 |
+| ปรานี (kind, merciful) | ปรานี | ปราณี | SC 10.3 |
