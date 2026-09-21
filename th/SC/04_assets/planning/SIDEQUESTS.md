@@ -51,3 +51,9 @@ Communion row: {SC 31.2} มีสื่อสัมพันธ์กับท�
 Intercession row: {SC 88.3} พระลักษณะของพระผู้ไถ่ผู้ทรงทำหน้าที่คนกลางเพื่อเรา becomes พระลักษณะของพระผู้ไถ่ผู้ทรงวิงวอนเพื่อเรา, because the English names the Intercessor and the paragraph ends on Hebrews 7:25 while คนกลาง is the Bible's Mediator (SC10, 03_public). {SC 119.2} "Let your conversation be of Him who liveth to make intercession for you before the Father" takes จงสนทนากันถึงพระองค์ผู้ทรงพระชนม์อยู่เพื่อวิงวอนแทนท่านต่อพระพักตร์พระบิดา, for the SC12–SC13 PR.
 
 Detail: ~/claude-sandbox/sc-audit/sc02-study-communion.md and sc02-study-intercession.md. Small.
+
+## 11. Remove พระคุณความดี where it renders merits, SC06 onward
+
+The merits row carries คุณความดี alone, because พระคุณความดี reads as grace, พระคุณ being the Bibles' word at เอเฟซัส 2:8. The SC02 glossary run had added พระคุณความดี at PP 430.3 and PP 431.4 and in the merits row, undone on 21 September, and SC01 to SC05 were checked in that session. Every SC chapter from SC06 on is checked for พระคุณความดี at a merits site when it comes to its round, and the form becomes คุณความดี; พระคุณความดี for the goodness of God stays.
+
+Detail: ~/claude-sandbox/sc-audit/sc03-study-virtue-phra.md. Small.

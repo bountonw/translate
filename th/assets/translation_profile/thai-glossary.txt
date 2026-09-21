@@ -100,7 +100,7 @@
 | kingdom of God, kingdom of heaven | แผ่นดินของพระเจ้า / แผ่นดินสวรรค์ / อาณาจักรของพระเจ้า | [CHECK] Default แผ่นดิน; อาณาจักร may stand; quotations follow their version (TH1971, THSV แผ่นดิน; TKJV, TNCV อาณาจักร). MB 98.2, MB 2.2, SC 18.2 |
 | Source (divine title) | แหล่ง / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น + form + what He is Source of; the object never enters. MB 41.1, PP 610.3, PP 717.2, SC 20.1 |
 | communion (with God), commune | การสื่อสัมพันธ์ / สามัคคีธรรม / สนทนา / ความสนิทสนม / เข้าเฝ้า / ความสัมพันธ์ / สายสัมพันธ์ / สื่อสาร | [CHECK] Defaults การสื่อสัมพันธ์ and สามัคคีธรรม; สนทนา for pictured talk; ใช้เวลากับ, ติดสนิท, สัมพันธไมตรี stand, never proposed. SC 85.1, MB 20.1, PP 329.5, SC 22.1 |
-| merits (of Christ), His merits | พระคุณความดี / คุณความดี | [CHECK] Christ's worth pleaded for us; shares พระคุณความดี with goodness; never บารมี, the Bibles' majesty word. PP 353.3, SC 35.4, SC 95.3 |
+| merits (of Christ), His merits | คุณความดี | [CHECK] Christ's worth pleaded for us; never พระคุณความดี, it reads as grace; never บารมี, the majesty word. PP 353.3, SC 35.4, SC 95.3 |
 | unrenewed heart, unrenewed nature | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival. PP 465.1, SC 17.2 |
 | type, figure, symbol (pointing to a spiritual reality) | สัญลักษณ์ / สัญลักษณ์ที่เล็งถึง / เล็งถึง / เงาสัญลักษณ์ / ตัวอย่าง / ภาพ / เครื่องหมาย / เปรียบเทียบ | [CHECK] Type สัญลักษณ์ที่เล็งถึง or เล็งถึง; teaching figure ตัวอย่าง or ภาพ; symbol สัญลักษณ์; never แบบอย่าง. 1 เปโตร 3:21, MB 50.2, MB 138.2, PP 120.3, PP 330.4, SC 19.2 |
 | intercession, intercede, Intercessor | วิงวอน / วิงวอนแทน / ผู้วิงวอนแทน / อ้อนวอน / ทูลขอ / อธิษฐานเผื่อ / อธิษฐานขอ / ร้องทูล | [CHECK] Pleading for another; แทน or เพื่อ names the beneficiary; never ไกล่เกลี่ย or คนกลาง, the mediator words. See Advocate. ฮีบรู 7:25, PP 140.2, SC 54.3 |
@@ -112,6 +112,28 @@
 | retribution (God's just repayment of sin) | การลงโทษ / ลงโทษ / รับโทษ / โทษทัณฑ์ / ลงโทษสนอง / การพิพากษาลงโทษ / พระพิโรธ / ตอบแทน | [CHECK] Never กรรม or ผลกรรม, which read as karma; การแก้แค้น stands quoted, human, denied; never proposed. PP 461.1, PP 628.1, SC 21.4, โรม 12:19 |
 | vengeance (God's) | พระพิโรธ / การลงโทษ / พระอาชญา / ลงพระอาชญา | [CHECK] God's vengeance in prose, the versions' words at โรม 12:19; การแก้แค้น only inside its quotation. PP 87.1, PP 157.4, โรม 12:19 |
 | vengeance, revenge (human) | การแก้แค้น / แก้แค้น | [CHECK] Man's revenge; never for God outside a quotation. PP 47.3, PP 628.1 |
+| repentance, repent | การกลับใจ / กลับใจ / กลับใจใหม่ | [CHECK] The versions' word, กิจการ 2:38 กลับใจใหม่; กลับตัวกลับใจ and กลับเนื้อกลับตัว stand, never proposed. MB 87.3, PP 78.1, SC 23.2 |
+| defilement, defile, pollution (of sin) | มลทิน / มลทินบาป / รอยมลทิน / แปดเปื้อน / เปรอะเปื้อน | [CHECK] Sin's soiling of the soul; Levitical uncleanness follows its version. MB 2.1, PP 303.5, MB 59.2, SC 24.3 |
+| impurity, impure | ไม่บริสุทธิ์ / มลทิน | [CHECK] MB 60.1, PP 308.7, SC 29.1 |
+| stain, spot (of sin) | จุดด่างพร้อย / ด่างพร้อย / รอยมลทิน | MB 32.2, SC 28.3, PP 722.4 |
+| Searcher of hearts | พระเจ้าผู้ทรงชันสูตรจิตใจ / ผู้ทรงชันสูตรใจมนุษย์ | THSV's word at โรม 8:27; TKJV writes ตรวจค้น; MB and PP have no site for the title. SC 24.2, SC 34.3 |
+| birthright | สิทธิบุตรหัวปี / สิทธิของบุตรหัวปี | [CHECK] THSV at ปฐมกาล 25:34 and ฮีบรู 12:16. PP 177.3, PP 178.3 |
+| Holy One of Israel | องค์บริสุทธิ์ของอิสราเอล / องค์บริสุทธิ์แห่งอิสราเอล | [CHECK] Prose ของ; THSV writes ของ 25 times, แห่ง 5; quotations follow their version. SC 24.1, MB 64.1, PP 360.2 |
+| Lamb of God | ลูกแกะของพระเจ้า | [CHECK] Prose and TCV's ยอห์น 1:29; the other versions' พระเมษโปดก stands inside their quotations. MB 1.3, SC 19.1, PP 63.3 |
+| plan of salvation | แผนการช่วยมนุษย์ให้รอด / แผนการแห่งความรอด | [CHECK] PP 63.3, PP 66.1, SC 27.2 |
+| plan of redemption | แผนการทรงไถ่ / แผนการไถ่ / แผนการช่วยมนุษย์ให้รอด | [CHECK] MB 43.2, PP 63.3, SC 79.1 |
+| broken cisterns | บ่อน้ำรั่ว | TNCV's word at เยเรมีย์ 2:13; THSV writes บ่อแตก, TH1971 แอ่งแตก; MB and PP have no site. SC 28.1 |
+| water of life, living water | น้ำแห่งชีวิต / น้ำที่ให้ชีวิต / น้ำดำรงชีวิต | [CHECK] All versions at วิวรณ์ 22:17; น้ำดำรงชีวิต is THSV at ยอห์น 4:10 and 7:38. MB 20.1, SC 28.1, PP 411.3 |
+| fountain of life | น้ำพุแห่งชีวิต / บ่อน้ำพุแห่งชีวิต | MB 61.2, MB 16.2, PP 413.1 |
+| conscience | จิตสำนึก / จิตสำนึกผิดชอบ / ความรู้สึกผิดชอบชั่วดี / มโนธรรม | [CHECK] Default จิตสำนึก, TNCV's word; มโนธรรม, THSV's, only where nothing else fits; never จิตใต้สำนึก. SC 26.2, SC 49.1, MB 123.3 |
+| penitent, penitence | สำนึกผิด | [CHECK] Regret for sin felt and shown; ถ่อมใจ only where humiliation is paired; กลับใจ stands where found. MB 84.4, PP 357.6, SC 52.2 |
+| contrition, contrite | สำนึกผิด / ใจที่แตกสลาย / เศร้าเสียใจ / ชอกช้ำ / ฟกช้ำ | [CHECK] Heart crushed by sin, สดุดี 51:17 THSV; MB writes เศร้าเสียใจ, TH1971 ชอกช้ำ, ฟกช้ำ. MB 53.2, SC 26.1, MB 130.2, MB 11.2 |
+| conviction of sin, convicted of sin, convince of sin | สำนึกในความบาป / สำนึกผิด | [CHECK] The Spirit showing sin, ยอห์น 16:8; สำนึกในบาป, สำนึกถึงความบาป stand; รู้สึกผิด is guilt, never here. MB 7.2, SC 23.1, SC 35.2 |
+| sorrow for sin, godly sorrow | ความเศร้าเสียใจเพราะบาป / เสียใจต่อบาป | เพราะ marks the cause, ต่อ the object; both stand; 2 โครินธ์ 7:10 ความเสียใจ. MB 9.2, PP 557.2, SC 24.3 |
+| reform, reformation (a person amends his life) | กลับตัว / ปรับปรุงตัว / ปฏิรูปตนเอง / แก้ไขความประพฤติ / ปรับปรุงแก้ไข / เปลี่ยนแปลงตัวเอง | [CHECK] ปรับเปลี่ยนพฤติกรรม, ปรับปรุงชีวิต, การเปลี่ยนแปลงในชีวิต stand when found. SC 27.1, PP 92.2, PP 209.2, PP 643.1 |
+| reform, reformation, reformers (a people, a church, the Reformation) | ปฏิรูป / การปฏิรูป / นักปฏิรูป | [CHECK] Collective or institutional reform, as the Thai Bible headings use it of kings. PP 404.3, PP 524.1, PP 574.3, PP 143.2 |
+| virtue (power going out from Christ) | ฤทธิ์ / ฤทธิ์อำนาจ | [CHECK] ฤทธิ์ซ่านออกจาก as มาระโก 5:30; พลัง stands where found. SC 26.2, MB 4.2, PP 430.2 |
+| virtue (efficacy of the atonement) | คุณความดี | [CHECK] See merits; no พระ, the possessor is the atonement; คุณประโยชน์ stands where found. PP 349.2, PP 431.1, PP 277.1 |
 
 ## 2. Proper nouns
 
