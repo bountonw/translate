@@ -12,7 +12,7 @@
 | mysterious (storytelling) | (free choice) | Ordinary strange happenings; never marked. PP 291.3, PP 470.3 |
 | perplexity (confusion) | ความสับสน | [CHECK] Where "confusion" reads true in the English sentence. PP 193.1, SC 108.2 |
 | perplexity (troubles) | ความยุ่งยาก / ข้อยุ่งยากใจ | [CHECK] Where "troubles" reads true; both true means free choice. SC 71.2, SC 105.1 |
-| psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him. PP 33.2, SC 9.1 |
+| psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him; พระธรรมสดุดี as the book stands. PP 33.2, SC 9.1, SC 37.4 |
 | temptation | การทดลอง / ถูกทดลอง | [CHECK] Enticement to sin; the Bible's word. ถูกทดลอง is the verb. มัทธิว 6:13, MB 116.2 |
 | trial (God testing) | การทดสอบ / ทดสอบ / ถูกทดสอบ / ลองใจ / การทดลองใจ | [CHECK] God proving faith or character; THSV writes ทดลอง here too, ambiguous but not wrong. ปฐมกาล 22:1, PP 48.4 |
 | trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
@@ -152,6 +152,27 @@
 | image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ | [CHECK] See character; โรม 8:29 THSV พระฉายา stands inside its quotation. SC 33.3, SC 28.3, PP 88.3 |
 | filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
 | Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
+| confession, confess (of sin) | สารภาพ | [CHECK] The verb; object บาป, ความผิด or ความผิดบาป; การ prefix makes the noun. MB 84.4, MB 58.3 |
+| High Priest (Christ) | มหาปุโรหิต | [CHECK] Names Aaron and Caiaphas too; "great High Priest" adds ผู้ยิ่งใหญ่ standing alone, cut in apposition. PP 351.1, PP 426.1, SC 37.3 |
+| publican | คนเก็บภาษี | [CHECK] The Gospel tax collector; พวก may precede. MB 7.2, MB 129.2 |
+| father of lies | บิดาแห่งการมุสา | [CHECK] Satan's title, John 8:44. PP 58.1 |
+| self-justification, excuse (for sin) | แก้ตัว / คำแก้ตัว / ข้อแก้ตัว | [CHECK] แก้ตัว the verb; คำแก้ตัว and ข้อแก้ตัว the nouns. PP 57.5, PP 58.1, PP 153.3 |
+| Holy Spirit | พระวิญญาณบริสุทธิ์ | [CHECK] |
+| ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3 |
+| forbidden fruit, forbidden tree (Genesis 3) | ผลไม้ต้องห้าม / ผลไม้ที่ต้องห้าม / ผลไม้ที่พระเจ้าทรงห้าม / ผลไม้หวงห้าม / ต้นไม้หวงห้าม | [CHECK] Epithet or description; ที่ optional before ต้องห้าม; ต้นไม้ที่พระเจ้าทรงหวงห้าม stands. ปฐมกาล 3:11, PP 49.1, PP 55.3, PP 378.2, SC 40.2 |
+| Ruler of the universe, Sovereign of the universe, Governor of the universe | พระเจ้าผู้ทรงครอบครองจักรวาล | [CHECK] Never ปกครอง, the human-government word; "great Ruler" may take พระมหากษัตริย์. MB 74.1, PP 34.1, SC 38.2 |
+| Ruler of all, Supreme Ruler | ผู้ครอบครองสูงสุดเหนือทุกสิ่ง / ผู้ทรงครอบครองเหนือทุกสิ่ง | [CHECK] Psalm 105:21 "ruler of all his substance" is Joseph, outside this row. PP 48.3, PP 123.2, MB 120.1 |
+| King of the universe | พระมหากษัตริย์แห่งจักรวาล / พระมหากษัตริย์ผู้ครอบครองจักรวาล | [CHECK] "Great King" takes the second form. PP 36.2, PP 63.3, MB 107.2 |
+| penance, do penance | บำเพ็ญทุกรกิริยา / ทรมานตนเอง / ลงโทษตัวเอง | [CHECK] Painful self-punishment to earn pardon; โคโลสี 2:23 ทรมานกาย; ทรมานตัวเอง stands; never สารภาพบาป. MB 87.3, SC 37.2 |
+| Mediator (Christ) | คนกลาง / ผู้ไกล่เกลี่ย | [CHECK] Christ between God and man; ผู้ไกล่เกลี่ย is the GC editions' word. 1 ทิโมธี 2:5, PP 201.2, SC 37.3, GC 55.1 |
+| moral perceptions | ความสำนึกผิดชอบชั่วดี | [CHECK] The inner sense of right and wrong. PP 361.2, SC 40.1 |
+| humble the heart, humble the soul, humiliation (the penitent before God) | ถ่อมใจลง / ถ่อมตัวลง / นอบน้อมถ่อมตน / การถ่อมใจ | [CHECK] The penitent's own act; ถ่อมใจลงต่อพระเจ้า is ยากอบ 4:10; อับอาย is shame, another sense. MB 11.2, PP 196.1, SC 37.4 |
+| broken heart, brokenness of spirit, contrite spirit, brokenhearted | ใจแตกสลาย / ใจที่แตกสลาย / จิตใจที่แตกสลาย / สำนึกผิด / ชอกช้ำ | [CHECK] สดุดี 51:17 THSV pairs แตกสลาย with สำนึกผิด; ชอกช้ำ is TNCV, TKJV; ท้อแท้ only in quotations. PP 196.3, SC 26.1, SC 41.2 |
+| saints (God's people) | ธรรมิกชน / ประชากรของพระเจ้า / วิสุทธิชน / ผู้บริสุทธิ์ | [CHECK] Prose ธรรมิกชน as GC and THSV; quotations follow their version, recasts stand. SC 41.1, MB 87.3, PP 246.1 |
+| saints (Rome's canonized) | นักบุญ | [CHECK] Invoked, adored, mediating saints of Rome; never ธรรมิกชน. GC 43.1, GC 568.3 |
+| pilgrimage (journey to a shrine for merit) | เดินทางไกลเพื่อแสวงบุญ / แสวงบุญ | [CHECK] Merit-seeking journey; ผู้แสวงบุญ for the traveller. SC 37.2; GC 55.3, GC 175.1 |
+| pilgrim, pilgrimage (sojourner: "strangers and pilgrims", life's journey) | คนแปลกถิ่น / (free choice) | [CHECK] Never แสวงบุญ; Bible wording in quotations, recast elsewhere. PP 81.1, PP 234.4 |
+| pilgrims (to the feasts at Jerusalem) | ฉลองเทศกาล / เดินทางไปร่วมฉลองเทศกาล / คนที่เดินทางมานมัสการ | [CHECK] Feast-goers at Jerusalem, never แสวงบุญ; เดินทาง takes ไป, มา or เพื่อ as the sentence needs. PP 541.1, PP 539.4, GC 17.2 |
 
 ## 2. Proper nouns
 
@@ -174,3 +195,4 @@
 | ปรานี (kind, merciful) | ปรานี | ปราณี | SC 10.3 |
 | เพ็นเทคอสต์ (Pentecost) | เพ็นเทคอสต์ | เพ็นเทคอส, เพนเทคอสต์ | PP 540.1, SC 74.1 |
 | แอ๊ดเวนตีส (Adventist) | แอ๊ดเวนตีส | แอ็ดเวนตีส | ไม้ตรี over อ, never ไม้ไต่คู้; adventist.or.th; the wrong form once in the GC alt edition |
+| ทุกรกิริยา (penance, austerities) | ทุกรกิริยา | ทุกรกริยา, ทุกขกิริยา | Pali ทุกฺกรกิริยา; RID 2554. MB 87.3 |
