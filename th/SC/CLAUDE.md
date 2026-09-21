@@ -59,8 +59,8 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 ## 7. Glossary building ("terms")
 
-7.A. For every head raised, run python3 th/SC/04_assets/scripts/sc_term_data.py per head into ~/claude-sandbox/sc-audit/. Group interrelated heads into a family and dispatch th-term-study per family with the data files and the translator's question; it weighs the versions, MB and PP 1–20 and the lexicon in each sentence and proposes the rows; no agent counts. A head whose Thai agrees everywhere takes its row from the data file. th-glossary-miner runs only for register and proper nouns, queue entry 7.
-7.B. Relay the studied rows in one report per run: each ROW line, the ranked candidates with one sentence each, and a verdict per SC site of the chapter in hand; a conflict with the chapter takes a TERM marker in the same reply, in the book's own phrasing. Ruled rows go into the governing files in the same reply, with [CHECK] or [FLAG] where the translator wants them enforced; Notes at most 15 words.
+7.A. For every head raised, run python3 th/SC/04_assets/scripts/sc_term_data.py per head into ~/claude-sandbox/sc-audit/. Group related heads into a family and dispatch th-term-study per family with the data files and the question; it weighs the versions, MB and PP 1–20 and the lexicon and proposes the rows. A head whose Thai agrees everywhere takes its row from the data. th-glossary-miner runs only for register and proper nouns, queue entry 7.
+7.B. Relay the studied rows in one report per run: each ROW line, the ranked candidates, and a verdict per SC site of the chapter; a conflict takes a TERM marker in the same reply, in the book's phrasing. Ruled rows go into the governing files in the same reply, with [CHECK] or [FLAG] where the translator wants them enforced; Notes at most 15 words.
 
 ## 8. Google Docs
 

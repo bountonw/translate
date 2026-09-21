@@ -134,6 +134,24 @@
 | reform, reformation, reformers (a people, a church, the Reformation) | ปฏิรูป / การปฏิรูป / นักปฏิรูป | [CHECK] Collective or institutional reform, as the Thai Bible headings use it of kings. PP 404.3, PP 524.1, PP 574.3, PP 143.2 |
 | virtue (power going out from Christ) | ฤทธิ์ / ฤทธิ์อำนาจ | [CHECK] ฤทธิ์ซ่านออกจาก as มาระโก 5:30; พลัง stands where found. SC 26.2, MB 4.2, PP 430.2 |
 | virtue (efficacy of the atonement) | คุณความดี | [CHECK] See merits; no พระ, the possessor is the atonement; คุณประโยชน์ stands where found. PP 349.2, PP 431.1, PP 277.1 |
+| pride, proud | หยิ่ง / เย่อหยิ่ง / หยิ่งยโส / ยโสโอหัง / หยิ่งผยอง / จองหอง / ทะนงตัว | [CHECK] The sin; ภาคภูมิใจ for honest pride stands, never proposed. MB 141.3, MB 7.1, MB 69.2, SC 45.2, PP 145.2, PP 124.2, สุภาษิต 16:18 |
+| form of godliness, nominal religion | นับถือศาสนาแต่เปลือกนอก / ถือศาสนาแต่เปลือกนอก / ทางพระเจ้าเพียงเปลือกนอก / คริสต์ศาสนาแต่เพียงในนาม / คริสเตียนแต่ในนาม / ความเชื่อแต่เพียงในนาม | [CHECK] 2 ทิโมธี 3:5; prose นับถือศาสนาแต่เปลือกนอก; GC writes คริสต์ศาสนาแต่เพียงในนาม; quotations follow their version. PP 102.2, SC 35.1, PP 317.2, PP 584.2 |
+| intellectual religion, religion of the intellect | นับถือศาสนาแต่ในความคิด / นับถือศาสนาแต่ในสมอง / ในลักษณะของทฤษฎี | Head against heart; the corpus has no site. SC 35.1 |
+| self-esteem (conceit) | ทะนงตัว / ถือตัว | [CHECK] Thinking highly of oneself, โรม 12:3; never ภาคภูมิใจในตนเอง, the modern positive sense. PP 419.1, SC 29.3 |
+| self-exaltation | ยกย่องตนเอง / ยกตัวเองขึ้น / ยกตนข่มท่าน / แสวงหาเกียรติใส่ตนเอง | [CHECK] ลูกา 14:11 ยกตัวขึ้น; ยกตนข่มท่าน where others are put down; a recast stands. MB 17.2, PP 123.1, MB 128.2, SC 63.1 |
+| self-righteousness, self-righteous | ยกย่องตัวเองว่าชอบธรรม / ยกยอตนเองว่าเป็นคนชอบธรรม / เชื่อมั่นในตัวเองว่าเป็นคนชอบธรรม / ความชอบธรรมของตนเอง | [CHECK] A description built on ชอบธรรม, ลูกา 18:9; never a bare pride word. MB 127.2, SC 30.2, PP 139.3 |
+| professed Christians, profession (of religion, of Christ), mere profession | อ้างตัวว่าเป็นคริสเตียน / อ้างตัวเป็นคริสเตียน / ได้ชื่อว่าเป็นคริสเตียน / อ้างว่าตนเป็น / ประกาศตนว่าเชื่อ | [CHECK] อ้างตัว the published default; ได้ชื่อว่า softer, stands; ทิตัส 1:16 TNCV อ้างว่า. PP 144.3, PP 175.3, MB 146.2, SC 32.1, SC 44.2 |
+| God's throne, His throne, the throne (of heaven) | พระที่นั่ง / พระบัลลังก์ | [CHECK] Quotations follow the version; บัลลังก์ stands when found, never proposed. MB 140.3, MB 106.2, SC 35.4 |
+| throne of grace | พระที่นั่งแห่งพระคุณ | [CHECK] THSV, TH1971, TKJV ฮีบรู 4:16; TNCV พระบัลลังก์แห่งพระคุณ; never พระที่นั่งกรุณา, the mercy seat. SC 98.3 |
+| enemy, the; adversary, the; foe, the (Satan's titles) | ศัตรู / มารร้าย / พญามาร / ซาตาน | [CHECK] ศัตรู first, epithet may follow; มัน may replace the title; ปรปักษ์ glosses the name only. MB 115.1, PP 65.4, PP 39.2 |
+| evil one, the; wicked one, the (Satan) | มารร้าย / พญามาร / ซาตาน | [CHECK] มารร้าย is THSV, TH1971 and TNCV at 1 ยอห์น 5:19; พญามาร is TKJV's. MB 68.3, PP 331.2, SC 64.1 |
+| deceiver, the; great deceiver, the (Satan) | ผู้หลอกลวง / จอมหลอกลวง / จอมล่อลวง / ซาตาน | [CHECK] จอม carries "great"; the versions write ผู้ล่อลวง at วิวรณ์ 12:9. PP 42.3, PP 53.5, PP 264.2 |
+| impenitent, the; impenitence | ไม่สำนึกผิด / ไม่กลับใจ / ไม่ยอมกลับใจ | [CHECK] Always a negated verb; คนใจแข็ง stands where the sentence is about hardness. SC 32.1, PP 140.1, PP 99.3, MB 105.2 |
+| procrastination, delay (in coming to Christ) | ผัดวันประกันพรุ่ง / ผัดผ่อน / ชักช้า / รีรอ | Putting off surrender; ordinary delay in a narrative is free. SC 32.2, PP 517.2 |
+| image of God (in man, at creation) | พระฉายาของพระเจ้า | [CHECK] ปฐมกาล 1:27. MB 56.3, PP 45.2 |
+| image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ | [CHECK] See character; โรม 8:29 THSV พระฉายา stands inside its quotation. SC 33.3, SC 28.3, PP 88.3 |
+| filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
+| Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
 
 ## 2. Proper nouns
 
@@ -143,6 +161,10 @@
 | Satan | ซาตาน | SC 10.3 |
 | Gethsemane | เกทเสมนี / สวนเกทเสมนี | [CHECK] SC 13.1, PP 475.3 |
 | Calvary | ไม้กางเขนแห่งคาลวารี / เนินเขาคาลวารี / ภูเขาคาลวารี / ไม้กางเขน | [CHECK] Means nothing to a new reader alone; write it with the cross or the hill. PP 69.3, MB 43.2 |
+| Pharisee, Pharisees | ฟาริสี / พวกฟาริสี | [CHECK] THSV's spelling; พวก for the group, bare for one man or for Pharisaism; GC the same. MB 5.1, MB 6.2, SC 30.2 |
+| Pentecost, Day of Pentecost | วันเพ็นเทคอสต์ / เทศกาลเพ็นเทคอสต์ | [CHECK] THSV กิจการ 2:1 เทศกาลเพ็นเทคอสต์. SC 23.1, PP 381.4 |
+| Adventist, Adventists | แอ๊ดเวนตีส / ชาวแอ๊ดเวนตีส | [CHECK] The Thailand Adventist Mission's spelling, adventist.or.th; GC writes ชาวแอ๊ดเวนตีส |
+| Seventh-day Adventist | เซเว่นธ์เดย์แอ๊ดเวนตีส | [CHECK] The Mission's own name, มูลนิธิคริสตจักรเซเว่นธ์เดย์แอ๊ดเวนตีสแห่งประเทศไทย, adventist.or.th |
 
 ## 3. Spelling
 
@@ -150,3 +172,5 @@
 |---|---|---|---|
 | ทูตสวรรค์ (angel) | ทูตสวรรค์ | ทูตสรรค์ | PP 40.3 |
 | ปรานี (kind, merciful) | ปรานี | ปราณี | SC 10.3 |
+| เพ็นเทคอสต์ (Pentecost) | เพ็นเทคอสต์ | เพ็นเทคอส, เพนเทคอสต์ | PP 540.1, SC 74.1 |
+| แอ๊ดเวนตีส (Adventist) | แอ๊ดเวนตีส | แอ็ดเวนตีส | ไม้ตรี over อ, never ไม้ไต่คู้; adventist.or.th; the wrong form once in the GC alt edition |
