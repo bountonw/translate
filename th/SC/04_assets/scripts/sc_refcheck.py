@@ -9,6 +9,7 @@ parenthesis, or inside a #footnote) is set beside every citation in the
 English paragraph of the same anchor, and a quotation followed by its
 citation is compared word for word with the cited version from the offline
 Bible corpus (path in sc_common.py; New Testament books only are on disk).
+A #footnote[...] call inside a quotation is removed before the comparison.
 
     REF   a finding that takes a marker: a book name not in th_books.txt, a
           chapter or verse beyond the book, a version label not in the known
@@ -41,8 +42,10 @@ EN_CITE = re.compile(
 ONE_CHAPTER = {"OBA", "PHM", "2JN", "3JN", "JUD"}
 VERSE_SPLIT = re.compile(r"(?:^|(?<=[\s“‘(\[]))(\d{1,3})(?=[^\d\s:.,-])")
 HEADER = re.compile(rf"^(?:[1-3]\s)?[{THAI}]+\s(\d+)$")
-STRIP = re.compile(r"[\s​‌‍﻿ “”‘’\"'.,;:!?()\[\]…\-–—]")
+STRIP = re.compile(r"[\s​‌‍﻿ “”‘’\"'.,;:!?()\[\]<>…\-–—]")
 ELLIPSIS = re.compile(r"…|\.\.\.")
+# Typst function markup inside a quotation, as "#italic[", is not Scripture.
+TYPST_FN = re.compile(r"#[A-Za-z_][\w.]*(?:\([^()]*\))?\[")
 _versions = {}
 
 
@@ -178,6 +181,28 @@ def fmt_vv(vv):
 
 QUOTE = re.compile(r"“([^“”]{12,})”")
 CITE_PAREN = re.compile(r"\(([^()]*\d+:\d+[^()]*)\)")
+FOOTNOTE_OPEN = "#footnote["
+
+
+def strip_footnotes(text):
+    """Remove every #footnote[...] call, bracket-matched, so a footnote placed
+    inside a quotation does not break the quotation's curly quotes. An unclosed
+    call is removed to the end of the text."""
+    out, i = [], 0
+    while True:
+        j = text.find(FOOTNOTE_OPEN, i)
+        if j < 0:
+            out.append(text[i:])
+            return "".join(out)
+        out.append(text[i:j])
+        k, depth = j + len(FOOTNOTE_OPEN), 1
+        while k < len(text) and depth:
+            if text[k] == "[":
+                depth += 1
+            elif text[k] == "]":
+                depth -= 1
+            k += 1
+        i = k
 
 
 def compare_quote(quote, cite, th_books, anchor, refs, skipped):
@@ -196,6 +221,7 @@ def compare_quote(quote, cite, th_books, anchor, refs, skipped):
         skipped.append(f"{raw} (verse not found in {label})")
         return
     expected = STRIP.sub("", "".join(texts))
+    quote = TYPST_FN.sub("", quote)
     parts = [STRIP.sub("", p) for p in ELLIPSIS.split(quote) if STRIP.sub("", p)]
     pos, ok = 0, True
     for part in parts:
@@ -214,7 +240,7 @@ def compare_paragraph(body, th_books, anchor, refs, skipped):
     """Pair each citation parenthesis with the quotations before it, in order."""
     pos = 0
     for m in CITE_PAREN.finditer(body):
-        quotes = QUOTE.findall(body[pos:m.start()])
+        quotes = QUOTE.findall(strip_footnotes(body[pos:m.start()]))
         cites_ = [c.strip() for c in m.group(1).split(";")]
         pos = m.end()
         if not quotes:

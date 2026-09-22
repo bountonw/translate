@@ -18,6 +18,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971.
 2.B. Every other version is labelled after the reference, as (สดุดี 145:15, 16 TNCV). Labels in use: THSV, TNCV, TKJV, TH1940, TH1971, THA-ERV, TCV, NTV.
 2.C. Which version a quotation uses is decided at each site for what the paragraph needs; one verse may sit in two versions in one paragraph.
+2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
 2.D. A citation sits in parentheses where it fits the flow of the sentence, often at the paragraph end; where a parenthesis would break the flow it is worked into the prose or left as a footnote. A reference the reader is sent to rather than quoted opens with ดู.
 2.E. Book names as THSV prints them. A verse range takes an en dash, as ลูกา 18:10–14; verses in a list are separated by a comma and a space; citations of several books are separated by semicolons, as (อพยพ 34:6, 7 TNCV; โยนาห์ 4:2; มีคาห์ 7:18 TCV).
 

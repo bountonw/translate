@@ -43,3 +43,29 @@ Detail: this entry. Small.
 restitution: ชดใช้ in its repayment sense, kept apart from the propitiation row's verb use. Not in SC01; rule it when a chapter carries it.
 
 Detail: this entry. Small.
+
+## 10. Sites outside SC02 found by the SC02 glossary studies
+
+Communion row: {SC 31.2} มีสื่อสัมพันธ์กับทูตสวรรค์ผู้บริสุทธิ์ becomes มีการสื่อสัมพันธ์กับทูตสวรรค์ผู้บริสุทธิ์, since the coinage takes การ after มี at every other SC site and bare สื่อ reads as "medium" (SC03). {SC 69.1} โดยการสามัคคีธรรมกับพระองค์ในทุกวัน ทุกชั่วโมง and {SC 93.4} ในการสามัคคีธรรมกับพระบิดาด้วยการอธิษฐาน were proposed as การสื่อสัมพันธ์; with สามัคคีธรรม ruled a second default they stand unless qa2 of SC08 and SC11 finds the sentence asks otherwise. {SC 98.1} ผู้ที่มุ่งมั่นที่จะติดสนิทกับพระเจ้าอย่างแท้จริง may become ผู้ที่แสวงหาการสื่อสัมพันธ์กับพระเจ้าอย่างแท้จริง, optional. {SC 125.1} มีความสุขในการสนิทสนมกับพระคริสต์ becomes มีความสุขที่ได้สนิทสนมกับพระคริสต์, for the SC12–SC13 PR.
+
+Intercession row: {SC 88.3} พระลักษณะของพระผู้ไถ่ผู้ทรงทำหน้าที่คนกลางเพื่อเรา becomes พระลักษณะของพระผู้ไถ่ผู้ทรงวิงวอนเพื่อเรา, because the English names the Intercessor and the paragraph ends on Hebrews 7:25 while คนกลาง is the Bible's Mediator (SC10, 03_public). {SC 119.2} "Let your conversation be of Him who liveth to make intercession for you before the Father" takes จงสนทนากันถึงพระองค์ผู้ทรงพระชนม์อยู่เพื่อวิงวอนแทนท่านต่อพระพักตร์พระบิดา, for the SC12–SC13 PR.
+
+Detail: ~/claude-sandbox/sc-audit/sc02-study-communion.md and sc02-study-intercession.md. Small.
+
+## 11. Remove พระคุณความดี where it renders merits, SC06 onward
+
+The merits row carries คุณความดี alone, because พระคุณความดี reads as grace, พระคุณ being the Bibles' word at เอเฟซัส 2:8. The SC02 glossary run had added พระคุณความดี at PP 430.3 and PP 431.4 and in the merits row, undone on 21 September, and SC01 to SC05 were checked in that session. Every SC chapter from SC06 on is checked for พระคุณความดี at a merits site when it comes to its round, and the form becomes คุณความดี; พระคุณความดี for the goodness of God stays.
+
+Detail: ~/claude-sandbox/sc-audit/sc03-study-virtue-phra.md. Small.
+
+## 12. Standardize sons of God and children of God in SC
+
+The sons of God row asks one form within a book. SC uses บุตรของพระเจ้า at SC 43.4 and ลูกของพระองค์ at SC 44.1; the SC chapters take one form when the row is applied across the book.
+
+Detail: this entry. Small.
+
+## 13. Standardize sons of God in SJ
+
+SJ is unedited and its sons of God sites take one form under the row when SJ is edited.
+
+Detail: this entry. Small.

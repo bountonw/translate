@@ -6,7 +6,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 1.A. "qa1 SC01 [SC02 ...]" — round one, accuracy (3.C), by section 4. Chapters named together run in parallel; batches inside a chapter run in sequence.
 1.B. "qa2 SC01 [SC02 ...]" — round two, terms, clarity and reading (3.D), by section 4, only on a chapter whose QA1 markers are resolved and checked and whose terms have glossary rows.
-1.C. "qa3 SC01" — not built; a final read is decided after qa2 has run on one chapter.
+1.C. "qa3 SC01" — not built; see 3.E.
 1.D. "check SC01" — the translator has resolved the markers; section 5.
 1.E. "editor SC01" or "editor SC01 #12 #14" — flatten the remaining markers, or the named ones, into editor parentheses so the chapter can go to Google Docs: python3 th/SC/04_assets/scripts/sc_editor_markers.py --chapter 01 [--markers 12 14]. Each marker becomes ((old/new)) or ((old/new1/new2)), current wording first. A verify: marker is left standing and reported by number.
 1.F. "terms SC01 [SC02 ...]" — glossary mining, section 7.
@@ -17,7 +17,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 2. Paths
 
 2.A. Chapters: th/SC/01_raw, 02_edit or 03_public; confirm the stage with ls.
-2.B. English source: th/SC/00_source/SCNN_en.md, anchored "## {SC ###.#}". SC04_en.md lacks most headings; anchor its paragraphs by the "{SC ###.#}" tag that closes each.
+2.B. English source: th/SC/00_source/SCNN_en.md, anchored "## {SC ###.#}"; SC04_en.md is anchored by the closing tag.
 2.C. Governing files: th/assets/translation_profile/thai-profile.txt and thai-glossary.txt. A glossary row is silent until its Notes cell carries [CHECK] or [FLAG]. Where both are silent, grep the finished Thai books for evidence; evidence never rules.
 2.D. Markers go into the chapter file. Everything else a run produces — the resolution sheet, term candidates, agent reports — goes to ~/claude-sandbox/sc-audit/.
 2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_resolution_sheet.py, sc_editor_markers.py, instruction_budget.py. Each says what it does in its first lines.
@@ -53,14 +53,15 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the current wording first: in qa2 it gets a CHOICE marker; in qa1 it stands; sc_punctcheck.py lists every one standing, so none reaches print unseen.
 6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.E. Line breaking is never fixed in a manuscript; break points live in th/SC/04_assets/template/dictionary.typ.
-6.F. Agents carry their own model and effort; do not override.
+6.F. Never override an agent's model or effort.
 6.G. Grep rather than read.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
 
 ## 7. Glossary building ("terms")
 
-7.A. For every head raised, dispatch th-glossary-miner over th/MB and th/PP, published set apart, with an output file under ~/claude-sandbox/sc-audit/; the SC term-candidates files supply the heads, never the rows. MB and PP 1–20 are the strong precedent.
-7.B. Relay its rows in chunks of 15 heads, each head as a proposed row written as it would enter the file, then every Thai form with its published and unpublished counts and one anchor; a spelling variant is a DECIDE. Ruled rows go into the governing files in the same reply, with [CHECK] or [FLAG] where the translator wants them enforced; Notes at most 15 words.
+7.A. For every head raised, run python3 th/SC/04_assets/scripts/sc_term_data.py per head into ~/claude-sandbox/sc-audit/. Group related heads into a family and dispatch th-term-study per family with the data files and the question; it weighs the versions, MB and PP 1–20 and the lexicon and proposes the rows. A head whose Thai agrees everywhere takes its row from the data. th-glossary-miner runs only for register and proper nouns, queue entry 7.
+7.B. Relay the studied rows in one report per run: each ROW line, the ranked candidates, and a verdict per SC site of the chapter; a conflict takes a TERM marker in the same reply, in the book's phrasing. Ruled rows go into the governing files in the same reply, with [CHECK] or [FLAG] where the translator wants them enforced; Notes at most 15 words.
+7.C. Doctrinal heads, and heads MB and PP leave inconclusive, add the three GC texts: lo/GC/03_public and th/GC/04_assets/editions.
 
 ## 8. Google Docs
 
