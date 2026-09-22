@@ -57,3 +57,15 @@ Detail: ~/claude-sandbox/sc-audit/sc02-study-communion.md and sc02-study-interce
 The merits row carries คุณความดี alone, because พระคุณความดี reads as grace, พระคุณ being the Bibles' word at เอเฟซัส 2:8. The SC02 glossary run had added พระคุณความดี at PP 430.3 and PP 431.4 and in the merits row, undone on 21 September, and SC01 to SC05 were checked in that session. Every SC chapter from SC06 on is checked for พระคุณความดี at a merits site when it comes to its round, and the form becomes คุณความดี; พระคุณความดี for the goodness of God stays.
 
 Detail: ~/claude-sandbox/sc-audit/sc03-study-virtue-phra.md. Small.
+
+## 12. Standardize sons of God and children of God in SC
+
+The sons of God row asks one form within a book. SC uses บุตรของพระเจ้า at SC 43.4 and ลูกของพระองค์ at SC 44.1; the SC chapters take one form when the row is applied across the book.
+
+Detail: this entry. Small.
+
+## 13. Standardize sons of God in SJ
+
+SJ is unedited and its sons of God sites take one form under the row when SJ is edited.
+
+Detail: this entry. Small.

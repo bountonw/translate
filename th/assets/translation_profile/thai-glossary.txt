@@ -88,7 +88,7 @@
 | holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] MB 10.2, SC 14.3 |
 | apostle | อัครทูต | [CHECK] อัครสาวก is the older Bible's word and is not used from now on. MB 137.1 |
 | adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too. PP 36.3, PP 91.2, PP 63.3 |
-| sons of God, children of God | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า | [CHECK] One form within a book unless the context asks otherwise. MB 10.1, SC 15.1 |
+| sons of God, children of God | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า / ประชากรของพระเจ้า | [CHECK] One form within a book unless the context asks otherwise. MB 10.1, SC 15.1 |
 | heavenly King, King of heaven | องค์ราชันแห่งฟ้าสวรรค์ / พระราชาแห่งสวรรค์ / พระมหากษัตริย์แห่งสวรรค์ | [CHECK] SC 15.2, PP 214.1, PP 324.2 |
 | redeem, redemption | ทรงไถ่ / ไถ่ / การไถ่ / การทรงไถ่ / ค่าไถ่ / ไถ่บาป | [CHECK] PP 63.2, PP 69.2, PP 63.3, MB 20.1, PP 68.1, PP 137.1 |
 | Redeemer | พระผู้ไถ่ / ผู้ทรงไถ่ | [CHECK] MB 14.2, PP 64.3 |
@@ -173,6 +173,26 @@
 | pilgrimage (journey to a shrine for merit) | เดินทางไกลเพื่อแสวงบุญ / แสวงบุญ | [CHECK] Merit-seeking journey; ผู้แสวงบุญ for the traveller. SC 37.2; GC 55.3, GC 175.1 |
 | pilgrim, pilgrimage (sojourner: "strangers and pilgrims", life's journey) | คนแปลกถิ่น / (free choice) | [CHECK] Never แสวงบุญ; Bible wording in quotations, recast elsewhere. PP 81.1, PP 234.4 |
 | pilgrims (to the feasts at Jerusalem) | ฉลองเทศกาล / เดินทางไปร่วมฉลองเทศกาล / คนที่เดินทางมานมัสการ | [CHECK] Feast-goers at Jerusalem, never แสวงบุญ; เดินทาง takes ไป, มา or เพื่อ as the sentence needs. PP 541.1, PP 539.4, GC 17.2 |
+| ignorance, ignorant, ignorantly | ความไม่รู้ / ไม่รู้ / ไม่รู้จัก / รู้เท่าไม่ถึงการณ์ / ความเขลา / ขาดความรู้ / ความโง่เขลา | [CHECK] State ความไม่รู้; ignorant of ไม่รู้, ไม่รู้จัก; unwitting รู้เท่าไม่ถึงการณ์; ความโง่เขลา stands where found, never proposed. SC 45.1, SC 70.2, MB 54.2, PP 130.2 |
+| will (human faculty) | การตัดสินใจ / เจตจำนง / ตามใจตัวเอง / ฝืนใจ | [CHECK] Noun การตัดสินใจ; เจตจำนง where the faculty itself must be unmistakable; verb idioms ตามใจตัวเอง, ฝืนใจ stand. MB 61.1, SC 47.1 |
+| will of God, His will | น้ำพระทัย / พระประสงค์ / พระทัย | [CHECK] น้ำพระทัย where obeyed or submitted to; พระประสงค์ where His purpose; พระทัย in quotations. โรม 12:2 TH1971, MB 109.1, SC 43.4 |
+| consecration, consecrate, dedicate | การอุทิศตน / อุทิศตน / การอุทิศ / ถวายตัว / ถวายตน / มอบถวาย | Title SC05 การอุทิศตน; ถวายตัว, ถวายตน for giving oneself to God. SC 43.1, PP 90.2, PP 188.1 |
+| Prince of Peace (Isaiah 9:6) | องค์สันติราช | [CHECK] THSV, TH1971, TNCV, TKJV อิสยาห์ 9:6; never พระราชาแห่งสันติสุข. PP 34.1, PP 755.4 |
+| affections (of the heart) | ความปรารถนา / ความรักใคร่ / ความปรารถนาในใจ | The heart's attachments; ความหลงใหลฝ่ายเนื้อหนัง stands where found, never proposed. SC 47.1, SC 29.1 |
+| automaton, mere machine | หุ่นยนต์ | PP 49.1, PP 331.4 |
+| mammon | เงินทอง | Never transliterated. PP 87.2 |
+| self (warfare against self, self forgotten, the ego) | ตนเอง / ตัวเอง / อัตตา / ตัวตน | Free choice; อัตตา the ego. SC 43.3, MB 16.1, SC 71.2 |
+| ropes of sand | เชือกที่ทำด้วยทราย | Figure; translation memory. SC 47.1 |
+| bread of life | อาหารแห่งชีวิต | THSV ยอห์น 6:35. MB 18.3 |
+| heart-longing, longing of the heart | ความปรารถนาอันลึกซึ้ง / ความปรารถนาในใจ | ความหิวกระหาย only for hunger and thirst figures. SC 46.3, PP 86.4 |
+| Prince of heaven | เจ้าชายแห่งสวรรค์ / พระราชาแห่งสวรรค์ | Christ as the King's Son; PP 161.1 renders it as พระเจ้า without a title. SC 45.2, SJ 17.2 |
+| Wonderful Counsellor (Isaiah 9:6) | ที่ปรึกษามหัศจรรย์ | THSV, TH1971, TNCV; TKJV splits ผู้ที่มหัศจรรย์ ที่ปรึกษา. |
+| mighty God (Isaiah 9:6) | พระเจ้าผู้ทรงมหิทธิฤทธิ์ | THSV, TH1971, TKJV; TNCV พระเจ้าผู้ทรงฤทธิ์, TH1940 พระเจ้าทรงอานุภาพ. |
+| everlasting Father (Isaiah 9:6) | พระบิดานิรันดร์ | THSV, TH1971, TNCV, TKJV; TH1940 พระบิดาองค์ถาวร. |
+| self-love | รักตนเอง / รักตัวเอง | MB 55.2, MB 64.2 |
+| self-will | ตามอำเภอใจ / ทำตามใจตัวเอง | MB 138.3, PP 48.4 |
+| self-seeking | เห็นแก่ตนเอง / เห็นแก่ประโยชน์ส่วนตัว | PP 319.2, PP 481.4 |
+| principalities and powers | เทพผู้ครองและศักดิเทพ / เทพผู้ครองและเทพผู้ทรงอำนาจ | TH1971 โคโลสี 2:15; TNCV เอเฟซัส 6:12; THSV writes พวกภูตผีที่ครอบครองและพวกภูตผีที่มีอำนาจ. PP 34.2, SC 48.1 |
 
 ## 2. Proper nouns
 
