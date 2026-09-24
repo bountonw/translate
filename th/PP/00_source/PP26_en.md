@@ -82,7 +82,7 @@ Every week during their long sojourn in the wilderness the Israelites witnessed 
 
 ## {PP 296.3}
 
-In the circumstances connected with the giving of the manna, we have conclusive evidence that the Sabbath was not instituted, as many claim, when the law was given at Sinai. Before the Israelites came to Sinai they understood the Sabbath to be obligatory upon them. In being obliged to gather every Friday a double portion of manna in preparation for the Sabbath, when none would fall, the sacred nature of the day of rest was continually impressed upon them. And when some of the people went out on the Sabbath to gather manna, the Lord asked, “How long refuse ye to keep My commandments and My laws?” {PP 296.3}
+In the circumstances connected with the giving of the manna, we have conclusive evidence that the Sabbath was not instituted, as many claim, when the law was given at Sinai. Before the Israelites came to Sinai they understood the Sabbath to be obligatory upon them. In being obliged to gather every Friday a double portion of manna in preparation for the Sabbath, when none would fall, the sacred nature of the day of rest was continually impressed upon them. And when some of the people went out on the Sabbath to gather manna, the Lord asked, “How long *refuse ye* to keep My commandments and My laws?” {PP 296.3}
 
 ## {PP 297.1}
 

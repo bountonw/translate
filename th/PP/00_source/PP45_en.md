@@ -62,7 +62,7 @@ How easily the armies of heaven brought down the walls of Jericho, that proud ci
 
 ## {PP 493.1}
 
-“By faith the walls of Jericho fell down.” Hebrews 11:30. The Captain of the Lord’s host communicated only with Joshua; He did not reveal Himself to all the congregation, and it rested with them to believe or doubt the words of Joshua, to obey the commands given by him in the name of the Lord, or to deny his authority. They could not see the host of angels who attended them under the leadership of the Son of God. They might have reasoned: “What unmeaning movements are these, and how ridiculous the performance of marching daily around the walls of the city, blowing trumpets of rams’ horns. This can have no effect upon those towering fortifications.” But the very plan of continuing this ceremony through so long a time prior to the final overthrow of the walls afforded opportunity for the development of faith among the Israelites. It was to be impressed upon their minds that their strength was not in the wisdom of man, nor in his might, but only in the God of their salvation. They were thus to become accustomed to relying wholly upon their divine Leader. {PP 493.1}
+“By faith the walls of Jericho fell down.” Hebrews 11:30. The Captain of the Lord’s host communicated only with Joshua; He did not reveal Himself to all the congregation, and it rested with them to believe or doubt the words of Joshua, to obey the commands given by him in the name of the Lord, or to deny his authority. *They* could not see the host of angels who attended them under the leadership of the Son of God. They might have reasoned: “What unmeaning movements are these, and how ridiculous the performance of marching daily around the walls of the city, blowing trumpets of rams’ horns. This can have no effect upon those towering fortifications.” But the very plan of continuing this ceremony through so long a time prior to the final overthrow of the walls afforded opportunity for the development of faith among the Israelites. It was to be impressed upon their minds that their strength was not in the wisdom of man, nor in his might, but only in the God of their salvation. They were thus to become accustomed to relying wholly upon their divine Leader. {PP 493.1}
 
 ## {PP 493.2}
 
@@ -90,7 +90,7 @@ The answer from Jehovah was, “Get thee up; wherefore liest thou thus upon thy 
 
 ## {PP 494.3}
 
-God’s command had been disregarded by one of those appointed to execute His judgments. And the nation was held accountable for the guilt of the transgressor: “They have even taken of the accursed thing, and have also stolen, and dissembled also.” Instruction was given to Joshua for the discovery and punishment of the criminal. The lot was to be employed for the detection of the guilty. The sinner was not directly pointed out, the matter being left in doubt for a time, that the people might feel their responsibility for the sins existing among them, and thus be led to searching of heart and humiliation before God. {PP 494.3}
+God’s command had been disregarded by one of those appointed to execute His judgments. And the nation was held accountable for the guilt of the transgressor: “*They* have even taken of the accursed thing, and have also stolen, and dissembled also.” Instruction was given to Joshua for the discovery and punishment of the criminal. The lot was to be employed for the detection of the guilty. The sinner was not directly pointed out, the matter being left in doubt for a time, that the people might feel their responsibility for the sins existing among them, and thus be led to searching of heart and humiliation before God. {PP 494.3}
 
 ## {PP 495.1}
 
@@ -114,7 +114,7 @@ Achan’s sin was committed in defiance of the most direct and solemn warnings a
 
 ## {PP 496.1}
 
-Of the millions of Israel there was but one man who, in that solemn hour of triumph and of judgment, had dared to transgress the command of God. Achan’s covetousness was excited by the sight of that costly robe of Shinar; even when it had brought him face to face with death he called it “a goodly Babylonish garment.” One sin had led to another, and he appropriated the gold and silver devoted to the treasury of the Lord—he robbed God of the first fruits of the land of Canaan. {PP 496.1}
+Of the millions of Israel there was but one man who, in that solemn hour of triumph and of judgment, had dared to transgress the command of God. Achan’s covetousness was excited by the sight of that costly robe of Shinar; even when it had brought him face to face with death he called it “a *goodly* Babylonish garment.” One sin had led to another, and he appropriated the gold and silver devoted to the treasury of the Lord—he robbed God of the first fruits of the land of Canaan. {PP 496.1}
 
 ## {PP 496.2}
 

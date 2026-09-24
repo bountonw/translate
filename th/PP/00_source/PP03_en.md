@@ -94,7 +94,7 @@ But the great Lawgiver was about to make known to Adam and Eve the consequences 
 
 ## {PP 57.5}
 
-Adam could neither deny nor excuse his sin; but instead of manifesting penitence, he endeavored to cast the blame upon his wife, and thus upon God Himself: “The woman whom Thou gavest to be with me, she gave me of the tree, and I did eat.” He who, from love to Eve, had deliberately chosen to forfeit the approval of God, his home in Paradise, and an eternal life of joy, could now, after his fall, endeavor to make his companion, and even the Creator Himself, responsible for the transgression. So terrible is the power of sin. {PP 57.5}
+Adam could neither deny nor excuse his sin; but instead of manifesting penitence, he endeavored to cast the blame upon his wife, and thus upon God Himself: “The woman whom *Thou gavest* to be with me, she gave me of the tree, and I did eat.” He who, from love to Eve, had deliberately chosen to forfeit the approval of God, his home in Paradise, and an eternal life of joy, could now, after his fall, endeavor to make his companion, and even the Creator Himself, responsible for the transgression. So terrible is the power of sin. {PP 57.5}
 
 ## {PP 58.1}
 

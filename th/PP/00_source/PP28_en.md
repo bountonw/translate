@@ -62,7 +62,7 @@ But Moses discerned ground for hope where there appeared only discouragement and
 
 ## {PP 318.4}
 
-God had signified that He disowned His people. He had spoken of them to Moses as “thy people, which thou broughtest out of Egypt.” But Moses humbly disclaimed the leadership of Israel. They were not his, but God’s—“Thy people, which Thou has brought forth ... with great power, and with a mighty hand. Wherefore,” he urged, “should the Egyptians speak, and say, For mischief did He bring them out, to slay them in the mountains, and to consume them from the face of the earth?” {PP 318.4}
+God had signified that He disowned His people. He had spoken of them to Moses as “*thy* people, which *thou* broughtest out of Egypt.” But Moses humbly disclaimed the leadership of Israel. They were not his, but God’s—“*Thy* people, which *Thou* has brought forth ... with great power, and with a mighty hand. Wherefore,” he urged, “should the Egyptians speak, and say, For mischief did He bring them out, to slay them in the mountains, and to consume them from the face of the earth?” {PP 318.4}
 
 ## {PP 319.1}
 

@@ -146,7 +146,7 @@ Returning with the trophies of victory, they angrily reproached Gideon: “Why h
 
 ## {PP 555.2}
 
-“What have I done now, in comparison of you?” said Gideon. “Is not the gleaning of the grapes of Ephraim better than the vintage of Abiezer? God hath delivered into your hands the princes of Midian, Oreb and Zeeb: and what was I able to do in comparison of you?” {PP 555.2}
+“What have I done now, in comparison of you?” said Gideon. “Is not the *gleaning* of the grapes of Ephraim better than the *vintage* of Abiezer? *God* hath delivered into your hands the princes of Midian, Oreb and Zeeb: and what was I able to do in comparison of you?” {PP 555.2}
 
 ## {PP 555.3}
 
@@ -198,7 +198,7 @@ Saith the Lord: “I have called, and ye refused; I have stretched out My hand, 
 
 ## {PP 558.2}
 
-The Israelites now humbled themselves before the Lord. “And they put away the strange gods from among them, and served Jehovah.” And the Lord’s heart of love was grieved—“was grieved for the misery of Israel.” Oh, the long-suffering mercy of our God! When His people put away the sins that had shut out His presence, He heard their prayers and at once began to work for them. {PP 558.2}
+The Israelites now humbled themselves before the Lord. “And they put away the strange gods from among them, and served Jehovah.” And the Lord’s heart of love was grieved—“*was grieved* for the misery of Israel.” Oh, the long-suffering mercy of our God! When His people put away the sins that had shut out His presence, He heard their prayers and at once began to work for them. {PP 558.2}
 
 ## {PP 558.3}
 

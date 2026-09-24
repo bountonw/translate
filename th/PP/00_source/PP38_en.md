@@ -142,7 +142,7 @@ The lifting up of the brazen serpent was to teach Israel an important lesson. Th
 
 ## {PP 431.2}
 
-While the sinner cannot save himself, he still has something to do to secure salvation. “Him that cometh to Me,” says Christ, “I will in no wise cast out.” John 6:37. But we must come to Him ; and when we repent of our sins, we must believe that He accepts and pardons us. Faith is the gift of God, but the power to exercise it is ours. Faith is the hand by which the soul takes hold upon the divine offers of grace and mercy. {PP 431.2}
+While the sinner cannot save himself, he still has something to do to secure salvation. “Him that cometh to Me,” says Christ, “I will in no wise cast out.” John 6:37. But we must *come* to Him ; and when we repent of our sins, we must believe that He accepts and pardons us. Faith is the gift of God, but the power to exercise it is ours. Faith is the hand by which the soul takes hold upon the divine offers of grace and mercy. {PP 431.2}
 
 ## {PP 431.3}
 
