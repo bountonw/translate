@@ -39,6 +39,8 @@ INVISIBLE = {
     " ": "NO-BREAK SPACE U+00A0",
     " ": "NARROW NO-BREAK SPACE U+202F",
 }
+# Mai taikhu takes no tone mark; a tone mark follows its vowel, never precedes it.
+MARK_ORDER = re.compile("็[่-๋]|[่-๋][ัิ-ฺ็]|ำ[่-๋]")
 DOUBLE_SPACE = re.compile(r"(?<=\S)  +(?=\S)")
 CITATION_PAREN = re.compile(r"\([^()]*\d+:\d+[^()]*\)")
 FOOTNOTE = re.compile(r"#footnote\[(?:[^\[\]]|\[[^\]]*\])*\]")
@@ -97,6 +99,7 @@ CHECKS = {
     "latin": "Latin letters in the body outside a citation, a footnote or Typst markup",
     "marker-open": "a [[ that does not open an intact marker",
     "combining-order": "a Thai combining mark with nothing to combine with",
+    "mark-order": "a tone mark after mai taikhu (็่ ็้ ็๊ ็๋), or a tone mark typed before its vowel, or after sara am (ำ่)",
     "typst-comment": "a /* */ or // comment inside a paragraph: a translator's working note that must be resolved before print",
     "spelling": "a form the glossary's spelling table lists as incorrect; the finding names the correct form",
 }
@@ -147,6 +150,8 @@ def check_para(p, out):
             if not ("฀" <= prev <= "๿"):
                 out(p, "combining-order", f"{unicodedata.name(c, hex(ord(c)))} at: {context(body, i)}")
         prev = c
+    for m in MARK_ORDER.finditer(body):
+        out(p, "mark-order", context(body, m.start()))
 
     for wrong, right in SPELLING:
         for m in re.finditer(re.escape(wrong), body):

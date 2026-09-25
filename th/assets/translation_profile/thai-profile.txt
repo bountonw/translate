@@ -21,6 +21,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
 2.D. A citation sits in parentheses where it fits the flow of the sentence, often at the paragraph end; where a parenthesis would break the flow it is worked into the prose or left as a footnote. A reference the reader is sent to rather than quoted opens with ดู.
 2.E. Book names as THSV prints them. A verse range takes an en dash, as ลูกา 18:10–14; verses in a list are separated by a comma and a space; citations of several books are separated by semicolons, as (อพยพ 34:6, 7 TNCV; โยนาห์ 4:2; มีคาห์ 7:18 TCV).
+2.F. A quotation follows its version word for word: restore any word dropped, added or changed inside it; raise to the translator a trim at either end made for the flow of the sentence that leaves the meaning intact.
 
 ## 3. Thai text
 
@@ -28,6 +29,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 3.B. No invisible characters. Line breaking is decided at typesetting time from the template's word dictionary, never in a manuscript.
 3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”.
 3.D. และ stays closed on both sides unless the clause it joins is long.
+3.D.1. ๆ takes a space after it, unless punctuation follows.
 3.E. Only Thai script stands in running text; Latin letters appear only in a citation's version label and in the parentheses of 5.B.
 
 ## 4. Register
