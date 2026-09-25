@@ -6,7 +6,7 @@ chapter:
   number: 57
   title:
     en: The Ark Taken by the Philistines
-  url: https://legacy.egwwritings.org/?ref=en_PP.581.1&para=84.2727
+  url: https://egwwritings.org/?ref=en_PP.581.1&para=84.2727
   basedon: This chapter is based on 1 Samuel 3 to 7.
 author:
   en: Ellen White

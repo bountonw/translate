@@ -6,7 +6,7 @@ chapter:
   number: 27
   title:
     en: The Law Given to Israel
-  url: https://legacy.egwwritings.org/?ref=en_PP.303.1&para=84.1329
+  url: https://egwwritings.org/?ref=en_PP.303.1&para=84.1329
   basedon: This chapter is based on Exodus 19 to 24
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 64
   title:
     en: David a Fugitive
-  url: https://legacy.egwwritings.org/?ref=en_PP.649.1&para=84.3044
+  url: https://egwwritings.org/?ref=en_PP.649.1&para=84.3044
   basedon: This chapter is based on 1 Samuel 18 to 22.
 author:
   en: Ellen White

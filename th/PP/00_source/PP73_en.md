@@ -6,7 +6,7 @@ chapter:
   number: 73
   title:
     en: The Last Years of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.746.1&para=84.3536
+  url: https://egwwritings.org/?ref=en_PP.746.1&para=84.3536
   basedon: This chapter is based on 2 Samuel 24; 1 Kings 1; 1 Chronicles 21; 28; 29.
 author:
   en: Ellen White
@@ -74,7 +74,7 @@ David gave Solomon minute directions for building the temple, with patterns of e
 
 ## {PP 751.2}
 
-Again David appealed to the congregation: “Solomon my son, whom alone God hath chosen, is yet young and tender, and the work is great: for the palace is not for man, but for the Lord God.” He said, “I have prepared with all my might for the house of my God,” and he went on to enumerate the materials he had gathered. More than this, he said, “I have set my affection to the house of my God, I have of mine own proper good, of gold and silver, which I have given to the house of my God, over and above all that I have prepared for the holy house, even three thousand talents of gold, of the gold of Ophir, and seven thousand talents of refined silver, to overlay the walls of the houses withal.” “Who then,” he asked of the assembled multitude that had brought their liberal gifts—“who then is willing to consecrate his service this day unto the Lord?” {PP 751.2}
+Again David appealed to the congregation: “Solomon my son, whom alone God hath chosen, is yet young and tender, and the work is great: for the palace is not for man, but for the Lord God.” He said, “I have prepared with all my might for the house of my God,” and he went on to enumerate the materials he had gathered. More than this, he said, “I have set my affection to the house of my God, I have of mine own proper good, of gold and silver, which I have given to the house of my God, over and above all that I have prepared for the holy house, even three thousand talents of gold, of the gold of Ophir, and seven thousand talents of refined silver, to overlay the walls of the houses withal.” “Who then,” he asked of the assembled multitude that had brought their liberal gifts—“who then is willing to consecrate his *service* this day unto the Lord?” {PP 751.2}
 
 ## {PP 751.3}
 

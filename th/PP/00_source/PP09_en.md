@@ -6,7 +6,7 @@ chapter:
   number: 9
   title:
     en: The Literal Week
-  url: https://legacy.egwwritings.org/?ref=en_PP.105&para=84.399
+  url: https://egwwritings.org/?ref=en_PP.111.1&para=84.429
   basedon:
 author:
   en: Ellen White

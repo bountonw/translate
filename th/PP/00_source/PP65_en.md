@@ -6,7 +6,7 @@ chapter:
   number: 65
   title:
     en: The Magnanimity of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.660.1&para=84.3101
+  url: https://egwwritings.org/?ref=en_PP.660.1&para=84.3101
   basedon: This chapter is based on 1 Samuel 22:20- 23; 23-27.
 author:
   en: Ellen White

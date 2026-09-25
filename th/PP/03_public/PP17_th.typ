@@ -1,5 +1,5 @@
-// Source-url: "https://legacy.egwwritings.org/?para=84.758"
-// English title: Jacob's Flight and Excile
+// Source-url: "https://egwwritings.org/read?panels=p84.758"
+// English title: Jacob's Flight and Exile
 
 #chapter(
   number: 17,

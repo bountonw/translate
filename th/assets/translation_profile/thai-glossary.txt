@@ -141,6 +141,7 @@
 | self-exaltation | ยกย่องตนเอง / ยกตัวเองขึ้น / ยกตนข่มท่าน / แสวงหาเกียรติใส่ตนเอง | [CHECK] ลูกา 14:11 ยกตัวขึ้น; ยกตนข่มท่าน where others are put down; a recast stands. MB 17.2, PP 123.1, MB 128.2, SC 63.1 |
 | self-righteousness, self-righteous | ยกย่องตัวเองว่าชอบธรรม / ยกยอตนเองว่าเป็นคนชอบธรรม / เชื่อมั่นในตัวเองว่าเป็นคนชอบธรรม / ความชอบธรรมของตนเอง | [CHECK] A description built on ชอบธรรม, ลูกา 18:9; never a bare pride word. MB 127.2, SC 30.2, PP 139.3 |
 | professed Christians, profession (of religion, of Christ), mere profession | อ้างตัวว่าเป็นคริสเตียน / อ้างตัวเป็นคริสเตียน / ได้ชื่อว่าเป็นคริสเตียน / อ้างว่าตนเป็น / ประกาศตนว่าเชื่อ | [CHECK] อ้างตัว the published default; ได้ชื่อว่า softer, stands; ทิตัส 1:16 TNCV อ้างว่า. PP 144.3, PP 175.3, MB 146.2, SC 32.1, SC 44.2 |
+| Christianity | คริสตศาสนา / คริสต์ศาสนา / ศาสนาคริสต์ | Both spellings stand; each book keeps one spelling throughout. MB 136.4, PP 144.3 |
 | God's throne, His throne, the throne (of heaven) | พระที่นั่ง / พระบัลลังก์ | [CHECK] Quotations follow the version; บัลลังก์ stands when found, never proposed. MB 140.3, MB 106.2, SC 35.4 |
 | throne of grace | พระที่นั่งแห่งพระคุณ | [CHECK] THSV, TH1971, TKJV ฮีบรู 4:16; TNCV พระบัลลังก์แห่งพระคุณ; never พระที่นั่งกรุณา, the mercy seat. SC 98.3 |
 | enemy, the; adversary, the; foe, the (Satan's titles) | ศัตรู / มารร้าย / พญามาร / ซาตาน | [CHECK] ศัตรู first, epithet may follow; มัน may replace the title; ปรปักษ์ glosses the name only. MB 115.1, PP 65.4, PP 39.2 |
@@ -205,7 +206,14 @@
 | Pharisee, Pharisees | ฟาริสี / พวกฟาริสี | [CHECK] THSV's spelling; พวก for the group, bare for one man or for Pharisaism; GC the same. MB 5.1, MB 6.2, SC 30.2 |
 | Pentecost, Day of Pentecost | วันเพ็นเทคอสต์ / เทศกาลเพ็นเทคอสต์ | [CHECK] THSV กิจการ 2:1 เทศกาลเพ็นเทคอสต์. SC 23.1, PP 381.4 |
 | Adventist, Adventists | แอ๊ดเวนตีส / ชาวแอ๊ดเวนตีส | [CHECK] The Thailand Adventist Mission's spelling, adventist.or.th; GC writes ชาวแอ๊ดเวนตีส |
+| Shinar | ชินาร์ | [CHECK] Every Thai Bible; never ชีนาร์. PP 496.1 |
 | Seventh-day Adventist | เซเว่นธ์เดย์แอ๊ดเวนตีส | [CHECK] The Mission's own name, มูลนิธิคริสตจักรเซเว่นธ์เดย์แอ๊ดเวนตีสแห่งประเทศไทย, adventist.or.th |
+| John Wesley | จอห์น เวสลีย์ / เวสลีย์ | [CHECK] จอห์น, never ยอห์น (the apostle); no tone mark. Royal Institute encyclopedia. LBF 28.3 |
+| the Wesleys | พี่น้องเวสลีย์ | [CHECK] PP 404.3 |
+| Charles (Wesley, kings, emperors) | ชาลส์ | [CHECK] As สมเด็จพระเจ้าชาลส์ที่ 3; Charles Wesley is ชาลส์ เวสลีย์; never ชาร์ลส์. |
+| Methodist, Methodists | เมทอดิสต์ / ชาวเมทอดิสต์ | [CHECK] Royal Institute encyclopedia and the Thai print GC. |
+| Jeshurun | เยชูรูน | [CHECK] Also inside a quotation. TNCV Deuteronomy writes เยชูรุน; TH1971 32:15 เยชุรูน; most versions เยชูรูน. PP 471.2 |
+| Shittim, Abel-shittim, shittim tree | ชิทธีม / อาเบลชิทธีม / ต้นชิทธีม | [CHECK] Also inside a quotation. TNCV; THSV writes อาเบลชิทธิม, TKJV ชิทธิม. PP 453.2 |
 
 ## 3. Spelling
 
@@ -216,3 +224,90 @@
 | เพ็นเทคอสต์ (Pentecost) | เพ็นเทคอสต์ | เพ็นเทคอส, เพนเทคอสต์ | PP 540.1, SC 74.1 |
 | แอ๊ดเวนตีส (Adventist) | แอ๊ดเวนตีส | แอ็ดเวนตีส | ไม้ตรี over อ, never ไม้ไต่คู้; adventist.or.th; the wrong form once in the GC alt edition |
 | ทุกรกิริยา (penance, austerities) | ทุกรกิริยา | ทุกรกริยา, ทุกขกิริยา | Pali ทุกฺกรกิริยา; RID 2554. MB 87.3 |
+| คนคนนั้น (that person) | คนคนนั้น, คนคนหนึ่ง, คนคนเดียว | คนๆ นั้น/คนๆ หนึ่ง/คนๆ เดียว | Also inside a quotation. MB 21.3, LBF 90.4, PP 384.2 |
+| วิจิตรบรรจง (exquisite) | วิจิตรบรรจง | วิจิตบรรจง | MB 26.4 |
+| โครินธ์ (Corinthians) | โครินธ์ | โครินธิ์ | MB 32.2, PP 362.1 |
+| เจตนารมณ์ (intent, spirit) | เจตนารมณ์ | เจตนารมย์ | MB 73.4 |
+| ยศถาบรรดาศักดิ์ (rank) | ยศถาบรรดาศักดิ์ | ยศฐาบรรดาศักดิ์ | MB 75.2, MB 141.1 |
+| ปรารถนา (desire) | ปรารถนา | ปราถนา | MB 86.2, PP 411.3 |
+| วิพากษ์วิจารณ์ (criticize) | วิพากษ์วิจารณ์ | วิพากวิจารณ์ | MB 125.3 |
+| สมมุติ (suppose) | สมมุติ | สมมติ | MB 142.1 |
+| บัพติศมา (baptism) | บัพติศมา | บัพติสมา | MB 1.3, LBF 41.2 |
+| ฟีนิเซีย (Phoenicia) | ฟีนิเซีย | ฟินิเซีย | MB 4.2 |
+| พระนิเวศ (house of God) | พระนิเวศ | พระนิเวศน์ | MB 110.2 |
+| เท่าไร (how much) | เท่าไร | เท่าไหร่ | เท่าไหร่ stands only in recorded dialogue. MB 134.2, PP 78.2, LBF 34.3 |
+| จ้อกแจ้ก (chatter) | จ้อกแจ้ก | จ๊อกแจ๊ก | Also inside a quotation. MB 45.1, PP 684.1 |
+| พละกำลัง (strength) | พละกำลัง | พลกำลัง | PP 64.3 |
+| ชอุ่ม (lush green) | ชอุ่ม | ชะอุ่ม | PP 91.1 |
+| กรีธาทัพ (march an army) | กรีธาทัพ | กรีฑาทัพ | PP 134.4 |
+| พัศดี (prison warden) | พัศดี | พัสดี | PP 218.2 |
+| ประณาม (condemn) | ประณาม | ประนาม | PP 227.2 |
+| ตะกร้า (basket) | ตะกร้า | ตระกร้า | PP 243.1 |
+| จลาจล (riot) | จลาจล | จราจล | PP 389.3 |
+| วิญญาณ (spirit) | วิญญาณ | วิญญาน | PP 405.1 |
+| พิธีรีตอง (ceremony) | พิธีรีตอง | พิธีรีตรอง | PP 454.2 |
+| ประจันหน้า (face, confront) | ประจันหน้า | ประจัญหน้า | PP 548.3, PP 645.1 |
+| กะทันหัน (suddenly) | กะทันหัน | กระทันหัน | LBF 103.1 |
+| บัลลังก์ (throne) | บัลลังก์ | บังลังก์ | PP 34.2, PP 36.2 |
+| พระพักตร์ (face, presence) | พระพักตร์ | พระพักต์ | PP 34.2, PP 35.1 |
+| ทะนุถนอม (cherish) | ทะนุถนอม | ทนุถนอม | Also inside a quotation. PP 46.2 |
+| ยอห์น (John) | ยอห์น | ยอหน์ | PP 63.3 |
+| บุคคล (person) | บุคคล | บุคคุล | PP 113.4 |
+| รุกล้ำ (encroach, invade) | รุกล้ำ | ลุกล้ำ | PP 134.4 |
+| ธรรมบัญญัติ (the law) | ธรรมบัญญัติ | ธรรมบัญญติ | PP 171.1 |
+| กระจิริด (tiny) | กระจิริด | กระจิดริด | กระจิดริด is a spoken form; ORST and the Bibles write กระจิริด. LBF 16.3, PP 574.2 |
+| คลุมเครือ (obscure) | คลุมเครือ | คลุมเคลือ | LBF 106.1 |
+| ตำหนิ (rebuke) | ตำหนิ | ตำนิ | LBF 139.2 |
+| ไม่แพ้กัน (just as much) | ไม่แพ้กัน | ไม้แพ้กัน | LBF 143.3 |
+| ตราประทับ (seal) | ตราประทับ | หมายประทับ | LBF 129.4 |
+| กระบวนการคิด (thought process) | กระบวนการคิด | กระบวนความคิด | LBF 104.1, PP 421.1 |
+| เวทมนตร์ (magic spell) | เวทมนตร์ | เวทย์มนตร์/เวทมนต์/มนต์สะกด | มนต์ is chanting (Pali), มนตร์ is a spell (Sanskrit), literal or figurative: ต้องมนตร์สะกด. PP 449.1, PP 635.1, MB 88.4 |
+| ผูกพัน (bond, attachment) | ผูกพัน | ผูกพันธ์ | PP 245.2 |
+| ทุรกันดาร (wilderness) | ทุรกันดาร | ทุรกันการ | PP 257.4, PP 411.1 |
+| อียิปต์ (Egypt) | อียิปต์ | อิยิปต์/อียิป์ | PP 273.2, PP 383.3 |
+| ป้อมปราการ (fortress, rampart) | ป้อมปราการ | ป้อมประการ | ประการ means kind or item. PP 301.2, PP 413.1, PP 436.1, PP 436.2, PP 563.3, PP 742.3 |
+| อิสยาห์ (Isaiah) | อิสยาห์ | อิสายาห์ | PP 307.3 |
+| นิจศีล (habitually, in เป็นนิจศีล) | นิจศีล | นิจสิน | ORST headword. PP 350.2 |
+| เมษโปดก (lamb) | เมษโปดก | เมสโปดก | PP 365.1 |
+| ละเอียด (thorough, detailed) | ละเอียด | ละเดียด | PP 375.3 |
+| อิทธิพล (influence) | อิทธิพล | อิทธิผล/อิทธิ์พล | PP 380.2, PP 544.2 |
+| ลิ้มรส (taste) | ลิ้มรส | ริ้มรส | PP 382.2 |
+| ริษยา (jealousy) | ริษยา | ริษา | PP 382.4 |
+| เชื้อสาย (descendant, lineage) | เชื้อสาย | เชื่อสาย | เชื่อ means believe. PP 383.3 |
+| กังวล (worry) | กังวล | กังวน | PP 384.1 |
+| อุดมสมบูรณ์ (fertile, abundant) | อุดมสมบูรณ์ | อดุมสมบูรณ์ | PP 387.2 |
+| ซาตาน (Satan) | ซาตาน | ชาตาน | PP 388.1, PP 457.3 |
+| คาเลบ (Caleb) | คาเลบ | เคเลบ | PP 388.3 |
+| เจตนา (motive, intent) | เจตนา | เจตตา | PP 399.4 |
+| เทศกาล (festival) | เทศกาล | เทศการ | PP 406.2 |
+| ยับยั้ง (restrain) | ยับยั้ง | ยังยั้ง | Also inside a quotation. PP 410.3 |
+| ตลอดกาล (forever) | ตลอดกาล | ตลาดกาล | PP 427.2 |
+| กษัตริย์ (king) | กษัตริย์ | กษัตรย์ | PP 427.4 |
+| ล้มเหลว (fail) | ล้มเหลว | ล้มเลว | PP 452.1 |
+| ปีศาจ (demon) | ปีศาจ | ปีสาจ | PP 459.1 |
+| ปลุกเร้า (rouse, excite) | ปลุกเร้า | ปลูกเร้า | ปลูก means plant. PP 459.3 |
+| ปีติ (joy) | ปีติ | ปิติ | ORST headword. PP 477.1 |
+| สงสัย (doubt) | สงสัย | สังสัย | PP 495.2 |
+| ชินาร์ (Shinar) | ชินาร์ | ชีนาร์ | PP 496.1 |
+| เศรษฐกิจ (economy) | เศรษฐกิจ | เศษฐกิจ | PP 525.1 |
+| ภูตผี (ghost, evil spirit) | ภูตผี | ภูติผี | ภูติ means prosperity; also inside a quotation. PP 544.3 |
+| แซมสัน (Samson) | แซมสัน | แซมสัม | PP 564.1, PP 564.3 |
+| ชื่นชม (rejoice, admire) | ชื่นชม | ชื่นชน | PP 641.3 |
+| อาบีกายิล (Abigail) | อาบีกายิล | อาบีกาอิล | PP 666.3 |
+| ตกตะลึง (stunned) | ตกตะลึง | ตกตลึง | ตลึง is the butterfly-pea plant. PP 681.2 |
+| วีรชน (hero) | วีรชน | วีระชน | PP 696.2 |
+| เบเออร์เชบา (Beersheba) | เบเออร์เชบา | เบเอร์เชบา | Also inside a quotation. PP 740.1 |
+| ซึ่ง (which) | ซึ่ง | ซี่ง | PP 746.2 |
+| จีรัง (lasting) | จีรัง | จิรัง | Also inside a quotation. PP 752.1 |
+| ปรักหักพัง (ruins) | ปรักหักพัง | สลักหักพัง | PP 92.1, PP 99.2 |
+| จตุบาท (quadruped) | จตุบาท | จตุบท | TH1971 form (Acts 11:6); ORST has จตุบท. PP 44.3 |
+| เกลื่อนกลาด (strewn) | เกลื่อนกลาด | เกลือนกลาด | PP 291.1 |
+| ร้องห่มร้องไห้ (weeping and lamenting) | ร้องห่มร้องไห้ | ร้องโหยร้องไห้ | PP 379.3 |
+| ทิตัส (Titus) | ทิตัส | ติตัส | The Roman general and Paul's companion; every Thai Bible and both GC editions. PP 467.2 |
+| อัลมอนด์ (almond) | อัลมอนด์ | อัลมันด์ | Also inside a quotation. PP 227.3, PP 403.1 |
+| เวสลีย์ (Wesley) | เวสลีย์ | เวสเลย์, เวสเล่ย์ | PP 404.3 |
+| เมทอดิสต์ (Methodist) | เมทอดิสต์ | เมธอดิสต์, เมธอดิสท์ | |
+| เยชูรูน (Jeshurun) | เยชูรูน | เยชูรุน, เยชุรูน | Also inside a quotation. PP 471.2 |
+| เวิ้งว้าง (wide, open) | เวิ้งว้าง | เวิงว้าง | PP 472.3 |
+| แข็งแกร่ง (strong) | แข็งแกร่ง | แข็งเกร่ง | PP 556.2 |
+| ชิทธีม (Shittim) | ชิทธีม | ชิทธิม | Also inside a quotation. PP 453.2 |
