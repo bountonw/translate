@@ -6,7 +6,7 @@ chapter:
   number: 10
   title:
     en: The Tower of Babel
-  url: https://legacy.egwwritings.org/?ref=en_PP.117.1&para=84.455
+  url: https://egwwritings.org/?ref=en_PP.117.1&para=84.455
   basedon:
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 31
   title:
     en: The Sin of Nadab and Abihu
-  url: https://legacy.egwwritings.org/?ref=en_PP.359.1&para=84.1615
+  url: https://egwwritings.org/?ref=en_PP.359.1&para=84.1615
   basedon: This chapter is based on Leviticus 10:1-11.
 author:
   en: Ellen White
@@ -30,7 +30,7 @@ Nadab and Abihu had not in their youth been trained to habits of self-control. T
 
 ## {PP 360.2}
 
-God designed to teach the people that they must approach Him with reverence and awe, and in His own appointed manner. He cannot accept partial obedience. It was not enough that in this solemn season of worship nearly everything was done as He had directed. God has pronounced a curse upon those who depart from His commandments, and put no difference between common and holy things. He declares by the prophet: “Woe unto them that call evil good, and good evil; that put darkness for light, and light for darkness! ... woe unto them that are wise in their own eyes, and prudent in their own sight! ... which justify the wicked for reward, and take away the righteousness of the righteous from him! ... They have cast away the law of the Lord of hosts, and despised the word of the Holy One of Israel.” Isaiah 5:20-24. Let no one deceive himself with the belief that a part of God’s commandments are nonessential, or that He will accept a substitute for that which He has required. Said the prophet Jeremiah, “Who is he that saith, and it cometh to pass, when the Lord commandeth it not?” Lamentations 3:37. God has placed in His word no command which men may obey or disobey at will and not suffer the consequences. If men choose any other path than that of strict obedience, they will find that “the end thereof are the ways of death.” Proverbs 14:12. {PP 360.2}
+God designed to teach the people that they must approach Him with reverence and awe, and in His own appointed manner. He cannot accept partial obedience. It was not enough that in this solemn season of worship *nearly* everything was done as He had directed. God has pronounced a curse upon those who depart from His commandments, and put no difference between common and holy things. He declares by the prophet: “Woe unto them that call evil good, and good evil; that put darkness for light, and light for darkness! ... woe unto them that are wise in their own eyes, and prudent in their own sight! ... which justify the wicked for reward, and take away the righteousness of the righteous from him! ... They have cast away the law of the Lord of hosts, and despised the word of the Holy One of Israel.” Isaiah 5:20-24. Let no one deceive himself with the belief that a part of God’s commandments are nonessential, or that He will accept a substitute for that which He has required. Said the prophet Jeremiah, “Who is he that saith, and it cometh to pass, when the Lord commandeth it not?” Lamentations 3:37. God has placed in His word no command which men may obey or disobey at will and not suffer the consequences. If men choose any other path than that of strict obedience, they will find that “the end thereof are the ways of death.” Proverbs 14:12. {PP 360.2}
 
 ## {PP 361.1}
 

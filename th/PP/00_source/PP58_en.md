@@ -6,7 +6,7 @@ chapter:
   number: 58
   title:
     en: The Schools of the Prophets
-  url: https://legacy.egwwritings.org/?ref=en_PP.592.1&para=84.2787
+  url: https://egwwritings.org/?ref=en_PP.592.1&para=84.2787
   basedon: 
 author:
   en: Ellen White
@@ -74,7 +74,7 @@ Were this principle given the attention which its importance demands, there woul
 
 ## {PP 596.1}
 
-“The fear of the Lord is the beginning of wisdom: and the knowledge of the Holy is understanding.” Proverbs 9:10. The great work of life is character building, and a knowledge of God is the foundation of all true education. To impart this knowledge and to mold the character in harmony with it should be the object of the teacher’s work. The law of God is a reflection of His character. Hence the psalmist says, “All Thy commandments are righteousness;” and “through Thy precepts I get understanding.” Psalm 119:172, 104. God has revealed Himself to us in His word and in the works of creation. Through the volume of inspiration and the book of nature we are to obtain a knowledge of God. {PP 596.1}
+“The fear of the Lord is the beginning of wisdom: and *the knowledge of the Holy* is understanding.” Proverbs 9:10. The great work of life is character building, and a knowledge of God is the foundation of all true education. To impart this knowledge and to mold the character in harmony with it should be the object of the teacher’s work. The law of God is a reflection of His character. Hence the psalmist says, “All Thy commandments are righteousness;” and “through Thy precepts I get understanding.” Psalm 119:172, 104. God has revealed Himself to us in His word and in the works of creation. Through the volume of inspiration and the book of nature we are to obtain a knowledge of God. {PP 596.1}
 
 ## {PP 596.2}
 

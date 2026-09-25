@@ -6,7 +6,7 @@ chapter:
   number: 20
   title:
     en: Joseph in Egypt
-  url: https://legacy.egwwritings.org/?ref=en_PP.213.1&para=84.902
+  url: https://egwwritings.org/?ref=en_PP.213.1&para=84.902
   basedon: This chapter is based on Genesis 39 to 41.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 42
   title:
     en: The Law Repeated
-  url: https://legacy.egwwritings.org/?ref=en_PP.462.1&para=84.2128
+  url: https://egwwritings.org/?ref=en_PP.462.1&para=84.2128
   basedon: This chapter is based on Deuteronomy 4 to 6; 28.
 author:
   en: Ellen White

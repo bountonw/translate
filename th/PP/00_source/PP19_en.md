@@ -6,7 +6,7 @@ chapter:
   number: 19
   title:
     en: The Return to Canaan
-  url: https://legacy.egwwritings.org/?ref=en_PP.204.1&para=84.853
+  url: https://egwwritings.org/?ref=en_PP.204.1&para=84.853
   basedon: This chapter is based on Genesis 34; 35; 37.
 author:
   en: Ellen White
@@ -70,7 +70,7 @@ Esau and Jacob had alike been instructed in the knowledge of God, and both were 
 
 ## {PP 207.4}
 
-There was no arbitrary choice on the part of God by which Esau was shut out from the blessings of salvation. The gifts of His grace through Christ are free to all. There is no election but one’s own by which any may perish. God has set forth in His word the conditions upon which every soul will be elected to eternal life—obedience to His commandments, through faith in Christ. God has elected a character in harmony with His law, and anyone who shall reach the standard of His requirement will have an entrance into the kingdom of glory. Christ Himself said, “He that believeth on the Son hath everlasting life: and he that believeth not the Son shall not see life.” John 3:36. “Not everyone that saith unto Me, Lord, Lord, shall enter into the kingdom of heaven; but he that doeth the will of My Father which is in heaven.” Matthew 7:21. And in the Revelation He declares, “Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city.” Revelation 22:14. As regards man’s final salvation, this is the only election brought to view in the word of God. {PP 207.4}
+There was no arbitrary choice on the part of God by which Esau was shut out from the blessings of salvation. The gifts of His grace through Christ are free to all. There is no election but one’s own by which any may perish. God has set forth in His word the conditions upon which every soul will be elected to eternal life—obedience to His commandments, through faith in Christ. God has elected a character in harmony with His law, and anyone who shall reach the standard of His requirement will have an entrance into the kingdom of glory. Christ Himself said, “He that believeth on the Son hath everlasting life: and he that believeth not the Son shall not see life.” John 3:36. “Not everyone that saith unto Me, Lord, Lord, shall enter into the kingdom of heaven; but he that *doeth the will of My Father* which is in heaven.” Matthew 7:21. And in the Revelation He declares, “Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city.” Revelation 22:14. As regards man’s final salvation, this is the only election brought to view in the word of God. {PP 207.4}
 
 ## {PP 208.1}
 

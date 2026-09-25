@@ -6,7 +6,7 @@ chapter:
   number: 55
   title:
     en: The Child Samuel
-  url: https://legacy.egwwritings.org/?ref=en_PP.569.1&para=84.2667
+  url: https://egwwritings.org/?ref=en_PP.569.1&para=84.2667
   basedon: This chapter is based on 1 Samuel 1; 2:1-11.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 72
   title:
     en: The Rebellion of Absalom
-  url: https://legacy.egwwritings.org/?ref=en_PP.727.1&para=84.3448
+  url: https://egwwritings.org/?ref=en_PP.727.1&para=84.3448
   basedon: This chapter is based on 2 Samuel 13-19.
 author:
   en: Ellen White
@@ -42,7 +42,7 @@ At the close of two years Joab determined to effect a reconciliation between the
 
 ## {PP 728.4}
 
-After drawing from him repeated promises for the young man’s safety, she entreated the king’s forbearance, declaring that he had spoken as one at fault, in that he did not fetch home again his banished. “For,” she said, “we must needs die, and are as water spilt on the ground, which cannot be gathered up again; neither doth God respect any person; yet doth He devise means, that His banished be not expelled from Him.” This tender and touching portrayal of the love of God toward the sinner—coming as it did from Joab, the rude soldier—is a striking evidence of the familiarity of the Israelites with the great truths of redemption. The king, feeling his own need of God’s mercy, could not resist this appeal. To Joab the command was given, “Go therefore, bring the young man Absalom again.” {PP 728.4}
+After drawing from him repeated promises for the young man’s safety, she entreated the king’s forbearance, declaring that he had spoken as one at fault, in that he did not fetch home again his banished. “For,” she said, “we must needs die, and are as water spilt on the ground, which cannot be gathered up again; neither doth God respect any person; yet doth *He devise means, that His banished be not expelled from Him*.” This tender and touching portrayal of the love of God toward the sinner—coming as it did from Joab, the rude soldier—is a striking evidence of the familiarity of the Israelites with the great truths of redemption. The king, feeling his own need of God’s mercy, could not resist this appeal. To Joab the command was given, “Go therefore, bring the young man Absalom again.” {PP 728.4}
 
 ## {PP 729.1}
 
@@ -219,7 +219,7 @@ David divided his forces into three battalions under the command of Joab, Abisha
 
 ## {PP 743.1}
 
-From the walls of the city the long lines of the rebel army were in full view. The usurper was accompanied by a vast host, in comparison with which David’s force seemed but a handful. But as the king looked upon the opposing forces, the thought uppermost in his mind was not of the crown and the kingdom, nor of his own life, that depended upon the wage of battle. The father’s heart was filled with love and pity for his rebellious son. As the army filed out from the city gates David encouraged his faithful soldiers, bidding them go forth trusting that the God of Israel would give them the victory. But even here he could not repress his love for Absalom. As Joab, leading the first column, passed his king, the conqueror of a hundred battlefields stooped his proud head to hear the monarch’s last message, as with trembling voice he said, “Deal gently for my sake with the young man, even with Absalom.” And Abishai and Ittai received the same charge—“Deal gently for my sake with the young man, even with Absalom.” But the king’s solicitude, seeming to declare that Absalom was dearer to him than his kingdom, dearer even than the subjects faithful to his throne, only increased the indignation of the soldiers against the unnatural son. {PP 743.1}
+From the walls of the city the long lines of the rebel army were in full view. The usurper was accompanied by a vast host, in comparison with which David’s force seemed but a handful. But as the king looked upon the opposing forces, the thought uppermost in his mind was not of the crown and the kingdom, nor of his own life, that depended upon the wage of battle. The father’s heart was filled with love and pity for his rebellious son. As the army filed out from the city gates David encouraged his faithful soldiers, bidding them go forth trusting that the God of Israel would give them the victory. But even here he could not repress his love for Absalom. As Joab, leading the first column, passed his king, the conqueror of a hundred battlefields stooped his proud head to hear the monarch’s last message, as with trembling voice he said, “Deal gently *for my sake* with the young man, even with Absalom.” And Abishai and Ittai received the same charge—“Deal gently *for my sake* with the young man, even with Absalom.” But the king’s solicitude, seeming to declare that Absalom was dearer to him than his kingdom, dearer even than the subjects faithful to his throne, only increased the indignation of the soldiers against the unnatural son. {PP 743.1}
 
 ## {PP 743.2}
 

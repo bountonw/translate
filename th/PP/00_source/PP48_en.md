@@ -6,7 +6,7 @@ chapter:
   number: 48
   title:
     en: The Division of Canaan
-  url: https://legacy.egwwritings.org/?ref=en_PP.510.1&para=84.2353
+  url: https://egwwritings.org/?ref=en_PP.510.1&para=84.2353
   basedon: This chapter is based on Joshua 10:40-43; 11; 14-22.
 author:
   en: Ellen White
@@ -118,7 +118,7 @@ The sinner is exposed to eternal death, until he finds a hiding place in Christ;
 
 ## {PP 517.3}
 
-The prisoner who at any time went outside the city of refuge was abandoned to the avenger of blood. Thus the people were taught to adhere to the methods which infinite wisdom appointed for their security. Even so, it is not enough that the sinner believe in Christ for the pardon of sin; he must, by faith and obedience, abide in Him. “For if we sin willfully after that we have received the knowledge of the truth, there remaineth no more sacrifice for sins, but a certain fearful looking for of judgment and fiery indignation, which shall devour the adversaries.” Hebrews 10:26, 27. {PP 517.3}
+The prisoner who at any time went outside the city of refuge was abandoned to the avenger of blood. Thus the people were taught to adhere to the methods which infinite wisdom appointed for their security. Even so, it is not enough that the sinner *believe* in Christ for the pardon of sin; he must, by faith and obedience, *abide* in Him. “For if we sin willfully after that we have received the knowledge of the truth, there remaineth no more sacrifice for sins, but a certain fearful looking for of judgment and fiery indignation, which shall devour the adversaries.” Hebrews 10:26, 27. {PP 517.3}
 
 ## {PP 517.4}
 

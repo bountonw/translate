@@ -6,7 +6,7 @@ chapter:
   number: 69
   title:
     en: David Called to the Throne
-  url: https://legacy.egwwritings.org/?ref=en_PP.697.1&para=84.3275
+  url: https://egwwritings.org/?ref=en_PP.697.1&para=84.3275
   basedon: This chapter is based on 2 Samuel 2 to 5:5.
 author:
   en: Ellen White
