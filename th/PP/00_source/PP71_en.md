@@ -6,7 +6,7 @@ chapter:
   number: 71
   title:
     en: David’s Sin and Repentance
-  url: https://legacy.egwwritings.org/?ref=en_PP.717.1&para=84.3387
+  url: https://egwwritings.org/?ref=en_PP.717.1&para=84.3387
   basedon: This chapter is based on 2 Samuel 11; 12.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 59A
   title:
     en: Appendix Note 8
-  url: https://legacy.egwwritings.org/?ref=en_PP.761.6&para=84.3616
+  url: https://egwwritings.org/?ref=en_PP.761.6&para=84.3616
   basedon: 
 author:
   en: Ellen White

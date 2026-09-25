@@ -6,7 +6,7 @@ chapter:
   number: 29
   title:
     en: Satan’s Enmity Against the Law
-  url: https://legacy.egwwritings.org/?ref=en_PP.331.1&para=84.1480
+  url: https://egwwritings.org/?ref=en_PP.331.1&para=84.1480
   basedon: 
 author:
   en: Ellen White

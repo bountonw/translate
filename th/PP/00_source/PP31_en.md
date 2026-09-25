@@ -6,7 +6,7 @@ chapter:
   number: 31
   title:
     en: The Sin of Nadab and Abihu
-  url: https://legacy.egwwritings.org/?ref=en_PP.359.1&para=84.1615
+  url: https://egwwritings.org/?ref=en_PP.359.1&para=84.1615
   basedon: This chapter is based on Leviticus 10:1-11.
 author:
   en: Ellen White

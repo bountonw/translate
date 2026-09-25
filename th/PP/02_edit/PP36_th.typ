@@ -1,4 +1,4 @@
-// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.406&para=84.1859"
+// Source-url: "https://egwwritings.org/read?panels=p84.1859"
 // English title: In the Wilderness
 
 #chapter(

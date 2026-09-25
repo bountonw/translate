@@ -6,7 +6,7 @@ chapter:
   number: 61
   title:
     en: Saul Rejected
-  url: https://legacy.egwwritings.org/?ref=en_PP.627.1&para=84.2947
+  url: https://egwwritings.org/?ref=en_PP.627.1&para=84.2947
   basedon: This chapter is based on 1 Samuel 15.
 author:
   en: Ellen White

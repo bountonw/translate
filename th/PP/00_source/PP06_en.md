@@ -6,7 +6,7 @@ chapter:
   number: 6
   title:
     en: Seth and Enoch
-  url: https://legacy.egwwritings.org/?ref=en_PP.80&para=84.289
+  url: https://egwwritings.org/?ref=en_PP.80&para=84.289
   basedon: This chapter is based on Genesis 4:25–6:2.
 author:
   en: Ellen White

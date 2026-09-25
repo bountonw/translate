@@ -6,7 +6,7 @@ chapter:
   number: 45
   title:
     en: The Fall of Jericho
-  url: https://legacy.egwwritings.org/?ref=en_PP.487.1&para=84.2246
+  url: https://egwwritings.org/?ref=en_PP.487.1&para=84.2246
   basedon: This chapter is based on Joshua 5:13-15; 6; 7.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 28A
   title:
     en: Appendix Note 4
-  url: https://legacy.egwwritings.org/?ref=en_PP.760.1&para=84.3606
+  url: https://egwwritings.org/?ref=en_PP.760.1&para=84.3606
   basedon: 
 author:
   en: Ellen White

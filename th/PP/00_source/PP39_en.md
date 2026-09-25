@@ -6,7 +6,7 @@ chapter:
   number: 39
   title:
     en: The Conquest of Bashan
-  url: https://legacy.egwwritings.org/?ref=en_PP.433.1&para=84.1989
+  url: https://egwwritings.org/?ref=en_PP.433.1&para=84.1989
   basedon: This chapter is based on Deuteronomy 2; 3:1-11.
 author:
   en: Ellen White

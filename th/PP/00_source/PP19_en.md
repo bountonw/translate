@@ -6,7 +6,7 @@ chapter:
   number: 19
   title:
     en: The Return to Canaan
-  url: https://legacy.egwwritings.org/?ref=en_PP.204.1&para=84.853
+  url: https://egwwritings.org/?ref=en_PP.204.1&para=84.853
   basedon: This chapter is based on Genesis 34; 35; 37.
 author:
   en: Ellen White

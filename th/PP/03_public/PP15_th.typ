@@ -1,4 +1,4 @@
-// Source-url: "https://legacy.egwwritings.org/?para=84.697"
+// Source-url: "https://egwwritings.org/read?panels=p84.697"
 // English title: The Marriage of Isaac
 
 #chapter(

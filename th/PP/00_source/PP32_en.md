@@ -6,7 +6,7 @@ chapter:
   number: 32
   title:
     en: The Law and the Covenants
-  url: https://legacy.egwwritings.org/?ref=en_PP.363.1&para=84.1632
+  url: https://egwwritings.org/?ref=en_PP.363.1&para=84.1632
   basedon: 
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 28B
   title:
     en: Appendix Note 5
-  url: https://legacy.egwwritings.org/?ref=en_PP.760.3&para=84.3608
+  url: https://egwwritings.org/?ref=en_PP.760.3&para=84.3608
   basedon: 
 author:
   en: Ellen White

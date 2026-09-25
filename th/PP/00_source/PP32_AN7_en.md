@@ -6,7 +6,7 @@ chapter:
   number: 32A
   title:
     en: Appendix Note 7
-  url: https://legacy.egwwritings.org/?ref=en_PP.761.3&para=84.3613
+  url: https://egwwritings.org/?ref=en_PP.761.3&para=84.3613
   basedon: 
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 70
   title:
     en: The Reign of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.703.1&para=84.3304
+  url: https://egwwritings.org/?ref=en_PP.703.1&para=84.3304
   basedon: This chapter is based on 2 Samuel 5:6-25; 6; 7; 9; 10.
 author:
   en: Ellen White

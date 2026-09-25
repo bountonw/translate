@@ -1,10 +1,10 @@
-// Source-url: "https://egwwritings.org/?ref=en_PP.281&para=84.1225"
+// Source-url: "https://egwwritings.org/read?panels=p84.1225"
 // English title: The Exodus
 
 #chapter(
   number: 25,
   title: "การอพยพออกจากอียิปต์",
-  basedon: "อพยพบทที่ 12:34–51; 13–15"
+  basedon: "อพยพ 12:34–51; 13–15"
 )
 
 // {PP 281.1}

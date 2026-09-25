@@ -6,7 +6,7 @@ chapter:
   number: 72
   title:
     en: The Rebellion of Absalom
-  url: https://legacy.egwwritings.org/?ref=en_PP.727.1&para=84.3448
+  url: https://egwwritings.org/?ref=en_PP.727.1&para=84.3448
   basedon: This chapter is based on 2 Samuel 13-19.
 author:
   en: Ellen White

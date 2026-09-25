@@ -6,7 +6,7 @@ chapter:
   number: 4
   title:
     en: The Plan of Redemption
-  url: https://legacy.egwwritings.org/?ref=en_PP.63&para=84.215
+  url: https://egwwritings.org/?ref=en_PP.63&para=84.215
   basedon:
 author:
   en: Ellen White

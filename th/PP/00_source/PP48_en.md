@@ -6,7 +6,7 @@ chapter:
   number: 48
   title:
     en: The Division of Canaan
-  url: https://legacy.egwwritings.org/?ref=en_PP.510.1&para=84.2353
+  url: https://egwwritings.org/?ref=en_PP.510.1&para=84.2353
   basedon: This chapter is based on Joshua 10:40-43; 11; 14-22.
 author:
   en: Ellen White

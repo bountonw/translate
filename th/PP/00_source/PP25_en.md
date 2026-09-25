@@ -6,7 +6,7 @@ chapter:
   number: 25
   title:
     en: The Exodus
-  url: https://legacy.egwwritings.org/?ref=en_PP.281.1&para=84.1226
+  url: https://egwwritings.org/?ref=en_PP.281.1&para=84.1226
   basedon: This chapter is based on Exodus 12:34-51; 13-15.
 author:
   en: Ellen White

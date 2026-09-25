@@ -6,7 +6,7 @@ chapter:
   number: 67
   title:
     en: Ancient and Modern Sorcery
-  url: https://legacy.egwwritings.org/?ref=en_PP.683.1&para=84.3204
+  url: https://egwwritings.org/?ref=en_PP.683.1&para=84.3204
   basedon:
 author:
   en: Ellen White

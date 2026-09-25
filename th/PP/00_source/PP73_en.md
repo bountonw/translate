@@ -6,7 +6,7 @@ chapter:
   number: 73
   title:
     en: The Last Years of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.746.1&para=84.3536
+  url: https://egwwritings.org/?ref=en_PP.746.1&para=84.3536
   basedon: This chapter is based on 2 Samuel 24; 1 Kings 1; 1 Chronicles 21; 28; 29.
 author:
   en: Ellen White

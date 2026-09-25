@@ -6,7 +6,7 @@ chapter:
   number: 62
   title:
     en: The Anointing of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.637.1&para=84.2997
+  url: https://egwwritings.org/?ref=en_PP.637.1&para=84.2997
   basedon: This chapter is based on 1 Samuel 16:1-13.
 author:
   en: Ellen White

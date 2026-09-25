@@ -6,7 +6,7 @@ chapter:
   number: 15
   title:
     en: The Marriage of Isaac
-  url: https://legacy.egwwritings.org/?ref=en_PP.171&para=84.697
+  url: https://egwwritings.org/?ref=en_PP.171&para=84.697
   basedon: This chapter is based on Genesis 24.
 author:
   en: Ellen White

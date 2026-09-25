@@ -6,7 +6,7 @@ chapter:
   number: 60
   title:
     en: The Presumption of Saul
-  url: https://legacy.egwwritings.org/?ref=en_PP.616.1&para=84.2901
+  url: https://egwwritings.org/?ref=en_PP.616.1&para=84.2901
   basedon: This chapter is based on 1 Samuel 13; 1 Samuel 14.
 author:
   en: Ellen White

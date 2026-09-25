@@ -6,7 +6,7 @@ chapter:
   number: 28
   title:
     en: Idolatry at Sinai
-  url: https://legacy.egwwritings.org/?ref=en_PP.315.1&para=84.1404
+  url: https://egwwritings.org/?ref=en_PP.315.1&para=84.1404
   basedon: This chapter is based on Exodus 32 to 34.
 author:
   en: Ellen White

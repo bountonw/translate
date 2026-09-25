@@ -6,7 +6,7 @@ chapter:
   number: 56
   title:
     en: Eli and His Sons
-  url: https://legacy.egwwritings.org/?ref=en_PP.575.1&para=84.2699
+  url: https://egwwritings.org/?ref=en_PP.575.1&para=84.2699
   basedon: This chapter is based on 1 Samuel 2:12-36.
 author:
   en: Ellen White

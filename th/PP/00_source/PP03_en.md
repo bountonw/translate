@@ -6,7 +6,7 @@ chapter:
   number: 3
   title:
     en: The Temptation and Fall
-  url: https://legacy.egwwritings.org/?ref=en_PP.52&para=84.155
+  url: https://egwwritings.org/?ref=en_PP.52&para=84.155
   basedon: This chapter is based on Genesis 3.
 author:
   en: Ellen White

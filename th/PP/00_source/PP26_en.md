@@ -6,7 +6,7 @@ chapter:
   number: 26
   title:
     en: From the Red Sea to Sinai
-  url: https://legacy.egwwritings.org/?ref=en_PP.291.1&para=84.1271
+  url: https://egwwritings.org/?ref=en_PP.291.1&para=84.1271
   basedon: This chapter is based on Exodus 15:22-27; 16 to 18.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 16
   title:
     en: Jacob and Esau
-  url: https://legacy.egwwritings.org/?ref=en_PP.177.1&para=84.730
+  url: https://egwwritings.org/?ref=en_PP.177.1&para=84.730
   basedon: This chapter is based on Genesis 25:19-24; 27.
 author:
   en: Ellen White

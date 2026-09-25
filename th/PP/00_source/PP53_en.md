@@ -6,7 +6,7 @@ chapter:
   number: 53
   title:
     en: The Earlier Judges
-  url: https://legacy.egwwritings.org/?ref=en_PP.543.1&para=84.2539
+  url: https://egwwritings.org/?ref=en_PP.543.1&para=84.2539
   basedon: This chapter is based on Judges 6 to 8; 10.
 author:
   en: Ellen White

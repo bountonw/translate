@@ -6,7 +6,7 @@ chapter:
   number: 37
   title:
     en: The Smitten Rock
-  url: https://legacy.egwwritings.org/?ref=en_PP.411.1&para=84.1888
+  url: https://egwwritings.org/?ref=en_PP.411.1&para=84.1888
   basedon: This chapter is based on Numbers 20:1-13.
 author:
   en: Ellen White

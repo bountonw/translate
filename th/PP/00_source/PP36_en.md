@@ -6,7 +6,7 @@ chapter:
   number: 36
   title:
     en: In the Wilderness
-  url: https://legacy.egwwritings.org/?ref=en_PP.406.1&para=84.1860
+  url: https://egwwritings.org/?ref=en_PP.406.1&para=84.1860
   basedon: 
 author:
   en: Ellen White

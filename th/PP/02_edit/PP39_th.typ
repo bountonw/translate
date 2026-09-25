@@ -1,3 +1,4 @@
+// Source-url: "https://egwwritings.org/read?panels=p84.1988"
 // English title: The Conquest of Bashan
 
 #chapter(

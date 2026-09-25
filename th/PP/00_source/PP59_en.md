@@ -6,7 +6,7 @@ chapter:
   number: 59
   title:
     en: The First King of Israel
-  url: https://legacy.egwwritings.org/?ref=en_PP.603.1&para=84.2833
+  url: https://egwwritings.org/?ref=en_PP.603.1&para=84.2833
   basedon: This chapter is based on 1 Samuel 8 to 12.
 author:
   en: Ellen White

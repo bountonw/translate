@@ -6,7 +6,7 @@ chapter:
   number: 58
   title:
     en: The Schools of the Prophets
-  url: https://legacy.egwwritings.org/?ref=en_PP.592.1&para=84.2787
+  url: https://egwwritings.org/?ref=en_PP.592.1&para=84.2787
   basedon: 
 author:
   en: Ellen White

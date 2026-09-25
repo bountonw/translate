@@ -6,7 +6,7 @@ chapter:
   number: 38
   title:
     en: The Journey Around Edom
-  url: https://legacy.egwwritings.org/?ref=en_PP.422.1&para=84.1933
+  url: https://egwwritings.org/?ref=en_PP.422.1&para=84.1933
   basedon: This chapter is based on Numbers 20:14-29; 21:1-9.
 author:
   en: Ellen White
