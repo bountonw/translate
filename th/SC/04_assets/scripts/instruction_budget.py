@@ -25,6 +25,7 @@ BUDGET = {
     "lo/FB/CLAUDE.md": 1100,
     ".claude/commands/lo-fb.md": 150,
     ".claude/agents/fb-phrase-drill.md": 900,
+    "lo/assets/translation_profile/lao-profile.txt": 900,
 }
 
 

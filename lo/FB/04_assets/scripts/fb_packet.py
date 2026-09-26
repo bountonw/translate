@@ -3,13 +3,14 @@
 
     python3 lo/FB/04_assets/scripts/fb_packet.py --belief 07 [--out ~/claude-sandbox/fb-audit]
 
-Writes fbNN-packet.md with: the English statement; every verse of its reference list in KJV, LCV
-and LO2012 (a range of up to 8 verses is quoted, a whole chapter or a longer range is listed);
-the verse each embedded quotation most resembles, searched over the quoted verses and the KJV text of every listed chapter; the GC glossary rows whose English head occurs
-in the statement, with the count of each Lao form in lo/GC/03_public and lo/AA; the translator's
-conventions (sections 5 and 6 of the web instructions); and every Lao belief file already in
-lo/FB. Verses come from ~/programming/LMV/scripts/brief.py; zero-width spaces and pilcrows are
-stripped from every quoted line.
+Writes fbNN-packet.md with: the English statement; every verse of its reference list in KJV, LCV,
+LO2012, TH1971, THSV and TKJV (a range of up to 8 verses is quoted, a whole chapter or a longer
+range is listed); the verse each embedded quotation most resembles, searched over the quoted
+verses and the KJV text of every listed chapter; the rows of the Lao glossary, the GC glossary
+and the Thai glossary whose English head occurs in the statement, with the count of each Lao form
+in lo/GC/03_public and lo/AA; the Lao profile; and every Lao belief file already in lo/FB. The
+Thai is for wording comparison, since the Lao Bibles render dynamically. Verses come from
+~/programming/LMV/scripts/brief.py; zero-width spaces and pilcrows are stripped from every line.
 """
 import argparse
 import difflib
@@ -20,11 +21,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 BRIEF = Path.home() / "programming/LMV/scripts/brief.py"
-GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
+KJV_DIR = Path.home() / "programming/bible/en/KJVS"
+LAO_GLOSSARY = ROOT / "lo/assets/translation_profile/lao-glossary.txt"
+GC_GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
+THAI_GLOSSARY = ROOT / "th/assets/translation_profile/thai-glossary.txt"
+PROFILE = ROOT / "lo/assets/translation_profile/lao-profile.txt"
 CONVENTIONS = [ROOT / "lo/FB/04_assets/planning/web-instructions.txt", ROOT / "lo/FB/statements.txt"]
 CORPUS = [ROOT / "lo/GC/03_public", ROOT / "lo/AA"]
+VERSIONS = ("KJV", "LCV", "LO2012", "TH1971", "THSV", "TKJV")
 MAX_QUOTED_RANGE = 8
-KJV_DIR = Path.home() / "programming/bible/en/KJVS"
 
 BOOKS = {
     "Gen": "GEN", "Exod": "EXO", "Lev": "LEV", "Num": "NUM", "Deut": "DEU", "Josh": "JOS", "Judg": "JDG",
@@ -94,14 +99,14 @@ def clean(line):
 
 
 def verse(code, chap, v):
-    """KJV, LCV, LO2012 for one verse, or None when the verse does not exist."""
-    r = subprocess.run([sys.executable, str(BRIEF), code, f"{chap}:{v}", "--no-thai"], capture_output=True, text=True)
+    """The six versions of one verse, or None when the verse does not exist."""
+    r = subprocess.run([sys.executable, str(BRIEF), code, f"{chap}:{v}"], capture_output=True, text=True)
     out = {}
     for line in r.stdout.splitlines():
-        m = re.match(r"^\s{2}(KJV|LCV|LO2012)\s+(.*)$", line)
+        m = re.match(r"^\s{2}(" + "|".join(VERSIONS) + r")\s+(.*)$", line)
         if m:
             out[m.group(1)] = clean(m.group(2))
-    return out or None
+    return out if "KJV" in out else None
 
 
 def gather_verses(refs):
@@ -170,24 +175,24 @@ def match_quotations(prose, quoted, refs):
     return out
 
 
-def glossary_rows(prose):
-    if not GLOSSARY.exists():
-        return [], "glossary file missing"
+def glossary_rows(prose, path):
+    """Rows of a pipe-table glossary whose English head, or one of its slash-separated heads, occurs in the prose."""
+    if not path.exists():
+        return []
     words = set(norm_words(prose))
     rows = []
-    for line in GLOSSARY.read_text(encoding="utf-8").splitlines():
+    for line in path.read_text(encoding="utf-8").splitlines():
         if not line.startswith("| ") or line.startswith("| English") or line.startswith("|---"):
             continue
         cells = [c.strip() for c in line.strip("|").split("|")]
         if len(cells) < 2:
             continue
-        heads = [h.strip() for h in re.split(r"/|,", cells[0])]
-        for h in heads:
+        for h in [h.strip() for h in re.split(r"/|,", cells[0])]:
             hw = norm_words(re.sub(r"\(.*?\)", "", h))
             if hw and all(w in words for w in hw):
                 rows.append(cells)
                 break
-    return rows, ""
+    return rows
 
 
 def corpus_counts(lao_forms):
@@ -205,6 +210,8 @@ def corpus_counts(lao_forms):
 
 
 def conventions():
+    if PROFILE.exists():
+        return PROFILE, PROFILE.read_text(encoding="utf-8")
     for p in CONVENTIONS:
         if p.exists():
             text = p.read_text(encoding="utf-8")
@@ -221,6 +228,10 @@ def lao_files():
     return out
 
 
+def table(rows):
+    return ["| English | Lao/Thai | Notes |", "|---|---|---|"] + ["| " + " | ".join(r) + " |" for r in rows] if rows else ["No row matches."]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--belief", required=True, type=int)
@@ -230,8 +241,10 @@ def main():
     title, prose, refs, para = read_statement(n)
     quoted, listed = gather_verses(refs)
     quotations = match_quotations(prose, quoted, refs)
-    rows, gloss_note = glossary_rows(prose)
-    forms = sorted({f.strip() for r in rows for f in r[1].split("/") if f.strip()})
+    rows_lao = glossary_rows(prose, LAO_GLOSSARY)
+    rows_gc = glossary_rows(prose, GC_GLOSSARY)
+    rows_th = glossary_rows(prose, THAI_GLOSSARY)
+    forms = sorted({f.strip() for r in rows_lao + rows_gc for f in re.split(r"/", r[1]) if f.strip() and not f.strip().startswith("(")})
     counts = corpus_counts(forms)
     conv_path, conv = conventions()
     drafts = lao_files()
@@ -240,7 +253,7 @@ def main():
     L += ["## 2. Reference list, verse by verse", ""]
     for label, got in quoted:
         L.append(f"### {label}")
-        for k in ("KJV", "LCV", "LO2012"):
+        for k in VERSIONS:
             if k in got:
                 L.append(f"{k}: {got[k]}")
         L.append("")
@@ -250,20 +263,18 @@ def main():
     if quotations:
         for q, best in quotations:
             if best and best[0] >= 0.5:
-                L.append(f"- “{q}” — closest verse {best[1]} (word overlap {best[0]:.0%}); its LCV and LO2012 are in section 2 or fetched by brief.py")
+                L.append(f"- “{q}” — closest verse {best[1]} (word overlap {best[0]:.0%}); its versions are in section 2 or come from brief.py")
             else:
                 L.append(f"- “{q}” — no verse of the reference list matches above 50%")
     else:
         L.append("None in quotation marks.")
-    L += ["", "## 4. GC glossary rows whose English head occurs in the statement", ""]
-    if gloss_note:
-        L.append(gloss_note)
-    for r in rows:
-        L.append("| " + " | ".join(r) + " |")
-    L += ["", "Corpus count of each Lao form in lo/GC/03_public and lo/AA:", ""]
-    for f, c in counts.items():
-        L.append(f"- {f}: {c}")
-    L += ["", f"## 5. Conventions ({conv_path.relative_to(ROOT) if conv_path else 'file missing'})", "", conv.rstrip(), ""]
+    L += ["", "## 4. Glossary rows whose English head occurs in the statement", "",
+          "### 4.A. Lao glossary (lo/assets/translation_profile/lao-glossary.txt)", ""] + table(rows_lao)
+    L += ["", "### 4.B. GC glossary (lo/GC/04_assets/translation_profile/GC-glossary.txt)", ""] + table(rows_gc)
+    L += ["", "### 4.C. Thai glossary, for wording comparison (th/assets/translation_profile/thai-glossary.txt)", ""] + table(rows_th)
+    L += ["", "### 4.D. Count of each Lao form in lo/GC/03_public and lo/AA", ""]
+    L += [f"- {f}: {c}" for f, c in counts.items()] or ["None."]
+    L += ["", f"## 5. Lao profile ({conv_path.relative_to(ROOT) if conv_path else 'file missing'})", "", conv.rstrip(), ""]
     L += ["## 6. Lao belief files in lo/FB", ""]
     for p, text in drafts:
         L += [f"### {p.relative_to(ROOT)}", "", text.rstrip(), ""]
@@ -274,7 +285,7 @@ def main():
     dest = out / f"fb{n:02d}-packet.md"
     dest.write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"{dest}: {len(quoted)} verses quoted, {len(listed)} references listed, {len(quotations)} quotations, "
-          f"{len(rows)} glossary rows, {len(drafts)} Lao files, {len(' '.join(L).split())} words")
+          f"glossary rows Lao {len(rows_lao)} GC {len(rows_gc)} Thai {len(rows_th)}, {len(drafts)} Lao files")
     return 0
 
 

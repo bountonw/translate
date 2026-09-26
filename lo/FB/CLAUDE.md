@@ -18,15 +18,15 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 2.A. English source: lo/FB/00_source/FBNN_en.md, one belief per file, anchored "## {FB N.1}" with the tag "{FB N.1}" at the paragraph end; FB00_preamble_en.md is the preamble. The official booklet is source/FB/ADV-28Beliefs2020.pdf; lo/FB/04_assets/scripts/fb_source_split.py made the anchored files from its text.
 2.B. Lao statements: lo/FB/01_raw, 02_edit or 03_public, FBNN_lo.typ, one belief per file; confirm the stage with ls. A file moves to the next stage when its round is resolved; the translator moves it.
 2.C. Lao book chapters: SBNN_lo.typ in the same stage directories, anchored {SB N.P} by chapter and paragraph; a chapter includes its statement file rather than repeating the text. The English source will be lo/FB/00_source/SBNN_en.md.
-2.D. Governing files: lo/FB/04_assets/planning/web-instructions.txt sections 5 and 6 (the translator's conventions and locked terms from the web project) until lo/FB/04_assets/translation_profile/FB-profile.txt and FB-glossary.txt are written; lo/assets/translation_profile/profile.txt. The GC glossary is lo/GC/04_assets/translation_profile/GC-glossary.txt, copied from the GC-instructions branch on 26 September 2026; FB reads it and never edits it. A row guides and never rules.
-2.E. Lao Bibles: LCV and LO2012 under ~/programming/bible, the Thai versions beside them; python3 ~/programming/LMV/scripts/brief.py JHN 3:16 prints every version of a verse. A verse is quoted from its file with its zero-width spaces stripped; a verse not on disk is flagged.
+2.D. Governing files: lo/assets/translation_profile/lao-profile.txt and lao-glossary.txt, shared by every Lao book, a line or row tagged FB binding this project. The GC glossary lo/GC/04_assets/translation_profile/GC-glossary.txt, copied from the GC-instructions branch, is read and never edited. th/assets/translation_profile/thai-glossary.txt and the formal Thai Bible versions are read for wording comparison, because the Lao Bibles are dynamic; the Lao is never translated from the Thai. A row guides and never rules.
+2.E. Bibles: LCV and LO2012 under ~/programming/bible, the Thai versions beside them; python3 ~/programming/LMV/scripts/brief.py JHN 3:16 prints every version of a verse; the packet quotes KJV, LCV, LO2012, TH1971, THSV and TKJV. A verse is quoted from its file with its zero-width spaces stripped; a verse not on disk is flagged.
 2.F. Session outputs: ~/claude-sandbox/fb-audit/.
 2.G. Scripts: lo/FB/04_assets/scripts/, invoked by that relative path from the repository root.
 
 ## 3. Phrase round ("FB07")
 
 3.A. Preflight: FB07_en.md exists; no FB07_lo.typ exists in any stage, else name the stage and stop.
-3.B. Packet: python3 lo/FB/04_assets/scripts/fb_packet.py --belief 07 writes ~/claude-sandbox/fb-audit/fb07-packet.md: the English; every verse of the reference list and every embedded quotation in LCV and LO2012; the glossary rows and the GC and AA renderings of the belief's key terms; the conventions of 2.D. Data only; no judgment.
+3.B. Packet: python3 lo/FB/04_assets/scripts/fb_packet.py --belief 07 writes ~/claude-sandbox/fb-audit/fb07-packet.md: the English; every verse of the reference list and every embedded quotation in the six versions of 2.E; the Lao, GC and Thai glossary rows for the belief's key terms with their counts in lo/GC/03_public and lo/AA; the Lao profile. Data only; no judgment.
 3.C. Dispatch fb-phrase-drill (Fable, xhigh) with the belief number and the packet path. It segments the English into phrases smaller than sentences; for each phrase it weighs up to 9 renderings in the whole statement and writes the top 5 to ~/claude-sandbox/fb-audit/fb07-phrases.md, fix1 first with one sentence of reason each, naming any doctrinal weight, loophole or shift of precision the phrase carries. It writes fix1 of every phrase, in order, into lo/FB/01_raw/FB07_lo.typ.
 3.D. Report: every phrase as a numbered item, the English in bold, the five fixes, then the summary list. The translator replies "N. fixK" or "N. applied: <wording>" per phrase; the session writes each choice into the draft.
 
@@ -54,7 +54,6 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 7.D. Never transliterate Lao or Thai. Copy every Lao form out of a file; grep any form you did not copy. Never write a zero-width space into a manuscript.
 7.E. Western numerals. Literal item numbers, never an auto-numbered list. Text meant to be copied goes in a code box holding only that text.
 7.F. Never override an agent's model or effort. Never apply a change across beliefs on your own initiative; give the translator the sites and the change at each.
-7.G. Until the FB-lo branch is deleted, the last NOTE of every report's summary reminds the translator to delete it.
 7.H. Governing files are edited only on the translator's ruling, in the same reply.
 
 ## 8. The book

@@ -11,7 +11,7 @@ You draft the phrase-level Lao of one statement of the 28 Fundamental Beliefs fo
 ## 1. Inputs
 
 1.A. From the conductor: the belief number NN and the packet path ~/claude-sandbox/fb-audit/fbNN-packet.md.
-1.B. Read the packet in full: the English, the reference list in KJV, LCV and LO2012, the embedded quotations, the glossary rows and corpus counts, the conventions, and the Lao belief files already written. Read lo/FB/00_source/FBNN_en.md for the English.
+1.B. Read the packet in full: the English, the reference list in KJV, LCV, LO2012 and the formal Thai versions, the embedded quotations, the Lao, GC and Thai glossary rows with corpus counts, the Lao profile, and the Lao belief files already written. The Thai is there for wording comparison, because the Lao Bibles render dynamically; the Lao is never translated from the Thai. Read lo/FB/00_source/FBNN_en.md for the English.
 1.C. The conventions in the packet bind: orthography, the honorific ຊົງ on divine verbs, punctuation, the quotation policy, the reference line, the locked terms. A glossary row guides and never rules; the statement stands on its own merits, judged in its whole passage.
 1.D. Corpus: grep lo/GC/03_public, lo/AA and lo/FB for any Lao form you weigh; LCV and LO2012 by python3 ~/programming/LMV/scripts/brief.py CODE C:V --no-thai. A rendering is idiom Lao readers use, attested in those files. A phrase assembled from corpus words to copy English structure is a coinage and is refused.
 
