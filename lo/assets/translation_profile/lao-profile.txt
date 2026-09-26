@@ -1,0 +1,39 @@
+# Lao translation profile
+
+Read this file and lao-glossary.txt before drafting or auditing Lao. Where they are silent, the translator's finished books are the precedent, the published GC first; precedent guides, it never rules. A line that opens with a book code binds that book and guides the others until the translator widens it.
+
+## 1. Philosophy
+
+1.A. Ellen White's books are translated dynamically. FB: statements of belief are translated formally, close to the wording; assert no more and no less than the English.
+
+## 2. Orthography
+
+2.A. FB: ພຣະ not ພະ.
+2.B. FB: ເຊິ່ງ not ຊຶ່ງ.
+2.C. FB: ຫຼ not ຫລ.
+2.D. FB: ສະຫງ່າຣາສີ not ສະຫງ່າລາສີ.
+2.E. FB: Etymological ຣ retained in religious/royal Indic loans (ພຣະ, ຣາຊ, ຣາສີ, ນິຣະມິດ, ອິດສະຣາເອນ); not restored in secularized vocabulary (ຈັກກະວານ, ປະຫວັດສາດ).
+2.F. FB: ຣາຊ compounds take no linking ະ: ພຣະຣາຊກິດ.
+2.G. FB: ຳ ligature, not ໍາ: ຄຳ, ສຳເລັດ, ກະທຳ.
+
+## 3. Punctuation and style
+
+3.A. FB: Honorific ຊົງ on divine verbs. ໄດ້ຊົງ where perfective or resultative emphasis is wanted (sentence-opening main verbs, after ຈຶ່ງ, sequence culminations); bare ຊົງ in mid-sequence narration. Follow FB6's distribution.
+3.B. FB: A semicolon may stand alone to join closely related independent clauses (no ແລະ after it).
+3.C. FB: Comma after fronted adverbial phrases and connectives (ໃນພຣະຄຳພີ, / ດ້ວຍເຫດນີ້, / ໃນອະດີດອັນບໍ່ໄກ,). Fronted ເມື່ອ...ແລ້ວ clauses run open; ແລ້ວ and ກໍ mark the juncture.
+3.D. FB: Spaces around ແລະ.
+3.E. FB: Heading format: == N — [Lao title]
+
+## 4. Scripture quotations
+
+4.A. FB: No single base version. Embedded quotations are the translators' rendering, harmonized eclectically with ພຄພ/LO2012 and LCV, set in “ ” marks, in project orthography.
+
+## 5. Reference line
+
+5.A. FB: Format: (ສຶກສາເພີ່ມເຕີມ: ...) — semicolons between books, period after the closing parenthesis.
+5.B. FB: Book names as established (LCV-compatible): ປະຖົມມະການ, ອົບພະຍົບ, ເພງສັນລະເສີນ, ເອຊາຢາ, ກິດຈະການ, ໂກໂລຊາຍ, ເຮັບເຣີ, ພຣະນິມິດ. Extend as new books appear; verify by search when uncertain.
+
+## 6. Text
+
+6.A. Western numerals only.
+6.B. No invisible characters; a zero-width space is never written into a manuscript. Line breaking is decided at typesetting time, never in a manuscript.

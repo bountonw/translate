@@ -1,0 +1,43 @@
+# Lao Glossary — shared by every Lao project (GC, AA, FB, ...)
+
+<!-- Being built. A row enters this file only after the translator adjudicates it. The GC rows stay in lo/GC/04_assets/translation_profile/GC-glossary.txt until the glossary rework moves them here. A row's Notes name the book that ruled it and the anchor of its evidence; [CHECK] means an agent marks any other form in that book; a row is silent otherwise. A row guides and never rules. -->
+
+## 1. Theological terms
+
+| English | Lao | Notes |
+|---|---|---|
+| God | ພຣະເຈົ້າ | [CHECK] FB 6.1 |
+| the Lord | ອົງພຣະຜູ້ເປັນເຈົ້າ | [CHECK] FB 6.1 |
+| He | ພຣະອົງ | [CHECK] FB 6.1 |
+| Scripture | ພຣະຄຳພີ | [CHECK] FB 6.1 |
+| reveal | ຊົງເປີດເຜີຍ | [CHECK] FB 6.1 |
+| account (noun) | ບັນທຶກ | [CHECK] FB 6.1. bare noun; not ການບັນທຶກ/ບົດບັນທຶກ |
+| creative work | ພຣະຣາຊກິດການຊົງສ້າງ | [CHECK] FB 6.1 |
+| create | ຊົງສ້າງ / ຊົງນິຣະມິດສ້າງ | [CHECK] FB 6.1. elevated: ຊົງນິຣະມິດສ້າງ |
+| universe | ຈັກກະວານ | [CHECK] FB 6.1 |
+| rested | ຊົງຢຸດພັກ | [CHECK] FB 6.1 |
+| seventh day | ວັນທີເຈັດ | [CHECK] FB 6.1 |
+| Sabbath | ວັນສະບາໂຕ | [CHECK] FB 6.1 |
+| perpetual memorial | ອະນຸສອນອັນຖາວອນ | [CHECK] FB 6.1. glossed ທີ່ເຕືອນໃຈໃຫ້ລະນຶກເຖິງ |
+| literal days | ວັນແທ້ຕາມຄວາມໝາຍທຳມະດາ | [CHECK] FB 6.1 |
+| unit of time | ຫົວໜ່ວຍເວລາ | [CHECK] FB 6.1 |
+| week | ສັບປະດາ | [CHECK] FB 6.1 |
+| image of God | ພຣະລັກສະນະ | [CHECK] FB 6.1 |
+| crowning work | ຜົນງານອັນສູງສຸດ | [CHECK] FB 6.1 |
+| dominion | ມອບອຳນາດໃຫ້...ປົກຄອງເໜືອ | [CHECK] FB 6.1 |
+| care for | ເບິ່ງແຍງຮັກສາ | [CHECK] FB 6.1 |
+| very good | ດີຫຼາຍ | [CHECK] FB 6.1 |
+| glory | ສະຫງ່າຣາສີ | [CHECK] FB 6.1 |
+
+## 2. Proper nouns
+
+| English | Lao | Notes |
+|---|---|---|
+| Genesis | ປະຖົມມະການ | [CHECK] FB reference line; LCV-compatible |
+| Exodus | ອົບພະຍົບ | [CHECK] FB reference line; LCV-compatible |
+| Psalms | ເພງສັນລະເສີນ | [CHECK] FB reference line; LCV-compatible |
+| Isaiah | ເອຊາຢາ | [CHECK] FB reference line; LCV-compatible |
+| Acts | ກິດຈະການ | [CHECK] FB reference line; LCV-compatible |
+| Colossians | ໂກໂລຊາຍ | [CHECK] FB reference line; LCV-compatible |
+| Hebrews | ເຮັບເຣີ | [CHECK] FB reference line; LCV-compatible |
+| Revelation | ພຣະນິມິດ | [CHECK] FB reference line; LCV-compatible |
