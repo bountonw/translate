@@ -1,0 +1,16 @@
+---
+book:
+  title:
+    en: 28 Fundamental Beliefs of Seventh-day Adventists
+chapter:
+  number: 11
+  title:
+    en: Growing in Christ
+  url: https://www.adventist.org/beliefs/
+source:
+  en: ADV-28Beliefs2020.pdf, General Conference of Seventh-day Adventists, 2020 edition; text as amended at the 2015 General Conference Session
+---
+
+## {FB 11.1}
+
+By His death on the cross Jesus triumphed over the forces of evil. He who subjugated the demonic spirits during His earthly ministry has broken their power and made certain their ultimate doom. Jesus’ victory gives us victory over the evil forces that still seek to control us, as we walk with Him in peace, joy, and assurance of His love. Now the Holy Spirit dwells within us and empowers us. Continually committed to Jesus as our Saviour and Lord, we are set free from the burden of our past deeds. No longer do we live in the darkness, fear of evil powers, ignorance, and meaninglessness of our former way of life. In this new freedom in Jesus, we are called to grow into the likeness of His character, communing with Him daily in prayer, feeding on His Word, meditating on it and on His providence, singing His praises, gathering together for worship, and participating in the mission of the Church. We are also called to follow Christ’s example by compassionately ministering to the physical, mental, social, emotional, and spiritual needs of humanity. As we give ourselves in loving service to those around us and in witnessing to His salvation, His constant presence with us through the Spirit transforms every moment and every task into a spiritual experience. (1 Chron. 29:11; Ps. 1:1, 2; 23:4; 77:11, 12; Matt. 20:25-28; 25:31-46; Luke 10:17-20; John 20:21; Rom. 8:38, 39; 2 Cor. 3:17, 18; Gal. 5:22-25; Eph. 5:19, 20; 6:12-18; Phil. 3:7-14; Col. 1:13, 14; 2:6, 14, 15; 1 Thess. 5:16-18, 23; Heb. 10:25; James 1:27; 2 Peter 2:9; 3:18; 1 John 4:4.) {FB 11.1}
