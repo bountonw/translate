@@ -94,7 +94,7 @@ def main():
          "<!-- Being built. A row enters this file only after the translator adjudicates it. The GC rows stay in lo/GC/04_assets/translation_profile/GC-glossary.txt until the glossary rework moves them here. A row's Notes name the book that ruled it and the anchor of its evidence; [CHECK] means an agent marks any other form in that book; a row is silent otherwise. A row guides and never rules. -->",
          "", "## 1. Theological terms", "", "| English | Lao | Notes |", "|---|---|---|"]
     for en, lao, note in entries6(text):
-        notes = "[CHECK] FB 6.1" + (f". {note}" if note else "")
+        notes = "[CHECK] FB 6" + (f". {note}" if note else "")
         G.append(f"| {en} | {lao} | {notes} |")
     names = re.search(r"\):\s*(.*?)\.\s*Extend", it["5.D.2"]).group(1).split(", ")
     G += ["", "## 2. Proper nouns", "", "| English | Lao | Notes |", "|---|---|---|"]

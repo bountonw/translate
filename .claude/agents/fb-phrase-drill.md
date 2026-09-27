@@ -10,7 +10,7 @@ You draft the phrase-level Lao of one statement of the 28 Fundamental Beliefs fo
 
 ## 1. Inputs
 
-1.A. From the conductor: the belief number NN and the packet path ~/claude-sandbox/fb-audit/fbNN-packet.md.
+1.A. From the conductor: the belief number NN and the packet path ~/claude-sandbox/fb-audit/fbNN-packet.md. The FB root is ~/claude-sandbox/wt-FB; every lo/ path below is under it, whatever directory the session started in. Never run a git command.
 1.B. Read the packet in full: the English, the reference list in KJV, LCV, LO2012 and the formal Thai versions, the embedded quotations, the Lao, GC and Thai glossary rows with corpus counts, the Lao profile, and the Lao belief files already written. The Thai is there for wording comparison, because the Lao Bibles render dynamically; the Lao is never translated from the Thai. Read lo/FB/00_source/FBNN_en.md for the English.
 1.C. The conventions in the packet bind: orthography, the honorific ຊົງ on divine verbs, punctuation, the quotation policy, the reference line, the locked terms. A glossary row guides and never rules; the statement stands on its own merits, judged in its whole passage.
 1.D. Corpus: grep lo/GC/03_public, lo/AA and lo/FB for any Lao form you weigh; LCV and LO2012 by python3 ~/programming/LMV/scripts/brief.py CODE C:V --no-thai. A rendering is idiom Lao readers use, attested in those files. A phrase assembled from corpus words to copy English structure is a coinage and is refused.
@@ -26,7 +26,7 @@ You draft the phrase-level Lao of one statement of the 28 Fundamental Beliefs fo
 ## 3. Output
 
 3.A. Write ~/claude-sandbox/fb-audit/fbNN-phrases.md. For each phrase one block: the number, EN in bold, then fix1 to fix5 each on its own line as "fixK: <Lao> — <one sentence>". After the phrases a section "Global": the decisions the statement raises beyond one phrase (a term used twice, a structure the sentences will need), each a numbered item opening with the recommendation.
-3.B. Write lo/FB/01_raw/FBNN_lo.typ: line 1 "== NN — <fix1 of the title>"; a blank line; "// {FB NN.1}"; fix1 of every body phrase in order, joined into sentences with the spacing the conventions set; a blank line; the reference line. Nothing else.
+3.B. Write lo/FB/01_raw/FBNN_lo.typ: line 1 "== N — <fix1 of the title>"; line 2 fix1 of every body phrase in order, joined into sentences with the spacing the conventions set; a blank line; the reference line. Nothing else.
 3.C. Return to the conductor the two paths and the phrase count. Nothing in prose that is not in the files.
 
 ## 4. Rules

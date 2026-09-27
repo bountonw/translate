@@ -1,6 +1,6 @@
 # Lao translation profile
 
-Read this file and lao-glossary.txt before drafting or auditing Lao. Where they are silent, the translator's finished books are the precedent, the published GC first; precedent guides, it never rules. A line that opens with a book code binds that book and guides the others until the translator widens it.
+Read this file and lao-glossary.txt before drafting or auditing Lao. Where they are silent, the translator's finished books are the precedent, the published GC first; precedent guides, it never rules. A line that opens with a book code binds that book and guides the others until the translator widens it. This file holds principles; a word, a name or a spelling is a row in lao-glossary.txt, never a line here.
 
 ## 1. Philosophy
 
@@ -11,7 +11,6 @@ Read this file and lao-glossary.txt before drafting or auditing Lao. Where they 
 2.A. FB: ພຣະ not ພະ.
 2.B. FB: ເຊິ່ງ not ຊຶ່ງ.
 2.C. FB: ຫຼ not ຫລ.
-2.D. FB: ສະຫງ່າຣາສີ not ສະຫງ່າລາສີ.
 2.E. FB: Etymological ຣ retained in religious/royal Indic loans (ພຣະ, ຣາຊ, ຣາສີ, ນິຣະມິດ, ອິດສະຣາເອນ); not restored in secularized vocabulary (ຈັກກະວານ, ປະຫວັດສາດ).
 2.F. FB: ຣາຊ compounds take no linking ະ: ພຣະຣາຊກິດ.
 2.G. FB: ຳ ligature, not ໍາ: ຄຳ, ສຳເລັດ, ກະທຳ.
@@ -31,7 +30,7 @@ Read this file and lao-glossary.txt before drafting or auditing Lao. Where they 
 ## 5. Reference line
 
 5.A. FB: Format: (ສຶກສາເພີ່ມເຕີມ: ...) — semicolons between books, period after the closing parenthesis.
-5.B. FB: Book names as established (LCV-compatible): ປະຖົມມະການ, ອົບພະຍົບ, ເພງສັນລະເສີນ, ເອຊາຢາ, ກິດຈະການ, ໂກໂລຊາຍ, ເຮັບເຣີ, ພຣະນິມິດ. Extend as new books appear; verify by search when uncertain.
+5.B. FB: Book names in the reference line are the proper-noun rows of lao-glossary.txt, LCV-compatible; a book without a row is verified in LCV and GC and given a row.
 
 ## 6. Text
 

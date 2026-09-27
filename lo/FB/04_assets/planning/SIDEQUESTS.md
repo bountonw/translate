@@ -8,20 +8,14 @@ The book has been translated into Lao. The translator adds it later as a resourc
 
 Detail: lo/FB/CLAUDE.md 2.C and 8. Small.
 
-## 6. fb-sentence-drill
-
-The Fable xhigh agent of lo/FB/CLAUDE.md 4.B: 8/4/1 per sentence, SENT markers in the draft, on the model of .claude/agents/fb-phrase-drill.md.
-
-Detail: lo/FB/CLAUDE.md 4.B. Small.
-
-## 7. fb_check.py and fb-final-read
-
-The check script of 5.A, built from the conventions of the web instructions section 5 and the corpus checks of lo/GC/04_assets/scripts/gc_punctcheck.py, and the Fable xhigh final reader of 5.B.
-
-Detail: lo/FB/CLAUDE.md 5. Medium.
-
 ## 9. Typst template for FB
 
 A heading, statement and reference-line layout for a belief in lo/FB/04_assets/template/, on the SC model.
 
 Detail: th/SC/04_assets/template/. Small.
+
+## 10. Circle back to the GC queue
+
+The entry "Separate the FB-lo branch from the GC work it carries" in lo/GC/04_assets/planning/SIDEQUESTS.md on the GC-instructions branch is finished: FB-creation carries the two FB files and FB-lo is deleted. The entry is removed in a session opened in ~/claude-sandbox/wt-gc-instructions, never from here (ruled 26 September).
+
+Detail: this entry. Trivial.

@@ -6,28 +6,30 @@
 
 | English | Lao | Notes |
 |---|---|---|
-| God | ພຣະເຈົ້າ | [CHECK] FB 6.1 |
-| the Lord | ອົງພຣະຜູ້ເປັນເຈົ້າ | [CHECK] FB 6.1 |
-| He | ພຣະອົງ | [CHECK] FB 6.1 |
-| Scripture | ພຣະຄຳພີ | [CHECK] FB 6.1 |
-| reveal | ຊົງເປີດເຜີຍ | [CHECK] FB 6.1 |
-| account (noun) | ບັນທຶກ | [CHECK] FB 6.1. bare noun; not ການບັນທຶກ/ບົດບັນທຶກ |
-| creative work | ພຣະຣາຊກິດການຊົງສ້າງ | [CHECK] FB 6.1 |
-| create | ຊົງສ້າງ / ຊົງນິຣະມິດສ້າງ | [CHECK] FB 6.1. elevated: ຊົງນິຣະມິດສ້າງ |
-| universe | ຈັກກະວານ | [CHECK] FB 6.1 |
-| rested | ຊົງຢຸດພັກ | [CHECK] FB 6.1 |
-| seventh day | ວັນທີເຈັດ | [CHECK] FB 6.1 |
-| Sabbath | ວັນສະບາໂຕ | [CHECK] FB 6.1 |
-| perpetual memorial | ອະນຸສອນອັນຖາວອນ | [CHECK] FB 6.1. glossed ທີ່ເຕືອນໃຈໃຫ້ລະນຶກເຖິງ |
-| literal days | ວັນແທ້ຕາມຄວາມໝາຍທຳມະດາ | [CHECK] FB 6.1 |
-| unit of time | ຫົວໜ່ວຍເວລາ | [CHECK] FB 6.1 |
-| week | ສັບປະດາ | [CHECK] FB 6.1 |
-| image of God | ພຣະລັກສະນະ | [CHECK] FB 6.1 |
-| crowning work | ຜົນງານອັນສູງສຸດ | [CHECK] FB 6.1 |
-| dominion | ມອບອຳນາດໃຫ້...ປົກຄອງເໜືອ | [CHECK] FB 6.1 |
-| care for | ເບິ່ງແຍງຮັກສາ | [CHECK] FB 6.1 |
-| very good | ດີຫຼາຍ | [CHECK] FB 6.1 |
-| glory | ສະຫງ່າຣາສີ | [CHECK] FB 6.1 |
+| God | ພຣະເຈົ້າ | [CHECK] FB 6 |
+| the Lord | ອົງພຣະຜູ້ເປັນເຈົ້າ | [CHECK] FB 6 |
+| He | ພຣະອົງ | [CHECK] FB 6 |
+| Scripture | ພຣະຄຳພີ | [CHECK] FB 6 |
+| Holy Scriptures | ພຣະຄຳພີອັນສັກສິດ / ພຣະຄຣິສຕະທຳຄຳພີ / ພຣະຄຳພີ | [CHECK] FB 1 |
+| reveal | ຊົງເປີດເຜີຍ | [CHECK] FB 6 |
+| account (noun) | ບັນທຶກ | [CHECK] FB 6. bare noun; not ການບັນທຶກ/ບົດບັນທຶກ |
+| creative work | ພຣະຣາຊກິດການຊົງສ້າງ | [CHECK] FB 6 |
+| create | ຊົງສ້າງ / ຊົງນິຣະມິດສ້າງ | [CHECK] FB 6. elevated: ຊົງນິຣະມິດສ້າງ |
+| universe | ຈັກກະວານ | [CHECK] FB 6 |
+| rested | ຊົງຢຸດພັກ | [CHECK] FB 6 |
+| seventh day | ວັນທີເຈັດ | [CHECK] FB 6 |
+| Sabbath | ວັນສະບາໂຕ | [CHECK] FB 6 |
+| perpetual memorial | ອະນຸສອນອັນຖາວອນ | [CHECK] FB 6. glossed ທີ່ເຕືອນໃຈໃຫ້ລະນຶກເຖິງ |
+| literal days | ວັນແທ້ຕາມຄວາມໝາຍທຳມະດາ | [CHECK] FB 6 |
+| unit of time | ຫົວໜ່ວຍເວລາ | [CHECK] FB 6 |
+| week | ສັບປະດາ | [CHECK] FB 6 |
+| image of God | ພຣະລັກສະນະ | [CHECK] FB 6 |
+| crowning work | ຜົນງານອັນສູງສຸດ | [CHECK] FB 6 |
+| dominion | ມອບອຳນາດໃຫ້...ປົກຄອງເໜືອ | [CHECK] FB 6 |
+| care for | ເບິ່ງແຍງຮັກສາ | [CHECK] FB 6 |
+| very good | ດີຫຼາຍ | [CHECK] FB 6 |
+| glory | ສະຫງ່າຣາສີ | [CHECK] FB 6 |
+| Holy Spirit | ພຣະວິນຍານບໍຣິສຸດ | [CHECK] FB 1.1. ເຈົ້າ is added only where the English has "Lord" |
 
 ## 2. Proper nouns
 
@@ -36,8 +38,13 @@
 | Genesis | ປະຖົມມະການ | [CHECK] FB reference line; LCV-compatible |
 | Exodus | ອົບພະຍົບ | [CHECK] FB reference line; LCV-compatible |
 | Psalms | ເພງສັນລະເສີນ | [CHECK] FB reference line; LCV-compatible |
+| Proverbs | ສຸພາສິດ | [CHECK] FB reference line; LCV-compatible |
 | Isaiah | ເອຊາຢາ | [CHECK] FB reference line; LCV-compatible |
-| Acts | ກິດຈະການ | [CHECK] FB reference line; LCV-compatible |
+| John | ໂຢຮັນ | [CHECK] FB reference line; LCV-compatible |
+| Acts (Bible book) | ກິດຈະການ / ພຣະທຳກິດຈະການ | [CHECK] FB reference line; LCV-compatible. The common noun "acts" is not this row |
 | Colossians | ໂກໂລຊາຍ | [CHECK] FB reference line; LCV-compatible |
+| 1 Thessalonians | 1 ເທສະໂລນິກ | [CHECK] FB reference line; LCV-compatible |
+| 2 Timothy | 2 ຕີໂມທຽວ | [CHECK] FB reference line; LCV-compatible |
 | Hebrews | ເຮັບເຣີ | [CHECK] FB reference line; LCV-compatible |
-| Revelation | ພຣະນິມິດ | [CHECK] FB reference line; LCV-compatible |
+| 2 Peter | 2 ເປໂຕ | [CHECK] FB reference line; LCV-compatible |
+| Revelation (Bible book) | ພຣະນິມິດ / ພຣະທຳພຣະນິມິດ | [CHECK] FB reference line; LCV-compatible. The common noun "revelation" is not this row |

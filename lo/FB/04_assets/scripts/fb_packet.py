@@ -175,20 +175,39 @@ def match_quotations(prose, quoted, refs):
     return out
 
 
+STOP_WORDS = {"the", "a", "an", "as", "in", "of", "to"}
+
+
+def glossary_heads(cell):
+    """The English heads of a row's first cell: the parenthesis dropped, alternatives split on ';' and '/',
+    and an article written after a comma ("Almighty, the") put back in front ("the Almighty")."""
+    cell = re.sub(r"\(.*?\)", "", cell)
+    heads = []
+    for alt in re.split(r";|/", cell):
+        rebuilt = []
+        for piece in [p.strip() for p in alt.split(",") if p.strip()]:
+            if piece.lower() in ("the", "a", "an") and rebuilt:
+                rebuilt[-1] = f"{piece} {rebuilt[-1]}"
+            else:
+                rebuilt.append(piece)
+        heads += rebuilt
+    return [h for h in heads if set(norm_words(h)) - STOP_WORDS]
+
+
 def glossary_rows(prose, path):
-    """Rows of a pipe-table glossary whose English head, or one of its slash-separated heads, occurs in the prose."""
+    """Rows of a pipe-table glossary one of whose English heads occurs, every word of it, in the prose."""
     if not path.exists():
         return []
     words = set(norm_words(prose))
     rows = []
     for line in path.read_text(encoding="utf-8").splitlines():
-        if not line.startswith("| ") or line.startswith("| English") or line.startswith("|---"):
+        if not line.startswith("| ") or line.startswith("| English") or line.startswith("| Word") or line.startswith("|---"):
             continue
         cells = [c.strip() for c in line.strip("|").split("|")]
         if len(cells) < 2:
             continue
-        for h in [h.strip() for h in re.split(r"/|,", cells[0])]:
-            hw = norm_words(re.sub(r"\(.*?\)", "", h))
+        for h in glossary_heads(cells[0]):
+            hw = norm_words(h)
             if hw and all(w in words for w in hw):
                 rows.append(cells)
                 break
