@@ -153,6 +153,7 @@
 | image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ | [CHECK] See character; โรม 8:29 THSV พระฉายา stands inside its quotation. SC 33.3, SC 28.3, PP 88.3 |
 | filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
 | Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
+| Spirit of truth | พระวิญญาณแห่งความจริง | [CHECK] Every version's title at ยอห์น 14:17, 15:26, 16:13; a 1 ยอห์น 4:6 quotation follows its version. SC 91.2, SC 109.2 |
 | confession, confess (of sin) | สารภาพ | [CHECK] The verb; object บาป, ความผิด or ความผิดบาป; การ prefix makes the noun. MB 84.4, MB 58.3 |
 | High Priest (Christ) | มหาปุโรหิต | [CHECK] Names Aaron and Caiaphas too; "great High Priest" adds ผู้ยิ่งใหญ่ standing alone, cut in apposition. PP 351.1, PP 426.1, SC 37.3 |
 | publican | คนเก็บภาษี | [CHECK] The Gospel tax collector; พวก may precede. MB 7.2, MB 129.2 |
@@ -247,6 +248,26 @@
 | new creature, new creation (2 โครินธ์ 5:17, กาลาเทีย 6:15) | คนที่ถูกสร้างใหม่ / ผู้ที่ถูกสร้างใหม่ / ถูกสร้างใหม่ / การที่ถูกสร้างใหม่ / การทรงสร้างใหม่ | [CHECK] The versions' phrase; ผู้ที่ may replace คนที่ in prose; the Genesis creation stays outside. SC 57.1, SC 58.3, 2 โครินธ์ 5:17 |
 | regenerating power, renewing power (of the Spirit, of Christ, of grace) | ฤทธิ์อำนาจแห่งการสร้างใหม่ / ฤทธิ์อำนาจแห่งการบังเกิดใหม่ / ฤทธิ์อำนาจที่ทำให้บังเกิดใหม่ / ฤทธิ์เดชของพระวิญญาณ | [CHECK] Family of new birth, ทิตัส 3:5; the verb may carry บังเกิดใหม่; ฟื้นฟูจิตวิญญาณ stands, never proposed. SC 58.1, SC 57.2, PP 608.2 |
 | conversion, converted, convert (to Christ) | กลับใจเชื่อ / กลับใจมาหาพระคริสต์ / กลับใจ / กลับใจใหม่ / การกลับใจ / การกลับใจใหม่ / หันมาหาพระเจ้า | [CHECK] Default กลับใจเชื่อ, Thai Protestant usage; the repentance words and หันมาหาพระเจ้า stand; secular convert free. MB 101.3, PP 175.1, SC 57.2, SC 67.1, กิจการ 15:3 |
+| patriarchs, patriarchal (the class) | บรรพชน / บรรพบุรุษ | [CHECK] Collective and the title pairing with ผู้เผยพระวจนะ; บรรพบุรุษ where forefathers reads true. PP 144.1, PP 366.1, SC 87.3 |
+| patriarch, the (epithet for a named man) | (the man's name) / ท่าน | Noah, Abraham, Jacob, Jethro by name or pronoun; never บรรพชน. MB 144.1, PP 137.3, PP 300.2 |
+| living bread (John 6:51) | อาหารแห่งชีวิต / อาหารดำรงชีวิต / อาหารธำรงชีวิต | [CHECK] THSV ยอห์น 6:51 writes อาหารดำรงชีวิต; อาหารแท้ is true bread, ยอห์น 6:32, never living bread. MB 112.2, PP 354.1, SC 88.2 |
+| bread from heaven, bread of heaven (the manna) | อาหารจากสวรรค์ | All versions at ยอห์น 6:31; recasts with มานา or ตกมาจากสวรรค์ stand. MB 19.1, PP 301.2, PP 354.1, PP 428.3 |
+| true bread (John 6:32) | อาหารแท้ | All versions at ยอห์น 6:32 and 6:55; never for living bread. |
+| saved, the (class noun) | ผู้ที่ได้รับความรอด / คนทั้งหลายที่จะได้รับความรอด / ผู้ที่รอด | รอด family, never ไถ่; bare ผู้ที่รอด may take a heaven qualifier. SC 86.2, PP 477.1, PP 63.3 |
+| scholar | นักวิชาการ / ผู้รอบรู้ / นักปราชญ์ | The learned against the common; recasts ยอดปัญญาชน, ปรมาจารย์ stand. SC 89.2, PP 82.3, PP 114.2 |
+| naturalist (student of nature) | นักธรรมชาติวิทยา / นักวิทยาศาสตร์ / ผู้ศึกษาธรรมชาติ | [CHECK] Observer of natural history, Darwin's title; นักวิทยาศาสตร์ also serves "men of science". SC 87.1, PP 103.2 |
+| naturalist (philosophical naturalism) | นักธรรมชาตินิยม / ผู้นิยมลัทธิธรรมชาตินิยม | Holds nature is all there is; never นักธรรมชาติวิทยา. No site yet |
+| naturalism | ธรรมชาตินิยม / ลัทธิธรรมชาตินิยม | The doctrine itself; ลัทธิ- marks a creed, as ลัทธินอกศาสนา. No site yet |
+| secular humanism | มนุษยนิยมแบบฆราวาส | Thai Wikipedia and the Thai philosophy journal; Royal Society writes secularism โลกิยนิยม, ฆราวาสนิยม. No site yet |
+| effectual, effective, effectually, efficacy (producing its effect) | ได้ผล / เกิดผล / บังเกิดผล / มีพลัง | [CHECK] Bible's เกิดผล; adverb recasts สำเร็จ, สนิท, ถาวร stand; ประสิทธิผล, ทรงประสิทธิภาพ stand, never proposed. ยากอบ 5:16, PP 205.3, PP 553.2, SC 91.2 |
+| ineffectual, ineffective | ไร้ผล / ไม่ได้ผล / ไม่เกิดผล | [CHECK] The negative; a recast naming the failure stands. PP 266.3, PP 268.2 |
+| efficient, efficiency (competence) | มีประสิทธิภาพ / ประสิทธิภาพ / ความสามารถ | [CHECK] Competence of persons, order, service; never the effectual family; ทำงานไม่เป็น stands. PP 374.1, PP 574.1, PP 255.2, อพยพ 18:21 |
+| talent (the parable's coin) | ตะลันต์ | [CHECK] Only where Matthew 25 is in view; the ability sense takes the abilities row. มัทธิว 25:15, MB 83.2, SC 82.2 |
+| talents, abilities, endowments (a person's capacities) | ความสามารถ / ความสามารถพิเศษ / พรสวรรค์ / ตะลันต์ / เก่ง | [CHECK] Default ความสามารถ; พรสวรรค์ inborn; ตะลันต์ and เก่ง stand, never proposed; recasts stand. MB 94.1, PP 203.1, PP 223.1, SC 81.1, SC 82.2 |
+| gift (God's, the Spirit's) | ของประทาน | [CHECK] The Bible's word for what God gives, prophecy included; never พรสวรรค์ for the prophetic gift. โรม 12:6, 1 เปโตร 4:10, MB 136.1, PP 382.3 |
+| co-worker with God, workers together with God (1 Corinthians 3:9) | ผู้ร่วมงานกับพระเจ้า / ร่วมงานกับพระเจ้า / ผู้ร่วมงาน | [CHECK] TNCV's noun at 1 โครินธ์ 3:9; THSV เราร่วมกันทำงานเพื่อพระเจ้า. PP 34.1, PP 573.3, PP 595.2, SC 79.2, SC 83.2 |
+| Lord of life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15, Prince of life. SC 81.4 |
+| mechanic, humble trade, mechanical employment | ช่างฝีมือ | Carpenter is ช่างไม้. PP 593.3, SC 81.4, SC 82.1 |
 
 ## 2. Proper nouns
 
