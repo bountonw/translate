@@ -6,7 +6,7 @@ chapter:
   number: 47
   title:
     en: League With the Gibeonites
-  url: https://legacy.egwwritings.org/?ref=en_PP.505.1&para=84.2327
+  url: https://egwwritings.org/?ref=en_PP.505.1&para=84.2327
   basedon: This chapter is based on Joshua 9 and 10.
 author:
   en: Ellen White

@@ -1,0 +1,70 @@
+# Bible book names for the SC citation check: CODE | Thai name as the manuscripts write it | English names, separated by ;
+# The Thai names were copied out of the Thai corpus (the THSV headers for the New Testament, the SC, PP and MB chapters for the Old Testament); none was typed from memory.
+# Five Old Testament books have no Thai row yet because no manuscript on disk cites them: Ruth (RUT), Ezra (EZR), Esther (EST), Obadiah (OBA), Zephaniah (ZEP). Add a row when a chapter cites one, copying the name from that chapter.
+# A Thai name may appear on more than one row where the manuscripts use two spellings for one book; both must be correct spellings, never a typo, because a name listed here is never reported.
+GEN|ปฐมกาล|Genesis
+EXO|อพยพ|Exodus
+LEV|เลวีนิติ|Leviticus
+NUM|กันดารวิถี|Numbers
+DEU|เฉลยธรรมบัญญัติ|Deuteronomy
+JOS|โยชูวา|Joshua
+JDG|ผู้วินิจฉัย|Judges
+RUT||Ruth
+1SA|1 ซามูเอล|1 Samuel
+2SA|2 ซามูเอล|2 Samuel
+1KI|1 พงศ์กษัตริย์|1 Kings
+2KI|2 พงศ์กษัตริย์|2 Kings
+1CH|1 พงศาวดาร|1 Chronicles
+2CH|2 พงศาวดาร|2 Chronicles
+EZR||Ezra
+NEH|เนหะมีย์|Nehemiah
+EST||Esther
+JOB|โยบ|Job
+PSA|สดุดี|Psalm;Psalms
+PRO|สุภาษิต|Proverbs
+ECC|ปัญญาจารย์|Ecclesiastes
+SNG|เพลงซาโลมอน|Song of Solomon;Canticles;Song of Songs
+ISA|อิสยาห์|Isaiah
+JER|เยเรมีย์|Jeremiah
+LAM|เพลงคร่ำครวญ|Lamentations
+EZK|เอเสเคียล|Ezekiel
+DAN|ดาเนียล|Daniel
+HOS|โฮเชยา|Hosea
+JOL|โยเอล|Joel
+AMO|อาโมส|Amos
+OBA||Obadiah
+JON|โยนาห์|Jonah
+MIC|มีคาห์|Micah
+NAM|นาฮูม|Nahum
+HAB|ฮาบากุก|Habakkuk
+ZEP||Zephaniah
+HAG|ฮักกัย|Haggai
+ZEC|เศคาริยาห์|Zechariah
+MAL|มาลาคี|Malachi
+MAT|มัทธิว|Matthew
+MRK|มาระโก|Mark
+LUK|ลูกา|Luke
+JHN|ยอห์น|John
+ACT|กิจการ|Acts
+ROM|โรม|Romans
+1CO|1 โครินธ์|1 Corinthians
+2CO|2 โครินธ์|2 Corinthians
+GAL|กาลาเทีย|Galatians
+EPH|เอเฟซัส|Ephesians
+PHP|ฟีลิปปี|Philippians
+COL|โคโลสี|Colossians
+1TH|1 เธสะโลนิกา|1 Thessalonians
+2TH|2 เธสะโลนิกา|2 Thessalonians
+1TI|1 ทิโมธี|1 Timothy
+2TI|2 ทิโมธี|2 Timothy
+TIT|ทิตัส|Titus
+PHM|ฟีเลโมน|Philemon
+HEB|ฮีบรู|Hebrews
+JAS|ยากอบ|James
+1PE|1 เปโตร|1 Peter
+2PE|2 เปโตร|2 Peter
+1JN|1 ยอห์น|1 John
+2JN|2 ยอห์น|2 John
+3JN|3 ยอห์น|3 John
+JUD|ยูดา|Jude
+REV|วิวรณ์|Revelation

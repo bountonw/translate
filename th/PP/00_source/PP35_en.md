@@ -6,7 +6,7 @@ chapter:
   number: 35
   title:
     en: The Rebellion of Korah
-  url: https://legacy.egwwritings.org/?ref=en_PP.395.1&para=84.1798
+  url: https://egwwritings.org/?ref=en_PP.395.1&para=84.1798
   basedon: This chapter is based on Numbers 16 and 17.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 56
   title:
     en: Eli and His Sons
-  url: https://legacy.egwwritings.org/?ref=en_PP.575.1&para=84.2699
+  url: https://egwwritings.org/?ref=en_PP.575.1&para=84.2699
   basedon: This chapter is based on 1 Samuel 2:12-36.
 author:
   en: Ellen White
@@ -18,7 +18,7 @@ Eli was priest and judge in Israel. He held the highest and most responsible pos
 
 ## {PP 575.2}
 
-God had said of Abraham, “I know him, that he will command his children and his household after him, and they shall keep the way of the Lord, to do justice and judgment.” Genesis 18:19. But Eli allowed his children to control him. The father became subject to the children. The curse of transgression was apparent in the corruption and evil that marked the course of his sons. They had no proper appreciation of the character of God or of the sacredness of His law. His service was to them a common thing. From childhood they had been accustomed to the sanctuary and its service; but instead of becoming more reverent, they had lost all sense of its holiness and significance. The father had not corrected their want of reverence for his authority, had not checked their disrespect for the solemn services of the sanctuary; and when they reached manhood, they were full of the deadly fruits of skepticism and rebellion. {PP 575.2}
+God had said of Abraham, “I know him, that he will *command* his children and his household after him, and they shall keep the way of the Lord, to do justice and judgment.” Genesis 18:19. But Eli allowed his children to control him. The father became subject to the children. The curse of transgression was apparent in the corruption and evil that marked the course of his sons. They had no proper appreciation of the character of God or of the sacredness of His law. His service was to them a common thing. From childhood they had been accustomed to the sanctuary and its service; but instead of becoming more reverent, they had lost all sense of its holiness and significance. The father had not corrected their want of reverence for his authority, had not checked their disrespect for the solemn services of the sanctuary; and when they reached manhood, they were full of the deadly fruits of skepticism and rebellion. {PP 575.2}
 
 ## {PP 576.1}
 

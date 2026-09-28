@@ -6,7 +6,7 @@ chapter:
   number: 54
   title:
     en: Samson
-  url: https://legacy.egwwritings.org/?ref=en_PP.560.1&para=84.2621
+  url: https://egwwritings.org/?ref=en_PP.560.1&para=84.2621
   basedon: This chapter is based on Judges 13 to 16.
 author:
   en: Ellen White

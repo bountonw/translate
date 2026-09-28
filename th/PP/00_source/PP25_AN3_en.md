@@ -6,7 +6,7 @@ chapter:
   number: 25A
   title:
     en: Appendix Note 3
-  url: https://legacy.egwwritings.org/?ref=en_PP.759.2&para=84.3601
+  url: https://egwwritings.org/?ref=en_PP.759.2&para=84.3601
   basedon: 
 author:
   en: Ellen White

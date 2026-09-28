@@ -1,4 +1,4 @@
-// Source-url: "https://legacy.egwwritings.org/?para=84.813"
+// Source-url: "https://egwwritings.org/read?panels=p84.813"
 // English title: The Night of Wrestling
 
 #chapter(

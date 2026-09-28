@@ -6,7 +6,7 @@ chapter:
   number: 24
   title:
     en: The Passover
-  url: https://legacy.egwwritings.org/?ref=en_PP.273.1&para=84.1196
+  url: https://egwwritings.org/?ref=en_PP.273.1&para=84.1196
   basedon: This chapter is based on Exodus 11; 12:1-32.
 author:
   en: Ellen White

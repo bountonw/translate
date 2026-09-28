@@ -6,7 +6,7 @@ chapter:
   number: 6
   title:
     en: Seth and Enoch
-  url: https://legacy.egwwritings.org/?ref=en_PP.80&para=84.289
+  url: https://egwwritings.org/?ref=en_PP.80&para=84.289
   basedon: This chapter is based on Genesis 4:25–6:2.
 author:
   en: Ellen White
@@ -14,7 +14,7 @@ author:
 
 ## {PP 80.1}
 
-To Adam was given another son, to be the inheritor of the divine promise, the heir of the spiritual birthright. The name Seth, given to this son, signified “appointed,” or “compensation;” “for,” said the mother, “God hath appointed me another seed instead of Abel, whom Cain slew.” Seth was of more noble stature than Cain or Abel, and resembled Adam more closely than did his other sons. He was a worthy character, following in the steps of Abel. Yet he inherited no more natural goodness than did Cain. Concerning the creation of Adam it is said, “In the likeness of God made He him;” but man, after the Fall, “begat a son in his own likeness, after his image.” While Adam was created sinless, in the likeness of God, Seth, like Cain, inherited the fallen nature of his parents. But he received also the knowledge of the Redeemer and instruction in righteousness. By divine grace he served and honored God; and he labored, as Abel would have done, had he lived, to turn the minds of sinful men to revere and obey their Creator. {PP 80.1}
+To Adam was given another son, to be the inheritor of the divine promise, the heir of the spiritual birthright. The name Seth, given to this son, signified “appointed,” or “compensation;” “for,” said the mother, “God hath appointed me another seed instead of Abel, whom Cain slew.” Seth was of more noble stature than Cain or Abel, and resembled Adam more closely than did his other sons. He was a worthy character, following in the steps of Abel. Yet he inherited no more natural goodness than did Cain. Concerning the creation of Adam it is said, “In the likeness of God made He him;” but man, after the Fall, “begat a son in his *own* likeness, after *his* image.” While Adam was created sinless, in the likeness of God, Seth, like Cain, inherited the fallen nature of his parents. But he received also the knowledge of the Redeemer and instruction in righteousness. By divine grace he served and honored God; and he labored, as Abel would have done, had he lived, to turn the minds of sinful men to revere and obey their Creator. {PP 80.1}
 
 ## {PP 80.2}
 

@@ -1,10 +1,10 @@
-// Source-url: "https://egwwritings.org/?ref=en_PP.499&para=84.2302"
+// Source-url: "https://egwwritings.org/read?panels=p84.2302"
 // English title: The Blessings and the Curses
 
 #chapter(
   number: 46,
   title: "คำอวยพรและคำสาปแช่ง",
-  basedon: "โยชูวา 8"
+  basedon: "โยชูวา บทที่ 8"
 )
 
 // {PP 499.1}

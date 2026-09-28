@@ -6,7 +6,7 @@ chapter:
   number: 51
   title:
     en: God’s Care for the Poor
-  url: https://legacy.egwwritings.org/?ref=en_PP.530.1&para=84.2462
+  url: https://egwwritings.org/?ref=en_PP.530.1&para=84.2462
   basedon: 
 author:
   en: Ellen White

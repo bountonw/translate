@@ -6,7 +6,7 @@ chapter:
   number: 50
   title:
     en: Tithes and Offerings
-  url: https://legacy.egwwritings.org/?ref=en_PP.525.1&para=84.2435
+  url: https://egwwritings.org/?ref=en_PP.525.1&para=84.2435
   basedon: 
 author:
   en: Ellen White

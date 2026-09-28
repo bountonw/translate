@@ -6,7 +6,7 @@ chapter:
   number: 52
   title:
     en: The Annual Feasts
-  url: https://legacy.egwwritings.org/?ref=en_PP.537.1&para=84.2500
+  url: https://egwwritings.org/?ref=en_PP.537.1&para=84.2500
   basedon: This chapter is based on Leviticus 23.
 author:
   en: Ellen White
