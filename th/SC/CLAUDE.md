@@ -43,6 +43,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 5.A. Grep the chapter for [[. Standing markers end the check: name the numbers and stop.
 5.B. Run sc_punctcheck.py, sc_refcheck.py, instruction_budget.py and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a file over budget is a FIX in the report.
+5.B.1. A finding the round already judged and the translator ruled on, such as a Typst comment ruled to stand, takes no marker at check and is not raised again.
 5.C. Dispatch sc-resolve-check with chapter, stage directory, last marker number, and every resolved marker's class, anchor, old span and note. Relay its report verbatim. PASS means clean to commit and to upload.
 
 ## 6. Rules
@@ -50,7 +51,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.A. You orchestrate; agents work. A run's only repository edit is markers in the chapter.
 6.B. Chapters are Typst: a "// {SC ###.#}" comment above each paragraph, an "#EGW[\{SC ###.#\}]" tag at its end, footnotes inline as "#footnote[...]". Reference prose by anchor, never by line. A chapter holding markers is never compiled or added to book.typ.
 6.C. Thai text and citations follow thai-profile.txt.
-6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the current wording first: in qa2 it gets a CHOICE marker; in qa1 it stands; sc_punctcheck.py lists every one standing, so none reaches print unseen.
+6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the original wording tagged original: so the editor sees it: in qa2 it gets a CHOICE marker; in qa1 it stands; sc_punctcheck.py lists every one standing.
 6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.E. Line breaking is never fixed in a manuscript; break points live in th/SC/04_assets/template/dictionary.typ.
 6.F. Never override an agent's model or effort.
@@ -60,6 +61,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 7. Glossary building ("terms")
 
 7.A. For every head raised, run python3 th/SC/04_assets/scripts/sc_term_data.py per head into ~/claude-sandbox/sc-audit/. Group related heads into a family and dispatch th-term-study per family with the data files and the question; it weighs the versions, MB and PP 1–20 and the lexicon and proposes the rows. A head whose Thai agrees everywhere takes its row from the data. th-glossary-miner runs only for register and proper nouns, queue entry 7.
+7.A.1. A head that already has a glossary row takes no study; a chapter site that conflicts with the row or reads badly under it is raised as a TERM marker or a DECIDE.
 7.B. Relay the studied rows in one report per run: each ROW line, the ranked candidates, and a verdict per SC site of the chapter; a conflict takes a TERM marker in the same reply, in the book's phrasing. Ruled rows go into the governing files in the same reply, with [CHECK] or [FLAG] where the translator wants them enforced; Notes at most 15 words.
 7.C. Doctrinal heads, and heads MB and PP leave inconclusive, add the three GC texts: lo/GC/03_public and th/GC/04_assets/editions.
 

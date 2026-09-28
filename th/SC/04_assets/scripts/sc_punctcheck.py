@@ -12,7 +12,8 @@ by their old side before checking, so a marker's English note is never flagged
 while the paragraph around it still is. Exit status 1 when anything was found.
 The spelling check reports every form the glossary's spelling table lists as
 incorrect (th/assets/translation_profile/thai-glossary.txt, section 3). An
-editor's choice, ((A/B)), is printed as a NOTE line and is not a finding.
+editor's choice, ((A/B)), is printed as a NOTE line and is not a finding, and
+its original: tag is not Latin text.
 
 No Lao or GC punctuation rule is applied: Thai sentences carry no final period,
 questions usually carry no question mark, and spaces mark phrase boundaries.
@@ -52,6 +53,8 @@ SPACE_BEFORE_CLOSE = re.compile(r" [”)\]]")
 BLOCK_COMMENT = re.compile(r"/\*.*?\*/", re.S)
 LINE_COMMENT = re.compile(r"(?<!:)//.*$", re.M)
 EDITOR_CHOICE = re.compile(r"\(\([^()]*\)\)")
+ORIGINAL_TAG = re.compile(r"(?<=\(\()original:")
+BARE_CITATION = re.compile(r"(?:[1-3]\s)?[฀-๿]+\s\d+:\d+")
 GLOSSARY = ROOT / "th" / "assets" / "translation_profile" / "thai-glossary.txt"
 
 
@@ -96,12 +99,13 @@ CHECKS = {
     "space-before-close": "a space before a closing quotation mark, parenthesis or bracket",
     "anchor-tag": "the #EGW tag's anchor differs from the paragraph's comment anchor, or is missing or doubled",
     "anchor-order": "an anchor comment that does not ascend from the previous one",
-    "latin": "Latin letters in the body outside a citation, a footnote or Typst markup",
+    "latin": "Latin letters in the body outside a citation, a footnote, Typst markup or an editor's choice",
     "marker-open": "a [[ that does not open an intact marker",
     "combining-order": "a Thai combining mark with nothing to combine with",
     "mark-order": "a tone mark after mai taikhu (็่ ็้ ็๊ ็๋), or a tone mark typed before its vowel, or after sara am (ำ่)",
     "typst-comment": "a /* */ or // comment inside a paragraph: a translator's working note that must be resolved before print",
     "spelling": "a form the glossary's spelling table lists as incorrect; the finding names the correct form",
+    "citation-bare": "a chapter:verse citation outside a parenthesis and a footnote, as ”ยอห์น 16:7 after a closing quotation mark",
 }
 
 
@@ -111,6 +115,7 @@ def strip_markup(body):
     body = CITATION_PAREN.sub(" ", body)
     body = TYPST_CALL.sub(" ", body)
     body = VERSION_LABEL.sub(" ", body)
+    body = ORIGINAL_TAG.sub("", body)
     return body
 
 
@@ -135,6 +140,9 @@ def check_para(p, out):
         out(p, "double-space", context(body, m.start()))
     for m in SPACE_BEFORE_CLOSE.finditer(body):
         out(p, "space-before-close", context(body, m.start()))
+    bare = CITATION_PAREN.sub(" ", FOOTNOTE.sub(" ", body))
+    for m in BARE_CITATION.finditer(bare):
+        out(p, "citation-bare", context(bare, m.start()))
 
     opens, closes = body.count("“"), body.count("”")
     if opens != closes:
@@ -162,7 +170,8 @@ def check_para(p, out):
     for m in LINE_COMMENT.finditer(body):
         out(p, "typst-comment", m.group(0)[:80])
     stripped = strip_markup(LINE_COMMENT.sub(" ", BLOCK_COMMENT.sub(" ", body)))
-    for m in LATIN.finditer(stripped):
+    latin_src = EDITOR_CHOICE.sub(lambda m: " " * len(m.group(0)), stripped)  # Latin inside ((...)) is ignored
+    for m in LATIN.finditer(latin_src):
         out(p, "latin", context(stripped, m.start()))
 
     if not p.tags:
