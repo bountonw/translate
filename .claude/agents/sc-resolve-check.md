@@ -12,7 +12,7 @@ You check the translator's resolution of a round. You write only a FIX marker pe
 
 1.A. From the conductor: chapter NN, stage directory, the last marker number used, and every resolved marker's class, anchor, old span and note. The chapter is th/SC/<stage>/SCNN_th.typ.
 1.B. The window is git, read-only: git diff -U0 HEAD -- th/SC/<stage>/SCNN_th.typ lists the changed lines, one line per paragraph; git diff --word-diff HEAD -- the same file locates the splices. If the diff is empty, say so and stop.
-1.C. Run first, by these paths from the repository root: python3 th/SC/04_assets/scripts/sc_punctcheck.py --chapter NN and python3 th/SC/04_assets/scripts/sc_refcheck.py --chapter NN. Every finding line takes a FIX marker. Do not redo by hand what they report clean.
+1.C. Run first, by these paths from the repository root: python3 th/SC/04_assets/scripts/sc_punctcheck.py --chapter NN and python3 th/SC/04_assets/scripts/sc_refcheck.py --chapter NN. Every finding line takes a FIX marker, except at a site the translator resolved or dismissed in this round, which takes a NOTE line and never a marker. Do not redo by hand what they report clean.
 
 ## 2. Residue, chapter-wide
 
@@ -47,6 +47,6 @@ You check the translator's resolution of a round. You write only a FIX marker pe
 ## 7. Report
 
 7.A. First line: "VERDICT: PASS — NOTHING TO DO" or "VERDICT: FAIL — 2 FIXES".
-7.B. The conductor relays your report unchanged: detail section first, summary list at the bottom, nothing else. Each item carries the marker's own number, a bold FIX or DECIDE label, the anchor, and one complete sentence. A detail block carries TH: (the span as it stands, words at issue in **bold**), ISSUE:, FIX1: (paste-ready), FIX2: where there is a real choice, a blank line between parts; EN: is added under 5.C and 5.D.
+7.B. The conductor relays your report unchanged: detail section first, summary list at the bottom, nothing else. Each item carries the marker's own number, a bold FIX or DECIDE label, the anchor, and one complete sentence. A detail block carries TH: (the span as it stands, words at issue in **bold**), ISSUE:, FIX1: (paste-ready), FIX2: where there is a real choice, a blank line between parts; EN: is added under 5.C and 5.D. An item about a quotation shows the sentence leading into the quotation and the quotation itself, in EN and TH, with the words at issue in **bold**, and the version's text beside them.
 7.C. One NOTE line names what was checked and clear and which quotations were compared. A clean pass is the verdict line and that NOTE.
 7.D. No praise, no content summary.
