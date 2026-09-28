@@ -6,7 +6,7 @@ chapter:
   number: 29
   title:
     en: Satan’s Enmity Against the Law
-  url: https://legacy.egwwritings.org/?ref=en_PP.331.1&para=84.1480
+  url: https://egwwritings.org/?ref=en_PP.331.1&para=84.1480
   basedon: 
 author:
   en: Ellen White
@@ -146,7 +146,7 @@ But amid the tempest of divine judgment the children of God will have no cause f
 
 ## {PP 341.3}
 
-“Then shall ye return, and discern between the righteous and the wicked, between him that serveth God and him that serveth Him not.” Malachi 3:18. “Hearken unto Me, ye that know righteousness, the people in whose heart is My law.” “Behold, I have taken out of thine hand the cup of trembling, ... thou shalt no more drink it again.” “I, even I, am He that comforteth you.” Isaiah 51:7, 22, 12. “For the mountains shall depart, and the hills be removed; but My kindness shall not depart from thee, neither shall the covenant of My peace be removed, saith the Lord that hath mercy on thee.” Isaiah 54:10. {PP 341.3}
+“Then shall ye return, and discern between the righteous and the wicked, between him that serveth God and him that serveth Him not.” Malachi 3:18. “Hearken unto Me, ye that know righteousness, *the people in whose heart is My law*.” “Behold, I have taken out of thine hand the cup of trembling, ... thou shalt no more drink it again.” “I, even I, am He that comforteth you.” Isaiah 51:7, 22, 12. “For the mountains shall depart, and the hills be removed; but My kindness shall not depart from thee, neither shall the covenant of My peace be removed, saith the Lord that hath mercy on thee.” Isaiah 54:10. {PP 341.3}
 
 ## {PP 342.1}
 

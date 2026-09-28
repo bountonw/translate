@@ -6,7 +6,7 @@ chapter:
   number: 43
   title:
     en: The Death of Moses
-  url: https://legacy.egwwritings.org/?ref=en_PP.469.1&para=84.2164
+  url: https://egwwritings.org/?ref=en_PP.469.1&para=84.2164
   basedon: This chapter is based on Deuteronomy 31 to 34.
 author:
   en: Ellen White

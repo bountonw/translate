@@ -6,7 +6,7 @@ chapter:
   number: 63
   title:
     en: David and Goliath
-  url: https://legacy.egwwritings.org/?ref=en_PP.643.1&para=84.3014
+  url: https://egwwritings.org/?ref=en_PP.643.1&para=84.3014
   basedon: This chapter is based on 1 Samuel 16:14-23; 17.
 author:
   en: Ellen White

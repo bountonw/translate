@@ -6,7 +6,7 @@ chapter:
   number: 46
   title:
     en: The Blessings and the Curses
-  url: https://legacy.egwwritings.org/?ref=en_PP.499.1&para=84.2303
+  url: https://egwwritings.org/?ref=en_PP.499.1&para=84.2303
   basedon: This chapter is based on Joshua 8.
 author:
   en: Ellen White

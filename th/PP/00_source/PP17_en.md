@@ -6,7 +6,7 @@ chapter:
   number: 17
   title:
     en: Jacob’s Flight and Exile
-  url: https://legacy.egwwritings.org/?ref=en_PP.183.1&para=84.759
+  url: https://egwwritings.org/?ref=en_PP.183.1&para=84.759
   basedon: This chapter is based on Genesis 28 to 31.
 author:
   en: Ellen White
