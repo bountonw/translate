@@ -268,6 +268,18 @@
 | co-worker with God, workers together with God (1 Corinthians 3:9) | ผู้ร่วมงานกับพระเจ้า / ร่วมงานกับพระเจ้า / ผู้ร่วมงาน | [CHECK] TNCV's noun at 1 โครินธ์ 3:9; THSV เราร่วมกันทำงานเพื่อพระเจ้า. PP 34.1, PP 573.3, PP 595.2, SC 79.2, SC 83.2 |
 | Lord of life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15, Prince of life. SC 81.4 |
 | mechanic, humble trade, mechanical employment | ช่างฝีมือ | Carpenter is ช่างไม้. PP 593.3, SC 81.4, SC 82.1 |
+| heathen, pagan (people, nations) | ไม่นับถือพระเจ้า / ไม่นับถือพระองค์ / ไม่รู้จักพระเจ้า / คนต่างชาติ / กราบไหว้รูปเคารพ / คนนอกศาสนา | [CHECK] History ไม่นับถือ; a principle today ไม่รู้จัก; a quotation keeps its version; คนนอกศาสนา only in reproach. MB 98.2, PP 141.2, PP 587.1, GC 41.3 |
+| heathen lands, heathen countries, the heathen world, foreign fields (the mission field) | ดินแดนที่ยังไม่รู้จักพระเจ้า / ดินแดนที่ข่าวประเสริฐยังไปไม่ถึง / ต่างแดน | [CHECK] Religious form against Christian countries; ต่างแดน or ดินแดนที่ไกลโพ้น where distance is the point. SC 81.2, SC 81.3, PP 332.2 |
+| heathen land (a named land, in history) | ดินแดนที่ไม่นับถือพระเจ้า / ต่างแดน | [CHECK] Egypt and its like; a recast to the people stands. PP 217.2, PP 222.1, PP 332.2 |
+| idolatry | การกราบไหว้รูปเคารพ / การไหว้รูปเคารพ / การบูชารูปเคารพ / การนับถือรูปเคารพ | [CHECK] Always the idol phrase; kept apart from heathenism. กาลาเทีย 5:20, PP 125.1 |
+| the Christian world, Christendom (Christians as one body, or their countries) | โลกคริสเตียน / ชาวคริสเตียนทั่วโลก / คนที่นับถือศาสนาคริสต์ทั่วโลก / วงการคริสเตียน | [CHECK] PP 124.1 marks โลกคริสเตียน with quotes; GC writes it 26 times; Lao ວົງການຄຣິສຕຽນ. PP 124.1, PP 476.2 |
+| professedly Christian (lands, world, people), so-called Christian, nominally Christian | ที่ได้ชื่อว่าเป็นคริสเตียน / ที่อ้างว่านับถือศาสนาคริสต์ / ที่อ้างตัวว่านับถือศาสนาคริสต์ / ที่เรียกกันว่า / แต่ในนาม | [CHECK] The qualifier on the country or world noun; ได้ชื่อว่า mild, อ้างว่า sharp; never without professedly. PP 101.3, PP 124.1, PP 684.4, MB 80.4 |
+| Spirit of Christ (capitalized, the Holy Spirit) | พระวิญญาณของพระคริสต์ | Every version at โรม 8:9 and 1 เปโตร 1:11; the lowercase disposition takes its own row. MB 29.2, PP 86.2, SC 47.1 |
+| work out (one's own) salvation (Philippians 2:12 allusion) | ทำให้ความรอดของตนเกิดผล / ทำให้ความรอดของตนบรรลุผล / ประพฤติอย่างสมกับความรอด | [CHECK] Salvation is the object carried to its effect; never เพื่อให้ได้ความรอด or a road; PP 208.1 stands. ฟีลิปปี 2:12, MB 142.1, PP 208.1, SC 80.2 |
+| means of grace | พระพรแห่งพระคุณ / ช่องทางแห่งพระคุณ | Reference only; SC 80.3 folds the term into พระพร; ช่องทางแห่งพระคุณ where the channels are the point. SC 80.3, MB 113.3, SC 81.1 |
+| Christian countries, Christian lands, Christian nations (where most people are Christians) | ประเทศที่คนส่วนใหญ่เป็นคริสเตียน / ดินแดนที่คนส่วนใหญ่เป็นคริสเตียน / ประเทศที่นับถือศาสนาคริสต์ / ประเทศคริสเตียน | [CHECK] The fact, no reproach; Lao GC ປະເທດທີ່ຄົນສ່ວນໃຫຍ່ເປັນຄຣິສຕຽນ. SC 81.2, GC 565.1 |
+| spirit of Christ (lowercase, His disposition shown by His followers) | พระทัยของพระคริสต์ / จิตใจเหมือนอย่างที่มีในพระเยซูคริสต์ / จิตใจเช่นนี้ / พระลักษณะของพระคริสต์ / จิตวิญญาณเหมือนพระเยซูคริสต์ | [CHECK] Disposition, ฟีลิปปี 2:5, 1 โครินธ์ 2:16; a recast to His love stands; never พระวิญญาณของพระคริสต์. SC 82.1, SC 77.3, PP 140.2, PP 192.1 |
+| heathenism, paganism (the religion or system) | ลัทธินอกศาสนา / ลัทธิผี / การไหว้ผีไหว้เจ้า / การกราบไหว้พระเทียมเท็จ | [CHECK] System ลัทธินอกศาสนา; tribal cult ลัทธิผี, ไหว้ผีไหว้เจ้า; rites พระเทียมเท็จ; never the idol phrase. GC 39.2, PP 732.1 |
 
 ## 2. Proper nouns
 
