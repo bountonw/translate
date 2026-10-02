@@ -1,5 +1,5 @@
 // Source-url: "https://egwwritings.org/read?panels=p84.1479"
-// English title: Satan's Enmity Against the Law
+// English title: Satan’s Enmity Against the Law
 
 #chapter(
   number: 29,

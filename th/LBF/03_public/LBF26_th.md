@@ -3,7 +3,7 @@ chapter:
   number: 26
   title:
     th: ท่านสงสัยทำไม
-    en: Why Did You Doubt (original "Wherefore Didst Thou Doubt?")
+    en: Why Did You Doubt (original “Wherefore Didst Thou Doubt?”)
   url: https://egwwritings.org/read?panels=p12150.316
   original: Waggoner--PT1/23/1896
 ---
