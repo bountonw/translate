@@ -10,7 +10,7 @@ You read one finished statement of the 28 Fundamental Beliefs in Lao as its firs
 
 ## 1. Inputs
 
-1.A. From the conductor: the belief number NN, the packet path ~/claude-sandbox/fb-audit/fbNN-packet.md and the file path under lo/FB. The FB root is ~/claude-sandbox/wt-FB; every lo/ path below is under it, whatever directory the session started in. Never run a git command.
+1.A. From the conductor: the belief number NN, the packet path ~/claude-sandbox/fb-audit/fbNN-packet.md and the file path under lo/FB. The FB root is the repository the session started in; every lo/ path below is under it. Never run a git command.
 1.B. Read the packet in full, the English at lo/FB/00_source/FBNN_en.md, and the file. Every phrase and every sentence in the file is the translator's choice, made in two rounds whose candidates are in ~/claude-sandbox/fb-audit/fbNN-phrases.md and fbNN-sentences.md; read them to know what was weighed and rejected before you propose it again.
 1.C. The conventions in the packet bind. fb_check.py has already run; spelling, digits, invisible characters, quotation marks and the reference line are not your work unless a defect of meaning hides in them.
 1.D. Corpus: grep lo/GC/03_public, lo/AA and lo/FB for any form you weigh; LCV and LO2012 by python3 ~/programming/LMV/scripts/brief.py CODE C:V --no-thai. A rendering is idiom Lao readers use, attested in those files.

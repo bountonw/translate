@@ -7,16 +7,15 @@ The statement file is found in lo/FB/01_raw, 02_edit or 03_public unless --file 
 the file shape (heading "== N — title", the text, a blank line, the reference line); the orthography of
 lao-profile.txt section 2 (ພຣະ, ເຊິ່ງ, ຫຼ, ຣາຊ without a linking ະ, the ຳ ligature); the Correct/Incorrect
 spelling tables of GC-glossary.txt, taking only the rows whose Incorrect form is a spelling variant of the
-Correct form (edit distance 4 or less, three characters or more), so that term-choice and pronoun rows are
-left to the readers; Lao and Thai digits; Thai letters; invisible characters; straight quotation marks;
-spaces around ແລະ; double and trailing spaces; and the reference line against the English source and the
-book rows of lao-glossary.txt section 2. A standing [[ marker ends the check.
+Correct form; Lao and Thai digits; Thai letters; invisible characters; straight quotation marks; the en dash
+between digits in a range (profile 5.A); spaces around ແລະ; double and trailing spaces; and the reference line
+against the English source and the book rows of lao-glossary.txt section 2. A standing [[ marker ends the check.
 
-Every finding is printed. A finding on a span the script can replace becomes a [[FIX #N|old -> new|note]]
-marker in the file unless --dry-run is given; old is the space-delimited token that holds the defect, and
-several defects in one token make one marker. Findings the script cannot phrase as a replacement (shape,
-Thai letters, a book without a glossary row, a reference list of a different length) are printed only.
-Exit status 0 means no finding; 1 means findings.
+Every mechanical fix is applied to the file itself, with no marker, and printed as "fixed"; --dry-run prints
+the fixes without writing. Fixes are applied in passes until none is left, so two defects in one word are both
+fixed. What the script cannot fix (shape, Thai letters, a book without a glossary row, a reference list of a
+different length) is printed as "note". Exit status 0 means no note is left; 1 means notes,
+or fixes not written because of --dry-run.
 """
 import argparse
 import re
@@ -190,6 +189,8 @@ def check_line(idx, line, findings, spelling):
     for m in re.finditer('"', line):
         quotes += 1
         add(m.start(), m.end(), "“" if quotes % 2 else "”", "straight quotation mark becomes “ ” (profile 4.A)")
+    for m in re.finditer(r"(?<=\d)[-—](?=\d)", line):
+        add(m.start(), m.end(), "–", "a range takes an en dash, not a hyphen or em dash (profile 5.A)")
     for m in re.finditer("ແລະ", line):
         i, j = m.start(), m.end()
         if "ເຊິ່ງກັນແລະກັນ" in line[max(0, i - 12):j + 6]:
@@ -204,7 +205,8 @@ def check_line(idx, line, findings, spelling):
         b = len(line) if b == -1 else b
         findings.append(Finding(idx, "double space becomes one space; the two sides differ only by the space", m.start(), m.end(), " ", a, b))
     if line.endswith(" "):
-        findings.append(Finding(idx, "trailing space at the end of the line"))
+        i = len(line.rstrip(" "))
+        findings.append(Finding(idx, "trailing space at the end of the line removed", i, len(line), "", i, len(line)))
 
 
 def check_reference_line(n, line, findings, books):
@@ -239,16 +241,24 @@ def check_reference_line(n, line, findings, books):
             findings.append(Finding(3, f"the numbers differ from the English; EN {(eb or '') + ' ' + er}".replace("EN  ", "EN "), i, i + len(lr), er, start, start + len(raw)))
 
 
-def clusters(fs):
-    """Merge findings of one line whose marker spans overlap into (a, b, [findings]) in reading order."""
-    out = []
-    for f in sorted(fs, key=lambda f: (f.a, f.i)):
-        if out and f.a < out[-1][1]:
-            out[-1][1] = max(out[-1][1], f.b)
-            out[-1][2].append(f)
-        else:
-            out.append([f.a, f.b, [f]])
-    return out
+def collect(belief, lines, spelling, books):
+    findings = []
+    if len(lines) != 4 or lines[2] != "":
+        findings.append(Finding(None, f"the file has {len(lines)} lines; expected the heading, the text, a blank line and the reference line (CLAUDE.md 2.B)"))
+    h = re.match(r"^== (\d+) — (.+)$", lines[0]) if lines else None
+    if not h:
+        findings.append(Finding(0, "the heading is not of the form == N — title (profile 3.E)"))
+    elif h.group(1) != str(belief):
+        findings.append(Finding(0, f"the heading number is {h.group(1)!r}; expected {belief}"))
+    for idx, line in enumerate(lines):
+        check_line(idx, line, findings, spelling)
+    if len(lines) >= 4:
+        check_reference_line(belief, lines[3], findings, books)
+    return findings
+
+
+def where(idx):
+    return "file" if idx is None else ("heading" if idx == 0 else "text" if idx == 1 else "reference line" if idx == 3 else f"line {idx + 1}")
 
 
 def main():
@@ -266,55 +276,35 @@ def main():
     lines = text.split("\n")
     if lines and lines[-1] == "":
         lines = lines[:-1]
-    findings = []
-    if len(lines) != 4 or lines[2] != "":
-        findings.append(Finding(None, f"the file has {len(lines)} lines; expected the heading, the text, a blank line and the reference line (CLAUDE.md 2.B)"))
-    h = re.match(r"^== (\d+) — (.+)$", lines[0]) if lines else None
-    if not h:
-        findings.append(Finding(0, "the heading is not of the form == N — title (profile 3.E)"))
-    elif h.group(1) != str(a.belief):
-        findings.append(Finding(0, f"the heading number is {h.group(1)!r}; expected {a.belief}"))
-    spelling = spelling_rows()
-    for idx, line in enumerate(lines):
-        check_line(idx, line, findings, spelling)
-    if len(lines) >= 4:
-        check_reference_line(a.belief, lines[3], findings, book_rows())
-    if not findings:
-        print(f"PASS: {rel(path)} has no finding")
-        return 0
-    number = max([int(x) for x in re.findall(r"\[\[FIX #(\d+)\|", text)] or [0])
-    markers = []  # (line, a, b, number, old, new, note)
-    for idx in sorted({f.line for f in findings if f.i is not None}):
-        line = lines[idx]
-        for a0, b0, fs in clusters([f for f in findings if f.line == idx and f.i is not None]):
-            old = line[a0:b0]
-            new, taken, notes = old, [], []
-            for f in sorted(fs, key=lambda f: -f.i):
-                if any(f.i < j and f.j > i for i, j in taken):
+    spelling, books = spelling_rows(), book_rows()
+    fixed = []
+    for _ in range(10):
+        fixes = [f for f in collect(a.belief, lines, spelling, books) if f.i is not None]
+        if not fixes:
+            break
+        for idx in sorted({f.line for f in fixes}):
+            line, taken = lines[idx], []
+            for f in sorted([f for f in fixes if f.line == idx], key=lambda f: -f.i):
+                if any(f.i < j and f.j > i for i, j in taken) or line[f.i:f.j] == f.new_sub:
                     continue
-                new = new[:f.i - a0] + f.new_sub + new[f.j - a0:]
-                taken.append((f.i, f.j))
-                if f.note not in notes:
-                    notes.insert(0, f.note)
-            if new == old:
-                continue
-            number += 1
-            markers.append((idx, a0, b0, number, old, new, "; ".join(notes)))
-    for f in findings:
-        if f.i is None:
-            where = "file" if f.line is None else ("heading" if f.line == 0 else "text" if f.line == 1 else "reference line")
-            print(f"note [{where}]: {f.note}")
-    for idx, a0, b0, num, old, new, note in markers:
-        where = "heading" if idx == 0 else "text" if idx == 1 else "reference line"
-        print(f"FIX #{num} [{where}]: {old!r} -> {new!r}: {note}")
-    for idx, a0, b0, num, old, new, note in sorted(markers, key=lambda m: (m[0], -m[1])):
-        lines[idx] = lines[idx][:a0] + f"[[FIX #{num}|{old} -> {new}|{note}]]" + lines[idx][b0:]
-    if markers and not a.dry_run:
+                token_before = line[f.a:f.b]
+                line = line[:f.i] + f.new_sub + line[f.j:]
+                taken.append((f.i, f.i + len(f.new_sub)))
+                fixed.append((idx, token_before, f.note))
+            lines[idx] = line
+    notes = [f for f in collect(a.belief, lines, spelling, books) if f.i is None]
+    for idx, token, note in fixed:
+        print(f"fixed [{where(idx)}]: {token!r}: {note}")
+    for f in notes:
+        print(f"note [{where(f.line)}]: {f.note}")
+    if fixed and not a.dry_run:
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        print(f"{len(markers)} marker(s) written to {rel(path)}")
-    elif markers:
-        print(f"{len(markers)} marker(s) would be written (dry run)")
-    return 1
+        print(f"{len(fixed)} fix(es) written to {rel(path)}")
+    elif fixed:
+        print(f"{len(fixed)} fix(es) not written (dry run)")
+    if not fixed and not notes:
+        print(f"PASS: {rel(path)} has no finding")
+    return 1 if notes or (fixed and a.dry_run) else 0
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@ Read this file and lao-glossary.txt before drafting or auditing Lao. Where they 
 
 ## 5. Reference line
 
-5.A. FB: Format: (ສຶກສາເພີ່ມເຕີມ: ...) — semicolons between books, period after the closing parenthesis.
+5.A. FB: Format: (ສຶກສາເພີ່ມເຕີມ: ...) — semicolons between books, an en dash in a verse range (1–2, 20:8–11), period after the closing parenthesis.
 5.B. FB: Book names in the reference line are the proper-noun rows of lao-glossary.txt, LCV-compatible; a book without a row is verified in LCV and GC and given a row.
 
 ## 6. Text

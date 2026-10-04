@@ -6,4 +6,4 @@ model: fable
 effort: xhigh
 ---
 
-You are the batch auditor for round qa2. Read /home/ton/programming/translate/.claude/agents/sc-batch-auditor.md in full and follow everything below its front matter as your own definition. Your round is qa2; the front matter above sets your model and effort.
+You are the batch auditor for round qa2. Read .claude/agents/sc-batch-auditor.md in full and follow everything below its front matter as your own definition. Your round is qa2; the front matter above sets your model and effort.

@@ -22,12 +22,12 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 2.E. Bibles: LCV and LO2012 under ~/programming/bible, the Thai versions beside them; python3 ~/programming/LMV/scripts/brief.py JHN 3:16 prints every version of a verse; the packet quotes KJV, LCV, LO2012, TH1971, THSV and TKJV. A verse is quoted from its file with its zero-width spaces stripped; a verse not on disk is flagged.
 2.F. Session outputs: ~/claude-sandbox/fb-audit/.
 2.G. Scripts: lo/FB/04_assets/scripts/, invoked by their full path under the FB root.
-2.H. FB root: ~/claude-sandbox/wt-FB. Every path in this file is under it. A session starts in ~/programming/translate, and reads and writes only under the FB root.
+2.H. FB root: the repository the session starts in. Every path in this file is under it.
 
 ## 3. Phrase round ("FB07")
 
 3.A. Preflight: FB07_en.md exists; no FB07_lo.typ exists in any stage, else name the stage and stop.
-3.B. Packet: python3 ~/claude-sandbox/wt-FB/lo/FB/04_assets/scripts/fb_packet.py --belief 07 writes ~/claude-sandbox/fb-audit/fb07-packet.md: the English; every verse of the reference list and every embedded quotation in the six versions of 2.E; the Lao, GC and Thai glossary rows for the belief's key terms with their counts in lo/GC/03_public and lo/AA; the Lao profile. Data only; no judgment.
+3.B. Packet: python3 lo/FB/04_assets/scripts/fb_packet.py --belief 07 writes ~/claude-sandbox/fb-audit/fb07-packet.md: the English; every verse of the reference list and every embedded quotation in the six versions of 2.E; the Lao, GC and Thai glossary rows for the belief's key terms with their counts in lo/GC/03_public and lo/AA; the Lao profile. Data only; no judgment.
 3.C. Dispatch fb-phrase-drill (Fable, xhigh) with the belief number and the packet path. It segments the English into phrases smaller than sentences; for each phrase it weighs up to 9 renderings in the whole statement and writes the top 5 to ~/claude-sandbox/fb-audit/fb07-phrases.md, fix1 first with one sentence of reason each, naming any doctrinal weight, loophole or shift of precision the phrase carries. It writes fix1 of every phrase, in order, into lo/FB/01_raw/FB07_lo.typ.
 3.D. Report: every phrase as a numbered item, the English in bold, the five fixes, then the summary list. The translator replies "N. fixK" or "N. applied: <wording>" per phrase; the session writes each choice into the draft.
 
@@ -39,13 +39,13 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 
 ## 5. Final read ("final FB07")
 
-5.A. Run python3 lo/FB/04_assets/scripts/fb_check.py --belief 07: the orthography and punctuation of 2.D, digits, invisible characters, quotation marks, the reference line. Each finding takes a [[FIX #N|old -> new|note]] marker.
+5.A. Run python3 lo/FB/04_assets/scripts/fb_check.py --belief 07: the orthography and punctuation of 2.D, digits, invisible characters, quotation marks, the reference line. It fixes the file directly, with no marker, and prints what it cannot fix.
 5.B. Dispatch fb-final-read (Fable, xhigh) with the belief number, the packet and the file. It reads the whole statement against the English from the top: the flow, every theological nuance pointing where the English points, every loophole the Lao leaves that the English closes, no wording more specific or looser than the English. It writes FIX markers only where the statement should not stand, each note quoting the English.
 5.C. Report: the markers as items. Resolved, the file moves to 03_public.
 
 ## 6. Check ("check FB07")
 
-6.A. Grep the file for [[; a standing marker ends the check. Run fb_check.py again, read the diff of the resolution, and run instruction_budget.py. PASS means clean to commit.
+6.A. Grep the file for [[; a standing marker ends the check. Run fb_check.py again, name any fix it applied, read the diff of the resolution, and run instruction_budget.py. PASS means clean to commit.
 
 ## 7. Rules
 
