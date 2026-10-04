@@ -1,0 +1,15 @@
+---
+lang: lo-LO
+author:
+  en: General Conference of Seventh-day Adventists
+  lo: ສຳນັກງານໃຫຍ່ຄຣິສຕະຈັກເຊເວັນເດແອັດເວັນຕິສ
+translator:
+  en: Brian Wilson
+  lo: ບຸນຕົນ ວິນສັນ
+book:
+  title:
+    lo: ຫຼັກຄວາມເຊື່ອພື້ນຖານ
+    en: Fundamental Beliefs
+settings:
+  - optional_reference_codes
+...
