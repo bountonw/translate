@@ -58,7 +58,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 7.A. Each numbered item is one unwrapped line. Indented examples stay as blocks.
 7.B. A rule says what to do. A session's mishap never becomes a rule.
-7.C. Every instruction file has a word budget in th/SC/04_assets/scripts/instruction_budget.py. Each project's check step runs the script, and so does the reply that edits an instruction file. A line added over budget means tightening wording or cutting dead wood elsewhere, or raising the budget in that script; a rule still needed is never cut.
+7.C. Every instruction file has a word budget in th/SC/04_assets/scripts/instruction_budget.py. Each project's check step runs the script, and so does the reply that edits an instruction file. The budget is a guide: a file over budget loses a restatement or gains a larger budget row, never a rule still in force.
 
 ## 8. Git and files
 

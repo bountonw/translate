@@ -2,7 +2,7 @@
 // English title: Rejoicing in the Lord
 
 #import "../04_assets/template/lib.typ": *
-#show: apply-styles.with(proofing: true, updated: "02 ตุลาคม 2026")
+#show: apply-styles.with(proofing: true, updated: "2 ตุลาคม 2026")
 
 #chapter(
   number: 13,

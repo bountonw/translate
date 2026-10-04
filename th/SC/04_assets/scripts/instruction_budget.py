@@ -23,6 +23,12 @@ BUDGET = {
     ".claude/agents/sc-resolve-check.md": 885,
     ".claude/agents/th-glossary-miner.md": 460,
     "th/assets/translation_profile/thai-profile.txt": 950,
+    "lo/FB/CLAUDE.md": 1100,
+    ".claude/commands/lo-fb.md": 150,
+    ".claude/agents/fb-phrase-drill.md": 900,
+    ".claude/agents/fb-sentence-drill.md": 900,
+    ".claude/agents/fb-final-read.md": 900,
+    "lo/assets/translation_profile/lao-profile.txt": 900,
 }
 
 

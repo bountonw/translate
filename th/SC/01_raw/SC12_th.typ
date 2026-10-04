@@ -2,7 +2,7 @@
 // English title: What to Do with Doubt
 
 #import "../04_assets/template/lib.typ": *
-#show: apply-styles.with(proofing: true, updated: "28 กันยายน 2026")
+#show: apply-styles.with(proofing: true, updated: "2 ตุลาคม 2026")
 
 #chapter(
   number: 12,
