@@ -32,8 +32,13 @@ tag, and every English tag the print does not carry.
 Usage, from the repository root:
     qpdf --qdf --object-streams=disable --stream-data=uncompress IN.pdf QDF
     python3 th/DA/04_assets/scripts/da_th_extract.py QDF th/DA/04_assets/editions/print \
-        --report th/DA/04_assets/editions/print/EXTRACTION-NOTES.tsv
+        --report th/DA/04_assets/editions/print/EXTRACTION-NOTES.tsv \
+        --renumber th/DA/04_assets/editions/print/RENUMBERED.tsv
     python3 th/DA/04_assets/scripts/da_th_extract.py QDF --dump 20 22
+
+--renumber applies the corrections to the printed codes recorded in
+RENUMBERED.tsv, so that every English paragraph has one Thai paragraph under
+its code, in the English order.
 
 IN.pdf is "AW_ผู้พึงปรารถนาของปวงชน (72 res).pdf" from the zip in
 th/DA/04_assets. The PDF reader is th/GC/04_assets/scripts/gc_th_pdf.py.
@@ -559,7 +564,10 @@ def renumber(chapters, path, report):
     RECODE gives the paragraph another code; SPLIT gives, for each new
     paragraph after the first, the words it begins with, each searched for
     after the one before; EMPTY puts an empty paragraph with the new code
-    after the named one, for an English paragraph the Thai does not render.
+    after the named one, for an English paragraph the Thai does not render;
+    BOUNDARY joins the named paragraph and the next one and splits them again
+    where the given words begin, so that a sentence the print set on the wrong
+    side of a paragraph break moves back to the paragraph it belongs to.
     A line beginning with # starts a new stage: the rows after it name the
     codes as the stages before left them.
     """
@@ -593,6 +601,15 @@ def renumber(chapters, path, report):
                 paras[i:i + 1] = [('!' + c, t) for c, t in zip(codes, parts)]
             elif action == 'EMPTY':
                 paras.insert(i + 1, ('!' + codes[0], ''))
+            elif action == 'BOUNDARY':
+                first, second = codes
+                if i + 1 >= len(paras) or paras[i + 1][0] not in (second, '!' + second):
+                    sys.exit(f'RENUMBERED.tsv: {f} {printed} is not followed by {second}')
+                text = paras[i][1] + ' ' + paras[i + 1][1]
+                cut = text.find(splits, 1)
+                if cut < 0 or text.find(splits, cut + 1) >= 0:
+                    sys.exit(f'RENUMBERED.tsv: {f} {printed} needs "{splits}" exactly once')
+                paras[i:i + 2] = [('!' + first, text[:cut].strip()), ('!' + second, text[cut:].strip())]
             report.note('RENUMBERED', f, f'{printed} {action} {" + ".join(codes)}')
         for ch in chapters.values():
             ch['paras'] = [(t[1:] if t and t.startswith('!') else t, x) for t, x in ch['paras']]
@@ -690,6 +707,9 @@ def main():
 
     if args.renumber:
         renumber(chapters, args.renumber, report)
+        final = [t for c in chapters.values() for t, _ in c['paras'] if t]
+        print(f'after RENUMBERED.tsv: {len(final)} codes, '
+              f'{"the same as" if final == list(where) else "NOT the same as"} the English, in order')
     toc = toc_titles(pdf, cache)
     if args.out:
         os.makedirs(args.out, exist_ok=True)

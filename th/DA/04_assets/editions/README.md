@@ -20,8 +20,11 @@ The PDF's fonts map many marks to the wrong character, but each such glyph carri
         "/path/to/AW_ผู้พึงปรารถนาของปวงชน (72 res).pdf" /tmp/da-th.pdf
     python3 th/DA/04_assets/scripts/da_th_extract.py /tmp/da-th.pdf \
         th/DA/04_assets/editions/print \
-        --report th/DA/04_assets/editions/print/EXTRACTION-NOTES.tsv
+        --report th/DA/04_assets/editions/print/EXTRACTION-NOTES.tsv \
+        --renumber th/DA/04_assets/editions/print/RENUMBERED.tsv
 
-## What the print leaves out of the codes
+## The paragraph numbers
 
-The print carries 2,589 of the English book's 2,614 paragraph codes. The paragraph numbers are as printed; none has been corrected. Where a code is missing, the notes file says so under MISSING-TAG.
+The English codes of the Ellen G. White Estate are taken as correct, and every English paragraph has exactly one Thai paragraph under its code, in the English order: 2,614 in all. The print carries 2,594 of them, some misprinted. Where the print gave a Bible verse no code, the verse stood joined to the paragraph before it and every printed code after it ran one behind; such a paragraph is split where the English splits and the codes after it are moved up. No Thai word is changed or moved by this. `print/RENUMBERED.tsv` records every correction: the file, the printed code, the action and the code or codes it became. An English paragraph the Thai does not render would stand as an empty paragraph under its code; there is none.
+
+Each correction was proposed by an agent reading the Thai against the English and checked again by a second; every paragraph of the book was then compared with its English paragraph for where it begins and ends.
