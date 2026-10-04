@@ -3,7 +3,7 @@ chapter:
   number: 5
   title:
     th: คำอธิษฐานของพระเยซู
-    en: The Lord\'s Prayer
+    en: The Lord’s Prayer
   url: https://legacy.egwwritings.org/?ref=en_MB.102&para=150.528
 ---
 

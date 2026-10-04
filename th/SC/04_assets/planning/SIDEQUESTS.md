@@ -48,15 +48,9 @@ Detail: this entry. Small.
 
 Communion row: {SC 31.2} มีสื่อสัมพันธ์กับทูตสวรรค์ผู้บริสุทธิ์ becomes มีการสื่อสัมพันธ์กับทูตสวรรค์ผู้บริสุทธิ์, since the coinage takes การ after มี at every other SC site and bare สื่อ reads as "medium" (SC03). {SC 69.1} โดยการสามัคคีธรรมกับพระองค์ในทุกวัน ทุกชั่วโมง and {SC 93.4} ในการสามัคคีธรรมกับพระบิดาด้วยการอธิษฐาน were proposed as การสื่อสัมพันธ์; with สามัคคีธรรม ruled a second default they stand unless qa2 of SC08 and SC11 finds the sentence asks otherwise. {SC 98.1} ผู้ที่มุ่งมั่นที่จะติดสนิทกับพระเจ้าอย่างแท้จริง may become ผู้ที่แสวงหาการสื่อสัมพันธ์กับพระเจ้าอย่างแท้จริง, optional. {SC 125.1} มีความสุขในการสนิทสนมกับพระคริสต์ becomes มีความสุขที่ได้สนิทสนมกับพระคริสต์, for the SC12–SC13 PR.
 
-Intercession row: {SC 88.3} พระลักษณะของพระผู้ไถ่ผู้ทรงทำหน้าที่คนกลางเพื่อเรา becomes พระลักษณะของพระผู้ไถ่ผู้ทรงวิงวอนเพื่อเรา, because the English names the Intercessor and the paragraph ends on Hebrews 7:25 while คนกลาง is the Bible's Mediator (SC10, 03_public). {SC 119.2} "Let your conversation be of Him who liveth to make intercession for you before the Father" takes จงสนทนากันถึงพระองค์ผู้ทรงพระชนม์อยู่เพื่อวิงวอนแทนท่านต่อพระพักตร์พระบิดา, for the SC12–SC13 PR.
+Intercession row: {SC 119.2} "Let your conversation be of Him who liveth to make intercession for you before the Father" takes จงสนทนากันถึงพระองค์ผู้ทรงพระชนม์อยู่เพื่อวิงวอนแทนท่านต่อพระพักตร์พระบิดา, for the SC12–SC13 PR.
 
 Detail: ~/claude-sandbox/sc-audit/sc02-study-communion.md and sc02-study-intercession.md. Small.
-
-## 11. Remove พระคุณความดี where it renders merits, SC06 onward
-
-The merits row carries คุณความดี alone, because พระคุณความดี reads as grace, พระคุณ being the Bibles' word at เอเฟซัส 2:8. The SC02 glossary run had added พระคุณความดี at PP 430.3 and PP 431.4 and in the merits row, undone on 21 September, and SC01 to SC05 were checked in that session. Every SC chapter from SC06 on is checked for พระคุณความดี at a merits site when it comes to its round, and the form becomes คุณความดี; พระคุณความดี for the goodness of God stays.
-
-Detail: ~/claude-sandbox/sc-audit/sc03-study-virtue-phra.md. Small.
 
 ## 12. Standardize sons of God and children of God in SC
 
@@ -69,3 +63,15 @@ Detail: this entry. Small.
 SJ is unedited and its sons of God sites take one form under the row when SJ is edited.
 
 Detail: this entry. Small.
+
+## 14. SC05 and SC08 notes for qa2, from the SC08 and SC09 term close-out
+
+Sites to weigh in qa2, each in its own sentence. {SC 48.1} (SC05) "through constant surrender to God" reads การมอบให้พระเจ้าอย่างต่อเนื่อง, where มอบ has no object; the candidates are การมอบเจตจำนงให้พระเจ้าอย่างต่อเนื่อง, naming the will as {SC 62.3} does, and การมอบชีวิตให้พระเจ้าอย่างต่อเนื่อง, as {SC 47.1} does. {SC 73.1} (SC08) "as the character of the Divine One was manifested to him" reads พระลักษณะของพระผู้ช่วยให้รอด, which names Christ's work rather than His deity; the candidate is พระลักษณะของพระองค์ผู้ทรงเป็นพระเจ้า, on TNCV's ผู้ทรงเป็นพระเจ้า at โรม 9:5; the translator expects to keep the present wording after review, and the glossary row for "the Divine One" waits on that review.
+
+Detail: ~/claude-sandbox/sc-audit/term-close-S5-study.md and term-close-S6-study.md. Small.
+
+## 15. SC12 note for qa2: the authority sentence at {SC 109.3}
+
+{SC 109.3} "reason must acknowledge an authority superior to itself" reads พระคัมภีร์มีอำนาจเหนือความคิดของเรา, the editor's wording, which stands until qa2 weighs the sentence. The editor rejected สิทธิอำนาจ here as personifying the Bible too much and sounding political; the editor check found that อำนาจเหนือความคิดของเรา can read as control over our thoughts. The drill's two candidates, which the editor has not seen: ยังมีอำนาจที่สูงกว่าความคิดของเราเอง, which leaves the authority unnamed as the English does, and พระคัมภีร์อยู่เหนือความคิดของเราเอง, which can also be heard as "beyond our thinking".
+
+Detail: ~/claude-sandbox/sc-audit/sc12-drill-2-editor.md. Small.

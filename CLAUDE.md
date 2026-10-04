@@ -12,7 +12,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 1.C. Name the subject on every line and state the change itself. Never write "it", "several" or a bare label where the subject's name belongs.
 1.D. Nothing sits outside a numbered item: a file created, a passing correction, a clean check, an offer, a question — each is an item. An agent's report to the conductor may begin with one headline line, such as "VERDICT: PASS".
-1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone.
+1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands on its own line with a blank line before and after it.
 1.F. FIX1 is the recommendation; its reason is one sentence. Add a further option only where it is genuinely different.
 1.G. Quote enough to identify the issue and no more. Show the text of a false alarm too. Give full paths. Drop a field that does not apply.
 1.G.1. One numbering scheme per report. Enumerate inside an item by extending its number: 3.A, then 3.A.1. The options of a DECIDE keep the labels FIX1, FIX2.
