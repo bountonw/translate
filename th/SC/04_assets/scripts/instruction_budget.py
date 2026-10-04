@@ -12,18 +12,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 BUDGET = {
-    "CLAUDE.md": 1250,
-    "th/SC/CLAUDE.md": 1350,
+    "CLAUDE.md": 1325,
+    "th/SC/CLAUDE.md": 1485,
     "th/DA/CLAUDE.md": 1400,
-    ".claude/commands/th-sc.md": 120,
+    ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
-    ".claude/agents/sc-batch-auditor.md": 1750,
-    ".claude/agents/sc-batch-auditor-qa2.md": 120,
-    ".claude/agents/th-term-study.md": 600,
-    ".claude/agents/sc-wording-drill.md": 650,
-    ".claude/agents/sc-resolve-check.md": 900,
-    ".claude/agents/th-glossary-miner.md": 450,
+    ".claude/agents/sc-batch-auditor.md": 2005,
+    ".claude/agents/sc-batch-auditor-qa2.md": 115,
+    ".claude/agents/th-term-study.md": 640,
+    ".claude/agents/sc-wording-drill.md": 715,
+    ".claude/agents/sc-wording-drill-opus-max.md": 715,
+    ".claude/agents/sc-resolve-check.md": 885,
+    ".claude/agents/th-glossary-miner.md": 460,
     "th/assets/translation_profile/thai-profile.txt": 950,
+    "lo/FB/CLAUDE.md": 1100,
+    ".claude/commands/lo-fb.md": 150,
+    ".claude/agents/fb-phrase-drill.md": 900,
+    ".claude/agents/fb-sentence-drill.md": 900,
+    ".claude/agents/fb-final-read.md": 900,
+    "lo/assets/translation_profile/lao-profile.txt": 900,
 }
 
 

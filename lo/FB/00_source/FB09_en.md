@@ -1,0 +1,16 @@
+---
+book:
+  title:
+    en: 28 Fundamental Beliefs of Seventh-day Adventists
+chapter:
+  number: 9
+  title:
+    en: The Life, Death, and Resurrection of Christ
+  url: https://www.adventist.org/beliefs/
+source:
+  en: ADV-28Beliefs2020.pdf, General Conference of Seventh-day Adventists, 2020 edition; text as amended at the 2015 General Conference Session
+---
+
+## {FB 9.1}
+
+In Christ’s life of perfect obedience to God’s will, His suffering, death, and resurrection, God provided the only means of atonement for human sin, so that those who by faith accept this atonement may have eternal life, and the whole creation may better understand the infinite and holy love of the Creator. This perfect atonement vindicates the righteousness of God’s law and the graciousness of His character; for it both condemns our sin and provides for our forgiveness. The death of Christ is substitutionary and expiatory, reconciling and transforming. The bodily resurrection of Christ proclaims God’s triumph over the forces of evil, and for those who accept the atonement assures their final victory over sin and death. It declares the Lordship of Jesus Christ, before whom every knee in heaven and on earth will bow. (Gen. 3:15; Ps. 22:1; Isa. 53; John 3:16; 14:30; Rom. 1:4; 3:25; 4:25; 8:3, 4; 1 Cor. 15:3, 4, 20-22; 2 Cor. 5:14, 15, 19-21; Phil. 2:6-11; Col. 2:15; 1 Peter 2:21, 22; 1 John 2:2; 4:10.) {FB 9.1}

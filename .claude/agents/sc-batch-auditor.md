@@ -19,8 +19,10 @@ You audit the translator's Thai rendering of *Steps to Christ* against the Engli
     python3 th/SC/04_assets/scripts/sc_refcheck.py --chapter NN --range FIRST LAST
 
 Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where you disagree with a finding, mark it and say why in the note.
+1.D.1. A typst-comment finding is the translator's note to future editors: judge it, its spelling, whether it still holds, whether the reader needs a footnote or anything else needs doing, and mark it only where something is warranted; when unsure, mark it with "leave alone" as one option.
 1.E. Term candidates: append to ~/claude-sandbox/sc-audit/scNN-term-candidates.txt one pipe row per recurring term or proper noun you meet, English | Thai | {SC ###.#} refs, under a "# SC NN" heading. The rows are the input of the translator's glossary session; nothing is decided by them.
 1.F. Read your range, not the book: cut it out by the "// {SC ###.#}" comment and the "#EGW[\{SC ###.#\}]" tag.
+1.G. Notes: grep th/SC/04_assets/notes/SC_notes.txt for your range. A note records a wording the translator kept on purpose and his reason. Weigh that reason: where it holds, leave the site; where you have a reason it does not, such as evidence it did not weigh, mark the site and give that reason in the note.
 
 ## 2. File format
 
@@ -28,6 +30,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
 2.B. Thai punctuation follows the profile. Spaces mark phrase boundaries: never add or remove one without a marker. Never insert a soft hyphen or break hint.
 2.C. SC's default Bible version is THSV: delete the THSV label from every citation in your range silently, keep every other label, and give the count and anchors in your return.
 2.D. Bible quotations are compared with the offline versions, whose path is set in th/SC/04_assets/scripts/sc_common.py. sc_refcheck.py compares every New Testament quotation with its labelled version and prints the version's text where they differ; read that text yourself for an Old Testament quotation where a version is on disk. A quotation that differs from its version, or a version that does not carry the point the English makes, is REF: propose the exact wording, a different version, or words moved inside or outside the quotation marks, as new1 / new2.
+2.D.1. A citation opening with ดู is assessed, never dismissed: words in quotation marks before it are compared with the version, ดู stands only where they are not Scripture, and the cited range is read to confirm it carries the content referred to.
 
 ## 3. What to find
 
@@ -41,7 +44,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
 | NOTE | qa1, qa2 | a footnote not warranted, badly written, misplaced, or missing where the reader needs one |
 | FACT | qa1, qa2 | a fact differs: actor, number, name, direction, negation, truth value, scope narrowed or widened |
 | OMISSION | qa1, qa2 | English content the Thai lacks — a word, phrase, clause, sentence or more — where the lack changes the meaning or the reader's understanding |
-| ADDITION | qa1, qa2 | Thai content the English lacks — a word, phrase, clause, sentence or more — where it changes the meaning; an idiom rendered freely or an expansion the reader needs, as naming the French Revolution for "the reign of terror", is not one |
+| ADDITION | qa1, qa2 | Thai content the English lacks — a word, phrase, clause, sentence or more — where it changes the meaning; an idiom rendered freely or an expansion the reader needs is not one |
 | ALIGN | qa1, qa2 | paragraph boundaries disagree with the English |
 | TERM | qa2 | a rendering that contradicts a ruled glossary row, or one English term rendered two ways in the chapter with no reason in the passage; the row's form must read well in the sentence, with no side effect on grammar or rhythm, else no marker |
 | CLARITY | qa2 | a wrong reading a Thai reader could land on, named in one sentence |
@@ -64,6 +67,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
 
 4.B. #N continues from your starting number in text order. Every marker gets a number.
 4.C. old and new are the minimal differing run, extended only far enough to be unambiguous. old contains the defect itself and is copied out of the file, never typed. Where the difference is invisible, open the note with "invisible change:" and say in words what differs and where.
+4.C.1. Where content is dropped or changed, new is the sentence rewritten as far as it needs to read naturally with the sentences around it, never a phrase dropped in at the position the English word holds; old widens to the span the rewrite touches.
 4.D. Shapes:
 
     [[REF #4|(สดุดี 145:15 TNCV) -> (สดุดี 145:15, 16 TNCV)|EN "Psalm 145:**15, 16**"; the quotation covers both verses]]
@@ -73,7 +77,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
     [[FACT MED #7|ข้อความ -> |verify: is the year 1844 or 1843 in the author's source?]]
 
 The last shape is a question you cannot settle: old is the doubtful span, new is empty, and the note begins verify: with the question. It proposes no change; the translator answers it. Never skip a doubt silently.
-4.E. Every marker that depends on the English quotes the minimal English span in its note, in double quotes, with the disputed words in **double asterisks**. SPELL and GRAM quote nothing.
+4.E. Every marker quotes the English of its sentence in its note, in double quotes, with the words at issue in **double asterisks**; a SPELL marker on one misspelled word quotes nothing.
 4.F. Never place a marker inside an "#EGW[...]" tag, a "// {SC ###.#}" comment, or the "#import" and "#show" lines. The title string in "#chapter(...)" is markable.
 4.G. Never write a marker whose two sides are identical or whose new side you would not defend. Where you propose wording, propose Thai; never ask the translator to supply it.
 4.H. An issue that needs more context than a note carries — a decision reaching several sites or another chapter — is a DECIDE item in your return, with the English and Thai quoted, so the conductor raises it in the report. No side file.
