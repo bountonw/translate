@@ -119,6 +119,13 @@ Sites found while building the shared Thai glossary from PP and MB during SC01 w
 | {PP 184.2} published | โดยพระบารมีของพระองค์แล้ว | โดยพระคุณความดีของพระองค์แล้ว | The row now says never บารมี: the Bibles use it only for glory and majesty, and the bridge is His credited worth. |
 | {PP 202.4} published | ไว้วางใจในพระบารมีของพระผู้ช่วยให้รอดที่สิ้นพระชนม์บนไม้กางเขนและฟื้นคืนพระชนม์ | ไว้วางใจในพระคุณความดีของพระผู้ช่วยให้รอดที่สิ้นพระชนม์บนไม้กางเขนและฟื้นคืนพระชนม์ | The row now says never บารมี; trust rests on what the crucified and risen Saviour avails. |
 
+
+### the divine nature written as a person's character (row divine nature, the)
+
+| Anchor | Current | Proposed | Reason |
+|---|---|---|---|
+| {PP 330.3} | และจะกลายเป็นเหมือนพระองค์มากยิ่งขึ้น ทั้งในลักษณะและในอุปนิสัย | และจะกลายเป็นเหมือนพระองค์มากยิ่งขึ้น ทั้งจะได้มีส่วนในพระลักษณะของพระองค์ด้วย | "Become partakers of the divine nature" (2 Peter 1:4); the Thai gives likeness and a person's character, and the phrase of the verse is gone. Found by the SC09 term close-out. |
+
 Detail: this entry. Medium.
 
 ## 6. Define #italic when the PP template is built

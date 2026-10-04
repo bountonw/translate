@@ -10,6 +10,8 @@ English paragraph of the same anchor, and a quotation followed by its
 citation is compared word for word with the cited version from the offline
 Bible corpus (path in sc_common.py; New Testament books only are on disk).
 A #footnote[...] call inside a quotation is removed before the comparison.
+A chapter-only citation after a semicolon, as "14:10" in (ยอห์น 5:19 TNCV;
+14:10), takes the book cited before it, in the Thai and in the English.
 
     REF   a finding that takes a marker: a book name not in th_books.txt, a
           chapter or verse beyond the book, a version label not in the known
@@ -40,6 +42,9 @@ EN_CITE = re.compile(
     r"(?P<book>(?:[1-3]\s)?[A-Z][a-z]+(?:\s(?:of\s)?[A-Z][a-z]+)?)\s+(?P<ch>\d+)(?::(?P<vv>" + VERSES + r"))?"
     r"(?:\s*[-–]\s*(?P<ch2>\d+):(?P<v2>\d+))?")
 ONE_CHAPTER = {"OBA", "PHM", "2JN", "3JN", "JUD"}
+TH_BOOK = re.compile(rf"(?:[1-3]\s)?[{THAI}]+(?=\s+\d+)")
+EN_BOOK = re.compile(r"(?:[1-3]\s)?[A-Z][a-z]+(?:\s(?:of\s)?[A-Z][a-z]+)?(?=\s+\d+)")
+CONT_CITE = re.compile(r";\s*(?=\d+:\d)")
 VERSE_SPLIT = re.compile(r"(?:^|(?<=[\s“‘(\[]))(\d{1,3})(?=[^\d\s:.,-])")
 HEADER = re.compile(rf"^(?:[1-3]\s)?[{THAI}]+\s(\d+)$")
 STRIP = re.compile(r"[\s​‌‍﻿ “”‘’\"'.,;:!?()\[\]<>…\-–—]")
@@ -137,8 +142,22 @@ def expand(vv):
     return out
 
 
+def carry_books(text, book_re):
+    """A chapter-only citation after a semicolon takes the book cited before it:
+    "(ยอห์น 5:19 TNCV; 14:10 THSV)" is read as ยอห์น 14:10 THSV and the English
+    "John 14:17; 16:7" as John 16:7, so its label and verses are checked."""
+    def fill(m):
+        last = None
+        for b in book_re.finditer(text, 0, m.start()):
+            last = b
+        return f"; {last.group(0)} " if last else m.group(0)
+    return CONT_CITE.sub(fill, text)
+
+
 def cites(text, regex, books):
-    """Every citation in text as (name, code_or_None, chapter, verses_or_None, label, raw)."""
+    """Every citation in text as (name, code_or_None, chapter, verses_or_None, label, raw);
+    raw carries the book of a chapter-only continuation, see carry_books."""
+    text = carry_books(text, TH_BOOK if regex is TH_CITE else EN_BOOK)
     found = []
     for m in regex.finditer(text):
         name = re.sub(r"\s+", " ", m.group("book")).strip()
@@ -241,7 +260,7 @@ def compare_paragraph(body, th_books, anchor, refs, skipped):
     pos = 0
     for m in CITE_PAREN.finditer(body):
         quotes = QUOTE.findall(strip_footnotes(body[pos:m.start()]))
-        cites_ = [c.strip() for c in m.group(1).split(";")]
+        cites_ = [c.strip() for c in carry_books(m.group(1), TH_BOOK).split(";")]
         pos = m.end()
         if not quotes:
             continue

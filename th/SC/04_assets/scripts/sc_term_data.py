@@ -9,7 +9,11 @@ Sections: 1 sites in th/MB, th/PP and th/SC where the English source matches --h
 "none"); 2 counts of each --thai form, as matched sites per set and as occurrences per
 book; 3 Bible: each --thai form counted per version on disk, the --verses in THSV,
 TH1971, TNCV and TKJV, and the KJV verses matching --head, from the KJVS whole King James, with every Thai version
-on disk beside them. Published means MB and PP 1-20; unpublished means PP 21 on.
+on disk beside them; 4 the published Thai EGW editions in the White Estate library index
+(EGW_TH_INDEX or the path below): each --thai form counted in the published Thai Steps to
+Christ (ThSC) and in the other Thai books, with the ThSC paragraphs quoted. Section 4 is
+evidence of one earlier, literal rendering and never a model. Published means MB and PP 1-20;
+unpublished means PP 21 on.
 The Bible corpus path is BIBLE_CORPUS or ~/programming/bible, with Thai versions under th/ and
 the King James under en/KJVS.
 """
@@ -19,6 +23,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 BIBLE = Path(os.path.expanduser(os.environ.get("BIBLE_CORPUS", "~/programming/bible")))
 VERSIONS = ("THSV", "TNCV", "TKJV", "TH1940", "TH1971")
+EGW_INDEX = Path(os.path.expanduser(os.environ.get(
+    "EGW_TH_INDEX",
+    "~/programming/bible/egw-download/egw-data/PWBRSPX93T.com.whiteestate.library/Application Support/index/th/1099.sqlite")))
+EGW_BOOK = "ThSC"
 
 
 def version_dir(ver):
@@ -118,6 +126,16 @@ def kjv_hits(head, limit=60):
     return hits
 
 
+def egw_hits(forms):
+    """Paragraphs of the published Thai EGW editions holding each form: {form: [(refcode, content)]}."""
+    if not EGW_INDEX.is_file():
+        return None
+    import sqlite3
+    cur = sqlite3.connect(str(EGW_INDEX)).cursor()
+    return {f: cur.execute("select refcode, content from search_index where content like ?",
+                           ("%" + f + "%",)).fetchall() for f in forms}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--head", required=True, help="English regex, case-insensitive")
@@ -134,7 +152,7 @@ def main():
     nsites = {"published": 0, "unpublished": 0, "SC": 0}
     occ = {f: {} for f in forms}
     for book in ("MB", "PP", "SC"):
-        en = english_paras(book)
+        en = {k: v.replace('\u2019', "'") for k, v in english_paras(book).items()}  # curly apostrophe (Spirit’s) matches a straight one in --head
         th, chap = thai_paras(book)
         for f in forms:
             occ[f][book] = sum(p.count(f) for p in th.values())
@@ -185,6 +203,21 @@ def main():
                 L.append(f"  {ver}: {th_v[:220]}")
     if not hits:
         L.append("none")
+    egw = egw_hits(forms)
+    L += ["", "## 4. Published Thai EGW editions (evidence of an earlier literal rendering, never a model)", ""]
+    if egw is None:
+        L.append(f"index not on disk: {EGW_INDEX}")
+    else:
+        L += [f"| Thai form | {EGW_BOOK} paragraphs | Other Thai EGW books |", "|---|---|---|"]
+        for f in forms:
+            mine = [r for r in egw[f] if r[0].startswith(EGW_BOOK + " ")]
+            L.append(f"| {f} | {len(mine)} | {len(egw[f]) - len(mine)} |")
+        for f in forms:
+            mine = [r for r in egw[f] if r[0].startswith(EGW_BOOK + " ")]
+            for refcode, content in mine[:12]:
+                i = content.find(f)
+                snip = content[max(0, i - 70):i + len(f) + 70].replace("\r", " ").replace("\n", " ")
+                L.append(f"- {refcode}: …{snip}…")
     Path(os.path.expanduser(a.out)).write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"wrote {a.out}: sites published {nsites['published']}, unpublished {nsites['unpublished']}, SC {nsites['SC']}; KJV hits {len(hits)}")
     return 0

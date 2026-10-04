@@ -21,8 +21,9 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
 2.D. A citation sits in parentheses where it fits the flow of the sentence, often at the paragraph end; where a parenthesis would break the flow it is worked into the prose or left as a footnote. A reference the reader is sent to rather than quoted opens with ดู.
 2.E. Book names as THSV prints them. A verse range takes an en dash, as ลูกา 18:10–14; verses in a list are separated by a comma and a space; citations of several books are separated by semicolons, as (อพยพ 34:6, 7 TNCV; โยนาห์ 4:2; มีคาห์ 7:18 TCV).
-2.F. A quotation follows its version word for word: restore any word dropped, added or changed inside it; raise to the translator a trim at either end made for the flow of the sentence that leaves the meaning intact.
+2.F. A quotation follows its version word for word: restore any word dropped, added or changed inside it. Judge a trim at either end with its lead-in sentence: it stands where it matches the English trim or serves the flow losing no meaning, else raise it.
 2.G. Spelling inside a quotation follows the book's own spelling, not the version's; for example, คนคนเดียว where THSV prints คนๆ เดียว.
+2.H. A phrase translated from the KJV inside a quotation that otherwise follows a Thai version keeps that version's citation and takes a footnote after the closing quotation mark, before the citation, naming the phrase and its source; a quotation translated whole from the KJV carries the source in the version slot of its citation. The first such note in a book reads แปลตามพระคัมภีร์ฉบับ KJV, as “ความเชื่อของพระบุตร”: แปลตามพระคัมภีร์ฉบับ KJV; every later one in the book reads แปลตามฉบับ KJV, as (ยอห์น 6:63 แปลตามฉบับ KJV).
 
 ## 3. Thai text
 

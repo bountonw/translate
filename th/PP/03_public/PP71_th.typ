@@ -1,5 +1,5 @@
 // Source-url: "https://egwwritings.org/read?panels=p84.3386"
-// English title: David's Sin and Repentance
+// English title: David’s Sin and Repentance
 
 #chapter(
   number: 71,
