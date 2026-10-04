@@ -16,7 +16,7 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 ## 2. Paths
 
 2.A. English source: lo/FB/00_source/FBNN_en.md, one belief per file, anchored "## {FB N.1}" with the tag "{FB N.1}" at the paragraph end; FB00_preamble_en.md is the preamble. The official booklet is source/FB/ADV-28Beliefs2020.pdf; lo/FB/04_assets/scripts/fb_source_split.py made the anchored files from its text.
-2.B. Lao statements: lo/FB/01_raw, 02_edit or 03_public, FBNN_lo.typ, one belief per file; confirm the stage with ls. A statement file is the heading "== N — title", the text on the next line, a blank line and the reference line; no anchor comment. A file moves to the next stage when its round is resolved; the translator moves it.
+2.B. Lao statements: lo/FB/01_raw, 02_edit or 03_public, FBNN_lo.typ, one belief per file; confirm the stage with ls. A statement file is the heading "== N — title", the text on the next line, a blank line and the reference line; no anchor comment. The translator moves a file between stages.
 2.C. Lao book chapters: SBNN_lo.typ in the same stage directories, anchored {SB N.P} by chapter and paragraph; a chapter includes its statement file rather than repeating the text. The English source will be lo/FB/00_source/SBNN_en.md.
 2.D. Governing files: lo/assets/translation_profile/lao-profile.txt and lao-glossary.txt, shared by every Lao book, a line or row tagged FB binding this project. The GC glossary lo/GC/04_assets/translation_profile/GC-glossary.txt, copied from the GC-instructions branch, is read and never edited. th/assets/translation_profile/thai-glossary.txt and the formal Thai Bible versions are read for wording comparison, because the Lao Bibles are dynamic; the Lao is never translated from the Thai. A row guides and never rules.
 2.E. Bibles: LCV and LO2012 under ~/programming/bible, the Thai versions beside them; python3 ~/programming/LMV/scripts/brief.py JHN 3:16 prints every version of a verse; the packet quotes KJV, LCV, LO2012, TH1971, THSV and TKJV. A verse is quoted from its file with its zero-width spaces stripped; a verse not on disk is flagged.
@@ -41,7 +41,7 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 
 5.A. Run python3 lo/FB/04_assets/scripts/fb_check.py --belief 07: the orthography and punctuation of 2.D, digits, invisible characters, quotation marks, the reference line. It fixes the file directly, with no marker, and prints what it cannot fix.
 5.B. Dispatch fb-final-read (Fable, xhigh) with the belief number, the packet and the file. It reads the whole statement against the English from the top: the flow, every theological nuance pointing where the English points, every loophole the Lao leaves that the English closes, no wording more specific or looser than the English. It writes FIX markers only where the statement should not stand, each note quoting the English.
-5.C. Report: the markers as items. Resolved, the file moves to 03_public.
+5.C. Report: the markers as items. Resolved, the file stays in 02_edit for the editors; the translator moves it to 03_public after their review.
 
 ## 6. Check ("check FB07")
 
