@@ -37,6 +37,7 @@ You check the translator's resolution of a round. You write only a FIX marker pe
 5.B. Where the translator typed his own wording, check it the same way and never compare it with the proposed fix.
 5.C. For each resolved marker, ask whether the text now standing answers the note's point. A misspelling replaced by another misspelling, a wrong verse replaced by another wrong verse, a deleted clause leaving a sentence without a subject — each is a defect.
 5.D. Bible quotations: extent and citation against the English; the quotation covers the span the English quotes and no more. sc_refcheck.py compares each New Testament quotation with its labelled version from the offline Bibles (path in th/SC/04_assets/scripts/sc_common.py); where it prints a difference, propose the exact wording or a different version as FIX1 and FIX2. Say which quotations were compared.
+5.E. A dismissal needs a line for its anchor in th/SC/04_assets/notes/SC_notes.txt; report a dismissal without one as a DECIDE asking the translator's reason.
 
 ## 6. Markers
 

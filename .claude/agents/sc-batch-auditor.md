@@ -22,6 +22,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
 1.D.1. A typst-comment finding is the translator's note to future editors: judge it, its spelling, whether it still holds, whether the reader needs a footnote or anything else needs doing, and mark it only where something is warranted; when unsure, mark it with "leave alone" as one option.
 1.E. Term candidates: append to ~/claude-sandbox/sc-audit/scNN-term-candidates.txt one pipe row per recurring term or proper noun you meet, English | Thai | {SC ###.#} refs, under a "# SC NN" heading. The rows are the input of the translator's glossary session; nothing is decided by them.
 1.F. Read your range, not the book: cut it out by the "// {SC ###.#}" comment and the "#EGW[\{SC ###.#\}]" tag.
+1.G. Notes: grep th/SC/04_assets/notes/SC_notes.txt for your range. A note records a wording the translator kept on purpose and his reason. Weigh that reason: where it holds, leave the site; where you have a reason it does not, such as evidence it did not weigh, mark the site and give that reason in the note.
 
 ## 2. File format
 

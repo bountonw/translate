@@ -20,7 +20,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 2.B. English source: th/SC/00_source/SCNN_en.md, anchored "## {SC ###.#}"; SC04_en.md is anchored by the closing tag.
 2.C. Governing files: th/assets/translation_profile/thai-profile.txt and thai-glossary.txt. A glossary row is silent until its Notes cell carries [CHECK] or [FLAG]. Where both are silent, grep the finished Thai books for evidence; evidence never rules.
 2.D. Markers go into the chapter file. Everything else a run produces — the resolution sheet, term candidates, agent reports — goes to ~/claude-sandbox/sc-audit/.
-2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_resolution_sheet.py, sc_editor_markers.py, instruction_budget.py. Each says what it does in its first lines.
+2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, sc_resolution_sheet.py, sc_editor_markers.py, instruction_budget.py. Each says what it does in its first lines.
 2.F. Compile check, from th/SC: ./typst-custom compile --root . <stage>/SCNN_th.typ $TMPDIR/SCNN.pdf. Never on a chapter holding markers.
 
 ## 3. The rounds
@@ -42,7 +42,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 5. Post-resolution check ("check SC01")
 
 5.A. Grep the chapter for [[. Standing markers end the check: name the numbers and stop.
-5.B. Run sc_punctcheck.py, sc_refcheck.py, instruction_budget.py and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a file over budget is a FIX in the report.
+5.B. Run sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, instruction_budget.py and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a stale note is a DECIDE, updated or deleted; a file over budget is a FIX in the report.
 5.B.1. A finding the round already judged and the translator ruled on, such as a Typst comment ruled to stand, takes no marker at check and is not raised again.
 5.C. Dispatch sc-resolve-check with chapter, stage directory, last marker number, and every resolved marker's class, anchor, old span and note. Relay its report verbatim. PASS means clean to commit and to upload.
 
@@ -57,6 +57,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.F. Never override an agent's model or effort.
 6.G. Grep rather than read.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
+6.J. When the translator keeps a wording against a finding, get his reason, asking if he gave none, and in the same reply write one line, in anchor order, in th/SC/04_assets/notes/SC_notes.txt: {SC ###.#} | English words | Thai span copied from the chapter | his reason.
 
 ## 7. Glossary building ("terms")
 
