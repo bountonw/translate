@@ -31,7 +31,8 @@ QUESTION = re.compile(r"\{\{Q(?P<num>#\d+[a-z]?)?\s*\|?(?P<q>.*?)\}\}", re.S)
 NO_SEV = {"SPELL", "GRAM", "REF", "NOTE", "READ", "CHOICE", "FIX"}
 ROUND_CLASSES = {
     "qa1": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN"},
-    "qa2": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "TERM", "CLARITY", "READ", "CHOICE"},
+    "qa2": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "TERM"},
+    "qa3": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "CLARITY", "READ", "CHOICE"},
     "check": {"FIX"},
 }
 
@@ -84,8 +85,8 @@ def main():
                     problems.append(f"#{num} {{SC {p.anchor}}}: {cls} carries no severity")
                 if cls not in NO_SEV and not sev:
                     problems.append(f"#{num} {{SC {p.anchor}}}: {cls} needs HIGH or MED")
-                if sev == "LOW":
-                    problems.append(f"#{num} {{SC {p.anchor}}}: LOW is never written")
+                if sev == "LOW" and a.round == "qa1":
+                    problems.append(f"#{num} {{SC {p.anchor}}}: LOW is never written in qa1")
             if not new and not note.strip():
                 problems.append(f"#{num} {{SC {p.anchor}}}: empty new side with an empty note")
             blocks.append(

@@ -13,12 +13,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 BUDGET = {
     "CLAUDE.md": 1325,
-    "th/SC/CLAUDE.md": 1485,
+    "th/SC/CLAUDE.md": 1900,
     "th/DA/CLAUDE.md": 1400,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
     ".claude/agents/sc-batch-auditor.md": 2005,
-    ".claude/agents/sc-batch-auditor-qa2.md": 115,
+    ".claude/agents/sc-batch-auditor-qa2.md": 800,
+    ".claude/agents/sc-reader-qa3.md": 700,
     ".claude/agents/th-term-study.md": 640,
     ".claude/agents/sc-wording-drill.md": 715,
     ".claude/agents/sc-wording-drill-opus-max.md": 715,

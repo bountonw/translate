@@ -14,11 +14,11 @@ The translator's editor and reviewers work in Google Docs while the repository s
 
 Detail: th/SC/04_assets/planning/gdocs-workflow.md. Medium.
 
-## 5. QA3 reader agent and packet script
+## 5. First live run of the reader's round
 
-Written after QA2 has run on a first chapter, per th/SC/CLAUDE.md 3.E: a packet script that collects every paragraph QA1 and QA2 changed, with the English, the pre-QA Thai, the current Thai and the changed runs, and a Fable reader agent that judges each change in its whole paragraph and writes REVERT, REWORD or FIX markers only where a change should not stand.
+sc-reader-qa3, sc_termcheck.py and sc_changes.py were written on 6 October 2026 and have not run on a live round. The first "qa3" on a chapter that has finished QA2 is read against th/SC/CLAUDE.md 3.E, and the agent definition and the scripts are adjusted from what that run shows.
 
-Detail: th/SC/CLAUDE.md 3.E. Medium.
+Detail: th/SC/CLAUDE.md 3.E and 4.B.2. Small.
 
 ## 6. Restore the anchor headings in th/SC/00_source/SC04_en.md
 

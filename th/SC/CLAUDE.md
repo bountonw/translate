@@ -5,8 +5,8 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 1. Triggers
 
 1.A. "qa1 SC01 [SC02 ...]" — round one, accuracy (3.C), by section 4. Chapters named together run in parallel; batches inside a chapter run in sequence.
-1.B. "qa2 SC01 [SC02 ...]" — round two, terms, clarity and reading (3.D), by section 4, only on a chapter whose QA1 markers are resolved and checked and whose terms have glossary rows.
-1.C. "qa3 SC01" — not built; see 3.E.
+1.B. "qa2 SC01 [SC02 ...]" — round two, terms (3.D), by section 4, only on a chapter whose QA1 markers are resolved and checked.
+1.C. "qa3 SC01 [SC02 ...]" — round three, the reader's round (3.E), by section 4, only on a chapter whose QA2 markers are resolved and checked.
 1.D. "check SC01" — the translator has resolved the markers; section 5.
 1.E. "editor SC01" or "editor SC01 #12 #14" — flatten the remaining markers, or the named ones, into editor parentheses so the chapter can go to Google Docs: python3 th/SC/04_assets/scripts/sc_editor_markers.py --chapter 01 [--markers 12 14]. Each marker becomes ((old/new)) or ((old/new1/new2)), current wording first. A verify: marker is left standing and reported by number.
 1.F. "terms SC01 [SC02 ...]" — glossary mining, section 7.
@@ -28,15 +28,21 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 3.A. Three light rounds. Each round marks one kind of thing; a finding outside the round's classes is neither marked nor reported.
 3.B. Every batch runs sc_punctcheck.py and sc_refcheck.py on its range. Each finding line takes a marker, SPELL or REF; a NOTE line takes none. SC's default Bible version is THSV, so the batch auditor deletes every THSV label in its range silently and reports the count; the report carries it as one NOTE.
 3.C. QA1, accuracy: SPELL, GRAM, REF and NOTE, which carry no severity; FACT, OMISSION, ADDITION and ALIGN, which carry HIGH or MED and never LOW. No TERM, CLARITY or wording marker. The table in sc-batch-auditor defines each class.
-3.D. QA2, terms, clarity and reading: TERM and CLARITY, HIGH, MED or LOW; READ, a reading improvement whose gain is named in the note, and CHOICE, two candidates the translator picks between, both without severity. The translator's own ((A/B)) or ((word)) gets a CHOICE marker with the agent's proposal and "keep the parenthesis" as the other option. READ and CHOICE together are capped at one per 300 English words of the batch; a READ marker changes at most one sentence and a paragraph carries at most two. An accuracy finding QA1 missed is marked in its QA1 class. The glossary guides; variation within a term family stands unless there is a reason to narrow it.
-3.E. QA3 is decided after QA2 has run on one chapter: either no third round, or one short read of the whole chapter by Fable flagging the few stumbles left; entry 5 of the queue.
+3.D. QA2, terms: TERM, HIGH, MED or LOW, where the Thai at a glossary head's site carries a different sense from the one the row rules, or lets the reader land on a wrong one; the note says what the sentence does to the reader and gives the row and what it rules as evidence. A site that uses one of the row's forms takes nothing. Candidates come from sc_termcheck.py over every row of glossary sections 1 and 2; the auditor judges each in its sentence. An accuracy finding QA1 missed is marked in its QA1 class. The translator's own ((A/B)) waits for QA3.
+3.D.1. A row anchored in a Bible verse or naming a doctrine, an office or a title is set terminology: a departure takes a marker unless the sentence resists the form, and then the report raises the row. A row for an ordinary word or an image guides only: a departure stands where the sense holds.
+3.E. QA3, the reader's round: Fable reads every paragraph of the chapter whole, English beside Thai, as a Thai reader would, and marks CLARITY, a wrong reading the reader lands on, HIGH, MED or LOW; READ, a sentence the reader stumbles on or hears as translated, its gain named; CHOICE, two candidates the translator picks between, including his own ((A/B)) or ((word)) with "keep the parenthesis" as the other option. It does not check terms against the glossary. For a paragraph QA1 or QA2 changed it also sees the Thai before those rounds and may propose the earlier wording back. An accuracy finding the earlier rounds missed is marked in its QA1 class. READ and CHOICE together are capped at one per 300 English words; a READ changes at most one sentence and a paragraph carries at most two.
+3.F. Every wording a QA2 or QA3 marker proposes is drilled at 8/5/1 in its passage: the best candidate is the new side and the next four stand in the note as new2 to new5, one clause each; the numbers come down if the cost demands.
+3.G. A round writes at most 20 markers in a chapter, shared across its batches by English words; the auditor spends them on the largest gains and lists the sites it left out in its return.
+3.H. A site where a [CHECK] row's forms are absent and the Thai carries the English sense takes no marker; the report raises whether the row should list the form, and a wording kept on purpose goes to SC_notes.txt under 6.J. When in doubt, the site takes a marker.
 
 ## 4. Chapter procedure, every round
 
 4.A. Preflight: the chapter holds no [[ marker, else name the numbers and stop; git status --short -- th/SC shows the chapter unmodified. Another chapter's modified file is another session's. Grep the chapter; never read it whole.
 4.B. Split: wc -w on the English source; batches = words / 2200 rounded up; under 2700 words is one batch; cut at anchors with no remainder on the last batch. State the split and proceed.
-4.C. Dispatch sc-batch-auditor (qa1) or sc-batch-auditor-qa2 (qa2) per batch, in sequence, with chapter, stage directory, ref range, starting marker number, round name and first-batch flag. Markers restart at #1 each round; the next start is the last reported number plus one.
-4.D. After the last batch, run python3 th/SC/04_assets/scripts/sc_resolution_sheet.py --chapter NN --round qa1 (or qa2) and read its VERDICT line. Delete a marker whose old side is not in the committed chapter and establish the finding again.
+4.B.1. For qa2, build the candidate file: python3 th/SC/04_assets/scripts/sc_termcheck.py --chapter NN writes ~/claude-sandbox/sc-audit/scNN-term-candidates-qa2.md with, per paragraph, each glossary head the English carries whose row's forms are absent from the Thai, and the sense rows of a head where the Thai uses one of them. Pass its path and the queue's qa2 sites for the chapter to every batch.
+4.B.2. For qa3, build the changes file: python3 th/SC/04_assets/scripts/sc_changes.py --chapter NN --base COMMIT, where COMMIT is the parent of the chapter's QA1 commit, writes ~/claude-sandbox/sc-audit/scNN-changes.md with, per changed paragraph, the English, the Thai at the base, the Thai now and each changed run. Pass its path and the qa2 side list to every batch.
+4.C. Dispatch sc-batch-auditor (qa1), sc-batch-auditor-qa2 (qa2) or sc-reader-qa3 (qa3) per batch, in sequence, with chapter, stage directory, ref range, starting marker number, round name, first-batch flag, and the files of 4.B.1 or 4.B.2. Markers restart at #1 each round; the next start is the last reported number plus one.
+4.D. After the last batch, run python3 th/SC/04_assets/scripts/sc_resolution_sheet.py --chapter NN --round qa1 (or qa2, qa3) and read its VERDICT line. Delete a marker whose old side is not in the committed chapter and establish the finding again.
 4.E. Report: the counts table, the THSV-label count, every DECIDE, and any item whose effect reaches past its own site. A decision confined to one marker stays at the cursor. Give the sheet's path.
 
 ## 5. Post-resolution check ("check SC01")
@@ -51,7 +57,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.A. You orchestrate; agents work. A run's only repository edit is markers in the chapter.
 6.B. Chapters are Typst: a "// {SC ###.#}" comment above each paragraph, an "#EGW[\{SC ###.#\}]" tag at its end, footnotes inline as "#footnote[...]". Reference prose by anchor, never by line. A chapter holding markers is never compiled or added to book.typ.
 6.C. Thai text and citations follow thai-profile.txt.
-6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the original wording tagged original: so the editor sees it: in qa2 it gets a CHOICE marker; in qa1 it stands; sc_punctcheck.py lists every one standing.
+6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the original wording tagged original: so the editor sees it: in qa3 it gets a CHOICE marker; in qa1 and qa2 it stands; sc_punctcheck.py lists every one standing.
 6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.E. Line breaking is never fixed in a manuscript; break points live in th/SC/04_assets/template/dictionary.typ.
 6.F. Never override an agent's model or effort.
@@ -73,4 +79,4 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 9. Reporting
 
 9.A. The root CLAUDE.md report shape; TH: replaces LO:. A DECIDE opens with the decision and the recommendation.
-9.B. sc-resolve-check writes for the translator and is relayed verbatim. sc-batch-auditor and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
+9.B. sc-resolve-check writes for the translator and is relayed verbatim. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
