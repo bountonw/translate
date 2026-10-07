@@ -4,7 +4,7 @@ The new Thai translation of *The Desire of Ages*, ผู้พึงปราร
 
 Start Claude Code in the checkout that holds the DA branch, then type `/th-DA` followed by one of the commands below. Every report comes back in the usual shape, with numbered items and the summary at the bottom.
 
-The agents and scripts these commands call are not built yet. `/th-DA tools` builds them; it is entry 1 of th/DA/04_assets/planning/SIDEQUESTS.md. Until then, every other command stops and says which agent is missing.
+The agents live in .claude/agents (da-finder, da-miner, da-verse-study, da-drafter, da-check, da-fixer, da-print-compare, da-subtitles, da-resolve-check, da-wording-drill, with th-term-study and th-glossary-miner shared with SC) and the scripts in th/DA/04_assets/scripts; each script says what it does in its first lines. `/th-DA tools` repairs them.
 
 ## Once, before the first chapter
 
@@ -40,6 +40,8 @@ The agents and scripts these commands call are not built yet. `/th-DA tools` bui
 | English source | th/DA/00_source/DANN_en.md |
 | Your chapters | th/DA/01_raw, 02_edit, 03_public |
 | The 2023 print, for reference | th/DA/04_assets/editions/print |
-| Names | th/DA/04_assets/names.tsv |
-| Scripts | th/DA/04_assets/scripts |
+| Names | th/assets/translation_profile/thai-names.tsv, built by th/assets/scripts/th_names.py |
+| Scripts | th/DA/04_assets/scripts; th/assets/scripts for every Thai book |
+| Style samples for the drafter | th/DA/04_assets/pp_samples.txt |
+| Kept wordings | th/DA/04_assets/notes/DA_notes.txt |
 | Session outputs and agent reports | ~/claude-sandbox/da-audit/ |
