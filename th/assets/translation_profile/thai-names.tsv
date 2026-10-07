@@ -54,7 +54,7 @@ Aquila		อาควิลลา		อาควิลลา	อาควิลล
 Ar		อาร์		อาร์	อาร์	อาร์	PP	6	settled	
 Arabia		อาระเบีย		อาระเบีย	อาระเบีย	อาระเบีย	PP	7	settled	
 Arad		อาราด		อาราด	อาราด	อาราด	PP	5	settled	
-Aram		อารัม		อารัม	อารัม	อารัม	PP	12	weak match	THSV form in 58 percent of 12 verses
+Aram		อารัม	glossary	อารัม	อารัม	อารัม	PP	12	settled	glossary row
 Archelaus		อารเคลาอัส		อารเคลาอัส	อารเคลาอัส	อารเคลาอัส	DA	1	settled	1 verse(s) in the King James; the three versions agree on the form
 Archite		ชาวอารเคลาอัส		อารคี	อารคี	อารคี	PP	5	settled	a people, DA 3.K: ชาว before อารเคลาอัส (Archelaus); 
 Arnon		อารโนน		อารโนน	อารโนน	อารโนน	PP	25	settled	
@@ -66,7 +66,7 @@ Ashkelon		อัชเคโลน		อัชเคโลน	อัช	อัช
 Ashtaroth		อัชทาโรท		อัชทาโรท	อัชทาโรท	อัช	PP	11	settled	TNCV writes อัช
 Askelon		อัชเคโลน		อัชเคโลน	ชเคโลน	อัชเคโลน	PP	3	settled	TH1971 writes ชเคโลน
 Assyrian		ชาวอัสซีเรีย		อัสซีเรีย	อัสซีเรีย	อัสซีเรีย	DA	13	settled	a people, DA 3.K: ชาว before อัสซีเรีย; 
-Augustus					มหาจักรพรร	องค์จักรพรร	DA	4	weak match	no THSV form found at these verses
+Augustus		ออกัสตัส	glossary		มหาจักรพรร	องค์จักรพรร	DA	4	settled	glossary row
 Baal		บาอัล		บาอัล	บาอัล	บาอัล	DA,PP	100	settled	
 Baalim		บาอัล		บาอัล	บาอัล	บาอัล	PP	18	settled	
 Babel		บาเบล	glossary	บาเบล	บาเบล	บาเบล	PP	2	settled	glossary row
@@ -87,7 +87,7 @@ Benjamin		เบนยามิน	glossary	เบนยามิน	เบน�
 Benjamite		คนเบนยามิน		เบนยามิน	เบนยามิน	เบนยามิน	PP	9	settled	a people, DA 3.K: คน before เบนยามิน (Benjamin); 
 Beor		เบโอร์		เบโอร์	เบโอร์	เบโอร์	PP	10	settled	
 Besor		เบโสร์		เบโสร์	เบโสร์	เบโสร์	PP	3	settled	
-Bethabara							DA	1	weak match	only 1 verse(s) in the King James and no word follows the English name's consonants; copy the spelling out of the verse: THSV JHN 1:28: เหตุการณ์นี้เกิดขึ้นที่หมู่บ้านเบธานีฟากแม่น้ำจอร์แดนข้างโน้นที่ซึ่งยอห์นกำลังให้บัพติศมา
+Bethabara		เบธานี	glossary				DA	1	settled	glossary row
 Bethany		เบธานี		เบธานี	เบธานี	เบธานี	DA	11	settled	
 Bethesda		เบธซาธา	glossary	เบธซาธา	เบธซาธา	เบเธสดา	DA,SC	1	settled	glossary row; TNCV writes เบเธสดา
 Bethlehem		เบธเลเฮม	glossary	เบธเลเฮม	เบธเลเฮม	เบธเลเฮม	DA,MB,PP	8	settled	glossary row
@@ -98,7 +98,7 @@ Caiaphas		คายาฟาส		คายาฟาส	คายาฟาส	ค
 Cain		คาอิน	glossary	คาอิน	คาอิน	คาอิน	DA,PP	19	settled	glossary row
 Caleb		คาเลบ		คาเลบ	คาเลบ	คาเลบ	PP	37	settled	
 Calvary		ไม้กางเขนแห่งคาลวารี	glossary				DA,MB,PP,SC	1	settled	glossary row; PP writes คาลวารี at PP 69.3, PP 72.3, PP 188.1 (6 site(s)); MB writes นไม้กางเขน at MB 43.2, MB 44.2, MB 64.1 (6 site(s)); SC writes ไม้กางเขน at SC 13.2, SC 26.4, SC 31.2 (6 site(s))
-Cana		คานา		คานา	คานา	คานาในแค	DA	4	settled	TNCV writes คานาในแค
+Cana		คานา		คานา	คานาแคว้	คานาในแค	DA	4	settled	TH1971 writes คานาแคว้; TNCV writes คานาในแค
 Canaan		คานาอัน	glossary	คานาอัน	คานาอัน	คานาอัน	DA,MB,PP	91	settled	glossary row; PP: 107 of 111 sites carry the THSV form
 Canaanite		ชาวคานาอัน		คานาอัน	คานาอัน	คานาอัน	DA,PP	14	settled	a people, DA 3.K: ชาว before คานาอัน (Canaan); 
 Canaanites		ชาวคานาอัน		คานาอัน	คานาอัน	คานาอัน	DA,PP	55	settled	a people, DA 3.K: ชาว before คานาอัน (Canaan); 
@@ -183,7 +183,7 @@ Gazer		เกเซอร์		เกเซอร์	เกเซอร์	เก
 Geba		เกบา		เกบา	เกบา	เกบา	PP	12	settled	
 Gennesaret		เยนเนซาเรท		เยนเนซาเรท	เยนเนซาเรท	เยนเนซาเรท	DA,MB	3	settled	
 Gera		เก-รา		เก-รา	เก-รา	เกรา	PP	9	settled	TNCV writes เกรา
-Gergesenes							DA	1	weak match	only 1 verse(s) in the King James and no word follows the English name's consonants; copy the spelling out of the verse: THSV MAT 8:28:  เมื่อพระองค์ทรงข้ามฟากไปถึงเขตแดนกาดาราแล้ว มีคนถูกผีสิงสองคนออกมาจากอุโมงค์ฝังศพ มาพบพระองค์ เขาทั้งสองดูน่ากลัวมาก จนไม่มีใครกล้าเดินผ่านทางนั้น
+Gergesenes		ชาวกาดารา	glossary				DA	1	settled	glossary row
 Gerizim		เกริซิม	glossary	เกริซิม	เกริซิม	เกริซิม	DA,MB,PP	4	settled	glossary row
 Gershonites		ชาวเกอร์โช		เกอร์โช	เกอร์โช	เกอร์โชน	PP	9	settled	a people, DA 3.K: ชาว before เกอร์โช; TNCV writes เกอร์โชน
 Geshur		เกชูร์		เกชูร์	เกชูร์	เกชูร์	PP	8	settled	
@@ -227,7 +227,7 @@ Heshbon		เฮชโบน		เฮชโบน	เฮชโบน	เฮชโ�
 Heth		ฮิตไทต์		ฮิตไทต์	ฮิตไทต์	ฮิตไทต์	PP	14	settled	
 Hiram		ฮีราม		ฮีราม	ฮีราม	ฮีราม	PP	23	settled	
 Hittite		ชาวฮิตไทต์		ฮิตไทต์	ฮิตไทต์	ฮิตไทต์	PP	26	settled	a people, DA 3.K: ชาว before ฮิตไทต์; 
-Hivite		ชาวฮีไว		ฮีไว	ฮีไว	ฮีไว	PP	9	settled	a people, DA 3.K: ชาว before ฮีไว; 
+Hivite		ชาวฮีไวต์		ฮีไวต์	ฮีไวต์	ฮีไว	PP	9	settled	a people, DA 3.K: ชาว before ฮีไวต์; TNCV writes ฮีไว
 Hobab		โฮบับ		โฮบับ	โฮบับ	โฮบับ	PP	2	settled	2 verse(s) in the King James; the three versions agree on the form
 Hophni		โฮฟนีและฟีเน		โฮฟนีและฟีเน	โฮฟนีและฟีเน	ฟีเนหัส	PP	5	settled	TNCV writes ฟีเนหัส
 Hor		โฮร์		โฮร์	โฮร์	โฮร์	PP	14	settled	
@@ -276,10 +276,9 @@ Job		โยบ		โยบ	โยบ	โยบ	DA,MB,PP,SC	59	settled
 Jochebed		โยเคเบด		โยเคเบด	โยเคเบด	โยเคเบด	PP	2	settled	2 verse(s) in the King James; the three versions agree on the form
 Joel		โยเอล		โยเอล	โยเอล	โยเอล	MB,PP	17	settled	
 John		ยอห์น	glossary	ยอห์น	ยอห์น	ยอห์น	DA,MB,PP,SC	127	settled	glossary row
-Jona							DA	1	weak match	only 1 verse(s) in the King James and no word follows the English name's consonants; copy the spelling out of the verse: THSV JHN 1:42: อันดรูว์จึงพาซีโมนไปเฝ้าพระเยซู เมื่อพระเยซูทอดพระเนตรเขาแล้วก็ตรัสว่า “ท่านคือซีโมนบุตรยอห์น คนจะเรียกท่านว่าเคฟาส” (ซึ่งแปลว่าศิลา)
+Jona		โยนาห์	glossary				DA	1	settled	glossary row
 Jonah		โยนาห์		โยนาห์	โยนาห์	โยนาห์	DA,SC	19	settled	
-Jonas		โยนาห์		โยนาห์	โยนาห์	โยนาห์	DA	12	two THSV forms	second THSV form ยอห์นเอ๋ย in 25 percent
-Jonas				ยอห์นเอ๋ย			DA	12	two THSV forms	second THSV form, 25 percent of the verses
+Jonas		โยนาห์	glossary	โยนาห์	โยนาห์	โยนาห์	DA	12	settled	glossary row
 Jonathan		โยนาธาน		โยนาธาน	โยนาธาน	โยนาธาน	PP	121	settled	
 Jordan		จอร์แดน	glossary	จอร์แดน	จอร์แดน	จอร์แดน	DA,MB,PP	196	settled	glossary row; PP: 55 of 56 sites carry the THSV form
 Joseph		โยเซฟ	glossary	โยเซฟ	โยเซฟ	โยเซฟ	DA,PP	241	settled	glossary row
@@ -290,7 +289,7 @@ Judas		ยูดาส		ยูดาส	ยูดาส	ยูดาส	DA,PP	31
 Judea		ยูเดีย		ยูเดีย	ยูเดีย	ยูเดีย	DA,MB,PP	44	settled	
 Kadesh		คาเดช		คาเดช	คาเดช	คาเดช	PP	28	settled	PP: 16 of 18 sites carry the THSV form
 Keilah		เคอีลาห์		เคอีลาห์	เคอีลาห์	เคอีลาห์	PP	18	settled	
-Kenites		ชาวเคไนต์		เคไนต์	เคไนต์	เคไนต์	PP	8	settled	a people, DA 3.K: ชาว before เคไนต์; 
+Kenites		ชาวเคไนต์		เคไนต์	เคไน	เคไนต์	PP	8	settled	a people, DA 3.K: ชาว before เคไนต์; TH1971 writes เคไน
 Kidron		ขิดโรน		ขิดโรน	ขิดโรน	ขิดโรน	PP	11	settled	
 Kish		คีช		คีช	คีช	คีช	PP	21	settled	
 Kohath		โคฮาท		โคฮาท	โคฮาท	โคฮาท	PP	32	settled	
@@ -385,7 +384,7 @@ Ophrah		โอฟราห์		โอฟราห์	โอฟราห์	โ�
 Oreb		โอเรบ		โอเรบ	โอเรบ	โอเรบ	PP	7	settled	
 Ornan		โอรนัน		โอรนัน	โอรนัน	อาราวนาห์	PP	12	settled	TNCV writes อาราวนาห์
 Padan		ปัดดานอารัม		ปัดดานอารัม	ปัดดานอารัม	ปัดดานอารัม	PP	11	settled	PP: 1 of 2 sites carry the THSV form
-Palestine		ชาวปาเลสไตน์		ฟีลิสเตีย	ฟีลิสเตีย	ฟีลิสเตีย	DA,MB,PP	1	settled	a people, DA 3.K: ชาว before ปาเลสไตน์; the series prints ปาเลสไตน์; THSV writes ฟีลิสเตีย; ปาเลสไตน์ in the Thai EGW library 10 time(s)
+Palestine		ปาเลสไตน์	glossary	ฟีลิสเตีย	ฟีลิสเตีย	ฟีลิสเตีย	DA,MB,PP	1	settled	glossary row; THSV writes ฟีลิสเตีย; PP writes ปาเลสไตน์ at PP 133.1, PP 759.4, PP 500.1 (0 of 8 sites carry the THSV form); MB writes ปาเลสไตน์ at MB 2.2, MB 59.3, MB 138.1 (0 of 3 sites carry the THSV form)
 Paran		ปาราน		ปาราน	ปาราน	ปาราน	MB,PP	11	settled	
 Patmos		ปัทมอส		ปัทมอส	ปัทมอส	ปัทมอส	PP	1	settled	1 verse(s) in the King James; the three versions agree on the form
 Paul		เปาโล	glossary	เปาโล	เปาโล	เปาโล	DA,MB,PP,SC	148	settled	glossary row
@@ -464,8 +463,8 @@ Sorek		โสเรก		โสเรก	โสเรก	โสเรก	PP	1	set
 Stephen		สเทเฟน	glossary	สเทเฟน	สเทเฟน	สเทเฟน	DA,MB,PP	7	settled	glossary row
 Succoth		สุคคท		สุคคท	สุคคท	สุคคท	PP	19	settled	
 Sychar		สิคาร์		สิคาร์	สิคาร์	สิคาร์	DA	1	settled	1 verse(s) in the King James; the three versions agree on the form
-Syria		ซีเรีย		ซีเรีย	ซีเรีย	อารัม	DA,PP	76	settled	TNCV writes อารัม; PP: 2 of 4 sites carry the THSV form
-Syrian		ชาวซีเรีย		อารัม	อารัม	ชาวอารัม	DA,PP	12	settled	a people, DA 3.K: ชาว before ซีเรีย (Syria); THSV form in 50 percent of 12 verses; TNCV writes ชาวอารัม; PP: 0 of 1 sites carry the THSV form
+Syria		ซีเรีย	glossary	ซีเรีย	ซีเรีย	อารัม	DA,PP	76	settled	glossary row; TNCV writes อารัม; PP: 2 of 4 sites carry the THSV form
+Syrian		ชาวซีเรีย	glossary	อารัม	อารัม	ชาวอารัม	DA,PP	12	settled	glossary row; THSV writes อารัม; TNCV writes ชาวอารัม; PP: 0 of 1 sites carry the THSV form
 Syrians		ชาวซีเรีย		คนซีเรีย	คนซีเรีย	อารัม	PP	61	settled	a people, DA 3.K: ชาว before ซีเรีย (Syria); the series prints ซีเรี; THSV writes คนซีเรีย; TNCV writes อารัม; ซีเรี in the Thai EGW library 9 time(s)
 Taberah		ทาเบราห์	ทาเบราห์ (PP)	ทาเบ-ราห์	ทาเบ-ราห์	ทาเบราห์	PP	2	settled	the series prints ทาเบราห์; THSV writes ทาเบ-ราห์; TNCV writes ทาเบราห์; ทาเบราห์ in the Thai EGW library 0 time(s)
 Tabor		ทาโบร์		ทาโบร์	ทาโบร์	ทาโบร์	PP	9	settled	
@@ -499,9 +498,8 @@ Ziklag		ศิกลาก		ศิกลาก	ศิกลาก	ศิกล�
 Zimri		ศิมรี		ศิมรี	ศิมรี	ศิมรี	PP	14	settled	
 Zin		ศิน		ศิน	ศิน	ถิ่นกันดารศิน	PP	10	settled	TNCV writes ถิ่นกันดารศิน
 Zion		ศิโยน	glossary	ศิโยน	ศิโยน	ศิโยน	DA,MB,PP	149	settled	glossary row; PP: 5 of 8 sites carry the THSV form
-Ziph		ศิฟ		ศิฟ	ศิฟ	ศิฟ	PP	8	two THSV forms	second THSV form ศีฟ in 37 percent
-Ziph				ศีฟ			PP	8	two THSV forms	second THSV form, 37 percent of the verses
-Ziphites		ชาวศิฟ					PP	2	settled	a people, DA 3.K: ชาว before ศิฟ; the series prints ศิฟ; THSV has no form; PP writes ศิฟ at PP 661.1, PP 668.2 (2 site(s)); ศิฟ in the Thai EGW library 0 time(s)
+Ziph		ศิฟ	glossary	ศิฟ	ศิฟ	ศิฟ	PP	8	settled	glossary row
+Ziphites		ชาวศิฟ					PP	2	settled	a people, DA 3.K: ชาว before ศิฟ (Ziph); the series prints ศิฟ; THSV has no form; PP writes ศิฟ at PP 661.1, PP 668.2 (2 site(s)); ศิฟ in the Thai EGW library 0 time(s)
 Zipporah		ศิปโปราห์		ศิปโปราห์	ศิปโปราห์	ศิปโปราห์	PP	3	settled	
 Zoar		โศอาร์	glossary	โศอาร์	โศอาร์	โศอาร์	PP	10	settled	glossary row
 Zobah		โศบาห์		โศบาห์	โศบาห์	โศบาห์	PP	11	settled	

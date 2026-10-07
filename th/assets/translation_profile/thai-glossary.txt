@@ -473,6 +473,15 @@
 | Levi (Jacob's son; the tribe) | เลวี | [CHECK] one form for the man and the tribe; เลวีนิติ is the book; THSV's spelling. |
 | Golgotha | กลโกธา | [CHECK] in a footnote beside คาลวารี; THSV's spelling. MB 128.2 |
 | Sanhedrin | สภาแซนเฮดริน / สภาสูงของชาวยิว | [CHECK] TNCV's and TCV's form; THSV writes สภายิว; สภาสูง stands at MB 2.1. MB 33.3, MB 46.4 |
+| Ruth | นางรูธ | Title and name together throughout; bare รูธ only with a reason. THSV มัทธิว 1:5 |
+| Palestine | ปาเลสไตน์ | The spelling in Thai news; not in THSV |
+| Bethabara | เบธานี / เบธานีฟากแม่น้ำจอร์แดนข้างโน้น | THSV ยอห์น 1:28 reads Bethany; the long form where the other Bethany is near |
+| Gergesenes | กาดารา / ชาวกาดารา | THSV มัทธิว 8:28 เขตแดนกาดารา; the people by DA 3.K |
+| Jonas, Jona | โยนาห์ / ยอห์น | THSV: the prophet โยนาห์ (มัทธิว 12:39); Peter's father ยอห์น (ยอห์น 1:42, 21:15) |
+| Syria, Syrian | ซีเรีย / ชาวซีเรีย | THSV ลูกา 4:27; a people takes ชาว (DA 3.K), not the Old Testament's คนซีเรีย |
+| Aram | อารัม | [CHECK] Open, DA queue entry 3: an English Aram keeps อารัม with a gloss to Syria |
+| Ziph | ศิฟ | THSV 1 ซามูเอล 23:14 |
+| Augustus | ออกัสตัส | THSV, TH1971, TNCV ลูกา 2:1; THSV writes a title at the Acts verses |
 
 ## 3. Spelling
 
