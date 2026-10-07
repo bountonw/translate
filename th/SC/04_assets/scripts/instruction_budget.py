@@ -19,7 +19,7 @@ BUDGET = {
     ".claude/commands/th-DA.md": 120,
     ".claude/agents/sc-batch-auditor.md": 2005,
     ".claude/agents/sc-batch-auditor-qa2.md": 800,
-    ".claude/agents/sc-reader-qa3.md": 700,
+    ".claude/agents/sc-reader-qa3.md": 740,
     ".claude/agents/th-term-study.md": 640,
     ".claude/agents/sc-wording-drill.md": 715,
     ".claude/agents/sc-wording-drill-opus-max.md": 715,
