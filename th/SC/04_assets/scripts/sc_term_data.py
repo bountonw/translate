@@ -32,6 +32,13 @@ EGW_BOOK = "ThSC"
 def form_in(form, text):
     """True where the form occurs other than as the tail of a longer divine
     title: บุตรของพระเจ้า inside พระบุตรของพระเจ้า, the Son, is not a site."""
+    # A possessive tail varies with the sentence (glossary header): a form
+    # ending in ของพระเจ้า also matches with ของพระองค์, and the reverse.
+    for tail_a, tail_b in (("ของพระเจ้า", "ของพระองค์"), ("ของพระองค์", "ของพระเจ้า")):
+        if form.endswith(tail_a) and form != form[: -len(tail_a)] + tail_b:
+            alt = form[: -len(tail_a)] + tail_b
+            if alt in text and not (alt.startswith("บุตร") and text[max(0, text.find(alt) - 3):text.find(alt)] == "พระ"):
+                return True
     i = text.find(form)
     while i >= 0:
         if not (form.startswith("บุตร") and text[max(0, i - 3):i] == "พระ"):

@@ -127,6 +127,11 @@ def main():
         problems.append(f"{len(residue)} damaged or unterminated marker(s)")
 
     if a.round:
+        # The book's break dictionary must match the words its chapters now use.
+        br = subprocess.run([sys.executable, str(ROOT / "th/assets/scripts/build_breaks.py"), "--book", "SC", "--check"],
+                            capture_output=True, text=True)
+        if br.returncode != 0:
+            problems.append("breaks: th/SC/04_assets/template/dictionary.typ is stale; run python3 th/assets/scripts/build_breaks.py --book SC")
         st = git_status()
         if st is None:
             problems.append("git status could not be read")

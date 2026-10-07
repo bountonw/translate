@@ -48,7 +48,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 5. Post-resolution check ("check SC01")
 
 5.A. Grep the chapter for [[. Standing markers end the check: name the numbers and stop.
-5.B. Run sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, instruction_budget.py and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a stale note is a DECIDE, updated or deleted; a file over budget is a FIX in the report.
+5.B. Run sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, instruction_budget.py, then build_breaks.py --book SC and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a stale note is a DECIDE, updated or deleted; a file over budget is a FIX in the report.
 5.B.1. A finding the round already judged and the translator ruled on, such as a Typst comment ruled to stand, takes no marker at check and is not raised again.
 5.C. Dispatch sc-resolve-check with chapter, stage directory, last marker number, and every resolved marker's class, anchor, old span and note. Relay its report verbatim. PASS means clean to commit and to upload.
 
@@ -59,7 +59,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.C. Thai text and citations follow thai-profile.txt.
 6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the original wording tagged original: so the editor sees it: in qa3 it gets a CHOICE marker; in qa1 and qa2 it stands; sc_punctcheck.py lists every one standing.
 6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
-6.E. Line breaking is never fixed in a manuscript; break points live in th/SC/04_assets/template/dictionary.typ.
+6.E. Line breaking is never fixed in a manuscript. Break points live in th/assets/typeset/thai-breaks.txt; th/assets/scripts/build_breaks.py --book SC writes th/SC/04_assets/template/dictionary.typ from it, never edited by hand.
 6.F. Never override an agent's model or effort.
 6.G. Grep rather than read.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
