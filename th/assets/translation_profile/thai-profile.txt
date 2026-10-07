@@ -15,8 +15,8 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 
 ## 2. Bible versions and citations
 
-2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971.
-2.B. Every other version is labelled after the reference, as (สดุดี 145:15, 16 TNCV). Labels in use: THSV, TNCV, TKJV, TH1940, TH1971, THA-ERV, TCV, NTV, TCL, TFB.
+2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971. MB: THSV.
+2.B. Every other version is labelled after the reference, as (สดุดี 145:15, 16 TNCV). Labels in use: THSV, TNCV, TKJV, TH1940, TH1971, THA-ERV, TCV, NTV.
 2.C. Which version a quotation uses is decided at each site for what the paragraph needs; one verse may sit in two versions in one paragraph.
 2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
 2.D. A citation sits in parentheses where it fits the flow of the sentence, often at the paragraph end; where a parenthesis would break the flow it is worked into the prose or left as a footnote. A reference the reader is sent to rather than quoted opens with ดู.
@@ -37,12 +37,13 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 ## 4. Register
 
 4.A. Deity takes reverent language and royal vocabulary (ราชาศัพท์), lighter than the Thai Bible versions use it; how heavily a book leans on it is decided per book, and the ruled forms are glossary rows.
-4.B. Satan and demons take the lowest register: the pronoun is มัน in every narrative timeframe.
-4.C. Pronouns for the reader, the author and people in a narrative, and honorifics for prophets, apostles and historical figures, follow the translator's finished books until a mining run over them fills this section.
+4.B. Satan and demons take the lowest register: the pronoun is มัน in every narrative timeframe. Lucifer before his fall, where the text names him Lucifer, takes เขา, neither ท่าน nor มัน: he was the highest angel in the universe and not yet the enemy.
+4.C. The author and the reader together are เรา; a direct appeal to the reader takes ท่าน; the author never speaks as ข้าพเจ้า. In a narrative, the men of faith and the prophets and apostles take ท่าน and others take เขา, and a figure may move from เขา to ท่าน as his story turns. A woman takes นาง with her name as her title, and นาง or เธอ as her pronoun.
 
 ## 5. Proper nouns
 
-5.A. Biblical names are spelled as THSV spells them, with no English in parentheses.
+5.A. A biblical name keeps the spelling the series has printed, with no English in parentheses; a name no book of ours has printed takes THSV's spelling, and where the book's default version and THSV spell it differently the conflict is raised for the translator to decide. Inside a quotation the series spelling stands, as 2.G rules for spelling. MB keeps its printed forms.
+5.A.1. A name outside the Bible takes a study of its established Thai spelling before its row is written, since a form our books printed first may be an invention made without the resources; that first form is evidence and never the rule. The study also gives the name's break split for th/assets/typeset/thai-breaks.txt.
 5.B. Other historical names are transliterated into Thai script with the English in parentheses at the first appearance in a chapter, as for Joseph Bates or Eusebius; no book scheduled in the coming months has such names.
 
 ## 6. Spelling

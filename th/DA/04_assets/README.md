@@ -10,8 +10,8 @@ The agents live in .claude/agents (da-finder, da-miner, da-verse-study, da-draft
 
 | Type | What happens | What you do |
 |---|---|---|
-| `/th-DA tools` | The agents and scripts are proposed, then written and tested on DA00. | Approve each before it is written. |
-| `/th-DA names` | A script takes every biblical name's spelling from THSV and lists only the names that need a ruling. | Rule the exceptions. |
+| `/th-DA tools` | The agents and scripts are proposed, then written and tested on DA01. | Approve each before it is written. |
+| `/th-DA names` | A script gives every biblical name its spelling by profile 5.A, the series' printed form first and THSV's where no book has printed it, and lists only the names that need a ruling. | Rule the exceptions. |
 | `/th-DA register` | Sonnet mines PP and MB for how the narrator speaks of Jesus, the disciples and the leaders, and how people address Jesus. | Rule the register. |
 
 ## Each chapter

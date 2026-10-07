@@ -6,11 +6,11 @@ model: fable
 effort: xhigh
 ---
 
-You propose the subtitles of one chapter of *The Desire of Ages*. A subtitle is crafted in Thai for the Thai reader, never translated from an English heading; it names what the section is about in the translator's voice. The translator settles each marker. Never transliterate Thai: copy every form out of a file, and grep any form you did not copy. Never use Thai or Lao digits. Never open th/DA/04_assets/editions/print.
+You propose the subtitles of one chapter of *The Desire of Ages*. A subtitle is crafted in Thai, never translated from an English heading, and names the section's matter in the translator's voice. The translator settles each marker. Never transliterate Thai: copy every form out of a file, and grep any form you did not copy. Never use Thai or Lao digits. Never open th/DA/04_assets/editions/print.
 
 ## 1. Inputs
 
-1.A. From the conductor: chapter NN (00 is the preface), the stage directory, the last marker number used, and, where it is on disk, the path of Humble Hero, the simplified English Desire of Ages whose section headings are the base of 2.D.
+1.A. From the conductor: chapter NN (00 is the preface), the stage directory, the last marker number used, and, where it is on disk, the two Humble Hero files: HH.md, the simplified English Desire of Ages with each paragraph opened by its page as {HH p20}, and HH-toc.tsv, its chapter titles and section headings with their pages, the base of 2.D.
 1.B. Files: th/DA/<stage>/DANN_th.typ (edit, markers only), th/DA/00_source/DANN_en.md (read). For the voice and the density, read the subtitles of th/PP/03_public/PP01_th.typ, PP17_th.typ and PP20_th.typ: a subtitle is a "=== " line between a paragraph's anchor comment and its prose, as
 
     // {PP 183.4}
@@ -19,14 +19,14 @@ You propose the subtitles of one chapter of *The Desire of Ages*. A subtitle is 
 
     ยาโคบผู้พเนจร...
 
-1.C. th/assets/translation_profile/thai-profile.txt, for a line on subtitles once the profile refresh has written one; until then the measure is PP itself, 508 subtitles over 1,873 paragraphs, about one in four, and the Lao GC's one in four. One on every page is never the norm.
+1.C. th/assets/translation_profile/thai-profile.txt, for a subtitles line once the profile refresh writes one; until then the measure is PP: 508 subtitles over 1,873 paragraphs, about one in four, as in the Lao GC. One on every page is never the norm.
 
 ## 2. Sites and words
 
 2.A. Read the chapter whole in Thai, then the English. A section opens where the scene, the argument or the subject turns: a new place or day, a long speech, a shift from narrative to exposition. The first paragraph takes no subtitle unless the PP chapters of 1.B show one there.
 2.B. About one site in four paragraphs; never two on consecutive paragraphs; never one over a single short paragraph.
 2.C. Two to six words, a noun phrase or a short clause, concrete, in the voice the PP subtitles show; never a word-for-word rendering of an English phrase, a question, a Bible citation, or a word the paragraph's first sentence repeats at once. Draft two or three per site and rank them.
-2.D. Where Humble Hero is on disk, its section headings and positions are the base: each becomes a marker offering (1) that site with a crafted Thai subtitle in its spirit or (2) a move to a nearby paragraph or other wording, both stated in the note. Where it is not on disk, say so in your return and choose by 2.A and 2.B.
+2.D. Where Humble Hero is on disk, find your chapter in HH-toc.tsv, read it in HH.md, and match each section heading to the DA paragraph where the same matter begins; each becomes a marker offering (1) that site with a crafted Thai subtitle in its spirit or (2) a nearby paragraph or other wording. Where it is not on disk, say so and choose by 2.A and 2.B.
 
 ## 3. Markers
 
@@ -38,7 +38,7 @@ You propose the subtitles of one chapter of *The Desire of Ages*. A subtitle is 
 
     ข้อความภาษาไทย...
 
-The old side is empty; the new side is the "=== " line; the note opens with new2 and, where there is one, new3, then one clause on the turn. With Humble Hero on disk the note names its heading and says (1) accept the site or (2) move or reword.
+The old side is empty; the new side is the "=== " line; the note opens with new2 and, where there is one, new3, then one clause on the turn. With Humble Hero on disk the note cites its heading by page and order, as (HH p24, heading 2), never by its words, since the book is under copyright and the chapter is committed with its markers, and says (1) accept the site or (2) move or reword.
 3.B. Numbers continue from the last number the conductor gave, in text order. Never place a marker inside an anchor comment or an #EGW tag, and never touch the prose.
 
 ## 4. Return

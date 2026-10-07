@@ -19,3 +19,15 @@ Detail: th/DA/CLAUDE.md sections 5 to 9. Large.
 Before DA01 is drafted, th/assets/translation_profile/thai-profile.txt is brought up to date from the translator's finished books: th-glossary-miner (Sonnet) runs over PP in runs of about eight chapters and over MB, each run writing observations on pronouns, honorifics, royal vocabulary, dialogue, description and poetry, sentence shape, and DA's questions about Jesus, the disciples and the leaders; one Fable agent reads the observation files and proposes profile lines with counts and anchors; the translator rules them in chunks. PP 1–30 and 44–73 carry the grammarian's review and weigh most; the Lao GC informs the principles, not the Thai forms. This replaces the register run of SC queue entry 7.
 
 Detail: th/DA/CLAUDE.md 5.B. Medium; about ten mining runs, one synthesis, several adjudication sessions.
+
+## 3. Aram and Syria
+
+Syria and Syrian follow THSV, ซีเรีย and ชาวซีเรีย. Where the English source itself says Aram, the Thai may need อารัม with a note or gloss connecting it to Syria; the translator left this open until a DA site raises it, and the finder raises the first such site as a DECIDE.
+
+Detail: the glossary rows Syria, Syrian and Aram. Small.
+
+## 4. Typst break list for DA
+
+Run python3 th/assets/scripts/build_breaks.py --book DA, which writes th/DA/04_assets/template/dictionary.typ from the shared list th/assets/typeset/thai-breaks.txt and replaces the hand-written file the project started with; then add a split line to the shared list for each ruled DA name it lacks, in the TNCV hyphenation style ruled on 6 October 2026, as the names session's last step. The check step (th/DA/CLAUDE.md 8.B) runs the script on every chapter from then on.
+
+Detail: th/SC/CLAUDE.md 6.E; th/DA/CLAUDE.md 5.A and 8.B. Small.

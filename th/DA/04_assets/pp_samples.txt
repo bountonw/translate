@@ -1,0 +1,15 @@
+# Style samples for the DA drafter, from the translator's finished Patriarchs and Prophets.
+# One anchor per line, "PP ###.#|kind"; da_packet.py copies the English and the Thai of each
+# into section 6 of the drafter's packet. PP 1–30 and 44–73 carry the grammarian's review.
+PP 33.1|exposition opening with a cited quotation, and a subtitle line
+PP 33.2|exposition
+PP 44.2|description, the created earth
+PP 45.3|description, Adam and Eve
+PP 54.1|direct speech inside the narrative, Eve and the serpent
+PP 71.3|narrative with a short embedded quotation
+PP 72.3|cited quotation opening an exposition
+PP 105.4|narrative, Noah leaving the ark, with a subtitle line
+PP 132.2|direct speech, Abraham to Lot
+PP 183.4|narrative, Jacob's dream, with a subtitle line
+PP 197.1|short cited quotation inside a sentence
+PP 213.1|narrative, Joseph on the way to Egypt, with a subtitle line
