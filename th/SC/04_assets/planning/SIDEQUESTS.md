@@ -32,9 +32,9 @@ Sections 4.C and 5.A of th/assets/translation_profile/thai-profile.txt are await
 
 Detail: th-glossary-miner sections 2.B and 2.C. Medium; one mining run and one adjudication session.
 
-## 8. SC01 notes for qa2
+## 8. Two sites from the SC01 studies for other chapters
 
-Sites to weigh in qa2, each in its own sentence and never by the row alone: {SC 9.1} ดาวิด for the psalmist, which the row allows; {SC 9.3} กฎเกณฑ์ของพระเจ้า for God's law beside the row's พระบัญญัติของพระเจ้า; {SC 10.2} คุณความดี without พระ beside the goodness row; {SC 13.2} and {SC 14.1} บาปกรรม, a word with no Bible occurrence, for "our redemption" and "your liabilities"; {SC 15.1} ลูกของพระเจ้า beside บุตรของพระเจ้า elsewhere in the chapter, against the children row's one-form-per-book note; {SC 11.2}, {SC 12.2} and {SC 15.2} "tender" folded into ความเมตตากรุณา. The three editor's choices at {SC 9.3} and {SC 11.2} go to Google Docs as they stand. Other chapters, from the SC01 studies: {SC 30.1} renders "the unfallen universe" as สวรรค์, narrowing every unfallen world to heaven, for SC03; {SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11.
+{SC 30.1} renders "the unfallen universe" as สวรรค์, narrowing every unfallen world to heaven, for SC03's qa2; {SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11's qa2.
 
 Detail: this entry. Small.
 
@@ -52,11 +52,11 @@ Intercession row: {SC 119.2} "Let your conversation be of Him who liveth to make
 
 Detail: ~/claude-sandbox/sc-audit/sc02-study-communion.md and sc02-study-intercession.md. Small.
 
-## 12. Standardize sons of God and children of God in SC
+## 12. Children of God and sons of God across SC
 
-The sons of God row asks one form within a book. SC uses บุตรของพระเจ้า at SC 43.4 and ลูกของพระองค์ at SC 44.1; the SC chapters take one form when the row is applied across the book.
+Opened as its own question on 6 October 2026. The English carries the family 29 times in 24 paragraphs of 11 chapters as God's children, and 3 more times for a human parent's children. The SC paragraphs render it with ลูกๆ ของพระองค์ 6 times, ลูกๆ ของพระเจ้า 5, บุตรของพระเจ้า 4, บุตรของพระองค์ 2, ลูกของพระองค์ 2, ลูกของพระเจ้า 1, ลูกขององค์ราชัน 1, and a recast 3 times. THSV itself alternates, ลูกของพระเจ้า at ยอห์น 1:12 and โรม 8:16 beside บุตรของพระเจ้า at โรม 8:14 and ลูกๆ ของพระเจ้า at โรม 8:21. The translator's question is whether a grammar, register or cultural reason makes one form sit better in some sentences, so that the book follows a stated principle rather than one form; he does not want a dogmatic rule. th-term-study runs on the family from ~/claude-sandbox/sc-audit/term-children-of-god.md and proposes the row and a verdict per SC site; sites that should change take TERM markers in their own chapters when he rules.
 
-Detail: this entry. Small.
+Detail: ~/claude-sandbox/sc-audit/term-children-of-god.md and term-children-of-god-study.md. Medium.
 
 ## 13. Standardize sons of God in SJ
 

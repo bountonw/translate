@@ -78,6 +78,17 @@ class Row:
         return bool(self.en_variants and self.th_forms)
 
 
+def form_in(form, text):
+    """True where the form occurs other than as the tail of a longer divine
+    title: บุตรของพระเจ้า inside พระบุตรของพระเจ้า, the Son, is not a site."""
+    i = text.find(form)
+    while i >= 0:
+        if not (form.startswith("บุตร") and text[max(0, i - 3):i] == "พระ"):
+            return True
+        i = text.find(form, i + 1)
+    return False
+
+
 def parse_glossary(path):
     """Rows of sections 1 and 2; the spelling section is not read."""
     rows, section = [], 0
@@ -156,7 +167,7 @@ def sweep(en_text, th_text, groups):
                 break
         if not match:
             continue
-        present = [(row, f) for row in g["rows"] for f in row.th_forms if f in th_text]
+        present = [(row, f) for row in g["rows"] for f in row.th_forms if form_in(f, th_text)]
         if not present:
             absent.append((g["rows"], excerpt(en_text, match)))
         elif len(g["rows"]) > 1:
