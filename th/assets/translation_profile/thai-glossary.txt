@@ -12,7 +12,7 @@
 | mysterious (storytelling) | (free choice) | Ordinary strange happenings; never marked. PP 291.3, PP 470.3 |
 | perplexity (confusion) | ความสับสน | [CHECK] Where "confusion" reads true in the English sentence. PP 193.1, SC 108.2 |
 | perplexity (troubles) | ความยุ่งยาก / ข้อยุ่งยากใจ | [CHECK] Where "troubles" reads true; both true means free choice. SC 71.2, SC 105.1 |
-| psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him; พระธรรมสดุดี as the book stands. PP 33.2, SC 9.1, SC 37.4 |
+| psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ผู้ประพันธ์บทเพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him; พระธรรมสดุดี as the book stands. PP 33.2, SC 9.1, SC 37.4 |
 | temptation | การทดลอง / ถูกทดลอง | [CHECK] Enticement to sin; the Bible's word. ถูกทดลอง is the verb. มัทธิว 6:13, MB 116.2 |
 | trial (God testing) | การทดสอบ / ทดสอบ / ถูกทดสอบ / ลองใจ / การทดลองใจ | [CHECK] God proving faith or character; THSV writes ทดลอง here too, ambiguous but not wrong. ปฐมกาล 22:1, PP 48.4 |
 | trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
@@ -96,7 +96,7 @@
 | holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] MB 10.2, SC 14.3 |
 | apostle | อัครทูต | [CHECK] อัครสาวก is the older Bible's word and is not used from now on. MB 137.1 |
 | adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too. PP 36.3, PP 91.2, PP 63.3 |
-| sons of God, children of God | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า / ประชากรของพระเจ้า | [CHECK] บุตรของพระเจ้า for the doctrinal phrase; His children takes บุตร or ลูก by warmth. MB 10.1, SC 15.1, SC 74.1, SC 75.1 |
+| sons of God, children of God, His children | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า | [CHECK] บุตร after เป็น and in teaching; ลูก, ลูกๆ under verbs of care; quotations follow version. SC 43.4, SC 85.3, SC 15.1 |
 | heavenly King, King of heaven | องค์ราชันแห่งฟ้าสวรรค์ / พระราชาแห่งสวรรค์ / พระมหากษัตริย์แห่งสวรรค์ | [CHECK] SC 15.2, PP 214.1, PP 324.2 |
 | redeem, redemption | ทรงไถ่ / ไถ่ / การไถ่ / การทรงไถ่ / ค่าไถ่ / ไถ่บาป | [CHECK] PP 63.2, PP 69.2, PP 63.3, MB 20.1, PP 68.1, PP 137.1 |
 | Redeemer | พระผู้ไถ่ / ผู้ทรงไถ่ | [CHECK] MB 14.2, PP 64.3 |
@@ -198,7 +198,7 @@
 | wanderer, wanderings (literal) | พเนจร | Jacob, Lot and Israel in the desert; never the sinner. PP 183.4, PP 406.3 |
 | parable | คำอุปมา / อุปมา | [CHECK] คำอุปมา as TNCV, TKJV, TH1971; อุปมา alone as THSV, chiefly in its quotations. ลูกา 15:3, SC 54.1, PP 727.1 |
 | compassion (of God and of Christ) | พระกรุณา / พระเมตตากรุณา / เมตตากรุณา / พระเมตตาคุณ / พระกรุณาคุณ / พระเมตตา / ความเมตตา / สงสาร / เอ็นดู / เอ็นดูสงสาร | [CHECK] Feeling for the sufferer; tender takes เอ็นดู, ห่วงหาอาทร or อ่อนโยน. MB 6.1, MB 110.3, PP 106.2, PP 165.2, SC 53.2, SC 54.1 |
-| tender (of God's compassion, pleading, language) | เอ็นดู / ห่วงหาอาทร / อ่อนโยน / รักใคร่เอ็นดู | [CHECK] Modifier only. MB 6.1, PP 165.2, SC 35.3, SC 54.1 |
+| tender (of God's compassion, pleading, language) | เอ็นดู / ห่วงหาอาทร / อ่อนโยน / รักใคร่เอ็นดู | [CHECK] Modifier only; may fold into the compassion word where the sentence carries the warmth. MB 6.1, PP 165.2, SC 35.3, SC 54.1 |
 | consecration, consecrate, dedicate | การอุทิศตน / อุทิศตน / การอุทิศ / อุทิศถวาย / อุทิศถวายตน / ถวายตัว / ถวายตน / มอบถวาย | Title SC05 การอุทิศตน; ถวายตัว, ถวายตน for giving oneself to God. SC 43.1, PP 90.2, PP 188.1 |
 | Prince of Peace (Isaiah 9:6) | องค์สันติราช | [CHECK] THSV, TH1971, TNCV, TKJV อิสยาห์ 9:6; never พระราชาแห่งสันติสุข. PP 34.1, PP 755.4 |
 | affections (of the heart) | ความปรารถนา / ความรักใคร่ / ความปรารถนาในใจ | The heart's attachments; ความหลงใหลฝ่ายเนื้อหนัง stands where found, never proposed. SC 47.1, SC 29.1 |
@@ -346,6 +346,7 @@
 | monastery, monasteries, convent, convents, cloister, cloisters, abbey | อาราม / สำนักนักบวช / อารามแม่ชี / สำนักชี / สำนักแม่ชี | [CHECK] อาราม or สำนักนักบวช for any house; อารามแม่ชี, สำนักชี, สำนักแม่ชี for nuns; never วัด, สำนักสงฆ์, คอนแวนต์. |
 | monastic, monasticism; monastic life, orders, system | ชีวิตนักบวช / คณะนักบวช / ระบบของนักบวช / อาราม | Wording flexes; never วัดวาอาราม; การถือบวช also means the Muslim fast. |
 | enclosed religious life (shut themselves in monasteries; convent cells) | นักพรต / เป็นนักพรต | Reference only; the enclosed contemplative, never a public monk. GC 570.2, GC 72.2 |
+| restitution (repaying a wrong) | ชดใช้ | Repayment to the one wronged; the propitiation row's ชดใช้บาป is sin's penalty, another sense. MB 59.1 |
 
 ## 2. Proper nouns
 
@@ -375,6 +376,103 @@
 | Dominican, Dominicans (the order and its friars) | คณะโดมินิกัน | [CHECK] Member นักบวชคณะโดมินิกัน; never นิกาย. GC 172.1, GC 172.2, GC 178.4 |
 | Franciscan, Franciscans (the order and its friars) | คณะฟรังซิสกัน | [CHECK] Member นักบวชคณะฟรังซิสกัน; never ฟรานซิสกัน or นิกาย. GC 172.1, GC 178.4 |
 | Jesuit, Jesuits; the order of the Jesuits; Jesuitism | คณะเยสุอิต / เยสุอิต / ลัทธิเยสุอิต | [CHECK] Never เยซูอิต; member นักบวชคณะเยสุอิต or bare เยสุอิต; Jesuitism ลัทธิเยสุอิต. GC 234.2, GC 235.1, GC 279.2, GC 363.1 |
+| Abraham | อับราฮัม | [CHECK] THSV's spelling. MB 34.1, PP 117.3 |
+| Abram | อับราม | [CHECK] THSV's spelling. PP 127.2 |
+| Sarah | ซาราห์ | [CHECK] THSV's spelling. PP 127.1 |
+| Sarai | ซาราย | [CHECK] THSV's spelling. PP 137.3 |
+| Hagar | ฮาการ์ | [CHECK] THSV's spelling. PP 145.1 |
+| Ishmael | อิชมาเอล | [CHECK] THSV's spelling. PP 145.3 |
+| Isaac | อิสอัค | [CHECK] THSV's spelling. PP 126.2 |
+| Rebekah | เรเบคาห์ | [CHECK] THSV's spelling. PP 172.2 |
+| Jacob | ยาโคบ | [CHECK] THSV's spelling. MB 11.3, PP 126.2 |
+| Esau | เอซาว | [CHECK] THSV's spelling. MB 62.3, PP 177.1 |
+| Laban | ลาบัน | [CHECK] THSV's spelling. PP 173.1 |
+| Rachel | ราเชล | [CHECK] THSV's spelling. PP 188.2 |
+| Leah | เลอาห์ | [CHECK] THSV's spelling. PP 188.3 |
+| Joseph (son of Jacob) | โยเซฟ | [CHECK] Jacob's son, in Egypt; THSV's spelling. MB 41.2, PP 206.3 |
+| Potiphar | โปทิฟาร์ | [CHECK] THSV's spelling. PP 214.2 |
+| Pharaoh | ฟาโรห์ | [CHECK] title of Egypt's kings; พระราชา stands for the man; THSV's spelling. MB 62.3, PP 130.2 |
+| Adam | อาดัม | [CHECK] THSV's spelling. MB 27.1, PP 44.3 |
+| Eve | เอวา | [CHECK] bare นาง stands as her pronoun, profile 4.C; THSV's spelling. MB 126.1, PP 45.3 |
+| Cain | คาอิน | [CHECK] THSV's spelling. PP 71.1 |
+| Abel | อาแบล | [CHECK] PP's and TH1971's spelling; THSV writes อาเบล. PP 71.1 |
+| Seth | เสท | [CHECK] THSV's spelling. PP 80.1 |
+| Enoch | เอโนค | [CHECK] the patriarch who walked with God; Cain's son spells the same; THSV's spelling. MB 33.1, PP 84.3 |
+| Methuselah | เมธูเสลาห์ | [CHECK] THSV's spelling. PP 92.2 |
+| Lamech | ลาเมค | [CHECK] Noah's father; Cain's descendant spells the same; THSV's spelling. PP 81.1 |
+| Noah | โนอาห์ | [CHECK] THSV's spelling. MB 33.1, PP 90.1 |
+| Shem | เชม | [CHECK] THSV's spelling. PP 117.1 |
+| Ham | ฮาม | [CHECK] THSV's spelling. PP 117.1 |
+| Japheth | ยาเฟท | [CHECK] THSV's spelling. PP 117.1 |
+| Lot | โลท | [CHECK] THSV's spelling. MB 35.1, PP 127.1 |
+| Melchizedek | เมลคีเซเดค | [CHECK] THSV's spelling. PP 136.1 |
+| Moses | โมเสส | [CHECK] THSV's spelling. MB 14.1, PP 112.2 |
+| David | ดาวิด | [CHECK] the king; see the psalmist row; THSV's spelling. MB 11.2 |
+| Solomon | ซาโลมอน | [CHECK] the king; also his books; THSV's spelling. |
+| Isaiah | อิสยาห์ | [CHECK] the prophet; also the book; THSV's spelling. |
+| Jeremiah | เยเรมีย์ | [CHECK] the prophet; also the book; THSV's spelling. |
+| Ezekiel | เอเสเคียล | [CHECK] the prophet; also the book; THSV's spelling. |
+| Daniel | ดาเนียล | [CHECK] the prophet; also the book; THSV's spelling. |
+| Paul | เปาโล | [CHECK] THSV's spelling. MB 15.1, PP 67.1 |
+| Peter (the apostle) | เปโตร | [CHECK] the apostle and his epistles; THSV's spelling. |
+| James (the apostle; the epistle) | ยากอบ | [CHECK] the apostle and the epistle; THSV's spelling. |
+| Stephen | สเทเฟน | [CHECK] THSV's spelling. MB 33.3 |
+| Mordecai | โมรเดคัย | [CHECK] THSV's spelling. MB 41.2 |
+| Nathanael | นาธานาเอล | [CHECK] THSV's spelling. PP 184.2 |
+| Joshua | โยชูวา | [CHECK] THSV's spelling. MB 1.1, PP 125.1 |
+| Elijah | เอลียาห์ | [CHECK] THSV's spelling. MB 110.3, PP 88.1 |
+| Eliezer | เอลีเอเซอร์ | [CHECK] THSV's spelling. PP 136.3 |
+| Deborah | เดโบราห์ | [CHECK] THSV's spelling. PP 206.2 |
+| Eden | เอเดน | [CHECK] THSV's spelling. MB 27.1, PP 35.1 |
+| Egypt | อียิปต์ | [CHECK] THSV's spelling. MB 41.2, PP 129.1 |
+| Canaan | คานาอัน | [CHECK] THSV's spelling. MB 149.1, PP 117.2 |
+| Sodom | โสโดม | [CHECK] THSV's spelling. PP 133.1 |
+| Gomorrah | โกโมราห์ | [CHECK] THSV's spelling. PP 139.1 |
+| Zoar | โศอาร์ | [CHECK] THSV's spelling. PP 133.1 |
+| Siddim | สิดดิม | [CHECK] THSV's spelling. PP 134.4 |
+| Hebron | เฮโบรน | [CHECK] THSV's spelling. PP 133.2 |
+| Mamre | มัมเร | [CHECK] THSV's spelling. PP 133.2 |
+| Beersheba | เบเออร์เชบา | [CHECK] THSV's spelling. PP 147.4 |
+| Haran | ฮาราน | [CHECK] THSV's spelling. PP 127.1 |
+| Mesopotamia | เมโสโปเตเมีย | [CHECK] THSV's spelling. MB 43.1, PP 127.1 |
+| Shechem | เชเคม | [CHECK] THSV's spelling. MB 1.1, PP 127.2 |
+| Bethel | เบธเอล | [CHECK] THSV's spelling. PP 127.2 |
+| Bethlehem | เบธเลเฮม | [CHECK] THSV's spelling. MB 1.1, PP 65.3 |
+| Jabbok | ยับบอก | [CHECK] THSV's spelling. PP 196.2 |
+| Mahanaim | มาหะนาอิม | [CHECK] THSV's spelling. PP 195.3 |
+| Ephrath | เอฟราธาห์ | [CHECK] THSV's spelling. PP 206.3 |
+| Dothan | โดธาน | [CHECK] THSV's spelling. PP 210.5 |
+| Babel | บาเบล | [CHECK] THSV's spelling. PP 118.4 |
+| Sinai | ซีนาย | [CHECK] THSV's spelling. MB 45.1, PP 111.2 |
+| Jordan | จอร์แดน | [CHECK] THSV's spelling. MB 1.3, PP 133.1 |
+| Jerusalem | เยรูซาเล็ม | [CHECK] THSV's spelling. MB 2.1, PP 67.1 |
+| Zion | ศิโยน | [CHECK] THSV's spelling. MB 132.1, PP 67.1 |
+| Capernaum | คาเปอรนาอุม | [CHECK] THSV's spelling. MB 59.3 |
+| Nineveh | นีนะเวห์ | [CHECK] THSV's spelling. PP 97.2 |
+| Gerizim | เกริซิม | [CHECK] THSV's spelling. MB 1.1, PP 127.2 |
+| Israel | อิสราเอล | [CHECK] THSV's spelling. MB 1.1, PP 33.2 |
+| Lucifer | ลูซีเฟอร์ | [CHECK] the pre-fall name, pronoun เขา, profile 4.B; not in THSV. PP 35.1, PP 78.4 |
+| Messiah (the title) | เมสสิยาห์ | [CHECK] THSV at ยอห์น 1:41; THSV's spelling. MB 1.3, PP 140.3 |
+| Immanuel | อิมมานูเอล | [CHECK] THSV's spelling. MB 34.1 |
+| Pharisees | ฟาริสี | [CHECK] THSV's spelling. MB 5.1 |
+| John the Baptist | ยอห์นผู้ให้บัพติศมา | [CHECK] THSV's spelling. MB 1.3 |
+| Cyrus | ไซรัส | [CHECK] THSV's spelling. MB 120.2 |
+| Benjamin | เบนยามิน | [CHECK] THSV's spelling. PP 206.4 |
+| Judah (Jacob's son; the tribe and kingdom) | ยูดาห์ | [CHECK] one form for the man, the tribe and the kingdom; THSV's spelling. MB 1.3, PP 211.3 |
+| Ebal | เอบาล | [CHECK] THSV's spelling. PP 127.2 |
+| Moriah | โมริยาห์ | [CHECK] THSV's spelling. PP 147.2 |
+| Gilead | กิเลอาด | [CHECK] THSV's spelling. PP 193.2 |
+| Bashan | บาชาน | [CHECK] THSV's spelling. MB 56.1 |
+| Elam | เอลาม | [CHECK] THSV's spelling. PP 134.4 |
+| Reuben | รูเบน | [CHECK] THSV's spelling. PP 206.5 |
+| Hamor | ฮาโมร์ | [CHECK] THSV's spelling. PP 204.1 |
+| Enos | เอโนช | [CHECK] THSV's spelling. PP 80.2 |
+| Fulton, J. E. | เจ. อี. ฟุลตัน | [CHECK] hymn writer; MB prints no English, profile 5.B. MB 152.1 |
+| John (the apostle) | ยอห์น | [CHECK] the apostle and his writings; the Baptist has his own row; THSV's spelling. MB 1.3 |
+| Rome (the city; the empire) | โรม | [CHECK] กรุงโรม stands for the city; โรมัน the adjective; THSV's spelling. MB 33.3 |
+| Levi (Jacob's son; the tribe) | เลวี | [CHECK] one form for the man and the tribe; เลวีนิติ is the book; THSV's spelling. |
+| Golgotha | กลโกธา | [CHECK] in a footnote beside คาลวารี; THSV's spelling. MB 128.2 |
+| Sanhedrin | สภาแซนเฮดริน / สภาสูงของชาวยิว | [CHECK] TNCV's and TCV's form; THSV writes สภายิว; สภาสูง stands at MB 2.1. MB 33.3, MB 46.4 |
 
 ## 3. Spelling
 

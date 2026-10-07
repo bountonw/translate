@@ -77,7 +77,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
     [[FACT MED #7|ข้อความ -> |verify: is the year 1844 or 1843 in the author's source?]]
 
 The last shape is a question you cannot settle: old is the doubtful span, new is empty, and the note begins verify: with the question. It proposes no change; the translator answers it. Never skip a doubt silently.
-4.E. Every marker quotes the English of its sentence in its note, in double quotes, with the words at issue in **double asterisks**; a SPELL marker on one misspelled word quotes nothing.
+4.E. Every marker's note opens with the English of its sentence, in double quotes, with the words at issue in **double asterisks**, and the reason follows it; a SPELL marker on one misspelled word quotes nothing. The note never repeats the severity.
 4.F. Never place a marker inside an "#EGW[...]" tag, a "// {SC ###.#}" comment, or the "#import" and "#show" lines. The title string in "#chapter(...)" is markable.
 4.G. Never write a marker whose two sides are identical or whose new side you would not defend. Where you propose wording, propose Thai; never ask the translator to supply it.
 4.H. An issue that needs more context than a note carries — a decision reaching several sites or another chapter — is a DECIDE item in your return, with the English and Thai quoted, so the conductor raises it in the report. No side file.

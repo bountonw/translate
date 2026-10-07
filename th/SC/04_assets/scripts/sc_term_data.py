@@ -29,6 +29,24 @@ EGW_INDEX = Path(os.path.expanduser(os.environ.get(
 EGW_BOOK = "ThSC"
 
 
+def form_in(form, text):
+    """True where the form occurs other than as the tail of a longer divine
+    title: บุตรของพระเจ้า inside พระบุตรของพระเจ้า, the Son, is not a site."""
+    # A possessive tail varies with the sentence (glossary header): a form
+    # ending in ของพระเจ้า also matches with ของพระองค์, and the reverse.
+    for tail_a, tail_b in (("ของพระเจ้า", "ของพระองค์"), ("ของพระองค์", "ของพระเจ้า")):
+        if form.endswith(tail_a) and form != form[: -len(tail_a)] + tail_b:
+            alt = form[: -len(tail_a)] + tail_b
+            if alt in text and not (alt.startswith("บุตร") and text[max(0, text.find(alt) - 3):text.find(alt)] == "พระ"):
+                return True
+    i = text.find(form)
+    while i >= 0:
+        if not (form.startswith("บุตร") and text[max(0, i - 3):i] == "พระ"):
+            return True
+        i = text.find(form, i + 1)
+    return False
+
+
 def version_dir(ver):
     """A version's directory: bible/th/<ver>, bible/en/<ver>, or bible/<ver>."""
     for d in (BIBLE / "th" / ver, BIBLE / "en" / ver, BIBLE / ver):
@@ -155,7 +173,7 @@ def main():
         en = {k: v.replace('\u2019', "'") for k, v in english_paras(book).items()}  # curly apostrophe (Spirit’s) matches a straight one in --head
         th, chap = thai_paras(book)
         for f in forms:
-            occ[f][book] = sum(p.count(f) for p in th.values())
+            occ[f][book] = sum(len([m for m in re.finditer(re.escape(f), p) if not (f.startswith('บุตร') and p[max(0, m.start() - 3):m.start()] == 'พระ')]) for p in th.values())
         for anchor, para in en.items():
             if not head.search(para):
                 continue
@@ -163,7 +181,7 @@ def main():
             nsites[s] += 1
             sents = [x.strip() for x in SENT.split(para) if head.search(x)]
             tp = th.get(anchor, "")
-            found = [f for f in forms if f in tp]
+            found = [f for f in forms if form_in(f, tp)]
             for f in found:
                 site_counts[f][s] += 1
             if not found:
