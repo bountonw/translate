@@ -57,11 +57,10 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.A. You orchestrate; agents work. A run's only repository edit is markers in the chapter.
 6.B. Chapters are Typst: a "// {SC ###.#}" comment above each paragraph, an "#EGW[\{SC ###.#\}]" tag at its end, footnotes inline as "#footnote[...]". Reference prose by anchor, never by line. A chapter holding markers is never compiled or added to book.typ.
 6.C. Thai text and citations follow thai-profile.txt.
-6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), the original wording tagged original: so the editor sees it: in qa3 it gets a CHOICE marker; in qa1 and qa2 it stands; sc_punctcheck.py lists every one standing.
+6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), spanning only the words that differ, the original wording tagged original: so the editor sees it: in qa3 it gets a CHOICE marker; in qa1 and qa2 it stands; sc_punctcheck.py lists every one standing.
 6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.E. Line breaking is never fixed in a manuscript. Break points live in th/assets/typeset/thai-breaks.txt; th/assets/scripts/build_breaks.py --book SC writes th/SC/04_assets/template/dictionary.typ from it, never edited by hand.
 6.F. Never override an agent's model or effort.
-6.G. Grep rather than read.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
 6.J. When the translator keeps a wording against a finding, get his reason, asking if he gave none, and in the same reply write one line, in anchor order, in th/SC/04_assets/notes/SC_notes.txt: {SC ###.#} | English words | Thai span copied from the chapter | his reason.
 

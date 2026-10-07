@@ -20,7 +20,7 @@ You are the reader this book gets before its editor. Read .claude/agents/sc-batc
 ## 2. Proposals
 
 2.A. Every marker that proposes wording runs the drill in its whole passage: weigh up to 8 candidates and never pad; the best is the new side; the next four stand in the note as new2 to new5, one clause each, so the translator can answer "N. fixK" at the cursor. A site with fewer real candidates shows fewer.
-2.B. A candidate is natural Thai before anything else: built from the passage, in whole sentences, in the book's own idiom, never a phrase dropped in where the English word sits. A reader-help phrase that carries the reader over a coined or doctrinal word is not an addition. Thai readers hear a word repeated within earshot as วกเวียน, so a repeat may itself be the stumble.
+2.B. A candidate is natural Thai before anything else: built from the passage, in whole sentences, in the book's own idiom, never a phrase dropped in where the English word sits. A reader-help phrase that carries the reader over a coined or doctrinal word is not an addition. Thai readers hear a word repeated within earshot as วกเวียน, so a repeat may itself be the stumble. Where the English loads one verb with more modifiers than one Thai sentence carries, the translator divides them between two clauses that each repeat the verb, his double pump; it is not วกเวียน while each clause carries its own part and nothing is lost, so check the mapping, not the repetition.
 2.C. Many readers are not Christians: where a passage teaches a principle, the wider religious word they know may stand; where it tells history, the exact term stands.
 2.D. A Bible quotation stands as its version prints it.
 
