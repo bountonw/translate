@@ -31,7 +31,8 @@ QUESTION = re.compile(r"\{\{Q(?P<num>#\d+[a-z]?)?\s*\|?(?P<q>.*?)\}\}", re.S)
 NO_SEV = {"SPELL", "GRAM", "REF", "NOTE", "READ", "CHOICE", "FIX"}
 ROUND_CLASSES = {
     "qa1": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN"},
-    "qa2": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "TERM", "CLARITY", "READ", "CHOICE"},
+    "qa2": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "TERM"},
+    "qa3": {"SPELL", "GRAM", "REF", "NOTE", "FACT", "OMISSION", "ADDITION", "ALIGN", "CLARITY", "READ", "CHOICE"},
     "check": {"FIX"},
 }
 
@@ -84,8 +85,8 @@ def main():
                     problems.append(f"#{num} {{SC {p.anchor}}}: {cls} carries no severity")
                 if cls not in NO_SEV and not sev:
                     problems.append(f"#{num} {{SC {p.anchor}}}: {cls} needs HIGH or MED")
-                if sev == "LOW":
-                    problems.append(f"#{num} {{SC {p.anchor}}}: LOW is never written")
+                if sev == "LOW" and a.round == "qa1":
+                    problems.append(f"#{num} {{SC {p.anchor}}}: LOW is never written in qa1")
             if not new and not note.strip():
                 problems.append(f"#{num} {{SC {p.anchor}}}: empty new side with an empty note")
             blocks.append(
@@ -126,6 +127,11 @@ def main():
         problems.append(f"{len(residue)} damaged or unterminated marker(s)")
 
     if a.round:
+        # The book's break dictionary must match the words its chapters now use.
+        br = subprocess.run([sys.executable, str(ROOT / "th/assets/scripts/build_breaks.py"), "--book", "SC", "--check"],
+                            capture_output=True, text=True)
+        if br.returncode != 0:
+            problems.append("breaks: th/SC/04_assets/template/dictionary.typ is stale; run python3 th/assets/scripts/build_breaks.py --book SC")
         st = git_status()
         if st is None:
             problems.append("git status could not be read")
