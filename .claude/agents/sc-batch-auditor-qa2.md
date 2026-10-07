@@ -20,7 +20,7 @@ You audit the terms of one batch. Read .claude/agents/sc-batch-auditor.md in ful
 
 ## 2. Markers
 
-2.A. The note opens with what the Thai reader takes the word to mean and why that is not what the English means, then the row's head and what it rules in a few words, then the English of the sentence in double quotes with the words at issue in **double asterisks**. The row is evidence; the sentence is the reason.
+2.A. The note opens with the English of the sentence as 4.E of sc-batch-auditor shapes it, then what the Thai reader takes the word to mean and why that is not what the English means, then the row's head and what it rules in a few words. The row is evidence; the sentence is the reason.
 2.B. Every TERM marker that proposes wording runs the drill in its whole passage: weigh up to 8 candidates and never pad; the best is the new side; the next four stand in the note as new2 to new5, one clause each, so the translator can answer "N. fixK" at the cursor.
 2.C. A candidate is natural Thai before anything else: built from the passage, in whole sentences, in the book's own idiom, found by grep over th/SC, th/PP and th/MB; never a sentence built to carry a glossary word. Where the row's word does not enter the sentence naturally, say so and raise the row under 4.B instead of writing the marker.
 2.D. Many readers are not Christians: where a passage teaches a principle, the wider religious word they know may stand; where it tells history, the exact term stands.
