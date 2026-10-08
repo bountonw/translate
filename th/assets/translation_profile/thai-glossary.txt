@@ -75,7 +75,8 @@
 | Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
 | anointing (of Christ) | ทรงเจิม / เจิมตั้ง / การเจิม / ผู้รับการเจิม | [CHECK] The versions' verb for God anointing Christ; Lao GC uses ເຈີມຕັ້ງ. กิจการ 10:38, SC 11.2 |
 | propitiation, atoning sacrifice, expiate | เครื่องบูชาไถ่บาป / เครื่องบูชาลบบาป / ลบล้างความบาป / ชดใช้ | [CHECK] The two nouns first; ลบล้างความบาป and ชดใช้ are verb reworkings. SC 13.2, PP 279.1, PP 63.2 |
-| atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision as a whole การทรงไถ่; reconciliation คืนดี; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2 |
+| atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision การทรงไถ่; its result คืนดี, KJV โรม 5:11; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2, PP 426.1 |
+| atone (verb; for sin, for transgression) | ชดใช้ / ไถ่โทษ / ลบล้าง | [CHECK] Verb; the object บาป, โทษ or การล่วงละเมิด follows, as สดุดี 51:1 TNCV; secular amends recast. PP 63.2, PP 365.3, SC 33.1, PP 196.1 |
 | Day of Atonement | วันลบมลทินบาป | [CHECK] The Thai Adventist name; the versions write วันลบมลทิน, วันทำการลบมลทิน, วันลบบาป. เลวีนิติ 23:27, PP 355.2 |
 | mercy seat | พระที่นั่งกรุณา | [CHECK] THSV at all 22 verses and TKJV ฮีบรู 9:5; never พระที่นั่งกรุณาธิคุณ, the throne of grace. PP 348.3 |
 | reconcile, reconciliation | คืนดี | [CHECK] All four versions, โรม 5:10–11, 2 โครินธ์ 5:18–20; a secular reconcile may recast. MB 115.1, PP 114.1 |
@@ -85,7 +86,7 @@
 | fallen (race, man, men, world, souls, humanity) | ตกสู่ความบาป / ตกอยู่ในความบาป / หลงผิด / หลงในความบาป / จมอยู่ในความบาป | [CHECK] Event ตกสู่; state ตกอยู่ใน; astray หลง; sunk จม. A recast stands once the fall is told. PP 63.2, SC 21.1, PP 62.2, SC 14.3 |
 | the Fall, fall of man (the event) | ตกสู่ความบาป / หลงทำบาป / หลงผิด | [CHECK] Genesis 3 as an event; ตกสู่ความบาป keeps the fall from a height. PP 63.1, PP 80.3, SC 62.1 |
 | unfallen (worlds, universe, beings) | ไม่ได้ตกสู่ความบาป / ไม่เคยทำบาป | [CHECK] Never fell; the Lao GC writes ບໍ່ເຄີຍຕົກສູ່ຄວາມບາບ and ບໍ່ເຄີຍເຮັດບາບ; สวรรค์ may stand, never proposed. MB 104.2, PP 522.2, SC 30.1 |
-| sinless (beings, angels, Christ, Adam) | ปราศจากบาป / ไม่มีบาป / ไร้บาป / ไร้ความบาป / ไม่เคยทำบาป | [CHECK] ฮีบรู 4:15 ปราศจากบาป; บริสุทธิ์ may stand where purity is the point, never proposed. PP 331.1, MB 116.1, PP 154.3, PP 69.3, PP 62.3 |
+| sinless (beings, angels, Christ, Adam) | ปราศจากบาป / ปราศจากความบาป / ไม่มีบาป / ไร้บาป / ไร้ความบาป / ไม่เคยทำบาป | [CHECK] ฮีบรู 4:15 ปราศจากบาป; บริสุทธิ์ may stand where purity is the point, never proposed. PP 331.1, MB 116.1, PP 154.3, PP 69.3, PP 62.3, SC 17.2 |
 | fallen nature, sinful nature, fallen condition | ธรรมชาติบาป / ธรรมชาติของความบาป / ธรรมชาติแห่งความบาป | [CHECK] Since the Fall; เนื้อหนัง, a description or a recast may stand, never proposed; วิสัยบาป only quoted. PP 80.1, PP 238.2, PP 373.1 |
 | justify, justification, Justifier (God's act) | ให้เป็นคนชอบธรรม / ให้เป็นผู้ชอบธรรม / นับเป็นผู้ชอบธรรม / ชำระให้ชอบธรรม / ชำระให้เป็นคนชอบธรรม | [CHECK] God declaring the believer righteous, the versions' verb shapes; แก้ตัว is the excuse sense only. โรม 3:26, SC 14.1, MB 27.2, PP 373.1 |
 | cross | ไม้กางเขน / กางเขน | [CHECK] MB 10.1, SC 13.1 |
@@ -106,7 +107,7 @@
 | kindness | ความรักมั่นคง / ความเมตตา / ความกรุณา / ความเมตตากรุณา / มีน้ำใจ | [CHECK] ความรักมั่นคง in quotations for God's loving-kindness; มีน้ำใจ for goodwill between people. PP 107.2, PP 134.2, PP 519.5, MB 44.4, PP 714.2 |
 | loving-kindness (of God) | ความรักมั่นคง | [CHECK] The Bible's word for God's steadfast love; kept apart from kindness. SC 19.1, PP 107.2 |
 | kingdom of God, kingdom of heaven | แผ่นดินของพระเจ้า / แผ่นดินสวรรค์ / อาณาจักรของพระเจ้า | [CHECK] Default แผ่นดิน; อาณาจักร may stand; quotations follow their version (TH1971, THSV แผ่นดิน; TKJV, TNCV อาณาจักร). MB 98.2, MB 2.2, SC 18.2 |
-| Source (divine title) | แหล่ง / แหล่งกำเนิด / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น followed by the form. MB 41.1, PP 610.3, PP 717.2, SC 20.1, SC 71.2 |
+| Source (divine title) | แหล่ง / แหล่งกำเนิด / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น plus the form; the title may fold into its object, as ทรงเป็นความหวังเดียว for the one Source of hope. MB 41.1, PP 610.3, PP 717.2, SC 20.1, SC 21.1, SC 71.2 |
 | communion (with God), commune | การสื่อสัมพันธ์ / สามัคคีธรรม / สนทนา / เข้าเฝ้า / ความสัมพันธ์ / สายสัมพันธ์ / สื่อสาร | [CHECK] Defaults การสื่อสัมพันธ์ and สามัคคีธรรม; สนทนา for pictured talk; ใช้เวลากับ, ติดสนิท, สัมพันธไมตรี stand, never proposed. SC 85.1, MB 20.1, PP 329.5, SC 22.1 |
 | merits (of Christ), His merits | คุณความดี | [CHECK] Christ's worth pleaded for us; never พระคุณความดี, it reads as grace; never บารมี, the majesty word. PP 353.3, SC 35.4, SC 95.3 |
 | unrenewed heart, unrenewed nature | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival. PP 465.1, SC 17.2 |
@@ -185,6 +186,7 @@
 | pilgrims (to the feasts at Jerusalem) | ฉลองเทศกาล / เดินทางไปร่วมฉลองเทศกาล / คนที่เดินทางมานมัสการ | [CHECK] Feast-goers at Jerusalem, never แสวงบุญ; เดินทาง takes ไป, มา or เพื่อ as the sentence needs. PP 541.1, PP 539.4, GC 17.2 |
 | ignorance, ignorant, ignorantly | ความไม่รู้ / ไม่รู้ / ไม่รู้จัก / รู้เท่าไม่ถึงการณ์ / ความเขลา / ขาดความรู้ / ความโง่เขลา | [CHECK] State ความไม่รู้; ignorant of ไม่รู้, ไม่รู้จัก; unwitting รู้เท่าไม่ถึงการณ์; ความโง่เขลา stands where found, never proposed. SC 45.1, SC 70.2, MB 54.2, PP 130.2 |
 | will (human faculty) | การตัดสินใจ / เจตจำนง / ตามใจตัวเอง / ฝืนใจ | [CHECK] Noun การตัดสินใจ; เจตจำนง where the faculty itself must be unmistakable; verb idioms ตามใจตัวเอง, ฝืนใจ stand. MB 61.1, SC 47.1 |
+| exercise of the will (the will put to use) | ใช้อำนาจในการตัดสินใจ / ความตั้งใจแน่วแน่ | The will applied, not the faculty; the verb shape at SC 48.1, the noun in a list at SC 18.1. SC 48.1, SC 18.1 |
 | will of God, His will | น้ำพระทัย / พระประสงค์ / พระทัย | [CHECK] น้ำพระทัย where obeyed or submitted to; พระประสงค์ where His purpose; พระทัย in quotations. โรม 12:2 TH1971, MB 109.1, SC 43.4 |
 | paralytic, sick of the palsy | อัมพาต / คนง่อย | [CHECK] อัมพาต in prose; คนง่อย only beside a THSV or TH1971 quotation; figurative paralyzed free. มัทธิว 9:6, ยอห์น 5:3, SC 49.3, SC 50.1 |
 | made whole, healed (the sick) | หายเป็นปกติ / หายปกติ / หายดี / รักษาให้หาย / หายโรค / หายป่วย / รักษา | [CHECK] Made whole: หายเป็นปกติ or หายดี, body or soul; healed: รักษาให้หาย or รักษา; healing noun free. ยอห์น 5:9, ลูกา 8:50, SC 50.1, SC 51.1 |
@@ -194,7 +196,7 @@
 | privilege (rank, law, a claim over others) | สิทธิ / สิทธิประโยชน์ / อภิสิทธิ์ | Legal standing; อภิสิทธิ์ only for a prerogative claimed, as Nahash; never for the believer. PP 611.2, PP 507.1, PP 714.2 |
 | forgive, forgiveness, pardon | อภัย / ให้อภัย / อภัยโทษ / ยกโทษ / ยกบาป | [CHECK] อภัย the stem; อภัยโทษ judicial pardon; ยกโทษ persons, concrete offences. THSV มัทธิว 9:6, เอเฟซัส 1:7, PP 72.5, MB 113.3, SC 52.3 |
 | prodigal, prodigal son (Luke 15) | บุตรที่หลงหาย / บุตรหายไป | [CHECK] TNCV heading first; a bare บุตร stands once named. ลูกา 15:11, SC 53.2 |
-| wanderer, the (sinner astray) | ผู้หลงทาง / ผู้หลงหาย / ผู้ที่หลงหาย | [CHECK] The sinner who strays; ผู้หลงหาย where the prodigal is meant; ผู้หลงผิด stands. มาลาคี 3:7, PP 165.2, SC 54.1 |
+| wanderer, the (sinner astray) | ผู้หลงทาง / ผู้ที่หลงทาง / ผู้หลงหาย / ผู้ที่หลงหาย | [CHECK] The sinner who strays; ผู้หลงหาย where the prodigal is meant; ผู้หลงผิด stands. มาลาคี 3:7, PP 165.2, SC 54.1, SC 35.3 |
 | wanderer, wanderings (literal) | พเนจร | Jacob, Lot and Israel in the desert; never the sinner. PP 183.4, PP 406.3 |
 | parable | คำอุปมา / อุปมา | [CHECK] คำอุปมา as TNCV, TKJV, TH1971; อุปมา alone as THSV, chiefly in its quotations. ลูกา 15:3, SC 54.1, PP 727.1 |
 | compassion (of God and of Christ) | พระกรุณา / พระเมตตากรุณา / เมตตากรุณา / พระเมตตาคุณ / พระกรุณาคุณ / พระเมตตา / ความเมตตา / สงสาร / เอ็นดู / เอ็นดูสงสาร | [CHECK] Feeling for the sufferer; tender takes เอ็นดู, ห่วงหาอาทร or อ่อนโยน. MB 6.1, MB 110.3, PP 106.2, PP 165.2, SC 53.2, SC 54.1 |
