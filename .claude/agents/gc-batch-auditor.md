@@ -150,7 +150,7 @@ A note beginning verify: marks an open question, not a deletion. Two genuinely d
 10.B.1. An item about a marker you wrote carries that marker's own number, never a fresh one; an item with no marker takes the next number above the highest marker you used.
 10.C. DECIDE is for an item that needs the translator in conversation rather than at the cursor; NOTE carries the counts by class and severity. A "verify: DECIDE" marker under 4.H becomes a DECIDE item only where the decision reaches past its own site, into another chapter or several places in this one; otherwise he settles it at the cursor. The reference is the marker number and its anchor:
 
-    1. DECIDE #5 {GC 239.3} — Philip II is given the emperor word, and he was never emperor.
+    1. DECIDE #1 {GC 239.3} — Philip II is given the emperor word, and he was never emperor.
     2. NOTE — counts by class and severity are in the detail section.
 
 If nothing needs conversation, the summary list carries the NOTE line alone.
