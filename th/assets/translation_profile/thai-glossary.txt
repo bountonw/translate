@@ -69,7 +69,7 @@
 | disciple | สาวก | [CHECK] PP 77.1 |
 | gospel | ข่าวประเสริฐ / ข่าวดี | [CHECK] Default ข่าวประเสริฐ. PP 117.3, MB 108.3 |
 | took man's nature | รับสภาพมนุษย์ / รับสภาพธรรมชาติของมนุษย์ / รับสภาพของมนุษย์ | [CHECK] PP 69.3, PP 64.3, MB 104.3 |
-| hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก | [CHECK] PP majority first. PP 475.3, PP 523.1 |
+| hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก / เสแสร้ง | [CHECK] PP majority first; เสแสร้ง for the act of feigning. PP 475.3, PP 523.1, SC 40.2 |
 | unbelief | ขาดความเชื่อ / ไม่เชื่อ / การไม่เชื่อ / ไม่มีความเชื่อ | [CHECK] PP's order of use; ไม่เชื่อ covers the shorter forms. PP 292.2, PP 72.4, PP 95.2, PP 298.3 |
 | iniquity | ความผิดบาป / ความชั่วร้าย / ความชั่ว / ความอธรรม / ความชั่วช้า / ความบาป | [CHECK] Guilt borne or pardoned ความผิดบาป; prevailing wickedness ความชั่วร้าย, ความชั่ว; lawlessness ความอธรรม; depravity ความชั่วช้า. PP 138.4, PP 166.4, PP 67.3, PP 92.1 |
 | Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
@@ -135,7 +135,7 @@
 | water of life, living water | น้ำแห่งชีวิต / น้ำที่ให้ชีวิต / น้ำดำรงชีวิต | [CHECK] All versions at วิวรณ์ 22:17; น้ำดำรงชีวิต is THSV at ยอห์น 4:10 and 7:38. MB 20.1, SC 28.1, PP 411.3 |
 | fountain of life | น้ำพุแห่งชีวิต / บ่อน้ำพุแห่งชีวิต | MB 61.2, MB 16.2, PP 413.1 |
 | conscience | จิตสำนึก / จิตสำนึกผิดชอบ / ความรู้สึกผิดชอบชั่วดี / มโนธรรม | [CHECK] Default จิตสำนึก, TNCV's word; มโนธรรม, THSV's, only where nothing else fits; never จิตใต้สำนึก. SC 26.2, SC 49.1, MB 123.3 |
-| penitent, penitence | สำนึกผิด | [CHECK] Regret for sin felt and shown; ถ่อมใจ only where humiliation is paired; กลับใจ stands where found. MB 84.4, PP 357.6, SC 52.2 |
+| penitent, penitence | สำนึกผิด / รู้สำนึกในบาป | [CHECK] Regret for sin felt and shown; ถ่อมใจ only where humiliation is paired; กลับใจ stands where found. MB 84.4, PP 357.6, SC 52.2, SC 41.2 |
 | contrition, contrite | สำนึกผิด / ใจที่แตกสลาย / เศร้าเสียใจ / ชอกช้ำ / ฟกช้ำ | [CHECK] Heart crushed by sin, สดุดี 51:17 THSV; MB writes เศร้าเสียใจ, TH1971 ชอกช้ำ, ฟกช้ำ. MB 53.2, SC 26.1, MB 130.2, MB 11.2 |
 | conviction of sin, convicted of sin, convince of sin | สำนึกในความบาป / สำนึกผิด | [CHECK] The Spirit showing sin, ยอห์น 16:8; สำนึกในบาป, สำนึกถึงความบาป stand; รู้สึกผิด is guilt, never here. MB 7.2, SC 23.1, SC 35.2 |
 | sorrow for sin, godly sorrow | ความเศร้าเสียใจเพราะบาป / เสียใจต่อบาป | เพราะ marks the cause, ต่อ the object; both stand; 2 โครินธ์ 7:10 ความเสียใจ. MB 9.2, PP 557.2, SC 24.3 |
@@ -169,7 +169,7 @@
 | father of lies | บิดาแห่งการมุสา | [CHECK] Satan's title, John 8:44. PP 58.1 |
 | self-justification, excuse (for sin) | แก้ตัว / คำแก้ตัว / ข้อแก้ตัว | [CHECK] แก้ตัว the verb; คำแก้ตัว and ข้อแก้ตัว the nouns. PP 57.5, PP 58.1, PP 153.3 |
 | Holy Spirit | พระวิญญาณบริสุทธิ์ | [CHECK] |
-| ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3 |
+| ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ / ไม่รู้สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3, SC 38.2 |
 | forbidden fruit, forbidden tree (Genesis 3) | ผลไม้ต้องห้าม / ผลไม้ที่ต้องห้าม / ผลไม้ที่พระเจ้าทรงห้าม / ผลไม้หวงห้าม / ต้นไม้หวงห้าม | [CHECK] Epithet or description; ที่ optional before ต้องห้าม; ต้นไม้ที่พระเจ้าทรงหวงห้าม stands. ปฐมกาล 3:11, PP 49.1, PP 55.3, PP 378.2, SC 40.2 |
 | Ruler of the universe, Sovereign of the universe, Governor of the universe | พระเจ้าผู้ทรงครอบครองจักรวาล | [CHECK] Never ปกครอง, the human-government word; "great Ruler" may take พระมหากษัตริย์. MB 74.1, PP 34.1, SC 38.2 |
 | Ruler of all, Supreme Ruler | ผู้ครอบครองสูงสุดเหนือทุกสิ่ง / ผู้ทรงครอบครองเหนือทุกสิ่ง | [CHECK] Psalm 105:21 "ruler of all his substance" is Joseph, outside this row. PP 48.3, PP 123.2, MB 120.1 |
