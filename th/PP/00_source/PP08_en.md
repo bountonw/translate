@@ -6,7 +6,7 @@ chapter:
   number: 8
   title:
     en: After the Flood
-  url: https://legacy.egwwritings.org/?ref=en_PP.105&para=84.399
+  url: https://egwwritings.org/?ref=en_PP.105&para=84.399
   basedon: This chapter is based on Genesis 7:20–9:17.
 author:
   en: Ellen White

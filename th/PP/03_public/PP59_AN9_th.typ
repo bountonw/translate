@@ -1,4 +1,4 @@
-// Source-url: "https://legacy.egwwritings.org/?ref=en_PP.764.3&para=84.3634"
+// Source-url: "https://egwwritings.org/read?panels=p84.3634"
 // English title: Appendix Note 9
 
 #chapter(

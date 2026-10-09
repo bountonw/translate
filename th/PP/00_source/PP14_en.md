@@ -6,7 +6,7 @@ chapter:
   number: 14
   title:
     en: Destruction of Sodom
-  url: https://legacy.egwwritings.org/?ref=en_PP.156.1&para=84.633
+  url: https://egwwritings.org/?ref=en_PP.156.1&para=84.633
   basedon: This chapter is based on Genesis 19.
 author:
   en: Ellen White

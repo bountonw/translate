@@ -6,7 +6,7 @@ chapter:
   number: 44
   title:
     en: Crossing the Jordan
-  url: https://legacy.egwwritings.org/?ref=en_PP.481.1&para=84.2215
+  url: https://egwwritings.org/?ref=en_PP.481.1&para=84.2215
   basedon: This chapter is based on Joshua 1 to 5:12.
 author:
   en: Ellen White

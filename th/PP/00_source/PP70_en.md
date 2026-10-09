@@ -6,7 +6,7 @@ chapter:
   number: 70
   title:
     en: The Reign of David
-  url: https://legacy.egwwritings.org/?ref=en_PP.703.1&para=84.3304
+  url: https://egwwritings.org/?ref=en_PP.703.1&para=84.3304
   basedon: This chapter is based on 2 Samuel 5:6-25; 6; 7; 9; 10.
 author:
   en: Ellen White
@@ -54,7 +54,7 @@ But “when they came to Nachon’s threshing floor, Uzzah put forth his hand to
 
 ## {PP 705.2}
 
-The fate of Uzzah was a divine judgment upon the violation of a most explicit command. Through Moses the Lord had given special instruction concerning the transportation of the ark. None but the priests, the descendants of Aaron, were to touch it, or even to look upon it uncovered. The divine direction was, “The sons of Kohath shall come to bear it: but they shall not touch any holy thing, lest they die.” Numbers 4:15. The priests were to cover the ark, and then the Kohathites must lift it by the staves, which were placed in rings upon each side of the ark and were never removed. To the Gershonites and Merarites, who had in charge the curtains and boards and pillars of the tabernacle, Moses gave carts and oxen for the transportation of that which was committed to them. “But unto the sons of Kohath he gave none: because the service of the sanctuary belonging unto them was that they should bear upon their shoulders.” Numbers 7:9. Thus in the bringing of the ark from Kirjath-jearim there had been a direct and inexcusable disregard of the Lord’s directions. {PP 705.2}
+The fate of Uzzah was a divine judgment upon the violation of a most explicit command. Through Moses the Lord had given special instruction concerning the transportation of the ark. None but the priests, the descendants of Aaron, were to touch it, or even to look upon it uncovered. The divine direction was, “The sons of Kohath shall come to bear it: but they shall not touch any holy thing, lest they die.” Numbers 4:15. The priests were to cover the ark, and then the Kohathites must lift it by the staves, which were placed in rings upon each side of the ark and were never removed. To the Gershonites and Merarites, who had in charge the curtains and boards and pillars of the tabernacle, Moses gave carts and oxen for the transportation of that which was committed to them. “But unto the sons of Kohath he gave none: because the service of the sanctuary belonging unto them was that they should bear *upon their shoulders*.” Numbers 7:9. Thus in the bringing of the ark from Kirjath-jearim there had been a direct and inexcusable disregard of the Lord’s directions. {PP 705.2}
 
 ## {PP 705.3}
 

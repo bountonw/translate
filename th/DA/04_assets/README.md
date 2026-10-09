@@ -1,0 +1,47 @@
+# DA — how to run the project
+
+The new Thai translation of *The Desire of Ages*, ผู้พึงปรารถนาแห่งปวงชน ฉบับแปลใหม่. The procedure is th/DA/CLAUDE.md; this page lists what you type.
+
+Start Claude Code in the checkout that holds the DA branch, then type `/th-DA` followed by one of the commands below. Every report comes back in the usual shape, with numbered items and the summary at the bottom.
+
+The agents live in .claude/agents (da-finder, da-miner, da-verse-study, da-drafter, da-check, da-fixer, da-print-compare, da-subtitles, da-resolve-check, da-wording-drill, with th-term-study and th-glossary-miner shared with SC) and the scripts in th/DA/04_assets/scripts; each script says what it does in its first lines. `/th-DA tools` repairs them.
+
+## Once, before the first chapter
+
+| Type | What happens | What you do |
+|---|---|---|
+| `/th-DA tools` | The agents and scripts are proposed, then written and tested on DA01. | Approve each before it is written. |
+| `/th-DA names` | A script gives every biblical name its spelling by profile 5.A, the series' printed form first and THSV's where no book has printed it, and lists only the names that need a ruling. | Rule the exceptions. |
+| `/th-DA register` | Sonnet mines PP and MB for how the narrator speaks of Jesus, the disciples and the leaders, and how people address Jesus. | Rule the register. |
+
+## Each chapter
+
+| Type | Pass | What happens | What you do |
+|---|---|---|---|
+| `/th-DA terms DA01` | 1 | Opus lists the terms, quotations and allusions. Sonnet gathers the data. Fable proposes each glossary row and ranks the top three Bible versions for each quotation. | Rule each row. Close verse calls come later as markers. |
+| `/th-DA terms DA00-DA87` | 1 | The same for a run of chapters, so the glossary can be built before translating. | As above. |
+| `/th-DA draft DA01` | 2 | Fable drafts and checks itself, Opus checks against the English, Fable fixes or raises an issue. | Commit the agent draft, read the chapter whole, settle every marker and editor's choice. |
+| `/th-DA check DA01` | 3 | Scripts and Opus check that your resolutions left no damage. | Commit; the chapter moves to 02_edit. |
+| `/th-DA editor DA01` | — | The chapter is made ready to upload to Google Docs. | Upload by hand; the editor reads and flags. |
+| `/th-DA flags DA01` | — | Each flag you bring back becomes a marker with proposals. | Settle them, then `check` again; the chapter moves to 03_public. |
+
+## Any time
+
+| Type | What happens |
+|---|---|
+| `/th-DA 7/3/1` or `/th-DA model: fable 7/3/1` | The wording drill on named markers. |
+| `/th-DA status` | Each chapter's stage and its standing markers. |
+| `/th-DA` with a question | A term or corpus question, answered from the Thai books and Bibles. |
+
+## Where things are
+
+| What | Where |
+|---|---|
+| English source | th/DA/00_source/DANN_en.md |
+| Your chapters | th/DA/01_raw, 02_edit, 03_public |
+| The 2023 print, for reference | th/DA/04_assets/editions/print |
+| Names | th/assets/translation_profile/thai-names.tsv, built by th/assets/scripts/th_names.py |
+| Scripts | th/DA/04_assets/scripts; th/assets/scripts for every Thai book |
+| Style samples for the drafter | th/DA/04_assets/pp_samples.txt |
+| Kept wordings | th/DA/04_assets/notes/DA_notes.txt |
+| Session outputs and agent reports | ~/claude-sandbox/da-audit/ |

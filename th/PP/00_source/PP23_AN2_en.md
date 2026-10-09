@@ -6,7 +6,7 @@ chapter:
   number: 23B
   title:
     en: Appendix Note 2
-  url: https://legacy.egwwritings.org/?ref=en_PP.758.1&para=84.3595
+  url: https://egwwritings.org/?ref=en_PP.758.1&para=84.3595
   basedon: 
 author:
   en: Ellen White

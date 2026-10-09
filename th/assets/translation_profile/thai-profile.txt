@@ -1,0 +1,51 @@
+# Thai translation profile
+
+Read this file and thai-glossary.txt before drafting or auditing Thai. Where they are silent, the translator's finished books are the precedent — the published MB and PP chapters 1 to 20 first — and precedent guides, it never rules. Every line here is a guide applied in context, not a law.
+
+## 1. Philosophy
+
+1.A. Faithful to the author's intent, not to English structure. A wording difference from the English is intentional unless it changes a fact, drops or adds content, breaks a reference, or leaves a nameable wrong reading open.
+1.B. The reader must feel and understand. Accurate, never robotic; these are books, not textbooks.
+1.C. Ellen White's books are translated dynamically. Statements of fundamental belief are translated formally, close to the wording.
+1.D. Nineteenth-century sentences are restructured freely into clear Thai; sentences may be split, merged or reordered. Paragraph blocks are never split or merged.
+1.E. Where a reader could misunderstand, choose the lightest clarification that works: render the intended meaning, add a short in-text clarification, or footnote. A doctrinal word may be rendered by its natural meaning in context, as "revelation" meaning the written word may become พระคัมภีร์; the context decides, and the other rendering is not a defect.
+1.F. A definite reference the author trusted her readers to know may be named for today's reader, as กษัตริย์ดาวิด for "the psalmist", when the referent is certain.
+1.G. A first-person plural spoken from a Western standpoint may be addressed to the universal reader; the context decides.
+1.H. Scripture is quoted from the Thai version that best makes the author's point. Where no Thai version makes it, the verse is translated from the KJV or from the Greek and labelled as such.
+
+## 2. Bible versions and citations
+
+2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971. MB: THSV.
+2.B. Every other version is labelled after the reference, as (สดุดี 145:15, 16 TNCV). Labels in use: THSV, TNCV, TKJV, TH1940, TH1971, THA-ERV, TCV, NTV, TCL, TFB.
+2.C. Which version a quotation uses is decided at each site for what the paragraph needs; one verse may sit in two versions in one paragraph.
+2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
+2.D. A citation sits in parentheses where it fits the flow of the sentence, often at the paragraph end; where a parenthesis would break the flow it is worked into the prose or left as a footnote. A reference the reader is sent to rather than quoted opens with ดู.
+2.E. Book names as THSV prints them. A verse range takes an en dash, as ลูกา 18:10–14; verses in a list are separated by a comma and a space; citations of several books are separated by semicolons, as (อพยพ 34:6, 7 TNCV; โยนาห์ 4:2; มีคาห์ 7:18 TCV).
+2.F. A quotation follows its version word for word: restore any word dropped, added or changed inside it. Judge a trim at either end with its lead-in sentence: it stands where it matches the English trim or serves the flow losing no meaning, else raise it.
+2.G. Spelling inside a quotation follows the book's own spelling, not the version's; for example, คนคนเดียว where THSV prints คนๆ เดียว.
+2.H. A phrase translated from the KJV inside a quotation that otherwise follows a Thai version keeps that version's citation and takes a footnote after the closing quotation mark, before the citation, naming the phrase and its source; a quotation translated whole from the KJV carries the source in the version slot of its citation. The first such note in a book reads แปลตามพระคัมภีร์ฉบับ KJV, as “ความเชื่อของพระบุตร”: แปลตามพระคัมภีร์ฉบับ KJV; every later one in the book reads แปลตามฉบับ KJV, as (ยอห์น 6:63 แปลตามฉบับ KJV).
+
+## 3. Thai text
+
+3.A. Western numerals only.
+3.B. No invisible characters. Line breaking is decided at typesetting time from the template's word dictionary, never in a manuscript.
+3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”.
+3.D. และ stays closed on both sides unless the clause it joins is long.
+3.D.1. ๆ takes a space after it, unless punctuation follows.
+3.E. Only Thai script stands in running text; Latin letters appear only in a citation's version label and in the parentheses of 5.B.
+
+## 4. Register
+
+4.A. Deity takes reverent language and royal vocabulary (ราชาศัพท์), lighter than the Thai Bible versions use it; how heavily a book leans on it is decided per book, and the ruled forms are glossary rows.
+4.B. Satan and demons take the lowest register: the pronoun is มัน in every narrative timeframe. Lucifer before his fall, where the text names him Lucifer, takes เขา, neither ท่าน nor มัน: he was the highest angel in the universe and not yet the enemy.
+4.C. The author and the reader together are เรา; a direct appeal to the reader takes ท่าน; the author never speaks as ข้าพเจ้า. In a narrative, the men of faith and the prophets and apostles take ท่าน and others take เขา, and a figure may move from เขา to ท่าน as his story turns. A woman takes นาง with her name as her title, and นาง or เธอ as her pronoun.
+
+## 5. Proper nouns
+
+5.A. A biblical name keeps the spelling the series has printed, with no English in parentheses; a name no book of ours has printed takes THSV's spelling, and where the book's default version and THSV spell it differently the conflict is raised for the translator to decide. Inside a quotation the series spelling stands, as 2.G rules for spelling. MB keeps its printed forms.
+5.A.1. A name outside the Bible takes a study of its established Thai spelling before its row is written, since a form our books printed first may be an invention made without the resources; that first form is evidence and never the rule. The study also gives the name's break split for th/assets/typeset/thai-breaks.txt.
+5.B. Other historical names are transliterated into Thai script with the English in parentheses at the first appearance in a chapter, as for Joseph Bates or Eusebius; no book scheduled in the coming months has such names.
+
+## 6. Spelling
+
+6.A. A word the translator has ruled to be spelled one way is a row of the spelling table in thai-glossary.txt, and that table is the only list of known-wrong spellings.

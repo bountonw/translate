@@ -6,7 +6,7 @@ chapter:
   number: 13
   title:
     en: The Test of Faith
-  url: https://legacy.egwwritings.org/?ref=en_PP.145.1&para=84.585
+  url: https://egwwritings.org/?ref=en_PP.145.1&para=84.585
   basedon: This chapter is based on Genesis 16; 17:18-20; 21:1-14; 22:1-19.
 author:
   en: Ellen White

@@ -1,10 +1,10 @@
-// Source-url: "https://legacy.egwwritings.org/?para=84.454"
+// Source-url: "https://egwwritings.org/read?panels=p84.454"
 // English title: The Tower of Babel
 
 #chapter(
   number: 10,
   title: "หอบาเบล",
-  basedon: "ปฐมกาล บทที่ 9:25–27; 11:1–9"
+  basedon: "ปฐมกาล 9:25–27; 11:1–9"
 )
 
 // {PP 117.1}
