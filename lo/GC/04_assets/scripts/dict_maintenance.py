@@ -105,7 +105,7 @@ def _write_duplicate_log_if_needed(
 ) -> Optional[Path]:
     """
     If duplicates exist in MAIN and/or PATCH, write a single consolidated log:
-      04_assets/temp/dictionary_duplicates.log
+      04_assets/scripts/build/temp/dictionary_duplicates.log
     Print a console message when a log is created.
     Returns the log path if written, else None.
     """
@@ -160,7 +160,7 @@ def maintain_dictionaries(*, project_root: Optional[Path] = None, reverse: bool 
     script_dir = Path(__file__).parent
     dict_dir = script_dir / "../../../../lo/assets/dictionaries"
     root = project_root or script_dir.parent.parent
-    temp_dir = root / "04_assets" / "temp"
+    temp_dir = root / "04_assets" / "scripts" / "build" / "temp"
 
     main_path = dict_dir / "main.txt"
     patch_path = dict_dir / "patch.txt"

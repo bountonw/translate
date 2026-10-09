@@ -14,7 +14,7 @@ marker's note is English prose and punctuates by its own rules.
 
 A batch auditor passes --chapter with the --range of the batch it was given, so
 that each batch reports only its own paragraphs and consecutive batches do not
-report the same finding twice. The quote rule is Brian's and not inferred from
+report the same finding twice. The quote rule is the translator's and not inferred from
 the corpus: where English leaves a quotation open across the paragraphs of a
 multi-paragraph quote, Lao closes it in every paragraph, so any paragraph whose
 quotation marks do not balance is a defect.
@@ -100,7 +100,7 @@ def strip_trailing(text):
 # A hyphen is legitimate where it joins two letters, and a finding anywhere else.
 # It joins Latin letters in an acronym or name such as THA-ER, and Lao letters in
 # a compound of two proper nouns, as at {GC 515.2} where Syrophenician is written
-# ຊາວຊີເຣຍ-ໂຟນີເຊຍ; Brian ruled on 14 August that the Lao compound stands. The
+# ຊາວຊີເຣຍ-ໂຟນີເຊຍ; the translator ruled on 14 August that the Lao compound stands. The
 # \nbsp{}-\nbsp{} construction is the typesetting pipeline's and is also allowed.
 # An em dash is legitimate only inside an italic English title.
 WORD_HYPHEN = re.compile(r'[A-Za-z຀-໿]-[A-Za-z຀-໿]')

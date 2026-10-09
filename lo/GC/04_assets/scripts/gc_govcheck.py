@@ -88,7 +88,7 @@ SEPARATOR = re.compile(r"^\|[\s:|-]+\|$")
 REF = re.compile(r"\{GC\s*[0-9]+\.[0-9]+\}|\{[0-9]+\.[0-9]+\}|\b[0-9]{1,3}\.[0-9]{1,3}\b")
 
 # The five entry types the file actually uses. gc-batch-auditor 6.C keys
-# on the first three; the other two are Brian's own housekeeping. Any
+# on the first three; the other two are the translator's own housekeeping. Any
 # line-initial token of this shape that is not in the set is reported, so
 # that a sixth type added later cannot slip past unnoticed.
 KNOWN_PREFIXES = ("DEFER-TERM", "EXCEPT-TERM", "NOTE-TERM",

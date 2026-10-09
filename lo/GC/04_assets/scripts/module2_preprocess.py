@@ -398,7 +398,7 @@ def resolve_file_specification(file_spec, temp_dir, debug_mode=False):
 def get_input_files(args):
     """Get list of .tmp files to process with intelligent file matching."""
     project_root = get_project_root()
-    temp_dir = project_root / '04_assets' / 'temp'
+    temp_dir = project_root / '04_assets' / 'scripts' / 'build' / 'temp'
 
     if not temp_dir.exists():
         print(f"Error: {temp_dir} directory not found")
@@ -631,7 +631,7 @@ Examples:
             sys.exit(1)
 
     # Initialize debug session
-    log_folder = get_project_root() / "04_assets" / "temp"
+    log_folder = get_project_root() / "04_assets" / "scripts" / "build" / "temp"
     if HAS_DEBUG and args.debug:
         if args.log_folder:
             log_folder = args.log_folder

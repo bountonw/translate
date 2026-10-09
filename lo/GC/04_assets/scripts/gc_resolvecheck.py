@@ -63,7 +63,7 @@ def resolve_markers(line):
     """
     return MARKER_FULL.sub(lambda m: m.group(2).split(" -> ")[0], line)
 
-# Section 10 candidates Brian has already adjudicated, keyed by {GC ###.#}
+# Section 10 candidates the translator has already adjudicated, keyed by {GC ###.#}
 # anchor. A section 10 row can be context-dependent -- ທ່ານ is a wrong form
 # only of the Pope, and correct as an ordinary honorific before a personal
 # name -- so a site that is right in its own context would otherwise be

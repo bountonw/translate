@@ -20,8 +20,3 @@ The translator's footnotes in DA take one shape, as LMV's textual notes do: the 
 
 Detail: th/DA/CLAUDE.md 3.L; th/DA/04_assets/notes/DA_notes.txt. Small.
 
-## 4. Move the instruction budget table
-
-th/SC/04_assets/scripts/instruction_budget.py holds the word budgets of every project and of the files that belong to none, so it moves to a top-level scripts folder: the translator moves it with git to scripts/instruction_budget.py, and the session changes the script's root line (parents[4] to parents[1]) and the path in root CLAUDE.md 7.C, th/SC/CLAUDE.md and lo/FB/CLAUDE.md, then runs the check.
-
-Detail: root CLAUDE.md 7.C. Small.

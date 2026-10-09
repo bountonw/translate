@@ -13,7 +13,7 @@ The sources are never pooled into a bare number.  Every count is labelled with
 the project it came from and the pipeline stage it sits at — public, then
 edit, then raw — and the report lists them in that order, most finished first.
 That ordering is the only weighting the tool applies.  What a source is worth
-beyond it is Brian's to judge, which is why the source of every count is on
+beyond it is the translator's to judge, which is why the source of every count is on
 the screen: a form carried only by one raw draft, or only by a project that
 was converted rather than translated, says so plainly in the table.
 
@@ -24,7 +24,7 @@ words are found with the project's own line-breaking dictionary rather than
 counted off in characters, which would cut a syllable in half.
 
 Corpus evidence is evidence and never a verdict.  What this prints is what
-Brian has done before, not what standard Lao permits; only he adjudicates.
+The translator has done before, not what standard Lao permits; only he adjudicates.
 """
 
 import argparse
@@ -41,7 +41,7 @@ from collections import defaultdict
 # The stages are ordered by how finished they are — public, then edit, then
 # raw — and every report lists its sources in that order.  That ordering is a
 # structural fact about the pipeline and is the only weighting the tool
-# applies; what a given source is worth beyond it is Brian's judgment, and the
+# applies; what a given source is worth beyond it is the translator's judgment, and the
 # report gives him the source of every count so he can make it.
 STAGES = [("03_public", "public"), ("02_edit", "edit"), ("01_raw", "raw")]
 

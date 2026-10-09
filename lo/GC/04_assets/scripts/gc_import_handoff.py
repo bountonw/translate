@@ -171,7 +171,7 @@ def splice(blocks, lines, spans, chapter_path):
 
     Markers are numbered in true text order, not manifest order: within a
     paragraph the manifest sometimes lists findings in a different order than
-    their spans occur, and a chapter whose numbers zig-zag makes Brian resolve
+    their spans occur, and a chapter whose numbers zig-zag makes the translator resolve
     #11 before #10. Returns (count, {manifest_num: chapter_num}).
     """
     # Work paragraph by paragraph so replacements stay scoped and uniqueness holds.

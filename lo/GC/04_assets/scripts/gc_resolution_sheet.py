@@ -11,7 +11,7 @@ stripped, an unterminated bracket, an unparseable body) are reported too,
 under a RESIDUE heading, because a damaged marker is exactly what is easiest
 to miss by eye.
 
-Brian's inline questions are collected as well, each with its anchor and its
+The translator's inline questions are collected as well, each with its anchor and its
 English paragraph, so they can be answered in one pass. He writes them either
 as {{Q#4|...}} / {{Q|...}} anywhere in the manuscript, or by appending
 "|his question" to the note field of the marker he is asking about. See
@@ -32,14 +32,14 @@ import sys
 ANCHOR_RE = re.compile(r"^##\s*\{GC\s*(\d+\.\d+)\}\s*$")
 MARKER_RE = re.compile(r"\[\[(.*?)\]\]", re.DOTALL)
 QUESTION_RE = re.compile(r"\{\{Q(?P<num>#\d+)?\s*\|?(?P<q>.*?)\}\}", re.DOTALL)
-# Brian's voice inside a note: a direct question, or first person, or an
+# The translator's voice inside a note: a direct question, or first person, or an
 # instruction aimed at the conductor rather than a description of a finding.
 ASKED_RE = re.compile(r"\?|\bI \b|\bI'|\bexplain\b|\bexpand in chat\b|\bwe are talking\b"
                       r"|^\s*Note:|\bcan't\b|\bdoesn't\b",
                       re.IGNORECASE)
 # An auditor's note quotes the English it is reporting on, and quoted scripture
 # is full of first person ("in my flesh shall I see God"), which reads to
-# ASKED_RE exactly like Brian writing in his own voice. Strip quoted spans
+# ASKED_RE exactly like the translator writing in his own voice. Strip quoted spans
 # before testing, so his voice is detected only in the auditor's own prose.
 QUOTED_RE = re.compile(r"\"[^\"]*\"|“[^”]*”|‘[^’]*’")
 HEADER_RE = re.compile(r"^(?P<cls>[A-Z]+)\s+(?P<sev>[A-Z]+)\s+#(?P<num>\d+[a-z]?)\|(?P<rest>.*)$", re.DOTALL)
@@ -125,7 +125,7 @@ def parse_markers(text):
                             raw=body.strip()))
 
     questions = []
-    # Brian also asks by appending "|his question" to a marker's note, which is
+    # the translator also asks by appending "|his question" to a marker's note, which is
     # quicker than typing a construct when the cursor is already inside the
     # marker. Treat the tail after a second pipe as a question on that marker.
     for mk in markers:
@@ -162,7 +162,7 @@ def committed_text(lo_path, repo):
     it is the only reference the script has. Markers are stripped in case an
     earlier pass's markers were committed.
 
-    The substitution only holds while the chapter is unmodified. Brian
+    The substitution only holds while the chapter is unmodified. The translator
     resolves markers between rounds and commits when a chapter is finished,
     so during a run his own resolved text is in the working tree and not in
     HEAD, and a marker written over it looks fabricated. See uncommitted().
@@ -179,7 +179,7 @@ def uncommitted(lo_path, repo):
     """True when the chapter in the working tree differs from HEAD.
 
     When it does, HEAD is a stale reference and an UNREAL verdict cannot be
-    trusted: the old side may be Brian's own uncommitted resolution rather
+    trusted: the old side may be the translator's own uncommitted resolution rather
     than an invented span. The finding is still worth printing, but as a
     question rather than as an instruction to delete.
     """
@@ -199,7 +199,7 @@ def unreal_spans(markers, lo_path, repo):
     book. The web-app import path has verified this since it was written
     (gc_import_handoff.py verify()); the agent-written path never did, and
     an agent that invented both sides of a marker produced text that read
-    plausibly and was caught only because Brian diffed it by hand.
+    plausibly and was caught only because the translator diffed it by hand.
 
     Whitespace is compared exactly and deliberately. A doubled space is a
     real defect an auditor is meant to find, so normalising it here would
@@ -253,7 +253,7 @@ def build(chapter, lo_path, en_path, paras, markers, unclosed, questions):
         out.append(f"**{unclosed} unterminated `[[` with no closing `]]`** — these are invisible to the parser; find them by hand.")
     out.append("")
     if questions:
-        out.append(f"**{len(questions)} inline question(s) from Brian** — answered in the companion's "
+        out.append(f"**{len(questions)} inline question(s) from the translator** — answered in the companion's "
                    "Questions section, then deleted from the manuscript.")
     out.append("")
     out.append("Each block below carries the full English paragraph for its anchor. "
@@ -263,7 +263,7 @@ def build(chapter, lo_path, en_path, paras, markers, unclosed, questions):
     if questions:
         out.append("---")
         out.append("")
-        out.append("## Questions from Brian")
+        out.append("## Questions from the translator")
         out.append("")
         for idx, q in enumerate(questions, 1):
             tie = f" — about marker #{q['num']}" if q["num"] else ""
@@ -370,7 +370,7 @@ def main():
         print(f"  old: {mk['old'][:160]}")
         if stale:
             print(f"  This span is not in the committed chapter, but the chapter has")
-            print(f"  uncommitted changes, so it may be Brian's own resolved text and")
+            print(f"  uncommitted changes, so it may be the translator's own resolved text and")
             print(f"  not an invented span. Search the working file for it before you")
             print(f"  act: delete the marker only if it is absent there too.")
         else:

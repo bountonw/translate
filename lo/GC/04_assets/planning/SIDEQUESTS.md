@@ -1,6 +1,6 @@
 # Side quests — the queue
 
-Work that is agreed but not scheduled, in the order it will be done. When Brian asks how many are queued and in what order, this file is the answer and no agent answers from memory.
+Work that is agreed but not scheduled, in the order it will be done. When the translator asks how many are queued and in what order, this file is the answer and no agent answers from memory.
 
 It lives under `04_assets/planning/` for two reasons. Every numbered-stage assets directory is excluded from the textlint and remark checks, and a queue has no paragraph anchors to satisfy the reference-code rule with. And the root of `04_assets` is swept periodically, so a document meant to last needs a named subdirectory of its own. Most entries are GC work; where one reaches another project, its own text says so.
 
@@ -22,19 +22,19 @@ Detail: none written; this entry is the whole brief. Small to medium.
 
 Four pieces, none urgent, all known.
 
-First, signature padding in the build. The shipped file's two trailing blank pages were made by hand in typst. A self-adjusting pad — module 3 appends a TeX loop to the full book only, filling with truly blank pages to the next multiple of 8 — was designed and verified the same day: 520 pages on the real book, final blanks empty at text and pixel level, chapter proofs untouched. It was not applied to the repository because the file had already gone. Apply it (the verified copy sits in `~/claude-sandbox/gc-audit/book-build/lo/GC/04_assets/scripts/module3_preprocess.py`) or decide against it and write the typst step down instead, so the next printing's build makes a press-shaped file by itself.
+First, signature padding in the build. The shipped file's two trailing blank pages were made by hand in typst. A self-adjusting pad — module 3 appends a TeX loop to the full book only, filling with truly blank pages to the next multiple of 16, the press's signature size — was designed and verified the same day with a multiple of 8 (520 pages on the real book, final blanks empty at text and pixel level, chapter proofs untouched); at 16 the book is 528 pages. It was not applied to the repository because the file had already gone. Apply it (the verified copy sits in `~/claude-sandbox/gc-audit/book-build/lo/GC/04_assets/scripts/module3_preprocess.py`) or decide against it and write the typst step down instead, so the next printing's build makes a press-shaped file by itself.
 
 Second, the second-printing wrap program. The line-break audit of the shipped book read all 13,353 spaceless line breaks and classified 550 flags into four tiers; the file is `wrap-audit-20260902.tsv` beside this queue. Tier A is eleven verified mis-segmentations where the dictionary knows the compound and the segmenter split it anyway; tier B is sixty reviewed splits of genuine single words the lexicon holds as two (ນ້ຳມັນ, ຫົວໃຈ, ເຄື່ອງມື, ວັນອາທິດ and the rest); roughly seventy compound rows follow from A and B, and about sixteen sites compose actively wrong readings. Adding the rows re-wraps the whole book, which is why the work waits for the second printing. The loose line at {GC 456.2} (foot of printed page 340) rechecks itself then. This folds naturally into entry 17's glossary rework or runs beside it.
 
 Third, dictionary row tidy. `GC21_lo.txt` and `GC_lo.txt` both carry the same ຟັອດເວນ row (harmless duplicate; the book-level one suffices). In `patch.txt`, the ນາຍຊ່າງ row duplicates `main.txt` byte for byte, and the bare ນາມນີ້ row no longer fires anywhere now that ມີນາມນີ້ covers the only site. Review and drop the dead rows.
 
-Fourth, record the binding segmentation gate. The pre-press dictcheck answers whether a token can be covered by dictionary words; the pipeline's segmenter chooses greedily and can still strand letters that print in red. The gate that actually binds is: run modules 1 and 2 for every chapter and require `grep -c nodict temp/*_stage2.tex` to be zero everywhere. Write that into the pre-press procedure so the next book's final check tests the real thing.
+Fourth, record the binding segmentation gate. The pre-press dictcheck answers whether a token can be covered by dictionary words; the pipeline's segmenter chooses greedily and can still strand letters that print in red. The gate that actually binds is: run modules 1 and 2 for every chapter and require `grep -c nodict scripts/build/temp/*_stage2.tex` to be zero everywhere. Write that into the pre-press procedure so the next book's final check tests the real thing.
 
 Detail: this entry and the wrap-audit file are the brief. First and third are small, fourth is a paragraph in a procedure file, second is large and scheduled with entry 17.
 
 ## 29. Separate the FB-lo branch from the GC work it carries
 
-The `FB-lo` branch holds two files that belong to the Lao Fundamental Beliefs project and a long history of GC work that does not. Brian's instruction of 24 August was that only `lo/FB/statements.txt` and `lo/FB/statements_lo.txt`, both added by the tip commit `01f5a85c "Begin translation of Fundamental Beliefs"`, belong on that branch, and that everything else it carries belongs to the GC line of work that sat on `GC-QA2-continued` that day. The work is to be done in a worktree of its own at `/home/ton/programming/translate-lo-FB`, which leaves the main checkout on its own branch.
+The `FB-lo` branch holds two files that belong to the Lao Fundamental Beliefs project and a long history of GC work that does not. The translator's instruction of 24 August was that only `lo/FB/statements.txt` and `lo/FB/statements_lo.txt`, both added by the tip commit `01f5a85c "Begin translation of Fundamental Beliefs"`, belong on that branch, and that everything else it carries belongs to the GC line of work that sat on `GC-QA2-continued` that day. The work is to be done in a worktree of its own at `/home/ton/programming/translate-lo-FB`, which leaves the main checkout on its own branch.
 
 The first step is creating that worktree, which has not happened. The directory exists and was still empty on 3 September, and the command is `git worktree add /home/ton/programming/translate-lo-FB FB-lo`.
 
@@ -44,21 +44,9 @@ Detail: none written; this entry is the whole brief. Small if the GC commits are
 
 ## 2. Encode the 14 August rulings from the GC 421.3 litigation
 
-Four rulings need writing into the instruction files where agents will see them; Opus or Sonnet work, small. (a) Glossary and corpus attestation support a rendering but never decide it — sentence meaning and paragraph flow rule. (b) In sentence-litigation mode the draft goes above the old paragraph in the manuscript and the old text stays for comparison until Brian finalizes. (c) A translator-added naming gloss stays where the quoted Bible versions use different terms for the same referent. (d) A Fable session works translation issues only; updates like these go to the top of this queue for a smaller model.
+Four rulings need writing into the instruction files where agents will see them; Opus or Sonnet work, small. (a) Glossary and corpus attestation support a rendering but never decide it — sentence meaning and paragraph flow rule. (b) In sentence-litigation mode the draft goes above the old paragraph in the manuscript and the old text stays for comparison until the translator finalizes. (c) A translator-added naming gloss stays where the quoted Bible versions use different terms for the same referent. (d) A Fable session works translation issues only; updates like these go to the top of this queue for a smaller model.
 
 Detail: none written; this entry is the whole brief.
-
-## 3. Anonymise the instruction files
-
-Remove the name Brian in every form from the instruction files and replace it with "the user" or another generic term. The name appears 78 times across the eight core instruction files — root `CLAUDE.md`, `lo/GC/CLAUDE.md`, the five `gc-*` agent definitions and `.claude/commands/gc.md` — and about 25 more times in the audit scripts, the governing files, this queue and `04_assets/history/`. The glossary part is already done: all 32 occurrences were removed from `lo/GC/04_assets/translation_profile/GC-glossary.txt` on 21 August, leaving the rest of each sentence intact.
-
-The count understates the work. Those files also carry roughly 54 third-person pronouns — he, his, him, himself — that refer to the same person and read wrongly the moment the noun becomes generic, so a find-and-replace on the name alone leaves the prose broken.
-
-The replacement term was decided on 16 August: "the translator". The new th/SC instruction files already use it and avoid third-person pronouns entirely, which is the pattern for the sweep. The sweep itself stays queued and does not run until scheduled.
-
-Two boundaries to settle as part of the quest. The translator credit in `th/LBF/assets/LBF00_copyright.md` is a real byline and not an instruction, so it is presumably out of scope. The saved memories under `~/.claude/projects/` use the name throughout and are not repository files, so whether they are in scope is a separate decision.
-
-Detail: none written yet.
 
 ## 4. Forbidden-terms lists — decide whether the two merge
 
@@ -80,25 +68,11 @@ Detail: none written yet. Small to size, unknown to fix.
 
 The three files under `lo/GC/04_assets/translation_profile/` are loaded by every agent on every dispatch. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch.
 
-Scope after Brian's rulings of 13 August: 17 oversized `GC-open-terms.md` entries and 24 glossary rows. The twelve sense-selection rows in the plan's section 6 are not touched at all, and a deferred entry stays at full size until it is adjudicated. `gc_govcheck.py` and its tests already exist and prove a pass loses nothing.
+Scope after the translator's rulings of 13 August: 17 oversized `GC-open-terms.md` entries and 24 glossary rows. The twelve sense-selection rows in the plan's section 6 are not touched at all, and a deferred entry stays at full size until it is adjudicated. `gc_govcheck.py` and its tests already exist and prove a pass loses nothing.
 
-The largest single case measured so far is the Clergy entry of `GC-open-terms.md`, which stands at 806 words against the 15-word limit set by item 4.H of `lo/GC/CLAUDE.md`, in a file of 5,333 words that every agent loads on every dispatch. The GC38 audit of 21 August measured it and Brian deferred the cut, expecting to adjudicate it around Monday 24 August; the entry records a decision it calls closed at GC 15, so what has to stay is the three-way mapping the row states and what goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md` is the site-by-site reasoning behind it.
+The largest single case measured so far is the Clergy entry of `GC-open-terms.md`, which stands at 806 words against the 15-word limit set by item 4.H of `lo/GC/CLAUDE.md`, in a file of 5,333 words that every agent loads on every dispatch. The GC38 audit of 21 August measured it and the translator deferred the cut, expecting to adjudicate it around Monday 24 August; the entry records a decision it calls closed at GC 15, so what has to stay is the three-way mapping the row states and what goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md` is the site-by-site reasoning behind it.
 
 Detail: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
-
-## 9. Where `unwrap.py` belongs
-
-`~/claude-sandbox/scripts/unwrap.py` is the only tool that does what root `CLAUDE.md` 7.A requires of every instruction file, it operates on repository files, and nothing names it. Under 8.A it belongs in the repository. Decide whether it goes to `lo/GC/04_assets/scripts/` or to a `scripts/` directory at the repository root, which depends on whether it will be used on the Thai and Lao projects too.
-
-Detail: none needed. A move and one line in a procedure file.
-
-## 10. Set up the SC Thai project
-
-Scaffolding was built on 16 August: the procedure file `th/SC/CLAUDE.md`, the `sc-batch-auditor` and `th-glossary-miner` agents, the `/sc` command, and the English sources copied into `th/SC/00_source/`. Nine chapters sit in `02_edit`, two in `03_public`, and SC12 and SC13 in `01_raw` await the pre-processing round.
-
-Remaining: the decisions in the 16 August session report (QA round scope, Thai glossary home, citation style, default Bible version), the glossary mining run over `th/PP`, and the Google Docs pipeline build.
-
-Detail: `th/SC/CLAUDE.md` and `th/SC/04_assets/planning/gdocs-workflow.md`.
 
 ## 11. Set up the SJ Thai project
 
@@ -112,13 +86,13 @@ Detail: none written yet.
 
 `lo/AA/` has the fullest raw material of the three — 58 English source files, 54 raw translations, four chapters in `02_edit` — and nothing in `03_public` but a placeholder. It has no procedure file, no `04_assets/translation_profile/` and no agents; its `04_assets` holds only temporary Typst source files. The chapter files are Typst rather than Markdown, which is the same portability question as SC and SJ.
 
-Done on 21 August, before the project existed. A pre-edit spelling round ran over all 58 chapters on the `AA-fix-spelling` branch, in three commits, correcting roughly 4,900 sites. It fixed only spelling and mechanical character defects, on Brian's instruction of "absolutely zero editing". The three passes were: mechanical normalisation, which composed 4,049 decomposed AM vowels, stripped 327 zero-width spaces, and repaired 50 doubled tone or vowel marks, 5 misordered marks and one Thai fragment left untranslated at AA38 {AA 406.1}; a list-driven pass of about 400 corrections from `common-spelling.txt` and the linter's forbidden-terms list; and a word-form pass in which eight agents triaged 554 forms the dictionaries did not recognise, yielding 202 corrections. AA06 was excluded throughout because Brian is editing it on `AA06-edit`, and is being handled there.
+Done on 21 August, before the project existed. A pre-edit spelling round ran over all 58 chapters on the `AA-fix-spelling` branch, in three commits, correcting roughly 4,900 sites. It fixed only spelling and mechanical character defects, on the translator's instruction of "absolutely zero editing". The three passes were: mechanical normalisation, which composed 4,049 decomposed AM vowels, stripped 327 zero-width spaces, and repaired 50 doubled tone or vowel marks, 5 misordered marks and one Thai fragment left untranslated at AA38 {AA 406.1}; a list-driven pass of about 400 corrections from `common-spelling.txt` and the linter's forbidden-terms list; and a word-form pass in which eight agents triaged 554 forms the dictionaries did not recognise, yielding 202 corrections. AA06 was excluded throughout because the translator is editing it on `AA06-edit`, and is being handled there.
 
 Still to do. The project scaffolding itself, on the GC model: a procedure file, governing files under `04_assets/translation_profile/`, and agent definitions. About twenty single-occurrence forms remain that no authority can settle, including ປົກງັວມ at AA35 {AA 379.3}, ໂອຫັວ at AA41 {AA 434.4}, ດູມໍ in AA21 and ຖະນຸ; each needs the English at its anchor rather than a corpus lookup. AA06 also needs a structural check of the kind that found a missing paragraph in it.
 
 Seven things to know before touching AA text.
 
-1. Never add a word to any file under `lo/assets/dictionaries/`. The dictionaries and the GC corpus are the authority and the manuscript is corrected toward them. An unrecognised form is usually a typo, not a gap: `main.txt` carries ໂກຣິນໂທ and the manuscript's ໂກລິນໂທ was simply wrong. This is Brian's instruction of 21 August.
+1. Never add a word to any file under `lo/assets/dictionaries/`. The dictionaries and the GC corpus are the authority and the manuscript is corrected toward them. An unrecognised form is usually a typo, not a gap: `main.txt` carries ໂກຣິນໂທ and the manuscript's ໂກລິນໂທ was simply wrong. This is the translator's instruction of 21 August.
 
 2. In `lo/assets/dictionaries/common-spelling.txt` the left column is the correct form and the right lists the wrong variants, as its header now says. Its row `ບົກຜ່ອງ | ບົກຜ່ອງ` carries the same form on both sides and does nothing.
 
@@ -126,7 +100,7 @@ Seven things to know before touching AA text.
 
 4. Lao running text has no word spaces, so a word-boundary regex such as `(?<![\u0e80-\u0eff])` matches almost nothing and a scan built on one reports a clean file when it is not. Match substrings and confirm each hit against a dictionary segmentation.
 
-5. Correct the whole word, never a bare syllable. This is Brian's ruling of 21 August, and it earned itself: ໜຸນ sat in three different words, one of which needed two syllables changed to reach ສະໜັບສະໜູນ, so a syllable swap would have left a form that is still wrong and no longer flagged.
+5. Correct the whole word, never a bare syllable. This is the translator's ruling of 21 August, and it earned itself: ໜຸນ sat in three different words, one of which needed two syllables changed to reach ສະໜັບສະໜູນ, so a syllable swap would have left a form that is still wrong and no longer flagged.
 
 6. A correction whose wrong form is contained in its correct form will fire inside words that are already right. Applying ຟີເລໂມ to ຟີເລໂມນ turned 19 correct instances into ຟີເລໂມນນ. Guard such a pair with a lookaround, and check the count of the correct form before and after.
 
@@ -134,21 +108,13 @@ Seven things to know before touching AA text.
 
 Detail: none written; this entry is the whole brief.
 
-Two Claude web-app projects describe the AA project better than anything in this repository does, and importing them is the first step of the set-up rather than an afterthought. Ask Brian for them before designing a procedure file or governing files, because whatever they settle about scope, glossary or pipeline should shape those files rather than be reconciled with them afterwards.
+Two Claude web-app projects describe the AA project better than anything in this repository does, and importing them is the first step of the set-up rather than an afterthought. Ask the translator for them before designing a procedure file or governing files, because whatever they settle about scope, glossary or pipeline should shape those files rather than be reconciled with them afterwards.
 
-One chapter carries a problem that must be settled before AA06 is edited again. Chapter 6 exists in three states. The committed manuscript is the August 2025 line: Brian's Google Docs edits merged in, then the pre-edit spelling round of 88 corrections, all verified. Separately, months earlier, Gemini was given the AA translation profile and produced its own version of the chapter as a standalone file. Brian diffed that file against the chapter in this repository and began working through the resulting diff, accepting a hunk, declining it or rewording it as he went, until he stopped part-way.
+One chapter carries a problem that must be settled before AA06 is edited again. Chapter 6 exists in three states. The committed manuscript is the August 2025 line: the translator's Google Docs edits merged in, then the pre-edit spelling round of 88 corrections, all verified. Separately, months earlier, Gemini was given the AA translation profile and produced its own version of the chapter as a standalone file. The translator diffed that file against the chapter in this repository and began working through the resulting diff, accepting a hunk, declining it or rewording it as he went, until he stopped part-way.
 
-That partially resolved diff is parked at `lo/AA/04_assets/planning/AA06-gemini-partial.typ` in the AA repository, with a README beside it. It is neither a manuscript nor a rewrite: prose that reads cleanly in it has already been resolved and is Brian's decision, whichever side of the diff it came from, while the 18 parenthetical groups are the hunks he had not yet reached and hold the competing readings. Eleven of those groups have brackets the diff left unbalanced, from the clean (ພວມ/ກຳລັງ) to ((ຂ່າວສານແຫ່ງ))) and ( ແລະ ພາ)(ໄປຂັງຄຸກ)), and one carries an English gloss as a fourth option. It covers {AA 57.1} to {AA 62.1} only, with {AA 62.1} holding its anchor and no body, its tags are bare {AA 57.1} rather than #EGW[\{AA 57.1\}], and the AM vowel is decomposed throughout.
+That partially resolved diff is parked at `lo/AA/04_assets/planning/AA06-gemini-partial.typ` in the AA repository, with a README beside it. It is neither a manuscript nor a rewrite: prose that reads cleanly in it has already been resolved and is the translator's decision, whichever side of the diff it came from, while the 18 parenthetical groups are the hunks he had not yet reached and hold the competing readings. Eleven of those groups have brackets the diff left unbalanced, from the clean (ພວມ/ກຳລັງ) to ((ຂ່າວສານແຫ່ງ))) and ( ແລະ ພາ)(ໄປຂັງຄຸກ)), and one carries an English gloss as a fourth option. It covers {AA 57.1} to {AA 62.1} only, with {AA 62.1} holding its anchor and no body, its tags are bare {AA 57.1} rather than #EGW[\{AA 57.1\}], and the AM vowel is decomposed throughout.
 
-Finishing it means resuming the diff from where Brian stopped, settling each remaining parenthetical group, deciding what happens to {AA 62.1} through {AA 69.1} which the diff never reached, and re-running the spelling round on the result. His instruction of 21 August was that this must not be attempted piecemeal in a chat and belongs to the project set-up, and that the work must not be lost, which is why the file is under version control rather than in a sandbox.
-
-## 13. Where this queue belongs
-
-This file sits at `lo/GC/04_assets/planning/SIDEQUESTS.md`, and four of its entries — the three project set-ups and the anonymise sweep — are not GC work. Brian deferred the question on 14 August rather than deciding it, so it is recorded here rather than left in a chat.
-
-Deciding it means moving the file to a repository-level planning directory and repointing root `CLAUDE.md` 3.B and this file's own preamble, or leaving it and accepting that a GC path holds the whole repository's queue. Take it together with entry 8, which asks the same question about `unwrap.py`, since both turn on whether a repository-level home is opened at all.
-
-Detail: none needed beyond this entry.
+Finishing it means resuming the diff from where the translator stopped, settling each remaining parenthetical group, deciding what happens to {AA 62.1} through {AA 69.1} which the diff never reached, and re-running the spelling round on the result. His instruction of 21 August was that this must not be attempted piecemeal in a chat and belongs to the project set-up, and that the work must not be lost, which is why the file is under version control rather than in a sandbox.
 
 ## 15. Feed the Thai GC hyphenation candidates into the SC and SJ typesetting dictionaries
 
@@ -168,11 +134,11 @@ Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/G
 
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
-Brian's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
+The translator's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
 
 Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao Spelling Glossary`, `## 11. Lao Proper Noun Glossary (GC)`, `## 12. Lao Compound Word-Order Pairs (GC)` in `lo/GC/04_assets/translation_profile/GC-glossary.txt` — a numbering left over from a structure that no longer exists, and the rework renumbers it. And the QA3 record under `lo/GC/04_assets/qa3/`, which gives Fable's in-context verdict on every change QA1 and QA2 made, is the evidence the rework reads before it keeps, loosens or drops any rule the GC runs wrote; every DECIDED, closed or ruled label in the current files is re-examined against that record rather than carried over, because many of those labels were an agent's extrapolation and not a ruling.
 
-Entry 7 (governing-file size reduction) is absorbed by this, and entry 3 (anonymise) runs alongside it; settle the order when the rework is scheduled.
+Entry 7 (governing-file size reduction) is absorbed by this.
 
 Detail: none written yet; this entry is the whole brief. Large; Fable for the design.
 

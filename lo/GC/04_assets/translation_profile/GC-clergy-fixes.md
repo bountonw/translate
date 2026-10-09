@@ -6,7 +6,7 @@ a TERM finding quoting the fix verbatim. Do not re-adjudicate,
 argue, or propose alternatives (§10.F).
 
 Ranked A (certain, paste-ready) and B (mapping certain, Lao
-wording to confirm with Brian).
+wording to confirm with the translator).
 
 Governing rule: ບາດຫຼວງ = Roman priest. ປະໂຣຫິດ = sacrificial
 cultus (Levitical, pagan, Christ). ນັກບວດ = monk.
