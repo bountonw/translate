@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Character-level check of the finished Thai books. Reads only; writes nothing.
 
-    python3 th/assets/scripts/th_charcheck.py            # MB, PP and LBF
+    python3 th/assets/scripts/th_charcheck.py            # MB, PP, LBF and DA
     python3 th/assets/scripts/th_charcheck.py --book PP  # one book
     python3 th/assets/scripts/th_charcheck.py FILE ...   # named files
 
@@ -24,6 +24,7 @@ BOOKS = {
     "MB": ["th/MB/03_public/MB0*_th.md"],
     "PP": ["th/PP/03_public/*_th.typ", "th/PP/02_edit/PP*_th.typ"],
     "LBF": ["th/LBF/03_public/*_th.md"],
+    "DA": ["th/DA/03_public/*_th.typ", "th/DA/02_edit/*_th.typ"],
 }
 
 CHECKS = {
@@ -37,7 +38,7 @@ CHECKS = {
     "split-am": re.compile("ํา|ํ[่-๋]า"),
     "double-sara-e": re.compile("เเ"),
 }
-ANCHOR = re.compile(r"\{(?:MB|LBF) [\d.]+\}|\\\{PP [\d.]+\\\}")
+ANCHOR = re.compile(r"\{(?:MB|LBF) [\d.]+\}|\\\{(?:PP|DA) [\d.]+\\\}")
 
 
 def spelling_pairs():
