@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[4]
 BUDGET = {
     "CLAUDE.md": 1325,
     "th/SC/CLAUDE.md": 1900,
-    "th/DA/CLAUDE.md": 1750,
+    "th/DA/CLAUDE.md": 1850,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
     ".claude/agents/da-finder.md": 720,

@@ -466,22 +466,36 @@
 | Elam | เอลาม | [CHECK] THSV's spelling. PP 134.4 |
 | Reuben | รูเบน | [CHECK] THSV's spelling. PP 206.5 |
 | Hamor | ฮาโมร์ | [CHECK] THSV's spelling. PP 204.1 |
-| Enos | เอโนช | [CHECK] THSV's spelling. PP 80.2 |
+| Enos | เอโนช / เอโนส | [CHECK] THSV เอโนช in ปฐมกาล, เอโนส at ลูกา 3:38; each site follows its verse. PP 80.2 |
 | Fulton, J. E. | เจ. อี. ฟุลตัน | [CHECK] hymn writer; MB prints no English, profile 5.B. MB 152.1 |
 | John (the apostle) | ยอห์น | [CHECK] the apostle and his writings; the Baptist has his own row; THSV's spelling. MB 1.3 |
-| Rome (the city; the empire) | โรม | [CHECK] กรุงโรม stands for the city; โรมัน the adjective; THSV's spelling. MB 33.3 |
+| Rome (the city; the state; the empire; the state as a metonym) | โรม / กรุงโรม | [CHECK] แอกของโรม and อำนาจของโรม for the state, MB 69.2; the adjective takes the Roman row. กิจการ 28:14, MB 33.3, PP 762.2, SJ 149.1 |
+| Roman, Romans (the people, the adjective, the citizen; never the epistle) | โรมัน / ชาวโรมัน / พวกโรมัน / ทหารโรมัน / คนสัญชาติโรมัน | [CHECK] โรมัน wherever the English says Roman; the state as a metonym takes the Rome row. ยอห์น 11:48, ยอห์น 18:3, กิจการ 16:21, กิจการ 22:25, MB 56.1, SJ 115.1 |
 | Levi (Jacob's son; the tribe) | เลวี | [CHECK] one form for the man and the tribe; เลวีนิติ is the book; THSV's spelling. |
-| Golgotha | กลโกธา | [CHECK] in a footnote beside คาลวารี; THSV's spelling. MB 128.2 |
+| Golgotha | กลโกธา / กลโกธา แปลว่าที่กะโหลกศีรษะ | [CHECK] THSV มัทธิว 27:33 and ยอห์น 19:17; in a footnote beside คาลวารี. MB 128.2 |
 | Sanhedrin | สภาแซนเฮดริน / สภาสูงของชาวยิว | [CHECK] TNCV's and TCV's form; THSV writes สภายิว; สภาสูง stands at MB 2.1. MB 33.3, MB 46.4 |
-| Ruth | นางรูธ | Title and name together throughout; bare รูธ only with a reason. THSV มัทธิว 1:5 |
-| Palestine | ปาเลสไตน์ | The spelling in Thai news; not in THSV |
-| Bethabara | เบธานี / เบธานีฟากแม่น้ำจอร์แดนข้างโน้น | THSV ยอห์น 1:28 reads Bethany; the long form where the other Bethany is near |
-| Gergesenes | กาดารา / ชาวกาดารา | THSV มัทธิว 8:28 เขตแดนกาดารา; the people by DA 3.K |
-| Jonas, Jona | โยนาห์ / ยอห์น | THSV: the prophet โยนาห์ (มัทธิว 12:39); Peter's father ยอห์น (ยอห์น 1:42, 21:15) |
-| Syria, Syrian | ซีเรีย / ชาวซีเรีย | THSV ลูกา 4:27; a people takes ชาว (DA 3.K), not the Old Testament's คนซีเรีย |
-| Aram | อารัม | [CHECK] Open, DA queue entry 3: an English Aram keeps อารัม with a gloss to Syria |
-| Ziph | ศิฟ | THSV 1 ซามูเอล 23:14 |
-| Augustus | ออกัสตัส | THSV, TH1971, TNCV ลูกา 2:1; THSV writes a title at the Acts verses |
+| Ruth (the book and the woman) | นางรูธ / รูธ | [CHECK] นางรูธ for both; bare รูธ only with a reason. THSV title; COLTh 253.3 |
+| Palestine (the land) | ปาเลสไตน์ | [CHECK] The news spelling; PP and MB write it; THSV's ฟีลิสเตีย is Philistia. PP 133.1, MB 2.2 |
+| Bethabara | เบธานี | [CHECK] THSV and the Byzantine text เบธานี; King James and TKJV เบธาบารา; footnote at DA 132.1 |
+| Gergesenes, Gergesa | กาดารา / ชาวกาดารา | [CHECK] THSV มัทธิว 8:28 and TKJV; มาระโก and ลูกา read เก-ราซา; footnote at DA 339.2 |
+| Jonah, Jonas (the prophet) | โยนาห์ | [CHECK] THSV in both Testaments, โยนาห์ 1:1 and มัทธิว 12:39 |
+| Jona, Jonas (Peter's father); Bar-jona | โยนาห์ / ยอห์น | [CHECK] THSV มัทธิว 16:17 บุตรโยนาห์; ยอห์น 1:42 and 21:15 บุตรยอห์น; bar is บุตร |
+| Syria, Syrian, Syrians | ซีเรีย / ชาวซีเรีย | [CHECK] THSV ซีเรีย, TNCV อารัม, one Hebrew word; a chapter's first quoted อารัม takes a footnote |
+| Aram (the man; Padan-aram and other Bible names) | อารัม | [CHECK] THSV's spelling; PP 195.1 ปัดดานอารัม |
+| Ziph | ศิฟ | [CHECK] PP's and THSV's 1 ซามูเอล spelling; THSV writes ศีฟ for the town in โยชูวา 15. PP 660.1 |
+| Augustus | ออกัสตัส | [CHECK] THSV, TH1971, TNCV ลูกา 2:1; THSV writes a title at the Acts verses |
+| Hivite, Hivites | ชาวฮีไวต์ | [CHECK] DA 3.K and TNCV's form; THSV, TH1971 and TKJV write คนฮีไวต์ |
+| Kenite, Kenites | ชาวเคไนต์ | [CHECK] DA 3.K and TNCV's form; THSV คนเคไนต์ |
+| Barachias | เบเรคียาห์ | [CHECK] THSV มัทธิว 23:35 |
+| Herodians | กลุ่มผู้สนับสนุนเฮโรด | [CHECK] TNCV มัทธิว 22:16, มาระโก 3:6, 12:13; THSV พวกเฮโรด, พรรคพวกของเฮโรด |
+| Herodias | นางเฮโรเดียส | [CHECK] THSV มัทธิว 14:3; นาง at 5 of its 6 verses |
+| Baal, Baalim | บาอัล / พระบาอัล | [CHECK] Every version บาอัล; THSV พระบาอัล for the god, 99 of 157 sites; ผู้วินิจฉัย 2:11 พระบาอัลทั้งหลาย |
+| John the Baptist | ยอห์นผู้ให้บัพติศมา | [CHECK] THSV and TNCV มัทธิว 3:1; TH1971 ยอห์นผู้ให้รับบัพติศมา |
+| Ethiopia, Ethiopian, Ethiopians | เอธิโอเปีย / ชาวเอธิโอเปีย | [CHECK] TH1971, TKJV, กิจการ 8:27; THSV, TNCV คูช; a chapter's first quoted คูช takes a footnote |
+| Cush (where the author writes Cush) | คูช | [CHECK] [FLAG] THSV's spelling; decide at the site whether it reads คูช or เอธิโอเปีย, never skip |
+| Eunice | ยูนีส | [CHECK] THSV, TNCV and TH1971 2 ทิโมธี 1:5 |
+| Nazarite | นาศีร์ | [CHECK] THSV กันดารวิถี 6:2 ปฏิญาณเป็นนาศีร์; a vow, no ชาว; not the Nazarene |
+| Mount of Olives, Olivet | ภูเขามะกอกเทศ | [CHECK] THSV มัทธิว 21:1, กิจการ 1:12; TNCV and TH1971 the same |
 
 ## 3. Spelling
 

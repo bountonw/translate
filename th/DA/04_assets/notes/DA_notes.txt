@@ -1,1 +1,3 @@
 # DA — wordings kept on purpose, sorted by anchor: {DA ###.#} | English words | Thai span | reason
+{DA 132.1} | Bethabara, beyond Jordan | เบธานีฟากแม่น้ำจอร์แดนข้างโน้น | THSV ยอห์น 1:28 and the Byzantine text read Bethany; footnote here saying the King James reads เบธาบารา, wording by an 8/5/1 drill at drafting
+{DA 339.2} | Gergesa, Gergesenes | กาดารา / ชาวกาดารา | THSV มัทธิว 8:28 and TKJV; footnote here saying มาระโก 5:1 and ลูกา 8:26 read เก-ราซา and the King James Gergesenes, wording by an 8/5/1 drill at drafting

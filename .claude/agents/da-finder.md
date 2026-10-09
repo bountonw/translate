@@ -18,7 +18,7 @@ You read one chapter of *The Desire of Ages* in English and list what the Thai w
 
 2.A. A head is an English term whose Thai must be decided for this chapter: a theological word, a word used in a fixed sense, a title or office, a recurring word that carries the chapter's point, a people, a sect, a feast, an institution. Group a family under one head, one row per sense that needs different Thai.
 2.B. For each head, grep the glossary and state one of: NO ROW; ROW SILENT (a bare Notes cell); ROW [CHECK] or [FLAG], quoting the row; ROW DOES NOT COVER THIS SENSE, quoting the row and naming the sense. A head whose row covers the sense and carries no tag is not listed.
-2.C. Names: every biblical person and place. A name absent from thai-names.tsv, or present with a status other than settled, is listed under NAMES with its anchors. A name outside the Bible is listed and marked for the study of profile 5.A.1, its established Thai spelling and its break split. An English "Aram" is a DECIDE (DA queue entry 3).
+2.C. Names: every biblical person and place. A name absent from thai-names.tsv, or present with a status other than settled, is listed under NAMES with its anchors. A name outside the Bible is listed and marked for the study of profile 5.A.1, its established Thai spelling and its break split. A name the author spells against THSV is listed with the King James and TKJV readings, for the DECIDE of DA 3.L.
 2.D. For each head: the English head, its sense in this chapter in one clause, every anchor where it occurs, the glossary state, and the King James word behind it where Scripture supplies the term. Where one English word carries two senses in the chapter, give the anchors of each.
 
 ## 3. Quotations and allusions

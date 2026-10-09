@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 from da_common import (ROOT, PROJECT, SANDBOX, PROFILE, NAMES, GLOSSARY, chapter_path, source_path,
-                       source_header, parse_thai, parse_english, in_range, anchor_key, based_on,
+                       NOTES, source_header, parse_thai, parse_english, in_range, anchor_key, based_on,
                        in_based_on, load_verse_picks, parse_ref_code, load_version, book_names,
                        glossary_rows, SUBTITLE_LINE)
 
@@ -175,6 +175,15 @@ def main():
         L += [f"// {{DA {p.anchor}}}", "", p.body, ""]
 
     SANDBOX.mkdir(parents=True, exist_ok=True)
+    L += ["", "## 8. Kept wordings and footnote instructions for the range, from DA_notes.txt", ""]
+    kept = []
+    if NOTES.exists():
+        for line in NOTES.read_text(encoding="utf-8").splitlines():
+            if line.startswith("{DA ") and "}" in line and "|" in line:
+                if in_range(line[4:line.index("}")], first, last):
+                    kept.append(line)
+    L += kept or ["none"]
+    L += [""]
     out = Path(a.out) if a.out else SANDBOX / f"da{nn:02d}-packet-{anchors[0]}-{anchors[-1]}.md"
     text = "\n".join(L) + "\n"
     out.write_text(text, encoding="utf-8")

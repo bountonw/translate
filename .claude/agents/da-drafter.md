@@ -34,6 +34,7 @@ You draft the Thai of one batch of *The Desire of Ages* in the translator's own 
 3.D. Names: the form column of the packet's names rows, which follows profile 5.A, the series' printed spelling first and THSV's where no book has printed the name; a people takes ชาว before its root and Israel คน (DA 3.K). A name the rows lack is spelled as THSV spells it, copied out of ~/programming/bible/th/THSV with grep, and named in your return. Numbers in Western digits.
 3.E. Question and exclamation marks: keep one where the English has one, in speech and in narration alike (DA 3.G); the editor decides later.
 3.F. Recurring phrases, titles and pronouns keep the renderings the earlier batches chose: section 7 of the packet shows them. Where you must depart, say why in your return.
+3.G. A kept wording the packet lists for a paragraph of your range (from DA_notes.txt) is written as it stands; a footnote it calls for is left as a NOTE marker at the site, its note copying the instruction, for the translator's 8/5/1 drill.
 
 ## 4. Markers
 

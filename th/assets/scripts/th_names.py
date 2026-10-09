@@ -61,9 +61,9 @@ TABLE = ROOT / "th/assets/translation_profile/thai-names.tsv"
 BOOKS = ("PP", "MB", "SC", "DA", "SJ")
 VERSIONS = ("THSV", "TH1971", "TNCV")
 THAI_RUN = re.compile(r"[฀-๿]+(?:-[฀-๿]+)*")   # THSV hyphenates some names: เท-ราห์, เบ-ลา
-CAP = re.compile(r"(?<![\w'’])([A-Z][a-z]+(?:-[A-Za-z][a-z]+)*)(?=[^\w]|$)")
-LOWER = re.compile(r"(?<![\w'’])[a-z]+")
-STOP = set("""God Lord LORD Jesus Christ Jehovah Saviour Savior Father Son Spirit Holy Ghost Almighty Redeemer
+CAP = re.compile(r"(?<![\w'’])([A-Z][a-z]+(?:[-–][A-Za-z][a-z]+)*)(?=[^\w]|$)")   # the King James joins Timnath–serah with an en dash
+LOWER = re.compile(r"(?<![\w'’–-])[a-z]+")   # not the tail of Padan–aram
+STOP = set("""God-ward Baptist Sir Sirs God Lord LORD Jesus Christ Jehovah Saviour Savior Father Son Spirit Holy Ghost Almighty Redeemer
 Creator Comforter Messiah King Prince Master Lamb Word Amen Selah Sabbath Scripture Scriptures Bible Gospel
 Heaven Hell Paradise Devil Thou Thee Thy Thine Ye You He Him His She Her They Them Their We Us Our My Mine Me I
 Behold Verily Alas Lo Oh Ah Woe Hail Yea Nay Alleluia Hallelujah Hosanna Maranatha Rabbi Rabboni Teacher Shepherd
@@ -86,9 +86,10 @@ PREFIXES = ("พระ", "หมู่บ้าน", "บ้าน", "เมื�
             "ของ", "ใน", "ที่", "และ", "กับ", "จาก", "ถึง", "ไป", "มา", "แก่", "สู่", "ยัง", "ว่า", "คือ", "ชื่อ", "แห่ง",
             "ต่อ", "ตาม", "โดย", "เพื่อ", "เพราะ", "หรือ", "แต่", "ก็", "จึง", "เมื่อ", "ถ้า", "ซึ่ง", "เป็น", "มี", "ให้",
             "บุตร", "ธิดา", "ภรรยา", "สามี", "บิดา", "มารดา", "น้อง", "พี่", "เรียก", "นำ", "พา", "ส่ง", "ไว้",
-            "สัญชาติ", "หญิง", "ชาย")
+            "สัญชาติ", "หญิง", "ชาย", "นาง")
 # The titles and common nouns of PREFIXES, as against its function words.
 TITLE_WORDS = PREFIXES[:32]
+JOINERS = ("และ", "กับ", "หรือ")   # a run holding one of these joins two names and is never a name
 # Function words that follow a name and are never part of it.
 SUFFIXES = ("จะ", "ก็", "ที่", "ไป", "แล้ว", "และ", "ว่า", "นั้น", "นี้", "กับ", "ของ", "ใน", "ให้", "ได้", "จึง", "ซึ่ง", "เป็น",
             "เอ๋ย", "ด้วย", "คน", "ชาว", "ผู้", "เถิด", "แห่ง", "มา", "ตอบ", "กล่าว", "ทูล", "พูด")
@@ -124,9 +125,14 @@ def kjv_index():
             for m in CAP.finditer(text):
                 if at_boundary(text, m.start()):
                     continue
-                w = m.group(1)
+                w = m.group(1).replace("–", "-")
                 if w not in STOP:
                     names[w].append(ref)
+    for w in [n for n in names if "-" in n]:
+        joined = w.replace("-", "")
+        if joined in names:
+            merged = sorted(set(names[w]) | set(names[joined]))
+            names[w], names[joined] = merged, merged
     return names, lower, verses
 
 
@@ -174,7 +180,7 @@ DEP_VOWEL = set("ะัาำิีึืุู")
 LEAD_VOWEL = set("เแโใไ")
 
 
-PEOPLE_SUFFIX = re.compile(r"^(.{3,}?)(itish|itans|itan|ites|ite|ians|ian|enes|ene|eans|ean|ines|ine|ish)$")
+PEOPLE_SUFFIX = re.compile(r"^(.{3,}?)(itish|itans|itan|ites|ite|ians|ian|enes|ene|eans|ean|ines|ine)$")   # not a bare -ish: Achish is a man
 TRIBES = {"israel", "levi", "judah", "benjamin", "reuben", "simeon", "dan", "naphtali", "gad", "asher", "issachar",
           "zebulun", "joseph", "ephraim", "manasseh"}
 # Names the translator has deferred until a chapter meets them; they are left out of the table.
@@ -243,6 +249,8 @@ def phon(name, form):
 def first_matches(name, form):
     """True when the first consonant of the Thai form may render the first of the English name."""
     e, t = en_skeleton(name), th_skeleton(form)
+    if name[:1].lower() in "aeiou" and form[:1] in "อยว":
+        return True
     return bool(e and t and t[0] in e[0])
 
 
@@ -267,7 +275,7 @@ DEP_MARKS = set("ะัาำิีึืุู\u0e47\u0e48\u0e49\u0e4a\u0e4b\u0
 
 def complete(form, texts):
     """Extend a chosen form over what always follows it in the texts: a vowel sign,
-    a tone mark or ์, or one final consonant that ends the word, so ฟีลิสเตี becomes
+    a tone mark or ์, or one final consonant that ends the word or carries ์, so ฟีลิสเตี becomes
     ฟีลิสเตีย and อันน becomes อันนา. Stops where the following text varies."""
     for _ in range(6):
         nexts = []
@@ -279,7 +287,8 @@ def complete(form, texts):
                 after = tx[j + 1] if j + 1 < len(tx) else ""
                 if nxt in DEP_MARKS:
                     nexts.append(nxt)
-                elif nxt in THAI_CONS and (not after or not THAI_LETTER.match(after) or after in LEAD_VOWEL):
+                elif nxt in THAI_CONS and (not after or not THAI_LETTER.match(after) or after in LEAD_VOWEL or after == "\u0e4c"
+                                           or any(tx[j + 1:].startswith(w) for w in SUFFIXES + PREFIXES)):   # อาคีช before กษัตริย์ or ที่
                     nexts.append(nxt)
                 else:
                     nexts.append("")
@@ -288,8 +297,12 @@ def complete(form, texts):
             return form
         top = max(set(nexts), key=nexts.count)
         if not top or nexts.count(top) / len(nexts) < 0.8:
-            return form
+            break
         form += top
+    for j in JOINERS:   # a completion that ran into และ, as อัลฟาและ, stops before it
+        for k in range(len(j), 0, -1):
+            if form.endswith(j[:k]) and any(form[:-k] + j in tx for tx in texts):
+                return form[:-k]
     return form
 
 
@@ -298,7 +311,8 @@ def phonetic_form(name, texts):
     consonants best follow the English name's, where about two in three match;
     a form whose first consonant renders the name's first is preferred, then a
     form that ends and begins where a word does, then the longer form."""
-    cands = [c for c in set().union(*(candidates(t) for t in texts)) if PLAUSIBLE.match(c)]
+    common = [w for w in SUFFIXES + PREFIXES if len(w) >= 3 and w not in ("ชาว", "พวก")]
+    cands = [c for c in set().union(*(candidates(t) for t in texts)) if PLAUSIBLE.match(c) and not any(w in c for w in common)]
     best = None
     for c in cands:
         p = phon(name, c)
@@ -338,7 +352,8 @@ def choose(scored, alltext, n, ratio=COMMON_RATIO, texts=(), name=None):
     the number of verses that carry the name in all."""
     # A title (จักรพรรดิ), a piece of one, or a fragment ending in one is never the name.
     cands = [s for s in scored if PLAUSIBLE.match(s[3])
-             and not any(s[3] in p or (len(p) >= 3 and s[3].endswith(p)) for p in TITLE_WORDS)]
+             and not any(s[3] in p or (len(p) >= 3 and s[3].endswith(p)) for p in TITLE_WORDS)
+             and not any(j in s[3] for j in JOINERS)]   # โฮฟนีและฟีเนหัส joins two names
     strict = [s for s in cands if s[1] <= 0.02]
     pool = strict if strict and max(s[0] for s in strict) >= 0.5 else [s for s in cands if s[1] <= max(0.1, 0.3 * s[0])]
     if not pool:
@@ -347,16 +362,30 @@ def choose(scored, alltext, n, ratio=COMMON_RATIO, texts=(), name=None):
     # อัสซีเรีย does for Assyrian though Assyria makes it frequent in the Bible.
     rare = [s for s in pool if alltext.count(s[3]) <= ratio * max(1.0, s[0] * n) or (name and phon(name, s[3]) >= 0.6)]
     pool = rare or pool
+    if name:   # อาช inside โยอาช, เซอร์ inside อาบีเยเซอร์, โลห์ inside ชิโลห์: the tail of a longer, closer candidate is never the name
+        cov = {s[3]: s[0] for s in pool}
+        starts = {s[3]: (start_rate(s[3], texts) if texts else 1.0) for s in pool}
+        pool = [s for s in pool if phon(name, s[3]) == 0 or not any(
+            f != s[3] and f.endswith(s[3]) and starts[f] >= 0.3 and phon(name, f) >= phon(name, s[3]) and cov[f] >= 0.5 * s[0]
+            and not any(f.startswith(p) for p in TITLE_WORDS) for f in cov)]
     top = max(s[0] for s in pool)
     near = [s for s in pool if s[0] >= 0.9 * top]
     if texts:
-        starts = [s for s in near if start_rate(s[3], texts) >= 0.5]
+        rate = {s[3]: start_rate(s[3], texts) for s in near}
+        cut = min(0.5, 0.8 * max(rate.values()))
+        starts = [s for s in near if rate[s[3]] >= cut]
         near = starts or near
+    if name:   # โฮฟนี before ฟีเนหัส for Hophni
+        firsts = [s for s in near if first_matches(name, s[3])]
+        near = firsts or near
     if name:
         top_phon = max(phon(name, s[3]) for s in near)
         if top_phon > 0:
             near = [s for s in near if phon(name, s[3]) >= 0.5 * top_phon]
     near.sort(key=lambda s: (-s[2], -s[0]))
+    if name and os.environ.get("TH_NAMES_DEBUG") == name:   # testing: show the forms weighed for one name
+        for s in sorted(pool, key=lambda s: -s[0])[:12]:
+            print(f"    pool  cov={s[0]:.2f} other={s[1]:.3f} len={s[2]} phon={phon(name, s[3]):.2f} start={start_rate(s[3], texts) if texts else -1:.2f} {s[3]}" + ("  NEAR" if s in near else ""))
     best = near[0]
     by_form = {s[3]: s for s in pool}
     changed = True
@@ -452,13 +481,13 @@ def book_form(thsv_form, sites, thai, alltext, name):
             texts.append(tp)
             anchors.append(anchor)
     other = None
-    need = 2 if thsv_form else 1
+    need = 2   # one site in a book is never enough to settle a name THSV lacks
     if total >= need and present / total < 0.5 and len(texts) >= need:
         pool = [t for a, t in thai.items() if t not in texts][:300]
         texts.sort(key=len)
         pick = choose([s for s in score(set().union(*(candidates(t) for t in texts[:2])), texts, pool) if s[0] >= 0.5],
                       alltext, len(texts), ratio=3, texts=texts, name=name)
-        if pick:
+        if pick and (not name or phon(name, pick[3]) >= 0.5):
             other = pick[3]
     return present, total, other, anchors[:3]
 
@@ -531,7 +560,7 @@ def main():
             for m in CAP.finditer(para):
                 if at_boundary(para, m.start()):
                     continue
-                w = m.group(1)
+                w = m.group(1).replace("–", "-")
                 if w not in names_kjv and w.endswith("s") and w[:-1] in names_kjv:
                     w = w[:-1]
                 if w in STOP or w not in names_kjv:
@@ -540,7 +569,7 @@ def main():
                     continue
                 wanted[w].add(book)
     existing = {} if a.all else read_table()
-    todo = sorted(n for n in wanted if not any(k[0] == n for k in existing))
+    todo = sorted(n for n in wanted if not any(n in k[0].split(", ") for k in existing))
     if a.limit:
         todo = todo[:a.limit]
     versions = {v: load_version(v) for v in VERSIONS}
@@ -567,7 +596,7 @@ def main():
         pool = []
         for code in sorted({r[0] for r in use}):
             pool += [r for r in by_book[code] if r not in in_set]
-        random.shuffle(pool)
+        random.Random(name).shuffle(pool)   # per name, so a result never shifts when the name list changes
         pool = pool[:200]
         notes, status, second = [], "settled", None
         forms = {v: "" for v in VERSIONS}
@@ -602,6 +631,8 @@ def main():
             else:
                 thsv_form, cov, other, second = thsv
                 forms["THSV"] = thsv_form
+                thsv_texts = [versions["THSV"][r] for r in use if r in versions["THSV"]]
+                starts_nowhere = bool(thsv_texts) and start_rate(thsv_form, thsv_texts) == 0
                 if cov < 0.6:
                     status = "weak match"
                     notes.append(f"THSV form in {int(cov * 100)} percent of {len(use)} verses")
@@ -613,6 +644,20 @@ def main():
             for v in ("TH1971", "TNCV"):
                 r = res[v]
                 forms[v] = r[0] if r else ""
+            if thsv is not None and thsv_form and not thsv_form.startswith("นาง"):
+                # THSV's own title: นางเศรุยาห์ at 26 of 26 verses, นางเฮโรเดียส at 5 of 6; the table keeps it at four verses in five
+                thsv_texts = [versions["THSV"][r] for r in use if r in versions["THSV"]]
+                with_title = sum(1 for x in thsv_texts if "นาง" + thsv_form in x)
+                if thsv_texts and with_title / len(thsv_texts) >= 0.8:
+                    thsv_form = "นาง" + thsv_form
+                    forms["THSV"] = thsv_form
+                    notes.append(f"THSV writes นาง before the name at {with_title} of {len(thsv_texts)} verses")
+            if thsv is not None and starts_nowhere:
+                if forms["TH1971"] == forms["TNCV"] == thsv_form:
+                    notes.append("the three versions agree on the form")
+                else:
+                    status = "weak match"
+                    notes.append("the THSV form begins no word in its verses; check where it starts")
                 if r and thsv_form and r[0] != thsv_form:
                     # Profile 5.A rules the THSV spelling; another version's form is information.
                     notes.append(f"{v} writes {r[0]}")
@@ -620,7 +665,7 @@ def main():
         for book, paras in sources.items():
             if book not in thai_books:
                 continue
-            sites = [(anc, p) for anc, p in paras if re.search(r"\b" + re.escape(name) + r"(?:'s)?\b", p)]
+            sites = [(anc, p) for anc, p in paras if re.search(r"(?<![\w–-])" + re.escape(name) + r"(?:'s)?(?![\w–-])", p)]
             if not sites:
                 continue
             present, total, other, anchors = book_form(thsv_form, sites, thai_books[book], book_text[book], name)
@@ -663,16 +708,21 @@ def main():
     for r in rows:
         name = r[0]
         m = PEOPLE_SUFFIX.match(name.lower())
-        if not m or name in glossary or not r[2] and r[9] != "settled" and r[4] == "":
+        if not m or name in glossary:
             continue
         root = m.group(1)
         own = r[2] or r[4]
+        if not own and not any(h.lower().startswith(root) and not PEOPLE_SUFFIX.match(h.lower()) for h in glossary):
+            continue
         k = re.search(r"(คน|ชาว|พวก)", own)
-        if k and k.start() > 0:
+        if k and k.start() > 0 and len(own) - k.end() >= 2:   # not อิสราเอลคน, where nothing follows the คน
             # THSV's run มารีย์ชาวมักดาลา, or the tail the alignment cut from it, gives ชาวมักดาลา.
             own = own[k.start():]
             if own in r[4]:
                 r[4] = own
+        if not own.startswith(("คน", "ชาว", "พวก")) and r[4] and not re.search(r"(คน|ชาว|พวก)", r[4]) \
+                and re.search("ชาว" + re.escape(r[4]) + r"(?![\u0e00-\u0e7f])", alltext["THSV"]):
+            own = "ชาว" + r[4]   # THSV's own whole-word people form, ชาวมักดาลา, outranks the root's spelling
         if own.startswith(("คน", "ชาว", "พวก")):
             root_head = root_row = None
             source = own   # THSV's own people form, as มารีย์ชาวมักดาลา gives ชาวมักดาลา
@@ -687,6 +737,24 @@ def main():
         prefix = "คน" if any(x.startswith(root) or root.startswith(x) for x in TRIBES) else "ชาว"
         r[2], r[3], r[9] = prefix + base, "", "settled"
         r[10] = f"a people, DA 3.K: {prefix} before {base}" + (f" ({root_head or root_row[0]})" if root_head or root_row else "") + "; " + r[10]
+    # One row per name family: Canaanite, Canaanites and Canaanitish share a root and a form.
+    def family(n):
+        m = PEOPLE_SUFFIX.match(n.lower())
+        return m.group(1) if m else n.lower().rstrip("s")
+    merged, seen = [], {}
+    for r in rows:
+        key = (family(r[0]), r[2]) if r[2] else (r[0], "")
+        if key in seen and r[2]:
+            m = seen[key]
+            m[0] += ", " + r[0]
+            m[7] = ",".join(sorted(set(m[7].split(",")) | set(r[7].split(","))))
+            m[8] = str(int(m[8]) + int(r[8]))
+            if r[9] != "settled" and m[9] == "settled":
+                m[9], m[10] = r[9], r[10]
+            continue
+        seen[key] = r
+        merged.append(r)
+    rows = merged
     header = ["English", "who", "form", "series", "THSV", "TH1971", "TNCV", "books", "verses", "status", "note"]
     all_rows = ([] if a.all else list(existing.values())) + rows
     all_rows.sort(key=lambda r: (r[0], r[1] if len(r) > 1 else ""))
