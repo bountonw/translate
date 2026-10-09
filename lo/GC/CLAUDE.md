@@ -1,6 +1,6 @@
 # GC audit — conductor
 
-This file governs the audit of the Lao translation of *The Great Controversy* in lo/GC. The book is printed; the procedure stands ready for a correction round or a second printing. The root CLAUDE.md governs reports, register and git. Rulings enter this file as one line each. The queue is lo/GC/04_assets/planning/SIDEQUESTS.md.
+This file governs the audit of the Lao translation of *The Great Controversy* in lo/GC. The book is printed; the procedure stands ready for a correction round or a second printing. The LaTeX pipeline in lo/GC/04_assets/scripts/ and the dictionaries in lo/assets/dictionaries/ serve this book only and are kept working for later printings and corrected PDFs; new Lao books typeset with Typst. The root CLAUDE.md governs reports, register and git. Rulings enter this file as one line each. The queue is lo/GC/04_assets/planning/SIDEQUESTS.md.
 
 ## 1. Triggers
 
@@ -48,6 +48,8 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 5.G. Grep rather than read; pass an agent what you already know rather than letting it rediscover it.
 5.H. Name a forbidden codepoint rather than printing it.
 5.I. LaTeX in a manuscript (\s, \S, {\;}, \thai{} and the rest) is typesetting markup, not audit material. A mangled macro, a lost backslash or brace leaving stray letters in the Lao, takes a FIX marker. Thai quoted in a marker note still goes inside \thai{}.
+5.J. When a sentence is redrafted, the draft goes above the old paragraph in the manuscript, and the old text stays for comparison until the translator settles it.
+5.K. A naming gloss the translator added stays where the quoted Bible versions use different terms for the same referent.
 
 ## 6. Punctuation
 
@@ -60,3 +62,8 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 
 7.A. The root CLAUDE.md report shape. A summary line is located by its {GC ###.#} anchor and the marker number where there is one. A FIX that needs a manuscript change is also written into the chapter as a [[FIX SEV #N|old -> new|note]] marker.
 7.B. gc-resolve-check and gc-term-grep return Lao spans and are relayed verbatim. gc-batch-auditor, gc-run-check and gc-glossary-merge write for you; compose the report from their items, copying every Lao form from their files.
+
+## 8. Print build
+
+8.A. Before a print build, run modules 1 and 2 for every chapter; from lo/GC/04_assets, grep -c nodict scripts/build/temp/*_stage2.tex must be zero for every file.
+8.B. A file sent to the press is kept in lo/GC/05_print/; everything a build writes stays in lo/GC/04_assets/scripts/build/.

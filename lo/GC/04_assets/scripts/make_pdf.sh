@@ -88,5 +88,7 @@ fi
 
 echo -e "SUCCESS: PDF generated for ${chaptername}"
 
-# Open pdf
-# okular "${BUILD}/pdf/${chaptername}.pdf" &
+# Open the PDF when run on its own; make_book.sh passes --log-folder and opens only the book
+if [ -z "${logfolder}" ]; then
+    okular "${BUILD}/pdf/${chaptername}.pdf" &
+fi

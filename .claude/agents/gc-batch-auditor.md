@@ -73,7 +73,7 @@ You audit the translator's finished Lao translation of *The Great Controversy* a
 4.D. Shapes:
 
     replacement:
-      [[TERM MED #3|ອາຮາມນັກບວດ -> ສຳນັກນັກບວດ|closed decision in GC-clergy-fixes.md: monastery]]
+      [[TERM MED #3|ອາຮາມນັກບວດ -> ສຳນັກນັກບວດ|EN "monastery"; closed decision in GC-clergy-fixes.md: monastery]]
 
     insertion (empty old — for OMISSION):
       [[OMISSION MED #4| -> ຂໍ້ຄວາມທີ່ຂາດ|EN clause absent from the Lao]]

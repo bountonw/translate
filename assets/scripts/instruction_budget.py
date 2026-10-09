@@ -42,7 +42,7 @@ BUDGET = {
     ".claude/agents/fb-sentence-drill.md": 900,
     ".claude/agents/fb-final-read.md": 900,
     "lo/assets/translation_profile/lao-profile.txt": 900,
-    "lo/GC/CLAUDE.md": 1600,
+    "lo/GC/CLAUDE.md": 1700,
     ".claude/commands/lo-gc.md": 100,
     ".claude/agents/gc-batch-auditor.md": 3150,
     ".claude/agents/gc-glossary-merge.md": 1300,
