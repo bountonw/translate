@@ -12,7 +12,7 @@ without generating reports.
 USAGE:
 - Called automatically by Module 2 after processing (debug mode only)
 - Can be run standalone: python3 nodict_context_analyzer.py
-- Generates: 04_assets/temp/nodict_analysis.log
+- Generates: 04_assets/scripts/build/temp/nodict_analysis.log
 
 FEATURES:
 - Context analysis: Shows 4 words before/after each \nodict{} term
@@ -461,7 +461,7 @@ def generate_context_report(log_folder: Path = None, processed_files: List[Path]
     # Setup paths
     script_dir = Path(__file__).parent
     project_root = script_dir.parent.parent
-    temp_dir = project_root / "04_assets" / "temp"
+    temp_dir = project_root / "04_assets" / "scripts" / "build" / "temp"
     if log_folder is None:
         log_folder = temp_dir
     output_file = log_folder / "nodict_analysis.log"

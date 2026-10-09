@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# All build output (temp files, chapter and book PDFs, logs) goes under one ignored folder.
+BUILD="scripts/build"
+
 # Check if chaptername was provided
 if [[ -z "$1" ]]; then
     echo "Error: No chapter name provided"
@@ -66,17 +69,17 @@ fi
 echo -e "\nRunning LuaLaTeX...\n"
 
 # Create output directories
-mkdir -p pdf/logs
+mkdir -p ${BUILD}/pdf/logs
 
 # Run lualatex with output directory
-if ! lualatex -output-directory=pdf/logs "temp/tex/${chaptername}.tex"; then
+if ! lualatex -output-directory=${BUILD}/pdf/logs "${BUILD}/temp/tex/${chaptername}.tex"; then
     echo "ERROR: LuaLaTeX failed for ${chaptername}.tex"
     exit 1
 fi
 
 # Move the PDF to the main pdf folder
-if [[ -f "pdf/logs/${chaptername}.pdf" ]]; then
-    mv "pdf/logs/${chaptername}.pdf" "pdf/${chaptername}.pdf"
+if [[ -f "${BUILD}/pdf/logs/${chaptername}.pdf" ]]; then
+    mv "${BUILD}/pdf/logs/${chaptername}.pdf" "${BUILD}/pdf/${chaptername}.pdf"
 else
     echo
     echo "ERROR: PDF was not generated"
@@ -85,5 +88,7 @@ fi
 
 echo -e "SUCCESS: PDF generated for ${chaptername}"
 
-# Open pdf
-%okular "pdf/${chaptername}.pdf" &
+# Open the PDF when run on its own; make_book.sh passes --log-folder and opens only the book
+if [ -z "${logfolder}" ]; then
+    okular "${BUILD}/pdf/${chaptername}.pdf" &
+fi

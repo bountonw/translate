@@ -45,7 +45,7 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 
 ## 6. Check ("check FB07")
 
-6.A. Grep the file for [[; a standing marker ends the check. Run fb_check.py again, name any fix it applied, read the diff of the resolution, and run instruction_budget.py. PASS means clean to commit.
+6.A. Grep the file for [[; a standing marker ends the check. Run fb_check.py again, name any fix it applied, read the diff of the resolution, and run assets/scripts/instruction_budget.py. PASS means clean to commit.
 
 ## 7. Rules
 

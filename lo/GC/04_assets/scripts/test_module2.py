@@ -30,7 +30,7 @@ class Module2Tester:
         """Initialize tester with configurable test filename."""
         self.script_dir = Path(__file__).parent
         self.project_root = self.script_dir.parent.parent
-        self.temp_dir = self.project_root / "04_assets" / "temp"
+        self.temp_dir = self.project_root / "04_assets" / "scripts" / "build" / "temp"
         self.module2_script = self.script_dir / "module2_preprocess.py"
         self.test_input = test_filename  # Use parameter instead of hardcoded
         self.results = []

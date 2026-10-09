@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# All build output (temp files, chapter and book PDFs, logs) goes under one ignored folder.
+BUILD="scripts/build"
+
 echo "Making full book PDF including individual chapter PDFs for each chapter..."
 
 
@@ -31,7 +34,7 @@ while test $# -gt 0; do
 done
 
 timestamp=$(date +%Y_%m_%d__%H_%M_%S) # year_month_date__hour_minute_second
-logfolder="pdf/logs/${timestamp}"
+logfolder="${BUILD}/pdf/logs/${timestamp}"
 
 # Now make introduction
 if [ "${use_existing_tex_files}" = false ]
@@ -44,13 +47,13 @@ then
         scripts/make_pdf.sh "GC${chapNum}" ${debug_flag} --log-folder "${logfolder}"
         # Run LuaLaTeX with output directory
         echo "Making PDF for chapter ${i}..."
-        if ! lualatex -output-directory=pdf/logs "temp/tex/GC${chapNum}.tex"; then
+        if ! lualatex -output-directory=${BUILD}/pdf/logs "${BUILD}/temp/tex/GC${chapNum}.tex"; then
             echo "ERROR: LuaLaTeX failed for chapter ${chapNum}.tex"
             exit 1
         fi
         # Move the PDF to the main pdf folder
-        if [[ -f "pdf/logs/GC${chapNum}.pdf" ]]; then
-            mv "pdf/logs/GC${chapNum}.pdf" "pdf/GC${chapNum}.pdf"
+        if [[ -f "${BUILD}/pdf/logs/GC${chapNum}.pdf" ]]; then
+            mv "${BUILD}/pdf/logs/GC${chapNum}.pdf" "${BUILD}/pdf/GC${chapNum}.pdf"
         else
             echo
             echo "ERROR: PDF for chapter ${chapNum} was not generated"
@@ -65,13 +68,13 @@ if [ "${use_existing_tex_files}" = false ]; then
     scripts/make_pdf.sh "GC00_introduction" ${debug_flag} --log-folder "${logfolder}"
     # Run LuaLaTeX with output directory
     echo "Making PDF for chapter ${i}..."
-    if ! lualatex -output-directory=pdf/logs "temp/tex/GC00_introduction.tex"; then
+    if ! lualatex -output-directory=${BUILD}/pdf/logs "${BUILD}/temp/tex/GC00_introduction.tex"; then
         echo "ERROR: LuaLaTeX failed for introduction.tex"
         exit 1
     fi
     # Move the PDF to the main pdf folder
-    if [[ -f "pdf/logs/GC00_introduction.pdf" ]]; then
-        mv "pdf/logs/GC00_introduction.pdf" "pdf/GC00_introduction.pdf"
+    if [[ -f "${BUILD}/pdf/logs/GC00_introduction.pdf" ]]; then
+        mv "${BUILD}/pdf/logs/GC00_introduction.pdf" "${BUILD}/pdf/GC00_introduction.pdf"
     else
         echo
         echo "ERROR: PDF for introduction was not generated"
@@ -86,7 +89,7 @@ for ((i=1;i<=CHAP_NUM;i++)); do
     echo "Checking for file for chapter $i..."
     chapNum=$(printf "%02d" $i) # leading 0 for chapters 1-9
     fileName="GC${chapNum}_lo_stage2.tex"
-    if [ ! -f "temp/${fileName}" ]; then
+    if [ ! -f "${BUILD}/temp/${fileName}" ]; then
         echo "File ${fileName} not found!"
         exit -1
     fi
@@ -94,7 +97,7 @@ done
 
 echo "Verifying that intro file got made..."
 fileName="GC00_introduction_lo_stage2.tex"
-if [ ! -f "temp/${fileName}" ]; then
+if [ ! -f "${BUILD}/temp/${fileName}" ]; then
     echo "File ${fileName} not found!"
     exit -1
 fi
@@ -108,24 +111,24 @@ fi
 
 echo "Running LuaLaTeX..."
 # Create output directories
-mkdir -p pdf/logs
+mkdir -p ${BUILD}/pdf/logs
 
 # Run lualatex with output directory (first pass - generates .toc file)
-if ! lualatex -output-directory=pdf/logs "temp/tex/full-output.tex"; then
+if ! lualatex -output-directory=${BUILD}/pdf/logs "${BUILD}/temp/tex/full-output.tex"; then
     echo "ERROR: LuaLaTeX failed for full-output.tex (first pass)"
     exit 1
 fi
 
 # Run lualatex second pass to build TOC
 echo "Running LuaLaTeX second pass for TOC..."
-if ! lualatex -output-directory=pdf/logs "temp/tex/full-output.tex"; then
+if ! lualatex -output-directory=${BUILD}/pdf/logs "${BUILD}/temp/tex/full-output.tex"; then
     echo "ERROR: LuaLaTeX failed for full-output.tex (second pass)"
     exit 1
 fi
 
 # Move the PDF to the main pdf folder
-if [[ -f "pdf/logs/full-output.pdf" ]]; then
-    mv "pdf/logs/full-output.pdf" "pdf/GC_lo_full.pdf"
+if [[ -f "${BUILD}/pdf/logs/full-output.pdf" ]]; then
+    mv "${BUILD}/pdf/logs/full-output.pdf" "${BUILD}/pdf/GC_lo_full.pdf"
 else
     echo
     echo "ERROR: PDF was not generated"
@@ -135,4 +138,4 @@ fi
 echo -e "SUCCESS: PDF generated for full book"
 
 # Open pdf
-okular "pdf/GC_lo_full.pdf" &
+okular "${BUILD}/pdf/GC_lo_full.pdf" &
