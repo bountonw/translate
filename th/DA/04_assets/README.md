@@ -18,7 +18,7 @@ The agents live in .claude/agents (da-finder, da-miner, da-verse-study, da-draft
 
 | Type | Pass | What happens | What you do |
 |---|---|---|---|
-| `/th-DA terms DA01` | 1 | Opus lists the terms, quotations and allusions. Sonnet gathers the data. Fable proposes each glossary row and ranks the top three Bible versions for each quotation. | Rule each row. Close verse calls come later as markers. |
+| `/th-DA terms DA01` | 1 | Opus lists the terms, quotations and allusions. Sonnet gathers the data. Opus proposes each glossary row and ranks the top three Bible versions for each quotation; a head you name takes Fable. | Rule each row. Close verse calls come later as markers. |
 | `/th-DA terms DA00-DA87` | 1 | The same for a run of chapters, so the glossary can be built before translating. | As above. |
 | `/th-DA draft DA01` | 2 | Fable drafts and checks itself, Opus checks against the English, Fable fixes or raises an issue. | Commit the agent draft, read the chapter whole, settle every marker and editor's choice. |
 | `/th-DA check DA01` | 3 | Scripts and Opus check that your resolutions left no damage. | Commit; the chapter moves to 02_edit. |
