@@ -63,9 +63,9 @@ def log_dictionary_conflicts(conflicts: Dict[str, Dict[str, str]], log_folder: P
                     else:
                         project_root = script_dir.parent  # 04_assets/scripts
             if project_root.name == '04_assets':
-                log_folder = project_root / "temp"
+                log_folder = project_root / "scripts" / "build" / "temp"
             else:
-                log_folder = project_root / "04_assets" / "temp"
+                log_folder = project_root / "04_assets" / "scripts" / "build" / "temp"
             
         log_file = log_folder / "dictionary_sources.log" 
         log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -174,10 +174,10 @@ def log_lookahead_decision(text: str, alternatives: List[List[Dict[str, Any]]],
 
             if project_root.name == '04_assets':
                 # project_root is already 04_assets, don't add it again
-                log_folder = project_root / "temp"
+                log_folder = project_root / "scripts" / "build" / "temp"
             else:
                 # project_root is GC directory, add 04_assets
-                log_folder = project_root / "04_assets" / "temp"
+                log_folder = project_root / "04_assets" / "scripts" / "build" / "temp"
 
         log_file = log_folder / "lookahead_decisions.log"
 
@@ -427,9 +427,9 @@ def validate_debug_environment():
                 else:
                     project_root = script_dir.parent  # 04_assets/scripts
         if project_root.name == '04_assets':
-            temp_dir = project_root / "temp"
+            temp_dir = project_root / "scripts" / "build" / "temp"
         else:
-            temp_dir = project_root / "04_assets" / "temp"
+            temp_dir = project_root / "04_assets" / "scripts" / "build" / "temp"
         
         temp_dir.mkdir(parents=True, exist_ok=True)
         
