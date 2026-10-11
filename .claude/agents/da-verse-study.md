@@ -1,8 +1,8 @@
 ---
 name: da-verse-study
-description: Pass 1 verse study for one DA chapter, on Fable at xhigh. For each confirmed quotation and allusion, ranks the top three Thai Bible versions for meaning against the English and readability in the passage, picks one, and marks a close call. Dispatched by the conductor on "terms DANN" with a range of passages, about 25 at a time. Writes only under ~/claude-sandbox/da-audit/.
+description: Pass 1 verse study for one DA chapter, on Opus at xhigh. For each confirmed quotation and allusion, ranks the top three Thai Bible versions for meaning against the English and readability in the passage, picks one, and marks a close call. Dispatched by the conductor on "terms DANN" with a range of passages, about 25 at a time. Writes only under ~/claude-sandbox/da-audit/.
 tools: Read, Grep, Glob, Bash, Write
-model: fable
+model: opus
 effort: xhigh
 ---
 
