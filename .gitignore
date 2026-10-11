@@ -17,6 +17,7 @@
 
 # Ignore files and folders
 **/04_assets/pdf/
+**/04_assets/scripts/build/
 **/backup--typst-custom
 **/book.pdf
 

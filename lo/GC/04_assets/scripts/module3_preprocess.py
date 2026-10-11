@@ -97,10 +97,7 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
 
     output_file = ""
     if len(tex_input_paths) == 1:
-        base_name = tex_input_paths[0].replace('_lo_stage2', '')
-        base_name = base_name.replace('temp', '')
-        base_name = base_name.replace('/', '')
-        base_name = base_name.replace('\\', '')
+        base_name = Path(tex_input_paths[0]).name.replace('_lo_stage2', '')
         output_file = output_dir / f"{base_name}.tex"
     else:
         base_name = "full-output" # TODO: adjust naming for output based on files provided; not super important
@@ -149,7 +146,8 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     if len(tex_input_paths) > 1:
         tex_content.append("\\pagestyle{intropagenumbers}")
         # TODO: don't hardcode this file name
-        tex_content.append(f"\\input{{temp/GC00_introduction_lo_stage2}}")
+        intro = os.path.relpath(Path(__file__).resolve().parent / "build" / "temp" / "GC00_introduction_lo_stage2", Path.cwd())
+        tex_content.append(f"\\input{{{intro.replace(os.sep, '/')}}}")
 
     tex_content.append(f"\\mainmatter")
     tex_content.append("")
@@ -220,7 +218,7 @@ def main():
     
     # Set up paths - robust detection
     project_root = find_project_root()
-    temp_dir = project_root / '04_assets' / 'temp'
+    temp_dir = project_root / '04_assets' / 'scripts' / 'build' / 'temp'
     scripts_dir = project_root / '04_assets' / 'scripts'
     tex_output_dir = temp_dir / 'tex'
     
