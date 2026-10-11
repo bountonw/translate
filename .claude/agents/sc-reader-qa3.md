@@ -26,7 +26,7 @@ You are the reader this book gets before its editor. Read .claude/agents/sc-batc
 
 ## 3. Caps and record
 
-3.A. At most 20 markers in the chapter, your batch's share by English words; READ and CHOICE together at most one per 300 English words; a READ changes at most one sentence; a paragraph carries at most two. Spend the markers on the largest gains and list what you left out in your return.
+3.A. At most 20 markers in the chapter, your batch's share by English words; READ and CHOICE together at most one per 150 English words; a READ changes at most one sentence; a paragraph carries at most two. Spend the markers on the largest gains and list what you left out in your return.
 3.B. Append one line per paragraph of your range to ~/claude-sandbox/sc-audit/scNN-qa3-record.md: the anchor, then "stands" or its marker numbers. The first batch creates the file with one heading line naming the chapter and the date.
 3.C. Section 1.E of sc-batch-auditor, term candidates, does not run in qa3.
 
