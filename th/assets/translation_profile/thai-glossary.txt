@@ -160,7 +160,7 @@
 | impenitent, the; impenitence | ไม่สำนึกผิด / ไม่กลับใจ / ไม่ยอมกลับใจ | [CHECK] Always a negated verb; คนใจแข็ง stands where the sentence is about hardness. SC 32.1, PP 140.1, PP 99.3, MB 105.2 |
 | procrastination, delay (in coming to Christ) | ผัดวันประกันพรุ่ง / ผัดผ่อน / ชักช้า / รีรอ | Putting off surrender; ordinary delay in a narrative is free. SC 32.2, PP 517.2 |
 | image of God (in man, at creation) | พระฉายาของพระเจ้า | [CHECK] ปฐมกาล 1:27. MB 56.3, PP 45.2 |
-| image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ | [CHECK] See character; โรม 8:29 THSV พระฉายา stands inside its quotation. SC 33.3, SC 28.3, PP 88.3 |
+| image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ / มีลักษณะเหมือนอย่างพระองค์ | [CHECK] See character; the image renewed in man takes this row; โรม 8:29 THSV พระฉายา stands in quotation. SC 33.3, SC 28.3, PP 88.3, SC 49.1, SC 55.1, SC 60.2, SC 63.2 |
 | filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
 | Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
 | Spirit of truth | พระวิญญาณแห่งความจริง | [CHECK] Every version's title at ยอห์น 14:17, 15:26, 16:13; a 1 ยอห์น 4:6 quotation follows its version. SC 91.2, SC 109.2 |
@@ -278,7 +278,7 @@
 | efficient, efficiency (competence) | มีประสิทธิภาพ / ประสิทธิภาพ / ความสามารถ | [CHECK] Competence of persons, order, service; never the effectual family; ทำงานไม่เป็น stands. PP 374.1, PP 574.1, PP 255.2, อพยพ 18:21 |
 | talent (the parable's coin) | ตะลันต์ | [CHECK] Only where Matthew 25 is in view; the ability sense takes the abilities row. มัทธิว 25:15, MB 83.2, SC 82.2 |
 | talents, abilities, endowments (a person's capacities) | ความสามารถ / ความสามารถพิเศษ / พรสวรรค์ / ตะลันต์ / เก่ง | [CHECK] Default ความสามารถ; พรสวรรค์ inborn; ตะลันต์ and เก่ง stand, never proposed; recasts stand. MB 94.1, PP 203.1, PP 223.1, SC 81.1, SC 82.2 |
-| gift (God's, the Spirit's) | ของประทาน | [CHECK] The Bible's word for what God gives, prophecy included; never พรสวรรค์ for the prophetic gift. โรม 12:6, 1 เปโตร 4:10, MB 136.1, PP 382.3 |
+| gift (God's, the Spirit's) | ของประทาน | [CHECK] What God gives, prophecy included; never พรสวรรค์; ประทาน stands where gift is the giving. โรม 12:6, 1 เปโตร 4:10, MB 136.1, PP 382.3, SC 49.2, SC 54.3 |
 | co-worker with God, workers together with God (1 Corinthians 3:9) | ผู้ร่วมงานกับพระเจ้า / ร่วมงานกับพระเจ้า / ผู้ร่วมงาน | [CHECK] TNCV's noun at 1 โครินธ์ 3:9; THSV เราร่วมกันทำงานเพื่อพระเจ้า. PP 34.1, PP 573.3, PP 595.2, SC 79.2, SC 83.2 |
 | Lord of life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15, Prince of life. SC 81.4 |
 | mechanic, humble trade, mechanical employment | ช่างฝีมือ | Carpenter is ช่างไม้. PP 593.3, SC 81.4, SC 82.1 |
