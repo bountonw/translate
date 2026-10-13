@@ -8,12 +8,6 @@ The translator's editor and reviewers work in Google Docs while the repository s
 
 Detail: th/SC/04_assets/planning/gdocs-workflow.md. Medium.
 
-## 5. First live run of the reader's round
-
-sc-reader-qa3, sc_termcheck.py and sc_changes.py were written on 6 October 2026 and have not run on a live round. The first "qa3" on a chapter that has finished QA2 is read against th/SC/CLAUDE.md 3.E, and the agent definition and the scripts are adjusted from what that run shows.
-
-Detail: th/SC/CLAUDE.md 3.E and 4.B.2. Small.
-
 ## 8. Two sites from the SC01 studies for other chapters
 
 {SC 30.1} renders "the unfallen universe" as สวรรค์, narrowing every unfallen world to heaven, for SC03's qa2; {SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11's qa2.
