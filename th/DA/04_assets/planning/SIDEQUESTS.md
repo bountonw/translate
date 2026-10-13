@@ -4,7 +4,7 @@ Work that is agreed but not scheduled, in the order it will be done. When the tr
 
 ## 1. Profile refresh
 
-Before DA01 is drafted, th/assets/translation_profile/thai-profile.txt is brought up to date from the translator's finished books: th-glossary-miner (Sonnet) runs over PP in runs of about eight chapters and over MB, each run writing observations on pronouns, honorifics, royal vocabulary, dialogue, description and poetry, sentence shape, and DA's questions about Jesus, the disciples and the leaders; one Fable agent reads the observation files and proposes profile lines with counts and anchors; the translator rules them in chunks. PP 1–30 and 44–73 carry the grammarian's review and weigh most; the Lao GC informs the principles, not the Thai forms. This replaces the register run of SC queue entry 7.
+Before DA02 is drafted, th/assets/translation_profile/thai-profile.txt is brought up to date from the translator's finished books: th-glossary-miner (Sonnet) runs over PP in runs of about eight chapters and over MB, each run writing observations on pronouns, honorifics, royal vocabulary, dialogue, description and poetry, sentence shape, and DA's questions about Jesus, the disciples and the leaders; one Fable agent reads the observation files and proposes profile lines with counts and anchors; the translator rules them in chunks. PP 1–30 and 44–73 carry the grammarian's review and weigh most; the Lao GC informs the principles, not the Thai forms. This replaces the register run of SC queue entry 7.
 
 Detail: th/DA/CLAUDE.md 5.B. Medium; about ten mining runs, one synthesis, several adjudication sessions.
 
