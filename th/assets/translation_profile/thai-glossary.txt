@@ -1,6 +1,6 @@
 # Thai Glossary — shared by every Thai project (PP, SC, SJ, MB, PK, ...)
 
-<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/MB and th/PP, whose published chapters (MB, PP 1–20) are the strong precedent; SC chapters supply the questions. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. A Notes cell may name wordings that stand when found and are never proposed. A row gives a form once; a possessive tail such as ของพระองค์ varies with the sentence, goes in the Notes cell, and is never a separate form. -->
+<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/MB and th/PP, whose published chapters (MB, PP 1–20) are the strong precedent; SC chapters supply the questions. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. A Notes cell may name wordings that stand when found and are never proposed. A row gives a form once; a possessive tail such as ของพระองค์ varies with the sentence, goes in the Notes cell, and is never a separate form. Refs name the sites a row was ruled from; a site that follows the row is never added, and an edit that only adds a ref is never raised. -->
 
 ## 1. Theological and historical terms
 
@@ -62,7 +62,7 @@
 | curse, verb and noun | สาปแช่ง / คำสาปแช่ง / การสาปแช่ง | [CHECK] The verb, then the two nouns. MB 17.3, MB 1.1, PP 78.2 |
 | character (of God, of Christ) | พระลักษณะ / พระลักษณะนิสัย / พระอุปนิสัย | [CHECK] In this order of preference. MB 49.2, MB 77.1, MB 54.1 |
 | goodness (of God) | พระคุณความดี / ความดีของพระเจ้า | [CHECK] MB 26.3, PP 74.1 |
-| glory (of God) | พระสิริ / พระเกียรติสิริ | [CHECK] The Bible versions' words: พระสิริ in TH1971 and THSV, พระเกียรติสิริ in TNCV. MB 26.2, MB 43.1 |
+| glory (of God) | พระสิริ / พระเกียรติสิริ | [CHECK] พระสิริ THSV and TH1971, พระเกียรติสิริ TNCV; ถวายพระเกียรติแด่ or ถวายเกียรติแด่ stands where glory is the aim, 1 โครินธ์ 10:31, ยอห์น 17:4. MB 26.2, MB 43.1, SC 59.3 |
 | the enemy of good | ศัตรูแห่งความดี | Follows SC 10.3; PP and MB have no site for the phrase |
 | ruin and degradation; degradation | ความตกต่ำ / ความเสื่อมทราม / ความเสื่อมเสีย / ความเสื่อมโทรม | [CHECK] Pair ความหายนะ or ความพินาศ with ความตกต่ำ or ความเสื่อมทราม; เสื่อมเสีย means disgrace. SC 14.3, MB 69.2 |
 | only begotten Son | พระบุตรองค์เดียว | [CHECK] PP 63.3 |
@@ -110,7 +110,7 @@
 | Source (divine title) | แหล่ง / แหล่งกำเนิด / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น plus the form; the title may fold into its object, as ทรงเป็นความหวังเดียว for the one Source of hope. MB 41.1, PP 610.3, PP 717.2, SC 20.1, SC 21.1, SC 71.2 |
 | communion (with God), commune | การสื่อสัมพันธ์ / สามัคคีธรรม / สนทนา / เข้าเฝ้า / ความสัมพันธ์ / สายสัมพันธ์ / สื่อสาร | [CHECK] Defaults การสื่อสัมพันธ์ and สามัคคีธรรม; สนทนา for pictured talk; ใช้เวลากับ, ติดสนิท, สัมพันธไมตรี stand, never proposed. SC 85.1, MB 20.1, PP 329.5, SC 22.1 |
 | merits (of Christ), His merits | คุณความดี | [CHECK] Christ's worth pleaded for us; never พระคุณความดี, it reads as grace; never บารมี, the majesty word. PP 353.3, SC 35.4, SC 95.3 |
-| unrenewed heart, unrenewed nature | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival. PP 465.1, SC 17.2 |
+| unrenewed heart, unrenewed nature, unrenewed state | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival; state takes no word. PP 465.1, SC 17.2, SC 63.2 |
 | type, figure, symbol (pointing to a spiritual reality) | สัญลักษณ์ / สัญลักษณ์ที่เล็งถึง / เล็งถึง / เงาสัญลักษณ์ / ตัวอย่าง / ภาพ / เครื่องหมาย / เปรียบเทียบ | [CHECK] Type สัญลักษณ์ที่เล็งถึง or เล็งถึง; teaching figure ตัวอย่าง or ภาพ; symbol สัญลักษณ์; never แบบอย่าง. 1 เปโตร 3:21, MB 50.2, MB 138.2, PP 120.3, PP 330.4, SC 19.2 |
 | intercession, intercede, Intercessor | วิงวอน / วิงวอนแทน / ผู้วิงวอนแทน / อ้อนวอน / ทูลขอ / อธิษฐานเผื่อ / อธิษฐานขอ / ร้องทูล | [CHECK] Pleading for another; แทน or เพื่อ names the beneficiary; never ไกล่เกลี่ย or คนกลาง, the mediator words. See Advocate. ฮีบรู 7:25, PP 140.2, SC 54.3 |
 | the wicked | คนอธรรม / คนชั่ว | [CHECK] The class against the righteous; คนอธรรม majority form, คนชั่ว wicked men; never คนบาป, the sinner. MB 26.1, MB 151.2, SC 17.2 |
@@ -160,7 +160,7 @@
 | impenitent, the; impenitence | ไม่สำนึกผิด / ไม่กลับใจ / ไม่ยอมกลับใจ | [CHECK] Always a negated verb; คนใจแข็ง stands where the sentence is about hardness. SC 32.1, PP 140.1, PP 99.3, MB 105.2 |
 | procrastination, delay (in coming to Christ) | ผัดวันประกันพรุ่ง / ผัดผ่อน / ชักช้า / รีรอ | Putting off surrender; ordinary delay in a narrative is free. SC 32.2, PP 517.2 |
 | image of God (in man, at creation) | พระฉายาของพระเจ้า | [CHECK] ปฐมกาล 1:27. MB 56.3, PP 45.2 |
-| image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ / มีลักษณะเหมือนอย่างพระองค์ | [CHECK] See character; the image renewed in man takes this row; โรม 8:29 THSV พระฉายา stands in quotation. SC 33.3, SC 28.3, PP 88.3, SC 49.1, SC 55.1, SC 60.2, SC 63.2 |
+| image of Christ, likeness of Christ, image of God (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ / พระลักษณะของพระเจ้า / มีลักษณะเหมือนอย่างพระองค์ | [CHECK] See character; the image renewed in man takes this row; โรม 8:29 THSV พระฉายา stands in quotation. SC 33.3, SC 28.3, PP 88.3, SC 49.1, SC 55.1, SC 57.2, SC 60.2, SC 63.2 |
 | filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
 | Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
 | Spirit of truth | พระวิญญาณแห่งความจริง | [CHECK] Every version's title at ยอห์น 14:17, 15:26, 16:13; a 1 ยอห์น 4:6 quotation follows its version. SC 91.2, SC 109.2 |
