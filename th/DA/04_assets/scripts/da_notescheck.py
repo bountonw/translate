@@ -9,10 +9,12 @@ translator kept against a finding, one line per site, sorted by anchor:
     {DA 116.1} | English words | Thai span copied from the chapter | his reason
 
 Lines starting with # are headings. Prints one STALE line per note whose
-anchor is in no chapter or whose Thai span is no longer in that paragraph,
-one FORMAT line per malformed note, one ORDER line per note out of anchor
-order, and a closing count. --chapter limits the span check to the notes of
-that chapter (0 is the preface). Read-only.
+anchor is missing from a drafted chapter or whose Thai span is no longer in
+that paragraph, one PENDING line per note whose page lies outside every
+drafted chapter (a note written ahead of its chapter; not a defect), one
+FORMAT line per malformed note, one ORDER line per note out of anchor order,
+and a closing count. --chapter limits the span check to the notes of that
+chapter (0 is the preface). Read-only.
 """
 import argparse
 import re
@@ -39,14 +41,24 @@ def main():
     if not NOTES.exists():
         print(f"no notes file {NOTES.relative_to(PROJECT.parents[1])}; 0 notes")
         return
-    body, home = {}, {}
+    body, home, pages = {}, {}, {}
     for nn in chapters():
         _, paras = parse_thai(chapter_path(nn).read_text(encoding="utf-8"))
         for p in paras:
             body[p.anchor] = "\n".join(p.lines)
             home[p.anchor] = nn
+        found = [int(p.anchor.split(".")[0]) for p in paras]
+        if found:
+            pages[nn] = (min(found), max(found))
+
+    def drafted(anchor, nn=None):
+        """True when the anchor's page lies inside a drafted chapter (chapter nn, or any)."""
+        page = int(anchor.split(".")[0])
+        ranges = [pages[nn]] if nn else pages.values()
+        return any(lo <= page <= hi for lo, hi in ranges if lo is not None)
+
     want = f"{int(only):02d}" if only else None
-    count = bad = 0
+    count = bad = pending = 0
     last = None
     for i, line in enumerate(NOTES.read_text(encoding="utf-8").splitlines(), 1):
         if not line.strip() or line.startswith("#"):
@@ -61,16 +73,20 @@ def main():
             bad += 1
             print(f"ORDER {{DA {anchor}}}: comes after {{DA {last}}}")
         last = anchor
-        if want and home.get(anchor) not in (want, None):
+        if want and home.get(anchor) != want and not (want in pages and drafted(anchor, want)):
             continue
         count += 1
         if anchor not in body:
-            bad += 1
-            print(f"STALE {{DA {anchor}}}: no such paragraph in any chapter")
+            if drafted(anchor):
+                bad += 1
+                print(f"STALE {{DA {anchor}}}: no such paragraph in its chapter")
+            else:
+                pending += 1
+                print(f"PENDING {{DA {anchor}}}: its chapter is not drafted yet")
         elif span not in body[anchor]:
             bad += 1
             print(f"STALE {{DA {anchor}}}: the Thai span is no longer in the paragraph: {span}")
-    print(f"{count} notes checked, {bad} stale, malformed or out of order")
+    print(f"{count} notes checked, {bad} stale, malformed or out of order, {pending} pending")
     sys.exit(1 if bad else 0)
 
 

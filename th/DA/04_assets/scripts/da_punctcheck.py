@@ -14,7 +14,8 @@ printed. Chapter 0 is the preface.
 
 DA conventions the sweep knows: a Typst block comment holding only a citation,
 as /*ยอห์น 3:16*/, is the hidden citation of DA 3.D and prints as NOTE
-hidden-citation, not as a typst-comment finding; a "=== " line between the
+hidden-citation, not as a typst-comment finding, and a space before it is the
+finding hidden-comment-space (DA 3.D.1); a "=== " line between the
 anchor comment and the prose is a subtitle; an editor's choice, ((A/B)) or
 ((original:A/B)), prints as NOTE editor-choice; a question or exclamation mark
 outside direct speech prints as NOTE mark-narration for the editor (DA 3.G);
@@ -100,7 +101,8 @@ CHECKS = {
     "thai-digit": "a Thai digit U+0E50–U+0E59; Western digits only",
     "lao-digit": "a Lao digit U+0ED0–U+0ED9",
     "invisible": "a zero-width, joiner, BOM, soft-hyphen or no-break character",
-    "double-space": "two or more spaces inside a paragraph",
+    "double-space": "two or more spaces inside a paragraph, counted as the print shows them, with hidden comments removed",
+    "hidden-comment-space": "a space before a hidden comment /* */ (DA 3.D.1); the print then carries two spaces",
     "quote-balance": "double quotation marks that do not pair within the paragraph",
     "single-quote-balance": "single quotation marks that do not pair within the paragraph",
     "space-before-close": "a space before a closing quotation mark, parenthesis or bracket",
@@ -148,8 +150,13 @@ def check_para(p, out, note):
     for ch, name in INVISIBLE.items():
         for i in [i for i, c in enumerate(body) if c == ch]:
             out(p, "invisible", f"{name} at: {context(body, i)}")
-    for m in DOUBLE_SPACE.finditer(body):
-        out(p, "double-space", context(body, m.start()))
+    # Spacing is checked as the print shows it: a hidden comment prints as nothing (DA 3.D.1).
+    printed = HIDDEN_CITE.sub("", body)
+    for m in DOUBLE_SPACE.finditer(printed):
+        out(p, "double-space", context(printed, m.start()))
+    for m in HIDDEN_CITE.finditer(body):
+        if m.start() > 0 and body[m.start() - 1].isspace():
+            out(p, "hidden-comment-space", context(body, m.start()))
     for m in SPACE_BEFORE_CLOSE.finditer(body):
         out(p, "space-before-close", context(body, m.start()))
 

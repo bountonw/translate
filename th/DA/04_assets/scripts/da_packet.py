@@ -32,12 +32,23 @@ DA_CLAUDE = PROJECT / "CLAUDE.md"
 
 
 def head_regex(head):
-    """"trial (God testing)" -> a regex for the word "trial" and its inflections."""
-    base = re.split(r"\(|,", head)[0].strip()
-    words = [w for w in re.split(r"\s+", base) if w]
-    if not words:
+    """"trial (God testing)" -> a regex for the word "trial" and its inflections.
+
+    A head with several alternatives, as "Infinite One, the; Infinite, the (title
+    for God)" or "incarnation (of Christ), incarnate", matches any of them: the
+    parentheses are dropped, the head is split at ";" and ",", an article left
+    alone by the split ("the") is dropped, and a token with no word character
+    ("…") is dropped."""
+    plain = re.sub(r"\([^)]*\)", " ", head)
+    alts = []
+    for alt in re.split(r"[;,]", plain):
+        words = [w for w in re.split(r"\s+", alt.strip()) if re.search(r"\w", w)]
+        if not words or words in (["the"], ["a"], ["an"]):
+            continue
+        alts.append(r"\b" + r"\s+".join(re.escape(w) + r"\w*" for w in words))
+    if not alts:
         return None
-    return re.compile(r"\b" + r"\s+".join(re.escape(w) + r"\w*" for w in words), re.I)
+    return re.compile("|".join(alts), re.I)
 
 
 def section_of(text, number):

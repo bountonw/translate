@@ -22,13 +22,15 @@ from the English header; the verse picks of pass 1, when
           with fewer verses than the English, a quotation that differs from
           its version (the version's text is printed), a quotation from the
           based-on passage with neither a printed nor a hidden citation
-          (uncited), a hidden citation outside the based-on passage
-          (hidden-outside), a hidden citation with a label other than THSV, or
-          a verse pick of pass 1 whose paragraph carries no citation of it.
+          (uncited), a hidden citation outside the based-on passage whose verse
+          no earlier printed citation in the chapter carries (hidden-outside),
+          a hidden citation with a label other than THSV, or a verse pick of
+          pass 1 whose paragraph carries no citation of it.
     NOTE  not a marker: a citation the Thai carries beyond the English (DA 3.C
           allows it), extra verses, a THSV quotation from the based-on passage
-          with a printed citation (DA 3.D wants it hidden), a quotation that
-          could not be compared.
+          with a printed citation (DA 3.D wants it hidden), a refrain comment,
+          the hidden citation of a verse cited in print earlier in the chapter
+          (DA 3.C), a quotation that could not be compared.
 
 Exit status 1 when any REF line was printed. Chapter 0 is the preface.
 """
@@ -170,9 +172,10 @@ def quote_matches(quote, label, code, ch, vv):
     return True
 
 
-def compare_quote(quote, cite, hidden, th_books, anchor, refs, notes, skipped, basedon):
+def compare_quote(quote, cite, hidden, th_books, anchor, refs, notes, skipped, basedon, printed=frozenset()):
     """Compare one quotation with its cited verses in the labelled version and
-    apply the DA rules on hidden and printed citations."""
+    apply the DA rules on hidden and printed citations; printed holds the
+    (code, chapter, verse) triples cited in print up to this paragraph."""
     found = cites(cite, TH_CITE, th_books)
     if not found or found[0][1] is None or found[0][3] is None or isinstance(found[0][3], tuple):
         return
@@ -180,8 +183,11 @@ def compare_quote(quote, cite, hidden, th_books, anchor, refs, notes, skipped, b
     label = label or DEFAULT_VERSION
     inside = all(in_based_on(basedon, code, ch, v) for v in vv) if basedon else False
     if hidden and not inside:
-        refs.append(f"{{DA {anchor}}} REF hidden-outside: the hidden citation /*{raw}*/ is not in the chapter's based-on passage; DA 3.D hides only based-on THSV quotations")
-    if hidden and label != DEFAULT_VERSION:
+        if all((code, ch, v) in printed for v in vv):
+            notes.append(f"{{DA {anchor}}} NOTE refrain: /*{raw}*/ repeats a verse cited in print earlier in the chapter (DA 3.C)")
+        else:
+            refs.append(f"{{DA {anchor}}} REF hidden-outside: the hidden citation /*{raw}*/ is not in the chapter's based-on passage and no earlier printed citation carries it; DA 3.D hides based-on THSV quotations and DA 3.C a refrain")
+    if hidden and label != DEFAULT_VERSION and not all((code, ch, v, label) in printed for v in vv):
         refs.append(f"{{DA {anchor}}} REF hidden-label: /*{raw}*/ carries {label}; a quotation in any version but THSV is cited and labelled in print")
     if not hidden and inside and label == DEFAULT_VERSION:
         notes.append(f"{{DA {anchor}}} NOTE based-on-cited: \"{raw}\" prints a citation for a THSV quotation from the based-on passage; DA 3.D hides it as /*{raw}*/")
@@ -223,7 +229,7 @@ def uncited_quotes(quotes, th_books, anchor, refs, basedon):
             refs.append(f"{{DA {anchor}}} REF uncited: the quotation “{q[:60]}…” matches {label} {code} {ch}:{v} of the based-on passage and carries no citation, printed or hidden")
 
 
-def compare_paragraph(body, th_books, anchor, refs, notes, skipped, basedon):
+def compare_paragraph(body, th_books, anchor, refs, notes, skipped, basedon, printed=frozenset()):
     """Pair each citation slot, printed or hidden, with the quotations before it, in order."""
     pos = 0
     text = strip_footnotes(body)
@@ -237,9 +243,9 @@ def compare_paragraph(body, th_books, anchor, refs, notes, skipped, basedon):
             continue
         if len(quotes) == len(cites_):
             for q, c in zip(quotes, cites_):
-                compare_quote(q, c, hidden, th_books, anchor, refs, notes, skipped, basedon)
+                compare_quote(q, c, hidden, th_books, anchor, refs, notes, skipped, basedon, printed)
         elif len(cites_) == 1:
-            compare_quote(quotes[-1], cites_[0], hidden, th_books, anchor, refs, notes, skipped, basedon)
+            compare_quote(quotes[-1], cites_[0], hidden, th_books, anchor, refs, notes, skipped, basedon, printed)
             uncited_quotes(quotes[:-1], th_books, anchor, refs, basedon)
         else:
             skipped.append(f"({inner[:60]}) ({len(quotes)} quotations, {len(cites_)} citations)")
@@ -290,7 +296,11 @@ def main():
                     vs |= f[3]
         return vs, loose
 
+    printed = set()
     for i, p in enumerate(paras):
+        for _, code, ch, vv, label, _ in th_all[p.anchor]:
+            if code and vv and not isinstance(vv, tuple):
+                printed |= {(code, ch, v) for v in vv} | {(code, ch, v, label or DEFAULT_VERSION) for v in vv}
         if not in_range(p.anchor, first, last):
             continue
         body = mask_markers(p.text)
@@ -301,6 +311,8 @@ def main():
         seen_pairs = set()
         for name, code, ch, vv, label, raw in th:
             if code is None:
+                if vv is None:
+                    continue  # a Thai word and a bare number, with no chapter:verse, is prose, not a citation
                 refs.append(f"{{DA {p.anchor}}} REF unknown-book: \"{raw}\" — {name} is not in th_books.txt")
                 continue
             if label and label not in KNOWN_LABELS:
@@ -336,7 +348,7 @@ def main():
             else:
                 refs.append(f"{{DA {p.anchor}}} REF missing: EN \"{raw}\" — no Thai citation of {code} {ch} in the paragraph")
         before = len(skipped)
-        compare_paragraph(body, th_books, p.anchor, refs, notes, skipped, basedon)
+        compare_paragraph(body, th_books, p.anchor, refs, notes, skipped, basedon, frozenset(printed))
         skipped[before:] = [f"{{DA {p.anchor}}} {s}" for s in skipped[before:]]
 
     check_picks(a.chapter, th_all, hidden_all, refs, notes, lambda anc: in_range(anc, first, last))

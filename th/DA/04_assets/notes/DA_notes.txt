@@ -1,3 +1,8 @@
 # DA — wordings kept on purpose, sorted by anchor: {DA ###.#} | English words | Thai span | reason
+{DA 19.2} | the mystery of redeeming love | ความรักที่ทรงไถ่มนุษย์ให้รอด | ไถ่ needs an object in Thai; มนุษย์ให้รอด is narrower than the English and understandable, kept against the options ไถ่เรา and ไถ่มนุษย์
+{DA 20.1} | hung the worlds in space | ดาวเคราะห์ทั้งหลาย | the paragraph pictures the whole expanse of space, and planet fits many places where the author says world; context chooses at each site, and DA 20.2 is weighed on its own
+{DA 22.1} | Only by love is love awakened | มีแต่ความรักเท่านั้นที่จะปลุกความรักให้เกิดขึ้นได้ | the editor's wording, kept at the translator's ruling; the drill found that ปลุกความรักให้ตื่นขึ้น is THSV's Song of Songs refrain (เพลงซาโลมอน 2:7) and proposed งอกเงยขึ้น; ให้เกิดขึ้น is not the refrain's wording
+{DA 23.2} | This enshrined the Infinite | พระเจ้าผู้ทรงมหิทธิฤทธิ์ | omnipotence is a form of infinity and reads better here than ไร้ขอบเขต or อานุภาพอนันต์; the glossary's form for the Almighty, THSV ปฐมกาล 17:1
+{DA 24.1} | our trials | ความทุกข์ยากลำบาก | the word occurs nowhere else in the chapter, kept against the drill's ความยากลำบาก
 {DA 132.1} | Bethabara, beyond Jordan | เบธานีฟากแม่น้ำจอร์แดนข้างโน้น | THSV ยอห์น 1:28 and the Byzantine text read Bethany; footnote here saying the King James reads เบธาบารา, wording by an 8/5/1 drill at drafting
 {DA 339.2} | Gergesa, Gergesenes | กาดารา / ชาวกาดารา | THSV มัทธิว 8:28 and TKJV; footnote here saying มาระโก 5:1 and ลูกา 8:26 read เก-ราซา and the King James Gergesenes, wording by an 8/5/1 drill at drafting
