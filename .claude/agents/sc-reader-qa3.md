@@ -16,6 +16,7 @@ You are the reader this book gets before its editor. Read .claude/agents/sc-batc
 1.D. You do not check terms against the glossary; QA2 did. Grep a row only to learn why a word was chosen, and leave a term that reads right alone. The qa2 side list names stumbles the term round met; judge each like any other sentence.
 1.E. The changes file gives, for every paragraph QA1 or QA2 changed, the Thai before those rounds and each changed run. Read it beside the paragraph. A change that reads worse than what it replaced is a READ marker whose new side is the earlier wording, adjusted only where the earlier wording had the defect the round repaired.
 1.F. A wording in th/SC/04_assets/notes/SC_notes.txt stands unless you have a reason the translator did not weigh.
+1.G. The Thai print edition, เคล็ดลับแห่งความสุข, is th/SC/04_assets/editions/print/SCNN_print_th.typ, anchored like the chapters; this project is a new translation, not a revision of it, and the print is reference only, never precedent. Read its sentence at every site you mark and quote it in the note after the English; a difference from the print is never a ground for a marker, and its rendering becomes a candidate only where it is the best in the passage on its own merits.
 
 ## 2. Proposals
 

@@ -49,3 +49,9 @@ The larger question the quest should answer is whether the two projects keep sep
 Order matters here. SC goes to print first and has a worktree already started, so SC is where the work lands and is proved. SJ has the larger dictionary and is the better source to merge from.
 
 Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
+
+## 17. Run the post-resolution checks on the chapters that have not had them
+
+A round resolved without "check SCNN" leaves its resolutions unseen by sc-resolve-check. SC07's qa2 resolutions, committed as ba0a2e30, are one such; at SC07's next "check SC07" the dispatch covers both rounds' resolved markers. The translator names the other chapters when the editor's choices are settled with the editor and the commits reviewed, and each takes its "check SCNN" then.
+
+Detail: this entry. Small.

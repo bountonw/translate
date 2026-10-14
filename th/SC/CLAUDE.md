@@ -22,6 +22,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 2.D. Markers go into the chapter file. Everything else a run produces — the resolution sheet, term candidates, agent reports — goes to ~/claude-sandbox/sc-audit/.
 2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, sc_resolution_sheet.py, sc_editor_markers.py. Each says what it does in its first lines.
 2.F. Compile check, from th/SC: ./typst-custom compile --root . <stage>/SCNN_th.typ $TMPDIR/SCNN.pdf. Never on a chapter holding markers.
+2.G. The Thai print edition, เคล็ดลับแห่งความสุข (ThSC), is th/SC/04_assets/editions/print/SCNN_print_th.typ, anchored like the chapters, with its README beside it. This project is a new translation, not a revision of the print, and the print is reference only, never precedent: whoever works wording at a site reads the print's sentence there and shows it beside the candidates; a rendering from it is taken only where it is the best in the passage on its own merits, and no candidate is ranked up for matching it or down for departing from it.
 
 ## 3. The rounds
 

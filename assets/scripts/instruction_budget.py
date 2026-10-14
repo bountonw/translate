@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
     "CLAUDE.md": 1325,
-    "th/SC/CLAUDE.md": 1900,
+    "th/SC/CLAUDE.md": 2000,
     "th/DA/CLAUDE.md": 1850,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
@@ -29,10 +29,10 @@ BUDGET = {
     ".claude/agents/da-wording-drill.md": 750,
     ".claude/agents/sc-batch-auditor.md": 2005,
     ".claude/agents/sc-batch-auditor-qa2.md": 800,
-    ".claude/agents/sc-reader-qa3.md": 740,
+    ".claude/agents/sc-reader-qa3.md": 820,
     ".claude/agents/th-term-study.md": 750,
-    ".claude/agents/sc-wording-drill.md": 715,
-    ".claude/agents/sc-wording-drill-opus-max.md": 715,
+    ".claude/agents/sc-wording-drill.md": 740,
+    ".claude/agents/sc-wording-drill-opus-max.md": 745,
     ".claude/agents/sc-resolve-check.md": 885,
     ".claude/agents/th-glossary-miner.md": 520,
     "th/assets/translation_profile/thai-profile.txt": 1150,
