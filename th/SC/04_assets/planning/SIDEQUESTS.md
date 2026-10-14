@@ -20,12 +20,6 @@ SJ is unedited and its sons of God sites take one form under the row when SJ is 
 
 Detail: this entry. Small.
 
-## 14. SC08 note for qa2, from the SC08 and SC09 term close-out
-
-Site to weigh in qa2, in its own sentence. {SC 73.1} (SC08) "as the character of the Divine One was manifested to him" reads พระลักษณะของพระผู้ช่วยให้รอด, which names Christ's work rather than His deity; the candidate is พระลักษณะของพระองค์ผู้ทรงเป็นพระเจ้า, on TNCV's ผู้ทรงเป็นพระเจ้า at โรม 9:5; the translator expects to keep the present wording after review, and the glossary row for "the Divine One" waits on that review.
-
-Detail: ~/claude-sandbox/sc-audit/term-close-S6-study.md. Small.
-
 ## 15. SC12 note for qa2: the authority sentence at {SC 109.3}
 
 {SC 109.3} "reason must acknowledge an authority superior to itself" reads พระคัมภีร์มีอำนาจเหนือความคิดของเรา, the editor's wording, which stands until qa2 weighs the sentence. The editor rejected สิทธิอำนาจ here as personifying the Bible too much and sounding political; the editor check found that อำนาจเหนือความคิดของเรา can read as control over our thoughts. The drill's two candidates, which the editor has not seen: ยังมีอำนาจที่สูงกว่าความคิดของเราเอง, which leaves the authority unnamed as the English does, and พระคัมภีร์อยู่เหนือความคิดของเราเอง, which can also be heard as "beyond our thinking".
