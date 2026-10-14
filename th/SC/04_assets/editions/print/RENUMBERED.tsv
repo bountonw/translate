@@ -1,0 +1,23 @@
+file	para	printed	action	code	note
+SC00	14099.9	SC 49.2	UNTAG		the publisher's preface quotes this paragraph of chapter 6; the code is left off so that a search for {SC 49.2} finds the chapter
+SC01	14099.19		SUPPLY	SC 9.1	"Nature and revelation alike testify of God's love" opens {SC 9.1}; the data gives the paragraph no code
+SC01	14099.22	SC 9.1	RECODE	SC 9.2	Psalm 145:15, 16 is {SC 9.2}; the data codes it one behind
+SC01	14099.23	SC 9.2	RECODE	SC 9.3	"God made man perfectly holy and happy" opens {SC 9.3}; the data codes it one behind
+SC03	14099.81		SUPPLY	SC 24.3	"The prayer of David after his fall" opens {SC 24.3}; the data gives the paragraph no code
+SC03	14099.82		SUPPLY	SC 25.1	Psalm 32:1, 2 is {SC 25.1}; the data gives the poem and its source line no code
+SC03	14099.87	SC 24.3	RECODE	SC 25.2	Psalm 51:1-14 is {SC 25.2}; the data codes it two behind
+SC03	14099.88	SC 25.1	RECODE	SC 25.3	"A repentance such as this" opens {SC 25.3}; the data codes it two behind
+SC05	14099.160		JOIN	SC 45.1	the data breaks {SC 45.1} into two paragraphs after "for our redemption"; this one joins the next, which carries the code
+SC12	14099.402	SC 111.2	RECODE	SC 111.3	"There is an evidence that is open to all" opens {SC 111.3}; the data repeats 111.2
+SC13	14099.416		SUPPLY	SC 116.3	"Many, walking along the path of life, dwell upon their mistakes" opens {SC 116.3}; no code in the data
+SC13	14099.420		SUPPLY	SC 117.3	"It is not wise to gather together all the unpleasant recollections" opens {SC 117.3}; no code in the data
+SC13	14099.421		SUPPLY	SC 118.1	"Thank God for the bright pictures" opens {SC 118.1}; no code in the data
+SC13	14099.424		SUPPLY	SC 119.1	"All this is harming your own soul" opens {SC 119.1}; no code in the data
+SC13	14099.426		SUPPLY	SC 119.2	"Angels are listening to hear what kind of report" opens {SC 119.2}; no code in the data
+SC13	14099.427		SUPPLY	SC 119.3	"All have trials; griefs hard to bear" opens {SC 119.3}; no code in the data
+SC13	14099.428		SUPPLY	SC 120.1	"There is many a brave soul sorely pressed by temptation" opens {SC 120.1}; no code in the data
+SC13	14099.431		SUPPLY	SC 120.3	"It is often said that Jesus wept" opens {SC 120.3}; no code in the data
+SC13	14099.432		SUPPLY	SC 120.4	"Our Saviour was deeply serious and intensely in earnest" opens {SC 120.4}; no code in the data
+SC13	14099.433		SUPPLY	SC 121.1	"If we keep uppermost in our minds the unkind and unjust acts of others" opens {SC 121.1}; no code in the data
+SC13	14099.435		SUPPLY	SC 121.2	"The psalmist says, Trust in the Lord, and do good" opens {SC 121.2}; no code in the data
+SC13	14099.439		SUPPLY	SC 122.2	"You may be perplexed in business" opens {SC 122.2}; no code in the data
