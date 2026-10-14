@@ -14,9 +14,11 @@ and 44–73; unreviewed: PP 31–43; SC; DA) and occurrences per book, SJ by
 occurrences only. 3 Bible: each form counted in every Thai version on disk (zero-width
 characters stripped first), the
 --verses in all of them, and the King James verses matching --head (KJVS,
-up to 60) with all the versions beside them. 4 the two Thai GC editions
-(th/GC/04_assets/editions/print and alt), counts and up to twelve snippets,
-light reference. 5 up to ten Lao GC sites, the English sentence beside the
+up to 60) with all the versions beside them. 4 the published Thai editions of
+other books, the two Thai GC editions (th/GC/04_assets/editions/print and alt)
+and the Steps to Christ print (th/SC/04_assets/editions/print), counts and up
+to twelve snippets each, light reference and never a model; an edition not on
+the branch is named as absent. 5 up to ten Lao GC sites, the English sentence beside the
 Lao paragraph from lo/GC, light reference. --chapter limits the print column
 to that chapter. The Bible corpus path is BIBLE_CORPUS or ~/programming/bible.
 """
@@ -49,7 +51,8 @@ def print_snippet(para, found, width=70):
         i = para.find(f)
         parts.append("…" + para[max(0, i - width):i + len(f) + width] + "…")
     return " / ".join(parts)
-GC_EDITIONS = {"print": ROOT / "th/GC/04_assets/editions/print", "alt": ROOT / "th/GC/04_assets/editions/alt"}
+EDITIONS = {"GC print": ROOT / "th/GC/04_assets/editions/print", "GC alt": ROOT / "th/GC/04_assets/editions/alt",
+            "SC print": ROOT / "th/SC/04_assets/editions/print"}
 
 
 def english_paras(book):
@@ -119,12 +122,12 @@ def kjv_hits(head, limit=60):
     return hits
 
 
-def gc_paras(edition_dir):
-    """anchor -> paragraph for a Thai GC edition (Typst files with // {GC ...} comments)."""
+def edition_paras(edition_dir):
+    """anchor -> paragraph for a published Thai edition (Typst files with // {GC ...} or // {SC ...} comments)."""
     out = {}
     for f in sorted(edition_dir.glob("*.typ")):
         t = f.read_text(encoding="utf-8")
-        for m in re.finditer(r"^// \{(GC [^}]+)\}\s*\n(.*?)(?=^// |\Z)", t, re.M | re.S):
+        for m in re.finditer(r"^// \{(\w+ [^}]+)\}\s*\n(.*?)(?=^// |\Z)", t, re.M | re.S):
             body = strip_zw(re.sub(r"#EGW\[[^\]]*\]", "", m.group(2)).strip())
             if body:
                 out[m.group(1)] = body
@@ -244,13 +247,14 @@ def main():
     if not hits:
         L.append("none")
 
-    L += ["", "## 4. The two Thai GC editions (light reference)", ""]
-    snippets = 0
-    for name, d in GC_EDITIONS.items():
+    L += ["", "## 4. The published Thai editions of other books (light reference, never a model)", ""]
+    for name, d in EDITIONS.items():
+        snippets = 0
         if not d.is_dir():
-            L.append(f"{name}: not on disk ({d.relative_to(ROOT)})")
+            L.append(f"### {name}: not on this branch ({d.relative_to(ROOT)})")
+            L.append("")
             continue
-        paras = gc_paras(d)
+        paras = edition_paras(d)
         L.append(f"### {name} ({len(paras)} paragraphs)")
         L.append("")
         for f in forms:

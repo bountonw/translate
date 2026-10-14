@@ -67,7 +67,7 @@ This file governs the new Thai translation of *The Desire of Ages* in th/DA. A D
 ## 6. Pass 1: terms and scripture
 
 6.A. da-finder (Opus), the whole chapter: lists every head that needs a Thai decision (no row, a row tagged [CHECK] or [FLAG], a name not in names.tsv), every quotation, and every allusion, where the English uses scripture's wording without quoting it; da_quotes.py proposes them by runs of KJV words and the finder confirms each.
-6.B. da-miner (Sonnet): per term family, a data file of the eight Thai Bibles at the KJV verses using the word, PP, MB, SJ, SC, the GC editions, the print as a labelled column, and Thai sources online where the network allows; per chapter, all eight versions of every quotation and allusion.
+6.B. da-miner (Sonnet): per term family, a data file of the eight Thai Bibles at the KJV verses using the word, PP, MB, SJ, SC, the GC editions and the SC print as light reference, the print as a labelled column, and Thai sources online where the network allows; per chapter, all eight versions of every quotation and allusion.
 6.C. th-term-study (Opus; Fable where the translator names it), three or four related families a dispatch, proposes each row with ranked candidates; a head whose Thai agrees everywhere takes its row from the data.
 6.D. da-verse-study (Opus), per chapter, split at about 25 passages: the top three versions of each quotation and allusion, ranked for meaning and readability in the passage, and its pick; a close call is marked as 3.E says.
 6.E. The report gives each ROW line for ruling and the verse picks, close calls first. Ruled rows enter the glossary in the same reply; the picks go to ~/claude-sandbox/da-audit/DANN-verses.tsv for pass 2.
