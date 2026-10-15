@@ -40,13 +40,9 @@ Detail: none written. `.tooling/textlint/rules/lo.js` line 6 shows how the linte
 
 ## 7. Governing-file size reduction
 
-The three files under `lo/GC/04_assets/translation_profile/` are loaded by every agent on every dispatch. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch.
+The GC governing files are `lo/GC/CLAUDE.md`, `.claude/commands/lo-gc.md`, the six `gc-*` agent definitions in `.claude/agents/` and the scripts in `lo/GC/04_assets/scripts/`. Bring them to the shape of the th/ files. Every GC instruction file has a row in `assets/scripts/instruction_budget.py` and sits within 45 words of it, while the GC agents run far larger than their th/ counterparts: gc-batch-auditor 3,127 words against sc-batch-auditor's 1,897, gc-qa3-reader 2,656 against sc-reader-qa3's 814, gc-resolve-check 1,612 against sc-resolve-check's 885. Cut restatement and history, keep every rule in force, and lower each budget row to the new size.
 
-Scope after the translator's rulings of 13 August: 17 oversized `GC-open-terms.md` entries and 24 glossary rows. The twelve sense-selection rows in the plan's section 6 are not touched at all, and a deferred entry stays at full size until it is adjudicated. `gc_govcheck.py` and its tests already exist and prove a pass loses nothing.
-
-The largest single case measured so far is the Clergy entry of `GC-open-terms.md`, which stands at 806 words against the 15-word limit set by item 4.H of `lo/GC/CLAUDE.md`, in a file of 5,333 words that every agent loads on every dispatch. The GC38 audit of 21 August measured it and the translator deferred the cut, expecting to adjudicate it around Monday 24 August; the entry records a decision it calls closed at GC 15, so what has to stay is the three-way mapping the row states and what goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md` is the site-by-site reasoning behind it.
-
-Detail: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
+Detail: none written; this entry is the whole brief. Medium.
 
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
@@ -54,7 +50,7 @@ The translator's direction of 23 August: what the GC governing files have become
 
 Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao Spelling Glossary`, `## 11. Lao Proper Noun Glossary (GC)`, `## 12. Lao Compound Word-Order Pairs (GC)` in `lo/GC/04_assets/translation_profile/GC-glossary.txt` — a numbering left over from a structure that no longer exists, and the rework renumbers it. And the QA3 record under `lo/GC/04_assets/qa3/`, which gives Fable's in-context verdict on every change QA1 and QA2 made, is the evidence the rework reads before it keeps, loosens or drops any rule the GC runs wrote; every DECIDED, closed or ruled label in the current files is re-examined against that record rather than carried over, because many of those labels were an agent's extrapolation and not a ruling.
 
-Entry 7 (governing-file size reduction) is absorbed by this.
+The size of the three files under `lo/GC/04_assets/translation_profile/`, which every agent loads on every dispatch, is part of this work. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch. Scope after the translator's rulings of 13 August: 17 oversized `GC-open-terms.md` entries and 24 glossary rows; the twelve sense-selection rows in section 6 of the plan are not touched, and a deferred entry stays at full size until it is adjudicated. `gc_govcheck.py` and its tests prove a pass loses nothing. The largest case is the Clergy entry of `GC-open-terms.md`, 807 words against the 15-word limit of item 5.C of `lo/GC/CLAUDE.md`; the three-way mapping its row states stays, and the site-by-site reasoning goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md`. Plan: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
 
 Detail: none written yet; this entry is the whole brief. Large; Fable for the design.
 
