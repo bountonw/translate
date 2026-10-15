@@ -1,6 +1,5 @@
 # Bible book names for the SC citation check: CODE | Thai name as the manuscripts write it | English names, separated by ;
 # The Thai names were copied out of the Thai corpus (the THSV headers for the New Testament, the SC, PP and MB chapters for the Old Testament); none was typed from memory.
-# Five Old Testament books have no Thai row yet because no manuscript on disk cites them: Ruth (RUT), Ezra (EZR), Esther (EST), Obadiah (OBA), Zephaniah (ZEP). Add a row when a chapter cites one, copying the name from that chapter.
 # A Thai name may appear on more than one row where the manuscripts use two spellings for one book; both must be correct spellings, never a typo, because a name listed here is never reported.
 GEN|ปฐมกาล|Genesis
 EXO|อพยพ|Exodus
@@ -9,16 +8,16 @@ NUM|กันดารวิถี|Numbers
 DEU|เฉลยธรรมบัญญัติ|Deuteronomy
 JOS|โยชูวา|Joshua
 JDG|ผู้วินิจฉัย|Judges
-RUT||Ruth
+RUT|นางรูธ|Ruth
 1SA|1 ซามูเอล|1 Samuel
 2SA|2 ซามูเอล|2 Samuel
 1KI|1 พงศ์กษัตริย์|1 Kings
 2KI|2 พงศ์กษัตริย์|2 Kings
 1CH|1 พงศาวดาร|1 Chronicles
 2CH|2 พงศาวดาร|2 Chronicles
-EZR||Ezra
+EZR|เอสรา|Ezra
 NEH|เนหะมีย์|Nehemiah
-EST||Esther
+EST|เอสเธอร์|Esther
 JOB|โยบ|Job
 PSA|สดุดี|Psalm;Psalms
 PRO|สุภาษิต|Proverbs
@@ -32,12 +31,12 @@ DAN|ดาเนียล|Daniel
 HOS|โฮเชยา|Hosea
 JOL|โยเอล|Joel
 AMO|อาโมส|Amos
-OBA||Obadiah
+OBA|โอบาดีห์|Obadiah
 JON|โยนาห์|Jonah
 MIC|มีคาห์|Micah
 NAM|นาฮูม|Nahum
 HAB|ฮาบากุก|Habakkuk
-ZEP||Zephaniah
+ZEP|เศฟันยาห์|Zephaniah
 HAG|ฮักกัย|Haggai
 ZEC|เศคาริยาห์|Zechariah
 MAL|มาลาคี|Malachi
