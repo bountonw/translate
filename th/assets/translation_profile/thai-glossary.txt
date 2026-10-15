@@ -1,6 +1,6 @@
 # Thai Glossary — shared by every Thai project (PP, SC, SJ, MB, PK, ...)
 
-<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/MB and th/PP, whose published chapters (MB, PP 1–20) are the strong precedent; SC chapters supply the questions. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. A Notes cell may name wordings that stand when found and are never proposed. A row gives a form once; a possessive tail such as ของพระองค์ varies with the sentence, goes in the Notes cell, and is never a separate form. -->
+<!-- Being built. A row enters this file only after the translator adjudicates it, chunk by chunk, from mining runs over th/MB and th/PP, whose published chapters (MB, PP 1–20) are the strong precedent; SC chapters supply the questions. Conventions follow lo/GC/04_assets/translation_profile/GC-glossary.txt: a row is silent until its Notes cell carries [CHECK] (enforce: report English present, Thai absent) or [FLAG] (report every occurrence); a bare Notes cell is reference only; '/' in the Thai cell means any listed option satisfies a [CHECK]. A Notes cell carries at most 15 words of prose, refs excluded, on one line. A Notes cell may name wordings that stand when found and are never proposed. A row gives a form once; a possessive tail such as ของพระองค์ varies with the sentence, goes in the Notes cell, and is never a separate form. Refs name the sites a row was ruled from; a site that follows the row is never added, and an edit that only adds a ref is never raised. -->
 
 ## 1. Theological and historical terms
 
@@ -63,20 +63,21 @@
 | curse, verb and noun | สาปแช่ง / คำสาปแช่ง / การสาปแช่ง | [CHECK] The verb, then the two nouns. MB 17.3, MB 1.1, PP 78.2 |
 | character (of God, of Christ) | พระลักษณะ / พระลักษณะนิสัย / พระอุปนิสัย | [CHECK] In this order of preference. MB 49.2, MB 77.1, MB 54.1 |
 | goodness (of God) | พระคุณความดี / ความดีของพระเจ้า | [CHECK] MB 26.3, PP 74.1 |
-| glory (of God, of Christ) | พระสิริ / พระเกียรติสิริ | [CHECK] THSV, TH1971 พระสิริ; TNCV พระเกียรติสิริ; visible radiance may take รัศมี, heaven's glory สง่าราศี. MB 26.2, MB 43.1, PP 330.4 |
+| glory (of God, of Christ) | พระสิริ / พระเกียรติสิริ | [CHECK] THSV, TH1971 พระสิริ; TNCV พระเกียรติสิริ; visible radiance may take รัศมี, heaven's glory สง่าราศี. MB 26.2, MB 43.1, PP 330.4, SC 59.3 |
 | the enemy of good | ศัตรูแห่งความดี | Follows SC 10.3; PP and MB have no site for the phrase |
 | ruin and degradation; degradation | ความตกต่ำ / ความเสื่อมทราม / ความเสื่อมเสีย / ความเสื่อมโทรม | [CHECK] Pair ความหายนะ or ความพินาศ with ความตกต่ำ or ความเสื่อมทราม; เสื่อมเสีย means disgrace. SC 14.3, MB 69.2 |
 | only begotten Son | พระบุตรองค์เดียว | [CHECK] PP 63.3 |
 | disciple | สาวก | [CHECK] PP 77.1 |
 | gospel | ข่าวประเสริฐ / ข่าวดี | [CHECK] Default ข่าวประเสริฐ. PP 117.3, MB 108.3 |
 | took man's nature | รับสภาพมนุษย์ / รับสภาพธรรมชาติของมนุษย์ / รับสภาพของมนุษย์ | [CHECK] PP 69.3, PP 64.3, MB 104.3 |
-| hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก | [CHECK] PP majority first. PP 475.3, PP 523.1 |
+| hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก / เสแสร้ง | [CHECK] PP majority first; เสแสร้ง for the act of feigning. PP 475.3, PP 523.1, SC 40.2 |
 | unbelief | ขาดความเชื่อ / ไม่เชื่อ / การไม่เชื่อ / ไม่มีความเชื่อ | [CHECK] PP's order of use; ไม่เชื่อ covers the shorter forms. PP 292.2, PP 72.4, PP 95.2, PP 298.3 |
 | iniquity | ความผิดบาป / ความชั่วร้าย / ความชั่ว / ความอธรรม / ความชั่วช้า / ความบาป | [CHECK] Guilt borne or pardoned ความผิดบาป; prevailing wickedness ความชั่วร้าย, ความชั่ว; lawlessness ความอธรรม; depravity ความชั่วช้า. PP 138.4, PP 166.4, PP 67.3, PP 92.1 |
 | Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
 | anointing (of Christ) | ทรงเจิม / เจิมตั้ง / การเจิม / ผู้รับการเจิม | [CHECK] The versions' verb for God anointing Christ; Lao GC uses ເຈີມຕັ້ງ. กิจการ 10:38, SC 11.2 |
 | propitiation, atoning sacrifice, expiate | เครื่องบูชาไถ่บาป / เครื่องบูชาลบบาป / ลบล้างความบาป / ชดใช้ | [CHECK] The two nouns first; ลบล้างความบาป and ชดใช้ are verb reworkings. SC 13.2, PP 279.1, PP 63.2 |
-| atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision as a whole การทรงไถ่; reconciliation คืนดี; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2 |
+| atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision การทรงไถ่; its result คืนดี, KJV โรม 5:11; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2, PP 426.1 |
+| atone (verb; for sin, for transgression) | ชดใช้ / ไถ่โทษ / ลบล้าง | [CHECK] Verb; the object บาป, โทษ or การล่วงละเมิด follows, as สดุดี 51:1 TNCV; secular amends recast. PP 63.2, PP 365.3, SC 33.1, PP 196.1 |
 | Day of Atonement | วันลบมลทินบาป | [CHECK] The Thai Adventist name; the versions write วันลบมลทิน, วันทำการลบมลทิน, วันลบบาป. เลวีนิติ 23:27, PP 355.2 |
 | mercy seat | พระที่นั่งกรุณา | [CHECK] THSV at all 22 verses and TKJV ฮีบรู 9:5; never พระที่นั่งกรุณาธิคุณ, the throne of grace. PP 348.3 |
 | reconcile, reconciliation | คืนดี | [CHECK] All four versions, โรม 5:10–11, 2 โครินธ์ 5:18–20; a secular reconcile may recast. MB 115.1, PP 114.1 |
@@ -86,7 +87,7 @@
 | fallen (race, man, men, world, souls, humanity) | ตกสู่ความบาป / ตกอยู่ในความบาป / หลงผิด / หลงในความบาป / จมอยู่ในความบาป | [CHECK] Event ตกสู่; state ตกอยู่ใน; astray หลง; sunk จม. A recast stands once the fall is told. PP 63.2, SC 21.1, PP 62.2, SC 14.3 |
 | the Fall, fall of man (the event) | ตกสู่ความบาป / หลงทำบาป / หลงผิด | [CHECK] Genesis 3 as an event; ตกสู่ความบาป keeps the fall from a height. PP 63.1, PP 80.3, SC 62.1 |
 | unfallen (worlds, universe, beings) | ไม่ได้ตกสู่ความบาป / ไม่เคยทำบาป | [CHECK] Never fell; the Lao GC writes ບໍ່ເຄີຍຕົກສູ່ຄວາມບາບ and ບໍ່ເຄີຍເຮັດບາບ; สวรรค์ may stand, never proposed. MB 104.2, PP 522.2, SC 30.1 |
-| sinless (beings, angels, Christ, Adam) | ปราศจากบาป / ไม่มีบาป / ไร้บาป / ไร้ความบาป / ไม่เคยทำบาป | [CHECK] ฮีบรู 4:15 ปราศจากบาป; บริสุทธิ์ may stand where purity is the point, never proposed. PP 331.1, MB 116.1, PP 154.3, PP 69.3, PP 62.3 |
+| sinless (beings, angels, Christ, Adam) | ปราศจากบาป / ปราศจากความบาป / ไม่มีบาป / ไร้บาป / ไร้ความบาป / ไม่เคยทำบาป | [CHECK] ฮีบรู 4:15 ปราศจากบาป; บริสุทธิ์ may stand where purity is the point, never proposed. PP 331.1, MB 116.1, PP 154.3, PP 69.3, PP 62.3, SC 17.2 |
 | fallen nature, sinful nature, fallen condition | ธรรมชาติบาป / ธรรมชาติของความบาป / ธรรมชาติแห่งความบาป | [CHECK] Since the Fall; เนื้อหนัง, a description or a recast may stand, never proposed; วิสัยบาป only quoted. PP 80.1, PP 238.2, PP 373.1 |
 | justify, justification, Justifier (God's act) | ให้เป็นคนชอบธรรม / ให้เป็นผู้ชอบธรรม / นับเป็นผู้ชอบธรรม / ชำระให้ชอบธรรม / ชำระให้เป็นคนชอบธรรม | [CHECK] God declaring the believer righteous, the versions' verb shapes; แก้ตัว is the excuse sense only. โรม 3:26, SC 14.1, MB 27.2, PP 373.1 |
 | cross | ไม้กางเขน / กางเขน | [CHECK] MB 10.1, SC 13.1 |
@@ -107,10 +108,10 @@
 | kindness | ความรักมั่นคง / ความเมตตา / ความกรุณา / ความเมตตากรุณา / มีน้ำใจ | [CHECK] ความรักมั่นคง in quotations for God's loving-kindness; มีน้ำใจ for goodwill between people. PP 107.2, PP 134.2, PP 519.5, MB 44.4, PP 714.2 |
 | loving-kindness (of God) | ความรักมั่นคง | [CHECK] The Bible's word for God's steadfast love; kept apart from kindness. SC 19.1, PP 107.2 |
 | kingdom of God, kingdom of heaven | แผ่นดินของพระเจ้า / แผ่นดินสวรรค์ / อาณาจักรของพระเจ้า | [CHECK] Default แผ่นดิน; อาณาจักร may stand; quotations follow their version (TH1971, THSV แผ่นดิน; TKJV, TNCV อาณาจักร). MB 98.2, MB 2.2, SC 18.2 |
-| Source (divine title) | แหล่ง / แหล่งกำเนิด / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น followed by the form. MB 41.1, PP 610.3, PP 717.2, SC 20.1, SC 71.2 |
+| Source (divine title) | แหล่ง / แหล่งกำเนิด / บ่อเกิด / ที่มา | [CHECK] Usually พระเจ้าผู้ทรงเป็น plus the form; the title may fold into its object, as ทรงเป็นความหวังเดียว for the one Source of hope. MB 41.1, PP 610.3, PP 717.2, SC 20.1, SC 21.1, SC 71.2 |
 | communion (with God), commune | การสื่อสัมพันธ์ / สามัคคีธรรม / สนทนา / เข้าเฝ้า / ความสัมพันธ์ / สายสัมพันธ์ / สื่อสาร | [CHECK] Defaults การสื่อสัมพันธ์ and สามัคคีธรรม; สนทนา for pictured talk; ใช้เวลากับ, ติดสนิท, สัมพันธไมตรี stand, never proposed. SC 85.1, MB 20.1, PP 329.5, SC 22.1 |
 | merits (of Christ), His merits | คุณความดี | [CHECK] Christ's worth pleaded for us; never พระคุณความดี, it reads as grace; never บารมี, the majesty word. PP 353.3, SC 35.4, SC 95.3 |
-| unrenewed heart, unrenewed nature | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival. PP 465.1, SC 17.2 |
+| unrenewed heart, unrenewed nature, unrenewed state | จิตใจที่ยังไม่ได้บังเกิดใหม่ / จิตใจที่ยังไม่ได้รับการสร้างใหม่ | [CHECK] The unregenerate heart; ทิตัส 3:5 pairs บังเกิดใหม่ with สร้างใหม่; ฟื้นฟู reads as revival; state takes no word. PP 465.1, SC 17.2, SC 63.2 |
 | type, figure, symbol (pointing to a spiritual reality) | สัญลักษณ์ / สัญลักษณ์ที่เล็งถึง / เล็งถึง / เงาสัญลักษณ์ / ตัวอย่าง / ภาพ / เครื่องหมาย / เปรียบเทียบ | [CHECK] Type สัญลักษณ์ที่เล็งถึง or เล็งถึง; teaching figure ตัวอย่าง or ภาพ; symbol สัญลักษณ์; never แบบอย่าง. 1 เปโตร 3:21, MB 50.2, MB 138.2, PP 120.3, PP 330.4, SC 19.2 |
 | intercession, intercede, Intercessor | วิงวอน / วิงวอนแทน / ผู้วิงวอนแทน / อ้อนวอน / ทูลขอ / อธิษฐานเผื่อ / อธิษฐานขอ / ร้องทูล | [CHECK] Pleading for another; แทน or เพื่อ names the beneficiary; never ไกล่เกลี่ย or คนกลาง, the mediator words. See Advocate. ฮีบรู 7:25, PP 140.2, SC 54.3 |
 | the wicked | คนอธรรม / คนชั่ว | [CHECK] The class against the righteous; คนอธรรม majority form, คนชั่ว wicked men; never คนบาป, the sinner. MB 26.1, MB 151.2, SC 17.2 |
@@ -125,6 +126,7 @@
 | defilement, defile, pollution (of sin) | มลทิน / มลทินบาป / รอยมลทิน / แปดเปื้อน / เปรอะเปื้อน | [CHECK] Sin's soiling of the soul; Levitical uncleanness follows its version. MB 2.1, PP 303.5, MB 59.2, SC 24.3 |
 | impurity, impure | ไม่บริสุทธิ์ / มลทิน | [CHECK] MB 60.1, PP 308.7, SC 29.1 |
 | stain, spot (of sin) | จุดด่างพร้อย / ด่างพร้อย / รอยมลทิน | MB 32.2, SC 28.3, PP 722.4 |
+| stain of iniquity | มลทินบาป | Figure; translation memory; the stain row keeps its forms for a bare stain. SC 37.3 |
 | Searcher of hearts | พระเจ้าผู้ทรงชันสูตรจิตใจ / ผู้ทรงชันสูตรใจมนุษย์ | THSV's word at โรม 8:27; TKJV writes ตรวจค้น; MB and PP have no site for the title. SC 24.2, SC 34.3 |
 | birthright | สิทธิบุตรหัวปี / สิทธิของบุตรหัวปี | [CHECK] THSV at ปฐมกาล 25:34 and ฮีบรู 12:16. PP 177.3, PP 178.3 |
 | Holy One of Israel | องค์บริสุทธิ์ของอิสราเอล / องค์บริสุทธิ์แห่งอิสราเอล | [CHECK] Prose ของ; THSV writes ของ 25 times, แห่ง 5; quotations follow their version. SC 24.1, MB 64.1, PP 360.2 |
@@ -135,7 +137,7 @@
 | water of life, living water | น้ำแห่งชีวิต / น้ำที่ให้ชีวิต / น้ำดำรงชีวิต | [CHECK] All versions at วิวรณ์ 22:17; น้ำดำรงชีวิต is THSV at ยอห์น 4:10 and 7:38. MB 20.1, SC 28.1, PP 411.3 |
 | fountain of life | น้ำพุแห่งชีวิต / บ่อน้ำพุแห่งชีวิต | MB 61.2, MB 16.2, PP 413.1 |
 | conscience | จิตสำนึก / จิตสำนึกผิดชอบ / ความรู้สึกผิดชอบชั่วดี / มโนธรรม | [CHECK] Default จิตสำนึก, TNCV's word; มโนธรรม, THSV's, only where nothing else fits; never จิตใต้สำนึก. SC 26.2, SC 49.1, MB 123.3 |
-| penitent, penitence | สำนึกผิด | [CHECK] Regret for sin felt and shown; ถ่อมใจ only where humiliation is paired; กลับใจ stands where found. MB 84.4, PP 357.6, SC 52.2 |
+| penitent, penitence | สำนึกผิด / รู้สำนึกในบาป | [CHECK] Regret for sin felt and shown; ถ่อมใจ only where humiliation is paired; กลับใจ stands where found. MB 84.4, PP 357.6, SC 52.2, SC 41.2 |
 | contrition, contrite | สำนึกผิด / ใจที่แตกสลาย / เศร้าเสียใจ / ชอกช้ำ / ฟกช้ำ | [CHECK] Heart crushed by sin, สดุดี 51:17 THSV; MB writes เศร้าเสียใจ, TH1971 ชอกช้ำ, ฟกช้ำ. MB 53.2, SC 26.1, MB 130.2, MB 11.2 |
 | conviction of sin, convicted of sin, convince of sin | สำนึกในความบาป / สำนึกผิด | [CHECK] The Spirit showing sin, ยอห์น 16:8; สำนึกในบาป, สำนึกถึงความบาป stand; รู้สึกผิด is guilt, never here. MB 7.2, SC 23.1, SC 35.2 |
 | sorrow for sin, godly sorrow | ความเศร้าเสียใจเพราะบาป / เสียใจต่อบาป | เพราะ marks the cause, ต่อ the object; both stand; 2 โครินธ์ 7:10 ความเสียใจ. MB 9.2, PP 557.2, SC 24.3 |
@@ -159,7 +161,7 @@
 | impenitent, the; impenitence | ไม่สำนึกผิด / ไม่กลับใจ / ไม่ยอมกลับใจ | [CHECK] Always a negated verb; คนใจแข็ง stands where the sentence is about hardness. SC 32.1, PP 140.1, PP 99.3, MB 105.2 |
 | procrastination, delay (in coming to Christ) | ผัดวันประกันพรุ่ง / ผัดผ่อน / ชักช้า / รีรอ | Putting off surrender; ordinary delay in a narrative is free. SC 32.2, PP 517.2 |
 | image of God (in man, at creation) | พระฉายาของพระเจ้า | [CHECK] ปฐมกาล 1:27. MB 56.3, PP 45.2 |
-| image of Christ, likeness of Christ (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ | [CHECK] See character; โรม 8:29 THSV พระฉายา stands inside its quotation. SC 33.3, SC 28.3, PP 88.3 |
+| image of Christ, likeness of Christ, image of God (the believer renewed) | พระลักษณะของพระคริสต์ / พระลักษณะของพระเยซู / พระลักษณะของพระองค์ / พระลักษณะของพระเจ้า / มีลักษณะเหมือนอย่างพระองค์ | [CHECK] See character; the image renewed in man takes this row; โรม 8:29 THSV พระฉายา stands in quotation. SC 33.3, SC 28.3, PP 88.3, SC 49.1, SC 55.1, SC 57.2, SC 60.2, SC 63.2 |
 | filthy rags (Isaiah 64:6) | ผ้าขี้ริ้ว / เสื้อผ้าสกปรก | TNCV ผ้าขี้ริ้วโสโครก, THSV เสื้อผ้าสกปรก; quotations follow their version. SC 28.3, MB 54.1 |
 | Spirit of grace | พระวิญญาณแห่งพระคุณ | [CHECK] THSV and TNCV at ฮีบรู 10:29; TH1971 พระวิญญาณผู้ทรงพระคุณ. SC 33.3, PP 635.4 |
 | Spirit of truth | พระวิญญาณแห่งความจริง | [CHECK] Every version's title at ยอห์น 14:17, 15:26, 16:13; a 1 ยอห์น 4:6 quotation follows its version. SC 91.2, SC 109.2 |
@@ -169,7 +171,7 @@
 | father of lies | บิดาแห่งการมุสา | [CHECK] Satan's title, John 8:44. PP 58.1 |
 | self-justification, excuse (for sin) | แก้ตัว / คำแก้ตัว / ข้อแก้ตัว | [CHECK] แก้ตัว the verb; คำแก้ตัว and ข้อแก้ตัว the nouns. PP 57.5, PP 58.1, PP 153.3 |
 | Holy Spirit | พระวิญญาณบริสุทธิ์ | [CHECK] |
-| ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3 |
+| ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ / ไม่รู้สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3, SC 38.2 |
 | forbidden fruit, forbidden tree (Genesis 3) | ผลไม้ต้องห้าม / ผลไม้ที่ต้องห้าม / ผลไม้ที่พระเจ้าทรงห้าม / ผลไม้หวงห้าม / ต้นไม้หวงห้าม | [CHECK] Epithet or description; ที่ optional before ต้องห้าม; ต้นไม้ที่พระเจ้าทรงหวงห้าม stands. ปฐมกาล 3:11, PP 49.1, PP 55.3, PP 378.2, SC 40.2 |
 | Ruler of the universe, Sovereign of the universe, Governor of the universe | พระเจ้าผู้ทรงครอบครองจักรวาล | [CHECK] Never ปกครอง, the human-government word; "great Ruler" may take พระมหากษัตริย์. MB 74.1, PP 34.1, SC 38.2 |
 | Ruler of all, Supreme Ruler | ผู้ครอบครองสูงสุดเหนือทุกสิ่ง / ผู้ทรงครอบครองเหนือทุกสิ่ง | [CHECK] Psalm 105:21 "ruler of all his substance" is Joseph, outside this row. PP 48.3, PP 123.2, MB 120.1 |
@@ -186,6 +188,7 @@
 | pilgrims (to the feasts at Jerusalem) | ฉลองเทศกาล / เดินทางไปร่วมฉลองเทศกาล / คนที่เดินทางมานมัสการ | [CHECK] Feast-goers at Jerusalem, never แสวงบุญ; เดินทาง takes ไป, มา or เพื่อ as the sentence needs. PP 541.1, PP 539.4, GC 17.2 |
 | ignorance, ignorant, ignorantly | ความไม่รู้ / ไม่รู้ / ไม่รู้จัก / รู้เท่าไม่ถึงการณ์ / ความเขลา / ขาดความรู้ / ความโง่เขลา | [CHECK] State ความไม่รู้; ignorant of ไม่รู้, ไม่รู้จัก; unwitting รู้เท่าไม่ถึงการณ์; ความโง่เขลา stands where found, never proposed. SC 45.1, SC 70.2, MB 54.2, PP 130.2 |
 | will (human faculty) | การตัดสินใจ / เจตจำนง / ตามใจตัวเอง / ฝืนใจ | [CHECK] Noun การตัดสินใจ; เจตจำนง where the faculty itself must be unmistakable; verb idioms ตามใจตัวเอง, ฝืนใจ stand. MB 61.1, SC 47.1 |
+| exercise of the will (the will put to use) | ใช้อำนาจในการตัดสินใจ / ความตั้งใจแน่วแน่ | The will applied, not the faculty; the verb shape at SC 48.1, the noun in a list at SC 18.1. SC 48.1, SC 18.1 |
 | will of God, His will | น้ำพระทัย / พระประสงค์ / พระทัย | [CHECK] น้ำพระทัย where obeyed or submitted to; พระประสงค์ where His purpose; พระทัย in quotations. โรม 12:2 TH1971, MB 109.1, SC 43.4 |
 | paralytic, sick of the palsy | อัมพาต / คนง่อย | [CHECK] อัมพาต in prose; คนง่อย only beside a THSV or TH1971 quotation; figurative paralyzed free. มัทธิว 9:6, ยอห์น 5:3, SC 49.3, SC 50.1 |
 | made whole, healed (the sick) | หายเป็นปกติ / หายปกติ / หายดี / รักษาให้หาย / หายโรค / หายป่วย / รักษา | [CHECK] Made whole: หายเป็นปกติ or หายดี, body or soul; healed: รักษาให้หาย or รักษา; healing noun free. ยอห์น 5:9, ลูกา 8:50, SC 50.1, SC 51.1 |
@@ -195,7 +198,7 @@
 | privilege (rank, law, a claim over others) | สิทธิ / สิทธิประโยชน์ / อภิสิทธิ์ | Legal standing; อภิสิทธิ์ only for a prerogative claimed, as Nahash; never for the believer. PP 611.2, PP 507.1, PP 714.2 |
 | forgive, forgiveness, pardon | อภัย / ให้อภัย / อภัยโทษ / ยกโทษ / ยกบาป | [CHECK] อภัย the stem; อภัยโทษ judicial pardon; ยกโทษ persons, concrete offences. THSV มัทธิว 9:6, เอเฟซัส 1:7, PP 72.5, MB 113.3, SC 52.3 |
 | prodigal, prodigal son (Luke 15) | บุตรที่หลงหาย / บุตรหายไป | [CHECK] TNCV heading first; a bare บุตร stands once named. ลูกา 15:11, SC 53.2 |
-| wanderer, the (sinner astray) | ผู้หลงทาง / ผู้หลงหาย / ผู้ที่หลงหาย | [CHECK] The sinner who strays; ผู้หลงหาย where the prodigal is meant; ผู้หลงผิด stands. มาลาคี 3:7, PP 165.2, SC 54.1 |
+| wanderer, the (sinner astray) | ผู้หลงทาง / ผู้ที่หลงทาง / ผู้หลงหาย / ผู้ที่หลงหาย | [CHECK] The sinner who strays; ผู้หลงหาย where the prodigal is meant; ผู้หลงผิด stands. มาลาคี 3:7, PP 165.2, SC 54.1, SC 35.3 |
 | wanderer, wanderings (literal) | พเนจร | Jacob, Lot and Israel in the desert; never the sinner. PP 183.4, PP 406.3 |
 | parable | คำอุปมา / อุปมา | [CHECK] คำอุปมา as TNCV, TKJV, TH1971; อุปมา alone as THSV, chiefly in its quotations. ลูกา 15:3, SC 54.1, PP 727.1 |
 | compassion (of God and of Christ) | พระกรุณา / พระเมตตากรุณา / เมตตากรุณา / พระเมตตาคุณ / พระกรุณาคุณ / พระเมตตา / ความเมตตา / สงสาร / เอ็นดู / เอ็นดูสงสาร | [CHECK] Feeling for the sufferer; tender takes เอ็นดู, ห่วงหาอาทร or อ่อนโยน. MB 6.1, MB 110.3, PP 106.2, PP 165.2, SC 53.2, SC 54.1 |
@@ -242,7 +245,7 @@
 | Providence (as a name for God) | พระเจ้า / การทรงนำของพระเจ้า | No Thai personification; the published books write the person or His leading. PP 128.2, PP 290.3, PP 739.1 |
 | guidance (of God, Christ, the Holy Spirit) | การทรงนำ / ทรงนำ | A person's or Satan's guidance takes การชี้นำ or a recast, never ทรงนำ. MB 117.2, PP 114.1, SC 91.1, SC 110.1 |
 | Master (Christ, of His disciples) | พระอาจารย์ | A human master is นาย or เจ้านาย. MB 4.4, MB 29.1, SC 73.1 |
-| humiliation (of Christ), humbled Himself | การถ่อมพระองค์ / การถ่อมพระองค์ลง / ทรงถ่อมพระองค์ | Christ's own condescension; the penitent's humiliation is its own row. PP 154.2, PP 330.4, SC 70.2 |
+| humiliation (of Christ), humbled Himself | การถ่อมพระองค์ / การถ่อมพระองค์ลง / ทรงถ่อมพระองค์ | Christ's own condescension; อับอาย is shame, another sense; the penitent's humiliation is its own row. PP 154.2, PP 330.4, SC 70.2, SC 45.1 |
 | self-denial, self-denying, self-sacrifice | การเสียสละ / เสียสละ / ปฏิเสธตนเอง | ปฏิเสธตนเอง is THSV มัทธิว 16:24 and stands in a quotation or its echo. SC 70.2, SC 78.1, SC 79.3 |
 | Comforter (John 14–16) | องค์ผู้ช่วย / องค์พระผู้ช่วย / พระผู้ช่วย | THSV's title; TKJV ผู้ปลอบประโลมใจ and TNCV ที่ปรึกษา stand inside their own quotations. ยอห์น 14:26 THSV, SC 74.1 |
 | Author and Finisher of our faith (Hebrews 12:2) | ผู้เบิกทางความเชื่อ และผู้ทรงทำให้ความเชื่อนั้นสมบูรณ์ / ผู้ริเริ่มความเชื่อ | THSV's pair in a quotation; ผู้ริเริ่ม (TKJV) in prose allusion. ฮีบรู 12:2, SC 69.1 |
@@ -276,7 +279,7 @@
 | efficient, efficiency (competence) | มีประสิทธิภาพ / ประสิทธิภาพ / ความสามารถ | [CHECK] Competence of persons, order, service; never the effectual family; ทำงานไม่เป็น stands. PP 374.1, PP 574.1, PP 255.2, อพยพ 18:21 |
 | talent (the parable's coin) | ตะลันต์ | [CHECK] Only where Matthew 25 is in view; the ability sense takes the abilities row. มัทธิว 25:15, MB 83.2, SC 82.2 |
 | talents, abilities, endowments (a person's capacities) | ความสามารถ / ความสามารถพิเศษ / พรสวรรค์ / ตะลันต์ / เก่ง | [CHECK] Default ความสามารถ; พรสวรรค์ inborn; ตะลันต์ and เก่ง stand, never proposed; recasts stand. MB 94.1, PP 203.1, PP 223.1, SC 81.1, SC 82.2 |
-| gift (God's, the Spirit's); Gift (Christ, 2 Corinthians 9:15) | ของประทาน | [CHECK] The Bible's word for what God gives, prophecy included; never พรสวรรค์ for the prophetic gift. โรม 12:6, 1 เปโตร 4:10, 2 โครินธ์ 9:15, MB 136.1, PP 382.3, DA 26.3 |
+| gift (God's, the Spirit's); Gift (Christ, 2 Corinthians 9:15) | ของประทาน | [CHECK] What God gives, prophecy included; never พรสวรรค์; ประทาน stands where gift is the giving. โรม 12:6, 1 เปโตร 4:10, 2 โครินธ์ 9:15, MB 136.1, PP 382.3, SC 49.2, SC 54.3, DA 26.3 |
 | co-worker with God, workers together with God (1 Corinthians 3:9) | ผู้ร่วมงานกับพระเจ้า / ร่วมงานกับพระเจ้า / ผู้ร่วมงาน | [CHECK] TNCV's noun at 1 โครินธ์ 3:9; THSV เราร่วมกันทำงานเพื่อพระเจ้า. PP 34.1, PP 573.3, PP 595.2, SC 79.2, SC 83.2 |
 | Lord of life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15, Prince of life. SC 81.4 |
 | mechanic, humble trade, mechanical employment | ช่างฝีมือ | Carpenter is ช่างไม้. PP 593.3, SC 81.4, SC 82.1 |
