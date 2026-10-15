@@ -6,7 +6,7 @@ chapter:
   number: 32
   title:
     en: The Law and the Covenants
-  url: https://legacy.egwwritings.org/?ref=en_PP.363.1&para=84.1632
+  url: https://egwwritings.org/?ref=en_PP.363.1&para=84.1632
   basedon: 
 author:
   en: Ellen White
@@ -38,7 +38,7 @@ There are many who try to blend these two systems, using the texts that speak of
 
 ## {PP 365.2}
 
-Concerning the law proclaimed from Sinai, Nehemiah says, “Thou camest down also upon Mount Sinai, and spakest with them from heaven, and gavest them right judgments, and true laws, good statutes and commandments.” Nehemiah 9:13. And Paul, “the apostle to the Gentiles,” declares, “The law is holy, and the commandment holy, and just, and good.” Romans 7:12. This can be no other than the Decalogue; for it is the law that says, “Thou shalt not covet.” Verse 7. {PP 365.2}
+Concerning the law proclaimed from Sinai, Nehemiah says, “Thou camest down also upon Mount Sinai, and spakest with them from heaven, and gavest them *right judgments, and true laws, good statutes and commandments*.” Nehemiah 9:13. And Paul, “the apostle to the Gentiles,” declares, “The law is holy, and the commandment holy, and just, and good.” Romans 7:12. This can be no other than the Decalogue; for it is the law that says, “Thou shalt not covet.” Verse 7. {PP 365.2}
 
 ## {PP 365.3}
 
@@ -58,7 +58,7 @@ Christ was not only the leader of the Hebrews in the wilderness—the Angel in w
 
 ## {PP 366.3}
 
-It was Christ that spoke to His people through the prophets. The apostle Peter, writing to the Christian church, says that the prophets “prophesied of the grace that should come unto you: searching what, or what manner of time the Spirit of Christ which was in them did signify, when it testified beforehand the sufferings of Christ and the glory that should follow.” 1 Peter 1:10, 11. It is the voice of Christ that speaks to us through the Old Testament. “The testimony of Jesus is the spirit of prophecy.” Revelation 19:10. {PP 366.3}
+It was Christ that spoke to His people through the prophets. The apostle Peter, writing to the Christian church, says that the prophets “prophesied of the grace that should come unto you: searching what, or what manner of time the *Spirit of Christ* which was in them did signify, when it testified beforehand the sufferings of Christ and the glory that should follow.” 1 Peter 1:10, 11. It is the voice of Christ that speaks to us through the Old Testament. “The testimony of Jesus is the spirit of prophecy.” Revelation 19:10. {PP 366.3}
 
 ## {PP 367.1}
 
@@ -114,11 +114,11 @@ As the Bible presents two laws, one changeless and eternal, the other provisiona
 
 ## {PP 370.3}
 
-This same covenant was renewed to Abraham in the promise, “In thy seed shall all the nations of the earth be blessed.” Genesis 22:18. This promise pointed to Christ. So Abraham understood it (see Galatians 3:8, 16), and he trusted in Christ for the forgiveness of sins. It was this faith that was accounted unto him for righteousness. The covenant with Abraham also maintained the authority of God’s law. The Lord appeared unto Abraham, and said, “I am the Almighty God; walk before Me, and be thou perfect.” Genesis 17:1. The testimony of God concerning His faithful servant was, “Abraham obeyed My voice, and kept My charge, My commandments, My statutes, and My laws.” Genesis 26:5. And the Lord declared to him, “I will establish My covenant between Me and thee and thy seed after thee in their generations, for an everlasting covenant, to be a God unto thee and to thy seed after thee.” Genesis 17:7. {PP 370.3}
+This same covenant was renewed to Abraham in the promise, “In thy seed shall all the nations of the earth be blessed.” Genesis 22:18. This promise pointed to Christ. So Abraham understood it (see Galatians 3:8, 16), and he trusted in Christ for the forgiveness of sins. It was this faith that was accounted unto him for righteousness. The covenant with Abraham also maintained the authority of God’s law. The Lord appeared unto Abraham, and said, “I am the Almighty God; walk before Me, and be thou perfect.” Genesis 17:1. The testimony of God concerning His faithful servant was, “Abraham obeyed My voice, and kept My charge, My commandments, My statutes, and My laws.” Genesis 26:5. And the Lord declared to him, “I will establish My covenant between Me and thee and thy seed after thee in their generations, for an *everlasting covenant*, to be a God unto thee and to thy seed after thee.” Genesis 17:7. {PP 370.3}
 
 ## {PP 370.4}
 
-Though this covenant was made with Adam and renewed to Abraham, it could not be ratified until the death of Christ. It had existed by the promise of God since the first intimation of redemption had been given; it had been accepted by faith; yet when ratified by Christ, it is called a new covenant. The law of God was the basis of this covenant, which was simply an arrangement for bringing men again into harmony with the divine will, placing them where they could obey God’s law. {PP 370.4}
+Though this covenant was made with Adam and renewed to Abraham, it could not be ratified until the death of Christ. It had existed by the promise of God since the first intimation of redemption had been given; it had been accepted by faith; yet when ratified by Christ, it is called a *new* covenant. The law of God was the basis of this covenant, which was simply an arrangement for bringing men again into harmony with the divine will, placing them where they could obey God’s law. {PP 370.4}
 
 ## {PP 371.1}
 
@@ -138,7 +138,7 @@ God brought them to Sinai; He manifested His glory; He gave them His law, with t
 
 ## {PP 372.1}
 
-The terms of the “old covenant” were, Obey and live: “If a man do, he shall even live in them” (Ezekiel 20:11; Leviticus 18:5); but “cursed be he that confirmeth not all the words of this law to do them.” Deuteronomy 27:26. The “new covenant” was established upon “better promises”—the promise of forgiveness of sins and of the grace of God to renew the heart and bring it into harmony with the principles of God’s law. “This shall be the covenant that I will make with the house of Israel; After those days, saith the Lord, I will put my law in their inward parts, and write it in their hearts.... I will forgive their iniquity, and will remember their sin no more.” Jeremiah 31:33, 34. {PP 372.1}
+The terms of the “old covenant” were, Obey and live: “If a man do, he shall even live in them” (Ezekiel 20:11; Leviticus 18:5); but “cursed be he that confirmeth not all the words of this law to do them.” Deuteronomy 27:26. The “new covenant” was established upon “better promises”—the promise of forgiveness of sins and of the grace of God to renew the heart and bring it into harmony with the principles of God’s law. “This shall be the covenant that I will make with the house of Israel; After those days, saith the Lord, *I will put my law* in their inward parts, *and write it in their hearts*.... I will *forgive* their iniquity, and will remember their sin no more.” Jeremiah 31:33, 34. {PP 372.1}
 
 ## {PP 372.2}
 
@@ -146,7 +146,7 @@ The same law that was engraved upon the tables of stone is written by the Holy S
 
 ## {PP 373.1}
 
-The apostle Paul clearly presents the relation between faith and the law under the new covenant. He says: “Being justified by faith, we have peace with God through our Lord Jesus Christ.” “Do we then make void the law through faith? God forbid: yea, we establish the law.” “For what the law could not do, in that it was weak through the flesh”—it could not justify man, because in his sinful nature he could not keep the law—“God sending His own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: that the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit.” Romans 5:1; 3:31; 8:3, 4. {PP 373.1}
+The apostle Paul clearly presents the relation between faith and the law under the new covenant. He says: “Being *justified by faith*, we have peace with God through our Lord Jesus Christ.” “Do we then make void the law through faith? God forbid: yea, we establish the law.” “For what the law could not do, in that it was weak through the flesh”—it could not justify man, because in his sinful nature he could not keep the law—“God sending His own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: that *the righteousness of the law* might be fulfilled in us, who walk not after the flesh, but after the Spirit.” Romans 5:1; 3:31; 8:3, 4. {PP 373.1}
 
 ## {PP 373.2}
 

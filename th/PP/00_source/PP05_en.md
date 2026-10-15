@@ -6,7 +6,7 @@ chapter:
   number: 5
   title:
     en: Cain and Abel Tested
-  url: https://legacy.egwwritings.org/?ref=en_PP.71&para=84.254
+  url: https://egwwritings.org/?ref=en_PP.71&para=84.254
   basedon: This chapter is based on Genesis 4:1–15.
 author:
   en: Ellen White

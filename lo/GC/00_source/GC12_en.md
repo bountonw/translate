@@ -127,9 +127,12 @@ A cousin of Calvin’s, who had joined the Reformers, was in Paris. The two kins
 
 But thoughts had been awakened in his mind which he could not banish at will. Alone in his chamber he pondered upon his cousin’s words. Conviction of sin fastened upon him; he saw himself, without an intercessor, in the presence of a holy and just Judge. The mediation of saints, good works, the ceremonies of the church, all were powerless to atone for sin. He could see before him nothing but the blackness of eternal despair. In vain the doctors of the church endeavored to relieve his woe. Confession, penance, were resorted to in vain; they could not reconcile the soul with God. {GC 220.3}
 
-## {GC 221.1}
+## {GC 220.4}
 
 While still engaged in these fruitless struggles, Calvin, chancing one day to visit one of the public squares, witnessed there the burning of a heretic. He was filled with wonder at the expression of peace which rested upon the martyr’s countenance. Amid the tortures of that dreadful death, and under the more terrible condemnation of the church, he manifested a faith and courage which the young student painfully contrasted with his own despair and darkness, while living in strictest obedience to the church. Upon the Bible, he knew, the heretics rested their faith. He determined to study it, and discover, if he could, the secret of their joy. {GC 220.4}
+
+## {GC 221.1}
+
 In the Bible he found Christ. “O Father,” he cried, “His sacrifice has appeased Thy wrath; His blood has washed away my impurities; His cross has borne my curse; His death has atoned for me. We had devised for ourselves many useless follies, but Thou hast placed Thy word before me like a torch, and Thou hast touched my heart, in order that I may hold in abomination all other merits save those of Jesus.”—Martyn, vol. 3, ch. 13. {GC 221.1}
 
 ## {GC 221.2}

@@ -6,7 +6,7 @@ chapter:
   number: 34
   title:
     en: The Twelve Spies
-  url: https://legacy.egwwritings.org/?ref=en_PP.387.1&para=84.1756
+  url: https://egwwritings.org/?ref=en_PP.387.1&para=84.1756
   basedon: This chapter is based on Numbers 13 and 14.
 author:
   en: Ellen White

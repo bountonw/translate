@@ -6,7 +6,7 @@ chapter:
   number: 21
   title:
     en: Joseph and His Brothers
-  url: https://legacy.egwwritings.org/?ref=en_PP.224.1&para=84.946
+  url: https://egwwritings.org/?ref=en_PP.224.1&para=84.946
   basedon: This chapter is based on Genesis 41:54-56; 42 to 50.
 author:
   en: Ellen White

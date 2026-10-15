@@ -3,7 +3,7 @@ chapter:
   number: 14
   title:
     th: เอวาไม่เชื่อฟังพระเจ้า
-    en: The Disobedience of Eve
+    en: Eve Disbelieved God
   url: https://egwwritings.org/read?panels=p1062.2719
   original: Jones--RH 10/4/1898
 ---

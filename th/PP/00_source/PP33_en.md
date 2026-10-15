@@ -6,7 +6,7 @@ chapter:
   number: 33
   title:
     en: From Sinai to Kadesh
-  url: https://legacy.egwwritings.org/?ref=en_PP.374.1&para=84.1688
+  url: https://egwwritings.org/?ref=en_PP.374.1&para=84.1688
   basedon: This chapter is based on Numbers 11 and 12.
 author:
   en: Ellen White

@@ -418,7 +418,7 @@ def get_output_path(input_path, debug_mode=False, stage=1):
     else:
         output_name = f"{base_name}.tmp"
     
-    return str(project_root / "04_assets" / "temp" / output_name)
+    return str(project_root / "04_assets" / "scripts" / "build" / "temp" / output_name)
 
 def expand_chapter_ranges(file_specs):
     """

@@ -10,23 +10,41 @@
 \usepackage{titling}
 \usepackage{clrdblpg} % so clear double pages have nothing on them in header/footer (aka page number)
 
-% Page dimensions and margins for A5-ish format
+% Page dimensions and margins for B5-ish format
 \usepackage[
-  paperwidth=148mm,
-  paperheight=210mm,
-  top=12mm,
+  paperwidth=176mm,
+  paperheight=250mm,
+  top=14mm,
   inner=16mm, % alias of left/lmargin
-  outer=12mm, % alias of right/rmargin
-  bottom=12mm, % bottom margin of the page
-  bindingoffset=5mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (21mm)
+  outer=14mm, % alias of right/rmargin
+  bottom=14mm, % bottom margin of the page
+  bindingoffset=6mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (21mm)
   headheight=16pt, % height of header
   headsep=4pt, % separation between header and body
   footskip=0pt, % distance separation between baseline of last line of text and baseline of footer
   %heightrounded, % this messes with heights in ways that makes bottom != 12mm, etc.
   includehead,  % includes the head of the page, \headheight and \headsep, into total body.
-  includefoot, % includes the foot of the page, \footskip, into total body. 
+  includefoot, % includes the foot of the page, \footskip, into total body.
   %showframe % Draw visible layout guides: text block, margins, headers/footers
 ]{geometry}
+
+%% % Page dimensions and margins for A5-ish format
+%% \usepackage[
+%%   paperwidth=148mm,
+%%   paperheight=210mm,
+%%   top=12mm,
+%%   inner=16mm, % alias of left/lmargin
+%%   outer=12mm, % alias of right/rmargin
+%%   bottom=12mm, % bottom margin of the page
+%%   bindingoffset=5mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (21mm)
+%%   headheight=16pt, % height of header
+%%   headsep=4pt, % separation between header and body
+%%   footskip=0pt, % distance separation between baseline of last line of text and baseline of footer
+%%   %heightrounded, % this messes with heights in ways that makes bottom != 12mm, etc.
+%%   includehead,  % includes the head of the page, \headheight and \headsep, into total body.
+%%   includefoot, % includes the foot of the page, \footskip, into total body.
+%%   %showframe % Draw visible layout guides: text block, margins, headers/footers
+%% ]{geometry}
 
 \raggedbottom 
 
@@ -132,6 +150,10 @@
 % An increase to 10.95 removes shape errors but adds too many spaces
 \AtBeginDocument{\fontsize{10.5pt}{12.6pt}\selectfont}
 
+% Latin letters of a Bible version code, sized to sit level with the Lao body text.
+% Used only where a manuscript writes it (the GC00 introduction's version list).
+\newcommand{\GCcode}[1]{{\fontsize{9.5pt}{12.6pt}\selectfont #1}}
+
 % Customize superscript positioning
 \renewcommand{\textsuperscript}[1]{%
   {\fontsize{7}{7}\selectfont\raisebox{1.4ex}{#1}}%
@@ -151,6 +173,7 @@
 \usepackage{url}
 
 \newcommand{\booktitle}{ປາຍທາງແຫ່ງຄວາມຫວັງ}
+\newcommand{\bookauthor}{ເອເລນ ຈີ. ໄວທ໌}
 \newcommand{\currentchaptertitle}{}  % Updated by \laochapter
 
 % \setlength{\headheight}{14.76703pt}
@@ -211,7 +234,7 @@
 % a helpful page: https://tex.stackexchange.com/a/468104
 \renewcommand{\cfttoctitlefont}{\hfill\ChapTitleSize} %!some command to make the heading huge and bold
 \renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftbeforetoctitleskip}{1.2in} % Title is 1.2in from top to match other titles
+\renewcommand{\cftbeforetoctitleskip}{6.95pt} % Title sits at the same height as the foreword title
 \renewcommand{\cftaftertoctitleskip}{2.0\baselineskip}% 1 double space after title
 \renewcommand{\contentsname}{ສາລະບານ} % set TOC name
 

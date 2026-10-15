@@ -6,7 +6,7 @@ chapter:
   number: 7
   title:
     en: The Flood
-  url: https://legacy.egwwritings.org/?ref=en_PP.90&para=84.336
+  url: https://egwwritings.org/?ref=en_PP.90&para=84.336
   basedon: This chapter is based on Genesis 6 and 7.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 12
   title:
     en: Abraham in Canaan
-  url: https://legacy.egwwritings.org/?ref=en_PP.132.1&para=84.518
+  url: https://egwwritings.org/?ref=en_PP.132.1&para=84.518
   basedon: This chapter is based on Genesis 13; to 15; 17:1-16; 18.
 author:
   en: Ellen White

@@ -6,7 +6,7 @@ chapter:
   number: 1
   title:
     en: Why was sin permitted?
-  url: https://legacy.egwwritings.org/?ref=en_PP.33&para=84.68
+  url: https://egwwritings.org/?ref=en_PP.33&para=84.68
   basedon: 
 author:
   en: Ellen White

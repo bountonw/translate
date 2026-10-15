@@ -235,6 +235,28 @@ def process_text_line(text, dictionary, debug=False):
 
     return restore_protected_commands(processed_text, protected_commands)
 
+# Chapter-end page fixes: applied when writing stage2, so the manuscripts
+# stay pure translation. The command is inserted as its own paragraph
+# immediately before the chapter's final body paragraph (the last \egw block),
+# letting that page run one line deep and absorb a stranded final line.
+PAGE_FIXES = {
+    "GC27": "\\enlargethispage{\\baselineskip}",
+    "GC42": "\\enlargethispage{\\baselineskip}",
+}
+
+def apply_page_fixes(content, input_path):
+    import os as _os
+    chapter = _os.path.basename(str(input_path)).split("_")[0]
+    fix = PAGE_FIXES.get(chapter)
+    if not fix:
+        return content
+    blocks = content.split("\n\n")
+    last_egw = max((i for i, b in enumerate(blocks) if "\\egw{" in b), default=None)
+    if last_egw is None:
+        return content
+    blocks.insert(last_egw, fix)
+    return "\n\n".join(blocks)
+
 def process_file(input_path, output_path, dictionary, debug_mode=False):
     """Process a single .tmp file with dictionary application."""
     try:
@@ -258,6 +280,7 @@ def process_file(input_path, output_path, dictionary, debug_mode=False):
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
         # Write output file
+        final_content = apply_page_fixes(final_content, input_path)
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
 
@@ -375,7 +398,7 @@ def resolve_file_specification(file_spec, temp_dir, debug_mode=False):
 def get_input_files(args):
     """Get list of .tmp files to process with intelligent file matching."""
     project_root = get_project_root()
-    temp_dir = project_root / '04_assets' / 'temp'
+    temp_dir = project_root / '04_assets' / 'scripts' / 'build' / 'temp'
 
     if not temp_dir.exists():
         print(f"Error: {temp_dir} directory not found")
@@ -608,7 +631,7 @@ Examples:
             sys.exit(1)
 
     # Initialize debug session
-    log_folder = get_project_root() / "04_assets" / "temp"
+    log_folder = get_project_root() / "04_assets" / "scripts" / "build" / "temp"
     if HAS_DEBUG and args.debug:
         if args.log_folder:
             log_folder = args.log_folder

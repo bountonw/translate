@@ -6,7 +6,7 @@ chapter:
   number: 22
   title:
     en: Moses
-  url: https://legacy.egwwritings.org/?ref=en_PP.241.1&para=84.1043
+  url: https://egwwritings.org/?ref=en_PP.241.1&para=84.1043
   basedon: This chapter is based on Exodus 1 to Exodus 4.
 author:
   en: Ellen White

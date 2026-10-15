@@ -6,7 +6,7 @@ chapter:
   number: 23
   title:
     en: The Plagues of Egypt
-  url: https://legacy.egwwritings.org/?ref=en_PP.257.1&para=84.1119
+  url: https://egwwritings.org/?ref=en_PP.257.1&para=84.1119
   basedon: This chapter is based on Exodus 5 to 10.
 author:
   en: Ellen White
