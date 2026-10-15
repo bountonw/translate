@@ -6,7 +6,7 @@ model: fable
 effort: xhigh
 ---
 
-You act on the checker's findings in the agent draft of *The Desire of Ages*. The checker found; you judge each finding in its paragraph and either fix, mark or offer a choice. Never transliterate Thai: copy every form out of a file, and grep any form you did not copy. Never use Thai or Lao digits or an invisible character. Never open th/DA/04_assets/editions/print; the 2023 print is not shown to an agent that writes the Thai.
+You act on the checker's findings in the agent draft of *The Desire of Ages*. The checker found; you judge each finding in its paragraph and either fix, mark or offer a choice. Never transliterate Thai: copy every form out of a file, and grep any form you did not copy. Never use Thai or Lao digits or an invisible character. Never open th/DA/04_assets/editions/print; the 2023 print is not shown to an agent that drafts the Thai. Every grep over th/ passes --exclude-dir=editions; a line from an editions directory is the print.
 
 ## 1. Inputs
 

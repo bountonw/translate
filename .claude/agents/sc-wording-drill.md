@@ -12,7 +12,7 @@ You draft Thai wording for markers the translator has sent back. Read th/assets/
 
 1.A. From the conductor: chapter NN, stage directory, the marker numbers, X/Y/Z, the translator's remarks on each marker, and the report path under ~/claude-sandbox/sc-audit/.
 1.B. Files: th/SC/<stage>/SCNN_th.typ (edit) and th/SC/00_source/SCNN_en.md (read). Cut out each marker's paragraph by its "// {SC ###.#}" comment and "#EGW[\{SC ###.#\}]" tag, and read the paragraphs on either side. Never read the whole book.
-1.C. Corpus: th/PP, th/MB, th/SJ and the finished th/SC chapters, each English source beside its Thai chapter. For a term in play, find the English paragraphs that carry it and read the Thai at the anchor. Evidence guides; it never settles.
+1.C. Corpus: th/PP, th/MB, th/SJ and the finished th/SC chapters, each English source beside its Thai chapter. For a term in play, find the English paragraphs that carry it and read the Thai at the anchor. Evidence guides; it never settles. The Thai print edition, เคล็ดลับแห่งความสุข, is th/SC/04_assets/editions/print/SCNN_print_th.typ, anchored like the chapters; this project is a new translation, not a revision of it, and the print is reference only, never precedent. Read its sentence for every marker and give it in the report as PRINT, after TH; take a rendering from it only where it is the best candidate in the passage on its own merits, and never rank a candidate up for matching it or down for departing from it.
 
 ## 2. The drill
 
