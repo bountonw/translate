@@ -16,7 +16,7 @@ You gather data; you decide nothing. What the corpus did is evidence, never a ru
     python3 th/DA/04_assets/scripts/da_term_data.py --head "REGEX" --thai FORM,FORM --verses "CODE ch:v,CODE ch:v" --chapter NN --out ~/claude-sandbox/da-audit/daNN-term-HEAD.md
     python3 th/DA/04_assets/scripts/da_quotes.py --chapter NN --confirmed ~/claude-sandbox/da-audit/daNN-confirmed.txt
 
-The first writes one data file per head: the sites in MB, PP, SC and this chapter of DA with the Thai found at each and the print column, the counts, every Thai version at the requested and the King James verses, the two Thai GC editions and the Lao GC as light reference. The second rewrites daNN-quotes.md with all ten Thai versions of every confirmed line.
+The first writes one data file per head: the sites in MB, PP, SC and this chapter of DA with the Thai found at each and the print column, the counts, every Thai version at the requested and the King James verses, the two Thai GC editions, the SC print and the Lao GC as light reference. The second rewrites daNN-quotes.md with all ten Thai versions of every confirmed line.
 
 ## 2. The term families
 
