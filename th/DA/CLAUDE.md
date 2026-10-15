@@ -1,6 +1,6 @@
 # DA Thai — conductor
 
-This file governs the new Thai translation of *The Desire of Ages* in th/DA. A DA session reads this file, th/assets/translation_profile/thai-profile.txt and thai-glossary.txt before working. The root CLAUDE.md governs reports, register and git. Rulings enter this file as one line each. The queue is th/DA/04_assets/planning/SIDEQUESTS.md. The commands are listed for the translator in th/DA/04_assets/README.md.
+This file governs the new Thai translation of *The Desire of Ages* in th/DA. A DA session reads this file, th/assets/translation_profile/thai-profile.txt and thai-glossary.txt before working. The root CLAUDE.md governs reports, register and git. The queue is th/DA/04_assets/planning/SIDEQUESTS.md. The commands are listed for the translator in th/DA/04_assets/README.md.
 
 ## 1. Triggers
 
@@ -34,7 +34,7 @@ This file governs the new Thai translation of *The Desire of Ages* in th/DA. A D
 
 3.A. Title: ผู้พึงปรารถนาแห่งปวงชน ฉบับแปลใหม่.
 3.B. The default Bible version is THSV; it carries no version label.
-3.C. A quotation the English leaves uncited takes a printed citation in parentheses, as in PP and SC; a (ดู …) reference may point the reader to a passage where it helps.
+3.C. A quotation the English leaves uncited takes a printed citation in parentheses, as in PP and SC; a (ดู …) reference may point the reader to a passage where it helps. A phrase the author repeats as a refrain prints its citation at its first full quotation and carries a hidden comment, as /*มัทธิว 1:23*/, at each repeat.
 3.D. A quotation in THSV from a verse inside the chapter's based-on reference carries no printed citation, only a hidden comment such as /*ยอห์น 3:16*/; a quotation in any other version is cited and labelled.
 3.E. Each quotation takes the version that best carries the meaning of the English and reads best in its passage, THSV where the versions serve equally; a close call, or a point no version carries, takes a marker with the two best choices.
 3.F. A based-on line writes บทที่ only when every part is a whole chapter, with a space after the book name; ranges take an unspaced en dash; two chapters take และ; other lists take "; ".
@@ -62,8 +62,8 @@ This file governs the new Thai translation of *The Desire of Ages* in th/DA. A D
 
 6.A. da-finder (Opus), the whole chapter: lists every head that needs a Thai decision (no row, a row tagged [CHECK] or [FLAG], a name not in names.tsv), every quotation, and every allusion, where the English uses scripture's wording without quoting it; da_quotes.py proposes them by runs of KJV words and the finder confirms each.
 6.B. da-miner (Sonnet): per term family, a data file of the eight Thai Bibles at the KJV verses using the word, PP, MB, SJ, SC, the GC editions, the print as a labelled column, and Thai sources online where the network allows; per chapter, all eight versions of every quotation and allusion.
-6.C. th-term-study (Fable) per family proposes each row with ranked candidates; a head whose Thai agrees everywhere takes its row from the data.
-6.D. da-verse-study (Fable), per chapter, split at about 25 passages: the top three versions of each quotation and allusion, ranked for meaning and readability in the passage, and its pick; a close call is marked as 3.E says.
+6.C. th-term-study (Opus; Fable where the translator names it), three or four related families a dispatch, proposes each row with ranked candidates; a head whose Thai agrees everywhere takes its row from the data.
+6.D. da-verse-study (Opus), per chapter, split at about 25 passages: the top three versions of each quotation and allusion, ranked for meaning and readability in the passage, and its pick; a close call is marked as 3.E says.
 6.E. The report gives each ROW line for ruling and the verse picks, close calls first. Ruled rows enter the glossary in the same reply; the picks go to ~/claude-sandbox/da-audit/DANN-verses.tsv for pass 2.
 
 ## 7. Pass 2: the draft
@@ -75,7 +75,7 @@ This file governs the new Thai translation of *The Desire of Ages* in th/DA. A D
 7.E. da-fixer (Fable), one dispatch with the flagged paragraphs: where it agrees, it fixes the whole sentence and logs it; where it disagrees, a marker gives both readings; where two wordings serve equally, an editor's choice ((A/B)).
 7.E.1. da-print-compare (Opus), after da-fixer, the whole chapter: a PRINT marker where the print carries a theological point or a word choice the draft lacks, its new side copied from the print; nothing for style.
 7.E.2. da-subtitles (Fable), after da-print-compare, the whole chapter: subtitles are crafted, never translated, as insertion markers [[SUBTITLE #N| -> === wording|new2: ...]] at the density and in the voice the profile states from PP and the Lao GC; where Humble Hero is on disk, its sites and wording are the base and each marker offers (1) accept or (2) move or reword.
-7.F. The report: counts, the markers that reach past one site, the heads the drafter raised. The translator commits the draft (4.B), then reads and settles (4.C).
+7.F. The report: counts, the markers that reach past one site, the heads the drafter raised.
 
 ## 8. Pass 3: the check
 
@@ -94,6 +94,7 @@ This file governs the new Thai translation of *The Desire of Ages* in th/DA. A D
 10.C. Grep rather than read; never apply a fix across chapters on your own initiative.
 10.D. Agents receive no instruction files; each brief carries what its definition lacks.
 10.E. When the translator keeps a wording against a finding, get his reason, asking if he gave none, and in the same reply write one line, in anchor order, in th/DA/04_assets/notes/DA_notes.txt: {DA ###.#} | English words | Thai span copied from the chapter | his reason.
+10.F. Agents go out in waves of four, never more than the remaining allowance can finish.
 
 ## 11. Reporting
 

@@ -1,8 +1,8 @@
 ---
 name: th-term-study
-description: Studies one English head for the Thai glossary from compiled corpus data and proposes the row, judging every site in its own sentence. Dispatched by the conductor with the head, the data file (from sc_term_data.py, da_term_data.py or a later book's data script), the project in hand, the translator's question and the output file. Writes only under the ~/claude-sandbox/<project>-audit/ directory the dispatch names.
+description: Studies one English head, or three or four related heads, for the Thai glossary from compiled corpus data and proposes each row, judging every site in its own sentence. Dispatched by the conductor with the heads, their data files (from sc_term_data.py, da_term_data.py or a later book's data script), the project in hand, the translator's question and the output file. Writes only under the ~/claude-sandbox/<project>-audit/ directory the dispatch names.
 tools: Read, Grep, Glob, Bash, Write
-model: fable
+model: opus
 effort: xhigh
 ---
 
@@ -10,7 +10,7 @@ You study one English head for the shared Thai glossary and propose its row. The
 
 ## 1. Inputs
 
-1.A. From the conductor: the head, the data file, the project in hand, the translator's question, the output file. The data file lists every site in the finished Thai books and in the book in hand whose English matches the head, with anchor, set, the English sentence and the candidate Thai forms found in the Thai paragraph; the counts; the forms in the Thai Bibles; the requested verses; and the King James verses with the Thai versions beside them.
+1.A. From the conductor: the head or heads (three or four related families at most), a data file for each, the project in hand, the translator's question, the output file; each head takes its own sections 3.A in one report. The data file lists every site in the finished Thai books and in the book in hand whose English matches the head, with anchor, set, the English sentence and the candidate Thai forms found in the Thai paragraph; the counts; the forms in the Thai Bibles; the requested verses; and the King James verses with the Thai versions beside them.
 1.B. Sets: the data file names them. MB and the reviewed PP chapters (PP 1–20 in an SC file; PP 1–30 and 44–73 in a DA file) are the strong precedent; the other PP chapters are lighter; the book in hand supplies questions, not precedents; another finished book's sites are precedent of the lighter kind. MB is not being redone.
 1.B.1. A column labelled print and a section labelled light reference are reference only and never precedent: the published Thai editions of the book in hand (the two Thai GC editions under th/GC/04_assets/editions, the 2023 Thai Desire of Ages) and the published Thai Ellen White books under ~/claude-sandbox/egw/extracted/th/ (ThSC.md is Steps to Christ); agreement with them is no support. The Lao GC is the translator's own work and carries weight for principles, not for Thai forms.
 1.C. Sources for context: Thai chapters under th/*/02_edit and th/*/03_public and the drafted chapters of the book in hand; English under th/*/00_source; the Thai Bibles at ~/programming/bible/th/<VERSION>/, ten versions with all 66 books except TFB (Matthew to 2 Peter), and the whole King James under en/KJVS. No online dictionary is reachable; where you give a Thai word's meaning, say it is your own knowledge.
