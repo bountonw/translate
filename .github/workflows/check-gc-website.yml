@@ -1,14 +1,16 @@
-name: Check GC website
+name: Check website
 
-# Fails a pull request when the website pages no longer match the GC chapter
-# text, so the pages are rebuilt (lo/websites/build_gc.sh) before merging.
-# It never uploads anything; the upload to the server is done by hand.
+# Fails a pull request when a book's web pages no longer match its chapter
+# text, so the pages are rebuilt (websites/assets/scripts/build_book.py) before
+# merging. It never uploads anything; the upload to the server is done by hand.
+# Python-Markdown is pinned to the version the pages are built with locally.
 
 on:
   pull_request:
     paths:
       - 'lo/GC/03_public/**'
-      - 'lo/websites/**'
+      - 'lo/GC/metadata.yaml'
+      - 'websites/**'
   workflow_dispatch:
 
 jobs:
@@ -16,20 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-python@v5
         with:
-          dotnet-version: '10.0.x'
-      - name: Rebuild the pages from the chapter files
-        run: |
-          dotnet run --project lo/websites/mdconverter -c Release -- \
-            --md-folder lo/GC/03_public \
-            --website-folder lo/websites/laoegw/GC
-      - name: Check the pages against the chapter files
-        run: python3 lo/websites/check_gc_site.py lo/websites/laoegw/GC lo/GC/03_public
+          python-version: '3.13'
+      - name: Install Python-Markdown
+        run: pip install markdown==3.10.3
+      - name: Rebuild the pages and check them against the chapter files
+        run: python3 websites/assets/scripts/build_book.py lo/GC
       - name: Fail if the committed pages are out of date
         run: |
-          if ! git diff --quiet -- lo/websites/laoegw; then
-            git diff --stat -- lo/websites/laoegw
-            echo "::error::The website pages do not match the chapter text. Run lo/websites/build_gc.sh, commit the pages, and after merging upload them to the server."
+          if ! git diff --quiet -- websites/laoegw; then
+            git diff --stat -- websites/laoegw
+            echo "::error::The website pages do not match the chapter text. Run python3 websites/assets/scripts/build_book.py lo/GC, commit the pages, and after merging upload them to the server."
             exit 1
           fi

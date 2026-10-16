@@ -156,26 +156,26 @@ sup {
   line-height: 0;
 }
 
-.footnotes {
+div.footnote {
   margin-top: 2em;
   font-size: 0.9em;
 }
 
-.footnotes hr {
+div.footnote hr {
   border: 0;
   border-top: 1px solid var(--rule);
   margin-bottom: 1em;
 }
 
-.footnotes ol {
+div.footnote ol {
   padding-left: 1.8em;
 }
 
-.footnotes p {
+div.footnote p {
   margin-bottom: 0.3em;
 }
 
-a.footnote-back-ref {
+a.footnote-backref {
   text-decoration: none;
   margin-left: 0.3em;
 }
