@@ -76,12 +76,34 @@ p {
   margin-bottom: 0.8em;
 }
 
+/* Heading sizes follow the printed book: title 1.5 times the text (print
+   15.5 pt on 10.5 pt), subheadings 1.15 times (print 12 pt). A long title
+   wraps into lines of even length, centred. */
 h1 {
-  margin-bottom: 0.4em;
+  font-size: 1.5em;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0.8em 0 0.4em;
+}
+
+/* the chapter number on its own line above the title, as in the print */
+h1 .chapter-number {
+  display: block;
+  font-size: 1.6em;
+  font-weight: normal;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+h1 .chapter-name {
+  display: block;
 }
 
 h2 {
-  margin-top: 1.2em;
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin-top: 1.4em;
   margin-bottom: 0.5em;
 }
 
@@ -137,6 +159,8 @@ nav.chapter-nav.bottom {
 
 p.chapter-url {
   font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 1.6em;
 }
 
 span.egw {

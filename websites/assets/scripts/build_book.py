@@ -123,6 +123,8 @@ def main():
         number = int(head['chapter.number'])
         chapters[number] = {
             'id': name.rsplit('_', 1)[0],  # GC01, GC00_introduction: names the chapter's dictionary
+            'number': number,
+            'name': clean_tex(head[f'chapter.title.{lang}']),
             'title': numbered(number, clean_tex(head[f'chapter.title.{lang}'])),
             'short': f'{labels["chapter"]} {number}' if number > 0 else clean_tex(head[f'chapter.title.{lang}']),
             'page': page_name(number, head['chapter.title.en']),
@@ -152,7 +154,9 @@ def main():
         for key, value in (('lang', lang), ('book', code), ('book_title', book_title), ('title', ch['title'])):
             page = page.replace('{{' + key + '}}', value)
         page += nav('top', prev and prev['short'], nxt and nxt['short'])
-        page += f'<h1>{ch["title"]}</h1>\n'
+        # as in the print: the number centred on its own line, the title below it
+        number_line = f'<span class="chapter-number">{number}</span> ' if number > 0 else ''
+        page += f'<h1>{number_line}<span class="chapter-name">{ch["name"]}</span></h1>\n'
         if ch['url']:
             page += f'<p class="chapter-url"><a target="_blank" href="{ch["url"]}">{labels["english"]}</a></p>\n'
         page += to_html(prepare(ch['body'])) + '\n'
