@@ -7,7 +7,8 @@ Reads the book's metadata.yaml and its chapters in 03_public/, and writes
 one page per chapter into <site>/<BOOK>/chapters/, named from the chapter
 number and English title (01_the_destruction_of_jerusalem.html). It also
 rewrites the chapter list in <site>/<BOOK>/index.html, then runs
-check_book.py on the result. The page header, footer and page words come
+check_book.py on the result. For a Lao book, lao_words.py marks every word so
+lines break only where the print dictionaries allow. The page header, footer and page words come
 from the layout folder of the book's language, such as layout/lo/, and are
 shared by every book in that language. Exits 1 when the check finds a problem.
 Needs the Python-Markdown library (python-markdown).
@@ -121,6 +122,7 @@ def main():
         head, body = front_matter(open(os.path.join(folder, name), encoding='utf-8').read())
         number = int(head['chapter.number'])
         chapters[number] = {
+            'id': name.rsplit('_', 1)[0],  # GC01, GC00_introduction: names the chapter's dictionary
             'title': numbered(number, clean_tex(head[f'chapter.title.{lang}'])),
             'short': f'{labels["chapter"]} {number}' if number > 0 else clean_tex(head[f'chapter.title.{lang}']),
             'page': page_name(number, head['chapter.title.en']),
@@ -133,6 +135,7 @@ def main():
     out_folder = os.path.join(args.site, code, 'chapters')
     os.makedirs(out_folder, exist_ok=True)
     numbers = sorted(chapters)
+    pages = {}
     for i, number in enumerate(numbers):
         ch = chapters[number]
         prev = chapters[numbers[i - 1]] if i > 0 else None
@@ -155,8 +158,16 @@ def main():
         page += to_html(prepare(ch['body'])) + '\n'
         page += nav('bottom', prev and prev['title'], nxt and nxt['title'])
         page += footer
-        with open(os.path.join(out_folder, ch['page']), 'w', encoding='utf-8') as f:
-            f.write(page)
+        pages[ch['id']] = page
+
+    # Lao: lines break only where the print dictionaries allow
+    if lang == 'lo':
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from lao_words import mark
+        pages = mark(pages, code)
+    for number in numbers:
+        with open(os.path.join(out_folder, chapters[number]['page']), 'w', encoding='utf-8') as f:
+            f.write(pages[chapters[number]['id']])
 
     # the chapter list on the book's contents page
     index_path = os.path.join(args.site, code, 'index.html')

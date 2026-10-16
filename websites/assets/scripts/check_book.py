@@ -44,6 +44,8 @@ class Text(HTMLParser):
 
 def visible(html):
     html = re.sub(r'<p class="chapter-url">.*?</p>', '', html, flags=re.S)
+    # the Lao word marks hold no text; dropping them first keeps the check fast
+    html = re.sub(r'<span class="w">|</span>|<wbr\s*>', '', html)
     parser = Text()
     parser.feed(html)
     return ''.join(parser.out), parser.links

@@ -66,6 +66,11 @@ a:hover {
   color: var(--link-hover);
 }
 
+/* a Lao word the converter marked; lines break only between these */
+span.w {
+  white-space: nowrap;
+}
+
 /* space between paragraphs and above headings */
 p {
   margin-bottom: 0.8em;
