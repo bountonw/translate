@@ -1,3 +1,0 @@
-# separate data by 3 semicolons (;;;)
-<link rel="stylesheet" href="../;;;<link rel="stylesheet" href="../../
-src="../;;;src="../../

@@ -1,0 +1,4 @@
+# Words the Lao pages use, as the printed Lao books use them
+toc: ສາລະບານ
+chapter: ບົດທີ
+english: ຕົ້ນສະບັບພາສາອັງກິດ
