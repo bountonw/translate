@@ -14,6 +14,7 @@ shared by every book in that language. Exits 1 when the check finds a problem.
 Needs the Python-Markdown library (python-markdown).
 """
 import argparse
+import hashlib
 import os
 import re
 import sys
@@ -94,6 +95,11 @@ def page_name(number, english_title):
     return f'{number:02d}_{slug.strip("_")}.html'
 
 
+def versioned(html, version):
+    """Add ?v=version to every link to style.css."""
+    return re.sub(r'(href="[^"]*css/style\.css)(\?v=[0-9a-f]+)?"', rf'\1?v={version}"', html)
+
+
 def numbered(number, title):
     """'1. Title' as on the printed contents page; the introduction (0) has no number."""
     return f'{number}. {title}' if number > 0 else title
@@ -133,6 +139,11 @@ def main():
         }
 
     header = open(os.path.join(layout, 'chapter_header.html'), encoding='utf-8').read()
+    # the stylesheet is asked for by a version taken from its content, so a
+    # browser that saved an older copy fetches the new one when it changes
+    with open(os.path.join(args.site, 'css', 'style.css'), 'rb') as f:
+        css_version = hashlib.sha1(f.read()).hexdigest()[:8]
+    header = versioned(header, css_version)
     footer = open(os.path.join(layout, 'chapter_footer.html'), encoding='utf-8').read()
     out_folder = os.path.join(args.site, code, 'chapters')
     os.makedirs(out_folder, exist_ok=True)
@@ -175,7 +186,7 @@ def main():
 
     # the chapter list on the book's contents page
     index_path = os.path.join(args.site, code, 'index.html')
-    index = open(index_path, encoding='utf-8').read()
+    index = versioned(open(index_path, encoding='utf-8').read(), css_version)
     items = ''.join(f'\n            <li>\n                <a href="chapters/{chapters[n]["page"]}">{chapters[n]["title"]}</a>\n            </li>'
                     for n in numbers)
     index, count = re.subn(r'(<nav class="toc">\s*<ol>).*?(\s*</ol>)', lambda m: m[1] + items + m[2], index, flags=re.S)
