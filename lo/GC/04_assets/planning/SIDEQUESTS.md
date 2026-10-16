@@ -30,23 +30,9 @@ Third, dictionary row tidy. `GC21_lo.txt` and `GC_lo.txt` both carry the same �
 
 Detail: this entry and the wrap-audit file are the brief. First and third are small; second is large and scheduled with entry 17.
 
-## 4. Forbidden-terms lists — decide whether the two merge
-
-The wiring is done. On 29 August `gc_termcheck.py` and `gc_resolvecheck.py` were changed to read `.tooling/forbidden_terms/lao.txt` alongside section 10 of `lo/GC/04_assets/translation_profile/GC-glossary.txt`, so a form the textlint job forbids is now caught at the pre-pass instead of after the push. The two lists overlap at three forms; the linter supplies 299 the glossary did not have.
-
-What remains is the question the wiring does not answer: whether the two lists should become one. Section 10 rows carry a Notes cell that says where a correction applies — "Wrong at this head only", "Exception: ລ" — and the linter's flat `wrong # correct` format has nowhere to put that, which is why four of its rules are hand-written lookarounds rather than rows. A Thai list sits beside the Lao one and will want the same answer when a Thai project gets a pre-pass of its own.
-
-Detail: none written. `.tooling/textlint/rules/lo.js` line 6 shows how the linter loads its list.
-
-## 7. Governing-file size reduction
-
-The GC governing files are `lo/GC/CLAUDE.md`, `.claude/commands/lo-gc.md`, the six `gc-*` agent definitions in `.claude/agents/` and the scripts in `lo/GC/04_assets/scripts/`. Bring them to the shape of the th/ files. Every GC instruction file has a row in `assets/scripts/instruction_budget.py` and sits within 45 words of it, while the GC agents run far larger than their th/ counterparts: gc-batch-auditor 3,127 words against sc-batch-auditor's 1,897, gc-qa3-reader 2,656 against sc-reader-qa3's 814, gc-resolve-check 1,612 against sc-resolve-check's 885. Cut restatement and history, keep every rule in force, and lower each budget row to the new size.
-
-Detail: none written; this entry is the whole brief. Medium.
-
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
-The translator's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Lao version is built first, on GC, and then used as the model for the Thai projects.
+The translator's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Thai language glossary, `th/assets/translation_profile/thai-glossary.txt`, is the model. The Lao language glossary, `lo/assets/translation_profile/lao-glossary.txt`, was begun with FB, and the rework moves the GC rows into it.
 
 Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao Spelling Glossary`, `## 11. Lao Proper Noun Glossary (GC)`, `## 12. Lao Compound Word-Order Pairs (GC)` in `lo/GC/04_assets/translation_profile/GC-glossary.txt` — a numbering left over from a structure that no longer exists, and the rework renumbers it. And the QA3 record under `lo/GC/04_assets/qa3/`, which gives Fable's in-context verdict on every change QA1 and QA2 made, is the evidence the rework reads before it keeps, loosens or drops any rule the GC runs wrote; every DECIDED, closed or ruled label in the current files is re-examined against that record rather than carried over, because many of those labels were an agent's extrapolation and not a ruling.
 

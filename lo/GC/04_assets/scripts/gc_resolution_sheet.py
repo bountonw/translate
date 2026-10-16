@@ -17,8 +17,8 @@ as {{Q#4|...}} / {{Q|...}} anywhere in the manuscript, or by appending
 "|his question" to the note field of the marker he is asking about. See
 ~/claude-sandbox/gc-audit/communication.md.
 
-    python3 gc_resolution_sheet.py --chapter 13
-    python3 gc_resolution_sheet.py --lo path/to/GC13_lo.md --en path/to/GC13_en.md
+    python3 lo/GC/04_assets/scripts/gc_resolution_sheet.py --chapter 13
+    python3 lo/GC/04_assets/scripts/gc_resolution_sheet.py --lo path/to/GC13_lo.md --en path/to/GC13_en.md
 
 Read-only with respect to the repository: the only file written is the sheet.
 """
@@ -253,8 +253,8 @@ def build(chapter, lo_path, en_path, paras, markers, unclosed, questions):
         out.append(f"**{unclosed} unterminated `[[` with no closing `]]`** — these are invisible to the parser; find them by hand.")
     out.append("")
     if questions:
-        out.append(f"**{len(questions)} inline question(s) from the translator** — answered in the companion's "
-                   "Questions section, then deleted from the manuscript.")
+        out.append(f"**{len(questions)} inline question(s) from the translator** — answered in the conductor's "
+                   "report, then deleted from the manuscript.")
     out.append("")
     out.append("Each block below carries the full English paragraph for its anchor. "
                "Nothing here needs to be cross-referenced against another file.")

@@ -13,8 +13,7 @@ Glossary conventions read by this script:
   '/' in Lao cell   any listed option satisfies a [CHECK] row
   (parenthetical)   instruction, not Lao text; skipped
 
-Rows are silent until tagged. Coverage grows as terms are
-adjudicated: each decision session adds [CHECK] rows.
+Rows are silent until tagged.
 
 Usage:
   gc_termcheck.py --en EN.md --lo LO.md
