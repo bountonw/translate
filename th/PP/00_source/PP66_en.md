@@ -6,7 +6,7 @@ chapter:
   number: 66
   title:
     en: The Death of Saul
-  url: https://legacy.egwwritings.org/?ref=en_PP.675.1&para=84.3170
+  url: https://egwwritings.org/?ref=en_PP.675.1&para=84.3170
   basedon: 
 author:
   en: Ellen White

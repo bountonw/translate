@@ -6,7 +6,7 @@ chapter:
   number: 41
   title:
     en: Apostasy at the Jordan
-  url: https://legacy.egwwritings.org/?ref=en_PP.453.1&para=84.2086
+  url: https://egwwritings.org/?ref=en_PP.453.1&para=84.2086
   basedon: This chapter is based on Numbers 25.
 author:
   en: Ellen White

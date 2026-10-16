@@ -6,7 +6,7 @@ chapter:
   number: 68
   title:
     en: David at Ziklag
-  url: https://legacy.egwwritings.org/?ref=en_PP.690.1&para=84.3237
+  url: https://egwwritings.org/?ref=en_PP.690.1&para=84.3237
   basedon: This chapter is based on 1 Samuel 29; 30; 2 Samuel 1.
 author:
   en: Ellen White

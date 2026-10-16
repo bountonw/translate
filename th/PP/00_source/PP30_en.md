@@ -6,7 +6,7 @@ chapter:
   number: 30
   title:
     en: The Tabernacle and Its Services
-  url: https://legacy.egwwritings.org/?ref=en_PP.343.1&para=84.1539
+  url: https://egwwritings.org/?ref=en_PP.343.1&para=84.1539
   basedon: This chapter is based on Exodus 25 to 40; Leviticus 4 and 16.
 author:
   en: Ellen White

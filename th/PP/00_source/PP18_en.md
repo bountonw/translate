@@ -6,7 +6,7 @@ chapter:
   number: 18
   title:
     en: The Night of Wrestling
-  url: https://legacy.egwwritings.org/?ref=en_PP.195.1&para=84.814
+  url: https://egwwritings.org/?ref=en_PP.195.1&para=84.814
   basedon: This chapter is based on Genesis 32 and 33.
 author:
   en: Ellen White

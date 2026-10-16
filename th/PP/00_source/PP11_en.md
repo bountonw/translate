@@ -6,7 +6,7 @@ chapter:
   number: 11
   title:
     en: The Call of Abraham
-  url: https://legacy.egwwritings.org/?ref=en_PP.125.1&para=84.489
+  url: https://egwwritings.org/?ref=en_PP.125.1&para=84.489
   basedon:
 author:
   en: Ellen White

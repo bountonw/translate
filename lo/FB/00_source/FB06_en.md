@@ -1,0 +1,16 @@
+---
+book:
+  title:
+    en: 28 Fundamental Beliefs of Seventh-day Adventists
+chapter:
+  number: 6
+  title:
+    en: Creation
+  url: https://www.adventist.org/beliefs/
+source:
+  en: ADV-28Beliefs2020.pdf, General Conference of Seventh-day Adventists, 2020 edition; text as amended at the 2015 General Conference Session
+---
+
+## {FB 6.1}
+
+God has revealed in Scripture the authentic and historical account of His creative activity. He created the universe, and in a recent six-day creation the Lord made “the heavens and the earth, the sea, and all that is in them” and rested on the seventh day. Thus He established the Sabbath as a perpetual memorial of the work He performed and completed during six literal days that together with the Sabbath constituted the same unit of time that we call a week today. The first man and woman were made in the image of God as the crowning work of Creation, given dominion over the world, and charged with responsibility to care for it. When the world was finished it was “very good,” declaring the glory of God. (Gen. 1-2; 5; 11; Exod. 20:8-11; Ps. 19:1-6; 33:6, 9; 104; Isa. 45:12, 18; Acts 17:24; Col. 1:16; Heb. 1:2; 11:3; Rev. 10:6; 14:7.) {FB 6.1}

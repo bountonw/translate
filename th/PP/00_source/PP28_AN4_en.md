@@ -6,7 +6,7 @@ chapter:
   number: 28A
   title:
     en: Appendix Note 4
-  url: https://legacy.egwwritings.org/?ref=en_PP.760.1&para=84.3606
+  url: https://egwwritings.org/?ref=en_PP.760.1&para=84.3606
   basedon: 
 author:
   en: Ellen White
@@ -14,7 +14,7 @@ author:
 
 ## {PP 760.1}
 
-Note 4. Page 316. The Israelites, in their adoration of the golden calf, professed to be worshiping God. Thus Aaron, when inaugurating the worship of the idol, proclaimed, “Tomorrow is a feast unto Jehovah.” They proposed to worship God, as the Egyptians worshiped Osiris, under the semblance of the image. But God could not accept the service. Though offered in His name, the sun god, and not Jehovah, was the real object of their adoration. {PP 760.1}
+Note 4. Page 316. The Israelites, in their adoration of the golden calf, *professed* to be worshiping God. Thus Aaron, when inaugurating the worship of the idol, proclaimed, “Tomorrow is a feast unto Jehovah.” They proposed to worship God, as the Egyptians worshiped Osiris, under the semblance of the image. But God could not accept the service. Though offered in His name, the sun god, and not Jehovah, was the real object of their adoration. {PP 760.1}
 
 ## {PP 760.2}
 

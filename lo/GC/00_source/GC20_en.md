@@ -207,6 +207,6 @@ God designed to prove His people. His hand covered a mistake in the reckoning of
 
 The time of expectation passed, and Christ did not appear for the deliverance of His people. Those who with sincere faith and love had looked for their Saviour, experienced a bitter disappointment. Yet the purposes of God were being accomplished; He was testing the hearts of those who professed to be waiting for His appearing. There were among them many who had been actuated by no higher motive than fear. Their profession of faith had not affected their hearts or their lives. When the expected event failed to take place, these persons declared that they were not disappointed; they had never believed that Christ would come. They were among the first to ridicule the sorrow of the true believers. {GC 374.1}
 
-## {GC 373.2}
+## {GC 374.2}
 
 But Jesus and all the heavenly host looked with love and sympathy upon the tried and faithful yet disappointed ones. Could the veil separating the visible world have been swept back, angels would have been seen drawing near to these steadfast souls and shielding them from the shafts of Satan. {GC 374.2}

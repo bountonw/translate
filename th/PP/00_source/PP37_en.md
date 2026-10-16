@@ -6,7 +6,7 @@ chapter:
   number: 37
   title:
     en: The Smitten Rock
-  url: https://legacy.egwwritings.org/?ref=en_PP.411.1&para=84.1888
+  url: https://egwwritings.org/?ref=en_PP.411.1&para=84.1888
   basedon: This chapter is based on Numbers 20:1-13.
 author:
   en: Ellen White
@@ -82,7 +82,7 @@ By his rash act Moses took away the force of the lesson that God purposed to tea
 
 ## {PP 418.2}
 
-More than this, Moses and Aaron had assumed power that belongs only to God. The necessity for divine interposition made the occasion one of great solemnity, and the leaders of Israel should have improved it to impress the people with reverence for God and to strengthen their faith in His power and goodness. When they angrily cried, “Must we fetch you water out of this rock?” they put themselves in God’s place, as though the power lay with themselves, men possessing human frailties and passions. Wearied with the continual murmuring and rebellion of the people, Moses had lost sight of his Almighty Helper, and without the divine strength he had been left to mar his record by an exhibition of human weakness. The man who might have stood pure, firm, and unselfish to the close of his work had been overcome at last. God had been dishonored before the congregation of Israel, when He should have been magnified and exalted. {PP 418.2}
+More than this, Moses and Aaron had assumed power that belongs only to God. The necessity for divine interposition made the occasion one of great solemnity, and the leaders of Israel should have improved it to impress the people with reverence for God and to strengthen their faith in His power and goodness. When they angrily cried, “Must *we* fetch you water out of this rock?” they put themselves in God’s place, as though the power lay with themselves, men possessing human frailties and passions. Wearied with the continual murmuring and rebellion of the people, Moses had lost sight of his Almighty Helper, and without the divine strength he had been left to mar his record by an exhibition of human weakness. The man who might have stood pure, firm, and unselfish to the close of his work had been overcome at last. God had been dishonored before the congregation of Israel, when He should have been magnified and exalted. {PP 418.2}
 
 ## {PP 418.3}
 

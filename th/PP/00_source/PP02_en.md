@@ -6,7 +6,7 @@ chapter:
   number: 2
   title:
     en: The Creation
-  url: https://legacy.egwwritings.org/?ref=en_PP.44&para=84.117
+  url: https://egwwritings.org/?ref=en_PP.44&para=84.117
   basedon: This chapter is based on Genesis 1 and 2.
 author:
   en: Ellen White

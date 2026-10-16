@@ -35,9 +35,6 @@ jobs:
       id: filter
       with:
         filters: |
-          th/PP:
-            - 'th/PP/**'
-            - .tooling
           th/MB:
             - 'th/MB/**'
             - .tooling
@@ -49,7 +46,7 @@ jobs:
     needs: changes
     strategy:
       matrix:
-        book: ${{ fromJSON(github.ref == 'refs/heads/main' && '["th/PP", "th/LBF", "th/MB"]' || needs.changes.outputs.books) }}
+        book: ${{ fromJSON(github.ref == 'refs/heads/main' && '["th/LBF", "th/MB"]' || needs.changes.outputs.books) }}
     runs-on: ubuntu-latest
     container:
       image: mattleff/xelatex-swath

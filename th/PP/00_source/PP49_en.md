@@ -6,7 +6,7 @@ chapter:
   number: 49
   title:
     en: The Last Words of Joshua
-  url: https://legacy.egwwritings.org/?ref=en_PP.521.1&para=84.2415
+  url: https://egwwritings.org/?ref=en_PP.521.1&para=84.2415
   basedon: This chapter is based on Joshua 23 and 24.
 author:
   en: Ellen White

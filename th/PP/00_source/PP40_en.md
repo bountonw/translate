@@ -6,7 +6,7 @@ chapter:
   number: 40
   title:
     en: Balaam
-  url: https://legacy.egwwritings.org/?ref=en_PP.438.1&para=84.2013
+  url: https://egwwritings.org/?ref=en_PP.438.1&para=84.2013
   basedon: This chapter is based on Numbers 22 to 24.
 author:
   en: Ellen White
