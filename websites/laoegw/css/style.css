@@ -1,0 +1,247 @@
+/* css/style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Text size follows the reader's own setting: 112.5% (18 px for most readers)
+   on phones, 125% (20 px) on tablets and computers. */
+html {
+  font-size: 112.5%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+/* Colours; the second set applies when the reader's phone or computer is set to dark. */
+:root {
+  --bg: #f4f4f4;
+  --text: #333333;
+  --muted: #5f6368;
+  --link: #2563eb;
+  --link-hover: #1e40af;
+  --panel: #ffffff;
+  --rule: #d6d6d6;
+  --mark: #fff1bf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1d21;
+    --text: #dcdcdc;
+    --muted: #a6a9ae;
+    --link: #8ab4ff;
+    --link-hover: #b3ceff;
+    --panel: #24272c;
+    --rule: #3a3e45;
+    --mark: #3f3a22;
+    color-scheme: dark;
+  }
+}
+
+body {
+  font-family: "Noto Serif Lao", serif;
+  font-size: 1rem;
+  /* Lao marks stack above and below; at 1.7 the tallest stacks never touch */
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* a Lao word the converter marked; lines break only between these */
+span.w {
+  white-space: nowrap;
+}
+
+/* space between paragraphs and above headings */
+p {
+  margin-bottom: 0.8em;
+}
+
+/* Heading sizes follow the printed book: title 1.5 times the text (print
+   15.5 pt on 10.5 pt), subheadings 1.15 times (print 12 pt). A long title
+   wraps into lines of even length, centred. */
+h1 {
+  font-size: 1.5em;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0.8em 0 0.4em;
+}
+
+/* the chapter number on its own line above the title, as in the print */
+h1 .chapter-number {
+  display: block;
+  font-size: 1.6em;
+  font-weight: normal;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+h1 .chapter-name {
+  display: block;
+}
+
+h2 {
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+/* the paragraph or footnote a link has just jumped to */
+:target {
+  background-color: var(--mark);
+}
+
+/* previous, contents and next, at the top and the bottom of each chapter */
+nav.chapter-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "prev toc next";
+  gap: 0.6em 1em;
+  align-items: start;
+}
+
+nav.chapter-nav a {
+  text-decoration: none;
+}
+
+nav.chapter-nav .nav-prev {
+  grid-area: prev;
+}
+
+nav.chapter-nav .nav-toc {
+  grid-area: toc;
+  text-align: center;
+}
+
+nav.chapter-nav .nav-next {
+  grid-area: next;
+  text-align: right;
+}
+
+nav.chapter-nav.top {
+  margin-bottom: 1em;
+}
+
+nav.chapter-nav.bottom {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--rule);
+}
+
+/* on a phone the full titles get the width; the contents link goes below them */
+@media (max-width: 767px) {
+  nav.chapter-nav.bottom {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "prev next" "toc toc";
+  }
+}
+
+p.chapter-url {
+  font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 1.6em;
+}
+
+span.egw {
+  color: var(--muted);
+  font-size: .8rem;
+  vertical-align: middle;
+}
+
+span.egw a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* footnote numbers in the text, with room to tap them */
+a.footnote-ref {
+  text-decoration: none;
+  padding: 0 0.15em;
+}
+
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+div.footnote {
+  margin-top: 2em;
+  font-size: 0.9em;
+}
+
+div.footnote hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin-bottom: 1em;
+}
+
+div.footnote ol {
+  padding-left: 1.8em;
+}
+
+div.footnote p {
+  margin-bottom: 0.3em;
+}
+
+a.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.3em;
+}
+
+footer.site-footer {
+  margin-top: 2.5em;
+  padding-top: 1em;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8em;
+  color: var(--muted);
+}
+
+nav.toc {
+  background-color: var(--panel);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav.toc ol {
+  list-style-position: inside;
+}
+
+/* the chapter numbers are in the link text, as on the printed contents page */
+nav.toc li {
+  margin: 15px 0;
+  font-size: 1.1em;
+  list-style: none;
+}
+
+nav.toc a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+nav.toc a:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
