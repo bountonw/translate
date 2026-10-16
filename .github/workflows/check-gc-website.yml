@@ -1,0 +1,35 @@
+name: Check GC website
+
+# Fails a pull request when the website pages no longer match the GC chapter
+# text, so the pages are rebuilt (lo/websites/build_gc.sh) before merging.
+# It never uploads anything; the upload to the server is done by hand.
+
+on:
+  pull_request:
+    paths:
+      - 'lo/GC/03_public/**'
+      - 'lo/websites/**'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Rebuild the pages from the chapter files
+        run: |
+          dotnet run --project lo/websites/mdconverter -c Release -- \
+            --md-folder lo/GC/03_public \
+            --website-folder lo/websites/laoegw/GC
+      - name: Check the pages against the chapter files
+        run: python3 lo/websites/check_gc_site.py lo/websites/laoegw/GC lo/GC/03_public
+      - name: Fail if the committed pages are out of date
+        run: |
+          if ! git diff --quiet -- lo/websites/laoegw; then
+            git diff --stat -- lo/websites/laoegw
+            echo "::error::The website pages do not match the chapter text. Run lo/websites/build_gc.sh, commit the pages, and after merging upload them to the server."
+            exit 1
+          fi

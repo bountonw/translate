@@ -2,6 +2,10 @@
 using CommandLine;
 using Markdig;
 
+// navigation words, as the printed book uses them
+const string TocLabel = "ສາລະບານ";
+const string ChapterLabel = "ບົດທີ";
+
 if (args.Length == 0)
 {
     args = ["--help"];
@@ -231,10 +235,40 @@ static void ConvertFiles(Options args)
             headerText,
             "<title>(.*?)</title>",
             $"<title>{numberWithLoTitle}</title>{Environment.NewLine}    <meta property=\"og:title\" content=\"{numberWithLoTitle}\">");
+        // previous, contents and next links. Assumes every chapter page sits in
+        // the same folder, one level below the contents page.
+        var currChapDirName = Path.GetDirectoryName(chapterNumOutputPaths[chapterNumber]);
+        string ChapLink(int num)
+        {
+            var link = chapterNumOutputPaths[num];
+            return currChapDirName == Path.GetDirectoryName(link) ? link.Replace(currChapDirName + "/", "") : link;
+        }
+        // short labels at the top ("‹ ບົດທີ 1"), full titles at the bottom
+        string ShortLabel(int num) => num > 0 ? $"{ChapterLabel} {num}" : RemoveLwAndPTagsInText(chapterData[num].Item1["lo"]);
+        var topPrev = "";
+        var topNext = "";
+        var bottomPrev = "";
+        var bottomNext = "";
+        if (chapterNumber != firstChapterNumber)
+        {
+            var prevChapNum = chapterNumber - 1;
+            topPrev = $"<a href=\"{ChapLink(prevChapNum)}\">‹ {ShortLabel(prevChapNum)}</a>";
+            bottomPrev = $"<a href=\"{ChapLink(prevChapNum)}\">‹ {NumberedTitle(prevChapNum, chapterData[prevChapNum].Item1["lo"])}</a>";
+        }
+        if (chapterNumber != lastChapterNumber)
+        {
+            var nextChapNum = chapterNumber + 1;
+            topNext = $"<a href=\"{ChapLink(nextChapNum)}\">{ShortLabel(nextChapNum)} ›</a>";
+            bottomNext = $"<a href=\"{ChapLink(nextChapNum)}\">{NumberedTitle(nextChapNum, chapterData[nextChapNum].Item1["lo"])} ›</a>";
+        }
+        string ChapterNav(string position, string prev, string next) =>
+            $"<nav class=\"chapter-nav {position}\"><span class=\"nav-prev\">{prev}</span>" +
+            $"<a class=\"nav-toc\" href=\"../index.html\">{TocLabel}</a>" +
+            $"<span class=\"nav-next\">{next}</span></nav>" + Environment.NewLine;
         // actually create output now
         var outputFileContents =
             headerText +
-            Environment.NewLine +
+            ChapterNav("top", topPrev, topNext) +
             $"<h1>{numberWithLoTitle}</h1>";
         if (metadata.TryGetValue("url", out var url))
         {
@@ -243,36 +277,7 @@ static void ConvertFiles(Options args)
         outputFileContents +=
             chapterHtml +
             Environment.NewLine;
-        var linksToPrevNext = "<p class=\"chapter-links\">";
-        // Put in links. Assumes everything in same folder or can use full link...
-        // not the best, but workable for now.
-        var currChapLink = chapterNumOutputPaths[chapterNumber];
-        var currChapDirName = Path.GetDirectoryName(currChapLink);
-        if (chapterNumber != firstChapterNumber)
-        {
-            var prevChapNum = chapterNumber - 1;
-            var prevChapLink = chapterNumOutputPaths[prevChapNum];
-            var prevChapDirName = Path.GetDirectoryName(prevChapLink);
-            if (currChapDirName == prevChapDirName)
-            {
-                prevChapLink = prevChapLink.Replace(currChapDirName + "/", "");
-            }
-            var prevChapterName = NumberedTitle(prevChapNum, chapterData[prevChapNum].Item1["lo"]);
-            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{prevChapLink}\">{prevChapterName}</a>";
-        }
-        if (chapterNumber != lastChapterNumber)
-        {
-            var nextChapNum = chapterNumber + 1;
-            var nextChapLink = chapterNumOutputPaths[nextChapNum];
-            var nextChapDirName = Path.GetDirectoryName(nextChapLink);
-            if (currChapDirName == nextChapDirName)
-            {
-                nextChapLink = nextChapLink.Replace(currChapDirName + "/", "");
-            }
-            var nextChapterName = NumberedTitle(nextChapNum, chapterData[nextChapNum].Item1["lo"]);
-            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{nextChapLink}\">{nextChapterName}</a>";
-        }
-        outputFileContents += linksToPrevNext + "</p>" + Environment.NewLine;
+        outputFileContents += ChapterNav("bottom", bottomPrev, bottomNext);
         outputFileContents += File.ReadAllText(footerFilePath);
 
         var didHaveChapterNumOutputData = chapterNumOutputPaths.TryGetValue(chapterNumber, out var outputPathStub);
