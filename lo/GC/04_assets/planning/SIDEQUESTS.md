@@ -18,17 +18,11 @@ The front page of the website is basically blank. Build a landing page: the book
 
 Detail: none written; this entry is the whole brief. Small to medium.
 
-## 28. Cleanup from the 2 September pre-press session
+## 28. Line-break fixes for a reprint
 
-Three pieces, none urgent, all known.
+Done only if the book is reprinted. The line-break audit of the shipped book read all 13,353 spaceless line breaks and classified 550 flags into four tiers; the file is `wrap-audit-20260902.tsv` beside this queue. Tier A is eleven verified mis-segmentations where the dictionary knows the compound and the segmenter split it anyway; tier B is sixty reviewed splits of genuine single words the lexicon holds as two (ນ້ຳມັນ, ຫົວໃຈ, ເຄື່ອງມື, ວັນອາທິດ and the rest); roughly seventy compound rows follow from A and B, and about sixteen sites compose actively wrong readings. Adding the rows re-wraps the whole book, which is why the work waits for a reprint. The loose line at {GC 456.2} (foot of printed page 340) rechecks itself then. This folds naturally into entry 17's glossary rework or runs beside it.
 
-First, signature padding in the build. The shipped file's two trailing blank pages were made by hand in typst. A self-adjusting pad — module 3 appends a TeX loop to the full book only, filling with truly blank pages to the next multiple of 16, the press's signature size — was designed and verified the same day with a multiple of 8 (520 pages on the real book, final blanks empty at text and pixel level, chapter proofs untouched); at 16 the book is 528 pages. It was not applied to the repository because the file had already gone. Apply it (the verified copy sits in `~/claude-sandbox/gc-audit/book-build/lo/GC/04_assets/scripts/module3_preprocess.py`) or decide against it and write the typst step down instead, so the next printing's build makes a press-shaped file by itself.
-
-Second, the second-printing wrap program. The line-break audit of the shipped book read all 13,353 spaceless line breaks and classified 550 flags into four tiers; the file is `wrap-audit-20260902.tsv` beside this queue. Tier A is eleven verified mis-segmentations where the dictionary knows the compound and the segmenter split it anyway; tier B is sixty reviewed splits of genuine single words the lexicon holds as two (ນ້ຳມັນ, ຫົວໃຈ, ເຄື່ອງມື, ວັນອາທິດ and the rest); roughly seventy compound rows follow from A and B, and about sixteen sites compose actively wrong readings. Adding the rows re-wraps the whole book, which is why the work waits for the second printing. The loose line at {GC 456.2} (foot of printed page 340) rechecks itself then. This folds naturally into entry 17's glossary rework or runs beside it.
-
-Third, dictionary row tidy. `GC21_lo.txt` and `GC_lo.txt` both carry the same ຟັອດເວນ row (harmless duplicate; the book-level one suffices). In `patch.txt`, the ນາຍຊ່າງ row duplicates `main.txt` byte for byte, and the bare ນາມນີ້ row no longer fires anywhere now that ມີນາມນີ້ covers the only site. Review and drop the dead rows.
-
-Detail: this entry and the wrap-audit file are the brief. First and third are small; second is large and scheduled with entry 17.
+Detail: this entry and the wrap-audit file are the brief. Large.
 
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
@@ -38,7 +32,7 @@ Two things fold in. The glossary's sections are numbered from 10 — `## 10. Lao
 
 The size of the three files under `lo/GC/04_assets/translation_profile/`, which every agent loads on every dispatch, is part of this work. Move the decision history out of them into `lo/GC/04_assets/history/`, keyed by the English head, so the rules stay and the evidence stops being paid for on every dispatch. Scope after the translator's rulings of 13 August: 17 oversized `GC-open-terms.md` entries and 24 glossary rows; the twelve sense-selection rows in section 6 of the plan are not touched, and a deferred entry stays at full size until it is adjudicated. `gc_govcheck.py` and its tests prove a pass loses nothing. The largest case is the Clergy entry of `GC-open-terms.md`, 807 words against the 15-word limit of item 5.C of `lo/GC/CLAUDE.md`; the three-way mapping its row states stays, and the site-by-site reasoning goes to the clergy head of `lo/GC/04_assets/history/GC-glossary-history.md`. Plan: `~/claude-sandbox/gc-audit/glossary-reduction-plan.md`.
 
-Detail: none written yet; this entry is the whole brief. Large; Fable for the design.
+Detail: none written yet; this entry is the whole brief. Large; Fable for the design. It runs on a branch of its own, not on GC-queue.
 
 QA3 findings for the rework, one line per chapter as they land:
 
