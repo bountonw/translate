@@ -29,10 +29,14 @@ static string RemoveLwAndPTagsInText(string txt)
     {
         return "";
     }
+    // remove \p{} first, since it can sit inside \lw{}, e.g. \lw{ເລັກ\p{200}ນ້ອຍ}
+    txt = Regex.Replace(txt, "\\\\p{(-?.*?)}", m => $"");
     txt = Regex.Replace(txt, "\\\\lw{(.*?)}", m => $"{m.Groups[1].Value}");
     txt = Regex.Replace(txt, "\\\\GCcode{(.*?)}", m => $"{m.Groups[1].Value}");
-    txt = Regex.Replace(txt, "\\\\p{(-?.*?)}", m => $"");
     txt = txt.Replace("\\newpage", "");
+    // escape bracketed text right before a footnote ref, e.g. [ຈາກນັ້ນ...][^16],
+    // or markdown reads it as a link to the footnote and drops the text
+    txt = Regex.Replace(txt, "\\[([^\\[\\]^][^\\[\\]]*)\\](?=\\[\\^)", m => $"\\[{m.Groups[1].Value}\\]");
     txt = txt.Replace("\\s", "");
     txt = txt.Replace("\\S", "");
     return txt;
@@ -138,7 +142,8 @@ static void ConvertFiles(Options args)
         List<string> chapterContents = [];
         foreach (string line in contents)
         {
-            if (line.StartsWith('-'))
+            // only the two --- lines that open and close the front matter
+            if (!parsedMetadata && line.Trim() == "---")
             {
                 if (parsingMetadata)
                 {
@@ -164,13 +169,15 @@ static void ConvertFiles(Options args)
             }
             else if (parsedMetadata)
             {
-                if (!line.Trim().StartsWith("## {")) // these lines are ignorable
+                if (!line.Trim().StartsWith("## {")) // paragraph tags like ## {GC 17.1} are navigation only
                 {
                     var outputLine = line;
                     if (line.StartsWith("    "))
                     {
                         outputLine = line[4..];
                     }
+                    // with the ## tags stripped, ### subheadings become second level
+                    outputLine = Regex.Replace(outputLine, "^#(#{2,}) ", "$1 ");
                     outputLine = RemoveLwAndPTagsInText(outputLine);
                     chapterContents.Add(outputLine);
                 }
@@ -187,11 +194,27 @@ static void ConvertFiles(Options args)
         // replace special chars in chapter markdown/latex contents
         chapterContents = chapterContents.Replace("{\\;}", " ").Replace("{\\:}", " ");
         // convert file from markdown to HTML
-        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+        // no list extras: they read initials such as "W. H. D." as a lettered list;
+        // no auto identifiers: Lao headings all come out as "section", "section-1"...
+        var pipelineBuilder = new MarkdownPipelineBuilder().UseAdvancedExtensions();
+        pipelineBuilder.Extensions.RemoveAll(e =>
+            e is Markdig.Extensions.ListExtras.ListExtraExtension ||
+            e is Markdig.Extensions.AutoIdentifiers.AutoIdentifierExtension);
+        var pipeline = pipelineBuilder.Build();
         var chapterHtml = Markdown.ToHtml(string.Join(Environment.NewLine, chapterContents), pipeline);
-        chapterHtml = chapterHtml.Replace("h3", "h2");
         // find all egw reference text with format of {AB ##.#} and put into an egw tag
         chapterHtml = Regex.Replace(chapterHtml, "{([A-z]* \\d*.\\d*)}", m => $"<span class=\"egw\">{m.Groups[0].Value}</span>");
+        // a reference ending a paragraph names that paragraph, so it can be linked
+        // as chapters/01_xxx.html#GC17.1; the reference itself links there
+        chapterHtml = Regex.Replace(
+            chapterHtml,
+            "<p>((?:(?!</?p>).)*?)<span class=\"egw\">{([A-Za-z]+) (\\d+\\.\\d+)}</span></p>",
+            m =>
+            {
+                var id = m.Groups[2].Value + m.Groups[3].Value;
+                return $"<p id=\"{id}\">{m.Groups[1].Value}<span class=\"egw\"><a href=\"#{id}\">{{{m.Groups[2].Value} {m.Groups[3].Value}}}</a></span></p>";
+            },
+            RegexOptions.Singleline);
         // find any remaining \emph tags and put it in <em></em> tags
         chapterHtml = Regex.Replace(chapterHtml, "\\\\emph{(.*?)}", m => $"<em>{m.Groups[1].Value}</em>");
         chapterHtml = Regex.Replace(chapterHtml, "\\\\thai{(.*?)}", m => $"<span lang=\"th\" class=\"thai\">{m.Groups[1].Value}</span>");
@@ -203,10 +226,11 @@ static void ConvertFiles(Options args)
             headerText = headerText.Replace(replace.Key, replace.Value);
         }
         // fix header <title> element
-        var chapterTitle = metadata["lo"];
-        var numberWithLoTitle = chapterNumber > 0 ? $"{chapterNumber}: {chapterTitle}" : $"{chapterTitle}";
-        numberWithLoTitle = RemoveLwAndPTagsInText(numberWithLoTitle);
-        headerText = Regex.Replace(headerText, "<title>(.*?)</title>", $"<title>{numberWithLoTitle}</title>");
+        var numberWithLoTitle = NumberedTitle(chapterNumber, metadata["lo"]);
+        headerText = Regex.Replace(
+            headerText,
+            "<title>(.*?)</title>",
+            $"<title>{numberWithLoTitle}</title>{Environment.NewLine}    <meta property=\"og:title\" content=\"{numberWithLoTitle}\">");
         // actually create output now
         var outputFileContents =
             headerText +
@@ -214,7 +238,7 @@ static void ConvertFiles(Options args)
             $"<h1>{numberWithLoTitle}</h1>";
         if (metadata.TryGetValue("url", out var url))
         {
-            outputFileContents += $"<p class=\"chapter-url\"><a target=\"_blank\" href=\"{metadata["url"]}\">{metadata["url"]}</a></p>";
+            outputFileContents += $"<p class=\"chapter-url\"><a target=\"_blank\" href=\"{url}\">ຕົ້ນສະບັບພາສາອັງກິດ</a></p>";
         }
         outputFileContents +=
             chapterHtml +
@@ -233,8 +257,8 @@ static void ConvertFiles(Options args)
             {
                 prevChapLink = prevChapLink.Replace(currChapDirName + "/", "");
             }
-            var prevChapterName = RemoveLwAndPTagsInText(chapterData[prevChapNum].Item1["lo"]);
-            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{prevChapLink}\">{prevChapNum}: {prevChapterName}</a>";
+            var prevChapterName = NumberedTitle(prevChapNum, chapterData[prevChapNum].Item1["lo"]);
+            linksToPrevNext += $"<a class=\"prev-chapter-link\" href=\"{prevChapLink}\">{prevChapterName}</a>";
         }
         if (chapterNumber != lastChapterNumber)
         {
@@ -245,10 +269,10 @@ static void ConvertFiles(Options args)
             {
                 nextChapLink = nextChapLink.Replace(currChapDirName + "/", "");
             }
-            var nextChapterName = RemoveLwAndPTagsInText(chapterData[nextChapNum].Item1["lo"]);
-            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{nextChapLink}\">{nextChapNum}: {nextChapterName}</a>";
+            var nextChapterName = NumberedTitle(nextChapNum, chapterData[nextChapNum].Item1["lo"]);
+            linksToPrevNext += $"<a class=\"next-chapter-link\" href=\"{nextChapLink}\">{nextChapterName}</a>";
         }
-        outputFileContents += linksToPrevNext;
+        outputFileContents += linksToPrevNext + "</p>" + Environment.NewLine;
         outputFileContents += File.ReadAllText(footerFilePath);
 
         var didHaveChapterNumOutputData = chapterNumOutputPaths.TryGetValue(chapterNumber, out var outputPathStub);
@@ -261,6 +285,44 @@ static void ConvertFiles(Options args)
 
         File.WriteAllText(outputFilePath, outputFileContents);
     }
+    // rewrite the contents list in index.html from the chapter titles,
+    // so the contents page always matches the chapters
+    var indexPath = Path.Combine(websiteFolderPath, "index.html");
+    if (!File.Exists(indexPath))
+    {
+        Console.WriteLine("No index.html; contents page not written");
+        return;
+    }
+    var indexText = File.ReadAllText(indexPath);
+    var tocMatch = Regex.Match(indexText, "(<nav class=\"toc\">\\s*<ol>)(.*?)(\\s*</ol>)", RegexOptions.Singleline);
+    if (!tocMatch.Success)
+    {
+        Console.WriteLine("No <nav class=\"toc\"><ol> in index.html; contents page not written");
+        return;
+    }
+    var tocItems = "";
+    foreach (var chapNum in chapterNumOutputPaths.Keys.Order())
+    {
+        if (!chapterData.TryGetValue(chapNum, out var chapter))
+        {
+            continue;
+        }
+        tocItems += Environment.NewLine +
+            "            <li>" + Environment.NewLine +
+            $"                <a href=\"{chapterNumOutputPaths[chapNum]}\">{NumberedTitle(chapNum, chapter.Item1["lo"])}</a>" + Environment.NewLine +
+            "            </li>";
+    }
+    indexText = indexText[..tocMatch.Groups[2].Index] + tocItems + indexText[(tocMatch.Groups[2].Index + tocMatch.Groups[2].Length)..];
+    File.WriteAllText(indexPath, indexText);
+}
+
+/// <summary>
+/// "1. Title" as on the printed contents page; the introduction (0) has no number.
+/// </summary>
+static string NumberedTitle(int chapterNumber, string title)
+{
+    title = RemoveLwAndPTagsInText(title);
+    return chapterNumber > 0 ? $"{chapterNumber}. {title}" : title;
 }
 
 /// <summary>

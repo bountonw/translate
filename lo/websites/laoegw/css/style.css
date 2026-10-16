@@ -25,18 +25,13 @@ nav.toc {
 
 nav.toc ol {
   list-style-position: inside;
-  counter-reset: chapter -1;
 }
 
+/* the chapter numbers are in the link text, as on the printed contents page */
 nav.toc li {
   margin: 15px 0;
   font-size: 1.1em;
-  counter-increment: chapter;
   list-style: none;
-}
-
-nav.toc li::before {
-  content: counter(chapter) ". ";
 }
 
 nav.toc a {
