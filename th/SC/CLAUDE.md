@@ -23,6 +23,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, sc_resolution_sheet.py, sc_editor_markers.py. Each says what it does in its first lines.
 2.F. Compile check, from th/SC: ./typst-custom compile --root . <stage>/SCNN_th.typ $TMPDIR/SCNN.pdf. Never on a chapter holding markers.
 2.G. The Thai print edition, เคล็ดลับแห่งความสุข (ThSC), is th/SC/04_assets/editions/print/SCNN_print_th.typ, anchored like the chapters, with its README beside it. This project is a new translation, not a revision of the print, and the print is reference only, never precedent: whoever works wording at a site reads the print's sentence there and shows it beside the candidates; a rendering from it is taken only where it is the best in the passage on its own merits, and no candidate is ranked up for matching it or down for departing from it.
+2.H. Outside suggestions and critiques awaiting processing: th/SC/04_assets/suggestions/, one file each, deleted once its points are processed.
 
 ## 3. The rounds
 
@@ -79,4 +80,4 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 9. Reporting
 
 9.A. The root CLAUDE.md report shape; TH: replaces LO:. A DECIDE opens with the decision and the recommendation.
-9.B. sc-resolve-check writes for the translator and is relayed verbatim. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
+9.B. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
