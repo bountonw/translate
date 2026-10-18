@@ -127,7 +127,7 @@
 | impurity, impure | ไม่บริสุทธิ์ / มลทิน | [CHECK] MB 60.1, PP 308.7, SC 29.1 |
 | stain, spot (of sin) | จุดด่างพร้อย / ด่างพร้อย / รอยมลทิน | MB 32.2, SC 28.3, PP 722.4 |
 | stain of iniquity | มลทินบาป | Figure; translation memory; the stain row keeps its forms for a bare stain. SC 37.3 |
-| Searcher of hearts | พระเจ้าผู้ทรงชันสูตรจิตใจ / ผู้ทรงชันสูตรใจมนุษย์ | THSV's word at โรม 8:27; TKJV writes ตรวจค้น; MB and PP have no site for the title. SC 24.2, SC 34.3 |
+| Searcher of hearts | พระเจ้าผู้ทรงชันสูตรจิตใจ / ผู้ทรงชันสูตรใจมนุษย์ | THSV's word at โรม 8:27; TKJV writes ตรวจค้น; MB and PP have no site for the title. SC 24.2 |
 | birthright | สิทธิบุตรหัวปี / สิทธิของบุตรหัวปี | [CHECK] THSV at ปฐมกาล 25:34 and ฮีบรู 12:16. PP 177.3, PP 178.3 |
 | Holy One of Israel | องค์บริสุทธิ์ของอิสราเอล / องค์บริสุทธิ์แห่งอิสราเอล | [CHECK] Prose ของ; THSV writes ของ 25 times, แห่ง 5; quotations follow their version. SC 24.1, MB 64.1, PP 360.2 |
 | Lamb of God | ลูกแกะของพระเจ้า | [CHECK] Prose and TCV's ยอห์น 1:29; the other versions' พระเมษโปดก stands inside their quotations. MB 1.3, SC 19.1, PP 63.3 |
