@@ -39,7 +39,7 @@
 | I AM, the great (God's name from Exodus 3:14) | “เราเป็น” / ผู้สถิตในนิรันดร์กาล | [CHECK] Introduce the name with ผู้ทรงพระนามว่า or ผู้ตรัสว่า; a description of eternal being stands. อพยพ 3:14, PP 264.1, PP 704.1, SC 109.3, DA 24.3 |
 | I AM (Christ's capitalised sayings; the author's own I AM sentences) | เราเป็น | [CHECK] Opens the saying; a quotation takes a version that opens เราเป็น, as THSV does. ยอห์น 10:11, ยอห์น 6:51, ยอห์น 14:6, DA 24.3 |
 | existence (of God) | การทรงพระชนม์อยู่ / การมีอยู่ | ของพระเจ้า or ของพระองค์ follows as the sentence needs; other existence is recast or takes การมีอยู่. PP 113.3, SC 63.2, SC 105.2 |
-| testimony | หลักฐาน / คำยืนยัน | No fixed form; settled at each site. SC 89.3, PP 77.1 |
+| testimony | หลักฐาน / คำยืนยัน / เป็นพยาน | No fixed form; เป็นพยาน where a life or conduct bears witness. SC 89.3, PP 77.1, SC 83.1 |
 | Sermon on the Mount | คำเทศนาบนภูเขา | MB's title and SJ agree. MB vii.1, SJ 60.2 |
 | great white throne | พระที่นั่งใหญ่สีขาว | MB 90.2 |
 | resurrection | การฟื้นจากความตาย | The doctrine; royal ฟื้นพระชนม์ / คืนพระชนม์ for Christ's own rising. PP 478.4, MB 129.2 |
@@ -244,7 +244,7 @@
 | providence (provision, providential care) | ทรงเลี้ยงดู / ทรงดูแล / ทรงคุ้มครอง / ทรงจัดเตรียม / ประทาน | [CHECK] God supplying and keeping; a verb, never การทรงนำ; TNCV writes การจัดเตรียม at โยบ 10:12. PP 115.1, PP 568.1, SC 121.3 |
 | Providence (as a name for God) | พระเจ้า / การทรงนำของพระเจ้า | No Thai personification; the published books write the person or His leading. PP 128.2, PP 290.3, PP 739.1 |
 | guidance (of God, Christ, the Holy Spirit) | การทรงนำ / ทรงนำ | A person's or Satan's guidance takes การชี้นำ or a recast, never ทรงนำ. MB 117.2, PP 114.1, SC 91.1, SC 110.1 |
-| Master (Christ, of His disciples) | พระอาจารย์ | A human master is นาย or เจ้านาย. MB 4.4, MB 29.1, SC 73.1 |
+| Master (Christ, of His disciples) | พระอาจารย์ | A human master is นาย or เจ้านาย; องค์พระผู้เป็นเจ้า stands when "lord" or a servant's master is the sense. MB 4.4, MB 29.1, SC 73.1, SC 82.1 |
 | humiliation (of Christ), humbled Himself | การถ่อมพระองค์ / การถ่อมพระองค์ลง / ทรงถ่อมพระองค์ | Christ's own condescension; อับอาย is shame, another sense; the penitent's humiliation is its own row. PP 154.2, PP 330.4, SC 70.2, SC 45.1 |
 | self-denial, self-denying, self-sacrifice | การเสียสละ / เสียสละ / ปฏิเสธตนเอง | ปฏิเสธตนเอง is THSV มัทธิว 16:24 and stands in a quotation or its echo. SC 70.2, SC 78.1, SC 79.3 |
 | Comforter (John 14–16) | องค์ผู้ช่วย / องค์พระผู้ช่วย / พระผู้ช่วย | THSV's title; TKJV ผู้ปลอบประโลมใจ and TNCV ที่ปรึกษา stand inside their own quotations. ยอห์น 14:26 THSV, SC 74.1 |
