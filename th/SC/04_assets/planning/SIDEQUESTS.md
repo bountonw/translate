@@ -8,9 +8,9 @@ The translator's editor and reviewers work in Google Docs while the repository s
 
 Detail: th/SC/04_assets/planning/gdocs-workflow.md. Medium.
 
-## 8. Two sites from the SC01 studies for other chapters
+## 8. A site from the SC01 studies for SC11
 
-{SC 30.1} renders "the unfallen universe" as สวรรค์, narrowing every unfallen world to heaven, for SC03's qa2; {SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11's qa2.
+{SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11's qa2.
 
 Detail: this entry. Small.
 

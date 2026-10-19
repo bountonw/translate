@@ -12,12 +12,13 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 1.C. Name the subject on every line and state the change itself. Never write "it", "several" or a bare label where the subject's name belongs.
 1.D. Nothing sits outside a numbered item: a file created, a passing correction, a clean check, an offer, a question — each is an item. An agent's report to the conductor may begin with one headline line, such as "VERDICT: PASS".
-1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands on its own line with a blank line before and after it.
+1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands alone on its own line, never inside a sentence, with a blank line before and after it.
 1.F. FIX1 is the recommendation; its reason is one sentence. Add a further option only where it is genuinely different.
 1.G. Quote enough to identify the issue and no more. Show the text of a false alarm too. Give full paths. Drop a field that does not apply.
 1.G.1. One numbering scheme per report. Enumerate inside an item by extending its number: 3.A, then 3.A.1. The options of a DECIDE keep the labels FIX1, FIX2.
-1.G.2. An item about a marker carries the marker's own number. An item without one takes the next number above the chapter's highest marker. Grouping never renumbers.
+1.G.2. An item about a marker carries the marker's own number. An item without one takes the next number above the highest marker standing in the chapter, and 1 when no marker stands; past 99 the count returns to 1 once no item below 50 is still open. Grouping never renumbers.
 1.G.3. Every item stands on its own with no memory of the exchange: name the text, the file and the change; give the figures rather than "several"; put the recommendation first.
+1.G.4. Several changes in one sentence are several items, each with its own number, unless one reason joins them.
 1.H. A dispatched agent does not receive this file. An agent definition that produces a report carries the format itself.
 1.I. A dispatched agent writes its report to a file under the sandbox of 8.B and returns the path. The conductor builds the translator's report from that file, in this shape and in plain language, and passes nothing on that it cannot itself explain.
 

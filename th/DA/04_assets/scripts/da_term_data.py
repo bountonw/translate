@@ -8,10 +8,11 @@
 Sections: 1 sites in th/MB, th/PP, th/SC and th/DA whose English source matches
 --head: anchor, set, the English sentence, the --thai forms found in the Thai
 paragraph or "none"; a DA site adds the drafted Thai and the 2023 print's
-paragraph in a column labelled print, which is reference only and never a
-model. 2 counts of each --thai form: sites per set (reviewed: MB and PP 1–30
+text in a column labelled print, shown around each form found there or by
+its opening, reference only and never a model. 2 counts of each --thai form: sites per set (reviewed: MB and PP 1–30
 and 44–73; unreviewed: PP 31–43; SC; DA) and occurrences per book, SJ by
-occurrences only. 3 Bible: each form counted in every Thai version on disk, the
+occurrences only. 3 Bible: each form counted in every Thai version on disk (zero-width
+characters stripped first), the
 --verses in all of them, and the King James verses matching --head (KJVS,
 up to 60) with all the versions beside them. 4 the two Thai GC editions
 (th/GC/04_assets/editions/print and alt), counts and up to twelve snippets,
@@ -29,6 +30,25 @@ from pathlib import Path
 from da_common import ROOT, SANDBOX, VERSIONS, PRINT_DIR, version_dir, load_version, clean_verse, parse_thai
 
 SENT = re.compile(r"(?<=[.;!?])\s+")
+ZW = re.compile("[\u200b\u200c\u200d\ufeff]")
+
+
+def strip_zw(text):
+    """Remove zero-width characters, which six Thai versions carry, before counting."""
+    return ZW.sub("", text)
+
+
+def print_snippet(para, found, width=70):
+    """The print paragraph around each form found, or its opening where none is found."""
+    if not para:
+        return "(no print paragraph)"
+    if not found:
+        return para[:200]
+    parts = []
+    for f in found:
+        i = para.find(f)
+        parts.append("…" + para[max(0, i - width):i + len(f) + width] + "…")
+    return " / ".join(parts)
 GC_EDITIONS = {"print": ROOT / "th/GC/04_assets/editions/print", "alt": ROOT / "th/GC/04_assets/editions/alt"}
 
 
@@ -105,7 +125,7 @@ def gc_paras(edition_dir):
     for f in sorted(edition_dir.glob("*.typ")):
         t = f.read_text(encoding="utf-8")
         for m in re.finditer(r"^// \{(GC [^}]+)\}\s*\n(.*?)(?=^// |\Z)", t, re.M | re.S):
-            body = re.sub(r"#EGW\[[^\]]*\]", "", m.group(2)).strip()
+            body = strip_zw(re.sub(r"#EGW\[[^\]]*\]", "", m.group(2)).strip())
             if body:
                 out[m.group(1)] = body
     return out
@@ -174,7 +194,7 @@ def main():
                 pr = prints.get(anchor, "")
                 pfound = [f for f in forms if f in pr]
                 da_rows.append(f"| {{{anchor}}} | {shown} | {', '.join(found) if found else ('none' if tp else 'not drafted')} | "
-                               f"{', '.join(pfound) if pfound else 'none'}: {pr[:200] if pr else '(no print paragraph)'} |")
+                               f"{', '.join(pfound) if pfound else 'none'}: {print_snippet(pr, pfound)} |")
                 continue
             L.append(f"| {{{anchor}}} | {s} | {shown} | {', '.join(found) if found else ('none' if tp else 'no Thai paragraph')} |")
     L += ["", "### DA sites, with the print as a labelled column (reference, never a model)", "",
@@ -194,7 +214,7 @@ def main():
     L += ["", "## 3. Bible", "", "| Thai form | " + " | ".join(VERSIONS) + " |", "|---|" + "---|" * len(VERSIONS)]
     texts = {}
     for ver in VERSIONS:
-        texts[ver] = "".join(open(f, encoding="utf-8").read() for f in glob.glob(str(version_dir(ver) / "*.txt")))
+        texts[ver] = strip_zw("".join(open(f, encoding="utf-8").read() for f in glob.glob(str(version_dir(ver) / "*.txt"))))
     for f in forms:
         L.append(f"| {f} | " + " | ".join(str(texts[v].count(f)) for v in VERSIONS) + " |")
     if a.verses:
