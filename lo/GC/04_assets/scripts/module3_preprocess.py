@@ -15,6 +15,10 @@ import glob
 import argparse
 from pathlib import Path
 
+# The full book's total page count is padded to a multiple of this. The press
+# prints 16-page sheets and can fill a sheet's spare 8 pages with another book.
+PAGE_COUNT_MULTIPLE = 8
+
 def resolve_file_spec(file_spec, temp_dir):
     """
     Resolve file specification to actual stage2.tex files
@@ -168,6 +172,23 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
     # Output rest of document info
     tex_content.append("\\endgroup")
     tex_content.append("")
+    if len(tex_input_paths) > 1:
+        # Full book only: blank pages up to one short of the next multiple of
+        # PAGE_COUNT_MULTIPLE, counting every page shipped, front matter
+        # included, then the QR-code page as the last page (lo/GC/CLAUDE.md 8.C).
+        tex_content.append("\\clearpage")
+        tex_content.append("\\newcount\\GCpadcount")
+        tex_content.append("\\loop")
+        tex_content.append("  \\GCpadcount=\\ReadonlyShipoutCounter")
+        tex_content.append("  \\advance\\GCpadcount by 1")
+        tex_content.append(f"  \\divide\\GCpadcount by {PAGE_COUNT_MULTIPLE}")
+        tex_content.append(f"  \\multiply\\GCpadcount by {PAGE_COUNT_MULTIPLE}")
+        tex_content.append("  \\advance\\GCpadcount by -1")
+        tex_content.append("  \\unless\\ifnum\\GCpadcount=\\ReadonlyShipoutCounter")
+        tex_content.append("    \\null\\thispagestyle{empty}\\clearpage")
+        tex_content.append("\\repeat")
+        tex_content.append("\\input{scripts/tex/qr_page}")
+        tex_content.append("")
     tex_content.append("\\end{document}")
 
     # Write file

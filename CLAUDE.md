@@ -69,3 +69,5 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 8.C. A directory named sandbox inside the repository is the translator's. Never write to it.
 8.D. Standing memory is one markdown file per lesson under memory/ in the sandbox directory of 8.B; nothing there is loaded automatically. A lesson an agent needs on dispatch is written into that agent's definition.
 8.E. Run `echo ok` in the shell before any other work. On a bwrap error naming a file under .git, stop and hand the translator the fix in ~/claude-sandbox/memory/sandbox-bwrap-git-lock.md.
+8.F. Before project work, confirm the session's worktree is on the branch the work belongs to; if not, hand the translator the command and stop.
+8.G. When auto mode refuses or holds a command, keep working without it and raise a numbered item that carries the command.

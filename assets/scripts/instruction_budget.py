@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
-    "CLAUDE.md": 1325,
+    "CLAUDE.md": 1350,
     "th/SC/CLAUDE.md": 2000,
     "th/DA/CLAUDE.md": 2000,
     ".claude/commands/th-sc.md": 90,
@@ -42,7 +42,7 @@ BUDGET = {
     ".claude/agents/fb-sentence-drill.md": 900,
     ".claude/agents/fb-final-read.md": 900,
     "lo/assets/translation_profile/lao-profile.txt": 900,
-    "lo/GC/CLAUDE.md": 1600,
+    "lo/GC/CLAUDE.md": 1625,
     ".claude/commands/lo-gc.md": 100,
     ".claude/agents/gc-batch-auditor.md": 2450,
     ".claude/agents/gc-glossary-merge.md": 1250,

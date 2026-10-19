@@ -9,18 +9,22 @@
 \usepackage{tikz}
 \usepackage{titling}
 \usepackage{clrdblpg} % so clear double pages have nothing on them in header/footer (aka page number)
+\usepackage{qrcode} % QR code for the online version on the book's last page (qr_page.tex)
 
-% Page dimensions and margins for B5-ish format
+% Page dimensions and margins for B5-ish format. The press's cut of the first printing
+% took about 2 mm off the head, 5 mm off the foot and 5 mm off the outside of this page;
+% the margins allow for it, giving about 20 mm head, 20 mm inside, 15 mm outside and 15 mm foot.
+% The text width (133 mm) sets the page count: 37 lines of 133 mm bring the book to 560 pages.
 \usepackage[
   paperwidth=176mm,
   paperheight=250mm,
-  top=14mm,
-  inner=16mm, % alias of left/lmargin
-  outer=14mm, % alias of right/rmargin
-  bottom=14mm, % bottom margin of the page
-  bindingoffset=6mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (21mm)
+  top=16mm,
+  inner=17.5mm, % alias of left/lmargin
+  outer=19.5mm, % alias of right/rmargin
+  bottom=21mm, % bottom margin of the page
+  bindingoffset=6mm, % bindingoffset + inner = distance from inside of book (center) to where text starts (23.5mm)
   headheight=16pt, % height of header
-  headsep=4pt, % separation between header and body
+  headsep=8pt, % separation between header and body
   footskip=0pt, % distance separation between baseline of last line of text and baseline of footer
   %heightrounded, % this messes with heights in ways that makes bottom != 12mm, etc.
   includehead,  % includes the head of the page, \headheight and \headsep, into total body.
@@ -46,7 +50,16 @@
 %%   %showframe % Draw visible layout guides: text block, margins, headers/footers
 %% ]{geometry}
 
-\raggedbottom 
+% Facing pages end on the same line. A page that must end early spreads the
+% missing space over its line spaces (0.3pt of stretch per line), not between paragraphs.
+\flushbottom
+\setlength{\parskip}{0pt}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\set@fontsize}{\baselineskip\f@linespread\baselineskip}
+  {\baselineskip\f@linespread\baselineskip\advance\baselineskip\z@\@plus.3\p@}
+  {}{\GenericWarning{}{docclass.tex: the line-spacing stretch was not applied}}
+\makeatother
 
 % =============================================================================
 % DRAFT WATERMARK

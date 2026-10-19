@@ -5,8 +5,9 @@
 % -----------------------------------------------------------------------------
 % Widow and Orphan Control
 % -----------------------------------------------------------------------------
-\widowpenalty=2000
+\widowpenalty=10000
 \clubpenalty=2000
+\makeatletter\@clubpenalty=\clubpenalty\makeatother % LaTeX resets \clubpenalty to \@clubpenalty after every heading
 
 % -----------------------------------------------------------------------------
 % Justification and Tolerance
