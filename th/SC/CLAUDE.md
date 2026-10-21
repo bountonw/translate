@@ -23,6 +23,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 2.E. Scripts in th/SC/04_assets/scripts/, invoked by that relative path from the repository root: sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, sc_resolution_sheet.py, sc_editor_markers.py. Each says what it does in its first lines.
 2.F. Compile check, from th/SC: ./typst-custom compile --root . <stage>/SCNN_th.typ $TMPDIR/SCNN.pdf. Never on a chapter holding markers.
 2.G. The Thai print edition, เคล็ดลับแห่งความสุข (ThSC), is th/SC/04_assets/editions/print/SCNN_print_th.typ, anchored like the chapters, with its README beside it. This project is a new translation, not a revision of the print, and the print is reference only, never precedent: whoever works wording at a site reads the print's sentence there and shows it beside the candidates; a rendering from it is taken only where it is the best in the passage on its own merits, and no candidate is ranked up for matching it or down for departing from it.
+2.H. Outside suggestions and critiques awaiting processing: th/SC/04_assets/suggestions/, one file each, deleted once its points are processed.
 
 ## 3. The rounds
 
@@ -34,7 +35,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 3.E. QA3, the reader's round: Fable reads every paragraph of the chapter whole, English beside Thai, as a Thai reader would, and marks CLARITY, a wrong reading the reader lands on, HIGH, MED or LOW; READ, a sentence the reader stumbles on or hears as translated, its gain named; CHOICE, two candidates the translator picks between; his own ((A/B)) or ((word)) stands unless the reader raises a new issue at it. It does not check terms against the glossary. For a paragraph QA1 or QA2 changed it also sees the Thai before those rounds and may propose the earlier wording back. An accuracy finding the earlier rounds missed is marked in its QA1 class. READ and CHOICE together are capped at one per 150 English words; a READ changes at most one sentence and a paragraph carries at most two.
 3.F. Every wording a QA2 or QA3 marker proposes is drilled at 8/5/1 in its passage: the best candidate is the new side and the next four stand in the note as new2 to new5, one clause each; the numbers come down if the cost demands.
 3.G. A round writes at most 20 markers in a chapter, shared across its batches by English words; the auditor spends them on the largest gains and lists the sites it left out in its return.
-3.H. A site where a [CHECK] row's forms are absent and the Thai carries the English sense takes no marker; the report raises whether the row should list the form, and a wording kept on purpose goes to SC_notes.txt under 6.J. When in doubt, the site takes a marker.
+3.H. A site where a [CHECK] row's forms are absent and the Thai carries the English sense takes no marker; the report raises whether the row should list the form, and a wording kept on purpose goes to SC_notes.txt under 6.I. When in doubt, the site takes a marker.
 
 ## 4. Chapter procedure, every round
 
@@ -59,11 +60,11 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 6.B. Chapters are Typst: a "// {SC ###.#}" comment above each paragraph, an "#EGW[\{SC ###.#\}]" tag at its end, footnotes inline as "#footnote[...]". Reference prose by anchor, never by line. A chapter holding markers is never compiled or added to book.typ.
 6.C. Thai text and citations follow thai-profile.txt.
 6.D. An editor's choice is a double parenthesis, ((A/B)) or ((word)), spanning only the words that differ, the original wording tagged original: so the editor sees it: it stands in every round unless the reader raises a new issue at it; sc_punctcheck.py lists every one standing.
-6.I. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.E. Line breaking is never fixed in a manuscript. Break points live in th/assets/typeset/thai-breaks.txt; th/assets/scripts/build_breaks.py --book SC writes th/SC/04_assets/template/dictionary.typ from it, never edited by hand.
 6.F. Never override an agent's model or effort.
+6.G. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
-6.J. When the translator keeps a wording against a finding, get his reason, asking if he gave none, and in the same reply write one line, in anchor order, in th/SC/04_assets/notes/SC_notes.txt: {SC ###.#} | English words | Thai span copied from the chapter | his reason.
+6.I. When the translator keeps a wording against a finding, get his reason, asking if he gave none, and in the same reply write one line, in anchor order, in th/SC/04_assets/notes/SC_notes.txt: {SC ###.#} | English words | Thai span copied from the chapter | his reason.
 
 ## 7. Glossary building ("terms")
 
@@ -79,4 +80,4 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 ## 9. Reporting
 
 9.A. The root CLAUDE.md report shape; TH: replaces LO:. A DECIDE opens with the decision and the recommendation.
-9.B. sc-resolve-check writes for the translator and is relayed verbatim. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
+9.B. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
