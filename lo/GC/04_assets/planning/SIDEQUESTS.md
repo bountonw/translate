@@ -6,12 +6,6 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 29. Finish the plates for the reprint
-
-All 20 plates are approved and in the book. What remains is to delete the old plate folder `lo/GC/04_assets/images/` and the unused `lo/GC/04_assets/illustrations/GC13.png`; the plates now live in `lo/GC/04_assets/illustrations/`.
-
-Detail: the prompts and the round order are in `~/claude-sandbox/gc-audit/art/ai/prompts.md`; the plate table is `lo/GC/04_assets/scripts/make_plates.py`. Small.
-
 ## 26. Generate the website HTML for the shipped book
 
 The print file went to the press on 2 September 2026 and the website should now serve the same text. Run the converter at `lo/websites/mdconverter/` (a dotnet program; `Program.cs`) over the 42 chapters and the introduction in `lo/GC/03_public/`, against the website folder with its `chapter_header.html`, `chapter_footer.html` and `metadata/chapter-key.txt`. The converter already strips every TeX carry-over the manuscripts contain — `\lw`, `\p`, `\GCcode`, `\newpage` — and the chapter-end page fixes of 2 September live in module 2's TeX path only, so the manuscripts are clean for the web without further work. Verify all 43 files convert, the prev/next links resolve against the chapter key, and the served text matches the press text.
@@ -23,12 +17,6 @@ Detail: none written; this entry is the whole brief. Small — a build, a run, a
 The front page of the website is basically blank. Build a landing page: the book title ປາຍທາງແຫ່ງຄວາມຫວັງ and author, a short description of what the book is, the way into the text (the introduction and chapter 1, or a table of contents), a note that the first printing is September 2026, and the contact address the introduction gives (laoegw@proton.me, with the online home www.laoegw.com/GC). Design choices are the translator's; the quest starts with a mock to react to, not a finished page.
 
 Detail: none written; this entry is the whole brief. Small to medium.
-
-## 28. Line-break fixes for a reprint
-
-Done only if the book is reprinted. The line-break audit of the shipped book read all 13,353 spaceless line breaks and classified 550 flags into four tiers; the file is `wrap-audit-20260902.tsv` beside this queue. Tier A is eleven verified mis-segmentations where the dictionary knows the compound and the segmenter split it anyway; tier B is sixty reviewed splits of genuine single words the lexicon holds as two (ນ້ຳມັນ, ຫົວໃຈ, ເຄື່ອງມື, ວັນອາທິດ and the rest); roughly seventy compound rows follow from A and B, and about sixteen sites compose actively wrong readings. Adding the rows re-wraps the whole book, which is why the work waits for a reprint. The loose line at {GC 456.2} (foot of printed page 340) rechecks itself then. This folds naturally into entry 17's glossary rework or runs beside it.
-
-Detail: this entry and the wrap-audit file are the brief. Large.
 
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 

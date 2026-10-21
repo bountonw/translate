@@ -345,6 +345,14 @@
   {\upshape}%
 }
 
+% Italic Lao that runs straight into an upright Lao word gets a small space, so that its
+% slanted marks do not touch the next letter; the font supplies no italic correction.
+\makeatletter
+\NewCommandCopy\GC@emph\emph
+\RenewDocumentCommand\emph{m}{\GC@emph{#1}\futurelet\GC@next\GC@emphpad}
+\def\GC@emphpad{\ifx\GC@next\lw\kern0.15em\fi}
+\makeatother
+
 
 % =============================================================================
 % URL STYLING
