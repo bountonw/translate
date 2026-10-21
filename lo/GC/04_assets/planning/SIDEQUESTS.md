@@ -8,9 +8,9 @@ Rules for keeping it. An issue he defers rather than decides is added here in th
 
 ## 29. Finish the plates for the reprint
 
-Every free left-hand page has been reassessed. Two plates are being redone: page 386 (before chapter 28; the Daniel prompt waits to be run as 28_3.jpg) and page 454 (before chapter 35; 35_1.jpg waits for its fix, to be saved as 35_2.jpg). The Moses woodcut is not used. At the end, delete the old plate folder `lo/GC/04_assets/images/`; the plates now live in `lo/GC/04_assets/illustrations/`.
+All 20 plates are approved and in the book. What remains is to delete the old plate folder `lo/GC/04_assets/images/` and the unused `lo/GC/04_assets/illustrations/GC13.png`; the plates now live in `lo/GC/04_assets/illustrations/`.
 
-Detail: the prompts and the round order are in `~/claude-sandbox/gc-audit/art/ai/prompts.md`; the plate table is `lo/GC/04_assets/scripts/make_plates.py`. Medium.
+Detail: the prompts and the round order are in `~/claude-sandbox/gc-audit/art/ai/prompts.md`; the plate table is `lo/GC/04_assets/scripts/make_plates.py`. Small.
 
 ## 26. Generate the website HTML for the shipped book
 
