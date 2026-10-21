@@ -45,7 +45,7 @@ Wycliffe was a keen detector of error, and he struck fearlessly against many of 
 
 ## {GC 82.2}
 
-Another evil against which the Reformer waged long and resolute battle was the institution of the orders of mendicant friars. These friars swarmed in England, casting a blight upon the greatness and prosperity of the nation. Industry, education, morals, all felt the withering influence. The monk’s life of idleness and beggary was not only a heavy drain upon the resources of the people, but it brought useful labor into contempt. The youth were demoralized and corrupted. By the influence of the friars many were induced to enter a cloister and devote themselves to a monastic life, and this not only without the consent of their parents, but even without their knowledge and contrary to their commands. One of the early Fathers of the Roman Church, urging the claims of monasticism above the obligations of filial love and duty, had declared: “Though thy father should lie before thy door weeping and lamenting, and thy mother should show the body that bore thee and the breasts that nursed thee, see that thou trample them underfoot, and go onward straightway to Christ.” By this “monstrous inhumanity,” as Luther afterward styled it, “savoring more of the wolf and the tyrant than of the Christian and the man,” were the hearts of children steeled against their parents.—Barnas Sears, The Life of Luther, pages 70, 69. Thus did the papal leaders, like the Pharisees of old, make the commandment of God of none effect by their tradition. Thus homes were made desolate and parents were deprived of the society of their sons and daughters. {GC 82.2}
+Another evil against which the Reformer waged long and resolute battle was the institution of the orders of mendicant friars. These friars swarmed in England, casting a blight upon the greatness and prosperity of the nation. Industry, education, morals, all felt the withering influence. The monk’s life of idleness and beggary was not only a heavy drain upon the resources of the people, but it brought useful labor into contempt. The youth were demoralized and corrupted. By the influence of the friars many were induced to enter a cloister and devote themselves to a monastic life, and this not only without the consent of their parents, but even without their knowledge and contrary to their commands. One of the early Fathers of the Roman Church, urging the claims of monasticism above the obligations of filial love and duty, had declared: “Though thy father should lie before thy door weeping and lamenting, and thy mother should show the body that bore thee and the breasts that nursed thee, see that thou trample them underfoot, and go onward straightway to Christ.” By this “monstrous inhumanity,” as Luther afterward styled it, “savoring more of the wolf and the tyrant than of the Christian and the man,” were the hearts of children steeled against their parents.—Barnas Sears, *The Life of Luther*, pages 70, 69. Thus did the papal leaders, like the Pharisees of old, make the commandment of God of none effect by their tradition. Thus homes were made desolate and parents were deprived of the society of their sons and daughters. {GC 82.2}
 
 ## {GC 83.1}
 
@@ -69,7 +69,7 @@ Again Wycliffe was called to defend the rights of the English crown against the 
 
 ## {GC 85.1}
 
-In one of his tracts he said, speaking of the pope and his collectors: “They draw out of our land poor men’s livelihood, and many thousand marks, by the year, of the king’s money, for sacraments and spiritual things, that is cursed heresy of simony, and maketh all Christendom assent and maintain this heresy. And certes though our realm had a huge hill of gold, and never other man took thereof but only this proud worldly priest’s collector, by process of time this hill must be spended; for he taketh ever money out of our land, and sendeth nought again but God’s curse for his simony.”—John Lewis, History of the Life and Sufferings of J. Wiclif, page 37. {GC 85.1}
+In one of his tracts he said, speaking of the pope and his collectors: “They draw out of our land poor men’s livelihood, and many thousand marks, by the year, of the king’s money, for sacraments and spiritual things, that is cursed heresy of simony, and maketh all Christendom assent and maintain this heresy. And certes though our realm had a huge hill of gold, and never other man took thereof but only this proud worldly priest’s collector, by process of time this hill must be spended; for he taketh ever money out of our land, and sendeth nought again but God’s curse for his simony.”—John Lewis, *History of the Life and Sufferings of J. Wiclif*, page 37. {GC 85.1}
 
 ## {GC 85.2}
 
@@ -77,7 +77,7 @@ Soon after his return to England, Wycliffe received from the king the appointmen
 
 ## {GC 85.3}
 
-The papal thunders were soon hurled against him. Three bulls were dispatched to England,—to the university, to the king, and to the prelates,—all commanding immediate and decisive measures to silence the teacher of heresy. (Augustus Neander, General History of the Christian Religion and Church, period 6, sec. 2, pt. 1, par. 8. See also Appendix.) Before the arrival of the bulls, however, the bishops, in their zeal, had summoned Wycliffe before them for trial. But two of the most powerful princes in the kingdom accompanied him to the tribunal; and the people, surrounding the building and rushing in, so intimidated the judges that the proceedings were for the time suspended, and he was allowed to go his way in peace. A little later, Edward III, whom in his old age the prelates were seeking to influence against the Reformer, died, and Wycliffe’s former protector became regent of the kingdom. {GC 85.3}
+The papal thunders were soon hurled against him. Three bulls were dispatched to England,—to the university, to the king, and to the prelates,—all commanding immediate and decisive measures to silence the teacher of heresy. (Augustus Neander, *General History of the Christian Religion and Church*, period 6, sec. 2, pt. 1, par. 8. See also Appendix.) Before the arrival of the bulls, however, the bishops, in their zeal, had summoned Wycliffe before them for trial. But two of the most powerful princes in the kingdom accompanied him to the tribunal; and the people, surrounding the building and rushing in, so intimidated the judges that the proceedings were for the time suspended, and he was allowed to go his way in peace. A little later, Edward III, whom in his old age the prelates were seeking to influence against the Reformer, died, and Wycliffe’s former protector became regent of the kingdom. {GC 85.3}
 
 ## {GC 86.1}
 
@@ -89,7 +89,7 @@ God’s providence still further overruled events to give opportunity for the gr
 
 ## {GC 86.3}
 
-The schism, with all the strife and corruption which it caused, prepared the way for the Reformation by enabling the people to see what the papacy really was. In a tract which he published, On the Schism of the Popes, Wycliffe called upon the people to consider whether these two priests were not speaking the truth in condemning each other as the antichrist. “God,” said he, “would no longer suffer the fiend to reign in only one such priest, but ... made division among two, so that men, in Christ’s name, may the more easily overcome them both.”—R. Vaughan, Life and Opinions of John de Wycliffe, vol. 2, p. 6. {GC 86.3}
+The schism, with all the strife and corruption which it caused, prepared the way for the Reformation by enabling the people to see what the papacy really was. In a tract which he published, *On the Schism of the Popes*, Wycliffe called upon the people to consider whether these two priests were not speaking the truth in condemning each other as the antichrist. “God,” said he, “would no longer suffer the fiend to reign in only one such priest, but ... made division among two, so that men, in Christ’s name, may the more easily overcome them both.”—R. Vaughan, *Life and Opinions of John de Wycliffe*, vol. 2, p. 6. {GC 86.3}
 
 ## {GC 87.1}
 
@@ -97,7 +97,7 @@ Wycliffe, like his Master, preached the gospel to the poor. Not content with spr
 
 ## {GC 87.2}
 
-As a professor of theology at Oxford, Wycliffe preached the word of God in the halls of the university. So faithfully did he present the truth to the students under his instruction, that he received the title of “the gospel doctor.” But the greatest work of his life was to be the translation of the Scriptures into the English language. In a work, On the Truth and Meaning of Scripture, he expressed his intention to translate the Bible, so that every man in England might read, in the language in which he was born, the wonderful works of God. {GC 87.2}
+As a professor of theology at Oxford, Wycliffe preached the word of God in the halls of the university. So faithfully did he present the truth to the students under his instruction, that he received the title of “the gospel doctor.” But the greatest work of his life was to be the translation of the Scriptures into the English language. In a work, *On the Truth and Meaning of Scripture*, he expressed his intention to translate the Bible, so that every man in England might read, in the language in which he was born, the wonderful works of God. {GC 87.2}
 
 ## {GC 87.3}
 
@@ -165,7 +165,7 @@ Wycliffe’s work was almost done; the banner of truth which he had so long born
 
 ## {GC 92.1}
 
-In closing he said: “Let us pray unto our God, that He will so stir up our Pope Urban VI, as he began, that he with his clergy may follow the Lord Jesus Christ in life and manners; and that they may teach the people effectually, and that they, likewise, may faithfully follow them in the same.”—John Foxe, Acts and Monuments, vol. 3, pp. 49, 50. {GC 92.1}
+In closing he said: “Let us pray unto our God, that He will so stir up our Pope Urban VI, as he began, that he with his clergy may follow the Lord Jesus Christ in life and manners; and that they may teach the people effectually, and that they, likewise, may faithfully follow them in the same.”—John Foxe, *Acts and Monuments*, vol. 3, pp. 49, 50. {GC 92.1}
 
 ## {GC 92.2}
 
@@ -209,7 +209,7 @@ Notwithstanding the rage of persecution, a calm, devout, earnest, patient protes
 
 ## {GC 95.2}
 
-The papists had failed to work their will with Wycliffe during his life, and their hatred could not be satisfied while his body rested quietly in the grave. By the decree of the Council of Constance, more than forty years after his death his bones were exhumed and publicly burned, and the ashes were thrown into a neighboring brook. “This brook,” says an old writer, “hath conveyed his ashes into Avon, Avon into Severn, Severn into the narrow seas, they into the main ocean. And thus the ashes of Wycliffe are the emblem of his doctrine, which now is dispersed all the world over.”—T. Fuller, Church History of Britain, b. 4, sec. 2, par. 54. Little did his enemies realize the significance of their malicious act. {GC 95.2}
+The papists had failed to work their will with Wycliffe during his life, and their hatred could not be satisfied while his body rested quietly in the grave. By the decree of the Council of Constance, more than forty years after his death his bones were exhumed and publicly burned, and the ashes were thrown into a neighboring brook. “This brook,” says an old writer, “hath conveyed his ashes into Avon, Avon into Severn, Severn into the narrow seas, they into the main ocean. And thus the ashes of Wycliffe are the emblem of his doctrine, which now is dispersed all the world over.”—T. Fuller, *Church History of Britain*, b. 4, sec. 2, par. 54. Little did his enemies realize the significance of their malicious act. {GC 95.2}
 
 ## {GC 96.1}
 

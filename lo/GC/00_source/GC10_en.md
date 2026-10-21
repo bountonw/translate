@@ -37,27 +37,27 @@ One of these prophets claimed to have been instructed by the angel Gabriel. A st
 
 ## {GC 187.1}
 
-The leaders of the movement proceeded to Wittenberg and urged their claims upon Melanchthon and his colaborers. Said they: “We are sent by God to instruct the people. We have held familiar conversations with the Lord; we know what will happen; in a word, we are apostles and prophets, and appeal to Dr. Luther.”—Ibid., b. 9, ch. 7. {GC 187.1}
+The leaders of the movement proceeded to Wittenberg and urged their claims upon Melanchthon and his colaborers. Said they: “We are sent by God to instruct the people. We have held familiar conversations with the Lord; we know what will happen; in a word, we are apostles and prophets, and appeal to Dr. Luther.”—*Ibid*., b. 9, ch. 7. {GC 187.1}
 
 ## {GC 187.2}
 
-The Reformers were astonished and perplexed. This was such an element as they had never before encountered, and they knew not what course to pursue. Said Melanchthon: “There are indeed extraordinary spirits in these men; but what spirits? ... On the one hand, let us beware of quenching the Spirit of God, and on the other, of being led astray by the spirit of Satan.”—Ibid., b. 9, ch. 7. {GC 187.2}
+The Reformers were astonished and perplexed. This was such an element as they had never before encountered, and they knew not what course to pursue. Said Melanchthon: “There are indeed extraordinary spirits in these men; but what spirits? ... On the one hand, let us beware of quenching the Spirit of God, and on the other, of being led astray by the spirit of Satan.”—*Ibid*., b. 9, ch. 7. {GC 187.2}
 
 ## {GC 187.3}
 
-The fruit of the new teaching soon became apparent. The people were led to neglect the Bible or to cast it wholly aside. The schools were thrown into confusion. Students, spurning all restraint, abandoned their studies and withdrew from the university. The men who thought themselves competent to revive and control the work of the Reformation succeeded only in bringing it to the verge of ruin. The Romanists now regained their confidence and exclaimed exultingly: “One last struggle, and all will be ours.”—Ibid., b. 9, ch. 7. {GC 187.3}
+The fruit of the new teaching soon became apparent. The people were led to neglect the Bible or to cast it wholly aside. The schools were thrown into confusion. Students, spurning all restraint, abandoned their studies and withdrew from the university. The men who thought themselves competent to revive and control the work of the Reformation succeeded only in bringing it to the verge of ruin. The Romanists now regained their confidence and exclaimed exultingly: “One last struggle, and all will be ours.”—*Ibid*., b. 9, ch. 7. {GC 187.3}
 
 ## {GC 187.4}
 
-Luther at the Wartburg, hearing of what had occurred, said with deep concern: “I always expected that Satan would send us this plague.”—Ibid., b. 9, ch. 7. He perceived the true character of those pretended prophets and saw the danger that threatened the cause of truth. The opposition of the pope and the emperor had not caused him so great perplexity and distress as he now experienced. From the professed friends of the Reformation had risen its worst enemies. The very truths which had brought him so great joy and consolation were being employed to stir up strife and create confusion in the church. {GC 187.4}
+Luther at the Wartburg, hearing of what had occurred, said with deep concern: “I always expected that Satan would send us this plague.”—*Ibid*., b. 9, ch. 7. He perceived the true character of those pretended prophets and saw the danger that threatened the cause of truth. The opposition of the pope and the emperor had not caused him so great perplexity and distress as he now experienced. From the professed friends of the Reformation had risen its worst enemies. The very truths which had brought him so great joy and consolation were being employed to stir up strife and create confusion in the church. {GC 187.4}
 
 ## {GC 188.1}
 
-In the work of reform, Luther had been urged forward by the Spirit of God, and had been carried beyond himself. He had not purposed to take such positions as he did, or to make so radical changes. He had been but the instrument in the hand of Infinite Power. Yet he often trembled for the result of his work. He had once said: “If I knew that my doctrine injured one man, one single man, however lowly and obscure,—which it cannot, for it is the gospel itself,—I would rather die ten times than not retract it.”—Ibid., b. 9, ch. 7. {GC 188.1}
+In the work of reform, Luther had been urged forward by the Spirit of God, and had been carried beyond himself. He had not purposed to take such positions as he did, or to make so radical changes. He had been but the instrument in the hand of Infinite Power. Yet he often trembled for the result of his work. He had once said: “If I knew that my doctrine injured one man, one single man, however lowly and obscure,—which it cannot, for it is the gospel itself,—I would rather die ten times than not retract it.”—*Ibid*., b. 9, ch. 7. {GC 188.1}
 
 ## {GC 188.2}
 
-And now Wittenberg itself, the very center of the Reformation, was fast falling under the power of fanaticism and lawlessness. This terrible condition had not resulted from the teachings of Luther; but throughout Germany his enemies were charging it upon him. In bitterness of soul he sometimes asked: “Can such, then, be the end of this great work of the Reformation?”—Ibid., b. 9, ch. 7. Again, as he wrestled with God in prayer, peace flowed into his heart. “The work is not mine, but Thine own,” he said; “Thou wilt not suffer it to be corrupted by superstition or fanaticism.” But the thought of remaining longer from the conflict in such a crisis, became insupportable. He determined to return to Wittenberg. {GC 188.2}
+And now Wittenberg itself, the very center of the Reformation, was fast falling under the power of fanaticism and lawlessness. This terrible condition had not resulted from the teachings of Luther; but throughout Germany his enemies were charging it upon him. In bitterness of soul he sometimes asked: “Can such, then, be the end of this great work of the Reformation?”—*Ibid*., b. 9, ch. 7. Again, as he wrestled with God in prayer, peace flowed into his heart. “The work is not mine, but Thine own,” he said; “Thou wilt not suffer it to be corrupted by superstition or fanaticism.” But the thought of remaining longer from the conflict in such a crisis, became insupportable. He determined to return to Wittenberg. {GC 188.2}
 
 ## {GC 188.3}
 
@@ -65,15 +65,15 @@ Without delay he set out on his perilous journey. He was under the ban of the em
 
 ## {GC 188.4}
 
-In a letter to the elector, after stating his purpose to leave the Wartburg, Luther said: “Be it known to your highness that I am going to Wittenberg under a protection far higher than that of princes and electors. I think not of soliciting your highness’s support, and far from desiring your protection, I would rather protect you myself. If I knew that your highness could or would protect me, I would not go to Wittenberg at all. There is no sword that can further this cause. God alone must do everything, without the help or concurrence of man. He who has the greatest faith is he who is most able to protect.”—Ibid., b. 9, ch. 8. {GC 188.4}
+In a letter to the elector, after stating his purpose to leave the Wartburg, Luther said: “Be it known to your highness that I am going to Wittenberg under a protection far higher than that of princes and electors. I think not of soliciting your highness’s support, and far from desiring your protection, I would rather protect you myself. If I knew that your highness could or would protect me, I would not go to Wittenberg at all. There is no sword that can further this cause. God alone must do everything, without the help or concurrence of man. He who has the greatest faith is he who is most able to protect.”—*Ibid*., b. 9, ch. 8. {GC 188.4}
 
 ## {GC 189.1}
 
-In a second letter, written on the way to Wittenberg, Luther added: “I am ready to incur the displeasure of your highness and the anger of the whole world. Are not the Wittenbergers my sheep? Has not God entrusted them to me? And ought I not, if necessary, to expose myself to death for their sakes? Besides, I fear to see a terrible outbreak in Germany, by which God will punish our nation.”—Ibid., b. 9, ch. 7. {GC 189.1}
+In a second letter, written on the way to Wittenberg, Luther added: “I am ready to incur the displeasure of your highness and the anger of the whole world. Are not the Wittenbergers my sheep? Has not God entrusted them to me? And ought I not, if necessary, to expose myself to death for their sakes? Besides, I fear to see a terrible outbreak in Germany, by which God will punish our nation.”—*Ibid*., b. 9, ch. 7. {GC 189.1}
 
 ## {GC 189.2}
 
-With great caution and humility, yet with decision and firmness, he entered upon his work. “By the word,” said he, “must we overthrow and destroy what has been set up by violence. I will not make use of force against the superstitious and unbelieving.... No one must be constrained. Liberty is the very essence of faith.”—Ibid., b. 9, ch. 8. {GC 189.2}
+With great caution and humility, yet with decision and firmness, he entered upon his work. “By the word,” said he, “must we overthrow and destroy what has been set up by violence. I will not make use of force against the superstitious and unbelieving.... No one must be constrained. Liberty is the very essence of faith.”—*Ibid*., b. 9, ch. 8. {GC 189.2}
 
 ## {GC 189.3}
 
@@ -81,11 +81,11 @@ It was soon noised through Wittenberg that Luther had returned and that he was t
 
 ## {GC 189.4}
 
-“The mass is a bad thing; God is opposed to it; it ought to be abolished; and I would that throughout the whole world it were replaced by the supper of the gospel. But let no one be torn from it by force. We must leave the matter in God’s hands. His word must act, and not we. And why so? you will ask. Because I do not hold men’s hearts in my hand, as the potter holds the clay. We have a right to speak: we have not the right to act. Let us preach; the rest belongs unto God. Were I to employ force, what should I gain? Grimace, formality, apings, human ordinances, and hypocrisy.... But there would be no sincerity of heart, nor faith, nor charity. Where these three are wanting, all is wanting, and I would not give a pear stalk for such a result.... God does more by His word alone than you and I and all the world by our united strength. God lays hold upon the heart; and when the heart is taken, all is won.... {GC 189.4}
+“The mass is a bad thing; God is opposed to it; it ought to be abolished; and I would that throughout the whole world it were replaced by the supper of the gospel. But let no one be torn from it by force. We must leave the matter in God’s hands. His word must act, and not we. And why so? you will ask. Because I do not hold men’s hearts in my hand, as the potter holds the clay. We have a right to speak: we have *not* the right to act. Let us preach; the rest belongs unto God. Were I to employ force, what should I gain? Grimace, formality, apings, human ordinances, and hypocrisy.... But there would be no sincerity of heart, nor faith, nor charity. Where these three are wanting, all is wanting, and I would not give a pear stalk for such a result.... God does more by His word alone than you and I and all the world by our united strength. God lays hold upon the heart; and when the heart is taken, all is won.... {GC 189.4}
 
 ## {GC 190.1}
 
-“I will preach, discuss, and write; but I will constrain none, for faith is a voluntary act. See what I have done. I stood up against the pope, indulgences, and papists, but without violence or tumult. I put forward God’s word; I preached and wrote—this was all I did. And yet while I was asleep, ... the word that I had preached overthrew popery, so that neither prince nor emperor has done it so much harm. And yet I did nothing; the word alone did all. If I had wished to appeal to force, the whole of Germany would perhaps have been deluged with blood. But what would have been the result? Ruin and desolation both to body and soul. I therefore kept quiet, and left the word to run through the world alone.”—Ibid., b. 9, ch. 8. {GC 190.1}
+“I will preach, discuss, and write; but I will constrain none, for faith is a voluntary act. See what I have done. I stood up against the pope, indulgences, and papists, but without violence or tumult. I put forward God’s word; I preached and wrote—this was all I did. And yet while I was asleep, ... the word that I had preached overthrew popery, so that neither prince nor emperor has done it so much harm. And yet I did nothing; the word alone did all. If I had wished to appeal to force, the whole of Germany would perhaps have been deluged with blood. But what would have been the result? Ruin and desolation both to body and soul. I therefore kept quiet, and left the word to run through the world alone.”—*Ibid*., b. 9, ch. 8. {GC 190.1}
 
 ## {GC 190.2}
 
@@ -101,7 +101,7 @@ The fanaticism was checked for a time; but several years later it broke out with
 
 ## {GC 191.1}
 
-Thomas Munzer, the most active of the fanatics, was a man of considerable ability, which, rightly directed, would have enabled him to do good; but he had not learned the first principles of true religion. “He was possessed with a desire of reforming the world, and forgot, as all enthusiasts do, that the reformation should begin with himself.”—Ibid., b. 9, ch. 8. He was ambitious to obtain position and influence, and was unwilling to be second, even to Luther. He declared that the Reformers, in substituting the authority of Scripture for that of the pope, were only establishing a different form of popery. He himself, he claimed, had been divinely commissioned to introduce the true reform. “He who possesses this spirit,” said Munzer, “possesses the true faith, although he should never see the Scriptures in his life.”—Ibid., b. 10, ch. 10. {GC 191.1}
+Thomas Munzer, the most active of the fanatics, was a man of considerable ability, which, rightly directed, would have enabled him to do good; but he had not learned the first principles of true religion. “He was possessed with a desire of reforming the world, and forgot, as all enthusiasts do, that the reformation should begin with himself.”—*Ibid*., b. 9, ch. 8. He was ambitious to obtain position and influence, and was unwilling to be second, even to Luther. He declared that the Reformers, in substituting the authority of Scripture for that of the pope, were only establishing a different form of popery. He himself, he claimed, had been divinely commissioned to introduce the true reform. “He who possesses this spirit,” said Munzer, “possesses the true faith, although he should never see the Scriptures in his life.”—*Ibid*., b. 10, ch. 10. {GC 191.1}
 
 ## {GC 191.2}
 
@@ -145,7 +145,7 @@ The priests were alarmed at the thought that the common people would now be able
 
 ## {GC 194.2}
 
-Luther’s writings were welcomed alike in city and in hamlet. “What Luther and his friends composed, others circulated. Monks, convinced of the unlawfulness of monastic obligations, desirous of exchanging a long life of slothfulness for one of active exertion, but too ignorant to proclaim the word of God, traveled through the provinces, visiting hamlets and cottages, where they sold the books of Luther and his friends. Germany soon swarmed with these bold colporteurs.”—Ibid., b. 9, ch. 11. {GC 194.2}
+Luther’s writings were welcomed alike in city and in hamlet. “What Luther and his friends composed, others circulated. Monks, convinced of the unlawfulness of monastic obligations, desirous of exchanging a long life of slothfulness for one of active exertion, but too ignorant to proclaim the word of God, traveled through the provinces, visiting hamlets and cottages, where they sold the books of Luther and his friends. Germany soon swarmed with these bold colporteurs.”—*Ibid*., b. 9, ch. 11. {GC 194.2}
 
 ## {GC 194.3}
 
@@ -161,7 +161,7 @@ Persons of all ranks were to be seen with the Bible in their hands, defending th
 
 ## {GC 195.3}
 
-The contrast between the disciples of the gospel and the upholders of popish superstition was no less manifest in the ranks of scholars than among the common people. “Opposed to the old champions of the hierarchy, who had neglected the study of languages and the cultivation of literature, ... were generous-minded youth, devoted to study, investigating Scripture, and familiarizing themselves with the masterpieces of antiquity. Possessing an active mind, an elevated soul, and intrepid heart, these young men soon acquired such knowledge that for a long period none could compete with them.... Accordingly, when these youthful defenders of the Reformation met the Romish doctors in any assembly, they attacked them with such ease and confidence that these ignorant men hesitated, became embarrassed, and fell into a contempt merited in the eyes of all.”—Ibid., b. 9, ch. 11. {GC 195.3}
+The contrast between the disciples of the gospel and the upholders of popish superstition was no less manifest in the ranks of scholars than among the common people. “Opposed to the old champions of the hierarchy, who had neglected the study of languages and the cultivation of literature, ... were generous-minded youth, devoted to study, investigating Scripture, and familiarizing themselves with the masterpieces of antiquity. Possessing an active mind, an elevated soul, and intrepid heart, these young men soon acquired such knowledge that for a long period none could compete with them.... Accordingly, when these youthful defenders of the Reformation met the Romish doctors in any assembly, they attacked them with such ease and confidence that these ignorant men hesitated, became embarrassed, and fell into a contempt merited in the eyes of all.”—*Ibid*., b. 9, ch. 11. {GC 195.3}
 
 ## {GC 196.1}
 

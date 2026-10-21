@@ -8,7 +8,7 @@ Rules for keeping it. An issue he defers rather than decides is added here in th
 
 ## 29. Finish the plates for the reprint
 
-Every free left-hand page has been reassessed. Three pages remain open: page 470 (before chapter 36; the Sinai picture 36.jpg waits for a caption, or a new idea), page 512 (before chapter 40; 40_3.jpg waits for approval) and page 534 (before chapter 42; the houses-and-vineyards prompt waits to be run as 42_5.jpg). The Moses woodcut is not used. At the end, delete the old plate folder `lo/GC/04_assets/images/`; the plates now live in `lo/GC/04_assets/illustrations/`.
+Every free left-hand page has been reassessed. Two plates are being redone: page 386 (before chapter 28; the Daniel prompt waits to be run as 28_3.jpg) and page 454 (before chapter 35; 35_1.jpg waits for its fix, to be saved as 35_2.jpg). The Moses woodcut is not used. At the end, delete the old plate folder `lo/GC/04_assets/images/`; the plates now live in `lo/GC/04_assets/illustrations/`.
 
 Detail: the prompts and the round order are in `~/claude-sandbox/gc-audit/art/ai/prompts.md`; the plate table is `lo/GC/04_assets/scripts/make_plates.py`. Medium.
 
