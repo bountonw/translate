@@ -6,6 +6,12 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
+## 29. Finish the plates for the reprint
+
+Every free left-hand page has been reassessed. Three pages remain open: page 470 (before chapter 36; the Sinai picture 36.jpg waits for a caption, or a new idea), page 512 (before chapter 40; 40_3.jpg waits for approval) and page 534 (before chapter 42; the houses-and-vineyards prompt waits to be run as 42_5.jpg). The Moses woodcut is not used. At the end, delete the old plate folder `lo/GC/04_assets/images/`; the plates now live in `lo/GC/04_assets/illustrations/`.
+
+Detail: the prompts and the round order are in `~/claude-sandbox/gc-audit/art/ai/prompts.md`; the plate table is `lo/GC/04_assets/scripts/make_plates.py`. Medium.
+
 ## 26. Generate the website HTML for the shipped book
 
 The print file went to the press on 2 September 2026 and the website should now serve the same text. Run the converter at `lo/websites/mdconverter/` (a dotnet program; `Program.cs`) over the 42 chapters and the introduction in `lo/GC/03_public/`, against the website folder with its `chapter_header.html`, `chapter_footer.html` and `metadata/chapter-key.txt`. The converter already strips every TeX carry-over the manuscripts contain — `\lw`, `\p`, `\GCcode`, `\newpage` — and the chapter-end page fixes of 2 September live in module 2's TeX path only, so the manuscripts are clean for the web without further work. Verify all 43 files convert, the prev/next links resolve against the chapter key, and the served text matches the press text.

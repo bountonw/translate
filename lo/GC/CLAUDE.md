@@ -67,4 +67,8 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 
 8.A. Before a print build, run modules 1 and 2 for every chapter; from lo/GC/04_assets, grep -c nodict scripts/build/temp/*_stage2.tex must be zero for every file.
 8.B. A file sent to the press is kept in lo/GC/05_print/; everything a build writes stays in lo/GC/04_assets/scripts/build/.
-8.C. Blank pages bring the full book, front matter included, to a multiple of 8; the last page carries the QR code for the online version.
+8.C. Blank pages bring the full book, front matter included, to a multiple of 8; the QR code for the online version goes on the last right-hand page, or on the last page when the text fills the page before it.
+8.D. Each plate's picture credit sits on its page, at the foot to one side, in a small font, in English.
+8.E. A plate's picture is kept slightly smaller than the page allows, so that its full caption fits below it.
+8.F. The book stays at 560 pages, with the QR code on page 559 and page 560 blank; never propose a change that adds pages.
+8.G. Plate pictures are historical: Catholic clergy and monks look as they did, and nothing in a picture promotes Catholic devotion.
