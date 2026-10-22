@@ -12,6 +12,8 @@ WorkingDirectory=/srv/review/app
 Environment=REVIEW_DATA=/var/lib/review
 Environment=REVIEW_PORT=8087
 Environment=PYTHONDONTWRITEBYTECODE=1
+# Each thread otherwise keeps the memory of the largest export it built: about 180-260 MB instead of 111 MB.
+Environment=MALLOC_ARENA_MAX=2
 ExecStart=/usr/bin/python3 -m server.prod
 Restart=always
 RestartSec=2

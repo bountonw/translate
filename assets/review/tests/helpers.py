@@ -17,8 +17,8 @@ from server import db  # noqa: E402
 from server.app import App  # noqa: E402
 
 SC_COUNTS = {1: 17, 2: 12, 3: 37, 4: 11, 5: 14, 6: 17, 7: 22, 8: 19}
-SC_BOOK = {"id": "SC", "stages": ["03_public", "02_edit", "01_raw"], "thai": "th/SC/{stage}/SC{nn}_th.typ",
-           "english": "th/SC/00_source/SC{nn}_en.md"}
+SC_BOOK = {"id": "SC", "language": "th", "parser": "sc_typst", "stages": ["03_public", "02_edit", "01_raw"],
+           "thai": "th/SC/{stage}/SC{nn}_th.typ", "english": "th/SC/00_source/SC{nn}_en.md"}
 
 
 def find_repo():
@@ -50,7 +50,7 @@ def sample_chapter(n=1, count=3, book="SC", tag="v1"):
     paras = [{"a": f"{book} {100 + n}.{i}", "th": f"Paragraph {i} of chapter {n} ({tag}) <em>word</em>",
               "fn": [f"Note {i}"] if i == 1 else [], "en": f"<p>English {i}</p>"} for i in range(1, count + 1)]
     return {"n": n, "title_th": f"Title {n}", "title_en": f"English title {n}", "paragraphs": paras,
-            "commit": "abc1234", "book_title_en": "Sample book"}
+            "commit": "abc1234", "book_title_en": "Sample book", "language": "th"}
 
 
 class Response:

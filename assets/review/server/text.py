@@ -4,17 +4,24 @@ invisible(ch) names every character a reader cannot see: format and control
 characters (newline and tab excepted), private-use, surrogate and unassigned
 code points, line and paragraph separators, variation selectors, tag
 characters, and a few blank letters such as the Hangul fillers. Reader text
-loses them; published book text that holds one, or a Thai or Lao digit, is
-refused. Thai and Lao vowel and tone marks are category Mn and are kept.
+loses them; published book text that holds one is refused. Thai and Lao vowel
+and tone marks are category Mn and are kept.
+
+The characters refused in book text beyond these, such as Thai and Lao
+digits, come from the language registry (web/languages.json, read by
+server/languages.py). DIGITS turns the digits among them into Western digits
+in reader text.
 """
 import unicodedata
+
+from .languages import REGISTRY
 
 HIDDEN_CATEGORIES = {"Cf", "Cc", "Co", "Cs", "Cn", "Zl", "Zp"}
 # Visible-looking nothing: grapheme joiner, Hangul fillers, Khmer inherent vowels, Mongolian selectors.
 HIDDEN_CHARS = {0x034F, 0x115F, 0x1160, 0x17B4, 0x17B5, 0x180B, 0x180C, 0x180D, 0x180E, 0x180F, 0x3164, 0xFFA0}
 KEEP = {"\n", "\t"}
-# Thai digits U+0E50-0E59 and Lao digits U+0ED0-0ED9, with their Western values.
-DIGITS = {0x0E50 + i: str(i) for i in range(10)} | {0x0ED0 + i: str(i) for i in range(10)}
+# Every digit the registry refuses (Thai U+0E50-0E59 and Lao U+0ED0-0ED9 now), with its Western value.
+DIGITS = REGISTRY.digits()
 
 
 def invisible(ch):
@@ -30,9 +37,10 @@ def strip_invisible(text):
     return "".join(c for c in text if not invisible(c))
 
 
-def forbidden_char(text):
-    """The first character that published book text must not hold, or None."""
+def forbidden_char(text, language=None):
+    """The first character that published book text in this language must not hold, or None.
+    Without a language, the rules for every book apply."""
     for c in text:
-        if invisible(c) or ord(c) in DIGITS:
+        if invisible(c) or REGISTRY.refused(c, language):
             return c
     return None

@@ -105,7 +105,7 @@ class FromEnvironment(unittest.TestCase):
 
 class Layout(unittest.TestCase):
     def test_python_files_have_docstrings_and_no_waitress_outside_prod(self):
-        for path in list((ROOT / "server").glob("*.py")) + list((ROOT / "parsers").glob("*.py")) + [ROOT / "review.py"]:
+        for path in list((ROOT / "server").rglob("*.py")) + list((ROOT / "parsers").rglob("*.py")) + [ROOT / "review.py"]:
             text = path.read_text()
             body = text.split("\n", 1)[1] if text.startswith("#!") else text
             self.assertTrue(body.lstrip().startswith('"""'), path)
@@ -113,10 +113,13 @@ class Layout(unittest.TestCase):
                 self.assertNotIn("import waitress", text, path)
 
     def test_no_thai_digits_or_invisible_characters_in_code(self):
+        found = []
         for path in ROOT.rglob("*"):
-            if path.suffix in (".py", ".json", ".md", ".sql", ".conf", ".service", ".timer") and "web" not in path.parts:
-                text = path.read_text()
-                self.assertIsNone(forbidden_char(text), path)
+            if path.suffix in (".py", ".json", ".md", ".sql", ".conf", ".service", ".timer", ".js", ".css", ".html"):
+                bad = forbidden_char(path.read_text())
+                if bad:
+                    found.append(f"{path.relative_to(ROOT)}: U+{ord(bad):04X}")
+        self.assertEqual(found, [])
 
 
 class Deploy(unittest.TestCase):
@@ -137,9 +140,27 @@ class Deploy(unittest.TestCase):
     def test_body_limits(self):
         site = self.read("review-site.conf")
         self.assertIn("LimitRequestBody 65536", site)
-        self.assertRegex(site, r'<Location "/api/admin/chapters/">\s*LimitRequestBody 4718592\s*</Location>')
+        # Apache refuses an admin request without a bearer token of the server's form before it reads the body.
+        block = re.search(r'<Location "/api/admin/">(.*?)</Location>', site, re.S).group(1)
+        self.assertIn("LimitRequestBody 4718592", block)
+        rule = re.search(r'<If "%\{HTTP:Authorization\} !~ m#(.*)#">\s*Require all denied\s*</If>', block)
+        self.assertTrue(rule, block)
+        token = re.compile(rule.group(1))
+        self.assertTrue(token.search("Bearer " + "a" * 43))
+        for bad in ("", "Bearer short", "Basic " + "a" * 43, "Bearer " + "a" * 43 + " x"):
+            self.assertFalse(token.search(bad), bad)
         self.assertIn("max_request_body_size=4718592", (ROOT / "server" / "prod.py").read_text())
         self.assertIn("font/ttf", re.search(r"AddOutputFilterByType DEFLATE.*", site).group())
+
+    def test_connections_memory_and_logs(self):
+        # Apache stops using an idle connection before waitress closes it (channel_timeout=30).
+        self.assertRegex(re.search(r"^ProxyPass .*", self.read("review-site.conf"), re.M).group(), r"\bttl=20\b")
+        self.assertIn("channel_timeout=30", (ROOT / "server" / "prod.py").read_text())
+        self.assertIn("Environment=MALLOC_ARENA_MAX=2", self.read("review.service"))
+        # waitress's queue warnings are silenced; tests never import waitress, so the text is checked.
+        prod = (ROOT / "server" / "prod.py").read_text()
+        self.assertIn('QUIET_LOGGERS = ("waitress.queue",)', prod)
+        self.assertIn("logging.getLogger(name).setLevel(logging.ERROR)", prod)
 
     def test_vhost_only_includes_the_site(self):
         vhost = self.read("review-apache.conf")

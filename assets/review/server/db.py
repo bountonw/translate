@@ -8,14 +8,23 @@ schema.sql is version 1 of the database. Every later change is a numbered
 entry in MIGRATIONS. init_db brings any database, new or old, to the newest
 version in one transaction when the server starts. To change the database,
 add an entry with the next number; never edit an entry that has shipped.
+Version 3 adds groups (reader_group, group_grant, group_member) and feature
+settings (reader_setting, group_setting), and moves each reader's English
+into the setting english.on. Version 4 adds each book's title in its own
+language (book.title_th).
+
+A feature in server/features/ brings its own numbered migrations for its own
+tables; init_db applies them after the core ones, in the same transaction,
+and feature_schema records the version each feature has reached.
 """
 import contextlib
 import hashlib
 import json
 import os
+import re
 import secrets
 import sqlite3
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 SCHEMA = Path(__file__).with_name("schema.sql")
@@ -28,6 +37,11 @@ CONFIG = "config.json"
 def now():
     """The current UTC time as 2026-10-21T20:30:00Z."""
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def ago(days):
+    """The UTC time days ago, in the form of now()."""
+    return (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def sha256(text):
@@ -89,6 +103,56 @@ MIGRATIONS = [
         "ALTER TABLE chapter ADD COLUMN source_en TEXT NOT NULL DEFAULT ''",
         "ALTER TABLE chapter ADD COLUMN source_commit TEXT NOT NULL DEFAULT ''",
     ]),
+    (3, [
+        # Groups of readers: each has its own grants and settings and can be switched off.
+        """CREATE TABLE reader_group (
+  id      INTEGER PRIMARY KEY AUTOINCREMENT,
+  name    TEXT NOT NULL UNIQUE COLLATE NOCASE,
+  active  INTEGER NOT NULL DEFAULT 1,
+  created TEXT NOT NULL
+)""",
+        """CREATE TABLE group_grant (
+  grp     INTEGER NOT NULL REFERENCES reader_group(id) ON DELETE CASCADE,
+  book    TEXT NOT NULL,
+  chapter TEXT NOT NULL,
+  PRIMARY KEY (grp, book, chapter)
+)""",
+        """CREATE TABLE group_member (
+  reader INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  grp    INTEGER NOT NULL REFERENCES reader_group(id) ON DELETE CASCADE,
+  PRIMARY KEY (reader, grp)
+)""",
+        "CREATE INDEX group_member_by_group ON group_member(grp)",
+        # Feature settings (server/features/) for one reader or one group: name is feature.setting,
+        # as english.on; value is JSON.
+        """CREATE TABLE reader_setting (
+  reader INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  name   TEXT NOT NULL,
+  value  TEXT NOT NULL,
+  PRIMARY KEY (reader, name)
+)""",
+        """CREATE TABLE group_setting (
+  grp   INTEGER NOT NULL REFERENCES reader_group(id) ON DELETE CASCADE,
+  name  TEXT NOT NULL,
+  value TEXT NOT NULL,
+  PRIMARY KEY (grp, name)
+)""",
+        # The migration version each feature's own tables have reached.
+        """CREATE TABLE feature_schema (
+  feature TEXT PRIMARY KEY,
+  version INTEGER NOT NULL
+)""",
+        # The English setting moves from its column into the settings of the english feature.
+        "INSERT INTO reader_setting (reader, name, value) SELECT id, 'english.on', 'true' FROM reader WHERE english != 0",
+        "ALTER TABLE reader DROP COLUMN english",
+        # The reader list shows when each reader last wrote; this keeps that quick for many comments.
+        "CREATE INDEX comment_by_reader_updated ON comment(reader, updated)",
+    ]),
+    (4, [
+        # The book's title in its own language, for the chapter list of a reader with several books.
+        # Like the chapter's title_th, it holds the book's language, whatever that is.
+        "ALTER TABLE book ADD COLUMN title_th TEXT NOT NULL DEFAULT ''",
+    ]),
 ]
 
 
@@ -103,8 +167,13 @@ def statements(script):
     return out
 
 
-def init_db(path):
-    """Create the database if needed and apply every migration it lacks, all in one transaction."""
+def init_db(path, features=None):
+    """Create the database if needed and apply every migration it lacks, all in one transaction:
+    first the core MIGRATIONS, then each feature's own (features: [(name, migrations)], by default
+    every module in server/features/)."""
+    if features is None:
+        from . import features as registry
+        features = [(f.name, f.migrations) for f in registry.load()]
     conn = connect(path)
     try:
         conn.execute("PRAGMA journal_mode = WAL")
@@ -116,8 +185,25 @@ def init_db(path):
                 for sql in sqls:
                     conn.execute(sql)
                 conn.execute(f"PRAGMA user_version = {int(n)}")
+            apply_feature_migrations(conn, features)
     finally:
         conn.close()
+
+
+def apply_feature_migrations(conn, features):
+    """Each feature's migrations (version, statements) that the database lacks, in order.
+    feature_schema records the version each feature has reached."""
+    have = {r[0]: r[1] for r in conn.execute("SELECT feature, version FROM feature_schema")}
+    for name, migrations in features:
+        done = have.get(name, 0)
+        for n, sqls in migrations:
+            if n > done:
+                for sql in sqls:
+                    conn.execute(sql)
+                done = n
+        if done != have.get(name, 0):
+            conn.execute("INSERT INTO feature_schema (feature, version) VALUES (?, ?)"
+                         " ON CONFLICT (feature) DO UPDATE SET version = excluded.version", (name, done))
 
 
 def _config_file(data_dir):
@@ -170,13 +256,32 @@ def admin_hash(data_dir):
         return ""
 
 
+BACKUP_RE = re.compile(r"review-(\d{4}-\d\d-\d\d)(?:-(\d{6}))?(?:-\d+)?\.sqlite3")
+
+
+def backup_time(path):
+    """The UTC time in a backup's name: review-2026-10-22-033000.sqlite3, or the older review-2026-10-22.sqlite3
+    (taken as midnight). None for any other file."""
+    m = BACKUP_RE.fullmatch(path.name)
+    if not m:
+        return None
+    return datetime.strptime(m.group(1) + (m.group(2) or "000000"), "%Y-%m-%d%H%M%S").replace(tzinfo=timezone.utc)
+
+
 def backup(data_dir, keep=14):
-    """Copy the live database to backups/review-YYYY-MM-DD.sqlite3 and keep the newest copies."""
+    """Copy the live database to backups/review-YYYY-MM-DD-HHMMSS.sqlite3 (UTC), never over another backup.
+    A copy older than keep days is deleted, but the newest keep copies always stay."""
     data = Path(data_dir)
     out_dir = data / "backups"
     out_dir.mkdir(exist_ok=True)
     os.chmod(out_dir, 0o700)
-    target = out_dir / f"review-{now()[:10]}.sqlite3"
+    stamp = datetime.now(timezone.utc)
+    name = f"review-{stamp:%Y-%m-%d-%H%M%S}"
+    target = out_dir / f"{name}.sqlite3"
+    n = 1
+    while target.exists():
+        n += 1
+        target = out_dir / f"{name}-{n}.sqlite3"
     tmp = target.with_suffix(".tmp")
     src = connect(data / DB_NAME)
     dst = sqlite3.connect(tmp)
@@ -187,7 +292,11 @@ def backup(data_dir, keep=14):
         src.close()
     os.chmod(tmp, 0o600)
     tmp.replace(target)
-    copies = sorted(out_dir.glob("review-*.sqlite3"))
-    for old in copies[:-keep] if keep > 0 else []:
-        old.unlink()
+    if keep > 0:
+        copies = sorted(((t, p) for p in out_dir.glob("review-*.sqlite3") if (t := backup_time(p))),
+                        key=lambda x: (x[0], x[1].name))
+        cutoff = stamp - timedelta(days=keep)
+        for t, old in copies[:-keep]:
+            if t < cutoff and old != target:
+                old.unlink()
     return target

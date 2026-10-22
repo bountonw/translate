@@ -65,6 +65,10 @@ On your machine, save it in a private folder outside ~/claude-sandbox, so that n
     install -d -m 0700 ~/.config/review
     (umask 077; cat > ~/.config/review/admin-token)
 
+Then tie the token to its server. review.py reads this file whenever it uses that token: it talks to that address when no server is named, and refuses any other, so the token never goes to another address, such as a program listening on port 8087 of your machine.
+
+    echo https://review.laoegw.com > ~/.config/review/server
+
 Back on the droplet, delete the plain token. The server keeps only its hash.
 
     sudo rm /var/lib/review/admin-token
@@ -102,9 +106,8 @@ From now on, never copy review-apache.conf to the droplet again: that would remo
 
 ## 9. Publish the chapters and invite yourself
 
-You run every server command yourself, on your machine. Claude never holds the production admin token; it reads only the export files. Point review.py at the site once per terminal:
+You run every server command yourself, on your machine. Claude never holds the production admin token; it reads only the export files. Point review.py at the site's token once per terminal; the file ~/.config/review/server from step 5 gives the address:
 
-    export REVIEW_SERVER=https://review.laoegw.com
     export REVIEW_TOKEN_FILE=~/.config/review/admin-token
 
 Every server command prints `Server: https://review.laoegw.com` first, so you can see which site it acted on. Then:
@@ -114,19 +117,25 @@ Every server command prints `Server: https://review.laoegw.com` first, so you ca
 
 invite prints the reader's link once. Open it on your phone.
 
+To invite many readers, put them in a CSV file (README.md, "Inviting many readers") and run:
+
+    python3 review.py invite --from readers.csv
+
+The links go to a new file of mode 600 in ~/.config/review/, beside the admin token, and the command prints only that file's path and the count. Send each reader their own link, then delete the file. Groups (`group create`, `group add`, `group off`) open and close chapters for many readers at once; README.md lists the commands.
+
 To hand the comments to Claude, run `python3 review.py export`. The files go to ~/claude-sandbox/review-prod/export/, where Claude can read them. Exports from the dev server go to ~/claude-sandbox/review-dev/export/ instead.
 
 ## Daily backup
 
-review-backup.timer copies the database to /var/lib/review/backups/review-YYYY-MM-DD.sqlite3 at about 03:30 each day and keeps the newest 14 copies. To make one now and list them:
+review-backup.timer copies the database at about 03:30 each day to /var/lib/review/backups/review-YYYY-MM-DD-HHMMSS.sqlite3, named with the UTC date and time, so no backup is ever written over, not even two on one day. Copies older than 14 days are deleted, but the newest 14 always stay. To make one now and list them, newest first:
 
     sudo systemctl start review-backup
-    sudo ls -l /var/lib/review/backups/
+    sudo ls -lt /var/lib/review/backups/
 
-Those copies are lost if the droplet is lost. Once a week, on your machine, make a fresh backup and copy it home:
+Those copies are lost if the droplet is lost. Once a week, on your machine, make a fresh backup and copy home the newest one:
 
     mkdir -p ~/claude-sandbox/review-prod
-    ssh USER@DROPLET 'sudo -n systemctl start review-backup && sudo -n cat /var/lib/review/backups/review-$(date -u +%F).sqlite3' > ~/claude-sandbox/review-prod/latest.part && mv ~/claude-sandbox/review-prod/latest.part ~/claude-sandbox/review-prod/review-$(date -u +%F).sqlite3 && sqlite3 ~/claude-sandbox/review-prod/review-$(date -u +%F).sqlite3 "PRAGMA integrity_check"
+    ssh USER@DROPLET 'sudo -n systemctl start review-backup && sudo -n sh -c "cat \"\$(ls -t /var/lib/review/backups/review-*.sqlite3 | head -n 1)\""' > ~/claude-sandbox/review-prod/latest.part && mv ~/claude-sandbox/review-prod/latest.part ~/claude-sandbox/review-prod/review-$(date -u +%F).sqlite3 && sqlite3 ~/claude-sandbox/review-prod/review-$(date -u +%F).sqlite3 "PRAGMA integrity_check"
 
 The command ends by printing `ok`. Any other output, or an error such as "a password is required", means the copy failed and no dated file was written; log in as root for this command, or allow your droplet user to run sudo without a password. DigitalOcean's paid droplet backups are a second copy you can turn on in the droplet's Backups tab.
 
@@ -147,7 +156,17 @@ On the droplet:
     sudo systemctl restart review
     curl -s --retry 10 --retry-connrefused --retry-delay 1 http://127.0.0.1:8087/api/health
 
-The restart applies any change to the database that the new code brings, after the backup that the first command took. Readers keep their links and their comments through an update. A change to web/ alone needs no restart.
+The restart applies any change to the database that the new code brings, after the backup that the first command took. Readers keep their links and their comments through an update. A change to web/ alone needs no restart, except a change to web/languages.json, which the server reads when it starts.
+
+The update that adds groups brings database version 3 and a change to deploy/review-site.conf (admin requests may now carry up to 4.5 MiB, for hundreds of readers at once). After it, run the Apache reload below. Code from before that update cannot open a version 3 database, so rolling back past it needs the backup as well, as "Rolling back" says.
+
+The update that adds each book's title in its own language brings database version 4, a new column that the code before it still opens. It also changes deploy/review-site.conf (Apache refuses an admin request without a bearer token before reading its body, and stops using an idle connection to waitress after 20 s), deploy/review.service (MALLOC_ARENA_MAX=2, which keeps the API near 110 MB after large exports instead of 260 MB) and deploy/review-backup.service (backups by age). After it, run all three sets of commands below.
+
+To check that the site answers quickly, run this on your machine. It prints the seconds the health check took, which should be well under one second; a slower answer at a quiet time means something to look into, with `sudo journalctl -u review -n 50`.
+
+    curl -s -o /dev/null -w '%{time_total}\n' https://review.laoegw.com/api/health
+
+The log does not hold waitress's line "Task queue depth is N", which it writes whenever a request waits a moment for a thread: at normal load that is thousands of lines an hour, which says nothing about speed and could crowd an error out of the journal.
 
 If deploy/review-site.conf changed:
 
@@ -170,12 +189,16 @@ To go back to the code before the last update:
 
 If that update changed the database and the old code fails with it, also go back to the backup taken before the update, as below.
 
-To go back to a database backup, which loses every comment made after that backup:
+To go back to a database backup, which loses every comment made after that backup, first list the backups, newest first. Each name holds the UTC date and time it was taken. After an update, the one you want is the newest taken before the update, which the update's first command made:
+
+    sudo ls -lt /var/lib/review/backups/
+
+Then, with that file's name in place of review-YYYY-MM-DD-HHMMSS.sqlite3:
 
     sudo systemctl stop review
     sudo -u review mv /var/lib/review/review.sqlite3 /var/lib/review/review.sqlite3.replaced
     sudo -u review rm -f /var/lib/review/review.sqlite3-wal /var/lib/review/review.sqlite3-shm
-    sudo -u review cp /var/lib/review/backups/review-YYYY-MM-DD.sqlite3 /var/lib/review/review.sqlite3
+    sudo -u review cp /var/lib/review/backups/review-YYYY-MM-DD-HHMMSS.sqlite3 /var/lib/review/review.sqlite3
     sudo systemctl start review
 
 ## Turning the site off
@@ -192,4 +215,4 @@ The data stays in /var/lib/review. To turn the site back on:
 
 ## What is secret
 
-The code holds no secrets, so it can sit in the repository and on GitHub. The secrets are the admin token, kept only in ~/.config/review/admin-token on your machine, and the reader links. The server stores only SHA-256 hashes of both, in /var/lib/review. Never put /var/lib/review, a backup or the token file in the repository. If the admin token leaks, make a new one on the droplet with `sudo -u review python3 /srv/review/app/review.py setup --data /var/lib/review --new-token`, save it as in step 5, and delete the plain file again.
+The code holds no secrets, so it can sit in the repository and on GitHub. The secrets are the admin token, kept only in ~/.config/review/admin-token on your machine beside the file server that ties it to the site, and the reader links, which invite prints once and invite --from and relink --group write to links files in ~/.config/review/. The server stores only SHA-256 hashes of both, in /var/lib/review. Never put /var/lib/review, a backup or the token file in the repository. If the admin token leaks, make a new one on the droplet with `sudo -u review python3 /srv/review/app/review.py setup --data /var/lib/review --new-token`, save it as in step 5, and delete the plain file again.

@@ -4,6 +4,7 @@ import unittest
 
 from helpers import REPO, SC_BOOK, SC_COUNTS, git_reader
 
+import parsers
 from parsers import sc_typst
 from parsers.sc_typst import ParseError
 from server.text import forbidden_char
@@ -121,7 +122,8 @@ class MainChapters(unittest.TestCase):
 
 class MadeUpInputs(unittest.TestCase):
     def load(self, th, en=EN):
-        return sc_typst.load_chapter(SC_BOOK, 1, fake_reader(files_for(th, en)))
+        """Through parsers.load_chapter, which runs the format module and then the checks for every book."""
+        return parsers.load_chapter(SC_BOOK, 1, fake_reader(files_for(th, en)))
 
     def test_inline_markup(self):
         c = self.load(TH)

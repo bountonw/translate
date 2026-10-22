@@ -1,11 +1,13 @@
 -- Database of the proofreading site, version 1. server/db.py applies this file to a new database
 -- and then every entry of its MIGRATIONS list. Migration 2 makes comment ids AUTOINCREMENT, so an
--- id is never used twice, and adds source_th, source_en and source_commit to chapter.
+-- id is never used twice, and adds source_th, source_en and source_commit to chapter. Migration 3
+-- adds groups and feature settings and moves reader.english into reader_setting. Migration 4 adds
+-- book.title_th, the book's title in its own language.
 
 CREATE TABLE IF NOT EXISTS book (
   id       TEXT PRIMARY KEY,
   title_en TEXT NOT NULL DEFAULT '',
-  language TEXT NOT NULL DEFAULT 'th'   -- th or lo: the language of the translation
+  language TEXT NOT NULL DEFAULT 'th'   -- a language code of web/languages.json: the language of the translation
 );
 
 -- A chapter row is never deleted: withdrawing clears "published" and keeps its comments.

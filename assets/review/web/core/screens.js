@@ -1,0 +1,244 @@
+/* Proofreading site: the router and the plain screens (web/core/screens.js).
+
+   The address holds the open chapter as #SC/SC03; an empty hash is the chapter list. This module
+   also draws the link, offline and loading screens, the list of comments the server refused (with the
+   unsaved drafts whose paragraph is no longer open), the note at the foot of the screen, the bar, and
+   the settings. */
+
+import { S, store } from "./state.js";
+import { K, parseDraftKey } from "./store.js";
+import { t, tIn, plural, hasWords, loadWords, setLang, UI_LANGS } from "./words.js";
+import { h, $, shortA, copyButton, twoTapButton, drawn } from "./dom.js";
+import { active, settingsItem } from "./ext.js";
+import { loadOb, mutateOb, refreshMe, keptChapter } from "./net.js";
+import { explain } from "./refusals.js";
+import { bookLang, showLanguages, shownLanguages } from "./languages.js";
+import { leaveChapter, openChapter, openComment, redrawChapter } from "./chapter.js";
+import { showHome, renderHome } from "./home.js";
+import { failText } from "./notes.js";
+
+export function setHash(hash, push) {
+  const url = location.pathname + location.search + hash;
+  try {
+    if (push) history.pushState({ list: true }, "", url);
+    else history.replaceState(hash ? history.state : null, "", url);
+  } catch (e) { /* history is not available here */ }
+}
+
+export function route() {
+  if (!S.code || S.authBlocked) return showLink();
+  if (!S.me) return showBoot();
+  const m = /^#([^/=&]+)\/([^/=&]+)$/.exec(location.hash);
+  if (m) {
+    let book, id;
+    try { book = decodeURIComponent(m[1]); id = decodeURIComponent(m[2]); } catch (e) { return showHome(); }
+    if (S.view === "chapter" && S.book === book && S.ch === id) return;
+    return openChapter(book, id, { resume: true });
+  }
+  if (S.view !== "home") showHome();
+}
+
+export function goHome() {
+  if (history.state && history.state.list) { history.back(); return; }   // popstate draws the list
+  setHash("", false);
+  showHome();
+}
+
+export function applyLang() {
+  document.documentElement.lang = S.lang;
+  document.title = t("app_title");
+  $("back").textContent = t("back");
+  showLanguages(shownLanguages());
+}
+
+/* Draw the screen again in the language now chosen, or with new words. */
+export function rerender() {
+  applyLang();
+  if (S.view === "home") renderHome(true);
+  else if (S.view === "link") showLink();
+  else if (S.view === "offline") showOffline();
+  else if (S.view === "unsaved") showUnsaved();
+  else if (S.view === "chapter") redrawChapter();
+  paintSync();
+}
+
+/* The bar shows only inside a chapter: the way back, the chapter, and the reader's place. */
+export function setBar(c) {
+  $("bar").hidden = !c;
+  $("bar-title").textContent = c ? c.n + " · " + c.title_th : t("app_title");
+  const lg = c ? bookLang(c.book) : null;
+  if (lg) $("bar-title").lang = lg; else $("bar-title").removeAttribute("lang");
+  $("bar-place").textContent = "";
+}
+
+export function showScreen(view, ...kids) {
+  leaveChapter();
+  S.view = view;
+  setBar(null);
+  const main = $("main");
+  main.textContent = "";
+  main.append(...kids);
+  window.scrollTo(0, 0);
+}
+
+/* ---- settings: the language switch is the first item; features add theirs (ext.js) ---- */
+
+function langSwitch() {
+  return h("div", { class: "lang", role: "group", "aria-label": t("language") },
+    UI_LANGS.map(l => h("button", { type: "button", class: "lang-btn", lang: l, "aria-pressed": String(S.lang === l),
+      text: tIn(l, "lang_" + l), onclick: () => setLang(l) })));
+}
+settingsItem({ name: "language", order: 0, render: () => langSwitch() });
+
+/* The settings of a screen. On the link and offline screens there is no chapter list, so only the
+   core items show. */
+export function settingsBar(screen) {
+  const me = screen === "home" ? S.me : null;
+  return h("div", { class: "settings" }, active("settings", me).map(d => drawn(d, { me, screen })));
+}
+
+/* ---- plain screens ---- */
+
+export function showBoot() {
+  showScreen("boot", h("div", { class: "boot", "aria-hidden": "true" }));
+}
+
+export function showLink() {
+  showScreen("link", h("section", { class: "message" },
+    h("div", { class: "home-top" }, h("h1", { text: t("link_title") }), settingsBar("link")),
+    h("p", { class: "lead", text: t("link_body") })));
+}
+
+export function showOffline() {
+  const retry = async () => {
+    showBoot();
+    if (!hasWords() && (await loadWords())) applyLang();
+    refreshMe();
+  };
+  showScreen("offline", h("section", { class: "message" },
+    h("div", { class: "home-top" }, h("h1", { text: t("app_title") }), settingsBar("offline")),
+    h("p", { class: "lead", text: t("cannot_connect") }),
+    h("button", { type: "button", class: "btn", text: t("retry_load"), onclick: retry })));
+}
+
+/* ---- the note at the foot of the screen ----
+   Comments the server refused make it a button that lists them; changes that wait because the
+   reader is offline, or because the server asked to try later, show as a count. */
+
+export function paintSync() {
+  const el = $("sync");
+  if (!el) return;
+  const ob = loadOb().filter(o => o.code === S.code);
+  const waiting = ob.filter(o => !o.failed).length;
+  const failed = ob.length - waiting + goneDrafts().length;
+  const offline = S.netFails > 0 || navigator.onLine === false;
+  const retrying = ob.some(o => !o.failed && o.tries > 0);
+  el.textContent = "";
+  el.classList.toggle("bad", failed > 0);
+  el.classList.toggle("has-btn", failed > 0);
+  if (failed) {
+    if (S.view !== "unsaved") el.append(h("button", { type: "button", class: "sync-btn", text: plural(failed, "failed_one", "failed_many"), onclick: showUnsaved }));
+  } else if (waiting && offline) el.textContent = t("offline") + " · " + plural(waiting, "waiting_one", "waiting_many");
+  else if (waiting && retrying) el.textContent = plural(waiting, "waiting_one", "waiting_many");
+  el.hidden = !el.textContent;
+}
+
+/* ---- comments the server refused ---- */
+
+const failedOps = () => loadOb().filter(o => o.code === S.code && o.failed);
+
+/* The reader's unsaved drafts that no drawer shows any more: their chapter is closed now, or the chapter
+   kept on the device no longer has their paragraph. A chapter not kept yet is not judged. */
+export function goneDrafts() {
+  if (!S.me) return [];
+  const owner = store.get(K.draftOwner);
+  if (owner && owner !== S.me.name) return [];
+  const anchors = {};
+  const has = (book, ch, a) => {
+    const key = book + "/" + ch;
+    if (!(key in anchors)) {
+      const kept = S.chapter && S.book === book && S.ch === ch ? S.chapter : keptChapter(book, ch);
+      anchors[key] = kept ? new Set(kept.paras.map(p => p.a)) : null;
+    }
+    return !anchors[key] || anchors[key].has(a);
+  };
+  const out = [];
+  for (const key of store.keys()) {
+    const d = parseDraftKey(key);
+    if (!d) continue;
+    const open = S.me.chapters.some(x => x.book === d.book && x.id === d.ch);
+    if (open && has(d.book, d.ch, d.a)) continue;
+    const body = store.get(key);
+    if (!body || (!body.text && !body.quote)) continue;
+    out.push(Object.assign(d, { key, body }));
+  }
+  return out;
+}
+
+/* A card for a draft whose paragraph is gone: its words, why it cannot be saved, Copy and Remove. */
+function draftCard(d) {
+  const c = S.me && S.me.chapters.find(x => x.book === d.book && x.id === d.ch);
+  const where = (c ? t("chapter_n", { n: c.n }) : d.ch) + " · " + t("para_n", { a: shortA(d.a) });
+  const words = h("div", { class: "note-words", lang: bookLang(d.book) },
+    d.body.quote ? h("p", { class: "note-quote", text: "“" + d.body.quote + "”" }) : null,
+    h("p", { class: "note-text", text: d.body.text || "" }));
+  const all = (d.body.quote ? "“" + d.body.quote + "”\n" : "") + (d.body.text || "");
+  const remove = () => {
+    store.del(d.key);
+    showUnsaved();
+  };
+  return h("div", { class: "note failed" },
+    h("p", { class: "note-where", text: where }),
+    words,
+    h("p", { class: "note-why", text: t("draft_gone") }),
+    h("div", { class: "note-acts" }, copyButton(all, words), twoTapButton(t("remove"), t("remove_confirm"), remove)));
+}
+
+/* Whether the comment of a refused op can be opened for a change: its chapter is open to the reader
+   and its paragraph is in the chapter as kept on the device (or the chapter is not kept yet). */
+function canOpen(o) {
+  if (!o.cid || !o.a || !S.me || !S.me.chapters.some(x => x.book === o.book && x.id === o.ch)) return false;
+  const kept = keptChapter(o.book, o.ch);
+  return !kept || kept.paras.some(p => p.a === o.a);
+}
+
+function unsavedCard(o) {
+  const c = S.me && S.me.chapters.find(x => x.book === o.book && x.id === o.ch);
+  const where = (c ? t("chapter_n", { n: c.n }) : o.ch) + " · " + t("para_n", { a: shortA(o.a) });
+  const body = o.body || {};
+  const words = h("div", { class: "note-words", lang: bookLang(o.book) },
+    body.quote ? h("p", { class: "note-quote", text: "“" + body.quote + "”" }) : null,
+    h("p", { class: "note-text", text: body.text || "" }));
+  const all = (body.quote ? "“" + body.quote + "”\n" : "") + (body.text || "");
+  const why = explain(o.failed, S.me && S.me.limits);
+  const remove = () => {
+    mutateOb(ob => ob.filter(x => (o.type === "create" ? x.cid !== o.cid : x.op !== o.op)));
+    showUnsaved();
+  };
+  const change = why.change && canOpen(o)
+    ? h("button", { type: "button", class: "link", text: t("edit"), onclick: () => openComment(o.book, o.ch, o.a, o.cid) }) : null;
+  return h("div", { class: "note failed" },
+    h("p", { class: "note-where", text: where }),
+    words,
+    h("p", { class: "note-why", text: failText(why) }),
+    h("div", { class: "note-acts" }, change, copyButton(all, words), twoTapButton(t("remove"), t("remove_confirm"), remove)));
+}
+
+/* Every comment the server refused, from any chapter, even one that is closed now, then every unsaved
+   draft whose paragraph is no longer open. */
+export function showUnsaved() {
+  if (S.view !== "unsaved") S.from = S.view === "chapter" ? { book: S.book, ch: S.ch } : null;
+  const from = S.from;
+  const close = () => {
+    if (from) openChapter(from.book, from.ch, { resume: true });
+    else { setHash("", false); showHome(); }
+  };
+  const list = failedOps();
+  const drafts = goneDrafts();
+  showScreen("unsaved", h("section", { class: "message" },
+    h("h1", { text: t("unsaved_title") }),
+    list.length || !drafts.length ? h("p", { class: "lead", text: list.length ? t("unsaved_lead") : t("unsaved_none") }) : null,
+    h("div", { class: "notes" }, list.map(unsavedCard), drafts.map(draftCard)),
+    h("div", { class: "row" }, h("button", { type: "button", class: "btn ghost", text: t("close"), onclick: close }))));
+  paintSync();
+}

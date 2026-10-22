@@ -6,24 +6,23 @@ followed by one text line that ends "#EGW[\\{SC 9.1\\}]". Inline markup is
 The English is a Markdown file with YAML front matter (chapter.title.en),
 sections "## {SC 9.1}", and verse lines indented four spaces.
 
-Every parser module offers the same function:
+Every format module offers the same function:
 
     load_chapter(book, n, read) -> chapter
 
 book is the book's entry from books.json (with its "id"), n the chapter
 number, and read(path) returns a file's text at the chosen git ref, or None.
 The chapter is {"id", "n", "title_th", "title_en", "paragraphs", "sources"};
-each paragraph is {"a": "SC 9.1", "th": HTML, "fn": [HTML], "en": HTML}.
+each paragraph is {"a": "SC 9.1", "th": HTML, "fn": [HTML], "en": HTML}, in
+the content model of server/content.py. review.py calls it through
+parsers.load_chapter, which also runs the annotators and refuses the
+characters the language registry bans, so this module only reads the format.
 """
 import html
 import itertools
 import re
 
-from server.text import forbidden_char
-
-
-class ParseError(ValueError):
-    """The chapter file cannot be read as this format."""
+from parsers import ParseError
 
 
 def chapter_paths(book, n, stage=None):
@@ -168,13 +167,5 @@ def load_chapter(book, n, read):
         raise ParseError(f"{cid}: no English for {', '.join(missing)}")
     for p in paras:
         p["en"] = en[p["a"]]
-        bad = forbidden_char(p["th"] + "".join(p["fn"]))
-        if bad:
-            raise ParseError(f"{cid}: {{{p['a']}}} holds the character U+{ord(bad):04X}")
-    bad = forbidden_char(title_th)
-    if bad:
-        raise ParseError(f"{cid}: the title holds the character U+{ord(bad):04X}")
-    if not paras:
-        raise ParseError(f"{cid}: no paragraphs")
     return {"id": cid, "n": n, "title_th": title_th, "title_en": title_en,
             "paragraphs": paras, "sources": [th_path, en_path]}

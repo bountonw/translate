@@ -1,8 +1,10 @@
 {
   "SC": {
     "title_en": "Steps to Christ",
+    "title_th": "",
     "language": "th",
     "parser": "sc_typst",
+    "annotators": [],
     "ref": "main",
     "stages": ["03_public", "02_edit", "01_raw"],
     "thai": "th/SC/{stage}/SC{nn}_th.typ",

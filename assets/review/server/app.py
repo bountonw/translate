@@ -4,14 +4,18 @@ server.app:application reads its data directory from REVIEW_DATA on the
 first request. Tests and the dev server build their own with App(data_dir).
 Readers send "Authorization: Bearer <code>"; the routes under /api/admin/
 take the admin token instead. Each reader sees and changes only their own
-comments, and only in published chapters granted to them.
+comments, and only in published chapters open to them: covered by their own
+grants or by the grants of a group of theirs that is switched on.
+
+This module holds the reader routes, the chapter and export admin routes and
+the routing. Readers and groups are in server/people.py, shared helpers in
+server/common.py, and each feature in server/features/.
 """
+import functools
 import hmac
-import html
 import json
 import os
 import re
-import secrets
 import sqlite3
 import sys
 import threading
@@ -21,10 +25,14 @@ import unicodedata
 from collections import deque
 from http import HTTPStatus
 from pathlib import Path
-from urllib.parse import parse_qs
 
-from . import db, specs
-from .text import DIGITS, forbidden_char, strip_invisible
+from . import db, features
+from .common import (ADMIN_LIMIT, QUOTE_LIMIT, TEXT_LIMIT, HTTPError, Request, bool_field, clean, dumps,
+                     id_list)
+from .content import plain, safe_html
+from .languages import REGISTRY
+from .people import People
+from .text import forbidden_char
 
 CSP = ("default-src 'self'; img-src 'self' data:; frame-ancestors 'none'; "
        "base-uri 'none'; form-action 'none'")
@@ -35,11 +43,9 @@ SECURITY_HEADERS = [
     ("X-Robots-Tag", "noindex"),
 ]
 
-BODY_LIMIT = 64 * 1024
-CHAPTER_LIMIT = 4 * 1024 * 1024
-QUOTE_LIMIT = 500
-TEXT_LIMIT = 4000
-NAME_LIMIT = 80
+CHAPTER_LIMIT = ADMIN_LIMIT
+CACHE_MOST = 256                 # chapters kept parsed in memory
+PROCESSED_MOST = 10000           # comments marked processed in one request; review.py sends 5000 at a time
 
 TOKEN_RE = re.compile(r"(?i:bearer) +([A-Za-z0-9_-]{16,128})")
 CLIENT_ID_RE = re.compile(r"[A-Za-z0-9_.:-]{1,64}")
@@ -51,36 +57,33 @@ CHAP = r"([A-Z]{1,10}\d{1,3})"
 BOOK_ID_RE = re.compile(BOOK)
 CHAPTER_ID_RE = re.compile(CHAP)
 SOURCE_RE = re.compile(r"[A-Za-z0-9_][A-Za-z0-9_./-]{0,199}")
-MAX_ID = 2 ** 63 - 1
-# The only tags a published paragraph may hold.
-ALLOWED_TAG = re.compile(r'</?(?:em|strong|i|b|sup|sub|p|br|span)(?: class="[a-z][a-z0-9 -]*")?\s*/?>')
+NUM = r"(\d{1,12})"
 
+# Why the server refuses a reader's write: code -> (status, meaning). The page explains each code in
+# plain words; any other code is a fault in the site or the page, never in the reader's words.
+WRITE_ERRORS = {
+    "no_chapter": (404, "the chapter is closed: withdrawn, or no longer open to this reader"),
+    "no_paragraph": (409, "the paragraph is no longer in the chapter"),
+    "quote_required": (400, "a wording comment without the words to change"),
+    "quote_too_long": (400, "the quoted words are longer than limits.quote characters"),
+    "text_required": (400, "the comment is empty"),
+    "text_too_long": (400, "the comment is longer than limits.text characters"),
+    "too_large": (413, "the request is far over the size limit: for a comment, the comment is far too long"),
+    "comment_limit": (403, "the reader already has limits.comments comments"),
+    "slow_down": (429, "more than limits.writes_per_minute changes in one minute; Retry-After says when to try"),
+    "no_comment": (404, "the comment no longer exists, as when it was deleted on another device"),
+}
 
-class HTTPError(Exception):
-    """An error answered as JSON {error, message} with its status code."""
-
-    def __init__(self, status, error, message, headers=None):
-        super().__init__(message)
-        self.status, self.error, self.message = status, error, message
-        self.headers = headers or []
-
-
-def dumps(payload):
-    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode()
-
-
-def safe_html(text):
-    rest = ALLOWED_TAG.sub("", text)
-    return "<" not in rest and ">" not in rest
-
-
-def plain(fragment):
-    """Published HTML to plain text, without footnote numbers."""
-    t = re.sub(r'<sup class="fn">.*?</sup>', "", fragment)
-    t = re.sub(r"<br\s*/?>", "\n", t)
-    t = re.sub(r"</p>\s*<p[^>]*>", "\n\n", t)
-    t = re.sub(r"<[^>]+>", "", t)
-    return html.unescape(t).strip()
+# Whether a chapter is open to reader :r: an own grant, or a grant of a group of theirs that is on.
+GRANTED = """(
+  EXISTS (SELECT 1 FROM "grant" g WHERE g.reader = :r AND g.book = c.book AND g.chapter IN (c.id, '*'))
+  OR EXISTS (SELECT 1 FROM group_member m
+             JOIN reader_group t ON t.id = m.grp AND t.active = 1
+             JOIN group_grant gg ON gg.grp = m.grp AND gg.book = c.book AND gg.chapter IN (c.id, '*')
+             WHERE m.reader = :r))"""
+ACCESS_SQL = f"SELECT c.version FROM chapter c WHERE c.book = :book AND c.id = :ch AND c.published = 1 AND {GRANTED}"
+OPEN_SQL = f"""SELECT c.book, c.id, c.n, c.title_th, c.title_en, c.version, c.count FROM chapter c
+WHERE c.published = 1 AND {GRANTED} ORDER BY c.book, c.n"""
 
 
 def squash(text):
@@ -102,49 +105,9 @@ def etag_matches(header, etag):
     return False
 
 
-def clean(value, name, limit, required):
-    """Reader text: newlines unified, invisible characters removed, NFC, Thai and Lao digits made Western."""
-    if value is None:
-        value = ""
-    if not isinstance(value, str):
-        raise HTTPError(400, "bad_field", f"{name} must be text.")
-    value = strip_invisible(value.replace("\r\n", "\n").replace("\r", "\n"))
-    value = unicodedata.normalize("NFC", value).translate(DIGITS).strip()
-    if required and not value:
-        raise HTTPError(400, f"{name}_required", f"Write the {name}.")
-    if len(value) > limit:
-        raise HTTPError(400, f"{name}_too_long", f"The {name} is longer than {limit} characters.")
-    return value
-
-
-def text_field(data, name):
-    value = data.get(name)
-    if not isinstance(value, str) or not value:
-        raise HTTPError(400, "bad_field", f"{name} is missing.")
-    return value
-
-
-def bool_field(data, name):
-    value = data.get(name)
-    if not isinstance(value, bool):
-        raise HTTPError(400, "bad_field", f"{name} must be true or false.")
-    return value
-
-
 def comment_rev(kind, quote, text):
     """A short fingerprint of what a comment says; it changes whenever the reader changes the comment."""
     return db.sha256("\0".join((kind, quote, text)))[:12]
-
-
-def without_surrogates(value):
-    """A parsed JSON body with every lone surrogate taken out of its strings."""
-    if isinstance(value, str):
-        return "".join(c for c in value if not 0xD800 <= ord(c) <= 0xDFFF)
-    if isinstance(value, list):
-        return [without_surrogates(v) for v in value]
-    if isinstance(value, dict):
-        return {without_surrogates(k): without_surrogates(v) for k, v in value.items()}
-    return value
 
 
 def comment_json(row):
@@ -153,56 +116,20 @@ def comment_json(row):
             "created": row["created"], "updated": row["updated"], "processed": bool(row["processed"])}
 
 
-class Request:
-    def __init__(self, environ, conn):
-        self.environ = environ
-        self.conn = conn
-        self.method = environ.get("REQUEST_METHOD", "GET").upper()
-        self.path = environ.get("PATH_INFO", "") or "/"
-        self.query = {k: v[-1] for k, v in parse_qs(environ.get("QUERY_STRING", "")).items()}
-        self.reader = None
-
-    def header(self, name):
-        return self.environ.get("HTTP_" + name.upper().replace("-", "_"), "")
-
-    def json(self, limit=BODY_LIMIT):
-        try:
-            length = int(self.environ.get("CONTENT_LENGTH") or 0)
-        except ValueError:
-            raise HTTPError(400, "bad_request", "Bad Content-Length.")
-        if length > limit:
-            raise HTTPError(413, "too_large", "The request is too large.")
-        raw = self.environ["wsgi.input"].read(length) if length > 0 else b""
-        if len(raw) > limit:
-            raise HTTPError(413, "too_large", "The request is too large.")
-        try:
-            data = without_surrogates(json.loads(raw.decode("utf-8")))
-        except (UnicodeDecodeError, ValueError, RecursionError):
-            raise HTTPError(400, "bad_json", "The request body is not JSON.")
-        if not isinstance(data, dict):
-            raise HTTPError(400, "bad_json", "The request body must be a JSON object.")
-        return data
-
-
-ACCESS_SQL = """
-SELECT c.book, c.id, c.version FROM chapter c
-WHERE c.book = ? AND c.id = ? AND c.published = 1
-  AND EXISTS (SELECT 1 FROM "grant" g WHERE g.reader = ? AND g.book = c.book AND g.chapter IN (c.id, '*'))
-"""
-
-
-class App:
+class App(People):
     """The API as a WSGI callable over one data directory."""
 
-    def __init__(self, data_dir, writes_per_minute=60, max_comments=5000, public_url=None):
+    def __init__(self, data_dir, writes_per_minute=60, max_comments=5000, public_url=None, feature_list=None):
         self.data = Path(data_dir)
         self.db_path = self.data / db.DB_NAME
-        db.init_db(self.db_path)
+        self.registry = features.Registry(features.load() if feature_list is None else feature_list)
+        db.init_db(self.db_path, [(f.name, f.migrations) for f in self.registry.features.values()])
         self.writes_per_minute = writes_per_minute
         self.max_comments = max_comments
         self.public_url = public_url
         self.lock = threading.Lock()
         self.writes = {}
+        self.swept = time.monotonic()
         self.cache = {}
         r = [
             ("GET", r"/api/health", self.health, None),
@@ -219,12 +146,25 @@ class App:
             ("DELETE", rf"/api/admin/chapters/{BOOK}/{CHAP}", self.admin_withdraw, "admin"),
             ("GET", r"/api/admin/readers", self.admin_readers, "admin"),
             ("POST", r"/api/admin/readers", self.admin_invite, "admin"),
-            ("PATCH", r"/api/admin/readers/(\d{1,12})", self.admin_edit_reader, "admin"),
-            ("POST", r"/api/admin/readers/(\d{1,12})/code", self.admin_new_code, "admin"),
+            ("PATCH", r"/api/admin/readers", self.admin_edit_readers, "admin"),
+            ("POST", r"/api/admin/readers/batch", self.admin_invite_batch, "admin"),
+            ("POST", r"/api/admin/readers/codes", self.admin_new_codes, "admin"),
+            ("PATCH", rf"/api/admin/readers/{NUM}", self.admin_edit_reader, "admin"),
+            ("POST", rf"/api/admin/readers/{NUM}/code", self.admin_new_code, "admin"),
+            ("GET", r"/api/admin/groups", self.admin_groups, "admin"),
+            ("POST", r"/api/admin/groups", self.admin_new_group, "admin"),
+            ("PATCH", rf"/api/admin/groups/{NUM}", self.admin_edit_group, "admin"),
+            ("DELETE", rf"/api/admin/groups/{NUM}", self.admin_remove_group, "admin"),
+            ("POST", rf"/api/admin/groups/{NUM}/members", self.admin_group_members, "admin"),
+            ("GET", r"/api/admin/features", self.admin_features, "admin"),
             ("GET", r"/api/admin/export", self.admin_export, "admin"),
             ("POST", r"/api/admin/processed", self.admin_processed, "admin"),
         ]
-        self.routes = [(m, re.compile(p), h, auth) for m, p, h, auth in r]
+        # (method, pattern, handler, auth, feature): feature is None for a core route.
+        r = [route + (None,) for route in r]
+        for f in self.registry.features.values():
+            r += [(m, p, functools.partial(h, self), auth, f.name) for m, p, h, auth in f.routes]
+        self.routes = [(m, re.compile(p), h, auth, name) for m, p, h, auth, name in r]
 
     # ---------- WSGI ----------
 
@@ -238,7 +178,7 @@ class App:
                 conn.close()
         except HTTPError as e:
             status, headers = e.status, e.headers
-            body = dumps({"error": e.error, "message": e.message})
+            body = dumps({"error": e.error, "message": e.message, **e.details})
         except Exception:
             traceback.print_exc(file=environ.get("wsgi.errors") or sys.stderr)
             status, headers = 500, []
@@ -251,17 +191,21 @@ class App:
 
     def dispatch(self, req):
         allowed = False
-        for method, pattern, handler, auth in self.routes:
+        for method, pattern, handler, auth, feature in self.routes:
             m = pattern.fullmatch(req.path)
             if not m:
                 continue
             allowed = True
             if method != req.method:
                 continue
-            if auth == "reader":
+            if auth in ("reader", "any_reader"):
                 self.reader_auth(req)
+                # A feature's reader route answers only readers who have the feature on.
+                if feature and auth == "reader" and not self.registry.is_on(feature, self.settings(req)):
+                    raise HTTPError(404, "not_found", "Not found.")
             elif auth == "admin":
                 self.admin_auth(req)
+                req.limit = ADMIN_LIMIT
             result = handler(req, *m.groups())
             status, payload = result[0], result[1]
             extra = result[2] if len(result) > 2 else []
@@ -290,9 +234,13 @@ class App:
             raise HTTPError(401, "bad_token", "The admin token is missing or wrong.")
 
     def rate(self, req):
-        """Allow writes_per_minute writes per reader in any 60 seconds."""
+        """Allow writes_per_minute writes per reader in any 60 seconds. Only readers who wrote in the
+        last minute or two are remembered, so the table stays small however many readers there are."""
         now = time.monotonic()
         with self.lock:
+            if now - self.swept >= 60:
+                self.writes = {k: q for k, q in self.writes.items() if q and now - q[-1] < 60}
+                self.swept = now
             q = self.writes.setdefault(req.reader["id"], deque())
             while q and now - q[0] >= 60:
                 q.popleft()
@@ -301,6 +249,12 @@ class App:
                 raise HTTPError(429, "slow_down", "Too many changes in one minute. Wait and try again.",
                                 [("Retry-After", str(wait))])
             q.append(now)
+
+    def settings(self, req):
+        """The reader's feature settings, as the reader's own and active groups' values combine."""
+        if getattr(req, "_settings", None) is None:
+            req._settings = self.registry.effective(req.conn, req.reader["id"])
+        return req._settings
 
     # ---------- chapters ----------
 
@@ -311,9 +265,10 @@ class App:
             return None
         key = (book, ch, row["version"])
         with self.lock:
-            hit = self.cache.get(key)
-        if hit:
-            return hit
+            hit = self.cache.pop(key, None)
+            if hit:
+                self.cache[key] = hit       # the newest use goes last; the oldest is dropped first
+                return hit
         row = conn.execute("SELECT * FROM chapter WHERE book = ? AND id = ?", (book, ch)).fetchone()
         paras = json.loads(row["paragraphs"])
         meta = {"book": book, "id": ch, "n": row["n"], "title_th": row["title_th"],
@@ -326,22 +281,24 @@ class App:
             for k in [k for k in self.cache if k[:2] == (book, ch)]:
                 del self.cache[k]
             self.cache[(book, ch, row["version"])] = entry
+            while len(self.cache) > CACHE_MOST:
+                del self.cache[next(iter(self.cache))]
         return entry
 
     def access(self, req, book, ch):
-        """The chapter if it is published and granted to this reader; otherwise 404."""
+        """The chapter if it is published and open to this reader; otherwise 404 no_chapter."""
         if not isinstance(book, str) or not isinstance(ch, str):
             raise HTTPError(400, "bad_field", "book and ch are required.")
         row = None
         if BOOK_ID_RE.fullmatch(book) and CHAPTER_ID_RE.fullmatch(ch):
-            row = req.conn.execute(ACCESS_SQL, (book, ch, req.reader["id"])).fetchone()
+            row = req.conn.execute(ACCESS_SQL, {"book": book, "ch": ch, "r": req.reader["id"]}).fetchone()
         if row is None:
             raise HTTPError(404, "no_chapter", "This chapter is not open to you.")
         return self.parsed(req.conn, book, ch)
 
     def anchor(self, entry, a):
         if not isinstance(a, str) or a not in entry["order"]:
-            raise HTTPError(400, "bad_anchor", "This paragraph is not in the chapter.")
+            raise HTTPError(409, "no_paragraph", "This paragraph is no longer in the chapter.")
         return a
 
     # ---------- reader routes ----------
@@ -353,33 +310,41 @@ class App:
     def me(self, req):
         rid = req.reader["id"]
         q = req.conn.execute
-        chapters = q("""
-            SELECT c.book, c.id, c.n, c.title_th, c.title_en, c.version, c.count FROM chapter c
-            WHERE c.published = 1 AND EXISTS (SELECT 1 FROM "grant" g
-                WHERE g.reader = ? AND g.book = c.book AND g.chapter IN (c.id, '*'))
-            ORDER BY c.book, c.n""", (rid,)).fetchall()
+        chapters = q(OPEN_SQL, {"r": rid}).fetchall()
         counts = {(r[0], r[1]): r[2] for r in q(
             "SELECT book, ch, COUNT(*) FROM comment WHERE reader = ? GROUP BY book, ch", (rid,))}
         places = {(r[0], r[1]): r[2] for r in q("SELECT book, ch, a FROM place WHERE reader = ?", (rid,))}
         done = {(r[0], r[1]): (bool(r[2]), r[3]) for r in q(
             "SELECT book, ch, finished, at FROM finished WHERE reader = ?", (rid,))}
-        books = {r[0]: (r[1], r[2]) for r in q("SELECT id, title_en, language FROM book")}
+        books = {r[0]: (r[1], r[2], r[3]) for r in q("SELECT id, title_en, language, title_th FROM book")}
         out = []
         for c in chapters:
             k = (c["book"], c["id"])
             fin, at = done.get(k, (False, None))
+            place = places.get(k)
+            if place is not None and place not in self.parsed(req.conn, *k)["order"]:
+                place = None        # the paragraph is not in the chapter's current version
             out.append({"book": c["book"], "id": c["id"], "n": c["n"], "title_th": c["title_th"],
                         "title_en": c["title_en"], "version": c["version"], "paragraphs": c["count"],
                         "finished": fin, "finished_at": at if fin else None,
-                        "place": places.get(k), "comments": counts.get(k, 0)})
+                        "place": place, "comments": counts.get(k, 0)})
         used = sorted({c["book"] for c in chapters})
-        return 200, {"name": req.reader["name"], "english": bool(req.reader["english"]),
-                     "books": [{"id": b, "title_en": books[b][0], "language": books[b][1]} for b in used],
+        settings = self.settings(req)
+        return 200, {"name": req.reader["name"],
+                     # The same value as features.english.on, kept for a page saved on the device before
+                     # the features field existed; the service worker can serve such a page for one visit.
+                     "english": bool(settings.get("english.on")),
+                     "features": self.registry.me(req.conn, req.reader, settings),
+                     "limits": {"quote": QUOTE_LIMIT, "text": TEXT_LIMIT, "comments": self.max_comments,
+                                "writes_per_minute": self.writes_per_minute},
+                     "comments_total": sum(counts.values()),
+                     "books": [{"id": b, "title_en": books[b][0], "title_th": books[b][2], "language": books[b][1]}
+                               for b in used],
                      "chapters": out}
 
     def chapter(self, req, book, ch):
         entry = self.access(req, book, ch)
-        english = bool(req.reader["english"])
+        english = bool(self.settings(req).get("english.on"))
         etag = '"' + entry["version"] + (".en" if english else "") + '"'
         if etag_matches(req.header("If-None-Match"), etag):
             return 304, None, [("ETag", etag)]
@@ -459,10 +424,14 @@ class App:
             v = req.conn.execute("SELECT version FROM chapter WHERE book = ? AND id = ?",
                                  (row["book"], row["ch"])).fetchone()
             with db.tx(req.conn):
-                req.conn.execute(
+                cur = req.conn.execute(
                     "UPDATE comment SET kind = ?, quote = ?, text = ?, version = ?, updated = ?, processed = 0"
                     " WHERE id = ?", (kind, quote, text, v["version"] if v else row["version"], db.now(), row["id"]))
-            row = req.conn.execute("SELECT * FROM comment WHERE id = ?", (row["id"],)).fetchone()
+            # A delete of the same comment from another tab or device may land between the read and the change.
+            row = req.conn.execute("SELECT * FROM comment WHERE id = ?", (row["id"],)).fetchone() \
+                if cur.rowcount else None
+            if row is None:
+                raise HTTPError(404, "no_comment", "No such comment.")
         return 200, comment_json(row)
 
     def delete_comment(self, req, ref):
@@ -512,7 +481,7 @@ class App:
             "version": r["version"], "published": bool(r["published"]), "paragraphs": r["count"],
             "comments": r["comments"], "open": r["open"], "updated": r["updated"]} for r in rows]}
 
-    def check_paragraphs(self, paras):
+    def check_paragraphs(self, paras, language):
         if not isinstance(paras, list) or not 1 <= len(paras) <= 5000:
             raise HTTPError(400, "bad_paragraphs", "paragraphs must be a list of 1 to 5000 items.")
         out, seen = [], set()
@@ -528,12 +497,26 @@ class App:
                 raise HTTPError(400, "bad_paragraphs", f"{a}: th, fn and en must be text.")
             for part in [th, en, *fn]:
                 if not safe_html(part):
-                    raise HTTPError(400, "unsafe_html", f"{a}: only simple formatting tags are allowed.")
-            bad = forbidden_char(th + "".join(fn))
+                    raise HTTPError(400, "unsafe_html", f"{a}: only the tags of the content model are allowed.")
+            # The English is checked by the rules for every book: no invisible character, no Thai or Lao digit.
+            bad = forbidden_char(th + "".join(fn), language) or forbidden_char(en)
             if bad:
                 raise HTTPError(400, "forbidden_character", f"{a}: holds the character U+{ord(bad):04X}.")
             out.append({"a": a, "th": th, "fn": fn, "en": en})
         return out
+
+    def book_language(self, req, book, data):
+        """The language of the book being published: as sent, or as stored for a book already known."""
+        language = data.get("language") or ""
+        if not isinstance(language, str) or (language and language not in REGISTRY.refuse):
+            raise HTTPError(400, "unknown_language", f"language must be one of {', '.join(REGISTRY.codes)} "
+                            "(web/languages.json).")
+        if not language:
+            row = req.conn.execute("SELECT language FROM book WHERE id = ?", (book,)).fetchone()
+            if row is None:
+                raise HTTPError(400, "unknown_language", "Name the language of a new book.")
+            language = row["language"]
+        return language
 
     def admin_publish(self, req, book, ch):
         data = req.json(CHAPTER_LIMIT)
@@ -542,22 +525,25 @@ class App:
         n = data.get("n", int(ch[len(book):]))
         if not isinstance(n, int) or isinstance(n, bool) or not 0 <= n <= 999:
             raise HTTPError(400, "bad_field", "n must be a chapter number.")
+        language = self.book_language(req, book, data)
         title_th, title_en = data.get("title_th"), data.get("title_en", "")
         if not isinstance(title_th, str) or not title_th.strip() or not isinstance(title_en, str) \
                 or len(title_th) > 300 or len(title_en) > 300:
             raise HTTPError(400, "bad_field", "title_th and title_en must be short text.")
-        if forbidden_char(title_th) or "<" in title_th + title_en:
+        if forbidden_char(title_th, language) or forbidden_char(title_en) or "<" in title_th + title_en:
             raise HTTPError(400, "bad_field", "The title holds a forbidden character.")
-        paras = self.check_paragraphs(data.get("paragraphs"))
+        paras = self.check_paragraphs(data.get("paragraphs"), language)
         commit = data.get("commit") or ""
         if not isinstance(commit, str) or (commit and not COMMIT_RE.fullmatch(commit)):
             raise HTTPError(400, "bad_field", "commit must be a git commit id.")
         book_title = data.get("book_title_en") or ""
         if not isinstance(book_title, str) or len(book_title) > 300:
             raise HTTPError(400, "bad_field", "book_title_en must be short text.")
-        language = data.get("language") or ""
-        if not isinstance(language, str) or (language and not re.fullmatch(r"[a-z]{2,3}", language)):
-            raise HTTPError(400, "bad_field", "language must be a language code such as th or lo.")
+        # The book's title in its own language (the field is named th whatever the language is).
+        book_title_th = data.get("book_title_th") or ""
+        if not isinstance(book_title_th, str) or len(book_title_th) > 300 or "<" in book_title_th \
+                or forbidden_char(book_title_th, language):
+            raise HTTPError(400, "bad_field", "book_title_th must be short text without a forbidden character.")
         sources = data.get("sources") or []
         if not isinstance(sources, list) or len(sources) > 2 \
                 or not all(isinstance(x, str) and SOURCE_RE.fullmatch(x) and ".." not in x for x in sources):
@@ -569,10 +555,10 @@ class App:
         stamp = db.now()
         with db.tx(req.conn):
             req.conn.execute(
-                "INSERT INTO book (id, title_en, language) VALUES (?, ?, ?) ON CONFLICT (id) DO UPDATE SET"
+                "INSERT INTO book (id, title_en, title_th, language) VALUES (?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET"
                 " title_en = CASE WHEN excluded.title_en != '' THEN excluded.title_en ELSE book.title_en END,"
-                " language = CASE WHEN ? != '' THEN excluded.language ELSE book.language END",
-                (book, book_title, language or "th", language))
+                " title_th = CASE WHEN excluded.title_th != '' THEN excluded.title_th ELSE book.title_th END,"
+                " language = excluded.language", (book, book_title, book_title_th, language))
             old = req.conn.execute("SELECT version, content_hash, published FROM chapter WHERE book = ? AND id = ?",
                                    (book, ch)).fetchone()
             changed = old is None or old["content_hash"] != digest
@@ -603,103 +589,6 @@ class App:
         if cur.rowcount == 0:
             raise HTTPError(404, "no_chapter", "No such chapter.")
         return 200, {"book": book, "id": ch, "published": False}
-
-    # ---------- admin: readers ----------
-
-    def link(self, req, code):
-        base = self.public_url or db.read_config(self.data).get("public_url")
-        if not base:
-            scheme = req.header("X-Forwarded-Proto") or req.environ.get("wsgi.url_scheme", "http")
-            base = f"{scheme}://{req.header('Host') or 'localhost'}"
-        return f"{base.rstrip('/')}/#k={code}"
-
-    def grants_of(self, conn):
-        out = {}
-        for r in conn.execute('SELECT reader, book, chapter FROM "grant" ORDER BY book, chapter'):
-            out.setdefault(r[0], []).append(specs.grant_label(r[1], r[2]))
-        return out
-
-    def reader_json(self, conn, rid):
-        r = conn.execute("""
-            SELECT r.*, (SELECT COUNT(*) FROM comment m WHERE m.reader = r.id) AS comments,
-              (SELECT MAX(t) FROM (SELECT MAX(updated) AS t FROM comment WHERE reader = r.id
-                 UNION ALL SELECT MAX(updated) FROM place WHERE reader = r.id
-                 UNION ALL SELECT MAX(at) FROM finished WHERE reader = r.id)) AS last_active
-            FROM reader r WHERE r.id = ?""", (rid,)).fetchone()
-        if r is None:
-            raise HTTPError(404, "no_reader", "No such reader.")
-        return {"id": r["id"], "name": r["name"], "active": bool(r["active"]), "english": bool(r["english"]),
-                "grants": self.grants_of(conn).get(r["id"], []), "created": r["created"],
-                "comments": r["comments"], "last_active": r["last_active"]}
-
-    def parse_grants(self, value):
-        if not isinstance(value, list) or not all(isinstance(g, str) for g in value):
-            raise HTTPError(400, "bad_grants", "grants must be a list such as [\"SC01-08\"] or [\"SC\"].")
-        out = []
-        try:
-            for g in value:
-                out.extend(specs.parse_grant(g))
-        except specs.SpecError as e:
-            raise HTTPError(400, "bad_grants", str(e))
-        return list(dict.fromkeys(out))
-
-    def set_grants(self, conn, rid, grants):
-        conn.execute('DELETE FROM "grant" WHERE reader = ?', (rid,))
-        conn.executemany('INSERT INTO "grant" (reader, book, chapter) VALUES (?, ?, ?)',
-                         [(rid, b, c) for b, c in grants])
-
-    def admin_readers(self, req):
-        ids = [r[0] for r in req.conn.execute("SELECT id FROM reader ORDER BY name")]
-        return 200, {"readers": [self.reader_json(req.conn, i) for i in ids]}
-
-    def admin_invite(self, req):
-        data = req.json()
-        name = clean(data.get("name"), "name", NAME_LIMIT, True)
-        grants = self.parse_grants(data.get("grants", []))
-        english = data.get("english", False)
-        if not isinstance(english, bool):
-            raise HTTPError(400, "bad_field", "english must be true or false.")
-        code = secrets.token_urlsafe(24)
-        try:
-            with db.tx(req.conn):
-                cur = req.conn.execute("INSERT INTO reader (name, code_hash, active, english, created)"
-                                       " VALUES (?, ?, 1, ?, ?)", (name, db.sha256(code), int(english), db.now()))
-                self.set_grants(req.conn, cur.lastrowid, grants)
-        except sqlite3.IntegrityError:
-            raise HTTPError(409, "name_taken", f"A reader named {name} already exists.")
-        out = self.reader_json(req.conn, cur.lastrowid)
-        return 201, dict(out, code=code, link=self.link(req, code))
-
-    def admin_edit_reader(self, req, rid):
-        data = req.json()
-        rid = int(rid)
-        self.reader_json(req.conn, rid)
-        sets, args = [], []
-        for key in ("active", "english"):
-            if key in data:
-                sets.append(f"{key} = ?")
-                args.append(int(bool_field(data, key)))
-        if "name" in data:
-            sets.append("name = ?")
-            args.append(clean(data["name"], "name", NAME_LIMIT, True))
-        grants = self.parse_grants(data["grants"]) if "grants" in data else None
-        try:
-            with db.tx(req.conn):
-                if sets:
-                    req.conn.execute(f"UPDATE reader SET {', '.join(sets)} WHERE id = ?", args + [rid])
-                if grants is not None:
-                    self.set_grants(req.conn, rid, grants)
-        except sqlite3.IntegrityError:
-            raise HTTPError(409, "name_taken", "Another reader has that name.")
-        return 200, self.reader_json(req.conn, rid)
-
-    def admin_new_code(self, req, rid):
-        rid = int(rid)
-        out = self.reader_json(req.conn, rid)
-        code = secrets.token_urlsafe(24)
-        with db.tx(req.conn):
-            req.conn.execute("UPDATE reader SET code_hash = ? WHERE id = ?", (db.sha256(code), rid))
-        return 200, dict(out, code=code, link=self.link(req, code))
 
     # ---------- admin: export ----------
 
@@ -746,9 +635,13 @@ class App:
         """Mark comments processed. With revs ({id: rev} from an export), a comment changed since then is left alone."""
         data = req.json()
         ids = data.get("ids")
-        if not isinstance(ids, list) or not ids or len(ids) > 10000 \
-                or not all(isinstance(i, int) and not isinstance(i, bool) and 1 <= i <= MAX_ID for i in ids):
-            raise HTTPError(400, "bad_ids", "ids must be a list of comment numbers.")
+        if not isinstance(ids, list) or not ids:
+            raise HTTPError(400, "bad_ids", f"ids must be a list of 1 to {PROCESSED_MOST} comment numbers.")
+        try:
+            ids = id_list(ids, "ids", PROCESSED_MOST)
+        except HTTPError:
+            raise HTTPError(400, "bad_ids", f"ids must be a list of 1 to {PROCESSED_MOST} comment numbers; "
+                            f"send at most {PROCESSED_MOST} at once.")
         flag = data.get("processed", True)
         if not isinstance(flag, bool):
             raise HTTPError(400, "bad_field", "processed must be true or false.")

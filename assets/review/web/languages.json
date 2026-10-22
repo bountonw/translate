@@ -1,0 +1,29 @@
+{
+  "about": "The languages of the books on this site, keyed by language code (the code books.json names and the page puts in lang attributes). The server and review.py refuse book text holding a character listed under every_book.refuse or under the book's language; reader text keeps such characters, except that digits among them become Western digits. The page loads each language's font files from here. EXTENDING.md says how to add a language.",
+  "every_book": {
+    "refuse": [
+      {"range": "U+0E50-U+0E59", "why": "Thai digits: the project writes Western numerals"},
+      {"range": "U+0ED0-U+0ED9", "why": "Lao digits: the project writes Western numerals"}
+    ]
+  },
+  "languages": {
+    "th": {
+      "name": "ไทย",
+      "name_en": "Thai",
+      "refuse": [
+        {"range": "U+0E50-U+0E59", "why": "Thai digits"}
+      ],
+      "font": {
+        "family": "Sarabun",
+        "fallback": ["Noto Sans Thai", "Leelawadee UI", "Thonburi", "sans-serif"],
+        "files": [
+          {"src": "fonts/Sarabun-Regular.ttf", "weight": 400, "style": "normal"},
+          {"src": "fonts/Sarabun-Italic.ttf", "weight": 400, "style": "italic"},
+          {"src": "fonts/Sarabun-Medium.ttf", "weight": 500, "style": "normal"},
+          {"src": "fonts/Sarabun-SemiBold.ttf", "weight": 600, "style": "normal"}
+        ],
+        "license": "fonts/OFL.txt"
+      }
+    }
+  }
+}

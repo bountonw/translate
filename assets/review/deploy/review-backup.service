@@ -1,4 +1,5 @@
-# One backup of the proofreading site's database into /var/lib/review/backups/, keeping 14 copies.
+# One backup of the proofreading site's database into /var/lib/review/backups/, named with the UTC date and
+# time. Copies older than 14 days are deleted, but the newest 14 always stay.
 # Started each day by review-backup.timer; run it by hand with: sudo systemctl start review-backup
 [Unit]
 Description=Backup of the proofreading site database

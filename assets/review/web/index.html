@@ -8,9 +8,26 @@
 <meta name="color-scheme" content="light dark">
 <title>…</title>
 <link rel="icon" href="data:,">
-<link rel="preload" href="fonts/Sarabun-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="app.css">
 <script src="app.js" defer></script>
+<!-- Every module of the page: the browser fetches them all at once, and sw.js keeps this list for offline use. -->
+<link rel="modulepreload" href="core/main.js">
+<link rel="modulepreload" href="core/chapter.js">
+<link rel="modulepreload" href="core/dom.js">
+<link rel="modulepreload" href="core/ext.js">
+<link rel="modulepreload" href="core/home.js">
+<link rel="modulepreload" href="core/languages.js">
+<link rel="modulepreload" href="core/model.js">
+<link rel="modulepreload" href="core/net.js">
+<link rel="modulepreload" href="core/notes.js">
+<link rel="modulepreload" href="core/outbox.js">
+<link rel="modulepreload" href="core/para.js">
+<link rel="modulepreload" href="core/refusals.js">
+<link rel="modulepreload" href="core/screens.js">
+<link rel="modulepreload" href="core/state.js">
+<link rel="modulepreload" href="core/store.js">
+<link rel="modulepreload" href="core/words.js">
+<link rel="modulepreload" href="features/english.js">
 </head>
 <body>
 <header class="bar" id="bar" hidden>
