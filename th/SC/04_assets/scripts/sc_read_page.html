@@ -111,6 +111,7 @@ form.note-form { display: grid; gap: 10px; }
 .btn.ghost { background: transparent; color: var(--accent); }
 .btn.done { border-color: var(--done); background: var(--done); color: var(--surface); }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
+.close-float { position: fixed; z-index: 6; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); box-shadow: 0 2px 10px rgba(0, 0, 0, .2); }
 .status { font-size: 14px; color: var(--muted); }
 .finish { margin-top: 40px; padding: 20px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); display: grid; gap: 12px; }
 .finish h2 { margin: 0; font-size: 1.15rem; font-weight: 600; }
@@ -129,6 +130,7 @@ form.note-form { display: grid; gap: 10px; }
     </div>
   </header>
   <div id="notice" class="notice" hidden></div>
+  <button id="close-float" class="btn close-float" type="button" hidden>Close English and notes</button>
 
   <main id="home" class="wrap">
     <div class="home-head">
@@ -205,6 +207,7 @@ form.note-form { display: grid; gap: 10px; }
     state.current = null;
     stopTracking();
     $("#reader").hidden = true;
+    $("#close-float").hidden = true;
     $("#home").hidden = false;
     $("#home-btn").hidden = true;
     $("#bar-title").textContent = "Steps to Christ";
@@ -223,6 +226,7 @@ form.note-form { display: grid; gap: 10px; }
     const r = $("#reader");
     r.hidden = false;
     r.textContent = "";
+    $("#close-float").hidden = true;
     $("#home-btn").hidden = false;
     $("#bar-title").textContent = `${c.id} · ${c.th}`;
     try { history.replaceState(null, "", "#" + c.id); } catch (e) {}
@@ -318,8 +322,14 @@ form.note-form { display: grid; gap: 10px; }
   }
 
   function openDrawer(c, p, art, quote) {
-    for (const o of document.querySelectorAll(".para.open")) if (o !== art) closeDrawer(o);
+    // Closing another drawer above this paragraph must not move this one.
+    const before = art.getBoundingClientRect().top;
+    for (const o of document.querySelectorAll(".para.open")) if (o !== art) closeDrawer(o, false);
+    const moved = art.getBoundingClientRect().top - before;
+    if (moved) { markJump(); window.scrollBy(0, moved); }
+    art.dataset.openTop = String(art.getBoundingClientRect().top);
     art.classList.add("open");
+    $("#close-float").hidden = false;
     const d = el("div", "drawer");
     const enWrap = el("div");
     enWrap.append(el("p", "label", "English"));
@@ -340,16 +350,29 @@ form.note-form { display: grid; gap: 10px; }
     state.lastSel = null;
   }
 
-  function closeDrawer(art) {
+  // Closing puts the paragraph back where it stood on screen when its drawer opened,
+  // so the reader is not left several paragraphs further on.
+  function closeDrawer(art, restore = true) {
     art.classList.remove("open");
     const d = $(".drawer", art);
     if (d) d.remove();
+    $("#close-float").hidden = !document.querySelector(".para.open");
+    const was = Number(art.dataset.openTop);
+    delete art.dataset.openTop;
+    if (!restore || !d || isNaN(was)) return;
+    const moved = art.getBoundingClientRect().top - was;
+    if (moved) { markJump(); window.scrollBy(0, moved); }
   }
 
+  // Words selected later replace words the page filled in, never words the reader typed.
   function fillQuote(art, text) {
     const q = $("form.note-form input[name=quote]", art);
-    if (q && !q.value) q.value = text;
+    if (q && (!q.value || q.value === q.dataset.auto)) { q.value = text; q.dataset.auto = text; }
   }
+  $("#close-float").addEventListener("click", () => {
+    const open = document.querySelector(".para.open");
+    if (open) closeDrawer(open);
+  });
 
   let formSeq = 0;
   function noteForm(c, p, art, note, quote) {
@@ -376,6 +399,7 @@ form.note-form { display: grid; gap: 10px; }
     const qi = el("input");
     qi.name = "quote"; qi.id = `quote-${seq}`; qi.autocomplete = "off";
     qi.value = note ? (note.quote || "") : (quote || "");
+    if (!note && quote) qi.dataset.auto = quote;
     qf.append(qi);
     f.append(qf);
 
