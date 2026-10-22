@@ -78,6 +78,8 @@ h1 { font-size: 1.9rem; line-height: 1.25; margin: 6px 0 8px; text-wrap: balance
 .para.flash { animation: flash 1.6s ease-out; }
 @keyframes flash { from { background: var(--hl); } to { background: transparent; } }
 .th { font-family: var(--f-th); font-size: 1.25rem; line-height: 1.95; margin: 0 0 4px; }
+.sp { position: relative; }
+.show-spaces .th .sp::after { content: "·"; position: absolute; left: 50%; top: -.1em; transform: translateX(-50%); color: var(--accent); font-weight: 700; pointer-events: none; }
 .th em { font-style: italic; }
 .th sup.fn { font-size: .62em; color: var(--accent); margin: 0 1px; }
 .tag { font-size: .68em; color: var(--muted); white-space: nowrap; margin-left: .35em; font-family: var(--f-ui); }
@@ -127,6 +129,7 @@ form.note-form { display: grid; gap: 10px; }
       <button id="home-btn" class="link" type="button" hidden>Chapters</button>
       <div class="bar-title" id="bar-title">Steps to Christ</div>
       <div class="bar-place" id="bar-place"></div>
+      <button id="spaces-btn" class="link" type="button" aria-pressed="false">Show spaces</button>
     </div>
   </header>
   <div id="notice" class="notice" hidden></div>
@@ -266,12 +269,42 @@ form.note-form { display: grid; gap: 10px; }
 
   function flash(node) { node.classList.remove("flash"); void node.offsetWidth; node.classList.add("flash"); }
 
+  // Each space in the Thai sits in its own span, so "Show spaces" can put a faint dot on it, even at a line end.
+  function markSpaces(root) {
+    const walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walk.nextNode()) if (walk.currentNode.nodeValue.includes(" ")) nodes.push(walk.currentNode);
+    for (const n of nodes) {
+      const frag = document.createDocumentFragment();
+      n.nodeValue.split(" ").forEach((part, i) => {
+        if (i) frag.append(el("span", "sp", " "));
+        if (part) frag.append(document.createTextNode(part));
+      });
+      n.replaceWith(frag);
+    }
+  }
+  function setSpaces(on) {
+    document.body.classList.toggle("show-spaces", on);
+    const b = $("#spaces-btn");
+    b.textContent = on ? "Hide spaces" : "Show spaces";
+    b.setAttribute("aria-pressed", String(on));
+  }
+  let spacesOn = false;
+  try { spacesOn = localStorage.getItem("scread.spaces") === "1"; } catch (e) {}
+  setSpaces(spacesOn);
+  $("#spaces-btn").addEventListener("click", () => {
+    spacesOn = !spacesOn;
+    setSpaces(spacesOn);
+    try { localStorage.setItem("scread.spaces", spacesOn ? "1" : "0"); } catch (e) {}
+  });
+
   function renderPara(c, p) {
     const art = el("article", "para");
     art.id = domId(p.a);
     art.dataset.a = p.a;
     const th = el("p", "th");
     th.innerHTML = p.th;
+    markSpaces(th);
     const tag = el("span", "tag", `{${p.a}}`);
     th.append(tag);
     const badge = el("span", "badge");

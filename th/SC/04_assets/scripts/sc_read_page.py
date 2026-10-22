@@ -96,6 +96,7 @@ def thai_chapter(text, nn):
     if "[[" in text or "((" in text:
         sys.exit(f"SC{nn}: the chapter holds a marker or an editor's choice; resolve it first")
     title = re.search(r'title:\s*"([^"]*)"', text).group(1)
+    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)  # Typst block comments are the translator's, never the reader's
     paras, anchor = [], None
     for line in text.splitlines():
         m = re.match(r"// \{SC (\d+\.\d+)\}", line)
