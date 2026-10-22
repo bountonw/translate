@@ -1,0 +1,56 @@
+# The proofreading site's API under waitress, on 127.0.0.1:8087 only.
+# Install: sudo cp review.service /etc/systemd/system/ && sudo systemctl daemon-reload
+[Unit]
+Description=Proofreading site API (review)
+After=network.target
+
+[Service]
+Type=simple
+User=review
+Group=review
+WorkingDirectory=/srv/review/app
+Environment=REVIEW_DATA=/var/lib/review
+Environment=REVIEW_PORT=8087
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -m server.prod
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+
+# The data directory /var/lib/review is the only place the service may write.
+StateDirectory=review
+StateDirectoryMode=0700
+UMask=0077
+
+# Sandboxing. Check the result with: systemd-analyze security review
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+ProcSubset=pid
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+IPAddressDeny=any
+IPAddressAllow=localhost
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+RemoveIPC=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+# Runs review-backup.service once a day, and at the next boot if the droplet was off at that time.
+[Unit]
+Description=Daily backup of the proofreading site database
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+RandomizedDelaySec=15m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

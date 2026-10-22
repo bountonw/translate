@@ -1,0 +1,11 @@
+{
+  "SC": {
+    "title_en": "Steps to Christ",
+    "language": "th",
+    "parser": "sc_typst",
+    "ref": "main",
+    "stages": ["03_public", "02_edit", "01_raw"],
+    "thai": "th/SC/{stage}/SC{nn}_th.typ",
+    "english": "th/SC/00_source/SC{nn}_en.md"
+  }
+}

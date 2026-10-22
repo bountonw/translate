@@ -1,0 +1,41 @@
+# One backup of the proofreading site's database into /var/lib/review/backups/, keeping 14 copies.
+# Started each day by review-backup.timer; run it by hand with: sudo systemctl start review-backup
+[Unit]
+Description=Backup of the proofreading site database
+
+[Service]
+Type=oneshot
+User=review
+Group=review
+WorkingDirectory=/srv/review/app
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /srv/review/app/review.py backup --data /var/lib/review --keep 14
+UMask=0077
+ReadWritePaths=/var/lib/review
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateUsers=yes
+ProtectProc=invisible
+ProcSubset=pid
+ProtectKernelLogs=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RemoveIPC=yes
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
