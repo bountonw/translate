@@ -73,7 +73,7 @@
 | hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก / เสแสร้ง | [CHECK] PP majority first; เสแสร้ง for the act of feigning. PP 475.3, PP 523.1, SC 40.2 |
 | unbelief | ขาดความเชื่อ / ไม่เชื่อ / การไม่เชื่อ / ไม่มีความเชื่อ | [CHECK] PP's order of use; ไม่เชื่อ covers the shorter forms. PP 292.2, PP 72.4, PP 95.2, PP 298.3 |
 | iniquity | ความผิดบาป / ความชั่วร้าย / ความชั่ว / ความอธรรม / ความชั่วช้า / ความบาป | [CHECK] Guilt borne or pardoned ความผิดบาป; prevailing wickedness ความชั่วร้าย, ความชั่ว; lawlessness ความอธรรม; depravity ความชั่วช้า. PP 138.4, PP 166.4, PP 67.3, PP 92.1 |
-| Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
+| Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name, or a pronoun after it, may replace the title. PP 68.2, MB 75.1, SC 91.1 |
 | anointing (of Christ) | ทรงเจิม / เจิมตั้ง / การเจิม / ผู้รับการเจิม | [CHECK] The versions' verb for God anointing Christ; Lao GC uses ເຈີມຕັ້ງ. กิจการ 10:38, SC 11.2 |
 | propitiation, atoning sacrifice, expiate | เครื่องบูชาไถ่บาป / เครื่องบูชาลบบาป / ลบล้างความบาป / ชดใช้ | [CHECK] The two nouns first; ลบล้างความบาป and ชดใช้ are verb reworkings. SC 13.2, PP 279.1, PP 63.2 |
 | atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision การทรงไถ่; its result คืนดี, KJV โรม 5:11; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2, PP 426.1 |
@@ -97,7 +97,7 @@
 | Son of man | บุตรมนุษย์ | [CHECK] MB 40.2, SC 14.3 |
 | holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] MB 10.2, SC 14.3 |
 | apostle | อัครทูต | [CHECK] อัครสาวก is the older Bible's word and is not used from now on. MB 137.1 |
-| adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too. PP 36.3, PP 91.2, PP 63.3 |
+| adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too; รักและเทิดทูน stands. PP 36.3, PP 91.2, PP 63.3, SC 89.1 |
 | sons of God, children of God, His children | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า | [CHECK] บุตร after เป็น and in teaching; ลูก, ลูกๆ under verbs of care; quotations follow version. SC 43.4, SC 85.3, SC 15.1 |
 | heavenly King, King of heaven | องค์ราชันแห่งฟ้าสวรรค์ / พระราชาแห่งสวรรค์ / พระมหากษัตริย์แห่งสวรรค์ | [CHECK] SC 15.2, PP 214.1, PP 324.2 |
 | redeem, redemption | ทรงไถ่ / ไถ่ / การไถ่ / การทรงไถ่ / ค่าไถ่ / ไถ่บาป | [CHECK] PP 63.2, PP 69.2, PP 63.3, MB 20.1, PP 68.1, PP 137.1 |

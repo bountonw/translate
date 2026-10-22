@@ -49,3 +49,9 @@ The larger question the quest should answer is whether the two projects keep sep
 Order matters here. SC goes to print first and has a worktree already started, so SC is where the work lands and is proved. SJ has the larger dictionary and is the better source to merge from.
 
 Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
+
+## 17. Rebuild the SC break dictionary after the SC09–SC13 qa2 and qa3 rounds
+
+th/SC/04_assets/template/dictionary.typ is stale against th/assets/typeset/thai-breaks.txt and the SC chapters as they now stand, so the resolution sheet of every SC round prints a FAIL line for it. The translator ruled that it is rebuilt once the qa2 and qa3 rounds of SC09 to SC13 are done, with python3 th/assets/scripts/build_breaks.py --book SC. Until then the sheet's stale-dictionary line and the rebuild in the check step, th/SC/CLAUDE.md 5.B, are left alone and reported as this entry.
+
+Detail: this entry. Small.
