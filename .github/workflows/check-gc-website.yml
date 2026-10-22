@@ -1,0 +1,34 @@
+name: Check website
+
+# Fails a pull request when a book's web pages no longer match its chapter
+# text, so the pages are rebuilt (websites/assets/scripts/build_book.py) before
+# merging. It never uploads anything; the upload to the server is done by hand.
+# Python-Markdown is pinned to the version the pages are built with locally.
+
+on:
+  pull_request:
+    paths:
+      - 'lo/GC/03_public/**'
+      - 'lo/GC/metadata.yaml'
+      - 'websites/**'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Python-Markdown
+        run: pip install markdown==3.10.3
+      - name: Rebuild the pages and check them against the chapter files
+        run: python3 websites/assets/scripts/build_book.py lo/GC
+      - name: Fail if the committed pages are out of date
+        run: |
+          if ! git diff --quiet -- websites/laoegw; then
+            git diff --stat -- websites/laoegw
+            echo "::error::The website pages do not match the chapter text. Run python3 websites/assets/scripts/build_book.py lo/GC, commit the pages, and after merging upload them to the server."
+            exit 1
+          fi

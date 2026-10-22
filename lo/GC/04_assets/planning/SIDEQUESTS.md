@@ -6,17 +6,17 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 26. Generate the website HTML for the shipped book
-
-The print file went to the press on 2 September 2026 and the website should now serve the same text. Run the converter at `lo/websites/mdconverter/` (a dotnet program; `Program.cs`) over the 42 chapters and the introduction in `lo/GC/03_public/`, against the website folder with its `chapter_header.html`, `chapter_footer.html` and `metadata/chapter-key.txt`. The converter already strips every TeX carry-over the manuscripts contain — `\lw`, `\p`, `\GCcode`, `\newpage` — and the chapter-end page fixes of 2 September live in module 2's TeX path only, so the manuscripts are clean for the web without further work. Verify all 43 files convert, the prev/next links resolve against the chapter key, and the served text matches the press text.
-
-Detail: none written; this entry is the whole brief. Small — a build, a run, and a check pass.
-
 ## 27. Build a landing page for the website
 
-The front page of the website is basically blank. Build a landing page: the book title ປາຍທາງແຫ່ງຄວາມຫວັງ and author, a short description of what the book is, the way into the text (the introduction and chapter 1, or a table of contents), a note that the first printing is September 2026, and the contact address the introduction gives (laoegw@proton.me, with the online home www.laoegw.com/GC). Design choices are the translator's; the quest starts with a mock to react to, not a finished page.
+The front page of the website is basically blank. Build a landing page: the book title ປາຍທາງແຫ່ງຄວາມຫວັງ and author, a short description of what the book is, the way into the text (the introduction and chapter 1, or a table of contents), a note that the first printing is October 2026, as the printed title page has it, and the contact address the introduction gives (laoegw@proton.me, with the online home www.laoegw.com/GC). Design choices are the translator's; the quest starts with a mock to react to, not a finished page.
 
 Detail: none written; this entry is the whole brief. Small to medium.
+
+## 29. Add the Thai books to the website
+
+The website build, `websites/assets/scripts/build_book.py`, reads Markdown chapters with GC's front matter. Add MB and LBF first, then SC and PP, which are written in Typst and need a Typst reader in the converter; SJ waits for its editing. Rulings of 16 October 2026: the Sarabun font; the page words สารบัญ, บทที่ and ต้นฉบับภาษาอังกฤษ; LBF's paragraph codes hidden on the page, as its metadata asks, with the paragraph link addresses kept, and its `original` source line left off; Thai line breaks left to the browser for now; no cover images until covers exist. Each book needs the Thai layout folder `websites/assets/layout/th/`, a contents page and a line in the GitHub check.
+
+Detail: this entry is the whole brief. Medium for MB and LBF; large for SC and PP.
 
 ## 28. Cleanup from the 2 September pre-press session
 
