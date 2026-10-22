@@ -1,6 +1,6 @@
 {
   "app_title": {"en": "Proofreading", "th": "ตรวจทาน"},
-  "hello": {"en": "Hello, {name}.", "th": "สวัสดี คุณ{name}"},
+  "hello": {"en": "Hello, {name}.", "th": "สวัสดีครับ คุณ{name}"},
   "hint": {"en": "Tap a paragraph to leave a comment. To quote some words, select them first.", "th": "แตะที่ย่อหน้าเพื่อเขียนความเห็น ถ้าต้องการอ้างถึงคำใด ให้เลือกคำนั้นก่อน"},
   "hint_english": {"en": "Tap a paragraph to see the English and leave a comment. To quote some words, select them first.", "th": "แตะที่ย่อหน้าเพื่อดูภาษาอังกฤษและเขียนความเห็น ถ้าต้องการอ้างถึงคำใด ให้เลือกคำนั้นก่อน"},
   "no_chapters": {"en": "No chapters are open to you yet.", "th": "ยังไม่มีบทที่เปิดให้คุณอ่าน"},
@@ -8,7 +8,7 @@
   "lang_th": {"en": "Thai", "th": "ไทย"},
   "lang_en": {"en": "English", "th": "อังกฤษ"},
 
-  "status_new": {"en": "Not started", "th": "ยังไม่ได้อ่าน"},
+  "status_new": {"en": "Not started", "th": "ยังไม่เริ่ม"},
   "status_reading": {"en": "Reading", "th": "กำลังอ่าน"},
   "status_done": {"en": "Finished", "th": "อ่านจบแล้ว"},
   "place": {"en": "Your place: {a}", "th": "อ่านถึง {a}"},
@@ -22,13 +22,13 @@
   "chapter_n": {"en": "Chapter {n}", "th": "บทที่ {n}"},
   "prev": {"en": "Previous chapter", "th": "บทก่อนหน้า"},
   "next": {"en": "Next chapter", "th": "บทถัดไป"},
-  "loading": {"en": "Loading…", "th": "รอสักครู่…"},
+  "loading": {"en": "Loading…", "th": "กำลังโหลด…"},
   "not_on_device": {"en": "This chapter is not on this device yet. Connect to the internet and try again.", "th": "บทนี้ยังไม่มีในเครื่องนี้ กรุณาเชื่อมต่ออินเทอร์เน็ตแล้วลองอีกครั้ง"},
   "chapter_closed": {"en": "This chapter is closed now.", "th": "บทนี้ปิดไปแล้ว"},
   "cannot_connect": {"en": "Cannot reach the site. Check the internet and try again.", "th": "เชื่อมต่อไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง"},
   "retry_load": {"en": "Try again", "th": "ลองอีกครั้ง"},
 
-  "english": {"en": "English", "th": "ภาษาอังกฤษ"},
+  "english": {"en": "English", "th": "ต้นฉบับภาษาอังกฤษ"},
   "your_comments": {"en": "Your comments", "th": "ความเห็นของคุณ"},
   "no_comments": {"en": "No comments yet.", "th": "ยังไม่มีความเห็น"},
   "new_comment": {"en": "New comment", "th": "ความเห็นใหม่"},
