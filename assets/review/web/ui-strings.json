@@ -112,7 +112,7 @@
   "failed_delete_closed": {"en": "This chapter is closed now, so this comment was not deleted. The translator still receives it.", "th": "บทนี้ปิดไปแล้ว ความเห็นนี้จึงไม่ได้ถูกลบ ผู้แปลยังได้รับความเห็นนี้อยู่"},
   "failed_delete_round": {"en": "This comment belongs to an earlier review round, so it was not deleted. The translator still receives it.", "th": "ความเห็นนี้มาจากรอบการตรวจทานก่อนหน้านี้ จึงไม่ได้ถูกลบ ผู้แปลยังได้รับความเห็นนี้อยู่"},
   "wait_daily": {"en": "You have reached today's limit of {n} comments. You can write more tomorrow. This comment stays on this device, and the site sends it by itself then.", "th": "วันนี้คุณเขียนความเห็นครบ {n} ข้อแล้ว ซึ่งเป็นจำนวนสูงสุดต่อวัน พรุ่งนี้คุณเขียนเพิ่มได้อีก ส่วนความเห็นนี้จะเก็บไว้ในเครื่องนี้ก่อน แล้วระบบจะส่งให้เองเมื่อถึงเวลา"},
-  "wait_daily_in": {"en": "The daily limit resets in {time}.", "th": "ระบบจะเริ่มนับใหม่ในอีก {time}"},
+  "wait_daily_in": {"en": "The daily limit resets in {time}.", "th": "ระบบจะเริ่มนับการนับใหม่ในอีก {time}"},
   "hours_one": {"en": "{n} hour", "th": "{n} ชั่วโมง"},
   "hours_many": {"en": "{n} hours", "th": "{n} ชั่วโมง"},
   "minutes_one": {"en": "{n} minute", "th": "{n} นาที"},
