@@ -13,13 +13,15 @@ import os
 import waitress
 
 from .app import App
+from .db import TooNew
 
 # threads: requests answered at once, each with its own SQLite connection. Python runs one thread at a
 # time, so more threads only take turns: under 60 clients at once (tests/bench.py), 4 threads answered
 # about 45% more requests a second than 8, and 2 only about 15% more than 4. Four leaves three free while
 # one does slow work, such as the full export.
-# 4.5 MiB bodies: a chapter upload or hundreds of readers at once (4 MiB of JSON) with room to spare.
-# Apache refuses more than 64 KiB on every path outside /api/admin/ before the request reaches waitress.
+# 4.5 MiB bodies: a chapter upload or hundreds of readers at once (4 MiB of JSON) with room to spare. Such
+# requests come only through the SSH tunnel that review.py opens, straight to 127.0.0.1; Apache refuses
+# /api/admin/ from the internet and more than 64 KiB on every other path before a request reaches waitress.
 WAITRESS = dict(threads=4, connection_limit=200, channel_timeout=30, max_request_body_size=4718592,
                 clear_untrusted_proxy_headers=True, ident="review")
 
@@ -37,7 +39,12 @@ def main():
     if not data:
         raise SystemExit("REVIEW_DATA is not set")
     port = int(os.environ.get("REVIEW_PORT", "8087"))
-    waitress.serve(App(data), host="127.0.0.1", port=port, **WAITRESS)
+    try:
+        app = App(data)
+    except TooNew as e:
+        # Older code on a database that newer code moved: the service stops with this line in its journal.
+        raise SystemExit(str(e))
+    waitress.serve(app, host="127.0.0.1", port=port, **WAITRESS)
 
 
 if __name__ == "__main__":

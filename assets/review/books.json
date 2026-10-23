@@ -1,13 +1,15 @@
 {
   "SC": {
     "title_en": "Steps to Christ",
-    "title_th": "",
+    "title": "",
     "language": "th",
     "parser": "sc_typst",
     "annotators": [],
     "ref": "main",
     "stages": ["03_public", "02_edit", "01_raw"],
-    "thai": "th/SC/{stage}/SC{nn}_th.typ",
-    "english": "th/SC/00_source/SC{nn}_en.md"
+    "source": "th/SC/{stage}/SC{nn}_th.typ",
+    "english": "th/SC/00_source/SC{nn}_en.md",
+    "notes": "th/SC/04_assets/notes/SC_notes.txt",
+    "align": "assets/review/align/SC/{name}.json"
   }
 }

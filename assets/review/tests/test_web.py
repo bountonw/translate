@@ -156,6 +156,23 @@ class StrictPage(unittest.TestCase):
                                 r"(?<![\w.])(https?:)?//[\w-]+\.[\w.-]+/", path.name)
 
 
+class ShowSpaces(unittest.TestCase):
+    """The dots of "Show spaces" are generated content, so selecting or copying the book text gives its words only."""
+
+    def test_the_dot_is_generated_content_that_cannot_be_selected(self):
+        css = (WEB / "app.css").read_text()
+        rule = re.search(r"\.sp::after\s*\{([^}]*)\}", css)
+        self.assertIsNotNone(rule)
+        self.assertRegex(rule.group(1), r'content:\s*"\\00B7"')
+        self.assertIn("position: absolute", rule.group(1))
+        self.assertIn("user-select: none", rule.group(1))
+        self.assertIn("pointer-events: none", rule.group(1))
+
+    def test_the_span_holds_the_space_itself(self):
+        dom = (WEB / "core" / "dom.js").read_text()
+        self.assertIn('h("span", { class: "sp" }, " ")', dom)
+
+
 class Words(unittest.TestCase):
     def strings(self):
         return json.loads((WEB / "ui-strings.json").read_text())
@@ -183,20 +200,64 @@ class Words(unittest.TestCase):
     def test_every_refusal_has_its_own_message(self):
         refusals = (WEB / "core" / "refusals.js").read_text()
         for code in ("no_chapter", "no_paragraph", "quote_required", "quote_too_long", "text_required",
-                     "text_too_long", "too_large", "comment_limit", "no_comment", "slow_down"):
+                     "text_too_long", "too_large", "comment_limit", "no_comment", "slow_down", "daily_limit",
+                     "round_closed"):
             self.assertIn(f'"{code}"', refusals, code)
         strings = self.strings()
         for key in ("failed_closed", "failed_paragraph", "failed_quote_required", "failed_quote_long",
                     "failed_text_required", "failed_text_long", "failed_limit", "failed_deleted", "failed_refused",
-                    "wait_slow", "long_quote", "long_text", "limit_reached", "count_chars"):
+                    "wait_slow", "wait_daily", "long_quote", "long_text", "limit_reached", "count_chars",
+                    "failed_round", "wait_daily_in"):
             self.assertIn(key, strings)
-        for key in ("failed_quote_long", "failed_text_long", "failed_limit", "long_quote", "long_text", "limit_reached"):
+        for key in ("failed_quote_long", "failed_text_long", "failed_limit", "long_quote", "long_text", "limit_reached",
+                    "wait_daily"):
             self.assertIn("{n}", strings[key]["en"], key)
+        self.assertIn('"wait_daily"', refusals)
+
+    def test_dates_have_their_words(self):
+        """A date is written with the keys date and months: twelve names, separated by commas."""
+        strings = self.strings()
+        self.assertEqual(len(strings["months"]["en"].split(",")), 12)
+        self.assertTrue(set(re.findall(r"\{(\w+)\}", strings["date"]["en"])) <= {"d", "month", "y", "be"})
+        if strings["months"]["th"]:
+            self.assertEqual(len(strings["months"]["th"].split(",")), 12)
 
     def test_every_string_has_english_and_a_thai_field(self):
         for k, v in self.strings().items():
             self.assertLessEqual({"en", "th"}, set(v), k)
             self.assertTrue(v["en"], k)
+
+
+class RoundThreeB(unittest.TestCase):
+    """The reader page's parts of round 3b that a static check can see."""
+
+    def test_every_request_carries_the_device_key(self):
+        net = (WEB / "core" / "net.js").read_text()
+        self.assertIn('"X-Review-Device": deviceKey()', net)
+        self.assertIn('device: "rv.device"', (WEB / "core" / "store.js").read_text())
+        # A new link clears what the device keeps for reading, never the device key, the link numbers or the drafts.
+        forget = re.search(r"export function forgetReader\(\) \{(.*?)\n\}", net, re.S).group(1)
+        self.assertNotRegex(forget, r"device|links|draft")
+
+    def test_show_spaces_sits_in_the_bar(self):
+        html = (WEB / "index.html").read_text()
+        bar = re.search(r'<header class="bar".*?</header>', html, re.S).group(0)
+        self.assertIn('<button id="bar-spaces"', bar)
+        self.assertNotIn("show_spaces", (WEB / "core" / "chapter.js").read_text())
+
+    def test_the_english_comes_before_the_earlier_wording(self):
+        order = lambda path, name: int(re.search(r'name: "' + name + r'",[^}]*?order: (\d+)', (WEB / path).read_text(), re.S).group(1))
+        self.assertLess(order("features/english.js", "english"), order("core/updates.js", "earlier"))
+
+    def test_the_page_checks_no_lifetime_limit(self):
+        model = (WEB / "core" / "model.js").read_text()
+        self.assertNotRegex(re.search(r"DEFAULT_LIMITS = \{(.*?)\}", model).group(1), r"\bcomments:")
+        self.assertNotIn('"limit_reached"', (WEB / "core" / "refusals.js").read_text())
+
+    def test_extending_names_every_module(self):
+        text = (ROOT / "EXTENDING.md").read_text()
+        side = text[text.index("### The page side"):text.index("#### A feature's page part")]
+        self.assertEqual(sorted(re.findall(r"^\| ((?:core|features)/[a-z0-9_-]+\.js) \|", side, re.M)), modules())
 
 
 if __name__ == "__main__":

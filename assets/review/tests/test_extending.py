@@ -102,15 +102,15 @@ class ContentModel(unittest.TestCase):
         site = Site()
         self.addCleanup(site.close)
         ch = sample_chapter(1)
-        ch["paragraphs"][0]["th"] = 'See <span data-kind="bible" data-value="John 3:16">John 3:16</span> here'
+        ch["paragraphs"][0]["text"] = 'See <span data-kind="bible" data-value="John 3:16">John 3:16</span> here'
         site.publish(ch)
         code = site.invite("R", ["SC"])["code"]
         body = site.call("GET", "/api/chapter/SC/SC01", token=code).json
-        self.assertIn('data-kind="bible"', body["paragraphs"][0]["th"])
+        self.assertIn('data-kind="bible"', body["paragraphs"][0]["text"])
         site.comment(code, "SC 101.1", kind="wording", quote="John 3:16", text="x")
         row = site.admin_call("GET", "/api/admin/export").json["comments"][0]
-        self.assertEqual((row["th"], row["quote_found"]), ("See John 3:16 here", True))
-        ch["paragraphs"][0]["th"] = '<span data-kind="bible" onclick="x">x</span>'
+        self.assertEqual((row["paragraph"], row["quote_found"]), ("See John 3:16 here", True))
+        ch["paragraphs"][0]["text"] = '<span data-kind="bible" onclick="x">x</span>'
         r = site.admin_call("PUT", "/api/admin/chapters/SC/SC01", ch)
         self.assertEqual((r.status, r.json["error"]), (400, "unsafe_html"))
 
@@ -121,9 +121,9 @@ class EveryFormat(unittest.TestCase):
     def fmt(self, title="Title", th="Text", fn=(), en="<p>English</p>"):
         m = types.ModuleType("parsers.test_format")
         m.load_chapter = lambda book, n, read: {
-            "id": f"{book['id']}{n:02d}", "n": n, "title_th": title, "title_en": "English title",
-            "paragraphs": [{"a": "XX 1.1", "th": "Fine", "fn": [], "en": "<p>x</p>"},
-                           {"a": "XX 1.2", "th": th, "fn": list(fn), "en": en}], "sources": []}
+            "id": f"{book['id']}{n:02d}", "n": n, "title": title, "title_en": "English title",
+            "paragraphs": [{"a": "XX 1.1", "text": "Fine", "fn": [], "en": "<p>x</p>"},
+                           {"a": "XX 1.2", "text": th, "fn": list(fn), "en": en}], "sources": []}
         sys.modules[m.__name__] = m
         self.addCleanup(sys.modules.pop, m.__name__, None)
         return parsers.load_chapter({"id": "XX", "language": "th", "parser": "test_format"}, 1, None)
@@ -154,21 +154,21 @@ class Annotators(unittest.TestCase):
 
     def test_annotators_run_in_order_and_may_not_change_words(self):
         def mark(p, book):
-            return dict(p, th=p["th"].replace("Second", '<span data-kind="test" data-value="2">Second</span>'))
+            return dict(p, text=p["text"].replace("Second", '<span data-kind="test" data-value="2">Second</span>'))
 
         def wrap(p, book):
-            return dict(p, th=p["th"].replace("paragraph", "<em>paragraph</em>"))
+            return dict(p, text=p["text"].replace("paragraph", "<em>paragraph</em>"))
 
         self.install("mark_two", mark)
         self.install("wrap", wrap)
         book = dict(SC_BOOK, annotators=["mark_two", "wrap"])
         ch = parsers.load_chapter(book, 1, fake_reader(files_for(TH, EN)))
-        self.assertEqual(ch["paragraphs"][1]["th"], '<span data-kind="test" data-value="2">Second</span> '
+        self.assertEqual(ch["paragraphs"][1]["text"], '<span data-kind="test" data-value="2">Second</span> '
                                                     "<em>paragraph</em>.")
-        self.install("rewrite", lambda p, book: dict(p, th="Other words"))
+        self.install("rewrite", lambda p, book: dict(p, text="Other words"))
         with self.assertRaisesRegex(parsers.ParseError, "changed the words"):
             parsers.load_chapter(dict(SC_BOOK, annotators=["rewrite"]), 1, fake_reader(files_for(TH, EN)))
-        self.install("unsafe", lambda p, book: dict(p, th=p["th"].replace("Second", '<b onclick="x">Second</b>')))
+        self.install("unsafe", lambda p, book: dict(p, text=p["text"].replace("Second", '<b onclick="x">Second</b>')))
         with self.assertRaisesRegex(parsers.ParseError, "content model"):
             parsers.load_chapter(dict(SC_BOOK, annotators=["unsafe"]), 1, fake_reader(files_for(TH, EN)))
         with self.assertRaisesRegex(parsers.ParseError, "does not exist"):

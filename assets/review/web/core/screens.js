@@ -1,14 +1,14 @@
 /* Proofreading site: the router and the plain screens (web/core/screens.js).
 
-   The address holds the open chapter as #SC/SC03; an empty hash is the chapter list. This module
-   also draws the link, offline and loading screens, the list of comments the server refused (with the
-   unsaved drafts whose paragraph is no longer open), the note at the foot of the screen, the bar, and
-   the settings. */
+   The address holds the open chapter as #SC/SC03, and "My earlier comments" as #earlier; an empty hash is
+   the chapter list. This module also draws the link, offline, loading and device screens, the list of
+   comments the server refused (with the unsaved drafts whose paragraph is no longer open), the note at
+   the foot of the screen, the bar with its "Show spaces" button, and the settings. */
 
 import { S, store } from "./state.js";
-import { K, parseDraftKey } from "./store.js";
+import { linkTag, parseDraftKey } from "./store.js";
 import { t, tIn, plural, hasWords, loadWords, setLang, UI_LANGS } from "./words.js";
-import { h, $, shortA, copyButton, twoTapButton, drawn } from "./dom.js";
+import { h, $, shortA, copyButton, twoTapButton, drawn, spacesOn } from "./dom.js";
 import { active, settingsItem } from "./ext.js";
 import { loadOb, mutateOb, refreshMe, keptChapter } from "./net.js";
 import { explain } from "./refusals.js";
@@ -16,6 +16,7 @@ import { bookLang, showLanguages, shownLanguages } from "./languages.js";
 import { leaveChapter, openChapter, openComment, redrawChapter } from "./chapter.js";
 import { showHome, renderHome } from "./home.js";
 import { failText } from "./notes.js";
+import { showEarlier } from "./earlier.js";
 
 export function setHash(hash, push) {
   const url = location.pathname + location.search + hash;
@@ -27,7 +28,12 @@ export function setHash(hash, push) {
 
 export function route() {
   if (!S.code || S.authBlocked) return showLink();
+  if (S.deviceWaiting) return showDeviceWaiting();
   if (!S.me) return showBoot();
+  if (location.hash === "#earlier") {
+    if (S.view !== "earlier") showEarlier(false);
+    return;
+  }
   const m = /^#([^/=&]+)\/([^/=&]+)$/.exec(location.hash);
   if (m) {
     let book, id;
@@ -48,6 +54,7 @@ export function applyLang() {
   document.documentElement.lang = S.lang;
   document.title = t("app_title");
   $("back").textContent = t("back");
+  paintSpaces();
   showLanguages(shownLanguages());
 }
 
@@ -58,21 +65,38 @@ export function rerender() {
   else if (S.view === "link") showLink();
   else if (S.view === "offline") showOffline();
   else if (S.view === "unsaved") showUnsaved();
+  else if (S.view === "device") showDeviceWaiting();
+  else if (S.view === "earlier") showEarlier(false);
   else if (S.view === "chapter") redrawChapter();
   paintSync();
 }
 
-/* The bar shows only inside a chapter: the way back, the chapter, and the reader's place. */
-export function setBar(c) {
-  $("bar").hidden = !c;
-  $("bar-title").textContent = c ? c.n + " · " + c.title_th : t("app_title");
+/* The bar shows inside a chapter: the way back, the chapter, the reader's place and the "Show spaces"
+   button. Given a title instead of a chapter, as on "My earlier comments", it shows the way back and that
+   title only. */
+export function setBar(c, title) {
+  $("bar").hidden = !c && !title;
+  $("bar-title").textContent = c ? c.n + " · " + c.title : title || t("app_title");
   const lg = c ? bookLang(c.book) : null;
   if (lg) $("bar-title").lang = lg; else $("bar-title").removeAttribute("lang");
   $("bar-place").textContent = "";
+  $("bar-spaces").hidden = !c;
 }
+
+/* The "Show spaces" button in the bar: a faint dot on every space of the book text, a choice kept on this
+   device (dom.js, setSpaces). */
+export function paintSpaces() {
+  const b = $("bar-spaces");
+  if (!b) return;
+  b.textContent = t("show_spaces");
+  b.setAttribute("aria-pressed", String(spacesOn()));
+}
+
+let devicePoll = 0;
 
 export function showScreen(view, ...kids) {
   leaveChapter();
+  if (view !== "device") { clearInterval(devicePoll); devicePoll = 0; }
   S.view = view;
   setBar(null);
   const main = $("main");
@@ -107,6 +131,40 @@ export function showLink() {
   showScreen("link", h("section", { class: "message" },
     h("div", { class: "home-top" }, h("h1", { text: t("link_title") }), settingsBar("link")),
     h("p", { class: "lead", text: t("link_body") })));
+}
+
+/* The link already works on other devices, and this one waits until the translator lets it in (403
+   device_waiting). The page keeps everything on the device, asks the site again every two minutes while
+   the screen shows, and draws the chapter list once the site answers (main.js, on "me"). */
+export function showDeviceWaiting() {
+  const status = h("p", { class: "status", "aria-live": "polite" });
+  const btn = h("button", { type: "button", class: "btn", text: t("device_check") });
+  btn.addEventListener("click", async () => {
+    btn.disabled = true;
+    status.textContent = t("device_checking");
+    await refreshMe();
+    if (S.view !== "device") return;   // let in: the chapter list is drawn
+    btn.disabled = false;
+    status.textContent = S.meStatus === 0 ? t("cannot_connect") : t("device_still");
+  });
+  const unsent = loadOb().some(o => o.code === S.code) || ownDrafts().length > 0;
+  // The device's number, as the translator's lists show it, so the reader can say which device to let in.
+  const number = typeof S.deviceNumber === "number" ? h("p", { class: "lead device-number", text: t("device_number", { n: String(S.deviceNumber) }) }) : null;
+  showScreen("device", h("section", { class: "message" },
+    h("div", { class: "home-top" }, h("h1", { text: t("device_title") }), settingsBar("device")),
+    h("p", { class: "lead", text: t("device_body") }),
+    h("p", { class: "lead", text: t("device_todo") }),
+    number,
+    unsent ? h("p", { class: "lead", text: t("device_kept") }) : null,
+    h("div", { class: "row" }, btn),
+    status));
+  if (!devicePoll) {
+    devicePoll = setInterval(() => {
+      // The chapter list or a chapter took the screen's place: the device was let in.
+      if (S.view !== "device" || !S.deviceWaiting) { clearInterval(devicePoll); devicePoll = 0; return; }
+      if (document.visibilityState !== "hidden") refreshMe();
+    }, 120000);
+  }
 }
 
 export function showOffline() {
@@ -147,12 +205,23 @@ export function paintSync() {
 
 const failedOps = () => loadOb().filter(o => o.code === S.code && o.failed);
 
+/* The drafts of the link open now: [{tag, book, ch, a, key}]. Drafts of other links stay on the device,
+   unseen, until their link opens again or a new link of the same reader takes them over (net.js). */
+export function ownDrafts() {
+  if (!S.code) return [];
+  const tag = linkTag(S.code);
+  const out = [];
+  for (const key of store.keys()) {
+    const d = parseDraftKey(key);
+    if (d && d.tag === tag) out.push(Object.assign(d, { key }));
+  }
+  return out;
+}
+
 /* The reader's unsaved drafts that no drawer shows any more: their chapter is closed now, or the chapter
    kept on the device no longer has their paragraph. A chapter not kept yet is not judged. */
 export function goneDrafts() {
   if (!S.me) return [];
-  const owner = store.get(K.draftOwner);
-  if (owner && owner !== S.me.name) return [];
   const anchors = {};
   const has = (book, ch, a) => {
     const key = book + "/" + ch;
@@ -163,14 +232,12 @@ export function goneDrafts() {
     return !anchors[key] || anchors[key].has(a);
   };
   const out = [];
-  for (const key of store.keys()) {
-    const d = parseDraftKey(key);
-    if (!d) continue;
+  for (const d of ownDrafts()) {
     const open = S.me.chapters.some(x => x.book === d.book && x.id === d.ch);
     if (open && has(d.book, d.ch, d.a)) continue;
-    const body = store.get(key);
+    const body = store.get(d.key);
     if (!body || (!body.text && !body.quote)) continue;
-    out.push(Object.assign(d, { key, body }));
+    out.push(Object.assign(d, { body }));
   }
   return out;
 }

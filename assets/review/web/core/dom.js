@@ -1,9 +1,11 @@
 /* Proofreading site: building the page (web/core/dom.js).
 
-   h() makes elements; bookHtml() rebuilds book text safely; the small buttons every screen uses. */
+   h() makes elements; bookHtml() rebuilds book text safely; decorateText() runs the bookText place and
+   the dots of "Show spaces"; the small buttons every screen uses. */
 
-import { markFor, safely } from "./ext.js";
-import { S } from "./state.js";
+import { markFor, safely, active } from "./ext.js";
+import { K } from "./store.js";
+import { S, store } from "./state.js";
 import { t } from "./words.js";
 
 export const $ = id => document.getElementById(id);
@@ -68,12 +70,68 @@ export function applyMarks(el, ctx) {
   }
 }
 
+/* The marked span a tap landed on, or null. */
+export const markedSpan = target => (target && target.closest ? target.closest("span[data-kind]") : null);
+
 /* The feature's answer to a tap on a marked span: true when it handled the tap. */
 export function tapMark(target, ctx) {
-  const span = target && target.closest ? target.closest("span[data-kind]") : null;
+  const span = markedSpan(target);
   if (!span) return false;
   const def = markFor(span.getAttribute("data-kind"), S.me);
   return !!(def && def.tap && safely(def, () => def.tap(span, ctx), false) === true);
+}
+
+/* ---- book text once drawn: the bookText place, then the dots of "Show spaces" ----
+   Every element that holds the book's own text (a paragraph, a footnote, a chapter title, the earlier
+   wording) carries the class "bt". The English is the source, not the book text, and gets no dots. */
+
+/* Run every bookText entry that is on over el, then put the dots on its spaces when they are shown. ctx is
+   that of drawerPanel; where says what el holds (ext.js, bookText). */
+export function decorateText(el, ctx, where) {
+  const c = Object.assign({}, ctx, { where });
+  for (const d of active("texts", S.me)) if (d.decorate) safely(d, () => d.decorate(el, c));
+  if (el.classList.contains("bt") && spacesOn()) markSpaces(el);
+}
+
+export const spacesOn = () => store.get(K.spaces) === true;
+
+/* Wrap every space of el's text in <span class="sp"> </span>. The dot is the span's ::after (app.css), which
+   is not text, so selecting or copying the words gives the same text as without the dots. */
+export function markSpaces(el) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (n.data.indexOf(" ") >= 0 && !(n.parentNode.classList && n.parentNode.classList.contains("sp"))) nodes.push(n);
+  }
+  for (const n of nodes) {
+    const frag = document.createDocumentFragment();
+    const parts = n.data.split(" ");
+    parts.forEach((part, i) => {
+      if (i) frag.append(h("span", { class: "sp" }, " "));
+      if (part) frag.append(part);
+    });
+    n.parentNode.replaceChild(frag, n);
+  }
+}
+
+/* Take the spans of markSpaces() out again, leaving the text as it was. */
+export function unmarkSpaces(el) {
+  for (const sp of Array.from(el.querySelectorAll("span.sp"))) {
+    const parent = sp.parentNode;
+    while (sp.firstChild) parent.insertBefore(sp.firstChild, sp);
+    parent.removeChild(sp);
+  }
+  el.normalize();
+}
+
+/* Show or hide the dots on every space of the book text on the screen, and remember the choice on this
+   device. */
+export function setSpaces(on) {
+  store.set(K.spaces, !!on);
+  for (const el of document.querySelectorAll(".bt")) {
+    if (on) markSpaces(el);
+    else unmarkSpaces(el);
+  }
 }
 
 export function showNotice(text) {

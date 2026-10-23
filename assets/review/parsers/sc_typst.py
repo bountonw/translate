@@ -2,7 +2,9 @@
 
 A Thai chapter is a .typ file in which each paragraph is a line "// {SC 9.1}"
 followed by one text line that ends "#EGW[\\{SC 9.1\\}]". Inline markup is
-#italic[...] and #footnote[...] (brackets may nest) with backslash escapes.
+#italic[...] and #footnote[...] (brackets may nest) with backslash escapes. A
+block comment /* ... */, which Typst never prints, is left out, as Typst leaves
+it out (comments may nest).
 The English is a Markdown file with YAML front matter (chapter.title.en),
 sections "## {SC 9.1}", and verse lines indented four spaces.
 
@@ -12,8 +14,8 @@ Every format module offers the same function:
 
 book is the book's entry from books.json (with its "id"), n the chapter
 number, and read(path) returns a file's text at the chosen git ref, or None.
-The chapter is {"id", "n", "title_th", "title_en", "paragraphs", "sources"};
-each paragraph is {"a": "SC 9.1", "th": HTML, "fn": [HTML], "en": HTML}, in
+The chapter is {"id", "n", "title", "title_en", "paragraphs", "sources"};
+each paragraph is {"a": "SC 9.1", "text": HTML, "fn": [HTML], "en": HTML}, in
 the content model of server/content.py. review.py calls it through
 parsers.load_chapter, which also runs the annotators and refuses the
 characters the language registry bans, so this module only reads the format.
@@ -22,11 +24,12 @@ import html
 import itertools
 import re
 
-from parsers import ParseError
+from parsers import ParseError, no_tags
 
 
 def chapter_paths(book, n, stage=None):
-    """The Thai path for one stage (or the first stage) and the English path.
+    """The path of the chapter in the book's language (books.json "source") for one stage (or the first stage),
+    and the English path.
 
     The templates take {stage}, {book}, {nn} (two digits) and {name}: the file name's stem,
     the book id and two digits unless the entry's "names" map gives another, as
@@ -34,18 +37,38 @@ def chapter_paths(book, n, stage=None):
     """
     nn = f"{n:02d}"
     name = book.get("names", {}).get(str(n), f"{book['id']}{nn}")
-    th = book["thai"].format(stage=stage or book["stages"][0], nn=nn, book=book["id"], name=name)
+    th = book["source"].format(stage=stage or book["stages"][0], nn=nn, book=book["id"], name=name)
     en = book["english"].format(nn=nn, book=book["id"], name=name)
     return th, en
 
 
+def comment_end(s, i):
+    """Index just past the block comment /* ... */ that starts at s[i]. Typst lets block comments nest."""
+    depth, j = 0, i
+    while j < len(s) - 1:
+        if s.startswith("/*", j):
+            depth += 1
+            j += 2
+        elif s.startswith("*/", j):
+            depth -= 1
+            j += 2
+            if depth == 0:
+                return j
+        else:
+            j += 1
+    raise ParseError(f"unclosed comment: {s[i:i + 30]}")
+
+
 def match_bracket(s, i):
-    """Index of the ] closing the [ at s[i], skipping escaped brackets."""
+    """Index of the ] closing the [ at s[i], skipping escaped brackets and block comments."""
     depth = 0
     while i < len(s):
         c = s[i]
         if c == "\\":
             i += 2
+            continue
+        if s.startswith("/*", i):
+            i = comment_end(s, i)
             continue
         if c == "[":
             depth += 1
@@ -58,12 +81,19 @@ def match_bracket(s, i):
 
 
 def typst_inline(s, notes):
-    """Typst paragraph text to HTML; footnotes go to notes, #EGW is dropped."""
+    """Typst paragraph text to HTML; footnotes go to notes, #EGW and block comments are dropped."""
     out, i = [], 0
     while i < len(s):
         if s[i] == "\\" and i + 1 < len(s):
             out.append(html.escape(s[i + 1]))
             i += 2
+            continue
+        if s.startswith("/*", i):
+            i = comment_end(s, i)
+            # Typst prints the spaces on both sides of a comment as one space.
+            if out and out[-1].isspace():
+                while i < len(s) and s[i] in " \t":
+                    i += 1
             continue
         m = re.match(r"#(italic|footnote|EGW)\[", s[i:])
         if m:
@@ -84,8 +114,13 @@ def typst_inline(s, notes):
     return "".join(out).strip()
 
 
-def thai_chapter(text, cid):
-    """Title and paragraphs of a Thai .typ chapter."""
+def tag_example(cid):
+    return "{" + re.match(r"[A-Za-z]*", cid).group() + " 1.1}"
+
+
+def thai_chapter(text, cid, where="Thai"):
+    """Title and paragraphs of a Thai .typ chapter. A chapter with text but no tag line at all is refused
+    with NoTags: its book has no paragraph tags."""
     if "[[" in text or "((" in text:
         raise ParseError(f"{cid}: the chapter holds a marker or an editor's choice; resolve it first")
     head = text.split("#chapter(", 1)
@@ -102,12 +137,14 @@ def thai_chapter(text, cid):
         if not line.strip() or line.startswith(("//", "#import", "#show", "#chapter", " ", ")")):
             continue
         if anchor is None:
+            if not paras and not re.search(r"^// \{[A-Za-z]+ \d+\.\d+\}", text, re.M):
+                raise no_tags(re.match(r"[A-Za-z]*", cid).group(), cid, where, tag_example(cid))
             raise ParseError(f"{cid}: text before the first anchor: {line[:60]}")
         egw = re.search(r"#EGW\[\\\{([^\\]*)\\\}\]\s*$", line)
         if egw and egw.group(1) != anchor:
             raise ParseError(f"{cid}: {{{anchor}}} ends with the mark {{{egw.group(1)}}}")
         notes = []
-        paras.append({"a": anchor, "th": typst_inline(line, notes), "fn": notes})
+        paras.append({"a": anchor, "text": typst_inline(line, notes), "fn": notes})
         anchor = None
     seen = set()
     for p in paras:
@@ -117,17 +154,21 @@ def thai_chapter(text, cid):
     return title, paras
 
 
-def english_chapter(text, cid):
-    """Title and paragraphs (anchor to HTML) of an English Markdown chapter."""
+def english_chapter(text, cid, where="English"):
+    """Title and paragraphs (anchor to HTML) of an English Markdown chapter. An English file with text but
+    no heading "## {SC 9.1}" is refused with NoTags."""
     parts = text.split("---", 2)
     if not text.startswith("---") or len(parts) < 3:
         raise ParseError(f"{cid}: the English has no front matter")
     front, body = parts[1], parts[2]
+    body = re.sub(r"<!--.*?-->", "", body, flags=re.S)  # hidden notes in the English never reach readers
     m = re.search(r"^chapter:\s*\n(?:\s+.*\n)*?\s+title:\s*\n\s+en:\s*(.+)$", front, re.M)
     if not m:
         raise ParseError(f"{cid}: the English has no chapter.title.en")
     title = m.group(1).strip().strip('"')
     en = {}
+    if body.strip() and not re.search(r"^## \{[A-Za-z]+ \d+\.\d+\}", body, re.M):
+        raise no_tags(re.match(r"[A-Za-z]*", cid).group(), cid, where, "## " + tag_example(cid))
     for block in re.split(r"^## ", body, flags=re.M)[1:]:
         head, _, text_ = block.partition("\n")
         hm = re.match(r"\{([A-Za-z]+ \d+\.\d+)\}", head)
@@ -160,12 +201,12 @@ def load_chapter(book, n, read):
     en_text = read(en_path)
     if th_text is None or en_text is None:
         raise ParseError(f"{cid}: not found ({'Thai' if th_text is None else 'English'} file missing)")
-    title_th, paras = thai_chapter(th_text, cid)
-    title_en, en = english_chapter(en_text, cid)
+    title, paras = thai_chapter(th_text, cid, f"Thai file {th_path}")
+    title_en, en = english_chapter(en_text, cid, f"English file {en_path}")
     missing = [p["a"] for p in paras if p["a"] not in en]
     if missing:
         raise ParseError(f"{cid}: no English for {', '.join(missing)}")
     for p in paras:
         p["en"] = en[p["a"]]
-    return {"id": cid, "n": n, "title_th": title_th, "title_en": title_en,
+    return {"id": cid, "n": n, "title": title, "title_en": title_en,
             "paragraphs": paras, "sources": [th_path, en_path]}

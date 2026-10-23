@@ -5,7 +5,7 @@ No annotator exists yet. A book lists the ones it uses in books.json, as
 over every paragraph. A module here offers one function:
 
     def annotate(paragraph, book):
-        '''paragraph: {"a", "th", "fn", "en"} as the format module made it;
+        '''paragraph: {"a", "text", "fn", "en"} as the format module made it;
         book: the books.json entry. Returns the paragraph, with spans in the
         reserved form of server/content.py, as
         <span data-kind="bible" data-value="John 3:16">...</span>.'''

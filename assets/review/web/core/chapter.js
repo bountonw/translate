@@ -1,21 +1,23 @@
 /* Proofreading site: an open chapter (web/core/chapter.js).
 
-   The chapter's head, its paragraphs (para.js), the sections at its end (the chapterSection place of
-   ext.js), the "finished" box with the way to the next chapter, and the reader's place, which is
-   recorded only after the reader scrolls, never after a jump. */
+   The chapter's head (with the line that says when the chapter changed, from updates.js), its paragraphs
+   (para.js), the sections at its end (the chapterSection place of ext.js), the "finished" box with the way
+   to the next chapter, and the reader's place, which is recorded only after the reader scrolls, never after
+   a jump. The "Show spaces" button sits in the bar at the top of the screen (screens.js). */
 
 import { overlay, queueSet } from "./outbox.js";
 import { S, store, on } from "./state.js";
 import { K } from "./store.js";
 import { t } from "./words.js";
-import { h, $, shortA, paraId, drawn } from "./dom.js";
+import { h, $, shortA, paraId, drawn, spacesOn, markSpaces } from "./dom.js";
 import { active, hintKey, variantOf } from "./ext.js";
 import { loadOb, mutateOb, flush, schedule, PLACE_DELAY_MS, keptChapter, keptComments, revalidateChapter, loadComments } from "./net.js";
 import { bookLang } from "./languages.js";
 import { setHash, setBar, goHome } from "./screens.js";
 import { showHome, titleLines } from "./home.js";
-import { renderPara, paintPara, openDrawer } from "./para.js";
+import { renderPara, paintPara, openDrawer, paintFloat } from "./para.js";
 import { editNote } from "./notes.js";
+import { chapterShown, updateLine, repaintUpdates } from "./updates.js";
 
 const enc = encodeURIComponent;
 
@@ -26,6 +28,7 @@ export function leaveChapter() {
   stopTracking();
   S.book = S.ch = S.chapter = S.waiting = null;
   S.openNote = null;
+  paintFloat(true);
 }
 
 export function openChapter(book, id, opts) {
@@ -75,6 +78,7 @@ export function showChapterMessage(text, canRetry) {
   const book = S.book, id = S.ch;
   const main = $("main");
   main.textContent = "";
+  paintFloat();
   main.append(h("section", { class: "message" },
     h("p", { class: "lead", text }),
     h("div", { class: "row" },
@@ -115,12 +119,18 @@ export function renderChapter(data, resume) {
   S.chapter = data;
   S.waiting = null;
   setBar(meChapter() || data);
+  // The line first: chapterShown() may send the version as opened, after which nothing is shown as changed.
+  const line = updateLine(data);
+  chapterShown(data);
   const main = $("main");
   main.textContent = "";
+  const title = h("h1", { class: "bt", lang: bookLang(data.book), text: data.title });
+  if (spacesOn()) markSpaces(title);
   main.append(h("header", { class: "ch-head" },
     h("p", { class: "eyebrow", text: t("chapter_n", { n: data.n }) }),
-    h("h1", { lang: bookLang(data.book), text: data.title_th }),
+    title,
     titleLines(data, "head"),
+    line,
     h("p", { class: "hint", text: t(hintKey(S.me)) })));
   const list = currentComments();
   for (const p of data.paras) main.append(renderPara(p, list));
@@ -129,6 +139,7 @@ export function renderChapter(data, resume) {
   $("bar-place").textContent = c && c.place ? shortA(c.place) : "";
   if (resume) resumePlace();
   startTracking();
+  paintFloat();
   if (S.openNote) applyOpenNote();
 }
 
@@ -199,7 +210,7 @@ function renderFinish() {
   const i = sibs.findIndex(x => x.id === S.ch);
   const prev = i > 0 ? sibs[i - 1] : null, next = i >= 0 ? sibs[i + 1] : null;
   const pageBtn = (x, cls, label) => h("button", { type: "button", class: "pager-btn " + cls, onclick: () => openChapter(x.book, x.id, { resume: true }) },
-    h("span", { class: "page-dir", text: label }), h("span", { class: "page-title", lang: bookLang(x.book), text: x.title_th }));
+    h("span", { class: "page-dir", text: label }), h("span", { class: "page-title", lang: bookLang(x.book), text: x.title }));
   return h("section", { class: "finish" + (done ? " is-done" : ""), id: "finish" },
     h("h2", { text: done ? t("finish_done") : t("finish_q") }),
     h("div", { class: "row" },
@@ -287,5 +298,11 @@ export function onMeInChapter() {
     $("bar-place").textContent = c.place ? shortA(c.place) : "";
     const f = $("finish");
     if (f) f.replaceWith(renderFinish());
+    // A line already shown stays for this visit; a new chapter list may bring one, or a newer one.
+    const line = updateLine(S.chapter);
+    repaintUpdates();
+    const old = $("upd-line"), hint = document.querySelector("#main .ch-head .hint");
+    if (line && old) old.replaceWith(line);
+    else if (line && hint) hint.before(line);
   }
 }

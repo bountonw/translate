@@ -37,8 +37,9 @@ TYPES = {"bool": bool}
 AUTHS = {"reader": "/api/{name}/", "any_reader": "/api/{name}/", None: "/api/{name}/",
          "admin": "/api/admin/{name}/"}
 # The first path segments of the core routes (server/app.py). A feature never takes one as its name.
-RESERVED = frozenset({"admin", "health", "me", "chapter", "comments", "place", "finished",
-                      "chapters", "readers", "groups", "features", "export", "processed"})
+RESERVED = frozenset({"admin", "health", "me", "chapter", "comments", "place", "finished", "opened", "earlier",
+                      "chapters", "readers", "groups", "features", "export", "processed", "replies", "devices",
+                      "rounds"})
 
 
 class FeatureError(ValueError):

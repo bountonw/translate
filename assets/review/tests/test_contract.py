@@ -13,7 +13,7 @@ from server import db
 
 class RefusedWrites(unittest.TestCase):
     def setUp(self):
-        self.site = Site(writes_per_minute=10000, max_comments=3)
+        self.site = Site(writes_per_minute=10000)
         self.addCleanup(self.site.close)
         self.site.publish(sample_chapter(1))
         self.site.publish(sample_chapter(2))
@@ -32,19 +32,34 @@ class RefusedWrites(unittest.TestCase):
 
     def test_each_reason_has_its_code(self):
         self.expect(self.post(client_id="a1", quote="", kind="wording"), "quote_required")
-        self.expect(self.post(client_id="a2", quote="q" * 501), "quote_too_long")
+        self.expect(self.post(client_id="a2", quote="q" * 4001), "quote_too_long")
         self.expect(self.post(client_id="a3", text="   \u200b "), "text_required")
-        self.expect(self.post(client_id="a4", text="t" * 4001), "text_too_long")
+        self.expect(self.post(client_id="a4", text="t" * 8001), "text_too_long")
         self.expect(self.post(client_id="a5", a="SC 101.9"), "no_paragraph")
         self.expect(self.post(client_id="a6", ch="SC03"), "no_chapter")
         r = self.site.call("POST", "/api/comments", raw=json.dumps({"client_id": "a7", "book": "SC", "ch": "SC01",
                            "a": "SC 101.1", "kind": "flag", "text": "x" * 70000}).encode(), token=self.code)
         self.expect(r, "too_large")
-        for i in range(3):
-            self.assertEqual(self.post(client_id=f"ok{i}").status, 201)
-        self.expect(self.post(client_id="a8"), "comment_limit")
         self.expect(self.site.call("PATCH", "/api/comments/nothing-here", {"text": "x"}, token=self.code),
                     "no_comment")
+        # A comment of an earlier review round can be read but not changed.
+        old = self.post(client_id="r1").json["id"]
+        self.assertEqual(self.site.admin_call("POST", "/api/admin/rounds", {"book": "SC", "name": "two"}).status, 201)
+        self.expect(self.site.call("PATCH", f"/api/comments/{old}", {"text": "x"}, token=self.code), "round_closed")
+        self.expect(self.site.call("DELETE", f"/api/comments/{old}", token=self.code), "round_closed")
+        self.assertNotIn("comment_limit", app_module.WRITE_ERRORS)
+
+    def test_each_reason_to_refuse_a_reader_has_its_code(self):
+        def expect(r, code):
+            self.assertEqual((r.status, r.json["error"]), (app_module.ACCESS_ERRORS[code][0], code), r.body)
+        expect(self.site.call("GET", "/api/me"), "no_code")
+        expect(self.site.call("GET", "/api/me", token="x" * 32), "bad_code")
+        expect(self.site.call("GET", "/api/me", token=self.code, headers={"X-Review-Device": None}), "no_device")
+        expect(self.site.call("GET", "/api/me", token=self.code, headers={"X-Review-Device": "short"}), "no_device")
+        for k in "23":
+            self.site.call("GET", "/api/me", token=self.code, headers={"X-Review-Device": "another-device-000" + k})
+        expect(self.site.call("GET", "/api/me", token=self.code, headers={"X-Review-Device": "another-device-0004"}),
+               "device_waiting")
 
     def test_a_withdrawn_chapter_and_a_changed_paragraph(self):
         cid = self.post(client_id="w1", a="SC 101.3").json["id"]
@@ -75,9 +90,12 @@ class RefusedWrites(unittest.TestCase):
         self.post(client_id="m2", ch="SC02", a="SC 102.1")
         self.site.admin_call("DELETE", "/api/admin/chapters/SC/SC02")
         me = self.site.call("GET", "/api/me", token=self.code).json
-        self.assertEqual(me["limits"], {"quote": 500, "text": 4000, "comments": 3, "writes_per_minute": 10000})
-        self.assertEqual(me["comments_total"], 2)
+        self.assertEqual(me["limits"], {"quote": 4000, "text": 8000, "comments_per_minute": 10,
+                                        "comments_per_day": 1000, "writes_per_minute": 10000, "devices_per_link": 2})
+        # Only the comments on chapters open now count: the page loads nothing of a closed chapter.
+        self.assertEqual(me["comments_total"], 1)
         self.assertEqual(sum(c["comments"] for c in me["chapters"]), 1)
+        self.assertEqual(me["id"], self.rid)
         self.assertEqual(me["features"]["english"], {"on": False})
         self.assertIs(me["english"], False)
 
@@ -114,13 +132,13 @@ class Answers(unittest.TestCase):
 
     def test_each_book_carries_its_title_in_its_own_language(self):
         books = lambda: self.site.call("GET", "/api/me", token=self.code).json["books"]  # noqa: E731
-        self.assertEqual(books()[0]["title_th"], "")
-        self.site.publish(dict(sample_chapter(1), book_title_th="Book title in its language"))
-        self.assertEqual(books()[0]["title_th"], "Book title in its language")
+        self.assertEqual(books()[0]["title"], "")
+        self.site.publish(dict(sample_chapter(1), book_title="Book title in its language"))
+        self.assertEqual((books()[0]["title"], books()[0]["language"]), ("Book title in its language", "th"))
         # Publishing without it keeps the title; a forbidden character is refused.
         self.site.publish(sample_chapter(1, tag="v3"))
-        self.assertEqual(books()[0]["title_th"], "Book title in its language")
-        r = self.site.admin_call("PUT", "/api/admin/chapters/SC/SC01", dict(sample_chapter(1), book_title_th="x\u0e51"))
+        self.assertEqual(books()[0]["title"], "Book title in its language")
+        r = self.site.admin_call("PUT", "/api/admin/chapters/SC/SC01", dict(sample_chapter(1), book_title="x\u0e51"))
         self.assertEqual((r.status, r.json["error"]), (400, "bad_field"))
 
     def test_the_english_is_checked_for_invisible_characters_and_digits(self):
@@ -189,11 +207,14 @@ class QueryPlans(unittest.TestCase):
         for sql, a in (("SELECT * FROM reader WHERE code_hash = ?", ("x",)),
                        ("SELECT COUNT(*) FROM comment WHERE reader = ?", (1,)),
                        ("SELECT * FROM comment WHERE reader = ? AND client_id = ?", (1, "c")),
+                       ("SELECT id, state, last_seen FROM reader_device WHERE reader = ? AND link = ? AND device = ?",
+                        (1, "l", "d")),
+                       ("SELECT COUNT(*) FROM reader_device WHERE reader = ? AND link = ?", (1, "l")),
                        ("SELECT s.name, s.value FROM group_member m JOIN reader_group t ON t.id = m.grp AND "
                         "t.active = 1 JOIN group_setting s ON s.grp = m.grp WHERE m.reader = ?", (1,))):
             plan = " ".join(r[3] for r in con.execute("EXPLAIN QUERY PLAN " + sql, a))
             self.assertIn("USING", plan, sql)
-            self.assertNotRegex(plan, r"SCAN (reader|comment|m)\b(?! USING)", sql)
+            self.assertNotRegex(plan, r"SCAN (reader|comment|m|reader_device)\b(?! USING)", sql)
 
 
 if __name__ == "__main__":

@@ -8,13 +8,58 @@ import re
 import unicodedata
 from urllib.parse import parse_qs
 
+from . import db
 from .text import DIGITS, strip_invisible
 
 BODY_LIMIT = 64 * 1024          # every reader route; Apache refuses more before the API sees it
 ADMIN_LIMIT = 4 * 1024 * 1024   # admin routes: a chapter upload, or hundreds of readers at once
-QUOTE_LIMIT = 500
-TEXT_LIMIT = 4000
 NAME_LIMIT = 80
+WAITING_MOST = 10               # devices that may wait for approval on one link; a further one is refused unrecorded
+REPLY_LIMIT = 4000              # the translator's reply to a comment
+
+# What a reader may write, as config.json's "limits" may set it. GET /api/me carries these numbers.
+#   quote                the most characters in the quoted words of a comment
+#   text                 the most characters in a comment
+#   comments_per_minute  new comments in any 60 seconds
+#   comments_per_day     new comments in one day, midnight to midnight Thailand time; deleting a comment does
+#                        not give its place back
+#   writes_per_minute    every other change in any 60 seconds: edits, deletions, places, finished marks
+#   devices_per_link     the devices on which a link works without the translator's approval
+# There is no limit on the comments a reader may keep: the daily limit replaced it.
+LIMIT_DEFAULTS = {"quote": 4000, "text": 8000, "comments_per_minute": 10, "comments_per_day": 1000,
+                  "writes_per_minute": 60, "devices_per_link": 2}
+# Limits that no longer exist. A config.json that still names one starts as before; the number is not used.
+RETIRED_LIMITS = {"comments"}
+# A comment's quote and text must fit one request of BODY_LIMIT, which also bounds what a browser sends
+# with keepalive: at most 4 bytes a character in UTF-8, and room for the other fields.
+BYTES_PER_CHAR = 4
+BODY_ROOM = 1024
+
+
+def load_limits(data_dir, overrides=None):
+    """The limits: LIMIT_DEFAULTS, then config.json's "limits", then overrides (a test's or a caller's).
+    Raises ValueError, naming config.json, for an unknown name, a value that is not a whole number of at
+    least 1, or a quote and text too long together for one request."""
+    cfg = db.read_config(data_dir).get("limits") or {}
+    where = f"{db.CONFIG} in {data_dir}"
+    if not isinstance(cfg, dict):
+        raise ValueError(f'{where}: "limits" must be an object such as {{"comments_per_day": 1000}}.')
+    out = dict(LIMIT_DEFAULTS)
+    for source in (cfg, {k: v for k, v in (overrides or {}).items() if v is not None}):
+        for k, v in source.items():
+            if k in RETIRED_LIMITS:
+                continue
+            if k not in LIMIT_DEFAULTS:
+                raise ValueError(f"{where}: there is no limit named {k}. The limits are "
+                                 f"{', '.join(LIMIT_DEFAULTS)}.")
+            if not isinstance(v, int) or isinstance(v, bool) or v < 1:
+                raise ValueError(f"{where}: the limit {k} must be a whole number of at least 1, not {v!r}.")
+            out[k] = v
+    most = (BODY_LIMIT - BODY_ROOM) // BYTES_PER_CHAR
+    if out["quote"] + out["text"] > most:
+        raise ValueError(f"{where}: quote ({out['quote']}) and text ({out['text']}) may come to at most {most} "
+                         f"characters together, so that a comment fits one request of {BODY_LIMIT // 1024} KiB.")
+    return out
 
 
 class HTTPError(Exception):
@@ -52,11 +97,19 @@ FORMULA_START = ("=", "+", "-", "@")
 
 
 def reader_name(name):
-    """A cleaned reader name, refused when it starts like a formula or holds a line break or a tab."""
+    """A cleaned reader name, refused when it starts like a formula or holds a line break or a tab. Every run of
+    spaces, a no-break space or an ideographic space among them, becomes one plain space, so two names that
+    differ only in their spaces are one name (name_key)."""
     if "\n" in name or "\t" in name or name.startswith(FORMULA_START):
         raise HTTPError(400, "bad_name", "A reader name may not hold a line break or a tab, or start with "
                         "=, +, - or @.")
-    return name
+    return " ".join(name.split())
+
+
+def name_key(name):
+    """What makes two reader names the same name: their spaces squeezed and their case folded. Names are unique
+    by this key, and review.py finds a reader by it."""
+    return " ".join(name.split()).casefold()
 
 
 def text_field(data, name):

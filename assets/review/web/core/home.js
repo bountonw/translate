@@ -1,14 +1,20 @@
-/* Proofreading site: the chapter list (web/core/home.js). */
+/* Proofreading site: the chapter list (web/core/home.js).
+
+   One row per chapter open to the reader: its number and title, its state, the reader's place and the
+   counts, and "Updated <date>" while the chapter has changed since the version the reader last opened, as
+   the line at the head of the chapter says (updates.js). Above the list, "My earlier comments" when the
+   reader has comments of earlier review rounds (earlier.js). */
 
 import { overlay } from "./outbox.js";
 import { S } from "./state.js";
-import { t, plural } from "./words.js";
+import { t, plural, dateText } from "./words.js";
 import { h, $, shortA, drawn } from "./dom.js";
 import { active, hintKey } from "./ext.js";
 import { loadOb, keptComments } from "./net.js";
 import { bookLang } from "./languages.js";
 import { leaveChapter, openChapter } from "./chapter.js";
 import { setBar, settingsBar } from "./screens.js";
+import { hasEarlier, showEarlier } from "./earlier.js";
 
 export function showHome() {
   leaveChapter();
@@ -46,9 +52,10 @@ export function renderHome(force) {
     if (c.count) bits.push(plural(c.count, "paras_one", "paras_many"));
     const n = countComments(c, ob);
     if (n) bits.push(plural(n, "comments_one", "comments_many"));
-    return { c, status, meta: bits.join(" · ") };
+    return { c, status, meta: bits.join(" · "), upd: updatedText(c) };
   });
-  const sig = JSON.stringify([S.lang, me.name, me.features, rows.map(r => [r.c.book, r.c.id, r.c.title_th, r.c.title_en, r.status, r.meta])]);
+  const earlier = hasEarlier(me);
+  const sig = JSON.stringify([S.lang, me.name, me.features, earlier, rows.map(r => [r.c.book, r.c.id, r.c.title, r.c.title_en, r.status, r.meta, r.upd])]);
   if (!force && sig === S.homeSig) return;
   S.homeSig = sig;
   const statusText = { done: t("status_done"), reading: t("status_reading"), todo: t("status_new") };
@@ -57,7 +64,9 @@ export function renderHome(force) {
   main.append(h("header", { class: "home-head" },
     h("div", { class: "home-top" }, h("h1", { text: t("app_title") }), settingsBar("home")),
     me.name ? h("p", { class: "hello", text: t("hello", { name: me.name }) }) : null,
-    h("p", { class: "lead", text: t(hintKey(me)) })));
+    h("p", { class: "lead", text: t(hintKey(me)) }),
+    earlier ? h("div", { class: "home-tools" },
+      h("button", { type: "button", class: "tool-btn", id: "past-btn", text: t("past_open"), onclick: () => { S.homeY = window.scrollY; showEarlier(true); } })) : null));
   if (!rows.length) {
     main.append(h("p", { class: "lead empty", text: t("no_chapters") }));
     return;
@@ -69,9 +78,18 @@ export function renderHome(force) {
       h("button", { type: "button", class: "ch-row", onclick: () => { S.homeY = window.scrollY; openChapter(r.c.book, r.c.id, { resume: true, push: true }); } },
         h("span", { class: "ch-num", text: String(r.c.n) }),
         h("span", { class: "ch-names" },
-          h("span", { class: "ch-title", lang: bookLang(r.c.book), text: r.c.title_th }),
+          h("span", { class: "ch-title", lang: bookLang(r.c.book), text: r.c.title }),
           titleLines(r.c, "list")),
         h("span", { class: "chip " + r.status, text: statusText[r.status] }),
+        r.upd ? h("span", { class: "ch-upd", text: r.upd }) : null,
         r.meta ? h("span", { class: "ch-meta", text: r.meta }) : null)))));
   }
+}
+
+/* "Updated <date>" on the row of a chapter that changed since the version the reader last opened, with the
+   date of the line at the head of the chapter (updates.js); "" when nothing changed. */
+function updatedText(c) {
+  if (!c.changed) return "";
+  const date = dateText(c.changed.at);
+  return date ? t("updated_on", { date }) : t("updated");
 }

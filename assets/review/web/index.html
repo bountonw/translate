@@ -12,8 +12,10 @@
 <script src="app.js" defer></script>
 <!-- Every module of the page: the browser fetches them all at once, and sw.js keeps this list for offline use. -->
 <link rel="modulepreload" href="core/main.js">
+<link rel="modulepreload" href="core/changes.js">
 <link rel="modulepreload" href="core/chapter.js">
 <link rel="modulepreload" href="core/dom.js">
+<link rel="modulepreload" href="core/earlier.js">
 <link rel="modulepreload" href="core/ext.js">
 <link rel="modulepreload" href="core/home.js">
 <link rel="modulepreload" href="core/languages.js">
@@ -26,8 +28,10 @@
 <link rel="modulepreload" href="core/screens.js">
 <link rel="modulepreload" href="core/state.js">
 <link rel="modulepreload" href="core/store.js">
+<link rel="modulepreload" href="core/updates.js">
 <link rel="modulepreload" href="core/words.js">
 <link rel="modulepreload" href="features/english.js">
+<link rel="modulepreload" href="features/sentences.js">
 </head>
 <body>
 <header class="bar" id="bar" hidden>
@@ -35,6 +39,7 @@
     <button id="back" class="back" type="button"></button>
     <div id="bar-title" class="bar-title"></div>
     <div id="bar-place" class="bar-place"></div>
+    <button id="bar-spaces" class="bar-btn" type="button" aria-pressed="false" hidden></button>
   </div>
 </header>
 <div id="notice" class="notice" role="alert" hidden></div>

@@ -7,13 +7,19 @@ published chapters covered by the reader's own grants or by the grants of any
 group the reader belongs to that is switched on; a revoked reader opens
 nothing. Every list is built with one query per table, so the cost grows with
 the number of rows, never with readers times groups.
+
+The site counts the devices that open each link (reader_device, filled by
+server/app.py, device_state): a link works on the first limits.devices_per_link
+devices that open it, and a further device waits until the translator approves
+it here. The reader list gives each reader's counts for their current link.
 """
 import json
 import secrets
 import sqlite3
 
 from . import db, specs
-from .common import ADMIN_LIMIT, GROUP_NAME_RE, NAME_LIMIT, HTTPError, bool_field, clean, id_list, reader_name
+from .common import (ADMIN_LIMIT, GROUP_NAME_RE, NAME_LIMIT, WAITING_MOST, HTTPError, bool_field, clean, id_list,
+                     name_key, reader_name)
 
 BATCH_MOST = 2000
 
@@ -126,6 +132,18 @@ class People:
             for rid, last in rows(sql, "reader"):
                 if last and (out[rid]["last_active"] or "") < last:
                     out[rid]["last_active"] = last
+        for r in out.values():
+            r["devices"] = {"total": 0, "ok": 0, "waiting": 0, "removed": 0}
+        # The devices of each reader's current link only: a new link starts a new count.
+        for rid, state, n in rows("SELECT d.reader, d.state, COUNT(*) FROM reader_device d JOIN reader x"
+                                  " ON x.id = d.reader AND x.code_hash = d.link{where} GROUP BY d.reader, d.state",
+                                  "d.reader"):
+            out[rid]["devices"][state] = n
+            out[rid]["devices"]["total"] += n
+        # A link with WAITING_MOST devices waiting refuses further new devices unrecorded (server/app.py,
+        # device_state): it was tried on too many devices, and the reader needs a new link.
+        for r in out.values():
+            r["devices"]["full"] = r["devices"]["waiting"] >= WAITING_MOST
         result = []
         for r in out.values():
             mine = [groups[g] for g in r["groups"]]
@@ -146,7 +164,8 @@ class People:
 
     def admin_readers(self, req):
         """Every reader, or those matching ?name= (the whole name), ?contains= (part of the name), ?code_hash=
-        (the SHA-256 of a link's code), ?group=, ?book=, ?idle=DAYS (0: never active), ?revoked=1."""
+        (the SHA-256 of a link's code), ?group=, ?book=, ?idle=DAYS (0: never active), ?revoked=1, ?devices=1
+        (a link opened on more devices than limits.devices_per_link, or with a device waiting for approval)."""
         q = req.query
         total = req.conn.execute("SELECT COUNT(*) FROM reader").fetchone()[0]
         ids = None
@@ -155,7 +174,7 @@ class People:
                                                   (q["code_hash"].lower(),))]
         readers = self.readers_json(req.conn, ids)
         if q.get("name"):
-            readers = [r for r in readers if r["name"].casefold() == q["name"].casefold()]
+            readers = [r for r in readers if name_key(r["name"]) == name_key(q["name"])]
         if q.get("contains"):
             part = " ".join(q["contains"].split()).casefold()
             readers = [r for r in readers if part in " ".join(r["name"].split()).casefold()]
@@ -166,13 +185,16 @@ class People:
             readers = [r for r in readers if q["book"].upper() in r["books"]]
         if q.get("revoked") in ("1", "true", "yes"):
             readers = [r for r in readers if not r["active"]]
+        if q.get("devices") in ("1", "true", "yes"):
+            most = self.limits["devices_per_link"]
+            readers = [r for r in readers if r["devices"]["total"] > most or r["devices"]["waiting"]]
         if q.get("idle"):
             if not q["idle"].isdigit() or len(q["idle"]) > 5:
                 raise HTTPError(400, "bad_field", "idle must be a number of days.")
             days = int(q["idle"])
             since = db.ago(days) if days else None
             readers = [r for r in readers if not r["last_active"] or (since and r["last_active"] < since)]
-        return 200, {"readers": readers, "total": total}
+        return 200, {"readers": readers, "total": total, "devices_per_link": self.limits["devices_per_link"]}
 
     # ---------- readers: writing ----------
 
@@ -209,7 +231,9 @@ class People:
     def create_readers(self, req, rows):
         """Check every row, then create them all in one transaction. Returns [(id, code)]."""
         fields, problems, seen, taken_names = [], [], set(), 0
-        taken = {r[0].casefold() for r in req.conn.execute("SELECT name FROM reader")}
+        # A name already taken is refused whatever its case and its spaces: "Mali  Boon" is "Mali Boon".
+        holders = {name_key(r[0]): r[0] for r in req.conn.execute("SELECT name FROM reader")}
+        taken = set(holders)
         for i, row in enumerate(rows, 1):
             where = f"Row {i}: " if len(rows) > 1 else ""
             try:
@@ -219,9 +243,9 @@ class People:
                     raise
                 problems.append(where + e.message)
                 continue
-            key = f["name"].casefold()
+            key = name_key(f["name"])
             if key in taken:
-                problems.append(f"{where}A reader named {f['name']} already exists.")
+                problems.append(f"{where}A reader named {holders[key]} already exists.")
                 taken_names += 1
             elif key in seen:
                 problems.append(f"{where}The name {f['name']} appears twice.")
@@ -260,11 +284,22 @@ class People:
         return 201, {"readers": [{"id": i, "name": names[i], "code": c, "link": self.link(req, c)} for i, c in made]}
 
     def change_readers(self, req, changes):
-        """[(id, fields)] applied in one transaction; returns the readers after."""
-        known = {r[0] for r in req.conn.execute("SELECT id FROM reader")}
+        """[(id, fields)] applied in one transaction; returns the readers after. A new name that is another
+        reader's name, whatever its case and its spaces, is 409 name_taken."""
+        known = {r[0]: r[1] for r in req.conn.execute("SELECT id, name FROM reader")}
         missing = [str(i) for i, _ in changes if i not in known]
         if missing:
             raise HTTPError(404, "no_reader", f"No reader with the number {', '.join(missing)}.")
+        names = {i: name_key(n) for i, n in known.items()}
+        for rid, f in changes:
+            if "name" in f:
+                names[rid] = name_key(f["name"])
+        renamed = {rid for rid, f in changes if "name" in f}
+        for rid in renamed:
+            twins = [i for i, k in names.items() if k == names[rid] and i != rid]
+            if twins:
+                raise HTTPError(409, "name_taken", f"Another reader (number {twins[0]}) has the name "
+                                f"{dict(changes)[rid]['name']}, whatever its case and spaces.")
         try:
             with db.tx(req.conn):
                 for rid, f in changes:
@@ -425,3 +460,56 @@ class People:
 
     def admin_features(self, req):
         return 200, {"features": self.registry.describe()}
+
+    # ---------- devices ----------
+
+    def devices_json(self, conn, where="", args=()):
+        """Devices as the admin routes show them: {id, reader, name, state, agent, first_seen, last_seen, changed,
+        current}; current is true for a device of the reader's current link."""
+        return [{"id": r["id"], "reader": r["reader"], "name": r["name"], "state": r["state"], "agent": r["agent"],
+                 "first_seen": r["first_seen"], "last_seen": r["last_seen"], "changed": r["changed"],
+                 "current": bool(r["current"])}
+                for r in conn.execute(
+                    "SELECT d.*, x.name, d.link = x.code_hash AS current FROM reader_device d JOIN reader x"
+                    " ON x.id = d.reader" + where + " ORDER BY x.name COLLATE NOCASE, d.id", args)]
+
+    def admin_devices(self, req):
+        """GET /api/admin/devices?reader=ID&state=waiting&all=1: the devices of each reader's current link, or of
+        one reader, or in one state; all=1 adds the devices of links the reader no longer has."""
+        q = req.query
+        where, args = [], []
+        if q.get("reader"):
+            if not q["reader"].isdigit():
+                raise HTTPError(400, "bad_field", "reader must be a reader's number.")
+            where.append("d.reader = ?")
+            args.append(int(q["reader"]))
+        if q.get("state"):
+            if q["state"] not in ("ok", "waiting", "removed"):
+                raise HTTPError(400, "bad_field", "state must be ok, waiting or removed.")
+            where.append("d.state = ?")
+            args.append(q["state"])
+        if q.get("all") not in ("1", "true", "yes"):
+            where.append("d.link = x.code_hash")
+        return 200, {"devices": self.devices_json(req.conn, " WHERE " + " AND ".join(where) if where else "", args),
+                     "devices_per_link": self.limits["devices_per_link"]}
+
+    def admin_set_devices(self, req):
+        """PATCH /api/admin/devices {ids, state}: state ok approves the devices, so the link works on them;
+        removed stops the link on them, and a removed device waits for approval again if it comes back
+        (server/app.py, device_state). The answer is {devices, missing, unchanged}: unchanged lists the devices
+        that were in that state already."""
+        data = req.json(ADMIN_LIMIT)
+        ids = id_list(data.get("ids"), "ids", BATCH_MOST)
+        if not ids:
+            raise HTTPError(400, "bad_field", "ids must name at least one device.")
+        state = data.get("state")
+        if state not in ("ok", "removed"):
+            raise HTTPError(400, "bad_field", "state must be ok (approve) or removed (remove).")
+        with db.tx(req.conn):
+            known = {r[0]: r[1] for r in req.conn.execute(
+                "SELECT id, state FROM reader_device WHERE id IN (SELECT value FROM json_each(?))", (json.dumps(ids),))}
+            req.conn.executemany("UPDATE reader_device SET state = ?, changed = ? WHERE id = ? AND state != ?",
+                                 [(state, db.now(), i, state) for i in ids if i in known])
+        found = self.devices_json(req.conn, " WHERE d.id IN (SELECT value FROM json_each(?))", (json.dumps(ids),))
+        return 200, {"devices": found, "missing": [i for i in ids if i not in known],
+                     "unchanged": [i for i in ids if known.get(i) == state]}

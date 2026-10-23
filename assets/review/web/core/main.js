@@ -12,16 +12,19 @@
 import "./ext.js";
 import "./refusals.js";
 import "./notes.js";
+import "./changes.js";
+import "./updates.js";
+import "./earlier.js";
 
 import { applyPending } from "./outbox.js";
 import { upgradeMe } from "./model.js";
 import { K } from "./store.js";
 import { S, store, on } from "./state.js";
 import { t, useKeptWords, loadWords, hasWords, keptLang } from "./words.js";
-import { showNotice } from "./dom.js";
-import { loadOb, flush, refreshMe, startMe, forgetReader, schedulePrefetch } from "./net.js";
+import { showNotice, spacesOn, setSpaces } from "./dom.js";
+import { loadOb, flush, refreshMe, startMe, forgetReader, schedulePrefetch, adoptOldDrafts } from "./net.js";
 import { useKeptLanguages, loadLanguages, showLanguages, shownLanguages, loadedFontFiles } from "./languages.js";
-import { route, rerender, applyLang, paintSync, showLink, showOffline, goHome, setHash } from "./screens.js";
+import { route, rerender, applyLang, paintSync, paintSpaces, showLink, showOffline, showDeviceWaiting, goHome, setHash } from "./screens.js";
 import { renderHome } from "./home.js";
 import { repaintComments, onScroll, onMeInChapter, savePlace, sendPlaceNow } from "./chapter.js";
 import { onSelection } from "./para.js";
@@ -31,12 +34,16 @@ import { onSelection } from "./para.js";
 on("sync", paintSync);
 on("auth", showLink);
 on("offline", showOffline);
+on("device", () => { if (S.view !== "device") showDeviceWaiting(); });
 on("lang", rerender);
 on("me", () => {
   showLanguages(shownLanguages());
-  if (S.view === "boot" || S.view === "offline") route();
+  if (S.view === "boot" || S.view === "offline" || S.view === "device") route();
   else if (S.view === "home") renderHome(false);
-  else if (S.view === "chapter") onMeInChapter();
+  else if (S.view === "chapter") {
+    onMeInChapter();
+    repaintComments();    // a refusal's message names the site's limits, which may have changed (48 UX3-5)
+  }
   paintSync();          // a draft whose chapter closed now counts as unsaved
   schedulePrefetch();
 });
@@ -63,9 +70,20 @@ function onStorage(ev) {
 /* A fault in the page's own code shows the general error notice. */
 const OWN_CODE = /\/(app|core\/\w+|features\/\w+)\.js(\?|$)/;
 
+/* A link opened in a tab that shows the page already changes only the address's #k=...; the page starts
+   again so that boot() reads the new link. */
+function onHash() {
+  if (/^#(?:.*&)?k=/.test(location.hash)) location.reload();
+}
+
 function wireEvents() {
   document.getElementById("back").addEventListener("click", goHome);
+  document.getElementById("bar-spaces").addEventListener("click", () => {
+    setSpaces(!spacesOn());
+    paintSpaces();
+  });
   window.addEventListener("popstate", route);
+  window.addEventListener("hashchange", onHash);
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("online", () => {
     S.netFails = 0;
@@ -130,6 +148,8 @@ export function boot() {
   // and taken out of the address bar.
   // Codes hold only A-Z, a-z, 0-9, _ and -, so a full stop or bracket after the link is left out.
   const m = /^#(?:.*&)?k=([A-Za-z0-9_-]+)/.exec(location.hash);
+  // Drafts kept by a page before round 3b belong to the link the device held then (net.js, adoptOldDrafts).
+  adoptOldDrafts(store.get(K.code) || (m && m[1]));
   if (m) {
     let code = m[1];
     try { code = decodeURIComponent(code); } catch (e) { /* keep it as it is */ }

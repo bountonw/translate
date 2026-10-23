@@ -8,6 +8,7 @@
      chapterSection a section at the end of a chapter, before the "finished" box
      settingsItem   an item in the settings, beside the language switch
      titleLine      a line under a chapter's title, in the chapter list and at the head of the chapter
+     bookText       a change to book text once it is drawn, such as the sentence spans of features/sentences.js
 
    Each entry is an object {name, order, feature, ...}. The page uses an entry only while its feature
    is on for this reader (GET /api/me, features); an entry without `feature` belongs to the core and is
@@ -15,7 +16,7 @@
    run it with node. EXTENDING.md, "The page side", says what each place passes and expects. */
 
 const FEATURES = {};
-const PLACES = { panels: [], marks: [], sections: [], settings: [], titles: [] };
+const PLACES = { panels: [], marks: [], sections: [], settings: [], titles: [], texts: [] };
 
 /* def = {name, enabled(settings)?, variant?}. `enabled` decides from the feature's settings whether it
    is on; without it the feature is on when settings.on is true. `variant` is a word for a feature that
@@ -45,8 +46,9 @@ function add(place, def) {
   return def;
 }
 
-/* def.render(ctx) returns an element or null. ctx: {p, art, chapter, me, book, lang}. def.hint names a
-   key of ui-strings.json for the line under a chapter title that says what a tap shows. */
+/* def.render(ctx) returns an element or null. ctx: {p, art, chapter, me, book, lang, span}; span is the
+   marked span the reader tapped to open the drawer, or null. def.hint names a key of ui-strings.json for the
+   line under a chapter title that says what a tap shows. */
 export const drawerPanel = def => add("panels", def);
 /* def.kind is the data-kind it handles. def.decorate(span, ctx) changes the span once it is drawn;
    def.tap(span, ctx) runs when the reader taps it and returns true to keep the drawer from opening. */
@@ -59,6 +61,11 @@ export const chapterSection = def => add("sections", def);
 export const settingsItem = def => add("settings", def);
 /* def.render(ctx) returns an element or null. ctx: {chapter, me, where: "list" or "head"}. */
 export const titleLine = def => add("titles", def);
+/* def.decorate(el, ctx) changes book text once it is drawn, without changing its words: it may wrap words in
+   spans. ctx is that of drawerPanel plus `where`: "para" (a paragraph's text in the book's language, with
+   p.al its sentence pairs), "fn" (a footnote), "en" (the English panel) or "earlier" (the earlier
+   wording). */
+export const bookText = def => add("texts", def);
 
 /* The entries of a place that are on for this reader, in order. */
 export function active(place, me) {

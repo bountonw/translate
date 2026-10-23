@@ -1,6 +1,6 @@
 # Extending the proofreading site
 
-The site grows by adding files in five places. Each place has tests. Four have a first user; the place for annotators has none yet, and neither has the spanMark place of the page. The core code does not change when a new entry arrives, except where this file says so.
+The site grows by adding files in five places. Each place has tests. Four have a first user; the place for annotators has none yet. The core code does not change when a new entry arrives, except where this file says so.
 
 | To add | Add | First user |
 |---|---|---|
@@ -39,6 +39,7 @@ For Lao:
 2. Add an "lo" entry: the name in Lao script copied from a Lao file of the repository, `"refuse": [{"range": "U+0ED0-U+0ED9", "why": "Lao digits"}]`, and the font. A font with Lao letters only should give `"unicode_range": "U+0E80-0EFF"`, so that pages without Lao text never download it.
 3. Set `"language": "lo"` in the book's books.json entry.
 4. The interface stays Thai or English. A Lao interface needs an "lo" value for every string in web/ui-strings.json, a key lang_lo naming Lao in Lao script, and "lo" in UI_LANGS in web/core/words.js, which adds its button to the language switch.
+5. The admin page is in English. A Lao admin page needs an "lo" value for every string in admin/strings.json and "lo" first in LANGS in admin/words.js; a value left empty shows the English.
 
 python3 -m unittest checks that each font file named in the registry exists.
 
@@ -49,11 +50,11 @@ A format module in parsers/ reads one source format. It offers one function:
     def load_chapter(book, n, read):
         """book: the books.json entry, with "id" added; n: the chapter number;
         read(path): the file's text at the git ref, or None.
-        Returns {"id", "n", "title_th", "title_en", "paragraphs", "sources"}:
-        paragraphs is a list of {"a": "GC 17.2", "th": HTML, "fn": [HTML], "en": HTML},
+        Returns {"id", "n", "title", "title_en", "paragraphs", "sources"}:
+        paragraphs is a list of {"a": "GC 17.2", "text": HTML, "fn": [HTML], "en": HTML},
         sources the repository paths read. Raises parsers.ParseError when the chapter cannot be used."""
 
-The module only reads its format. parsers.load_chapter, which review.py calls, then runs the book's annotators and refuses a chapter whose HTML leaves the content model, whose text or English holds a character the registry refuses or an invisible one, or whose title, paragraphs or footnotes hold a marker `[[` or an editor's choice `((`. These checks are in parsers.check_chapter, so every format has them; a format module may check its whole file as well, as sc_typst.py does. `title_th` holds the chapter title in the book's own language, whatever that language is. The content model has no heading tag: a heading inside a paragraph's section, such as a `###` subheading of a GC chapter, is written as `<strong class="subhead">...</strong><br>` at the start of the paragraph's HTML, so that the export prints it on a line of its own; web/app.css gains a rule for `strong.subhead` with the first book that has one. The Lao GC chapters, for example, are Markdown files (lo/GC/03_public/GC01_lo.md), so GC needs a module such as parsers/gc_markdown.py with tests on small made-up inputs, as tests/test_parser.py has for SC.
+The module only reads its format. parsers.load_chapter, which review.py calls, then runs the book's annotators and refuses a chapter whose HTML leaves the content model, whose text or English holds a character the registry refuses or an invisible one, or whose title, paragraphs or footnotes hold a marker `[[` or an editor's choice `((`. These checks are in parsers.check_chapter, so every format has them; a format module may check its whole file as well, as sc_typst.py does. `title` and each paragraph's `text` hold the book's own language, whatever that language is (books.json "language"); the fields that hold the translation's text never name a language, and `_en` and `en` hold the English. The content model has no heading tag: a heading inside a paragraph's section, such as a `###` subheading of a GC chapter, is written as `<strong class="subhead">...</strong><br>` at the start of the paragraph's HTML, so that the export prints it on a line of its own; web/app.css gains a rule for `strong.subhead` with the first book that has one. The Lao GC chapters, for example, are Markdown files (lo/GC/03_public/GC01_lo.md), so GC needs a module such as parsers/gc_markdown.py with tests on small made-up inputs, as tests/test_parser.py has for SC.
 
 ## Adding a book
 
@@ -61,22 +62,28 @@ A book kept in a format that parsers/ already reads needs one entry in books.jso
 
     "XX": {
       "title_en": "English title of the book",
-      "title_th": "the title in the book's own language",
+      "title": "the title in the book's own language",
       "language": "th",
       "parser": "sc_typst",
       "annotators": [],
       "ref": "main",
       "stages": ["03_public", "02_edit", "01_raw"],
-      "thai": "th/XX/{stage}/{name}_th.typ",
+      "source": "th/XX/{stage}/{name}_th.typ",
       "english": "th/XX/00_source/{name}_en.md",
-      "names": {"0": "XX00_preface"}
+      "names": {"0": "XX00_preface"},
+      "notes": "th/XX/04_assets/notes/XX_notes.txt",
+      "align": "assets/review/align/XX/{name}.json"
     }
 
-`title_th` is the book's title in its own language, whatever that language is; the chapter list shows it as the book's heading when a reader has more than one book, and shows `title_en` while it is empty. publish sends it with every chapter. `language` is a code of web/languages.json. `parser` names a module in parsers/, and `annotators` lists modules in parsers/annotators/, run in order. `thai` and `english` are paths in the repository; `{stage}` takes each of `stages` in turn, `{nn}` the two-digit chapter number, `{book}` the book id, and `{name}` the file name's stem: the book id and two digits (XX07), unless `names` gives another for that chapter number. `names` and `annotators` are optional. Chapter ids are the book id and two digits, as XX07. Then run `python3 review.py publish XX 01-05`.
+`title` is the book's title in its own language, whatever that language is; the chapter list shows it as the book's heading when a reader has more than one book, and shows `title_en` while it is empty. publish sends it with every chapter. `language` is a code of web/languages.json. `parser` names a module in parsers/, and `annotators` lists modules in parsers/annotators/, run in order. `source` (the chapter's file in the book's language) and `english` are paths in the repository; `{stage}` takes each of `stages` in turn, `{nn}` the two-digit chapter number, `{book}` the book id, and `{name}` the file name's stem: the book id and two digits (XX07), unless `names` gives another for that chapter number. `names` and `annotators` are optional. `notes` is the book's notes file, whose lines `{XX 13.1} | English words | span of the book's text | reason` review.py triage matches against reviewers' comments. `align` is where the book's sentence alignment files lie in the repository ("Sentence alignment" below). Both are optional. Chapter ids are the book id and two digits, as XX07. Then run `python3 review.py publish XX 01-05`.
+
+### Paragraph tags
+
+Every paragraph is named by the tag written before it in the book's source, as `// {XX 9.1}` in a Typst chapter or `## {XX 9.1}` in a Markdown one. A tag is a label, never a position: the site, the export, the markers and the reviewers' comments name a paragraph by its tag, so a paragraph keeps its name when paragraphs before it are added, merged or removed, and a comment stays on its paragraph. Nothing counts paragraphs to make a name. A new book's source therefore gets its tags written into it once, before its first publish, and keeps them from then on. publish stops with "The book XX has no paragraph tags" when a chapter has text but no tag, and sends nothing.
 
 ## The content model
 
-A published paragraph is `{"a", "th", "fn", "en"}`: the anchor, the text in the book's language, the footnotes, and the English source, each as HTML. server/content.py defines what that HTML may hold, and both parsers.load_chapter and the server check it:
+A published paragraph is `{"a", "text", "fn", "en"}`: the anchor, the text in the book's language, the footnotes, and the English source, each as HTML. It may also carry `al`, its sentence pairs ("Sentence alignment" below). server/content.py defines what that HTML may hold, and both parsers.load_chapter and the server check it:
 
 - the tags em, strong, i, b, sup, sub, p, br and span, each with an optional `class` of lower-case words;
 - a marked span, reserved for features to come: `<span data-kind="bible" data-value="John 3:16">...</span>`. `data-kind` is a lower-case word naming what is marked; `data-value` is optional, at most 200 characters, with no quote mark or angle bracket and an ampersand only as `&amp;`. A class may come first. The attributes stand in the order class, data-kind, data-value.
@@ -85,9 +92,35 @@ No parser writes a marked span yet. The export turns every paragraph into plain 
 
 An annotator in parsers/annotators/ adds marked spans. It offers `annotate(paragraph, book)` and returns the paragraph with new HTML around the same words; parsers.load_chapter refuses an annotator that changes the words.
 
+## Sentence alignment
+
+A book's alignment files say which span of each paragraph's text renders which English sentences, so that the page can show a sentence's English. They are optional, one per chapter, at the repository path that books.json gives in `align` (`{name}`, `{nn}` and `{book}` as for the other paths): for SC, assets/review/align/SC/SC01.json. publish reads the file at the same ref as the chapter, and sends only what still fits the text.
+
+    {
+      "format": 2,
+      "sentences": 1,
+      "book": "SC",
+      "chapter": "SC01",
+      "paragraphs": {
+        "SC 9.1": {
+          "text_sha256": "<SHA-256 of the paragraph's plain text>",
+          "en_sha256": "<SHA-256 of the paragraph's plain English>",
+          "pairs": [{"text": [0, 57], "en": [1]}, {"text": [58, 140], "en": [2, 3]}]
+        }
+      }
+    }
+
+- The plain text of a paragraph is align_text() of server/content.py: its HTML with the footnote numbers (`<sup class="fn">`) and every tag taken out and the entities decoded, nothing else; `<br>` adds no line break and no space is trimmed. It is the text the page shows, in the same order. The hashes are SHA-256 in hexadecimal of the UTF-8 plain text, of `text` and of `en`.
+- A pair's `text` is a range `[start, end)` of the plain text, counted in Unicode code points, `end` not included. Its `en` lists English sentence numbers, from 1.
+- Format 1, the files made before the fields got neutral names, names `text` `th` and `text_sha256` `th_sha256`. publish reads both formats; align-packet writes format 2.
+- The English sentences are those of sentences() in parsers/align.py, rules 1 (`"sentences": 1`): a sentence ends at . ! or ? when a space and a capital, a digit or an opening quote follow, never after an abbreviation such as Mr. or e.g. or an initial; it always ends where a `<p>` ends, and at the end of a verse line (`<br>`) only after . ! or ?. A file made under other rules is not used.
+- publish drops a paragraph whose hashes no longer match its text, or whose pairs do not fit it, and says how many it dropped and which; a paragraph of the file that is no longer in the chapter is not counted, since nobody reads it; the rest go to the server as `al`. The server stores each pair with the English as ranges, `{"text": [start, end], "en": [[start, end], ...]}`, in the same plain text, and the chapter answer carries `al` to readers who see the English.
+- `review.py align-packet SC 01` writes what an agent needs to make the file: for each paragraph the plain text (`text`), its chunks between spaces with their ranges (`text_chunks`), the numbered English sentences, and a template of the file with the hashes filled in. The agent fills the pairs and writes the template to the path the packet names.
+- On the page, web/features/sentences.js wraps each range in spans: a reader with the English on taps a Thai sentence, and the drawer opens with that sentence and its English lit. A paragraph without pairs is drawn and tapped as before.
+
 ## Adding a feature
 
-A feature is one module in server/features/. The server finds every module there whose name does not start with an underscore. A feature may not take the name of a core path: admin, health, me, chapter, comments, place, finished, chapters, readers, groups, features, export and processed (RESERVED in server/features/\_\_init\_\_.py). server/features/english.py is the first:
+A feature is one module in server/features/. The server finds every module there whose name does not start with an underscore. A feature may not take the name of a core path: admin, health, me, chapter, comments, place, finished, opened, earlier, chapters, readers, groups, features, export, processed, replies, devices and rounds (RESERVED in server/features/\_\_init\_\_.py). server/features/english.py is the first:
 
     NAME = "english"
     SETTINGS = {"on": {"type": "bool", "default": False, "help": "show the English source beside the translation"}}
@@ -103,7 +136,7 @@ What a module declares:
 - **me(ctx)**, optional: what GET /api/me carries under `features.NAME`. ctx has `conn`, `reader` and `settings` (this feature's, without the prefix). Without it, /api/me carries the feature's settings, as `"english": {"on": true}`.
 - **enabled(settings)**, optional: whether the feature is on for a reader, from this feature's settings without the prefix. Without it, the feature is on when its setting `on` is true. The server uses it for the feature's reader routes; the page's feature() takes the same function.
 
-An on/off setting needs no new command: `feature NAME english on` sets a setting for a reader, `feature --group G english on` for each member of a group, and `group feature G english on` for the group itself. `features` lists every feature with its settings. A feature that needs a command of its own, such as one that loads Bible verses or the glossary, or `review.py search reindex`, adds it to build_parser in review.py, with a test in tests/test_cli.py; a place where features add their commands is made with the first feature that needs one.
+An on/off setting needs no new command: `feature NAME [NAME ...] english on` sets a setting for readers, and `group feature G english on` for a group itself. `features` lists every feature with its settings. A feature that needs a command of its own, such as one that loads Bible verses or the glossary, or `review.py search reindex`, adds it to build_parser in review.py, with a test in tests/test_cli.py; a place where features add their commands is made with the first feature that needs one. The admin page lists every on/off setting from GET /local/features, so a new setting needs no change there; a feature's own command also needs a local route in review_admin.py (COMMANDS, which review_admin.routes() lists), an entry in ROUTES of admin/api.js, and a control for the command and each of its options in the admin page's section it belongs to, with the control's words in admin/strings.json; tests/test_admin_page.py fails until its CONTRACT lists the route, its OPTIONS list the options, and the page calls the route and sends each option.
 
 tests/test_features.py plugs a made-up feature with a route, a setting, two migrations and a me() hook into the server; a new feature's tests can follow it. The core tests check only their own entries, so a new feature or language breaks none of them.
 
@@ -114,26 +147,36 @@ The page is a set of ES modules that the browser loads as they are, with no buil
 | Module | What it holds |
 |---|---|
 | core/main.js | the start: reads the link, loads the words, the languages and the chapter list, wires the browser's events, imports every core module, and loads each feature that index.html names with its own import() |
-| core/state.js | S, what the page shows now; `store`, what the device keeps; on() and emit(), which carry news from net.js to the modules that draw |
-| core/store.js | localStorage behind try/catch, and the names of the keys |
+| core/state.js | S, what the page shows now, with S.deviceWaiting while the link waits for the translator's approval of this device and S.deviceNumber, the device's number in the translator's lists; `store`, what the device keeps; on() and emit(), which carry news from net.js to the modules that draw |
+| core/store.js | localStorage behind try/catch, the names of the keys, the tag of a link (linkTag) and the drafts kept per link (draftKey, draftMoves) |
 | core/words.js | t(), each key of ui-strings.json in the interface language; UI_LANGS, the interface languages |
 | core/languages.js | web/languages.json: each language's lang code and font |
-| core/net.js | the API calls, the outbox runner, and the chapter list, chapters and comment lists kept on the device |
-| core/outbox.js | the outbox: every write waits there until the server confirms it |
-| core/model.js | /api/me and a chapter in the page's shape, with the defaults for an older answer |
-| core/refusals.js | why the server refused a comment, in the reader's words, and the check made when the reader taps Save |
+| core/net.js | the API calls, each with the device key, kept in a variable once read or made; the wait for the translator's approval of a device, with its number; the outbox runner, which sends only the ops of the link open now, and takes over the lock rv-outbox from a page frozen with it; the reader number of each link and the move of a reader's waiting comments and drafts to a new link; and the chapter list, chapters and comment lists kept on the device, with what a new chapter list makes stale, and the chapter list asked for again after a refusal it explains |
+| core/outbox.js | the outbox: every write waits there, under the link that made it, until the server confirms it |
+| core/model.js | /api/me and a chapter in the page's shape, with the defaults for an older answer and for a chapter kept by an older page; the grouping of "My earlier comments" |
+| core/refusals.js | why the server refused a comment, in the reader's words; the check made when the reader taps Save; how long until the daily limit resets |
 | core/ext.js | the places where features plug in |
-| core/dom.js | h(), which makes elements; bookHtml(), which rebuilds book text; the marked spans; the small buttons |
-| core/screens.js | the router, the link, offline and loading screens, the list of unsaved comments, the note at the foot of the screen, the bar and the settings |
-| core/home.js | the chapter list |
-| core/chapter.js | an open chapter, the sections at its end, the "finished" box and the reader's place |
-| core/para.js | a paragraph and its drawer |
-| core/notes.js | the comment cards, the comment form, and the section of comments on paragraphs no longer in the chapter |
+| core/dom.js | h(), which makes elements; bookHtml(), which rebuilds book text; the marked spans; decorateText(), which runs the bookText place over book text once it is drawn; the dots of "Show spaces"; the small buttons |
+| core/screens.js | the router (#BOOK/CH for a chapter, #earlier for "My earlier comments"); the link, offline, loading and device screens; the list of unsaved comments; the note at the foot of the screen; the bar with its "Show spaces" button; the settings |
+| core/home.js | the chapter list, with "Updated <date>" on the row of a changed chapter and the button to "My earlier comments" |
+| core/earlier.js | "My earlier comments": the reader's comments of earlier review rounds, read-only |
+| core/chapter.js | an open chapter: its head with the line of updates.js, the sections at its end, the "finished" box and the reader's place |
+| core/para.js | a paragraph and its drawer: the panels, the English first, under a "Write a comment" button that jumps to the form; the drawer's return to where the paragraph stood when it opened; the first line kept below the bar when a drawer above closes; what a panel lit for a tapped span scrolled onto the screen; the round button that closes the open drawer; selected words in the quote box |
+| core/notes.js | the comment cards, with the line that a comment's paragraph changed, the translator's reply and the time until the daily limit resets; the read-only cards of earlier rounds; the comment form; and the section of comments on paragraphs no longer in the chapter |
+| core/changes.js | what changed in a chapter since the reader last opened it: the record kept on the device, the marks, and when to send the version opened |
+| core/updates.js | a new version of a chapter on the screen: the line at the head of the chapter, the marks on the paragraphs, "Show the earlier wording" (a core entry of the drawerPanel place) and PUT /api/opened |
 | features/english.js | the English feature: the first feature module |
+| features/sentences.js | a Thai sentence and its English: entries of the english feature in the bookText and spanMark places |
 
-outbox.js, model.js, refusals.js, store.js and ext.js hold no DOM, so tests/core_test.js runs them with node.
+outbox.js, model.js, refusals.js, store.js, ext.js and changes.js hold no DOM, so tests/core_test.js runs them with node, with the plain part of features/sentences.js. It also runs net.js with a stand-in for fetch: the device key, the wait for approval, and a new link taking over a reader's waiting comments and drafts.
 
-chapter.js, home.js, notes.js, para.js and screens.js import one another and are one unit: to follow an action, such as opening a chapter, read all five. None of them may run code when it loads, except registering an entry with ext.js, because such code could use a value of another of the five before that module has run.
+chapter.js, earlier.js, home.js, notes.js, para.js and screens.js import one another and are one unit: to follow an action, such as opening a chapter, read all six. None of them may run code when it loads, except registering an entry with ext.js, because such code could use a value of another of the six before that module has run. updates.js draws for chapter.js and para.js but imports none of the six, so it stands outside the unit; it too runs nothing when it loads but its entry in the drawerPanel place.
+
+The core keeps more things on the device. `rv.opened:BOOK/CH` is the record of changes.js for one chapter, which a new link clears with the kept chapters. `rv.spaces` is the "Show spaces" choice, which stays with the device, as the interface language does. `rv.device` is the device's own random key, which every request sends in X-Review-Device; a new link keeps it, so the site counts one device. `rv.links` maps the tag of each link opened on the device (store.js, linkTag: eight hexadecimal digits, never the code) to the reader number /api/me gave for it. A draft is kept per link, as `rv.draft:TAG:BOOK/CH/A`.
+
+What a reader writes is kept apart per link and never deleted unsent unless the reader asks. A delete the site refuses, as in a chapter closed meanwhile, stays in the outbox with the comment's words, and the page says that the comment was not deleted and the translator still receives it. Each op of the outbox names the link that made it, and each draft carries its link's tag. The page shows, counts and sends only those of the link open now. When /api/me answers under a link, the page notes its reader number; the ops and drafts of another link with the same number move to the link open now and go out under it, so a reader's waiting comments follow the reader to a new link. Those of another reader number wait untouched until that link opens on this device again. The match is by number, never by name, because two readers may share a name. A new link clears what the device keeps for reading (the chapter list, the chapters, the comment lists, the records of changes and the `rv.f:` keys of features), never what the reader wrote.
+
+When a request answers 403 device_waiting, the link works on other devices and waits for the translator's approval on this one. The page shows the device screen in place of the chapter list, with the device's number from the answer, sends nothing, keeps everything, and asks /api/me again every two minutes, when the device comes back online and when the reader taps "Check again"; an answer of /api/me means the device was let in.
 
 #### A feature's page part
 
@@ -144,6 +187,8 @@ A feature's page part is one module, web/features/NAME.js, where NAME is the fea
 
 tests/test_web.py fails until the first is done, and until every key the module uses with t() is in ui-strings.json.
 
+A module may also add entries to a feature that another module declares: it names that feature in each entry's `feature` and does not call feature() itself. web/features/sentences.js adds to english in this way, because the server sends sentence pairs only with the English; its entries are used exactly while English is on, and it is loaded by its own modulepreload line like any feature module.
+
 The page reads `features` from GET /api/me. A feature is on when `features.NAME.on` is true; a feature whose settings are not a single switch passes `enabled(settings)` to feature(), as a Bible feature would with `s => !!s.version`. A feature missing from /api/me, or one the page does not know, is off. An entry of a place is used only while its feature is on; an entry without `feature` belongs to the core.
 
 #### The places
@@ -152,8 +197,9 @@ Each entry is an object with a `name`, an `order` (entries are used in rising or
 
 | Place | Where it shows | ctx | First user |
 |---|---|---|---|
-| `drawerPanel` | a panel in a paragraph's drawer, above the reader's comments. `hint` names a key of ui-strings.json for the line under a chapter title that says what a tap shows | `p` (the paragraph: `a`, `th`, `fn`, `en`), `art` (its element), `chapter`, `me`, `book`, `lang` | English: the paragraph's English, and the hint hint_english |
-| `spanMark` | a marked span in the book text, `<span data-kind="bible" data-value="John 3:16">`. `kind` is the data-kind it handles; `decorate(span, ctx)` changes the span once it is drawn; `tap(span, ctx)` runs when the reader taps it and returns true to keep the drawer from opening. A tap inside an open drawer, as on a span of the English panel, does not reach `tap` yet (web/core/para.js) | as for drawerPanel | none yet: a marked span shows its words and does nothing |
+| `drawerPanel` | a panel in a paragraph's drawer, above the reader's comments and below the "Write a comment" button, which the drawer shows when it has a panel. On a phone the English comes first, so a panel that should come after it takes an order above 10. `hint` names a key of ui-strings.json for the line under a chapter title that says what a tap shows | `p` (the paragraph: `a`, `text`, `fn`, `en`, and `al` when it has sentence pairs, `[{text: [start, end], en: [[start, end], ...]}]`), `art` (its element), `chapter`, `me`, `book`, `lang`, `span` (the marked span the reader tapped to open the drawer, or null) | English: the paragraph's English (order 10), and the hint hint_english. The core: "Show the earlier wording" (updates.js, order 20) |
+| `spanMark` | a marked span in the book text, `<span data-kind="bible" data-value="John 3:16">`, whether the server sent it or a bookText entry made it. `kind` is the data-kind it handles; `decorate(span, ctx)` changes a span the server sent once it is drawn; `tap(span, ctx)` runs when the reader taps it and returns true to keep the drawer from opening or closing; when it returns false, the drawer opens with the span in ctx.span, or an open drawer closes. A panel that lights what belongs to the tapped span gives those elements the class `hl`, and the page scrolls just enough to show them, never so far that the tapped span goes under the bar; when the drawer's own scroll has already taken the span above the bar, as in a tall paragraph, it scrolls until they show. A tap inside an open drawer, as on a span of the English panel, does not reach `tap` yet (web/core/para.js) | as for drawerPanel | sentences: a tap on a Thai sentence (kind "sentence") lights it and its English |
+| `bookText` | a change to book text once it is drawn, such as spans around some of its words; `decorate(el, ctx)` must leave the words as they are. The core runs it over a paragraph's text and footnotes; a panel runs it over its own text by calling decorateText() of core/dom.js, as English does. Every element that holds the book's own text has the class `bt`, and "Show spaces" puts its dots on those after the entries have run | as for drawerPanel, and `where`: "para", "fn", "en" (the English panel) or "earlier" (the earlier wording) | sentences: the spans of the Thai and English sentences |
 | `chapterSection` | a section at the end of a chapter, before the "finished" box. With `refresh: true` it is drawn again whenever the reader's comments change | `chapter`, `comments` (the reader's comments on the chapter, with their state), `me`, `book` | the core: comments on paragraphs no longer in the chapter |
 | `settingsItem` | an item beside the language switch at the top of the chapter list | `me` (null on the link and offline screens, so only core items show there), `screen` | the core: the language switch |
 | `titleLine` | a line under a chapter's title, in the chapter list and at the head of the chapter | `chapter`, `me`, `where` ("list" or "head") | English: the English title |
@@ -164,14 +210,14 @@ A feature that changes the chapter text the server sends passes `variant` to fea
 
 - The page runs on Safari for iOS 12 and later: no `?.`, `??`, class fields or top-level await. ES modules and `import()` are fine.
 - index.html holds no inline script or style, and nothing loads from another host. Styles a feature adds go into web/app.css. A rule that depends on data, such as a font, is added through the CSS object model, as core/languages.js does.
-- Talk to the server through `api()` in core/net.js; send writes through the outbox, so they survive a lost connection. requestFor() in core/outbox.js knows only comments, places and finished marks; a feature that writes adds its own kind of entry there, with a test in tests/core_test.js.
+- Talk to the server through `api()` in core/net.js, which adds the link's code and the device key; a request without the device key is refused with 400 no_device. A feature's answer of 401 or of 403 device_waiting goes to authFailed() or deviceWaiting(r.data) of net.js, as the core's do. Send writes through the outbox, so they survive a lost connection and stay with the link that made them. requestFor() in core/outbox.js knows only comments, places, finished marks and the versions of chapters opened; a feature that writes adds its own kind of entry there, with a test in tests/core_test.js.
 - Keep a reader's data on the device under keys that start with `rv.f:NAME:`; a new link clears them, as it clears the kept chapters.
 - Every word comes from ui-strings.json through t(). New Thai uses กรุณา for "please" and no ค่ะ or ครับ, and names ระบบ as the subject when the site itself fails.
 - Fonts come from web/languages.json: a new language needs no page code. A new interface language needs its code in UI_LANGS in core/words.js, a key lang_CODE naming it in itself, and its value in every string of ui-strings.json.
 
 #### A sketch: Bible references as links
 
-The planned `bible` feature below would mark references through the annotator `bible_refs` and add a setting `bible.version`, which needs the core changes for a setting of another kind (above). Two changes to the page come with it. First, web/core/para.js calls tapMark for a marked span inside the drawer too, since a reference in the English panel sits there; today a tap inside the drawer returns before tapMark. Second, the tapped span goes into the drawerPanel context, as `ctx.span`, so that the tap opens the drawer and the Bible panel shows the verse. Its page part would then be one module:
+The planned `bible` feature below would mark references through the annotator `bible_refs` and add a setting `bible.version`, which needs the core changes for a setting of another kind (above). One change to the page comes with it: web/core/para.js calls tapMark for a marked span inside the drawer too, since a reference in the English panel sits there; today a tap inside the drawer returns before tapMark. The tapped span already reaches the drawerPanel context as `ctx.span` (features/sentences.js uses it), so the tap opens the drawer and the Bible panel shows the verse. Its page part would then be one module:
 
     import { feature, spanMark, drawerPanel } from "../core/ext.js";
     import { api } from "../core/net.js";
@@ -206,4 +252,4 @@ A glossary feature is the same shape with `kind: "glossary"`, and may add a draw
 
 **Glossary and dictionary look-ups.** A feature `glossary` with a table `glossary_term` filled by an admin route from the project's glossary file (th/assets/translation_profile/thai-glossary.txt), a reader route `GET /api/glossary/lookup?term=` (the sub-pattern `lookup`), and a bool setting `glossary.on`. An annotator `glossary_terms` may mark known terms with `data-kind="glossary"`. A dictionary is the same shape with its own table and route.
 
-**How a word was translated in other books, with fuzzy matching.** A feature `search` keeps its index in an SQLite FTS5 table of its own, made by its migration: `CREATE VIRTUAL TABLE search_para USING fts5(book, ch, a, th, en, tokenize='trigram')`. The trigram tokenizer suits Thai and Lao, written without spaces between words, but it finds only exact runs of three or more characters: a phrase query for a word with one vowel changed finds nothing. A near match comes from the query's own trigrams joined with OR and ranked by bm25, which put the paragraph with the right word first in a trial on SC01-08; a word of one or two characters needs LIKE on the table, since it has no trigram. The other books are published like any book but granted to nobody, so they are in the chapter table without reaching readers. The index is rebuilt from the chapter table, with server/content.py's plain() taking the HTML out, by an admin route that `review.py search reindex` would call; keeping it current at every publish needs one new hook in the registry, `on_publish`, added with that feature. A route `GET /api/search/?q=` (the sub-pattern empty) answers the matching paragraphs with their Thai and English, ranked by FTS5's bm25, from the books the reader may search.
+**How a word was translated in other books, with fuzzy matching.** A feature `search` keeps its index in an SQLite FTS5 table of its own, made by its migration: `CREATE VIRTUAL TABLE search_para USING fts5(book, ch, a, text, en, tokenize='trigram')`. The trigram tokenizer suits Thai and Lao, written without spaces between words, but it finds only exact runs of three or more characters: a phrase query for a word with one vowel changed finds nothing. A near match comes from the query's own trigrams joined with OR and ranked by bm25, which put the paragraph with the right word first in a trial on SC01-08; a word of one or two characters needs LIKE on the table, since it has no trigram. The other books are published like any book but granted to nobody, so they are in the chapter table without reaching readers. The index is rebuilt from the chapter table, with server/content.py's plain() taking the HTML out, by an admin route that `review.py search reindex` would call; keeping it current at every publish needs one new hook in the registry, `on_publish`, added with that feature. A route `GET /api/search/?q=` (the sub-pattern empty) answers the matching paragraphs with their text and English, ranked by FTS5's bm25, from the books the reader may search.

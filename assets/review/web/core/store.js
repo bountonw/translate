@@ -6,16 +6,54 @@
 
 export const K = {
   code: "rv.code", lang: "rv.lang", strings: "rv.strings", langs: "rv.langs", me: "rv.me", outbox: "rv.outbox",
-  draftOwner: "rv.draftOwner",   // the name of the reader whose drafts the device keeps
+  draftOwner: "rv.draftOwner",   // a page before round 3b: the name of the reader whose drafts the device kept
+  spaces: "rv.spaces",           // true when the book text shows a dot on every space
+  device: "rv.device",           // this device's random key, sent in X-Review-Device; a new link keeps it
+  links: "rv.links",             // {tag of a link: the reader number /api/me gave for it}
 };
 export const chKey = (b, c) => "rv.ch:" + b + "/" + c;
 export const cmKey = (b, c) => "rv.cm:" + b + "/" + c;
-export const draftKey = (b, c, a) => "rv.draft:" + b + "/" + c + "/" + a;   // one unsent comment per paragraph
+/* What changed in a chapter since the reader last opened it, and which changed paragraphs the reader has
+   opened since (core/changes.js). */
+export const openedKey = (b, c) => "rv.opened:" + b + "/" + c;
 
-/* The book, chapter and paragraph of a draft's key, or null for any other key. */
+/* A short tag of a link's code: eight hexadecimal digits (FNV-1a), so that what the device keeps for each
+   link, such as the drafts, is kept apart without writing the code itself into the name of a key. */
+export function linkTag(code) {
+  let x = 0x811c9dc5;
+  const s = String(code || "");
+  for (let i = 0; i < s.length; i++) {
+    x ^= s.charCodeAt(i);
+    x = Math.imul(x, 0x01000193) >>> 0;
+  }
+  return ("0000000" + x.toString(16)).slice(-8);
+}
+
+/* One unsent comment per paragraph and per link: rv.draft:<tag>:BOOK/CH/A. A page before round 3b kept
+   rv.draft:BOOK/CH/A, without the tag. */
+export const draftKey = (tag, b, c, a) => "rv.draft:" + tag + ":" + b + "/" + c + "/" + a;
+
+/* The link's tag ("" for a key without one), book, chapter and paragraph of a draft's key, or null for any
+   other key. */
 export function parseDraftKey(k) {
-  const m = /^rv\.draft:([^/]+)\/([^/]+)\/([^/]+)$/.exec(String(k));
-  return m ? { book: m[1], ch: m[2], a: m[3] } : null;
+  const m = /^rv\.draft:(?:([0-9a-f]{8}):)?([^/:]+)\/([^/]+)\/([^/]+)$/.exec(String(k));
+  return m ? { tag: m[1] || "", book: m[2], ch: m[3], a: m[4] } : null;
+}
+
+/* The drafts to move under the link open now, whose tag is `to`: each draft kept under another tag for which
+   sameReader(tag) is true. A draft whose paragraph already has one under `to` stays where it is, so no words
+   are written over. Returns [[from key, to key], ...]. */
+export function draftMoves(keys, to, sameReader) {
+  const list = keys.map(k => [k, parseDraftKey(k)]).filter(x => x[1]);
+  const where = d => d.book + "/" + d.ch + "/" + d.a;
+  const have = new Set(list.filter(x => x[1].tag === to).map(x => where(x[1])));
+  const out = [];
+  for (const [k, d] of list) {
+    if (d.tag === to || !sameReader(d.tag) || have.has(where(d))) continue;
+    have.add(where(d));
+    out.push([k, draftKey(to, d.book, d.ch, d.a)]);
+  }
+  return out;
 }
 
 export function makeStore(ls) {

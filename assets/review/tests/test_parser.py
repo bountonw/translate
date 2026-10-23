@@ -75,7 +75,7 @@ class MainChapters(unittest.TestCase):
     def test_ids_titles_and_sources(self):
         for n, c in self.chapters.items():
             self.assertEqual(c["id"], f"SC{n:02d}")
-            self.assertTrue(c["title_th"] and c["title_en"])
+            self.assertTrue(c["title"] and c["title_en"])
             self.assertTrue(c["sources"][0].endswith(f"SC{n:02d}_th.typ"))
         self.assertEqual(self.chapters[1]["title_en"], "God’s Love for Man")
 
@@ -96,14 +96,14 @@ class MainChapters(unittest.TestCase):
         self.assertEqual(notes[1], 2)
         for c in self.chapters.values():
             for p in c["paragraphs"]:
-                marks = re.findall(r'<sup class="fn">(\d+)</sup>', p["th"])
+                marks = re.findall(r'<sup class="fn">(\d+)</sup>', p["text"])
                 self.assertEqual(len(marks), len(p["fn"]), p["a"])
 
     def test_italics(self):
-        self.assertGreater(sum(p["th"].count("<em>") for p in self.chapters[6]["paragraphs"]), 0)
+        self.assertGreater(sum(p["text"].count("<em>") for p in self.chapters[6]["paragraphs"]), 0)
         for c in self.chapters.values():
             for p in c["paragraphs"]:
-                self.assertEqual(p["th"].count("<em>"), p["th"].count("</em>"))
+                self.assertEqual(p["text"].count("<em>"), p["text"].count("</em>"))
 
     def test_verse_lines_keep_breaks(self):
         p = next(p for p in self.chapters[1]["paragraphs"] if p["a"] == "SC 9.2")
@@ -113,7 +113,7 @@ class MainChapters(unittest.TestCase):
     def test_no_markup_left_and_no_forbidden_characters(self):
         for c in self.chapters.values():
             for p in c["paragraphs"]:
-                for part in [p["th"], *p["fn"]]:
+                for part in [p["text"], *p["fn"]]:
                     self.assertNotIn("#EGW", part)
                     self.assertNotIn("#italic", part)
                     self.assertIsNone(forbidden_char(part), p["a"])
@@ -127,20 +127,35 @@ class MadeUpInputs(unittest.TestCase):
 
     def test_inline_markup(self):
         c = self.load(TH)
-        self.assertEqual(c["title_th"], "Chapter title")
+        self.assertEqual(c["title"], "Chapter title")
         self.assertEqual(c["title_en"], "Sample Title")
         p = c["paragraphs"][0]
-        self.assertEqual(p["th"], 'Text with <em>slanted</em> and a note<sup class="fn">1</sup> and {braces}.')
+        self.assertEqual(p["text"], 'Text with <em>slanted</em> and a note<sup class="fn">1</sup> and {braces}.')
         self.assertEqual(p["fn"], ["See <em>this</em> [nested]"])
         self.assertEqual(c["paragraphs"][1]["en"],
                          '<p class="verse">Verse line one;<br>Verse line two.<br>Psalm 1:1.</p>')
         self.assertEqual(c["paragraphs"][0]["en"], "<p>First paragraph.</p>")
 
+    def test_block_comments_are_left_out_as_typst_leaves_them_out(self):
+        # A Typst block comment never prints, so readers never see it (39-verify.md item 3, {SC 64.1}).
+        c = self.load(TH.replace("Second paragraph.", "Second/*health of our countenance from Psalm 43:5*/ "
+                                 "paragraph /* a /* nested */ note */ ends#footnote[A note/*hidden]*/.]."))
+        p = c["paragraphs"][1]
+        self.assertEqual(p["text"], 'Second paragraph ends<sup class="fn">1</sup>.')
+        self.assertEqual(p["fn"], ["A note."])
+        self.assertNotIn("Psalm", p["text"])
+        c = self.load(TH.replace("Second paragraph.", "Ends with a comment./*see Psalm 43:5*/"))
+        self.assertEqual(c["paragraphs"][1]["text"], "Ends with a comment.")
+        # An escaped slash is text, and a comment left open is refused.
+        self.assertEqual(self.load(TH.replace("Second paragraph.", "a \\/* b"))["paragraphs"][1]["text"], "a /* b")
+        with self.assertRaisesRegex(ParseError, "unclosed comment"):
+            self.load(TH.replace("Second paragraph.", "a /* b"))
+
     def test_stage_order(self):
         files = files_for(TH)
         files["th/SC/03_public/SC01_th.typ"] = TH.replace("Second paragraph.", "Public text.")
         c = sc_typst.load_chapter(SC_BOOK, 1, fake_reader(files))
-        self.assertEqual(c["paragraphs"][1]["th"], "Public text.")
+        self.assertEqual(c["paragraphs"][1]["text"], "Public text.")
         self.assertEqual(c["sources"][0], "th/SC/03_public/SC01_th.typ")
 
     def test_refuses_marker_and_choice(self):
@@ -171,7 +186,7 @@ class MadeUpInputs(unittest.TestCase):
             self.load(TH.replace("Chapter title", "Chapter\u2069 title"))
 
     def test_file_names_from_the_names_map(self):
-        book = dict(SC_BOOK, id="DA", thai="th/DA/{stage}/{name}_th.typ", english="th/DA/00_source/{name}_en.md",
+        book = dict(SC_BOOK, id="DA", source="th/DA/{stage}/{name}_th.typ", english="th/DA/00_source/{name}_en.md",
                     names={"0": "DA00_preface"})
         self.assertEqual(sc_typst.chapter_paths(book, 0, "01_raw"),
                          ("th/DA/01_raw/DA00_preface_th.typ", "th/DA/00_source/DA00_preface_en.md"))
@@ -187,3 +202,12 @@ class MadeUpInputs(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class EnglishCommentTest(unittest.TestCase):
+    def test_markdown_comment_is_dropped(self):
+        from parsers.sc_typst import english_chapter
+        text = "---\nchapter:\n  title:\n    en: Test\n---\n\n## {SC 9.1}\n\nNature <!-- a note for the translator --> speaks. {SC 9.1}\n"
+        title, en = english_chapter(text, "SC01")
+        self.assertNotIn("note for the translator", str(en))
+        self.assertIn("speaks", str(en))

@@ -5,8 +5,9 @@
 
      core/      main.js (the start), state.js, store.js, words.js, languages.js, net.js, outbox.js,
                 model.js, refusals.js, ext.js (the places where features plug in), dom.js, screens.js,
-                home.js, chapter.js, para.js, notes.js
-     features/  one module per feature: english.js
+                home.js, chapter.js, para.js, notes.js, changes.js and updates.js (a new version of a
+                chapter), and earlier.js ("My earlier comments")
+     features/  the page parts of features: english.js, and sentences.js, which adds to english
 
    This file stays a plain script, so a page saved on the device by an older version can still run
    it; it loads core/main.js and starts it. If that fails, as on a first visit without a connection,

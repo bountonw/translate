@@ -11,7 +11,21 @@ add an entry with the next number; never edit an entry that has shipped.
 Version 3 adds groups (reader_group, group_grant, group_member) and feature
 settings (reader_setting, group_setting), and moves each reader's English
 into the setting english.on. Version 4 adds each book's title in its own
-language (book.title_th).
+language (book.title_th). Version 5 keeps every published version of a
+chapter (chapter_version), records the version of each chapter a reader last
+opened (reader_opened), adds the translator's reply to a comment (comment.reply
+and comment.reply_at), and counts each reader's new comments of the last day
+(comment_made). Version 6 gives the fields that hold the translation's text
+neutral names (book.title, chapter.title, chapter.source, chapter_version.title,
+and "text" for each paragraph's text in the stored JSON), adds review rounds
+(review_round, comment.round), the devices that use each link (reader_device),
+and the comments deleted, for the export of what changed (comment_gone).
+Version 7 records the client_id of each comment deleted. An entry may hold a
+Python function beside its SQL, for a change SQL cannot make. init_db refuses a
+database of a version newer than its last entry, which newer code made.
+
+The reader's day, for the daily limit and for the dates of commands, runs from
+midnight to midnight Thailand time (Asia/Bangkok, UTC+7 all year).
 
 A feature in server/features/ brings its own numbered migrations for its own
 tables; init_db applies them after the core ones, in the same transaction,
@@ -34,14 +48,56 @@ TOKEN_FILE = "admin-token"
 CONFIG = "config.json"
 
 
+STAMP = "%Y-%m-%dT%H:%M:%SZ"
+# Thailand keeps UTC+7 all year, with no summer time, so a fixed offset is Asia/Bangkok and needs no tz database.
+BANGKOK = timezone(timedelta(hours=7), "Asia/Bangkok")
+
+
 def now():
     """The current UTC time as 2026-10-21T20:30:00Z."""
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(timezone.utc).strftime(STAMP)
 
 
-def ago(days):
-    """The UTC time days ago, in the form of now()."""
-    return (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+def ago(days=0, minutes=0):
+    """The UTC time days (and minutes) ago, in the form of now()."""
+    return (datetime.now(timezone.utc) - timedelta(days=days, minutes=minutes)).strftime(STAMP)
+
+
+def parse_stamp(stamp):
+    """A time in the form of now() as an aware datetime."""
+    return datetime.strptime(stamp, STAMP).replace(tzinfo=timezone.utc)
+
+
+def stamp_of(when):
+    """An aware datetime in the form of now()."""
+    return when.astimezone(timezone.utc).strftime(STAMP)
+
+
+def day_start(stamp):
+    """The UTC time, in the form of now(), of the Thailand midnight that began the day holding stamp."""
+    local = parse_stamp(stamp).astimezone(BANGKOK)
+    return stamp_of(local.replace(hour=0, minute=0, second=0, microsecond=0))
+
+
+def next_midnight(stamp):
+    """The UTC time, in the form of now(), of the Thailand midnight that ends the day holding stamp."""
+    local = parse_stamp(stamp).astimezone(BANGKOK)
+    return stamp_of(local.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1))
+
+
+def thai_time(stamp):
+    """A time in the form of now() as Thailand time: 2026-10-22 07:30."""
+    return parse_stamp(stamp).astimezone(BANGKOK).strftime("%Y-%m-%d %H:%M")
+
+
+def later(stamp, days):
+    """A time in the form of now(), days after stamp (another such time)."""
+    return stamp_of(parse_stamp(stamp) + timedelta(days=days))
+
+
+def seconds_until(stamp):
+    """Whole seconds from now until stamp (a time in the form of now()), at least 1."""
+    return max(1, int((parse_stamp(stamp) - datetime.now(timezone.utc)).total_seconds()) + 1)
 
 
 def sha256(text):
@@ -71,6 +127,40 @@ def tx(conn):
 
 
 COMMENT_COLUMNS = "id, client_id, reader, book, ch, a, kind, quote, text, version, created, updated, processed"
+
+
+def neutral_paragraphs(paras):
+    """Stored paragraphs with the neutral name of version 6: each paragraph's "th" becomes "text", and so does
+    the "th" range of each sentence pair; every other key keeps its place."""
+    def rename(d):
+        return {("text" if k == "th" else k): v for k, v in d.items()} if isinstance(d, dict) else d
+    out = []
+    for p in paras:
+        q = rename(p)
+        if isinstance(q, dict) and isinstance(q.get("al"), list):
+            q["al"] = [rename(pair) for pair in q["al"]]
+        out.append(q)
+    return out
+
+
+def content_hash(title, title_en, paras):
+    """The fingerprint publish gives a chapter's content (server/app.py, admin_publish)."""
+    return sha256(json.dumps([title, title_en, paras], ensure_ascii=False, sort_keys=True))[:12]
+
+
+def _migrate_paragraph_text(conn):
+    """Version 6: the paragraphs of every chapter and every kept version get the key "text", and each chapter's
+    content_hash is worked out again with that key, so publishing the same text again keeps its version."""
+    for row in conn.execute("SELECT book, id, title, title_en, paragraphs FROM chapter").fetchall():
+        paras = neutral_paragraphs(json.loads(row["paragraphs"]))
+        conn.execute("UPDATE chapter SET paragraphs = ?, content_hash = ? WHERE book = ? AND id = ?",
+                     (json.dumps(paras, ensure_ascii=False), content_hash(row["title"], row["title_en"], paras),
+                      row["book"], row["id"]))
+    for row in conn.execute("SELECT book, ch, version, paragraphs FROM chapter_version").fetchall():
+        paras = neutral_paragraphs(json.loads(row["paragraphs"]))
+        conn.execute("UPDATE chapter_version SET paragraphs = ? WHERE book = ? AND ch = ? AND version = ?",
+                     (json.dumps(paras, ensure_ascii=False), row["book"], row["ch"], row["version"]))
+
 
 # (version, statements). Each entry brings the database from the version before it to this one.
 MIGRATIONS = [
@@ -153,7 +243,103 @@ MIGRATIONS = [
         # Like the chapter's title_th, it holds the book's language, whatever that is.
         "ALTER TABLE book ADD COLUMN title_th TEXT NOT NULL DEFAULT ''",
     ]),
+    (5, [
+        # Every published version of a chapter, so a reader can see what changed since the version they
+        # last opened, and the earlier wording of a paragraph. published is when the version went out, and
+        # seq its place in the chapter's history: 1 for the first, and the next number each time a version
+        # is published, also when an earlier one is published again.
+        """CREATE TABLE chapter_version (
+  book          TEXT NOT NULL,
+  ch            TEXT NOT NULL,
+  version       TEXT NOT NULL,
+  title_th      TEXT NOT NULL,
+  title_en      TEXT NOT NULL,
+  paragraphs    TEXT NOT NULL,
+  source_commit TEXT NOT NULL DEFAULT '',
+  published     TEXT NOT NULL,
+  seq           INTEGER NOT NULL,
+  PRIMARY KEY (book, ch, version),
+  FOREIGN KEY (book, ch) REFERENCES chapter(book, id)
+)""",
+        "INSERT INTO chapter_version (book, ch, version, title_th, title_en, paragraphs, source_commit, published, seq)"
+        " SELECT book, id, version, title_th, title_en, paragraphs, source_commit, updated, 1 FROM chapter",
+        # The version of each chapter that a reader last opened.
+        """CREATE TABLE reader_opened (
+  reader  INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  book    TEXT NOT NULL,
+  ch      TEXT NOT NULL,
+  version TEXT NOT NULL,
+  at      TEXT NOT NULL,
+  PRIMARY KEY (reader, book, ch)
+)""",
+        # The translator's confirmed reply to a comment, which its reader sees under it.
+        "ALTER TABLE comment ADD COLUMN reply TEXT NOT NULL DEFAULT ''",
+        "ALTER TABLE comment ADD COLUMN reply_at TEXT",
+        # When a reader made each new comment in the last day, for the daily limit. Deleting a comment
+        # leaves its row, so a delete never gives back a place in the day's count.
+        """CREATE TABLE comment_made (
+  reader INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  at     TEXT NOT NULL
+)""",
+        "CREATE INDEX comment_made_by_reader ON comment_made(reader, at)",
+    ]),
+    (6, [
+        # The fields that hold the translation's text get neutral names; the book's language code (book.language)
+        # says which language they hold: th Thai, lo Lao, ium Mien. The English keeps its _en names.
+        "ALTER TABLE book RENAME COLUMN title_th TO title",
+        "ALTER TABLE chapter RENAME COLUMN title_th TO title",
+        "ALTER TABLE chapter RENAME COLUMN source_th TO source",
+        "ALTER TABLE chapter_version RENAME COLUMN title_th TO title",
+        _migrate_paragraph_text,
+        # Review rounds. Each time a book is opened for review a named round starts; the newest round of a book is
+        # its current round. A comment carries the round it was written in, or NULL when it was written before
+        # the book's first round.
+        """CREATE TABLE review_round (
+  id      INTEGER PRIMARY KEY AUTOINCREMENT,
+  book    TEXT NOT NULL,
+  name    TEXT NOT NULL COLLATE NOCASE,
+  started TEXT NOT NULL,
+  UNIQUE (book, name)
+)""",
+        "ALTER TABLE comment ADD COLUMN round INTEGER REFERENCES review_round(id)",
+        # The devices that use each link. link is the code_hash of the link the device opened, so a new link
+        # starts a new count; device is the SHA-256 of the random key the page makes on the device. state is ok
+        # (the link works there), waiting (for the translator's approval) or removed (by the translator).
+        """CREATE TABLE reader_device (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  reader     INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  link       TEXT NOT NULL,
+  device     TEXT NOT NULL,
+  state      TEXT NOT NULL CHECK (state IN ('ok', 'waiting', 'removed')),
+  agent      TEXT NOT NULL DEFAULT '',
+  first_seen TEXT NOT NULL,
+  last_seen  TEXT NOT NULL,
+  changed    TEXT,
+  UNIQUE (reader, link, device)
+)""",
+        # Comments deleted by their reader or by the translator, so an export of what changed can name them.
+        """CREATE TABLE comment_gone (
+  id     INTEGER PRIMARY KEY,
+  reader INTEGER NOT NULL,
+  book   TEXT NOT NULL,
+  ch     TEXT NOT NULL,
+  at     TEXT NOT NULL
+)""",
+        "CREATE INDEX comment_gone_by_time ON comment_gone(at)",
+        "CREATE INDEX comment_by_updated ON comment(updated)",
+    ]),
+    (7, [
+        # The client_id of each comment deleted, so a device that sends a deleted comment again, after its
+        # first answer was lost, is told that it was deleted instead of making it anew. Comments deleted before
+        # this version have none.
+        "ALTER TABLE comment_gone ADD COLUMN client_id TEXT",
+        "CREATE INDEX comment_gone_by_client ON comment_gone(reader, client_id)",
+    ]),
 ]
+
+
+class TooNew(ValueError):
+    """The database was moved to a version this code does not know, by newer code."""
 
 
 def statements(script):
@@ -179,11 +365,21 @@ def init_db(path, features=None):
         conn.execute("PRAGMA journal_mode = WAL")
         with tx(conn):
             version = conn.execute("PRAGMA user_version").fetchone()[0]
+            newest = MIGRATIONS[-1][0]
+            if version > newest:
+                # Code older than the database cannot read it: it would answer the health check and fail on
+                # every reader's request (deploy/DEPLOY.md, "Rolling back").
+                raise TooNew(f"The database {path} is at version {version}, and this code knows versions up to "
+                             f"{newest}. Newer code moved it. Run the newer code again, or put back the backup taken "
+                             "before that update (deploy/DEPLOY.md, \"Rolling back\").")
             steps = [] if version else [(1, statements(SCHEMA.read_text()))]
             steps += [(n, sqls) for n, sqls in MIGRATIONS if n > version]
             for n, sqls in steps:
                 for sql in sqls:
-                    conn.execute(sql)
+                    if callable(sql):
+                        sql(conn)
+                    else:
+                        conn.execute(sql)
                 conn.execute(f"PRAGMA user_version = {int(n)}")
             apply_feature_migrations(conn, features)
     finally:

@@ -2,7 +2,13 @@
 -- and then every entry of its MIGRATIONS list. Migration 2 makes comment ids AUTOINCREMENT, so an
 -- id is never used twice, and adds source_th, source_en and source_commit to chapter. Migration 3
 -- adds groups and feature settings and moves reader.english into reader_setting. Migration 4 adds
--- book.title_th, the book's title in its own language.
+-- book.title_th, the book's title in its own language. Migration 5 adds chapter_version (every published
+-- version), reader_opened (the version a reader last opened), comment.reply and comment.reply_at (the
+-- translator's reply), and comment_made (new comments of the last day, for the daily limit). Migration 6
+-- renames the fields that hold the translation's text (book.title, chapter.title, chapter.source,
+-- chapter_version.title, and "text" in each stored paragraph) and adds review_round, comment.round,
+-- reader_device and comment_gone. Migration 7 adds comment_gone.client_id. The names below are those of
+-- version 1.
 
 CREATE TABLE IF NOT EXISTS book (
   id       TEXT PRIMARY KEY,

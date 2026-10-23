@@ -105,7 +105,8 @@ class FromEnvironment(unittest.TestCase):
 
 class Layout(unittest.TestCase):
     def test_python_files_have_docstrings_and_no_waitress_outside_prod(self):
-        for path in list((ROOT / "server").rglob("*.py")) + list((ROOT / "parsers").rglob("*.py")) + [ROOT / "review.py"]:
+        for path in list((ROOT / "server").rglob("*.py")) + list((ROOT / "parsers").rglob("*.py")) + \
+                [ROOT / "review.py", ROOT / "review_admin.py"]:
             text = path.read_text()
             body = text.split("\n", 1)[1] if text.startswith("#!") else text
             self.assertTrue(body.lstrip().startswith('"""'), path)
@@ -140,15 +141,13 @@ class Deploy(unittest.TestCase):
     def test_body_limits(self):
         site = self.read("review-site.conf")
         self.assertIn("LimitRequestBody 65536", site)
-        # Apache refuses an admin request without a bearer token of the server's form before it reads the body.
+        # Apache refuses the admin routes from the internet; review.py reaches them through SSH only.
         block = re.search(r'<Location "/api/admin/">(.*?)</Location>', site, re.S).group(1)
-        self.assertIn("LimitRequestBody 4718592", block)
-        rule = re.search(r'<If "%\{HTTP:Authorization\} !~ m#(.*)#">\s*Require all denied\s*</If>', block)
-        self.assertTrue(rule, block)
-        token = re.compile(rule.group(1))
-        self.assertTrue(token.search("Bearer " + "a" * 43))
-        for bad in ("", "Bearer short", "Basic " + "a" * 43, "Bearer " + "a" * 43 + " x"):
-            self.assertFalse(token.search(bad), bad)
+        self.assertEqual(block.strip(), "Require all denied")
+        # Every request Apache passes on is marked, and the API's admin routes refuse a marked request.
+        self.assertRegex(site, r'(?m)^RequestHeader set X-Review-Proxy "1"$')
+        from server.app import PROXY_HEADER
+        self.assertEqual(PROXY_HEADER, "X-Review-Proxy")
         self.assertIn("max_request_body_size=4718592", (ROOT / "server" / "prod.py").read_text())
         self.assertIn("font/ttf", re.search(r"AddOutputFilterByType DEFLATE.*", site).group())
 

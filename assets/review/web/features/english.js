@@ -4,7 +4,8 @@
    reader, GET /api/me says {"features": {"english": {"on": true}}} and each paragraph of a chapter
    carries its English source. This module then shows:
 
-     - a panel in each paragraph's drawer with the paragraph's English, above the reader's comments;
+     - a panel in each paragraph's drawer with the paragraph's English, above the reader's comments, run
+       through the bookText place (where "en"), so that features/sentences.js can mark its sentences;
      - the English title under each chapter's title, in the chapter list and at the head of a chapter;
      - the hint "Tap a paragraph to see the English and leave a comment." (hint_english).
 
@@ -12,7 +13,7 @@
    on the device again when English is switched on or off, as the server's ETag ("<version>.en") does. */
 
 import { feature, drawerPanel, titleLine } from "../core/ext.js";
-import { h, bookHtml, applyMarks } from "../core/dom.js";
+import { h, bookHtml, applyMarks, decorateText } from "../core/dom.js";
 import { t } from "../core/words.js";
 
 feature({ name: "english", variant: "en" });
@@ -26,6 +27,7 @@ drawerPanel({
     if (!ctx.p.en) return null;
     const text = h("div", { class: "en", lang: "en" }, bookHtml(ctx.p.en));
     applyMarks(text, ctx);
+    decorateText(text, ctx, "en");
     return h("section", { class: "en-block" }, h("p", { class: "label", text: t("english") }), text);
   },
 });

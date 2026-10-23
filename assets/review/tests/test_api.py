@@ -118,13 +118,14 @@ class Grants(Base):
         self.assertEqual([c["id"] for c in self.me(self.a)["chapters"]], ["SC01", "SC02"])
         self.assertEqual([c["id"] for c in self.me(self.b)["chapters"]], ["SC01", "SC02", "SC03"])
         c = self.me(self.a)["chapters"][0]
-        self.assertEqual({k: c[k] for k in ("book", "id", "n", "title_th", "title_en", "paragraphs", "finished",
+        self.assertEqual({k: c[k] for k in ("book", "id", "n", "title", "title_en", "paragraphs", "finished",
                                             "place", "comments")},
-                         {"book": "SC", "id": "SC01", "n": 1, "title_th": "Title 1", "title_en": "English title 1",
+                         {"book": "SC", "id": "SC01", "n": 1, "title": "Title 1", "title_en": "English title 1",
                           "paragraphs": 3, "finished": False, "place": None, "comments": 0})
         self.assertTrue(c["version"].startswith("abc1234-"))
-        self.assertEqual(self.me(self.a)["books"], [{"id": "SC", "title_en": "Sample book", "title_th": "",
-                                                     "language": "th"}])
+        self.assertRegex(c["at"], r"^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$")
+        self.assertEqual(self.me(self.a)["books"], [{"id": "SC", "title": "", "title_en": "Sample book",
+                                                     "language": "th", "round": None, "earlier": 0}])
 
     def test_ungranted_chapter_is_404(self):
         self.assertEqual(self.site.call("GET", "/api/chapter/SC/SC03", token=self.a).status, 404)
@@ -161,7 +162,7 @@ class Grants(Base):
 
 
 class Comments(Base):
-    site_options = {"writes_per_minute": 10000}
+    site_options = {"writes_per_minute": 10000, "limits": {"comments_per_minute": 10000}}
 
     def test_each_reader_sees_and_changes_only_their_own(self):
         r = self.site.comment(self.a, "SC 101.1", text="Mine")
@@ -198,6 +199,26 @@ class Comments(Base):
         other = self.site.comment(self.b, "SC 101.1", client_id="retry-1", text="Same id, other reader")
         self.assertEqual(other.status, 201)
 
+    def test_names_that_differ_only_in_their_spaces_are_one_name(self):
+        """A reader name is stored with its spaces squeezed, and a name equal to another once spaces are squeezed
+        and case is folded is refused, so a command by name always finds one reader."""
+        made = self.site.invite("Anan  Chaiyo", ["SC01"])
+        self.assertEqual(made["name"], "Anan Chaiyo")
+        for name in ("Anan Chaiyo", "anan   chaiyo", "Anan\u00a0Chaiyo", "Anan\u3000Chaiyo", " Anan Chaiyo "):
+            r = self.site.admin_call("POST", "/api/admin/readers", {"name": name, "grants": ["SC01"]})
+            self.assertEqual((r.status, r.json["error"]), (409, "name_taken"), repr(name))
+        r = self.site.admin_call("POST", "/api/admin/readers/batch",
+                                 {"readers": [{"name": "Mali Boon", "grants": ["SC01"]},
+                                              {"name": "Mali\u00a0 Boon", "grants": ["SC01"]}]})
+        self.assertEqual(r.status, 400)
+        other = self.site.invite("Mali", ["SC01"])
+        r = self.site.admin_call("PATCH", f"/api/admin/readers/{other['id']}", {"name": "ANAN  chaiyo"})
+        self.assertEqual((r.status, r.json["error"]), (409, "name_taken"))
+        r = self.site.admin_call("PATCH", f"/api/admin/readers/{other['id']}", {"name": "Mali\u00a0Boon"})
+        self.assertEqual((r.status, r.json["name"]), (200, "Mali Boon"))
+        found = self.site.admin_call("GET", "/api/admin/readers?name=anan%20%20chaiyo").json["readers"]
+        self.assertEqual([x["id"] for x in found], [made["id"]])
+
     def test_comment_fields(self):
         r = self.site.comment(self.a, "SC 101.2", kind="wording", quote="Paragraph 2", text="Say it better")
         self.assertEqual(r.status, 201)
@@ -209,7 +230,7 @@ class Comments(Base):
 
     def test_validation(self):
         cases = [({"kind": "wording", "quote": ""}, "quote_required"), ({"text": ""}, "text_required"),
-                 ({"text": "x" * 4001}, "text_too_long"), ({"quote": "q" * 501}, "quote_too_long"),
+                 ({"text": "x" * 8001}, "text_too_long"), ({"quote": "q" * 4001}, "quote_too_long"),
                  ({"kind": "other"}, "bad_kind"), ({"a": "SC 999.9"}, "no_paragraph"),
                  ({"client_id": "has space"}, "bad_client_id"), ({"text": 5}, "bad_field")]
         for change, error in cases:
@@ -218,8 +239,8 @@ class Comments(Base):
             r = self.site.call("POST", "/api/comments", body, token=self.a)
             status = 409 if error == "no_paragraph" else 400
             self.assertEqual((r.status, r.json["error"]), (status, error), change)
-        ok = {"client_id": "c2", "book": "SC", "ch": "SC01", "a": "SC 101.1", "kind": "flag", "text": "x" * 4000,
-              "quote": "q" * 500}
+        ok = {"client_id": "c2", "book": "SC", "ch": "SC01", "a": "SC 101.1", "kind": "flag", "text": "x" * 8000,
+              "quote": "q" * 4000}
         self.assertEqual(self.site.call("POST", "/api/comments", ok, token=self.a).status, 201)
 
     def test_text_is_cleaned(self):
@@ -342,7 +363,7 @@ class WithdrawAndRepublish(Base):
         new = self.site.call("GET", "/api/chapter/SC/SC01", token=self.a,
                              headers={"If-None-Match": old.headers["etag"]})
         self.assertEqual(new.status, 200)
-        self.assertIn("(v2)", new.json["paragraphs"][0]["th"])
+        self.assertIn("(v2)", new.json["paragraphs"][0]["text"])
         self.assertEqual(len(self.site.call("GET", "/api/comments", token=self.a).json["comments"]), 1)
         export = self.site.admin_call("GET", "/api/admin/export").json["comments"]
         self.assertTrue(export[0]["anchor_missing"])
@@ -380,19 +401,19 @@ class Limits(Base):
                                         token=self.b).status, 200)
         self.assertEqual(self.site.call("GET", "/api/me", token=self.a).status, 200)
 
-    def test_comment_cap(self):
+    def test_no_limit_on_the_comments_a_reader_keeps(self):
+        # The daily limit replaced the lifetime limit of 5,000 comments (round3-plan.md item 10): a reader who
+        # keeps 6,000 comments still writes the next one.
         rid = next(r["id"] for r in self.site.admin_call("GET", "/api/admin/readers").json["readers"]
                    if r["name"] == "Reader A")
         con = sqlite3.connect(self.site.data / db.DB_NAME)
         con.executemany("INSERT INTO comment (client_id, reader, book, ch, a, kind, text, created, updated)"
                         " VALUES (?, ?, 'SC', 'SC01', 'SC 101.1', 'flag', 'x', 'now', 'now')",
-                        [(f"bulk-{i}", rid) for i in range(4999)])
+                        [(f"bulk-{i}", rid) for i in range(6000)])
         con.commit()
         con.close()
         self.assertEqual(self.site.comment(self.a, "SC 101.1").status, 201)
-        r = self.site.comment(self.a, "SC 101.1")
-        self.assertEqual((r.status, r.json["error"]), (403, "comment_limit"))
-        self.assertEqual(self.site.comment(self.b, "SC 101.1").status, 201)
+        self.assertNotIn("comments", self.me(self.a)["limits"])
 
 
 class ETags(Base):
@@ -416,7 +437,7 @@ class ETags(Base):
 
 
 class Export(Base):
-    site_options = {"writes_per_minute": 10000}
+    site_options = {"writes_per_minute": 10000, "limits": {"comments_per_minute": 10000}}
 
     def test_export_content_and_processed(self):
         c1 = self.site.comment(self.a, "SC 101.2", kind="wording", quote="Paragraph 2 of", text="Better words").json
@@ -427,14 +448,15 @@ class Export(Base):
         first = res["comments"][1]
         for key, value in {"reader": "Reader A", "book": "SC", "ch": "SC01", "anchor": "SC 101.2", "kind": "wording",
                            "quote": "Paragraph 2 of", "text": "Better words", "processed": False,
-                           "anchor_missing": False, "quote_found": True,
-                           "th": "Paragraph 2 of chapter 1 (v1) word"}.items():
+                           "anchor_missing": False, "quote_found": True, "round": None,
+                           "paragraph": "Paragraph 2 of chapter 1 (v1) word"}.items():
             self.assertEqual(first[key], value, key)
         self.assertEqual(first["version_seen"], first["version_now"])
         self.assertFalse(res["comments"][0]["quote_found"])
-        self.assertEqual(res["comments"][0]["th"], "Paragraph 1 of chapter 1 (v1) word")
+        self.assertEqual(res["comments"][0]["paragraph"], "Paragraph 1 of chapter 1 (v1) word")
         self.assertEqual(res["comments"][0]["footnotes"], ["Note 1"])
-        self.assertEqual(res["chapters"]["SC/SC01"]["title_th"], "Title 1")
+        self.assertEqual((res["chapters"]["SC/SC01"]["title"], res["chapters"]["SC/SC01"]["language"]),
+                         ("Title 1", "th"))
         self.assertTrue(res["chapters"]["SC/SC01"]["published"])
         self.site.admin_call("DELETE", "/api/admin/chapters/SC/SC01")
         self.assertFalse(self.site.admin_call("GET", "/api/admin/export").json["chapters"]["SC/SC01"]["published"])
@@ -471,7 +493,7 @@ class Export(Base):
         self.site.publish(ch)
         self.site.comment(self.a, "SC 101.1")
         info = self.site.admin_call("GET", "/api/admin/export").json["chapters"]["SC/SC01"]
-        self.assertEqual((info["source_th"], info["source_en"], info["commit"]),
+        self.assertEqual((info["source"], info["source_en"], info["commit"]),
                          ("th/SC/03_public/SC01_th.typ", "th/SC/00_source/SC01_en.md", "abc1234"))
         for bad in (["../etc/passwd"], ["/abs"], ["a b"], "x", ["a", "b", "c"]):
             ch["sources"] = bad
@@ -506,7 +528,7 @@ class Migrations(unittest.TestCase):
         self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], db.MIGRATIONS[-1][0])
         self.assertEqual(con.execute("SELECT id, text FROM comment").fetchall(), [(7, "kept")])
         self.assertIn("AUTOINCREMENT", con.execute("SELECT sql FROM sqlite_master WHERE name = 'comment'").fetchone()[0])
-        self.assertEqual(con.execute("SELECT source_th, source_commit FROM chapter").fetchone(), ("", ""))
+        self.assertEqual(con.execute("SELECT source, source_commit FROM chapter").fetchone(), ("", ""))
         con.execute("DELETE FROM comment")
         con.execute("INSERT INTO comment (client_id, reader, book, ch, a, kind, text, created, updated)"
                     " VALUES ('c8', 1, 'SC', 'SC01', 'SC 1.1', 'flag', 'new', 'now', 'now')")
@@ -576,15 +598,15 @@ class AdminChapters(Base):
         def para(key, value):
             return lambda ch: ch["paragraphs"][0].__setitem__(key, value)
 
-        cases = [(para("th", "<script>x</script>"), "unsafe_html"),
+        cases = [(para("text", "<script>x</script>"), "unsafe_html"),
                  (para("en", '<p onclick="x">a</p>'), "unsafe_html"),
-                 (para("th", "Thai digit \u0e51"), "forbidden_character"),
+                 (para("text", "Thai digit \u0e51"), "forbidden_character"),
                  (para("fn", ["zero\u200bwidth"]), "forbidden_character"),
                  (para("a", "not an anchor"), "bad_anchor"),
                  (lambda ch: ch["paragraphs"].append(dict(ch["paragraphs"][0])), "bad_anchor"),
                  (lambda ch: ch.update(paragraphs=[]), "bad_paragraphs"),
                  (lambda ch: ch.update(commit="not hex!"), "bad_field"),
-                 (lambda ch: ch.update(title_th=""), "bad_field")]
+                 (lambda ch: ch.update(title=""), "bad_field")]
         for change, error in cases:
             r = put(change)
             self.assertEqual((r.status, r.json["error"]), (400, error), error)
@@ -618,19 +640,19 @@ class RealChapters(unittest.TestCase):
         read = git_reader(REPO)
         for n in SC_COUNTS:
             ch = sc_typst.load_chapter(SC_BOOK, n, read)
-            site.publish(dict({k: ch[k] for k in ("n", "title_th", "title_en", "paragraphs")}, language="th"))
+            site.publish(dict({k: ch[k] for k in ("n", "title", "title_en", "paragraphs")}, language="th"))
         code = site.invite("Translator", ["SC"], english=True)["code"]
         me = site.call("GET", "/api/me", token=code).json
         self.assertEqual(sum(c["paragraphs"] for c in me["chapters"]), 149)
         body = site.call("GET", "/api/chapter/SC/SC03", token=code).json
         self.assertEqual(len(body["paragraphs"]), 37)
         a = body["paragraphs"][0]["a"]
-        words = re.sub(r"<[^>]+>", "", body["paragraphs"][0]["th"]).split()[0]
+        words = re.sub(r"<[^>]+>", "", body["paragraphs"][0]["text"]).split()[0]
         r = site.comment(code, a, ch="SC03", kind="wording", quote=words, text="Try other words")
         self.assertEqual(r.status, 201)
         export = site.admin_call("GET", "/api/admin/export").json["comments"][0]
         self.assertTrue(export["quote_found"])
-        self.assertNotIn("<", export["th"])
+        self.assertNotIn("<", export["paragraph"])
 
 
 if __name__ == "__main__":

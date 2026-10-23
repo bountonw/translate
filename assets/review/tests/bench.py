@@ -48,6 +48,10 @@ def build(data, readers, comments):
     """The data directory: chapters, groups, readers and comments. Returns [(code, [(ch, [anchors])])]."""
     site = Site.__new__(Site)
     token_path, _ = db.setup(data, "https://review.example.org")
+    # The test measures speed, not the limits: a few readers write far more than 10 new comments a minute.
+    cfg = Path(data) / db.CONFIG
+    cfg.write_text(json.dumps(dict(json.loads(cfg.read_text()), limits={
+        "comments_per_minute": 100000, "comments_per_day": 1000000, "writes_per_minute": 100000}), indent=2) + "\n")
     site.data, site.admin = Path(data), token_path.read_text().strip()
     from server.app import App
     site.app = App(data)
@@ -55,7 +59,7 @@ def build(data, readers, comments):
     for n in range(1, 9):
         if REPO:
             ch = parsers.load_chapter(SC_BOOK, n, git_reader(REPO))
-            body = dict({k: ch[k] for k in ("n", "title_th", "title_en", "paragraphs")}, language="th",
+            body = dict({k: ch[k] for k in ("n", "title", "title_en", "paragraphs")}, language="th",
                         commit="abc1234", book_title_en="Steps to Christ")
         else:
             body = sample_chapter(n, count=18)
@@ -105,7 +109,8 @@ class Conn:
         self.c = None
 
     def call(self, method, path, code, body=None, etag=None):
-        headers = {"Authorization": "Bearer " + code}
+        # One device per reader: every reader's link works on the first devices that open it.
+        headers = {"Authorization": "Bearer " + code, "X-Review-Device": "bench-device-0000001"}
         data = None
         if body is not None:
             data = json.dumps(body, ensure_ascii=False).encode()
