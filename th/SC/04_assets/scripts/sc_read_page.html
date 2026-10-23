@@ -1,0 +1,841 @@
+<title>SC Read-through</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one reading column; a chapter shelf at home; a sticky bar that names the chapter and your place. */
+:root {
+  --paper: #f5f7f5; --surface: #ffffff; --ink: #1b2321; --ink-2: #33403c; --muted: #5d6965; --rule: #d9e0dc; --hover: #ecf0ed;
+  --accent: #1b5a84; --accent-ink: #ffffff;
+  --flag: #9a4f0c; --flag-bg: #fbecd9; --mine: #1b5a84; --mine-bg: #e1edf6; --done: #276f45; --done-bg: #dff1e6; --hl: #fff0b8; --mk1: #fff3c4; --mk2: #ffe08a; --here: #e6eff7;
+  --f-th: "Sarabun", "Noto Sans Thai", "Leelawadee UI", "Thonburi", sans-serif;
+  --f-en: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-ui: "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131917; --surface: #1a2220; --ink: #e4eae7; --ink-2: #c3ccc8; --muted: #95a29d; --rule: #2b3532; --hover: #1d2624;
+    --accent: #7db3dc; --accent-ink: #0d1a24;
+    --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220; --mk1: #3a3319; --mk2: #5a4c1c; --here: #1c2a36;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #131917; --surface: #1a2220; --ink: #e4eae7; --ink-2: #c3ccc8; --muted: #95a29d; --rule: #2b3532; --hover: #1d2624;
+  --accent: #7db3dc; --accent-ink: #0d1a24;
+  --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220; --mk1: #3a3319; --mk2: #5a4c1c; --here: #1c2a36;
+  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: 16px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+#app { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px; }
+.wrap { max-width: 40rem; margin: 0 auto; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--rule); margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); }
+.bar .wrap { display: flex; align-items: center; gap: 12px; min-height: 32px; }
+.bar-title { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-place { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.link { background: none; border: 0; padding: 4px 0; color: var(--accent); cursor: pointer; font-weight: 500; }
+.link:hover { text-decoration: underline; }
+
+.notice { margin: 16px auto 0; max-width: 40rem; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink-2); font-size: 15px; }
+
+/* Home */
+.home-head { padding-block: 32px 8px; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 6px 0 8px; text-wrap: balance; font-weight: 600; }
+.lead { color: var(--ink-2); line-height: 1.6; margin: 0; }
+.shelf { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.shelf li { border-bottom: 1px solid var(--rule); }
+.ch-row { display: grid; grid-template-columns: 3.2rem 1fr auto; gap: 4px 12px; align-items: baseline; width: 100%; text-align: left; background: none; border: 0; padding: 14px 4px; cursor: pointer; }
+.ch-row:hover { background: var(--hover); }
+.ch-num { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+.ch-names { min-width: 0; }
+.ch-th { font-family: var(--f-th); font-size: 1.15rem; font-weight: 500; display: block; }
+.ch-en { color: var(--muted); font-size: 14px; display: block; }
+.ch-place { grid-column: 2 / 4; color: var(--muted); font-size: 14px; }
+.chip { display: inline-block; font-size: 13px; line-height: 1; padding: 5px 8px; border-radius: 999px; white-space: nowrap; font-weight: 500; }
+.chip.todo { background: var(--hover); color: var(--muted); }
+.chip.reading { background: var(--mine-bg); color: var(--mine); }
+.chip.done { background: var(--done-bg); color: var(--done); }
+.chip.flag { background: var(--flag-bg); color: var(--flag); }
+.chip.mine { background: var(--mine-bg); color: var(--mine); }
+.source { margin-top: 20px; color: var(--muted); font-size: 13px; }
+
+/* Reader */
+.ch-head { padding-block: 32px 16px; }
+.ch-head h1 { font-family: var(--f-th); font-size: 2rem; }
+.ch-head .ch-en { font-family: var(--f-en); font-size: 1.05rem; font-style: italic; }
+.hint { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+.para { position: relative; margin: 0 -10px; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.para:hover { background: var(--hover); }
+.para.has-notes { box-shadow: inset 3px 0 0 var(--flag); }
+.para.open { background: var(--surface); box-shadow: 0 0 0 1px var(--rule); cursor: default; }
+.para.open.has-notes { box-shadow: 0 0 0 1px var(--rule), inset 3px 0 0 var(--flag); }
+.para.flash { animation: flash 1.6s ease-out; }
+@keyframes flash { from { background: var(--hl); } to { background: transparent; } }
+.th { font-family: var(--f-th); font-size: calc(1.25rem * var(--fs, 1)); line-height: 1.95; margin: 0 0 4px; }
+.picker { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; background: var(--surface); }
+.pick-flow { font-family: var(--f-th); font-size: calc(1.15rem * var(--fs, 1)); line-height: 2.2; margin: 4px 0 0; }
+.pw { cursor: pointer; border-radius: 4px; padding: 3px 0; }
+.pw.on { background: var(--accent); color: var(--accent-ink); }
+.size-btn { min-width: 32px; }
+.sp { position: relative; }
+.show-spaces .th .sp { padding: 0 .08em; }
+.show-spaces .th .sp::after { content: "·"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: .75em; line-height: 1; color: var(--accent); pointer-events: none; }
+mark.mk { background: var(--mk1); color: inherit; border-radius: 2px; padding: 0; }
+mark.mk2 { background: var(--mk2); }
+.para.here { background: var(--here); }
+.th em { font-style: italic; }
+.th sup.fn { font-size: .62em; color: var(--accent); margin: 0 1px; }
+.tag { font-size: .68em; color: var(--muted); white-space: nowrap; margin-left: .35em; font-family: var(--f-ui); }
+.badge { font-size: 12px; color: var(--flag); font-weight: 600; margin-left: .4em; white-space: nowrap; font-family: var(--f-ui); vertical-align: middle; }
+.fns { margin: 0 0 6px; padding-left: 1.6em; font-family: var(--f-th); font-size: .98rem; line-height: 1.7; color: var(--ink-2); }
+.drawer { border-top: 1px dashed var(--rule); margin-top: 8px; padding-top: 12px; display: grid; gap: 14px; cursor: auto; }
+.label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.en { font-family: var(--f-en); font-size: calc(1.02rem * var(--fs, 1)); line-height: 1.62; color: var(--ink-2); }
+.en p { margin: 0 0 .6em; }
+.en p:last-child { margin-bottom: 0; }
+.en .verse { padding-left: 1.2em; font-style: italic; }
+.notes { display: grid; gap: 10px; }
+.note { border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; background: var(--paper); }
+.note-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.note-quote { font-family: var(--f-th); font-size: 1.05rem; color: var(--ink-2); }
+.note-text { font-family: var(--f-th); font-size: 1.05rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note-acts { display: flex; gap: 14px; margin-left: auto; }
+.note-acts .link { font-size: 14px; }
+.note-acts .danger { color: var(--flag); }
+form.note-form { display: grid; gap: 10px; }
+.kinds { display: flex; flex-wrap: wrap; gap: 8px; border: 0; padding: 0; margin: 0; }
+.kinds label { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; font-size: 15px; background: var(--surface); }
+.kinds input { accent-color: var(--accent); margin: 0; }
+.kinds label:has(input:checked) { border-color: var(--accent); background: var(--mine-bg); }
+.field { display: grid; gap: 4px; }
+.field span { font-size: 14px; color: var(--muted); }
+.field input, .field textarea { width: 100%; box-sizing: border-box; font-family: var(--f-th); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; }
+.field textarea { min-height: 5.5em; resize: vertical; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.btn { border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-weight: 500; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.done { border-color: var(--done); background: var(--done); color: var(--surface); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.close-float { position: fixed; z-index: 6; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); box-shadow: 0 2px 10px rgba(0, 0, 0, .2); }
+.status { font-size: 14px; color: var(--muted); }
+.finish { margin-top: 40px; padding: 20px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); display: grid; gap: 12px; }
+.finish h2 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+.finish p { margin: 0; color: var(--ink-2); line-height: 1.55; }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) { .para.flash { animation: none; } }
+@media (max-width: 480px) { .th { font-size: calc(1.15rem * var(--fs, 1)); } h1, .ch-head h1 { font-size: 1.6rem; } .ch-row { grid-template-columns: 2.6rem 1fr auto; } }
+</style>
+
+<div id="app">
+  <header class="bar">
+    <div class="wrap">
+      <button id="home-btn" class="link" type="button" hidden>Chapters</button>
+      <div class="bar-title" id="bar-title">Steps to Christ</div>
+      <div class="bar-place" id="bar-place"></div>
+      <button id="spaces-btn" class="link" type="button" aria-pressed="false">Show spaces</button>
+      <button id="size-down" class="link size-btn" type="button" aria-label="Smaller text">A−</button>
+      <button id="size-up" class="link size-btn" type="button" aria-label="Larger text">A+</button>
+    </div>
+  </header>
+  <div id="notice" class="notice" hidden></div>
+  <button id="close-float" class="btn close-float" type="button" hidden>Close English and notes</button>
+
+  <main id="home" class="wrap">
+    <div class="home-head">
+      <div class="eyebrow">Thai read-through</div>
+      <h1>Steps to Christ</h1>
+      <p class="lead">Read each chapter for flow. Tap a paragraph to see the English and leave a note. Select words first to attach them to the note. The page keeps your place in every chapter.</p>
+    </div>
+    <ul class="shelf" id="shelf"></ul>
+    <p class="source" id="source"></p>
+  </main>
+
+  <main id="reader" class="wrap" hidden></main>
+</div>
+
+<script type="application/json" id="book-data">/*BOOK_DATA*/null</script>
+<script>
+(() => {
+  "use strict";
+  const BOOK = JSON.parse(document.getElementById("book-data").textContent);
+  const CH = new Map(BOOK.chapters.map(c => [c.id, c]));
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const domId = a => a.replace(/[ .]/g, "-");
+
+  const state = { notes: new Map(), progress: new Map(), finished: new Map(), current: null, lastSel: null };
+  let db = null, comments = null;
+
+  // ---------- writes: one at a time per document ----------
+  const chains = new Map();
+  function serial(path, fn) {
+    const prev = chains.get(path) || Promise.resolve();
+    const next = prev.then(fn, fn);
+    chains.set(path, next.catch(() => {}));
+    return next;
+  }
+
+  function showNotice(text) { const n = $("#notice"); n.textContent = text; n.hidden = false; }
+
+  // ---------- home ----------
+  function notesFor(chId) { return [...state.notes.values()].filter(n => n.ch === chId); }
+
+  function renderHome() {
+    const shelf = $("#shelf");
+    shelf.textContent = "";
+    for (const c of BOOK.chapters) {
+      const li = el("li");
+      const b = el("button", "ch-row");
+      b.type = "button";
+      b.addEventListener("click", () => openChapter(c.id, true));
+      b.append(el("span", "ch-num", c.id));
+      const names = el("span", "ch-names");
+      names.append(el("span", "ch-th", c.th), el("span", "ch-en", c.en));
+      b.append(names);
+      const fin = state.finished.get(c.id);
+      const prog = state.progress.get(c.id);
+      let chip;
+      if (fin && fin.done) chip = el("span", "chip done", "Finished");
+      else if (prog) chip = el("span", "chip reading", "Reading");
+      else chip = el("span", "chip todo", "Not started");
+      b.append(chip);
+      const nCount = notesFor(c.id).length;
+      const bits = [];
+      if (prog && !(fin && fin.done)) bits.push(`Your place: {${prog.a}}`);
+      bits.push(`${c.paras.length} paragraphs`);
+      if (nCount) bits.push(nCount === 1 ? "1 note" : `${nCount} notes`);
+      b.append(el("span", "ch-place", bits.join(" · ")));
+      li.append(b);
+      shelf.append(li);
+    }
+    $("#source").textContent = `Text from ${BOOK.ref} at commit ${BOOK.commit}.`;
+  }
+
+  function goHome() {
+    state.current = null;
+    stopTracking();
+    $("#reader").hidden = true;
+    $("#close-float").hidden = true;
+    $("#home").hidden = false;
+    $("#home-btn").hidden = true;
+    $("#bar-title").textContent = "Steps to Christ";
+    $("#bar-place").textContent = "";
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+    renderHome();
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- reader ----------
+  function openChapter(id, resume) {
+    const c = CH.get(id);
+    if (!c) return goHome();
+    state.current = id;
+    $("#home").hidden = true;
+    const r = $("#reader");
+    r.hidden = false;
+    r.textContent = "";
+    $("#close-float").hidden = true;
+    $("#home-btn").hidden = false;
+    $("#bar-title").textContent = `${c.id} · ${c.th}`;
+    try { history.replaceState(null, "", "#" + c.id); } catch (e) {}
+
+    const head = el("div", "ch-head");
+    head.append(el("div", "eyebrow", `Chapter ${c.n}`));
+    const h = el("h1", null, c.th);
+    head.append(h, el("span", "ch-en", c.en));
+    head.append(el("p", "hint", "Tap a paragraph to see the English and leave a note."));
+    r.append(head);
+
+    for (const p of c.paras) r.append(renderPara(c, p));
+    r.append(renderFinish(c));
+    if (!(resume && jumpToPlace(id))) { markJump(); window.scrollTo(0, 0); }
+    const prog = state.progress.get(id);
+    $("#bar-place").textContent = prog ? `{${prog.a}}` : "";
+    startTracking();
+  }
+
+  // Your place is recorded only after you scroll yourself, never from a jump the page made.
+  let jumpedAt = 0, armed = false;
+  function markJump() { jumpedAt = Date.now(); armed = false; }
+  window.addEventListener("scroll", () => { if (Date.now() - jumpedAt > 800) armed = true; }, { passive: true });
+
+  function jumpToPlace(id) {
+    const c = CH.get(id), prog = state.progress.get(id);
+    if (!c || !prog || prog.a === c.paras[0].a) return false;
+    const t = document.getElementById(domId(prog.a));
+    if (!t) return false;
+    markJump();
+    t.scrollIntoView({ block: "start" });
+    window.scrollBy(0, -70);
+    flash(t);
+    $("#bar-place").textContent = `{${prog.a}}`;
+    return true;
+  }
+
+  function flash(node) { node.classList.remove("flash"); void node.offsetWidth; node.classList.add("flash"); }
+
+  // Each space in the Thai sits in its own span, so "Show spaces" can put a faint dot on it, even at a line end.
+  function markSpaces(root) {
+    const walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walk.nextNode()) if (walk.currentNode.nodeValue.includes(" ")) nodes.push(walk.currentNode);
+    for (const n of nodes) {
+      const frag = document.createDocumentFragment();
+      n.nodeValue.split(" ").forEach((part, i) => {
+        if (i) frag.append(el("span", "sp", " "));
+        if (part) frag.append(document.createTextNode(part));
+      });
+      n.replaceWith(frag);
+    }
+  }
+  function setSpaces(on) {
+    document.body.classList.toggle("show-spaces", on);
+    const b = $("#spaces-btn");
+    b.textContent = on ? "Hide spaces" : "Show spaces";
+    b.setAttribute("aria-pressed", String(on));
+  }
+  let spacesOn = false;
+  try { spacesOn = localStorage.getItem("scread.spaces") === "1"; } catch (e) {}
+  setSpaces(spacesOn);
+  $("#spaces-btn").addEventListener("click", () => {
+    spacesOn = !spacesOn;
+    setSpaces(spacesOn);
+    try { localStorage.setItem("scread.spaces", spacesOn ? "1" : "0"); } catch (e) {}
+  });
+
+  // Text size for the Thai and the English, remembered on this device.
+  const SIZES = [0.85, 1, 1.15, 1.3, 1.5];
+  let sizeAt = 1;
+  try { const v = Number(localStorage.getItem("scread.size")); if (SIZES.indexOf(v) >= 0) sizeAt = SIZES.indexOf(v); } catch (e) {}
+  function setSize(i) {
+    sizeAt = Math.max(0, Math.min(SIZES.length - 1, i));
+    document.documentElement.style.setProperty("--fs", String(SIZES[sizeAt]));
+    $("#size-down").disabled = sizeAt === 0;
+    $("#size-up").disabled = sizeAt === SIZES.length - 1;
+    try { localStorage.setItem("scread.size", String(SIZES[sizeAt])); } catch (e) {}
+  }
+  setSize(sizeAt);
+  $("#size-down").addEventListener("click", () => setSize(sizeAt - 1));
+  $("#size-up").addEventListener("click", () => setSize(sizeAt + 1));
+
+  // On a phone, dragging across Thai to select often fails, so the reader can tap the first and the last word instead.
+  function plainThai(p) {
+    const d = document.createElement("div");
+    d.innerHTML = p.th;
+    for (const s of d.querySelectorAll("sup")) s.remove();
+    return d.textContent;
+  }
+  function buildPicker(box, p, qi) {
+    const text = plainThai(p);
+    const words = [];
+    if (window.Intl && Intl.Segmenter) {
+      for (const s of new Intl.Segmenter("th", { granularity: "word" }).segment(text)) words.push({ t: s.segment, at: s.index, word: s.isWordLike });
+    } else {
+      let at = 0;
+      for (const t of text.split(/(\s+)/)) { if (t) words.push({ t, at, word: /\S/.test(t) }); at += t.length; }
+    }
+    box.append(el("p", "label", "Tap the first word, then the last word. Tap again to start over."));
+    const flow = el("p", "pick-flow");
+    const spans = [];
+    let start = null, done = false;
+    words.forEach((w, i) => {
+      const s = el("span", w.word ? "pw" : null, w.t);
+      spans.push(s);
+      flow.append(s);
+      if (!w.word) return;
+      s.addEventListener("click", () => {
+        if (start === null || done) {
+          for (const x of spans) x.classList.remove("on");
+          start = i; done = false;
+          s.classList.add("on");
+          qi.value = w.t;
+          qi.dataset.at = String(w.at);
+        } else {
+          const a = Math.min(start, i), b = Math.max(start, i);
+          for (let k = a; k <= b; k++) spans[k].classList.add("on");
+          done = true;
+          qi.value = text.slice(words[a].at, words[b].at + words[b].t.length).trim();
+          qi.dataset.at = String(words[a].at);
+        }
+        delete qi.dataset.auto;
+      });
+    });
+    box.append(flow);
+  }
+
+  function renderPara(c, p) {
+    const art = el("article", "para");
+    art.id = domId(p.a);
+    art.dataset.a = p.a;
+    const th = el("p", "th");
+    th.innerHTML = p.th;
+    markSpaces(th);
+    const tag = el("span", "tag", `{${p.a}}`);
+    th.append(tag);
+    const badge = el("span", "badge");
+    th.append(badge);
+    art.append(th);
+    if (p.fn.length) {
+      const ol = el("ol", "fns");
+      for (const f of p.fn) { const li = el("li"); li.innerHTML = f; ol.append(li); }
+      art.append(ol);
+    }
+    art.addEventListener("click", ev => {
+      if (ev.target.closest(".drawer")) return;
+      const sel = selectionIn(art);
+      if (!art.classList.contains("open")) openDrawer(c, p, art, sel);
+      else if (sel) fillQuote(art, sel);
+      else closeDrawer(art);
+    });
+    paintPara(art);
+    return art;
+  }
+
+  // The selected words and where they start in the paragraph's reading text, which leaves out footnote
+  // numbers, the tag and the badge, so a word that occurs twice is noted where the reader selected it.
+  function readingText(frag) { for (const x of frag.querySelectorAll("sup, .tag, .badge")) x.remove(); return frag.textContent; }
+  function selectionAt(art, s) {
+    const th = $(".th", art);
+    if (!th || !s.rangeCount) return null;
+    const r = s.getRangeAt(0);
+    if (!th.contains(r.startContainer) || !th.contains(r.endContainer)) return null;
+    const raw = readingText(r.cloneContents());
+    const text = raw.trim();
+    if (!text) return null;
+    const pre = document.createRange();
+    pre.setStart(th, 0);
+    pre.setEnd(r.startContainer, r.startOffset);
+    return { text, at: readingText(pre.cloneContents()).length + (raw.length - raw.trimStart().length) };
+  }
+  function selectionIn(art) {
+    const s = window.getSelection && window.getSelection();
+    if (s && !s.isCollapsed) { const got = selectionAt(art, s); if (got) return got; }
+    if (state.lastSel && state.lastSel.a === art.dataset.a && Date.now() - state.lastSel.t < 90000) return state.lastSel;
+    return null;
+  }
+  document.addEventListener("selectionchange", () => {
+    const s = window.getSelection();
+    if (!s || s.isCollapsed) return;
+    const node = s.anchorNode && (s.anchorNode.nodeType === 1 ? s.anchorNode : s.anchorNode.parentElement);
+    const art = node && node.closest && node.closest(".para");
+    if (!art || node.closest(".drawer")) return;
+    const got = selectionAt(art, s);
+    if (!got) return;
+    state.lastSel = { a: art.dataset.a, text: got.text, at: got.at, t: Date.now() };
+    // With the paragraph's box open, a new selection fills the quoted words without a further tap.
+    // With it closed, a selection that rests for a moment opens the box with those words, because on a
+    // phone the tap that would open it also clears the selection.
+    clearTimeout(selTimer);
+    if (art.classList.contains("open")) { selTimer = setTimeout(() => fillQuote(art, got), 350); return; }
+    selTimer = setTimeout(() => {
+      const now = window.getSelection();
+      if (!now || now.isCollapsed || art.classList.contains("open")) return;
+      const c = CH.get(state.current);
+      const p = c && c.paras.find(x => x.a === art.dataset.a);
+      if (p) openDrawer(c, p, art, got);
+    }, 700);
+  });
+  let selTimer = 0;
+
+  // A soft background marks the words a note quotes; words that two or more notes quote get a deeper one.
+  function markNotes(art) {
+    const th = $(".th", art);
+    if (!th) return;
+    for (const m of th.querySelectorAll("mark.mk")) m.replaceWith(...m.childNodes);
+    th.normalize();
+    const nodes = [];
+    let text = "";
+    const walk = document.createTreeWalker(th, NodeFilter.SHOW_TEXT,
+      { acceptNode: n => n.parentElement.closest("sup, .tag, .badge") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+    while (walk.nextNode()) { nodes.push({ n: walk.currentNode, at: text.length }); text += walk.currentNode.nodeValue; }
+    const count = new Array(text.length).fill(0);
+    const ns = [];
+    for (let i = 0; i < text.length; i++) if (!/\s/.test(text[i])) ns.push(i);
+    const bare = ns.map(i => text[i]).join("");
+    for (const n of state.notes.values()) {
+      if (n.a !== art.dataset.a || !n.quote) continue;
+      let from, to;
+      if (typeof n.at === "number" && text.substr(n.at, n.quote.length) === n.quote) {
+        from = n.at; to = n.at + n.quote.length - 1;
+      } else {
+        const q = n.quote.replace(/\s+/g, "");
+        const k = q ? bare.indexOf(q) : -1;
+        if (k < 0) continue;
+        from = ns[k]; to = ns[k + q.length - 1];
+      }
+      for (let i = from; i <= to; i++) count[i]++;
+    }
+    for (let j = nodes.length - 1; j >= 0; j--) {
+      const { n, at } = nodes[j];
+      let i = n.nodeValue.length;
+      while (i > 0) {
+        const c = count[at + i - 1];
+        let s = i - 1;
+        while (s > 0 && count[at + s - 1] === c) s--;
+        if (c > 0) {
+          const run = n.splitText(s);
+          run.splitText(i - s);
+          const m = el("mark", c > 1 ? "mk mk2" : "mk");
+          run.replaceWith(m);
+          m.append(run);
+        }
+        i = s;
+      }
+    }
+  }
+
+  function paintPara(art) {
+    markNotes(art);
+    const list = [...state.notes.values()].filter(n => n.a === art.dataset.a);
+    art.classList.toggle("has-notes", list.length > 0);
+    const badge = $(".badge", art);
+    if (badge) badge.textContent = list.length ? (list.length === 1 ? "1 note" : `${list.length} notes`) : "";
+    const box = $(".notes", art);
+    if (box) renderNoteList(art, box, list);
+  }
+
+  function openDrawer(c, p, art, quote) {
+    // Closing another drawer above this paragraph must not move this one.
+    const before = art.getBoundingClientRect().top;
+    for (const o of document.querySelectorAll(".para.open")) if (o !== art) closeDrawer(o, false);
+    const moved = art.getBoundingClientRect().top - before;
+    if (moved) { markJump(); window.scrollBy(0, moved); }
+    art.dataset.openTop = String(art.getBoundingClientRect().top);
+    for (const x of document.querySelectorAll(".para.here")) x.classList.remove("here");
+    art.classList.add("open");
+    $("#close-float").hidden = false;
+    const d = el("div", "drawer");
+    const enWrap = el("div");
+    enWrap.append(el("p", "label", "English"));
+    const en = el("div", "en");
+    en.innerHTML = p.en;
+    enWrap.append(en);
+    d.append(enWrap);
+
+    const notesWrap = el("div");
+    notesWrap.append(el("p", "label", "Notes on this paragraph"));
+    const box = el("div", "notes");
+    notesWrap.append(box);
+    d.append(notesWrap);
+
+    d.append(noteForm(c, p, art, null, quote));
+    art.append(d);
+    paintPara(art);
+    state.lastSel = null;
+  }
+
+  // Closing puts the paragraph back where it stood on screen when its drawer opened,
+  // so the reader is not left several paragraphs further on.
+  function closeDrawer(art, restore = true) {
+    art.classList.remove("open");
+    const d = $(".drawer", art);
+    if (d) d.remove();
+    $("#close-float").hidden = !document.querySelector(".para.open");
+    const was = Number(art.dataset.openTop);
+    delete art.dataset.openTop;
+    if (!restore || !d || isNaN(was)) return;
+    const moved = art.getBoundingClientRect().top - was;
+    if (moved) { markJump(); window.scrollBy(0, moved); }
+    // The paragraph keeps a soft background until another box opens, so the reader sees where they were.
+    art.classList.add("here");
+    flash(art);
+  }
+
+  // Words selected later replace words the page filled in, never words the reader typed.
+  function fillQuote(art, sel) {
+    const q = $("form.note-form input[name=quote]", art);
+    if (q && (!q.value || q.value === q.dataset.auto)) { q.value = sel.text; q.dataset.auto = sel.text; q.dataset.at = String(sel.at); }
+  }
+  $("#close-float").addEventListener("click", () => {
+    const open = document.querySelector(".para.open");
+    if (open) closeDrawer(open);
+  });
+
+  let formSeq = 0;
+  function noteForm(c, p, art, note, quote) {
+    const f = el("form", "note-form");
+    const seq = ++formSeq;
+    const kinds = el("fieldset", "kinds");
+    const legend = el("legend", "label", note ? "Edit note" : "Add a note");
+    legend.style.marginBottom = "6px";
+    kinds.append(legend);
+    const mk = (val, text) => {
+      const l = el("label");
+      const i = el("input");
+      i.type = "radio"; i.name = "kind"; i.value = val; i.id = `kind-${seq}-${val}`;
+      i.checked = (note ? note.kind : "flag") === val;
+      l.htmlFor = i.id;
+      l.append(i, document.createTextNode(text));
+      return l;
+    };
+    kinds.append(mk("flag", "Flag it: Claude proposes wording"), mk("wording", "My wording: goes in as written"));
+    f.append(kinds);
+
+    const qf = el("label", "field");
+    qf.append(el("span", null, "Words in question (optional for a flag)"));
+    const qi = el("input");
+    qi.name = "quote"; qi.id = `quote-${seq}`; qi.autocomplete = "off";
+    qi.value = note ? (note.quote || "") : (quote ? quote.text : "");
+    if (!note && quote) { qi.dataset.auto = quote.text; qi.dataset.at = String(quote.at); }
+    if (note && typeof note.at === "number") qi.dataset.at = String(note.at);
+    qi.addEventListener("input", () => { delete qi.dataset.at; delete qi.dataset.auto; });
+    qf.append(qi);
+    const pickBtn = el("button", "link", "Pick the words by tapping");
+    pickBtn.type = "button";
+    const picker = el("div", "picker");
+    picker.hidden = true;
+    pickBtn.addEventListener("click", () => {
+      picker.hidden = !picker.hidden;
+      if (!picker.hidden && !picker.firstChild) buildPicker(picker, p, qi);
+    });
+    f.append(qf, pickBtn, picker);
+
+    const tf = el("label", "field");
+    const tl = el("span");
+    const ti = el("textarea");
+    ti.name = "text"; ti.id = `text-${seq}`;
+    ti.value = note ? note.text : "";
+    tf.append(tl, ti);
+    f.append(tf);
+    const relabel = () => {
+      const k = f.elements.kind.value;
+      tl.textContent = k === "wording" ? "Your wording for the words in question" : "What is wrong, in a few words";
+      qf.firstChild.textContent = k === "wording" ? "Words to replace" : "Words in question (optional for a flag)";
+    };
+    f.addEventListener("change", relabel);
+    relabel();
+
+    const row = el("div", "row");
+    const save = el("button", "btn", note ? "Save changes" : "Save note");
+    save.type = "submit";
+    const cancel = el("button", "btn ghost", note ? "Cancel" : "Close");
+    cancel.type = "button";
+    const status = el("span", "status");
+    row.append(save, cancel, status);
+    f.append(row);
+    if (!db) { save.disabled = true; status.textContent = "Notes cannot be saved in this view."; }
+
+    cancel.addEventListener("click", () => {
+      if (note) f.replaceWith(noteForm(c, p, art, null, null));
+      else closeDrawer(art);
+    });
+    f.addEventListener("submit", async ev => {
+      ev.preventDefault();
+      const kind = f.elements.kind.value;
+      const text = ti.value.trim();
+      const q = qi.value.trim();
+      const at = q && qi.dataset.at !== undefined ? Number(qi.dataset.at) : null;
+      if (!text) { status.textContent = kind === "wording" ? "Type your wording first." : "Say what is wrong first."; ti.focus(); return; }
+      if (kind === "wording" && !q) { status.textContent = "Name the words to replace, or select them in the paragraph."; qi.focus(); return; }
+      if (!db) return;
+      save.disabled = true;
+      status.textContent = "Saving…";
+      const now = Date.now();
+      try {
+        if (note) {
+          const ref = db.collection("notes").doc(note.id);
+          await serial(ref.path, () => ref.update({ kind, quote: q, at, text, updated: now }));
+        } else {
+          const ref = db.collection("notes").doc();
+          await serial(ref.path, () => ref.set({ ch: c.id, a: p.a, kind, quote: q, at, text, created: now, updated: now, processed: false }));
+        }
+        f.replaceWith(noteForm(c, p, art, null, null));
+      } catch (e) {
+        save.disabled = false;
+        status.textContent = `Not saved (${e && e.code ? e.code : "error"}). Your text is still here; try Save again.`;
+      }
+    });
+    return f;
+  }
+
+  function renderNoteList(art, box, list) {
+    box.textContent = "";
+    if (!list.length) { box.append(el("p", "status", "No notes yet.")); return; }
+    list.sort((x, y) => x.created - y.created);
+    const c = CH.get(state.current);
+    const p = c && c.paras.find(x => x.a === art.dataset.a);
+    for (const n of list) {
+      const card = el("div", "note");
+      const top = el("div", "note-top");
+      top.append(el("span", n.kind === "wording" ? "chip mine" : "chip flag", n.kind === "wording" ? "My wording" : "Flag"));
+      if (n.processed) top.append(el("span", "chip done", "Marker written"));
+      const acts = el("span", "note-acts");
+      const edit = el("button", "link", "Edit");
+      edit.type = "button";
+      edit.addEventListener("click", () => {
+        const f = $("form.note-form", art);
+        if (f && p) f.replaceWith(noteForm(c, p, art, n, null));
+      });
+      const del = el("button", "link danger", "Delete");
+      del.type = "button";
+      del.addEventListener("click", async () => {
+        if (del.dataset.armed !== "1") { del.dataset.armed = "1"; del.textContent = "Tap again to delete"; setTimeout(() => { del.dataset.armed = ""; del.textContent = "Delete"; }, 4000); return; }
+        del.disabled = true;
+        const ref = db.collection("notes").doc(n.id);
+        try { await serial(ref.path, () => ref.delete()); } catch (e) { del.disabled = false; del.textContent = "Not deleted; tap again"; }
+      });
+      if (db) acts.append(edit, del);
+      top.append(acts);
+      card.append(top);
+      if (n.quote) card.append(el("div", "note-quote", (n.kind === "wording" ? "Replace: " : "") + "“" + n.quote + "”"));
+      card.append(el("div", "note-text", n.text));
+      box.append(card);
+    }
+  }
+
+  // ---------- finished button ----------
+  function renderFinish(c) {
+    const box = el("section", "finish");
+    box.id = "finish";
+    const fin = state.finished.get(c.id);
+    const done = fin && fin.done;
+    const n = notesFor(c.id).length;
+    box.append(el("h2", null, done ? `${c.id} is finished` : `Finished reading ${c.id}?`));
+    box.append(el("p", null, done
+      ? `Marked finished on ${new Date(fin.at).toLocaleDateString()}. ${n === 1 ? "1 note" : n + " notes"} on this chapter.`
+      : `Press the button when you have read the whole chapter. Claude then turns your ${n === 1 ? "1 note" : n + " notes"} into markers in the chapter on the SC-read branch.`));
+    const row = el("div", "row");
+    const btn = el("button", done ? "btn ghost" : "btn done", done ? "Mark as not finished" : `Finished ${c.id}`);
+    btn.type = "button";
+    const status = el("span", "status");
+    row.append(btn, status);
+    box.append(row);
+    if (!db) { btn.disabled = true; status.textContent = "This view cannot save."; }
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      const ref = db.collection("chapters").doc(c.id);
+      const now = Date.now();
+      try {
+        await serial(ref.path, () => ref.set({ done: !done, at: now }));
+      } catch (e) {
+        btn.disabled = false;
+        status.textContent = `Not saved (${e && e.code ? e.code : "error"}). Try again.`;
+        return;
+      }
+      if (done) return;
+      status.textContent = await sendToClaude(c.id, btn);
+    });
+    const pager = el("div", "pager");
+    const idx = BOOK.chapters.findIndex(x => x.id === c.id);
+    const prev = BOOK.chapters[idx - 1], next = BOOK.chapters[idx + 1];
+    if (prev) { const b = el("button", "link", `← ${prev.id} ${prev.th}`); b.type = "button"; b.addEventListener("click", () => openChapter(prev.id, true)); pager.append(b); } else pager.append(el("span"));
+    if (next) { const b = el("button", "link", `${next.id} ${next.th} →`); b.type = "button"; b.addEventListener("click", () => openChapter(next.id, true)); pager.append(b); }
+    box.append(pager);
+    return box;
+  }
+
+  async function sendToClaude(id, anchorEl) {
+    const fallback = `Recorded. Type “read ${id}” in Claude Code to process the notes.`;
+    try {
+      if (!comments) comments = await window.claude.use("comments");
+      if (!comments) return fallback;
+      const can = await comments.canSendToClaude();
+      if (can !== "available") return fallback;
+      const anchor = await comments.anchorFor(anchorEl);
+      await comments.sendToClaude({ anchor, text: `read ${id}` });
+      return `Recorded and sent to Claude: “read ${id}”.`;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function refreshFinish() {
+    if (!state.current) return;
+    const old = $("#finish");
+    if (old) old.replaceWith(renderFinish(CH.get(state.current)));
+  }
+
+  // ---------- your place ----------
+  let observer = null, placeTimer = null, pendingPlace = null;
+  function startTracking() {
+    stopTracking();
+    observer = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (!e.isIntersecting || !armed) continue;
+        const a = e.target.dataset.a;
+        $("#bar-place").textContent = `{${a}}`;
+        pendingPlace = { ch: state.current, a };
+        clearTimeout(placeTimer);
+        placeTimer = setTimeout(savePlace, 2500);
+      }
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    for (const p of document.querySelectorAll("#reader .para")) observer.observe(p);
+  }
+  function stopTracking() {
+    if (observer) observer.disconnect();
+    observer = null;
+    if (pendingPlace) savePlace();
+  }
+  async function savePlace() {
+    clearTimeout(placeTimer);
+    const p = pendingPlace;
+    pendingPlace = null;
+    if (!p || !db) return;
+    const prev = state.progress.get(p.ch);
+    if (prev && prev.a === p.a) return;
+    state.progress.set(p.ch, { a: p.a, at: Date.now() });
+    const ref = db.collection("progress").doc(p.ch);
+    try { await serial(ref.path, () => ref.set({ a: p.a, at: Date.now() })); } catch (e) {}
+  }
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && pendingPlace) savePlace(); });
+
+  // ---------- store ----------
+  function repaintAll() {
+    if (state.current) {
+      for (const art of document.querySelectorAll("#reader .para")) paintPara(art);
+      refreshFinish();
+    } else {
+      renderHome();
+    }
+  }
+
+  async function connect() {
+    try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+    if (!db) {
+      showNotice("Notes and your place are not saved in this view. Open the page on claude.ai while signed in to save them.");
+      for (const b of document.querySelectorAll("form.note-form button[type=submit], .finish .btn")) b.disabled = true;
+      return;
+    }
+    for (const f of document.querySelectorAll("form.note-form")) {
+      f.querySelector("button[type=submit]").disabled = false;
+      f.querySelector(".status").textContent = "";
+    }
+    refreshFinish();
+    const err = e => showNotice(`The notes store stopped answering (${e && e.code ? e.code : "error"}). Reload the page.`);
+    let firstPlace = true;
+    db.collection("notes").onSnapshot(snap => {
+      state.notes = new Map(snap.docs.map(d => [d.id, { id: d.id, ...d.data() }]));
+      repaintAll();
+    }, err);
+    db.collection("progress").onSnapshot(snap => {
+      for (const d of snap.docs) {
+        const v = d.data();
+        const mine = state.progress.get(d.id);
+        if (!mine || (v.at || 0) >= (mine.at || 0)) state.progress.set(d.id, v);
+      }
+      // A chapter opened by link before the store answered jumps to your place once it arrives, unless you have scrolled.
+      if (firstPlace) {
+        firstPlace = false;
+        if (state.current && !armed) jumpToPlace(state.current);
+      }
+      if (!state.current) renderHome();
+    }, err);
+    db.collection("chapters").onSnapshot(snap => {
+      state.finished = new Map(snap.docs.map(d => [d.id, d.data()]));
+      repaintAll();
+    }, err);
+  }
+
+  $("#home-btn").addEventListener("click", goHome);
+  renderHome();
+  const start = (location.hash || "").slice(1);
+  if (CH.has(start)) openChapter(start, true);
+  connect();
+})();
+</script>

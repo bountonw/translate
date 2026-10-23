@@ -43,3 +43,33 @@ The larger question the quest should answer is whether the two projects keep sep
 Order matters here. SC goes to print first and has a worktree already started, so SC is where the work lands and is proved. SJ has the larger dictionary and is the better source to merge from.
 
 Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/GC/04_assets/scripts/` is what produced the file and shows how each boundary was decided. Small if the two dictionaries stay separate, medium if they are merged.
+
+## 17. Rebuild the SC break dictionary after the SC09–SC13 qa2 and qa3 rounds
+
+th/SC/04_assets/template/dictionary.typ is stale against th/assets/typeset/thai-breaks.txt and the SC chapters as they now stand, so the resolution sheet of every SC round prints a FAIL line for it. The translator ruled that it is rebuilt once the qa2 and qa3 rounds of SC09 to SC13 are done, with python3 th/assets/scripts/build_breaks.py --book SC. Until then the sheet's stale-dictionary line and the rebuild in the check step, th/SC/CLAUDE.md 5.B, are left alone and reported as this entry.
+
+Detail: this entry. Small.
+
+## 18. Retire the temporary claude.ai reading page
+
+The translator reads SC01 to SC08 for flow on a private claude.ai page until the proofreader site carries his reading: https://claude.ai/artifact/2V3onQqicn2FdzgPvNnMvG. His notes, his place in each chapter and his finished marks are kept in that page's own database, in the collections notes, progress and chapters, and Claude reads them with the ArtifactData tool. th/SC/04_assets/scripts/sc_read_page.py on SC-read rebuilds the page. When the proofreader site replaces it, move every note on the page to the site, as the translator's comments: notes already processed go into an archived earlier round, kept but never marked again, and the rest arrive as open comments; his place and finished marks move too. Then delete the page and this entry.
+
+Detail: this entry. Small.
+
+## 19. Put the proofreader site live
+
+The proofreader site gives each reader a personal link to read chapters and comment by paragraph; each reader sees only their own comments. It is built on SC-review under assets/review/. Going live on the droplet (Debian 13, Apache 2.4, Python 3.13.5) needs a DNS A record for review.laoegw.com, the commands in assets/review/deploy/DEPLOY.md and certbot for HTTPS. Claude walks the translator through each step. The translator ruled that the admin token is kept only in ~/.config/review/admin-token on his computer, where no Claude session can read it, so he runs the site's commands himself; at that step Claude reminds him of this and gives him the commands that set it up. He also ruled that admin commands reach the live site only through SSH, which review.py opens itself, and that Apache refuses /api/admin/ from the internet.
+
+Detail: assets/review/README.md and assets/review/deploy/DEPLOY.md. Medium.
+
+## 20. A readability round for the proofreader site
+
+Reviewers who play an outside code reviewer meeting the code for the first time judge how the code under assets/review/ on SC-review is structured, how its functions and parameters are named, and how much documentation it carries, and propose changes that let such a reviewer follow it without confusion and without wading through more documentation than the code needs. The changes keep every behaviour and every test. The round also rewrites assets/review/README.md so that it says, in plain words, only what the translator needs to run and use the site; detail meant for agents moves to EXTENDING.md or into the code. The section "The translator's rulings" stays. The round runs after the panel round and the remaining round 4 items.
+
+Detail: this entry. Medium.
+
+## 21. Grow the proofreader site into a translation suite
+
+The translator's goal is one system for the whole translation. An editor and the translator work on one file over several turns: the editor comments, the translator processes the comments, both discuss them, and the translator then commits the result to a branch. The QA rounds and raw-translation rounds now run in this repository, such as th/SC's qa1 to qa3 and th/DA's drafting, also run in it. The proofreader site under assets/review/ on SC-review is the base, and every round of it is built so that these additions stay possible.
+
+Detail: this entry, and the last line of "The translator's rulings" in assets/review/README.md. Large.
