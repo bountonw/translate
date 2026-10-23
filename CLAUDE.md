@@ -5,9 +5,10 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 ## 1. Report shape
 
 1.A. A report is the detail section, then the summary list in full at the bottom.
-1.B. The summary list is one line per item, grouped FIX, DECIDE, NOTE, RESOLVED. Each line carries the number and label in bold, the reference that locates the item — a paragraph anchor, a marker number, or a path and line for code and governing files — and what changes, in one short sentence. A DECIDE line ends with the recommended option. Anchored prose is located by its anchor, never by a line number.
+1.B. The summary list is one line per item, grouped FIX, DECIDE, NOTE, RESOLVED. Each line carries the number and label in bold, the reference that locates the item — a paragraph anchor, a marker number, or a path and line for code and governing files — and what changes, in one short sentence. A DECIDE line ends with the recommended option. A blank line stands before every numbered line, in the summary list as in the detail section, so that each number is easy to find. Anchored prose is located by its anchor, never by a line number.
 
     **1. FIX** {SC 13.1} — the footnote cites Luke 21:39–45; Luke 21 has 38 verses.
+
     **2. DECIDE** th/assets/translation_profile/thai-glossary.txt:14 — the trial row keeps การทดสอบ or adds ความยากลำบาก; I recommend adding.
 
 1.C. Name the subject on every line and state the change itself. Never write "it", "several" or a bare label where the subject's name belongs.
