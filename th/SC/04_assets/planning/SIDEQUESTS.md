@@ -52,7 +52,7 @@ Detail: this entry. Small.
 
 ## 18. Retire the temporary claude.ai reading page
 
-The translator reads SC01 to SC08 for flow on a private claude.ai page until the proofreader site carries his reading: https://claude.ai/artifact/2V3onQqicn2FdzgPvNnMvG. His notes, his place in each chapter and his finished marks are kept in that page's own database, in the collections notes, progress and chapters, and Claude reads them with the ArtifactData tool. th/SC/04_assets/scripts/sc_read_page.py on SC-read rebuilds the page. When the proofreader site replaces it, process or move every note still on the page, then delete the page and this entry.
+The translator reads SC01 to SC08 for flow on a private claude.ai page until the proofreader site carries his reading: https://claude.ai/artifact/2V3onQqicn2FdzgPvNnMvG. His notes, his place in each chapter and his finished marks are kept in that page's own database, in the collections notes, progress and chapters, and Claude reads them with the ArtifactData tool. th/SC/04_assets/scripts/sc_read_page.py on SC-read rebuilds the page. When the proofreader site replaces it, move every note on the page to the site, as the translator's comments: notes already processed go into an archived earlier round, kept but never marked again, and the rest arrive as open comments; his place and finished marks move too. Then delete the page and this entry.
 
 Detail: this entry. Small.
 

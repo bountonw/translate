@@ -8,7 +8,7 @@
 :root {
   --paper: #f5f7f5; --surface: #ffffff; --ink: #1b2321; --ink-2: #33403c; --muted: #5d6965; --rule: #d9e0dc; --hover: #ecf0ed;
   --accent: #1b5a84; --accent-ink: #ffffff;
-  --flag: #9a4f0c; --flag-bg: #fbecd9; --mine: #1b5a84; --mine-bg: #e1edf6; --done: #276f45; --done-bg: #dff1e6; --hl: #fff0b8;
+  --flag: #9a4f0c; --flag-bg: #fbecd9; --mine: #1b5a84; --mine-bg: #e1edf6; --done: #276f45; --done-bg: #dff1e6; --hl: #fff0b8; --mk1: #fff3c4; --mk2: #ffe08a; --here: #e6eff7;
   --f-th: "Sarabun", "Noto Sans Thai", "Leelawadee UI", "Thonburi", sans-serif;
   --f-en: "Source Serif 4", Georgia, "Times New Roman", serif;
   --f-ui: "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -17,14 +17,14 @@
   :root:not([data-theme="light"]) {
     --paper: #131917; --surface: #1a2220; --ink: #e4eae7; --ink-2: #c3ccc8; --muted: #95a29d; --rule: #2b3532; --hover: #1d2624;
     --accent: #7db3dc; --accent-ink: #0d1a24;
-    --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220;
+    --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220; --mk1: #3a3319; --mk2: #5a4c1c; --here: #1c2a36;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #131917; --surface: #1a2220; --ink: #e4eae7; --ink-2: #c3ccc8; --muted: #95a29d; --rule: #2b3532; --hover: #1d2624;
   --accent: #7db3dc; --accent-ink: #0d1a24;
-  --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220;
+  --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b; --done: #6cc08b; --done-bg: #183026; --hl: #4a4220; --mk1: #3a3319; --mk2: #5a4c1c; --here: #1c2a36;
   color-scheme: dark;
 }
 body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: 16px; }
@@ -77,9 +77,18 @@ h1 { font-size: 1.9rem; line-height: 1.25; margin: 6px 0 8px; text-wrap: balance
 .para.open.has-notes { box-shadow: 0 0 0 1px var(--rule), inset 3px 0 0 var(--flag); }
 .para.flash { animation: flash 1.6s ease-out; }
 @keyframes flash { from { background: var(--hl); } to { background: transparent; } }
-.th { font-family: var(--f-th); font-size: 1.25rem; line-height: 1.95; margin: 0 0 4px; }
+.th { font-family: var(--f-th); font-size: calc(1.25rem * var(--fs, 1)); line-height: 1.95; margin: 0 0 4px; }
+.picker { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; background: var(--surface); }
+.pick-flow { font-family: var(--f-th); font-size: calc(1.15rem * var(--fs, 1)); line-height: 2.2; margin: 4px 0 0; }
+.pw { cursor: pointer; border-radius: 4px; padding: 3px 0; }
+.pw.on { background: var(--accent); color: var(--accent-ink); }
+.size-btn { min-width: 32px; }
 .sp { position: relative; }
-.show-spaces .th .sp::after { content: "·"; position: absolute; left: 50%; top: -.1em; transform: translateX(-50%); color: var(--accent); font-weight: 700; pointer-events: none; }
+.show-spaces .th .sp { padding: 0 .08em; }
+.show-spaces .th .sp::after { content: "·"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: .75em; line-height: 1; color: var(--accent); pointer-events: none; }
+mark.mk { background: var(--mk1); color: inherit; border-radius: 2px; padding: 0; }
+mark.mk2 { background: var(--mk2); }
+.para.here { background: var(--here); }
 .th em { font-style: italic; }
 .th sup.fn { font-size: .62em; color: var(--accent); margin: 0 1px; }
 .tag { font-size: .68em; color: var(--muted); white-space: nowrap; margin-left: .35em; font-family: var(--f-ui); }
@@ -87,7 +96,7 @@ h1 { font-size: 1.9rem; line-height: 1.25; margin: 6px 0 8px; text-wrap: balance
 .fns { margin: 0 0 6px; padding-left: 1.6em; font-family: var(--f-th); font-size: .98rem; line-height: 1.7; color: var(--ink-2); }
 .drawer { border-top: 1px dashed var(--rule); margin-top: 8px; padding-top: 12px; display: grid; gap: 14px; cursor: auto; }
 .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
-.en { font-family: var(--f-en); font-size: 1.02rem; line-height: 1.62; color: var(--ink-2); }
+.en { font-family: var(--f-en); font-size: calc(1.02rem * var(--fs, 1)); line-height: 1.62; color: var(--ink-2); }
 .en p { margin: 0 0 .6em; }
 .en p:last-child { margin-bottom: 0; }
 .en .verse { padding-left: 1.2em; font-style: italic; }
@@ -120,7 +129,7 @@ form.note-form { display: grid; gap: 10px; }
 .finish p { margin: 0; color: var(--ink-2); line-height: 1.55; }
 .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
 @media (prefers-reduced-motion: reduce) { .para.flash { animation: none; } }
-@media (max-width: 480px) { .th { font-size: 1.15rem; } h1, .ch-head h1 { font-size: 1.6rem; } .ch-row { grid-template-columns: 2.6rem 1fr auto; } }
+@media (max-width: 480px) { .th { font-size: calc(1.15rem * var(--fs, 1)); } h1, .ch-head h1 { font-size: 1.6rem; } .ch-row { grid-template-columns: 2.6rem 1fr auto; } }
 </style>
 
 <div id="app">
@@ -130,6 +139,8 @@ form.note-form { display: grid; gap: 10px; }
       <div class="bar-title" id="bar-title">Steps to Christ</div>
       <div class="bar-place" id="bar-place"></div>
       <button id="spaces-btn" class="link" type="button" aria-pressed="false">Show spaces</button>
+      <button id="size-down" class="link size-btn" type="button" aria-label="Smaller text">A−</button>
+      <button id="size-up" class="link size-btn" type="button" aria-label="Larger text">A+</button>
     </div>
   </header>
   <div id="notice" class="notice" hidden></div>
@@ -298,6 +309,66 @@ form.note-form { display: grid; gap: 10px; }
     try { localStorage.setItem("scread.spaces", spacesOn ? "1" : "0"); } catch (e) {}
   });
 
+  // Text size for the Thai and the English, remembered on this device.
+  const SIZES = [0.85, 1, 1.15, 1.3, 1.5];
+  let sizeAt = 1;
+  try { const v = Number(localStorage.getItem("scread.size")); if (SIZES.indexOf(v) >= 0) sizeAt = SIZES.indexOf(v); } catch (e) {}
+  function setSize(i) {
+    sizeAt = Math.max(0, Math.min(SIZES.length - 1, i));
+    document.documentElement.style.setProperty("--fs", String(SIZES[sizeAt]));
+    $("#size-down").disabled = sizeAt === 0;
+    $("#size-up").disabled = sizeAt === SIZES.length - 1;
+    try { localStorage.setItem("scread.size", String(SIZES[sizeAt])); } catch (e) {}
+  }
+  setSize(sizeAt);
+  $("#size-down").addEventListener("click", () => setSize(sizeAt - 1));
+  $("#size-up").addEventListener("click", () => setSize(sizeAt + 1));
+
+  // On a phone, dragging across Thai to select often fails, so the reader can tap the first and the last word instead.
+  function plainThai(p) {
+    const d = document.createElement("div");
+    d.innerHTML = p.th;
+    for (const s of d.querySelectorAll("sup")) s.remove();
+    return d.textContent;
+  }
+  function buildPicker(box, p, qi) {
+    const text = plainThai(p);
+    const words = [];
+    if (window.Intl && Intl.Segmenter) {
+      for (const s of new Intl.Segmenter("th", { granularity: "word" }).segment(text)) words.push({ t: s.segment, at: s.index, word: s.isWordLike });
+    } else {
+      let at = 0;
+      for (const t of text.split(/(\s+)/)) { if (t) words.push({ t, at, word: /\S/.test(t) }); at += t.length; }
+    }
+    box.append(el("p", "label", "Tap the first word, then the last word. Tap again to start over."));
+    const flow = el("p", "pick-flow");
+    const spans = [];
+    let start = null, done = false;
+    words.forEach((w, i) => {
+      const s = el("span", w.word ? "pw" : null, w.t);
+      spans.push(s);
+      flow.append(s);
+      if (!w.word) return;
+      s.addEventListener("click", () => {
+        if (start === null || done) {
+          for (const x of spans) x.classList.remove("on");
+          start = i; done = false;
+          s.classList.add("on");
+          qi.value = w.t;
+          qi.dataset.at = String(w.at);
+        } else {
+          const a = Math.min(start, i), b = Math.max(start, i);
+          for (let k = a; k <= b; k++) spans[k].classList.add("on");
+          done = true;
+          qi.value = text.slice(words[a].at, words[b].at + words[b].t.length).trim();
+          qi.dataset.at = String(words[a].at);
+        }
+        delete qi.dataset.auto;
+      });
+    });
+    box.append(flow);
+  }
+
   function renderPara(c, p) {
     const art = el("article", "para");
     art.id = domId(p.a);
@@ -326,13 +397,26 @@ form.note-form { display: grid; gap: 10px; }
     return art;
   }
 
+  // The selected words and where they start in the paragraph's reading text, which leaves out footnote
+  // numbers, the tag and the badge, so a word that occurs twice is noted where the reader selected it.
+  function readingText(frag) { for (const x of frag.querySelectorAll("sup, .tag, .badge")) x.remove(); return frag.textContent; }
+  function selectionAt(art, s) {
+    const th = $(".th", art);
+    if (!th || !s.rangeCount) return null;
+    const r = s.getRangeAt(0);
+    if (!th.contains(r.startContainer) || !th.contains(r.endContainer)) return null;
+    const raw = readingText(r.cloneContents());
+    const text = raw.trim();
+    if (!text) return null;
+    const pre = document.createRange();
+    pre.setStart(th, 0);
+    pre.setEnd(r.startContainer, r.startOffset);
+    return { text, at: readingText(pre.cloneContents()).length + (raw.length - raw.trimStart().length) };
+  }
   function selectionIn(art) {
     const s = window.getSelection && window.getSelection();
-    if (s && !s.isCollapsed && art.contains(s.anchorNode) && art.contains(s.focusNode)) {
-      const t = s.toString().replace(/\s*\{SC [\d.]+\}\s*/g, " ").trim();
-      if (t) return t;
-    }
-    if (state.lastSel && state.lastSel.a === art.dataset.a && Date.now() - state.lastSel.t < 90000) return state.lastSel.text;
+    if (s && !s.isCollapsed) { const got = selectionAt(art, s); if (got) return got; }
+    if (state.lastSel && state.lastSel.a === art.dataset.a && Date.now() - state.lastSel.t < 90000) return state.lastSel;
     return null;
   }
   document.addEventListener("selectionchange", () => {
@@ -341,11 +425,73 @@ form.note-form { display: grid; gap: 10px; }
     const node = s.anchorNode && (s.anchorNode.nodeType === 1 ? s.anchorNode : s.anchorNode.parentElement);
     const art = node && node.closest && node.closest(".para");
     if (!art || node.closest(".drawer")) return;
-    const t = s.toString().replace(/\s*\{SC [\d.]+\}\s*/g, " ").trim();
-    if (t) state.lastSel = { a: art.dataset.a, text: t, t: Date.now() };
+    const got = selectionAt(art, s);
+    if (!got) return;
+    state.lastSel = { a: art.dataset.a, text: got.text, at: got.at, t: Date.now() };
+    // With the paragraph's box open, a new selection fills the quoted words without a further tap.
+    // With it closed, a selection that rests for a moment opens the box with those words, because on a
+    // phone the tap that would open it also clears the selection.
+    clearTimeout(selTimer);
+    if (art.classList.contains("open")) { selTimer = setTimeout(() => fillQuote(art, got), 350); return; }
+    selTimer = setTimeout(() => {
+      const now = window.getSelection();
+      if (!now || now.isCollapsed || art.classList.contains("open")) return;
+      const c = CH.get(state.current);
+      const p = c && c.paras.find(x => x.a === art.dataset.a);
+      if (p) openDrawer(c, p, art, got);
+    }, 700);
   });
+  let selTimer = 0;
+
+  // A soft background marks the words a note quotes; words that two or more notes quote get a deeper one.
+  function markNotes(art) {
+    const th = $(".th", art);
+    if (!th) return;
+    for (const m of th.querySelectorAll("mark.mk")) m.replaceWith(...m.childNodes);
+    th.normalize();
+    const nodes = [];
+    let text = "";
+    const walk = document.createTreeWalker(th, NodeFilter.SHOW_TEXT,
+      { acceptNode: n => n.parentElement.closest("sup, .tag, .badge") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+    while (walk.nextNode()) { nodes.push({ n: walk.currentNode, at: text.length }); text += walk.currentNode.nodeValue; }
+    const count = new Array(text.length).fill(0);
+    const ns = [];
+    for (let i = 0; i < text.length; i++) if (!/\s/.test(text[i])) ns.push(i);
+    const bare = ns.map(i => text[i]).join("");
+    for (const n of state.notes.values()) {
+      if (n.a !== art.dataset.a || !n.quote) continue;
+      let from, to;
+      if (typeof n.at === "number" && text.substr(n.at, n.quote.length) === n.quote) {
+        from = n.at; to = n.at + n.quote.length - 1;
+      } else {
+        const q = n.quote.replace(/\s+/g, "");
+        const k = q ? bare.indexOf(q) : -1;
+        if (k < 0) continue;
+        from = ns[k]; to = ns[k + q.length - 1];
+      }
+      for (let i = from; i <= to; i++) count[i]++;
+    }
+    for (let j = nodes.length - 1; j >= 0; j--) {
+      const { n, at } = nodes[j];
+      let i = n.nodeValue.length;
+      while (i > 0) {
+        const c = count[at + i - 1];
+        let s = i - 1;
+        while (s > 0 && count[at + s - 1] === c) s--;
+        if (c > 0) {
+          const run = n.splitText(s);
+          run.splitText(i - s);
+          const m = el("mark", c > 1 ? "mk mk2" : "mk");
+          run.replaceWith(m);
+          m.append(run);
+        }
+        i = s;
+      }
+    }
+  }
 
   function paintPara(art) {
+    markNotes(art);
     const list = [...state.notes.values()].filter(n => n.a === art.dataset.a);
     art.classList.toggle("has-notes", list.length > 0);
     const badge = $(".badge", art);
@@ -361,6 +507,7 @@ form.note-form { display: grid; gap: 10px; }
     const moved = art.getBoundingClientRect().top - before;
     if (moved) { markJump(); window.scrollBy(0, moved); }
     art.dataset.openTop = String(art.getBoundingClientRect().top);
+    for (const x of document.querySelectorAll(".para.here")) x.classList.remove("here");
     art.classList.add("open");
     $("#close-float").hidden = false;
     const d = el("div", "drawer");
@@ -395,12 +542,15 @@ form.note-form { display: grid; gap: 10px; }
     if (!restore || !d || isNaN(was)) return;
     const moved = art.getBoundingClientRect().top - was;
     if (moved) { markJump(); window.scrollBy(0, moved); }
+    // The paragraph keeps a soft background until another box opens, so the reader sees where they were.
+    art.classList.add("here");
+    flash(art);
   }
 
   // Words selected later replace words the page filled in, never words the reader typed.
-  function fillQuote(art, text) {
+  function fillQuote(art, sel) {
     const q = $("form.note-form input[name=quote]", art);
-    if (q && (!q.value || q.value === q.dataset.auto)) { q.value = text; q.dataset.auto = text; }
+    if (q && (!q.value || q.value === q.dataset.auto)) { q.value = sel.text; q.dataset.auto = sel.text; q.dataset.at = String(sel.at); }
   }
   $("#close-float").addEventListener("click", () => {
     const open = document.querySelector(".para.open");
@@ -431,10 +581,20 @@ form.note-form { display: grid; gap: 10px; }
     qf.append(el("span", null, "Words in question (optional for a flag)"));
     const qi = el("input");
     qi.name = "quote"; qi.id = `quote-${seq}`; qi.autocomplete = "off";
-    qi.value = note ? (note.quote || "") : (quote || "");
-    if (!note && quote) qi.dataset.auto = quote;
+    qi.value = note ? (note.quote || "") : (quote ? quote.text : "");
+    if (!note && quote) { qi.dataset.auto = quote.text; qi.dataset.at = String(quote.at); }
+    if (note && typeof note.at === "number") qi.dataset.at = String(note.at);
+    qi.addEventListener("input", () => { delete qi.dataset.at; delete qi.dataset.auto; });
     qf.append(qi);
-    f.append(qf);
+    const pickBtn = el("button", "link", "Pick the words by tapping");
+    pickBtn.type = "button";
+    const picker = el("div", "picker");
+    picker.hidden = true;
+    pickBtn.addEventListener("click", () => {
+      picker.hidden = !picker.hidden;
+      if (!picker.hidden && !picker.firstChild) buildPicker(picker, p, qi);
+    });
+    f.append(qf, pickBtn, picker);
 
     const tf = el("label", "field");
     const tl = el("span");
@@ -470,6 +630,7 @@ form.note-form { display: grid; gap: 10px; }
       const kind = f.elements.kind.value;
       const text = ti.value.trim();
       const q = qi.value.trim();
+      const at = q && qi.dataset.at !== undefined ? Number(qi.dataset.at) : null;
       if (!text) { status.textContent = kind === "wording" ? "Type your wording first." : "Say what is wrong first."; ti.focus(); return; }
       if (kind === "wording" && !q) { status.textContent = "Name the words to replace, or select them in the paragraph."; qi.focus(); return; }
       if (!db) return;
@@ -479,10 +640,10 @@ form.note-form { display: grid; gap: 10px; }
       try {
         if (note) {
           const ref = db.collection("notes").doc(note.id);
-          await serial(ref.path, () => ref.update({ kind, quote: q, text, updated: now }));
+          await serial(ref.path, () => ref.update({ kind, quote: q, at, text, updated: now }));
         } else {
           const ref = db.collection("notes").doc();
-          await serial(ref.path, () => ref.set({ ch: c.id, a: p.a, kind, quote: q, text, created: now, updated: now, processed: false }));
+          await serial(ref.path, () => ref.set({ ch: c.id, a: p.a, kind, quote: q, at, text, created: now, updated: now, processed: false }));
         }
         f.replaceWith(noteForm(c, p, art, null, null));
       } catch (e) {
