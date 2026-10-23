@@ -24,7 +24,7 @@ words are found with the project's own line-breaking dictionary rather than
 counted off in characters, which would cut a syllable in half.
 
 Corpus evidence is evidence and never a verdict.  What this prints is what
-The translator has done before, not what standard Lao permits; only he adjudicates.
+the translator has done before, not what standard Lao permits; only he adjudicates.
 """
 
 import argparse

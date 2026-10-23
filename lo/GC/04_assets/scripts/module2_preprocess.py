@@ -238,23 +238,61 @@ def process_text_line(text, dictionary, debug=False):
 # Chapter-end page fixes: applied when writing stage2, so the manuscripts
 # stay pure translation. The command is inserted as its own paragraph
 # immediately before the chapter's final body paragraph (the last \egw block),
-# letting that page run one line deep and absorb a stranded final line.
+# letting that page run one line deep and absorb a stranded final line. With
+# \flushbottom in docclass.tex a deeper page no longer matches its facing page,
+# so chapter ends are pulled back with PARAGRAPH_FIXES instead.
 PAGE_FIXES = {
-    "GC27": "\\enlargethispage{\\baselineskip}",
-    "GC42": "\\enlargethispage{\\baselineskip}",
+}
+
+# Chapter-end paragraph fixes: the chapter's last N body paragraphs (\egw
+# blocks) each get \looseness=-1, so TeX sets each one line shorter where it
+# can do so by tightening the word spacing; the text is unchanged. For a final
+# line or two that \enlargethispage cannot pull back onto the page before.
+LOOSENESS_FIXES = {
+}
+
+# Single-paragraph fixes, keyed by anchor ("27.3" for {GC 27.3}): the paragraph
+# gets \looseness=N, so TeX sets it N lines longer (1) or shorter (-1) where it
+# can; the text is unchanged. For a line end inside a word at emergency cost,
+# or to pull a chapter's last lines back a page. Only -1: a paragraph set a line
+# longer spreads its words with visible gaps.
+PARAGRAPH_FIXES = {
+    # Line ends inside a word at cost 1000.
+    "54.1": -1, "300.3": -1, "323.1": -1, "371.1": -1, "459.2": -1, "466.1": -1,
+    # Chapter 15 ended on a right-hand page with 5 lines; pulling them back
+    # saves that page and the blank page before chapter 16.
+    "268.3": -1, "269.4": -1, "274.1": -1, "274.2": -1, "276.2": -1,
+    "281.1": -1, "282.1": -1, "283.1": -1, "288.2": -1,
+    # Chapter 20's last page held 2 lines.
+    "355.3": -1, "356.1": -1, "357.3": -1, "369.3": -1,
+    # Chapters 12 and 38 each ended with 3 lines on a left-hand page.
+    "212.2": -1, "213.2": -1, "223.1": -1, "224.1": -1, "235.1": -1,
+    "603.1": -1, "604.2": -1, "606.2": -1, "610.3": -1, "611.2": -1,
 }
 
 def apply_page_fixes(content, input_path):
     import os as _os
     chapter = _os.path.basename(str(input_path)).split("_")[0]
     fix = PAGE_FIXES.get(chapter)
-    if not fix:
+    tighten = LOOSENESS_FIXES.get(chapter, 0)
+    if PARAGRAPH_FIXES:
+        blocks = content.split("\n\n")
+        for i, b in enumerate(blocks):
+            m = re.search(r"\\egw\{GC\\nbsp\{\}(\d+\.\d+)\}", b)
+            if m and m.group(1) in PARAGRAPH_FIXES:
+                blocks[i] = f"\\looseness={PARAGRAPH_FIXES[m.group(1)]} " + b
+        content = "\n\n".join(blocks)
+    if not fix and not tighten:
         return content
     blocks = content.split("\n\n")
-    last_egw = max((i for i, b in enumerate(blocks) if "\\egw{" in b), default=None)
-    if last_egw is None:
+    egw = [i for i, b in enumerate(blocks) if "\\egw{" in b]
+    if not egw:
         return content
-    blocks.insert(last_egw, fix)
+    if tighten:
+        for i in egw[-tighten:]:
+            blocks[i] = "\\looseness=-1 " + blocks[i]
+    if fix:
+        blocks.insert(egw[-1], fix)
     return "\n\n".join(blocks)
 
 def process_file(input_path, output_path, dictionary, debug_mode=False):
