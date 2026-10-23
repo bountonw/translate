@@ -310,7 +310,7 @@ class Migration7(unittest.TestCase):
         db.init_db(path)
         con = sqlite3.connect(path)
         self.addCleanup(con.close)
-        self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], 7)
+        self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], db.MIGRATIONS[-1][0])
         self.assertEqual(con.execute("SELECT id, reader, ch, client_id FROM comment_gone").fetchall(),
                          [(4, 1, "SC01", None)])
 

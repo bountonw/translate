@@ -352,6 +352,15 @@ input[type="date"], input[type="time"] {
 .steps { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
 a.next { color: var(--accent); align-self: center; }
 
+/* The lines a command prints, as a list: review.py signin in the Site section. */
+ul.lines {
+  margin: 8px 0;
+  padding-left: 20px;
+  max-width: 72em;
+}
+
+ul.lines li { margin: 2px 0; overflow-wrap: anywhere; }
+
 .facts {
   display: grid;
   grid-template-columns: max-content 1fr;

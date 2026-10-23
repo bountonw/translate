@@ -20,7 +20,12 @@ neutral names (book.title, chapter.title, chapter.source, chapter_version.title,
 and "text" for each paragraph's text in the stored JSON), adds review rounds
 (review_round, comment.round), the devices that use each link (reader_device),
 and the comments deleted, for the export of what changed (comment_gone).
-Version 7 records the client_id of each comment deleted. An entry may hold a
+Version 7 records the client_id of each comment deleted. Version 8 adds accounts
+(server/auth.py): the identities a reader signs in with (identity), the browsers
+signed in (session), the sign-ins under way (auth_flow), general links and the
+requests made through them (general_link, access_request), the mails sent
+(mail_log), and on each reader link_used, first_signin and link_signs_in. Today
+every account is a reader, so "account" holds a reader's number. An entry may hold a
 Python function beside its SQL, for a change SQL cannot make. init_db refuses a
 database of a version newer than its last entry, which newer code made.
 
@@ -90,9 +95,9 @@ def thai_time(stamp):
     return parse_stamp(stamp).astimezone(BANGKOK).strftime("%Y-%m-%d %H:%M")
 
 
-def later(stamp, days):
-    """A time in the form of now(), days after stamp (another such time)."""
-    return stamp_of(parse_stamp(stamp) + timedelta(days=days))
+def later(stamp, days=0, minutes=0):
+    """A time in the form of now(), days (and minutes) after stamp (another such time)."""
+    return stamp_of(parse_stamp(stamp) + timedelta(days=days, minutes=minutes))
 
 
 def seconds_until(stamp):
@@ -335,6 +340,109 @@ MIGRATIONS = [
         "ALTER TABLE comment_gone ADD COLUMN client_id TEXT",
         "CREATE INDEX comment_gone_by_client ON comment_gone(reader, client_id)",
     ]),
+    (8, [
+        # One person per account (server/auth.py). Today every account is a reader: the columns named account
+        # hold a reader's number, so an editor's or the translator's account can join later without changing
+        # these tables (EXTENDING.md, "Accounts and roles").
+        # link_used: when the reader's current link was used to sign in with LINE or email; the link then neither
+        # signs in nor binds again, and a new link (relink) clears it. first_signin: the reader's first sign-in
+        # with LINE or email, which the translator is told of; never cleared. link_signs_in: the switch "Link
+        # signs in", which keeps the personal link and the two-device lock for this reader alone.
+        "ALTER TABLE reader ADD COLUMN link_used TEXT",
+        "ALTER TABLE reader ADD COLUMN first_signin TEXT",
+        "ALTER TABLE reader ADD COLUMN link_signs_in INTEGER NOT NULL DEFAULT 0",
+        # The ways an account signs in: a LINE user id (provider line, subject the ID token's sub, display the
+        # LINE display name, never the picture) or an email address (provider email, subject and display the
+        # address in lower case). One identity belongs to one account.
+        """CREATE TABLE identity (
+  id        INTEGER PRIMARY KEY AUTOINCREMENT,
+  account   INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  provider  TEXT NOT NULL CHECK (provider IN ('line', 'email')),
+  subject   TEXT NOT NULL,
+  display   TEXT NOT NULL DEFAULT '',
+  created   TEXT NOT NULL,
+  last_used TEXT,
+  UNIQUE (provider, subject)
+)""",
+        "CREATE INDEX identity_by_account ON identity(account)",
+        # A browser signed in: the cookie's value is kept only as its SHA-256. expires moves on at each visit
+        # (auth.session_days from the last visit); ended is set when the reader or the translator ends it.
+        """CREATE TABLE session (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  account    INTEGER NOT NULL REFERENCES reader(id) ON DELETE CASCADE,
+  token_hash TEXT NOT NULL UNIQUE,
+  identity   INTEGER REFERENCES identity(id) ON DELETE SET NULL,
+  via        TEXT NOT NULL,
+  agent      TEXT NOT NULL DEFAULT '',
+  created    TEXT NOT NULL,
+  last_seen  TEXT NOT NULL,
+  expires    TEXT NOT NULL,
+  ended      TEXT,
+  ended_by   TEXT
+)""",
+        "CREATE INDEX session_by_account ON session(account)",
+        # A sign-in under way, for ten minutes, tied to its browser by a cookie whose SHA-256 is token_hash.
+        # purpose: signin, claim (through a personal link; link is that link's code_hash), join (through a
+        # general link) or add (one more identity for the account signed in). LINE keeps state, nonce and the
+        # PKCE verifier; the email code keeps the address, the SHA-256 of the code with the cookie, and the tries.
+        """CREATE TABLE auth_flow (
+  id           INTEGER PRIMARY KEY AUTOINCREMENT,
+  token_hash   TEXT NOT NULL UNIQUE,
+  kind         TEXT NOT NULL CHECK (kind IN ('line', 'email')),
+  purpose      TEXT NOT NULL CHECK (purpose IN ('signin', 'claim', 'join', 'add')),
+  account      INTEGER,
+  link         TEXT,
+  general_link INTEGER,
+  state        TEXT UNIQUE,
+  nonce        TEXT,
+  verifier     TEXT,
+  email        TEXT,
+  code_hash    TEXT,
+  sent         INTEGER NOT NULL DEFAULT 0,
+  tries        INTEGER NOT NULL DEFAULT 0,
+  created      TEXT NOT NULL,
+  expires      TEXT NOT NULL,
+  used         TEXT
+)""",
+        "CREATE INDEX auth_flow_by_email ON auth_flow(email, created)",
+        # A general link of a group: it only asks for access. Making a new one stops the group's old one.
+        """CREATE TABLE general_link (
+  id        INTEGER PRIMARY KEY AUTOINCREMENT,
+  grp       INTEGER NOT NULL REFERENCES reader_group(id) ON DELETE CASCADE,
+  code_hash TEXT NOT NULL UNIQUE,
+  created   TEXT NOT NULL,
+  expires   TEXT NOT NULL,
+  uses_most INTEGER NOT NULL,
+  uses      INTEGER NOT NULL DEFAULT 0,
+  active    INTEGER NOT NULL DEFAULT 1,
+  stopped   TEXT
+)""",
+        # A request to read, made by signing in through a general link. One identity has at most one open
+        # request. account is the reader the translator made or chose when he approved it.
+        """CREATE TABLE access_request (
+  id           INTEGER PRIMARY KEY AUTOINCREMENT,
+  general_link INTEGER REFERENCES general_link(id) ON DELETE SET NULL,
+  grp          INTEGER REFERENCES reader_group(id) ON DELETE SET NULL,
+  provider     TEXT NOT NULL CHECK (provider IN ('line', 'email')),
+  subject      TEXT NOT NULL,
+  display      TEXT NOT NULL DEFAULT '',
+  created      TEXT NOT NULL,
+  decided      TEXT,
+  decision     TEXT CHECK (decision IN ('approved', 'declined')),
+  account      INTEGER REFERENCES reader(id) ON DELETE SET NULL
+)""",
+        "CREATE UNIQUE INDEX access_request_open ON access_request(provider, subject) WHERE decided IS NULL",
+        "CREATE INDEX access_request_by_link ON access_request(general_link, created)",
+        # The mails the site sent, newest 200: their kind and result, never the address or the words.
+        """CREATE TABLE mail_log (
+  id       INTEGER PRIMARY KEY AUTOINCREMENT,
+  at       TEXT NOT NULL,
+  kind     TEXT NOT NULL,
+  provider TEXT NOT NULL,
+  ok       INTEGER NOT NULL,
+  detail   TEXT NOT NULL DEFAULT ''
+)""",
+    ]),
 ]
 
 
@@ -402,11 +510,33 @@ def apply_feature_migrations(conn, features):
                          " ON CONFLICT (feature) DO UPDATE SET version = excluded.version", (name, done))
 
 
+# The entries config.json may hold; README.md, "Sign-in settings", describes each.
+CONFIG_ENTRIES = ("public_url", "limits", "auth", "mail", "notify", "invite")
+
+
 def _config_file(data_dir):
+    """config.json of the data directory: {} when there is none. A file that cannot be read, is not valid JSON,
+    is not an object or holds an unknown entry raises ValueError with one plain sentence naming config.json, so
+    that the server refuses to start rather than run without the settings it holds."""
+    path = Path(data_dir) / CONFIG
+    where = f"{CONFIG} in {data_dir}"
     try:
-        return json.loads((Path(data_dir) / CONFIG).read_text())
-    except (OSError, ValueError):
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
         return {}
+    except (OSError, UnicodeDecodeError) as e:
+        raise ValueError(f"{where} cannot be read ({e}).")
+    try:
+        cfg = json.loads(text)
+    except ValueError as e:
+        where_in = f"line {e.lineno}, column {e.colno}: {e.msg}" if isinstance(e, json.JSONDecodeError) else str(e)
+        raise ValueError(f"{where} is not valid JSON ({where_in}). Check it with: python3 -m json.tool {path}")
+    if not isinstance(cfg, dict):
+        raise ValueError(f"{where} must hold one JSON object, {{...}}.")
+    unknown = sorted(set(cfg) - set(CONFIG_ENTRIES))
+    if unknown:
+        raise ValueError(f'{where} has no entry named "{unknown[0]}". Its entries are {", ".join(CONFIG_ENTRIES)}.')
+    return cfg
 
 
 def read_config(data_dir):

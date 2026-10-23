@@ -1,11 +1,12 @@
 // What several sections read: the server's description (the route info), loaded once at the start, the
-// features, loaded once when a section first needs them, and the count of devices waiting for approval, which
-// the Readers link of the menu shows.
+// features, loaded once when a section first needs them, the count of devices waiting for approval, which the
+// Readers link of the menu shows, the count of requests to read waiting for you, which the Requests link shows,
+// and the sign-in settings with the last mail (review.py signin), which mark the Site link while mail fails.
 import { get } from "./api.js";
 import { h } from "./ui.js";
 import { t, plural } from "./words.js";
 
-export const state = { info: null, features: null };
+export const state = { info: null, features: null, auth: null };
 
 export async function features() {
   if (!state.features) {
@@ -56,4 +57,38 @@ export async function countWaiting() {
   const res = await get("devices");
   if (res.ok) showWaiting(res.result.devices.filter(d => d.state === "waiting").length);
   return res;
+}
+
+// The menu's count of requests to read waiting for you, as review.py requests lists them.
+export function showRequests(n) {
+  const el = document.getElementById("asking");
+  if (!el) return;
+  el.textContent = n ? plural(n, "nav_asking") : "";
+  el.hidden = !n;
+}
+
+export async function countRequests() {
+  const res = await get("requests");
+  if (res.ok) showRequests(res.result.open);
+  return res;
+}
+
+// The sign-in settings and the mail log, as review.py signin shows them: kept in state.auth for the sections that
+// name a setting, such as the days a browser stays signed in, and the Site link marked while the last mail failed.
+export async function loadAuth() {
+  const res = await get("auth");
+  if (res.ok) {
+    state.auth = res.result;
+    showMail(res.result.last_mail);
+  }
+  return res;
+}
+
+// The menu's mark on Site while the last mail the site sent failed, so a mail outage shows from every section.
+export function showMail(last) {
+  const el = document.getElementById("mailbad");
+  if (!el) return;
+  const bad = !!last && last.ok === false;
+  el.textContent = bad ? t("nav_mail_bad") : "";
+  el.hidden = !bad;
 }

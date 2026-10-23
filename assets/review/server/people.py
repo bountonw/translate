@@ -9,15 +9,18 @@ nothing. Every list is built with one query per table, so the cost grows with
 the number of rows, never with readers times groups.
 
 The site counts the devices that open each link (reader_device, filled by
-server/app.py, device_state): a link works on the first limits.devices_per_link
-devices that open it, and a further device waits until the translator approves
-it here. The reader list gives each reader's counts for their current link.
+server/app.py, device_state): where a link signs in by itself, it works on the
+first limits.devices_per_link devices that open it, and a further device waits
+until the translator approves it here. The reader list gives each reader's
+counts for their current link, the identities the reader signs in with, the
+browsers signed in, and the switch "Link signs in" (server/auth.py).
 """
 import json
 import secrets
 import sqlite3
 
 from . import db, specs
+from .auth import general_state
 from .common import (ADMIN_LIMIT, GROUP_NAME_RE, NAME_LIMIT, WAITING_MOST, HTTPError, bool_field, clean, id_list,
                      name_key, reader_name)
 
@@ -53,12 +56,11 @@ class People:
 
     # ---------- shared ----------
 
-    def link(self, req, code):
-        base = self.public_url or db.read_config(self.data).get("public_url")
-        if not base:
-            scheme = req.header("X-Forwarded-Proto") or req.environ.get("wsgi.url_scheme", "http")
-            base = f"{scheme}://{req.header('Host') or 'localhost'}"
-        return f"{base.rstrip('/')}/#k={code}"
+    def link(self, req, code, mark="k"):
+        """A reader's personal link (#k=) or a general link (#join=). With invite.external_browser on, the address
+        carries ?openExternalBrowser=1 before the fragment, so that LINE opens it in the phone's own browser."""
+        query = "?openExternalBrowser=1" if self.auth.invite["external_browser"] else ""
+        return f"{self.base_url(req)}/{query}#{mark}={code}"
 
     def settings_field(self, data):
         """settings from a request, with english (true or false) as a shortcut for english.on."""
@@ -117,8 +119,21 @@ class People:
             return conn.execute(sql.format(where=where), args)
 
         out = {r[0]: {"id": r[0], "name": r[1], "active": bool(r[2]), "created": r[3], "grants": [],
-                      "groups": [], "settings": {}, "comments": 0, "last_active": None}
-               for r in rows("SELECT id, name, active, created FROM reader{where} ORDER BY name", "id")}
+                      "groups": [], "settings": {}, "comments": 0, "last_active": None,
+                      "link_signs_in": bool(r[4]), "link_used": r[5], "first_signin": r[6], "identities": [],
+                      "sessions": 0, "last_seen": None}
+               for r in rows("SELECT id, name, active, created, link_signs_in, link_used, first_signin FROM reader"
+                             "{where} ORDER BY name", "id")}
+        # The ways each reader signs in, and the browsers signed in now (server/auth.py).
+        for iid, rid, provider, display, created, used in rows(
+                "SELECT id, account, provider, display, created, last_used FROM identity{where} ORDER BY id", "account"):
+            out[rid]["identities"].append({"id": iid, "provider": provider, "display": display, "created": created,
+                                           "last_used": used})
+        where, args = ids_in("account", ids)
+        for rid, n, seen in conn.execute(
+                "SELECT account, COUNT(*), MAX(last_seen) FROM session" + (where + " AND" if where else " WHERE")
+                + " ended IS NULL AND expires > ? GROUP BY account", args + (db.now(),)):
+            out[rid]["sessions"], out[rid]["last_seen"] = n, seen
         for rid, book, ch in rows('SELECT reader, book, chapter FROM "grant"{where}', "reader"):
             out[rid]["grants"].append((book, ch))
         for rid, gid in rows("SELECT reader, grp FROM group_member{where}", "reader"):
@@ -185,6 +200,13 @@ class People:
             readers = [r for r in readers if q["book"].upper() in r["books"]]
         if q.get("revoked") in ("1", "true", "yes"):
             readers = [r for r in readers if not r["active"]]
+        if q.get("identity"):
+            # none: the reader signs in with no identity yet; line, email: with that kind; any: with some identity.
+            kind = q["identity"]
+            if kind not in ("none", "line", "email", "any"):
+                raise HTTPError(400, "bad_field", "identity must be none, line, email or any.")
+            readers = [r for r in readers if (not r["identities"]) == (kind == "none") and (
+                kind in ("none", "any") or any(i["provider"] == kind for i in r["identities"]))]
         if q.get("devices") in ("1", "true", "yes"):
             most = self.limits["devices_per_link"]
             readers = [r for r in readers if r["devices"]["total"] > most or r["devices"]["waiting"]]
@@ -207,6 +229,8 @@ class People:
             out["name"] = reader_name(clean(data.get("name"), "name", NAME_LIMIT, True))
         if "active" in data:
             out["active"] = bool_field(data, "active")
+        if "link_signs_in" in data:
+            out["link_signs_in"] = bool_field(data, "link_signs_in")
         if creating or "grants" in data:
             out["grants"] = parse_grants(data.get("grants", []))
         if creating or "groups" in data:
@@ -219,6 +243,8 @@ class People:
             conn.execute("UPDATE reader SET name = ? WHERE id = ?", (f["name"], rid))
         if "active" in f:
             conn.execute("UPDATE reader SET active = ? WHERE id = ?", (int(f["active"]), rid))
+        if "link_signs_in" in f:
+            conn.execute("UPDATE reader SET link_signs_in = ? WHERE id = ?", (int(f["link_signs_in"]), rid))
         if "grants" in f:
             conn.execute('DELETE FROM "grant" WHERE reader = ?', (rid,))
             conn.executemany('INSERT INTO "grant" (reader, book, chapter) VALUES (?, ?, ?)',
@@ -228,8 +254,10 @@ class People:
             conn.executemany("INSERT INTO group_member (reader, grp) VALUES (?, ?)", [(rid, g) for g in f["groups"]])
         self.write_settings(conn, "reader_setting", "reader", rid, f["settings"])
 
-    def create_readers(self, req, rows):
-        """Check every row, then create them all in one transaction. Returns [(id, code)]."""
+    def create_readers(self, req, rows, bind_to=None):
+        """Check every row, then create them all in one transaction. Returns [(id, code)]. bind_to, for one row,
+        is a function of (conn, reader id) run in the same transaction, as approving a request binds the
+        requester's identity to the new reader."""
         fields, problems, seen, taken_names = [], [], set(), 0
         # A name already taken is refused whatever its case and its spaces: "Mali  Boon" is "Mali Boon".
         holders = {name_key(r[0]): r[0] for r in req.conn.execute("SELECT name FROM reader")}
@@ -264,6 +292,8 @@ class People:
                     cur = req.conn.execute("INSERT INTO reader (name, code_hash, active, created) VALUES (?, ?, 1, ?)",
                                            (f["name"], db.sha256(code), stamp))
                     self.write_reader(req.conn, cur.lastrowid, {k: v for k, v in f.items() if k != "name"})
+                    if bind_to is not None:
+                        bind_to(req.conn, cur.lastrowid)
                     made.append((cur.lastrowid, code))
         except sqlite3.IntegrityError:
             raise HTTPError(409, "name_taken", "A reader with one of these names already exists.")
@@ -328,31 +358,52 @@ class People:
             parsed.append((rid, self.reader_fields(req.conn, {k: v for k, v in c.items() if k != "id"}, False)))
         return 200, {"readers": self.change_readers(req, parsed)}
 
-    def new_codes(self, req, ids):
+    def new_codes(self, req, ids, unbind=False):
+        """A new link for each reader: the old link stops working, and the new one is unused, so its first sign-in
+        with LINE or email ties one more identity to the reader. With unbind, every identity of the reader is
+        removed and every browser signed in signs out, as when a stranger signed in with the old link. Each item
+        is {id, name, code, link, identities, unbound, sessions_ended}: identities the reader still signs in with,
+        unbound those removed."""
         known = {r[0]: r[1] for r in req.conn.execute("SELECT id, name FROM reader")}
         missing = [str(i) for i in ids if i not in known]
         if missing:
             raise HTTPError(404, "no_reader", f"No reader with the number {', '.join(missing)}.")
         out = []
+        stamp = db.now()
         with db.tx(req.conn):
             for rid in ids:
                 code = secrets.token_urlsafe(24)
-                req.conn.execute("UPDATE reader SET code_hash = ? WHERE id = ?", (db.sha256(code), rid))
-                out.append({"id": rid, "name": known[rid], "code": code, "link": self.link(req, code)})
+                req.conn.execute("UPDATE reader SET code_hash = ?, link_used = NULL WHERE id = ?",
+                                 (db.sha256(code), rid))
+                held = [{"provider": r[0], "display": r[1]} for r in req.conn.execute(
+                    "SELECT provider, display FROM identity WHERE account = ? ORDER BY id", (rid,))]
+                ended = 0
+                if unbind:
+                    ended = req.conn.execute("UPDATE session SET ended = ?, ended_by = 'relink' WHERE account = ?"
+                                             " AND ended IS NULL AND expires > ?", (stamp, rid, stamp)).rowcount
+                    req.conn.execute("DELETE FROM identity WHERE account = ?", (rid,))
+                out.append({"id": rid, "name": known[rid], "code": code, "link": self.link(req, code),
+                            "identities": [] if unbind else held, "unbound": held if unbind else [],
+                            "sessions_ended": ended})
         return out
 
     def admin_new_code(self, req, rid):
+        """A new link for one reader; the body may give {"unbind": true} (new_codes)."""
         rid = int(rid)
-        out = self.reader_json(req.conn, rid)
-        (new,) = self.new_codes(req, [rid])
-        return 200, dict(out, code=new["code"], link=new["link"])
+        self.reader_json(req.conn, rid)
+        unbind = bool_field(dict({"unbind": False}, **req.json_or_empty(ADMIN_LIMIT)), "unbind")
+        (new,) = self.new_codes(req, [rid], unbind)
+        return 200, dict(self.reader_json(req.conn, rid), code=new["code"], link=new["link"],
+                         unbound=new["unbound"], sessions_ended=new["sessions_ended"])
 
     def admin_new_codes(self, req):
-        """{"ids": [...]}: a new link for each reader; every old link stops working."""
-        ids = id_list(req.json(ADMIN_LIMIT).get("ids"), "ids", BATCH_MOST)
+        """{"ids": [...], "unbind": false}: a new link for each reader; every old link stops working."""
+        data = req.json(ADMIN_LIMIT)
+        ids = id_list(data.get("ids"), "ids", BATCH_MOST)
         if not ids:
             raise HTTPError(400, "bad_field", "ids must name at least one reader.")
-        return 200, {"readers": self.new_codes(req, ids)}
+        unbind = bool_field(dict({"unbind": False}, **data), "unbind")
+        return 200, {"readers": self.new_codes(req, ids, unbind)}
 
     # ---------- groups ----------
 
@@ -429,11 +480,18 @@ class People:
         return 200, self.group_json(req.conn, gid)
 
     def admin_remove_group(self, req, gid):
-        """Removes the group, its grants and settings; its members keep their own grants."""
+        """Removes the group, its grants and settings; its members keep their own grants. Its general links go
+        with it, and the requests made through them that still wait lose their group. The answer counts both:
+        general_links (the group's links that still took requests) and requests_waiting."""
         g = self.group_json(req.conn, int(gid))
         with db.tx(req.conn):
+            links = [r for r in req.conn.execute("SELECT * FROM general_link WHERE grp = ?", (g["id"],))]
+            waiting = req.conn.execute("SELECT COUNT(*) FROM access_request WHERE grp = ? AND decided IS NULL",
+                                       (g["id"],)).fetchone()[0]
             req.conn.execute("DELETE FROM reader_group WHERE id = ?", (g["id"],))
-        return 200, {"deleted": g["id"], "name": g["name"], "members": len(g["members"])}
+        return 200, {"deleted": g["id"], "name": g["name"], "members": len(g["members"]),
+                     "general_links": sum(1 for r in links if general_state(r) == "open"),
+                     "requests_waiting": waiting}
 
     def admin_group_members(self, req, gid):
         """{"add": [reader ids], "remove": [reader ids]}. The answer is the group, with what changed: added,

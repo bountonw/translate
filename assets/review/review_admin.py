@@ -142,7 +142,8 @@ def a_invite(b):
         argv += ["--grant", g]
     for g in texts(b, "group"):
         argv += ["--group", g]
-    return argv + (["--english"] if flag(b, "english") else []), None
+    return argv + (["--english"] if flag(b, "english") else []) + \
+        (["--link-signs-in"] if flag(b, "link_signs_in") else []), None
 
 
 def a_spec(cmd):
@@ -158,7 +159,8 @@ def a_relink(b):
     group = text(b, "group")
     if group and (b.get("names") or b.get("name")):
         raise Refused(400, "bad_field", "Give names, or group, not both.")
-    return (["relink", "--group", group] if group else ["relink", *names_of(b)]), None
+    unbind = ["--unbind"] if flag(b, "unbind") else []
+    return (["relink", "--group", group, *unbind] if group else ["relink", *names_of(b), *unbind]), None
 
 
 def a_english(b):
@@ -176,16 +178,95 @@ def a_round(b):
     return ["round", "start", text(b, "book", True), text(b, "name", True)], None
 
 
-def a_device(b):
-    action = text(b, "action", True)
-    if action not in ("approve", "remove"):
-        raise Refused(400, "bad_field", "action must be approve or remove.")
+def numbers(b, what):
+    """ids: a list of numbers, or text such as "12 13 20-25"."""
     ids = b.get("ids")
     ids = [str(i) for i in ids] if isinstance(ids, list) and ids and all(type(i) is int for i in ids) \
         else texts(b, "ids")
     if not ids:
-        raise Refused(400, "bad_field", "ids is required: the numbers of the devices.")
-    return ["device", action, *ids], None
+        raise Refused(400, "bad_field", f"ids is required: the numbers of the {what}.")
+    return ids
+
+
+def a_device(b):
+    action = text(b, "action", True)
+    if action not in ("approve", "remove"):
+        raise Refused(400, "bad_field", "action must be approve or remove.")
+    return ["device", action, *numbers(b, "devices")], None
+
+
+# ---------- signing in ----------
+
+def a_signin(b):
+    """signin check, or signin test-mail ADDRESS; the settings themselves are the GET route auth."""
+    action = text(b, "action", True)
+    if action not in ("check", "test-mail"):
+        raise Refused(400, "bad_field", "action must be check or test-mail.")
+    return ["signin", action, *([text(b, "to", True)] if action == "test-mail" else [])], None
+
+
+def a_link_signs_in(b):
+    return ["link-signs-in", *names_of(b), state(b)], None
+
+
+def a_session(b):
+    action = text(b, "action") or "end"
+    if action != "end":
+        raise Refused(400, "bad_field", "action must be end.")
+    return ["session", "end", *numbers(b, "browsers")], None
+
+
+def a_identity(b):
+    action = text(b, "action") or "add"
+    if action != "add":
+        raise Refused(400, "bad_field", "action must be add.")
+    return ["identity", "add", text(b, "name", True), text(b, "address", True)], None
+
+
+def a_unbind(b):
+    return ["unbind", *numbers(b, "LINE accounts and addresses")], None
+
+
+def whole(b, key, required=False):
+    """A whole number of the body, as text for the command line, or None."""
+    value = b.get(key)
+    if value is None or value == "":
+        if required:
+            raise Refused(400, "bad_field", f"{key} is required.")
+        return None
+    if isinstance(value, str) and value.strip().isdigit():
+        value = int(value.strip())
+    if type(value) is not int or value < 0:
+        raise Refused(400, "bad_field", f"{key} must be a whole number.")
+    return str(value)
+
+
+def a_request(b):
+    """request approve|decline|forget NUMBER, and for approve --name, --grant, --group, --english or --reader."""
+    action = text(b, "action", True)
+    if action not in ("approve", "decline", "forget"):
+        raise Refused(400, "bad_field", "action must be approve, decline or forget.")
+    argv = ["request", action, whole(b, "id", True)]
+    for key in ("name", "reader"):
+        if text(b, key):
+            argv += [f"--{key}", text(b, key)]
+    for g in texts(b, "grant"):
+        argv += ["--grant", g]
+    for g in texts(b, "group"):
+        argv += ["--group", g]
+    return argv + (["--english"] if flag(b, "english") else []), None
+
+
+def a_general_link(b):
+    """general-link G --new [--days N] [--uses N], or general-link G --off; the list is the GET route general-links."""
+    action = text(b, "action", True)
+    if action not in ("new", "off"):
+        raise Refused(400, "bad_field", "action must be new or off.")
+    argv = ["general-link", text(b, "group", True), f"--{action}"]
+    for key in ("days", "uses"):
+        if whole(b, key) is not None:
+            argv += [f"--{key}", whole(b, key)]
+    return argv, None
 
 
 def a_delete_comments(b):
@@ -264,10 +345,13 @@ COMMANDS = {
     "restore": a_plain("restore"), "relink": a_relink, "english": a_english, "feature": a_feature,
     "group": a_group, "round": a_round, "device": a_device, "delete-comments": a_delete_comments,
     "export": a_export, "processed": a_processed, "triage": a_triage, "replies": a_replies,
-    "align-packet": a_align_packet,
+    "align-packet": a_align_packet, "signin": a_signin, "link-signs-in": a_link_signs_in, "session": a_session,
+    "signout": a_plain("signout"), "identity": a_identity, "unbind": a_unbind, "request": a_request,
+    "general-link": a_general_link,
 }
-# GET, each a method of Console
-READS = ("info", "chapters", "readers", "groups", "features", "exports", "source", "rounds", "devices")
+# GET, each a method of Console (general-links is general_links)
+READS = ("info", "chapters", "readers", "groups", "features", "exports", "source", "rounds", "devices", "auth",
+         "sessions", "identities", "requests", "general-links")
 DEV_ONLY = ("backup", "new-token")      # POST, on the dev server's own data
 TRADE = "trade"                         # POST without the key: a one-time code of the browser's address for the key
 ONCE_SECONDS = 120                      # how long a one-time code waits for the page to trade it
@@ -358,7 +442,7 @@ class Console:
                           "review.py admin printed.")
         method = environ.get("REQUEST_METHOD", "GET").upper()
         query = {k: v[-1] for k, v in urllib.parse.parse_qs(environ.get("QUERY_STRING", "")).items()}
-        reads = {r: getattr(self, r) for r in READS}
+        reads = {r: getattr(self, r.replace("-", "_")) for r in READS}
         writes = dict({c: None for c in COMMANDS}, **{r: getattr(self, r.replace("-", "_")) for r in DEV_ONLY})
         if route in reads:
             if method != "GET":
@@ -503,6 +587,7 @@ class Console:
                  "revoked": "1" if query.get("revoked") in ("1", "true", "yes") else "",
                  "idle": query.get("inactive", ""), "contains": query.get("name", ""),
                  "devices": "1" if query.get("devices") in ("1", "true", "yes") else "",
+                 "identity": query.get("identity", ""),
                  "code_hash": hashlib.sha256(review.code_of(query["link"]).encode()).hexdigest()
                  if query.get("link") else ""}
             res = self.client.call("GET", "/api/admin/readers", query=q)
@@ -526,6 +611,44 @@ class Console:
             raise Refused(400, "bad_field", "name may not start with -.")
         return self.run(["devices", *([name] if name else []),
                          *(["--all"] if query.get("all") in ("1", "true", "yes") else [])])
+
+    # ---------- signing in ----------
+
+    @staticmethod
+    def word(query, key):
+        value = query.get(key, "").strip()
+        if value.startswith("-"):
+            raise Refused(400, "bad_field", f"{key} may not start with -.")
+        return value
+
+    def auth(self, query):
+        """The sign-in settings, the mailer, the last mails and the counts, as review.py signin shows them; the
+        result is GET /api/admin/auth."""
+        return self.run(["signin"])
+
+    def sessions(self, query):
+        """The browsers signed in, of every reader or with ?name= of one (all=1: those ended too), as review.py
+        sessions lists them."""
+        name = self.word(query, "name")
+        return self.run(["sessions", *([name] if name else []),
+                         *(["--all"] if query.get("all") in ("1", "true", "yes") else [])])
+
+    def identities(self, query):
+        """The LINE accounts and addresses readers sign in with, or with ?name= one reader's."""
+        name = self.word(query, "name")
+        return self.run(["identities", *([name] if name else [])])
+
+    def requests(self, query):
+        """The requests to read: ?state=open (the default), approved, declined or all, as review.py requests."""
+        state = query.get("state") or "open"
+        if state not in ("open", "approved", "declined", "all"):
+            raise Refused(400, "bad_field", "state must be open, approved, declined or all.")
+        return self.run(["requests", *([] if state == "open" else [f"--{state}"])])
+
+    def general_links(self, query):
+        """The general links, of every group or with ?group= of one, as review.py general-link [G] lists them."""
+        group = self.word(query, "group")
+        return self.run(["general-link", *([group] if group else [])])
 
     def exports(self, query):
         """The exports in this server's export folder, newest first, with their triage folders."""

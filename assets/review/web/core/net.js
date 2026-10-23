@@ -5,21 +5,25 @@
    ETag). This module draws nothing: it tells the drawing modules what changed through emit() in
    state.js.
 
-   Every request carries this device's key in X-Review-Device (README.md, "One person per link"). A link
-   works on the first devices that open it; on a further device every route answers 403 device_waiting
-   until the translator approves it. The page then waits: it keeps everything on the device, sends nothing,
-   and asks /api/me again until it answers.
+   Every request carries the header X-Review-Page: 1, which tells the site that its own page sent it
+   (README.md, "One person per account"). A reader signed in (S.mode "session") is known by the session
+   cookie, which the page never sees: those requests go with credentials "same-origin" and no code. In link
+   mode (S.mode "link", README.md, "Link signs in") a request carries the link's code and this device's key in
+   X-Review-Device, as before accounts, and goes with credentials "omit", so a session of another reader on
+   this browser never answers for the link. A link works on the first devices that open it; on a further
+   device every route answers 403 device_waiting until the translator approves it. The page then waits: it
+   keeps everything on the device, sends nothing, and asks /api/me again until it answers.
 
-   Each link's waiting comments, refused comments and drafts are kept apart on the device, and the page
-   shows and sends only those of the link open now. When /api/me answers, the page notes the reader number
-   of the link (rv.links); the waiting comments and drafts of another link of the same reader number then
-   move to the link open now and go out under it. Those of another reader wait untouched until that
-   reader's link opens again on this device. */
+   Each reader's waiting comments, refused comments and drafts are kept apart on the device by the reader's
+   fixed number (who()), and the page shows and sends only those of the reader signed in now. When /api/me
+   answers, or a link's claim names its reader, the page notes the number of the link (rv.links); the waiting
+   comments and drafts written under that link then become the reader's, and go out once that reader is
+   signed in on this browser. Those of another reader wait untouched until that reader signs in here again. */
 
-import { TIMEOUT_MS, LEASE_MS, PLACE_DELAY_MS, backoff, flushOnce, nextWake, applyPending, adoptOps, randomId } from "./outbox.js";
+import { TIMEOUT_MS, LEASE_MS, PLACE_DELAY_MS, backoff, flushOnce, nextWake, applyPending, renumber, randomId } from "./outbox.js";
 import { normMe, normChapter, upgradeChapter, normComments } from "./model.js";
 import { variantOf } from "./ext.js";
-import { K, chKey, cmKey, linkTag, draftMoves } from "./store.js";
+import { K, chKey, cmKey, linkTag, ownerTag, draftMoves } from "./store.js";
 import { S, store, emit } from "./state.js";
 
 export { PLACE_DELAY_MS };
@@ -76,16 +80,22 @@ export function deviceKey() {
 /* Whether an answer says that the link does not work on this device until the translator approves it. */
 export const isDeviceWaiting = r => r.status === 403 && !!r.data && r.data.error === "device_waiting";
 
-/* One API call. Returns {status, data, etag, wait}; status 0 means offline or timed out. */
+/* Whether a request of a reader route goes in link mode: with the link's code and the device key. */
+const linkMode = () => S.mode === "link" && !!S.code;
+
+/* One API call. Returns {status, data, etag, wait}; status 0 means offline or timed out. opts.page is true for
+   the sign-in routes (/api/auth/, /api/dev/), which always go with the cookies and never with a link's code. */
 export async function api(method, path, opts) {
   opts = opts || {};
   const limit = deadline();
-  const headers = { Authorization: "Bearer " + (opts.code || S.code), "X-Review-Device": deviceKey() };
+  const link = !opts.page && linkMode();
+  const headers = { "X-Review-Page": "1" };
+  if (link) Object.assign(headers, { Authorization: "Bearer " + S.code, "X-Review-Device": deviceKey() });
   if (opts.body !== undefined) headers["Content-Type"] = "application/json";
   if (opts.etag) headers["If-None-Match"] = opts.etag;
   try {
     const r = await fetch(path, {
-      method, headers, signal: limit.signal, cache: "no-store", credentials: "omit", keepalive: !!opts.keepalive,
+      method, headers, signal: limit.signal, cache: "no-store", credentials: link ? "omit" : "same-origin", keepalive: !!opts.keepalive,
       body: opts.body === undefined ? undefined : JSON.stringify(opts.body),
     });
     const text = r.status === 204 || r.status === 304 ? "" : await r.text();
@@ -109,22 +119,31 @@ export function mutateOb(fn) {
   emit("sync");
   return ob;
 }
-/* Only the ops of the link open now go out (outbox.js). */
+/* The reader whose words the page shows and sends now: the reader's fixed number, or, in link mode before the
+   device knows the link's number, "link:" and the link's code (outbox.js, ownerOf); null when nobody is signed
+   in. */
+export function who() {
+  if (typeof S.reader === "number") return S.reader;
+  return linkMode() ? "link:" + S.code : null;
+}
+
+/* Only the ops of the reader signed in now go out (outbox.js). */
 const io = {
   load: loadOb, save: saveOb, now: () => Date.now(),
-  send: (method, path, body, code) => api(method, path, { body, code, keepalive: true }),
-  get code() { return S.code; },
+  send: (method, path, body) => api(method, path, { body, keepalive: true }),
+  get who() { return who(); },
 };
 
 /* Send the outbox one op at a time, in the background. One tab sends at a time, under the lock rv-outbox.
-   Nothing goes while the link does not work, or while this device waits for the translator's approval.
+   Nothing goes while nobody is signed in, while a reader route answers 401, or while this device waits for the
+   translator's approval.
    A page that holds the lock may be frozen with it: Firefox keeps a page left in the same tab in its
    back-forward cache, stopped in the middle of a request. So a page that has found the lock taken for longer
    than an op's lease (LEASE_MS) takes it over ({steal: true}); each op's own lease (outbox.js) and the site's
    check of client_id keep two pages from sending one comment twice. */
 let flushing = false, wakeTimer = 0, busySince = 0;
 export function flush() {
-  if (flushing || S.authBlocked || S.deviceWaiting) return;
+  if (flushing || S.authBlocked || S.deviceWaiting || who() === null) return;
   flushing = true;
   const run = async () => {
     for (;;) {
@@ -132,7 +151,7 @@ export function flush() {
       if (!r) return "idle";
       handleResult(r);
       if (r.verdict === "net") { S.netFails++; return "net"; }
-      if (r.verdict === "auth" || r.verdict === "device") return r.verdict;
+      if (r.verdict === "auth" || r.verdict === "device" || r.verdict === "page") return r.verdict;
       if (r.verdict !== "dropped") S.netFails = 0;
     }
   };
@@ -155,9 +174,9 @@ export function flush() {
 export function schedule(minDelay) {
   clearTimeout(wakeTimer);
   emit("sync");
-  if (S.authBlocked || S.deviceWaiting) return;
+  if (S.authBlocked || S.deviceWaiting || who() === null) return;
   const now = Date.now();
-  let at = nextWake(loadOb(), now, S.code);
+  let at = nextWake(loadOb(), now, who());
   if (at === Infinity) return;
   if (S.netFails) at = Math.max(at, now + backoff(S.netFails));
   wakeTimer = setTimeout(flush, Math.max(minDelay || 0, at - now));
@@ -168,13 +187,11 @@ const STALE = ["no_chapter", "text_too_long", "quote_too_long"];   // refusals a
 
 function handleResult(r) {
   const o = r.op;
-  // The op stays in the outbox in both cases: a new link of the reader, or the translator's approval of
-  // this device, lets it go later.
-  if (r.verdict === "auth") {
-    if (o.code === S.code) authFailed();
-    return;
-  }
+  // The op stays in the outbox in these cases: the reader's sign-in, the translator's approval of this device,
+  // or the page loaded again lets it go later.
+  if (r.verdict === "auth") { authFailed(r.data && r.data.error); return; }
   if (r.verdict === "device") { deviceWaiting(r.data); return; }
+  if (r.verdict === "page") { emit("fault"); return; }
   // A refusal that a newer chapter list explains: the chapter is closed now, or the site's limits changed. The
   // list is asked for at once, so the page shows "This chapter is closed now" and names the site's own limit.
   if (r.verdict === "fail" && r.data && STALE.indexOf(r.data.error) >= 0) refreshMe();
@@ -204,30 +221,34 @@ function handleResult(r) {
 
 let firstMe = null;   // the first /api/me request, started by boot() alongside the words
 export function startMe() {
-  if (S.code) firstMe = api("GET", "api/me");
+  if (S.mode) firstMe = api("GET", "api/me");
 }
 
 export async function refreshMe() {
-  if (!S.code || S.authBlocked) return false;
+  if (!S.mode || S.authBlocked) return false;
   const pending = firstMe;
   firstMe = null;
   const r = await (pending || api("GET", "api/me"));
+  if (!S.mode || S.authBlocked) return false;   // signed out meanwhile
   S.meStatus = r.status;
-  if (r.status === 401) { authFailed(); return false; }
+  if (r.status === 401) { authFailed(r.data && r.data.error); return false; }
   if (isDeviceWaiting(r)) { deviceWaiting(r.data); return false; }
   if (r.status === 200 && r.data) {
     const me = normMe(r.data);
-    const before = S.me;
-    const wasWaiting = S.deviceWaiting;
     S.deviceWaiting = false;
-    const taken = takeOverLinks(me);
+    S.justSignedIn = false;
+    if (me.id !== null) adoptReader(me.id);
+    const before = S.me;
     dropStale(before, me);
-    S.me = applyPending(me, loadOb(), S.code);
+    S.me = applyPending(me, loadOb(), who());
     S.meAt = Date.now();
     store.set(K.me, S.me);
     emit("me");
-    // Ops that waited for the device, or that the link open now just took over, go at once.
-    if (wasWaiting || taken) flush();
+    // Every answer of 200 sends what waits: ops that waited for the device, for the reader's number or for a
+    // sign-in (a reader in link mode who signs in, on a device that already knew the number, 66-adversarial.md
+    // ADV4-01), and ops written under the reader's earlier links. flush() returns at once when nothing of the
+    // reader's is due, and sends only the ops of the reader signed in now.
+    flush();
     return true;
   }
   if (!S.me && !S.deviceWaiting) emit("offline");
@@ -245,26 +266,58 @@ export function deviceWaiting(data) {
   emit("sync");
 }
 
-/* Note which reader the link open now belongs to, and move to it the waiting comments and drafts of the
-   reader's other links on this device (README.md, "One person per link"). The match is by the reader's
-   fixed number from /api/me, never by name, because two readers may share a name. Returns how many ops
-   moved. */
-function takeOverLinks(me) {
-  if (me.id === null || !S.code) return 0;
+/* The reader signed in now is reader `id`, as /api/me or a sign-in says. In link mode the page notes the link's
+   number (rv.links). When the device kept the chapter list of another reader, what it keeps for reading goes
+   (forgetReader); what any reader wrote stays. The ops and drafts written under the reader's links become the
+   reader's (noteLink). Returns how many ops became the reader's, or 1 when the reader changed, so that the
+   caller sends them at once. */
+export function adoptReader(id) {
+  const kept = store.get(K.reader);
+  const keptMe = store.get(K.me);
+  let changed = 0;
+  if ((typeof kept === "number" && kept !== id) || (!!keptMe && Number.isInteger(keptMe.id) && keptMe.id !== id)) {
+    forgetReader();
+    S.me = null;
+  }
+  if (kept !== id) {
+    store.set(K.reader, id);
+    changed = 1;
+  }
+  S.reader = id;
+  return Math.max(changed, linkMode() ? noteLink(S.code, id) : ownWords(id));
+}
+
+/* Note that the link `code` belongs to reader `id` (rv.links: the link's tag, never its code), and give the
+   reader every op and draft written under the reader's links on this device. The match is by the reader's
+   fixed number, never by name, because two readers may share a name. Returns how many ops changed. */
+export function noteLink(code, id) {
+  if (!code || typeof id !== "number") return 0;
   const links = store.get(K.links) || {};
-  const tag = linkTag(S.code);
-  if (links[tag] !== me.id) {
-    links[tag] = me.id;
+  const tag = linkTag(code);
+  if (links[tag] !== id) {
+    links[tag] = id;
     store.set(K.links, links);
   }
-  const sameReader = code => code !== S.code && links[linkTag(code)] === me.id;
-  let moved = 0;
-  if (loadOb().some(o => sameReader(o.code))) mutateOb(ob => { moved = adoptOps(ob, S.code, sameReader, Date.now()); return ob; });
-  moveDrafts(tag, t => t !== tag && links[t] === me.id);
+  return ownWords(id);
+}
+
+/* Give reader `id` the ops and drafts written under the reader's links (rv.links), and those written before
+   the device knew the number of the link open now. Returns how many ops changed. */
+function ownWords(id) {
+  const links = store.get(K.links) || {};
+  const numberOf = code => links[linkTag(code)];
+  const ob = loadOb();
+  const moved = renumber(ob, numberOf, Date.now());
+  if (moved) {
+    saveOb(ob);
+    emit("sync");
+  }
+  const to = ownerTag(id);
+  moveDrafts(to, t => t !== to && /^[0-9a-f]{8}$/.test(t) && links[t] === id);
   return moved;
 }
 
-/* Move drafts under the link whose tag is `to` (store.js, draftMoves). */
+/* Move drafts under the tag `to` (store.js, draftMoves). */
 function moveDrafts(to, sameReader) {
   for (const [from, dest] of draftMoves(store.keys(), to, sameReader)) {
     const body = store.get(from);
@@ -342,7 +395,7 @@ export async function fetchChapter(book, id) {
     data.variant = variant;
     return { data, changed };
   }
-  if (r.status === 401) { authFailed(); return null; }
+  if (r.status === 401) { authFailed(r.data && r.data.error); return null; }
   if (isDeviceWaiting(r)) { deviceWaiting(r.data); return null; }
   if (r.status === 403 || r.status === 404) {
     store.del(key);
@@ -370,7 +423,7 @@ export async function loadComments(book, id) {
   for (let i = 0; i < 3; i++) {
     const before = cmWrites.get(key) || 0;
     const r = await api("GET", "api/comments?book=" + enc(book) + "&ch=" + enc(id));
-    if (r.status === 401) { authFailed(); return false; }
+    if (r.status === 401) { authFailed(r.data && r.data.error); return false; }
     if (isDeviceWaiting(r)) { deviceWaiting(r.data); return false; }
     if (r.status !== 200 || !r.data) return false;
     if ((cmWrites.get(key) || 0) !== before) continue;   // a write landed meanwhile: ask again
@@ -386,7 +439,7 @@ export async function loadComments(book, id) {
    then shows that instead). */
 export async function fetchEarlier() {
   const r = await api("GET", "api/comments?earlier=1");
-  if (r.status === 401) { authFailed(); return null; }
+  if (r.status === 401) { authFailed(r.data && r.data.error); return null; }
   if (isDeviceWaiting(r)) { deviceWaiting(r.data); return null; }
   if (r.status === 200 && r.data) return { comments: normComments(r.data), rounds: Array.isArray(r.data.rounds) ? r.data.rounds : [] };
   return { error: r.status === 0 ? "offline" : "fault" };
@@ -415,16 +468,19 @@ async function prefetch() {
 
 /* Drop what the device keeps for one reader to read: the chapter list, chapters, comment lists, the changed
    paragraphs the reader has opened, and what features keep for the reader under "rv.f:<feature>:" keys.
-   What the reader wrote stays: each op of the outbox names the link that made it, and each draft carries
-   its link's tag in its key. The device key and the reader numbers of links (rv.links) stay too. */
+   What the reader wrote stays: each op of the outbox names its reader, and each draft carries its reader's
+   tag in its key. The device key and the reader numbers of links (rv.links) stay too. */
 export function forgetReader() {
   for (const k of store.keys()) if (/^rv\.(ch|cm|opened|f):/.test(k)) store.del(k);
   store.del(K.me);
 }
 
-export function authFailed() {
+/* A reader route answered 401 with the error `code`: nothing more goes out, the page forgets what it keeps for
+   reading, and the screen that the code calls for shows (core/signin.js). The outbox and the drafts stay. */
+export function authFailed(code) {
   S.authBlocked = true;
+  clearTimeout(wakeTimer);
   forgetReader();
   S.me = null;
-  emit("auth");
+  emit("auth", typeof code === "string" ? code : "");
 }

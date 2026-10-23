@@ -6,17 +6,20 @@
    reading and typing never wait for the network. Plain functions with no DOM: tests/core_test.js
    runs them with node.
 
-   op = {op, type: create|update|delete|place|finished|opened, code, cid?, id?, key?, book, ch, a?, body,
+   op = {op, type: create|update|delete|place|finished|opened, reader, cid?, id?, key?, book, ch, a?, body,
          t, rev, tries, sent, next, sending, failed, why}
-   Ops of one comment (same cid) or one setting (same key and link) go out in order; others never wait.
+   Ops of one comment (same cid) or one setting (same key and reader) go out in order; others never wait.
    `failed` holds {status, error, message, type} when the server refused the op for good; `why` holds the
    error code of the last answer that asked the page to try again later, such as slow_down. A delete keeps
    the comment's words in its body, so a delete the server refuses can still show them.
 
-   `code` is the link the op was made under. The page sends only the ops of the link open now; the ops of
-   another link wait, untouched, until that link opens again on this device, or until a new link of the
-   same reader takes them over (adoptOps). Nothing in the outbox is ever deleted unsent unless the reader
-   asks. */
+   `reader` is the fixed number of the reader who wrote the op (README.md, "Link signs in"): the page sends
+   only the ops of the reader signed in now on this browser, with the session cookie or, in link mode, with the
+   link's code. The ops of another reader wait, untouched, until that reader signs in on this browser again.
+   An op made by a page of round 3b names its link in `code` instead, and so does an op written in link mode
+   before the device knew the link's reader number; its owner is then "link:" and the code (ownerOf), until
+   renumber() gives it the number the device learnt for that link. Nothing in the outbox is ever deleted
+   unsent unless the reader asks. */
 
 export const TIMEOUT_MS = 8000;    // a fetch is given up after this long and tried again later
 export const LEASE_MS = 20000;     // an op marked "sending" longer ago than this was lost with its tab
@@ -36,12 +39,19 @@ export function backoff(tries, rand) {
 }
 
 const isSending = (o, now) => !!o.sending && now - o.sending < LEASE_MS;
-const chainOf = o => (o.cid ? "c:" + o.cid : "k:" + o.code + ":" + o.key);
-/* Whether op o may go out under the link `code`; with no code given, every op may. */
-const mine = (o, code) => code === undefined || o.code === code;
 
-function newOp(type, code, now, extra) {
-  return Object.assign({ op: randomId(), type, code, t: now, rev: 0, tries: 0, sent: 0, next: 0, sending: 0, failed: null, why: "" }, extra);
+/* Whose an op is: the reader's number, or "link:" and the code of the link it was made under while its reader
+   number was not known (a page of round 3b kept that code in `code`). */
+export function ownerOf(o) {
+  if (typeof o.reader === "number" || typeof o.reader === "string") return o.reader;
+  return typeof o.code === "string" && o.code ? "link:" + o.code : null;
+}
+const chainOf = o => (o.cid ? "c:" + o.cid : "k:" + ownerOf(o) + ":" + o.key);
+/* Whether op o is of the reader `who` (a number, or "link:" and a code); with no reader given, every op is. */
+const mine = (o, who) => who === undefined || ownerOf(o) === who;
+
+function newOp(type, who, now, extra) {
+  return Object.assign({ op: randomId(), type, reader: who, t: now, rev: 0, tries: 0, sent: 0, next: 0, sending: 0, failed: null, why: "" }, extra);
 }
 
 /* A refused op that the reader changes is tried again from the start. */
@@ -49,14 +59,14 @@ function revive(o) {
   if (o.failed) { o.failed = null; o.tries = 0; o.next = 0; }
 }
 
-export function queueCreate(ob, c, code, now) {
+export function queueCreate(ob, c, who, now) {
   const body = { client_id: c.client_id, book: c.book, ch: c.ch, a: c.a, kind: c.kind, quote: c.quote || "", text: c.text };
-  ob.push(newOp("create", code, now, { cid: c.client_id, book: c.book, ch: c.ch, a: c.a, body }));
+  ob.push(newOp("create", who, now, { cid: c.client_id, book: c.book, ch: c.ch, a: c.a, body }));
   return ob;
 }
 
 /* An edit joins a create or update still in the outbox; otherwise it becomes a new update. */
-export function queueEdit(ob, c, fields, code, now) {
+export function queueEdit(ob, c, fields, who, now) {
   const mine = ob.filter(o => o.cid === c.client_id && o.type !== "delete");
   const target = mine.find(o => o.type === "create") || mine.find(o => o.type === "update");
   if (target) {
@@ -65,34 +75,34 @@ export function queueEdit(ob, c, fields, code, now) {
     revive(target);
     return ob;
   }
-  ob.push(newOp("update", code, now, { cid: c.client_id, id: c.id, book: c.book, ch: c.ch, a: c.a, body: Object.assign({}, fields) }));
+  ob.push(newOp("update", who, now, { cid: c.client_id, id: c.id, book: c.book, ch: c.ch, a: c.a, body: Object.assign({}, fields) }));
   return ob;
 }
 
 /* A comment the server cannot have seen is simply dropped; otherwise a delete goes out, with the comment's
    words, which the page shows if the server refuses the delete. */
-export function queueDelete(ob, c, code, now) {
+export function queueDelete(ob, c, who, now) {
   const cid = c.client_id;
   const create = ob.find(o => o.cid === cid && o.type === "create");
   const onServer = c.id != null || (!!create && !create.failed && (isSending(create, now) || create.sent > 0));
   ob = ob.filter(o => o.cid !== cid || isSending(o, now) || (o === create && onServer));
   const body = { kind: c.kind, quote: c.quote || "", text: c.text || "" };
-  if (onServer) ob.push(newOp("delete", code, now, { cid, id: c.id, book: c.book, ch: c.ch, a: c.a, body }));
+  if (onServer) ob.push(newOp("delete", who, now, { cid, id: c.id, book: c.book, ch: c.ch, a: c.a, body }));
   return ob;
 }
 
 /* Place, finished and opened: the newest value replaces an older one of the same chapter that is still
    waiting. */
-export function queueSet(ob, type, body, code, now, delay) {
+export function queueSet(ob, type, body, who, now, delay) {
   const key = type + ":" + body.book + "/" + body.ch;
-  const old = ob.find(o => o.key === key && o.code === code);
+  const old = ob.find(o => o.key === key && ownerOf(o) === who);
   if (old) {
     old.body = Object.assign({}, body);
     old.rev++;
     revive(old);
     return ob;
   }
-  ob.push(newOp(type, code, now, { key, book: body.book, ch: body.ch, body: Object.assign({}, body), next: now + (delay || 0) }));
+  ob.push(newOp(type, who, now, { key, book: body.book, ch: body.ch, body: Object.assign({}, body), next: now + (delay || 0) }));
   return ob;
 }
 
@@ -102,12 +112,12 @@ export function queueRetry(ob, cid) {
   return ob;
 }
 
-/* The first op of the link `code` that may go now: the head of its chain, not failed, not sending, not
+/* The first op of the reader `who` that may go now: the head of its chain, not failed, not sending, not
    waiting. */
-export function pickNext(ob, now, code) {
+export function pickNext(ob, now, who) {
   const seen = new Set();
   for (const o of ob) {
-    if (!mine(o, code)) continue;
+    if (!mine(o, who)) continue;
     const chain = chainOf(o);
     if (seen.has(chain)) continue;
     seen.add(chain);
@@ -116,12 +126,12 @@ export function pickNext(ob, now, code) {
   return null;
 }
 
-/* When the next op of the link `code` falls due: a time in ms, or Infinity when nothing can go. */
-export function nextWake(ob, now, code) {
+/* When the next op of the reader `who` falls due: a time in ms, or Infinity when nothing can go. */
+export function nextWake(ob, now, who) {
   const seen = new Set();
   let at = Infinity;
   for (const o of ob) {
-    if (!mine(o, code)) continue;
+    if (!mine(o, who)) continue;
     const chain = chainOf(o);
     if (seen.has(chain)) continue;
     seen.add(chain);
@@ -131,8 +141,11 @@ export function nextWake(ob, now, code) {
 }
 
 /* The server's answer to an op, as what the page does next. error is the answer's error code, if any.
-   "device": the link does not work on this device until the translator approves it (403 device_waiting);
-   the op stays as it is, and nothing more goes out until the device is let in. */
+   "auth": the browser is not signed in as this reader now (every 401: no_code, signed_out, stopped, bad_code,
+   link_used, sign_in_required); "device": the link does not work on this device until the translator
+   approves it (403 device_waiting). In both the op stays as it is, and nothing more goes out until the reader
+   signs in or the device is let in. "page": the site took the request for one another site made (403
+   bad_page), a fault of the page; the op waits, as after a "retry", and is never refused for it. */
 export function classify(type, status, error) {
   if (status >= 200 && status < 300) return "ok";
   // Already gone; any other refusal of a delete, as no_chapter for a closed chapter, leaves the comment.
@@ -140,6 +153,7 @@ export function classify(type, status, error) {
   if (status === 0) return "net";                          // offline or timed out
   if (status === 401) return "auth";
   if (status === 403 && error === "device_waiting") return "device";
+  if (status === 403 && error === "bad_page") return "page";
   if (status === 408 || status === 425 || status === 429 || status >= 500) return "retry";
   return "fail";                                           // the server refused this op
 }
@@ -180,10 +194,10 @@ export function settle(ob, opid, sentRev, verdict, data, status, now, wait) {
     if (o.rev !== sentRev) { o.tries = 0; o.next = 0; o.why = ""; return ob; }   // changed while out: send again
     return ob.filter(x => x !== o);
   }
-  if (verdict === "retry") {
+  if (verdict === "retry" || verdict === "page") {
     o.tries++;
     o.next = now + Math.max(backoff(o.tries), wait || 0);
-    o.why = (data && typeof data.error === "string" && data.error) || (status === 429 ? "slow_down" : "");
+    o.why = verdict === "page" ? "" : (data && typeof data.error === "string" && data.error) || (status === 429 ? "slow_down" : "");
     return ob;
   }
   if (verdict === "fail") {
@@ -200,12 +214,12 @@ export function settle(ob, opid, sentRev, verdict, data, status, now, wait) {
   return ob;   // "net", "auth" and "device": the op stays as it is, and the caller decides
 }
 
-/* Send one op. io = {load(), save(ob), send(method, path, body, code) -> {status, data, wait}, now(), code};
-   io.code, when given, is the link open now, and only its ops go out. Returns {verdict, op, data, status},
-   or null when nothing is due. */
+/* Send one op. io = {load(), save(ob), send(method, path, body) -> {status, data, wait}, now(), who};
+   io.who, when given, is the reader signed in now, and only that reader's ops go out. Returns {verdict, op,
+   data, status}, or null when nothing is due. */
 export async function flushOnce(io) {
   const ob = io.load();
-  const o = pickNext(ob, io.now(), io.code);
+  const o = pickNext(ob, io.now(), io.who);
   if (!o) return null;
   const req = requestFor(o);
   if (!req) {
@@ -216,7 +230,7 @@ export async function flushOnce(io) {
   o.sent = (o.sent || 0) + 1;
   const opid = o.op, rev = o.rev;
   io.save(ob);
-  const r = await io.send(req[0], req[1], req[2], o.code);
+  const r = await io.send(req[0], req[1], req[2]);
   const verdict = classify(o.type, r.status, r.data && typeof r.data === "object" ? r.data.error : "");
   const data = r.data && typeof r.data === "object" && r.data.comment ? r.data.comment : r.data;
   io.save(settle(io.load(), opid, rev, verdict, data, r.status, io.now(), r.wait || 0));
@@ -226,12 +240,12 @@ export async function flushOnce(io) {
 /* The reader's comments on one chapter as they should look now: the server's list with the
    outbox laid over it. Each comment gets a state: saved, saving or failed. A comment that waits
    because the server asked the page to try later carries the reason in `why`. */
-export function overlay(list, ob, book, ch, code) {
+export function overlay(list, ob, book, ch, who) {
   const map = new Map();
   // Every comment carries its chapter, so an edit or delete made from this list finds its way back.
   for (const c of list || []) map.set(c.client_id, Object.assign({}, c, { book, ch, state: "saved", why: "" }));
   for (const o of ob) {
-    if (!o.cid || o.book !== book || o.ch !== ch || o.code !== code) continue;
+    if (!o.cid || o.book !== book || o.ch !== ch || ownerOf(o) !== who) continue;
     const cur = map.get(o.cid);
     const mark = { state: o.failed ? "failed" : "saving", failure: o.failed || null, why: o.failed ? "" : o.why || "" };
     // A comment held back by the daily limit carries when it goes again: the next midnight in Thailand.
@@ -246,9 +260,9 @@ export function overlay(list, ob, book, ch, code) {
 
 /* Lay waiting place, finished and opened writes over a chapter list from the server. A waiting opened
    version of the chapter's current version leaves nothing to show as changed. */
-export function applyPending(me, ob, code) {
+export function applyPending(me, ob, who) {
   for (const o of ob) {
-    if (o.code !== code || (o.type !== "place" && o.type !== "finished" && o.type !== "opened")) continue;
+    if (ownerOf(o) !== who || (o.type !== "place" && o.type !== "finished" && o.type !== "opened")) continue;
     const c = me.chapters.find(x => x.book === o.book && x.id === o.ch);
     if (!c) continue;
     if (o.type === "place") c.place = o.body.a;
@@ -258,14 +272,19 @@ export function applyPending(me, ob, code) {
   return me;
 }
 
-/* A new link of the same reader takes over the ops of the reader's other links on this device, so they go
-   out under it. sameReader(code) says whether the link `code` belongs to the reader of the link open now,
-   by the reader number /api/me gave for each link, never by name. Returns how many ops were taken over. */
-export function adoptOps(ob, code, sameReader, now) {
+/* Give each op whose owner is a link (ownerOf: "link:" and a code) the number of that link's reader, once the
+   device knows it: numberOf(code) returns the number, or anything else when it is not known. An op being sent
+   by another tab is left as it is. The ops of a reader's earlier links thus go out once the reader signs in,
+   matched by the reader's fixed number, never by name. Returns how many ops were given a number. */
+export function renumber(ob, numberOf, now) {
   let n = 0;
   for (const o of ob) {
-    if (o.code === code || isSending(o, now) || !sameReader(o.code)) continue;
-    o.code = code;
+    const who = ownerOf(o);
+    if (typeof who !== "string" || who.indexOf("link:") !== 0 || isSending(o, now)) continue;
+    const id = numberOf(who.slice(5));
+    if (typeof id !== "number") continue;
+    o.reader = id;
+    delete o.code;
     n++;
   }
   return n;

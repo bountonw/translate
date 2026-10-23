@@ -5,11 +5,14 @@ import { t } from "./words.js";
 
 export const ROUTES = {
   info: "GET", chapters: "GET", source: "GET", readers: "GET", groups: "GET", features: "GET", exports: "GET",
-  rounds: "GET", devices: "GET",
+  rounds: "GET", devices: "GET", auth: "GET", sessions: "GET", identities: "GET", requests: "GET",
+  "general-links": "GET",
   publish: "POST", withdraw: "POST", "align-packet": "POST",
   invite: "POST", open: "POST", close: "POST", revoke: "POST", restore: "POST", relink: "POST",
   english: "POST", feature: "POST", group: "POST", device: "POST", "delete-comments": "POST",
   round: "POST", export: "POST", triage: "POST", replies: "POST", processed: "POST",
+  signin: "POST", "link-signs-in": "POST", session: "POST", signout: "POST", identity: "POST", unbind: "POST",
+  request: "POST", "general-link": "POST",
   backup: "POST", "new-token": "POST", trade: "POST"
 };
 

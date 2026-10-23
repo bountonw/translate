@@ -3,14 +3,18 @@
    One row per chapter open to the reader: its number and title, its state, the reader's place and the
    counts, and "Updated <date>" while the chapter has changed since the version the reader last opened, as
    the line at the head of the chapter says (updates.js). Above the list, "My earlier comments" when the
-   reader has comments of earlier review rounds (earlier.js). */
+   reader has comments of earlier review rounds (earlier.js). Under the list, in Safari on an iPhone or iPad,
+   one line on adding the site to the Home Screen, with Hide, which the device remembers (core/auth.js,
+   wantsHomeHint). */
 
-import { overlay } from "./outbox.js";
-import { S } from "./state.js";
+import { overlay, ownerOf } from "./outbox.js";
+import { wantsHomeHint } from "./auth.js";
+import { S, store } from "./state.js";
+import { K } from "./store.js";
 import { t, plural, dateText } from "./words.js";
 import { h, $, shortA, drawn } from "./dom.js";
 import { active, hintKey } from "./ext.js";
-import { loadOb, keptComments } from "./net.js";
+import { loadOb, keptComments, who } from "./net.js";
 import { bookLang } from "./languages.js";
 import { leaveChapter, openChapter } from "./chapter.js";
 import { setBar, settingsBar } from "./screens.js";
@@ -26,10 +30,11 @@ export function showHome() {
 
 function countComments(c, ob) {
   const list = keptComments(c.book, c.id);
-  if (list) return overlay(list, ob, c.book, c.id, S.code).length;
+  const me = who();
+  if (list) return overlay(list, ob, c.book, c.id, me).length;
   let n = c.comments;
   for (const o of ob) {
-    if (o.code !== S.code || o.book !== c.book || o.ch !== c.id) continue;
+    if (ownerOf(o) !== me || o.book !== c.book || o.ch !== c.id) continue;
     if (o.type === "create") n++;
     else if (o.type === "delete") n--;
   }
@@ -68,7 +73,7 @@ export function renderHome(force) {
     earlier ? h("div", { class: "home-tools" },
       h("button", { type: "button", class: "tool-btn", id: "past-btn", text: t("past_open"), onclick: () => { S.homeY = window.scrollY; showEarlier(true); } })) : null));
   if (!rows.length) {
-    main.append(h("p", { class: "lead empty", text: t("no_chapters") }));
+    main.append(h("p", { class: "lead empty", text: t("no_chapters") }), homeHint());
     return;
   }
   const books = [...new Set(rows.map(r => r.c.book))];
@@ -84,6 +89,19 @@ export function renderHome(force) {
         r.upd ? h("span", { class: "ch-upd", text: r.upd }) : null,
         r.meta ? h("span", { class: "ch-meta", text: r.meta }) : null)))));
   }
+  main.append(homeHint());
+}
+
+/* The line on adding the site to the Home Screen, or "" when it does not show. */
+function homeHint() {
+  if (store.get(K.homeHint) === true || !wantsHomeHint(navigator)) return "";
+  const line = h("p", { class: "home-hint", id: "home-hint" },
+    h("span", { text: t("home_hint") }), " ",
+    h("button", { type: "button", class: "link", text: t("home_hint_hide"), onclick: () => {
+      store.set(K.homeHint, true);
+      line.remove();
+    } }));
+  return line;
 }
 
 /* "Updated <date>" on the row of a chapter that changed since the version the reader last opened, with the

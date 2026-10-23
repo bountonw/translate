@@ -1,7 +1,7 @@
 /* Checks of the page's plain modules in web/core/ (the outbox, the server's answers, the refusals, the
-   feature places, what changed since the reader last opened a chapter, and the words), and of the plain
-   part of web/features/sentences.js, run by test_core.py with node. Prints "ok" and exits 0 when every
-   check passes. */
+   feature places, what changed since the reader last opened a chapter, the words, and the rules of signing in),
+   of web/core/net.js with a stand-in for fetch, and of the plain part of web/features/sentences.js, run by
+   test_core.py with node. Prints "ok" and exits 0 when every check passes. */
 "use strict";
 const assert = require("assert");
 const path = require("path");
@@ -17,7 +17,8 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   const store = await load("store.js");
   const changes = await load("changes.js");
 
-  const code = "reader-code";
+  // The reader whose ops these are: the outbox keys each op by the reader's fixed number (README.md, "Link signs in").
+  const code = 7;
   const c = { client_id: "c1", book: "SC", ch: "SC03", a: "SC 23.3", kind: "flag", quote: "", text: "words" };
 
   // A comment the server refuses for good stays in the outbox as failed, with the server's error code.
@@ -270,6 +271,19 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   const moves = store.draftMoves([dk(tagA, "SC 1.1"), dk(tagA, "SC 1.2"), dk(tagB, "SC 1.2"), dk(tagC, "SC 1.3"), "rv.me"], tagB, t => t === tagA);
   assert.deepStrictEqual(moves, [[dk(tagA, "SC 1.1"), dk(tagB, "SC 1.1")]]);
   assert.deepStrictEqual(store.draftMoves(["rv.draft:SC/SC03/SC 1.1"], tagA, t => t === ""), [["rv.draft:SC/SC03/SC 1.1", dk(tagA, "SC 1.1")]]);
+  // A draft is kept per reader, under R and the reader's fixed number; in link mode before the device knows the link's
+  // number, under the link's tag, from which it moves to the reader's (spec 3.M, 61-contract.md 7.E).
+  assert.strictEqual(store.ownerTag(7), "R7");
+  assert.strictEqual(store.ownerTag("link:code-of-link-A"), tagA);
+  assert.strictEqual(store.ownerTag(null), "");
+  assert.deepStrictEqual(store.parseDraftKey(dk("R12", "SC 1.1")), { tag: "R12", book: "SC", ch: "SC03", a: "SC 1.1" });
+  assert.deepStrictEqual(store.draftMoves([dk(tagA, "SC 1.1"), dk("R7", "SC 1.2"), dk(tagC, "SC 1.3")], "R7", t => t === tagA),
+    [[dk(tagA, "SC 1.1"), dk("R7", "SC 1.1")]]);
+  // A browser that refuses storage outright is named, so the page shows the plain screen for it (spec 3.L).
+  assert.strictEqual(store.makeStore({ setItem() { throw new Error("SecurityError"); } }).blocked, true);
+  assert.strictEqual(store.makeStore(null).blocked, true);
+  const okStore = new Map();
+  assert.strictEqual(store.makeStore({ setItem: (k, v) => okStore.set(k, v), removeItem: k => okStore.delete(k), getItem: k => okStore.get(k) }).blocked, false);
 
   // ---- One person per link: the device key and the wait for the translator's approval ----
   // 403 device_waiting keeps the op as it is and stops the sending; any other 403 refuses it as before.
@@ -285,34 +299,45 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   obp = core.settle(obp, obp[0].op, 0, "device", { error: "device_waiting" }, 403, 1);
   assert.strictEqual(obp.length, 1, "a place waits too");
 
-  // ---- Each link's ops are kept apart: only the link open now sends ----
-  const other = "code-of-another-link";
+  // ---- Each reader's ops are kept apart: only the reader signed in now sends ----
+  const other = 8;
   let obl = core.queueCreate([], Object.assign({}, c, { client_id: "x1" }), other, 0);
   obl = core.queueCreate(obl, Object.assign({}, c, { client_id: "x2" }), code, 0);
   obl = core.queueSet(obl, "place", { book: "SC", ch: "SC03", a: "SC 23.3" }, other, 0, 0);
   obl = core.queueSet(obl, "place", { book: "SC", ch: "SC03", a: "SC 23.4" }, code, 0, 0);
-  assert.strictEqual(obl.length, 4, "two links' places of one chapter stay apart");
+  assert.strictEqual(obl.length, 4, "two readers' places of one chapter stay apart");
   assert.strictEqual(core.pickNext(obl, 1, code).cid, "x2");
   assert.strictEqual(core.pickNext(obl, 1, other).cid, "x1");
-  assert.strictEqual(core.pickNext(obl, 1).cid, "x1");                 // no link given: any op, as before
+  assert.strictEqual(core.pickNext(obl, 1).cid, "x1");                 // no reader given: any op, as before
   const afterX2 = obl.filter(o => o.cid !== "x2");
-  assert.strictEqual(core.pickNext(afterX2, 1, code).body.a, "SC 23.4");  // another link's place does not block this one
-  assert.strictEqual(core.nextWake(obl.filter(o => o.code === other), 1, code), Infinity);
+  assert.strictEqual(core.pickNext(afterX2, 1, code).body.a, "SC 23.4");  // another reader's place does not block this one
+  assert.strictEqual(core.nextWake(obl.filter(o => core.ownerOf(o) === other), 1, code), Infinity);
   assert.deepStrictEqual(core.overlay([], obl, "SC", "SC03", code).map(x => x.client_id), ["x2"]);
-  // flushOnce sends only io.code's ops, under their own link.
+  assert.deepStrictEqual(obl.map(o => o.reader), [8, 7, 8, 7], "each op names its reader's number");
+  // flushOnce sends only io.who's ops.
   const sent = [];
   let box = obl.map(o => Object.assign({}, o));
-  const io2 = { load: () => box, save: x => { box = x; }, now: () => 5, code,
-    send: async (m, pth, body, cd) => { sent.push([m, pth, cd]); return { status: 201, data: { id: 9, client_id: "x2", kind: "flag", quote: "", text: "words" } }; } };
+  const io2 = { load: () => box, save: x => { box = x; }, now: () => 5, who: code,
+    send: async (m, pth) => { sent.push([m, pth]); return { status: 201, data: { id: 9, client_id: "x2", kind: "flag", quote: "", text: "words" } }; } };
   await core.flushOnce(io2);
-  assert.deepStrictEqual(sent, [["POST", "api/comments", code]]);
-  // A new link of the same reader takes over the reader's ops; another reader's stay as they are.
-  let oba = core.queueCreate([], Object.assign({}, c, { client_id: "y1" }), "old-link", 0);
-  oba = core.queueCreate(oba, Object.assign({}, c, { client_id: "y2" }), "someone-else", 0);
-  oba = core.queueCreate(oba, Object.assign({}, c, { client_id: "y3" }), "old-link", 0);
+  assert.deepStrictEqual(sent, [["POST", "api/comments"]]);
+  assert.deepStrictEqual(box.map(o => o.cid || o.key), ["x1", "place:SC/SC03", "place:SC/SC03"]);
+  // An op of a page of round 3b names its link in `code`, and so does one written in link mode before the device
+  // knew the link's number ("link:" and the code). Once the device knows the number of the link, the op becomes
+  // that reader's; the op of a link the device never tied to a number stays as it is (spec 3.M, 61-contract.md 7.C).
+  const legacy = (cid, link) => ({ op: "o-" + cid, type: "create", code: link, cid, book: "SC", ch: "SC03", a: "SC 23.3",
+    body: { client_id: cid, book: "SC", ch: "SC03", a: "SC 23.3", kind: "flag", quote: "", text: "words" },
+    t: 0, rev: 0, tries: 0, sent: 0, next: 0, sending: 0, failed: null, why: "" });
+  let oba = [legacy("y1", "old-link"), legacy("y2", "someone-else"), legacy("y3", "old-link"), legacy("y4", "never-known")];
+  oba = core.queueCreate(oba, Object.assign({}, c, { client_id: "y5" }), "link:new-link", 0);
+  assert.deepStrictEqual(oba.map(core.ownerOf), ["link:old-link", "link:someone-else", "link:old-link", "link:never-known", "link:new-link"]);
+  assert.strictEqual(core.pickNext(oba, 1, "link:new-link").cid, "y5", "an op of a link whose number is not known yet goes in link mode");
   oba[2].sending = 10;   // being sent by another tab: left alone
-  assert.strictEqual(core.adoptOps(oba, "new-link", cd => cd === "old-link", 11), 1);
-  assert.deepStrictEqual(oba.map(o => o.code), ["new-link", "someone-else", "old-link"]);
+  const numbers = { "old-link": 7, "new-link": 7, "someone-else": 8 };
+  assert.strictEqual(core.renumber(oba, cd => numbers[cd], 11), 3);
+  assert.deepStrictEqual(oba.map(core.ownerOf), [7, 8, "link:old-link", "link:never-known", 7]);
+  assert.ok(!("code" in oba[0]), "a numbered op keeps no link code");
+  assert.deepStrictEqual(core.overlay([], oba, "SC", "SC03", 7).map(x => x.client_id), ["y1", "y5"]);
 
   // ---- The daily limit: how long until it resets, in hours and minutes ----
   let obt = core.queueCreate([], c, code, 0);
@@ -408,7 +433,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(groups[0].rounds[0].round, { name: "gone", started: "" });
   assert.deepStrictEqual(model.groupEarlier([], []), []);
 
-  // ---- The network module: the device key, the wait, and a new link of the same reader ----
+  // ---- The network module: session mode, link mode, the device key, the wait, and each reader's words ----
   const net = await load("net.js");
   const outbox = () => st.store.get("rv.outbox") || [];
   // Storage that passed the start check of store.js and then refuses every write, as a full one does: the page
@@ -425,67 +450,96 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(net.deviceKey(), key1, "the device key is made once");
   let answers = [];
   const calls = [];
+  const events = [];
+  st.on("auth", code => events.push(["auth", code]));
+  st.on("fault", () => events.push(["fault"]));
   globalThis.fetch = async (url, init) => {
-    calls.push({ url, method: init.method, headers: init.headers, body: init.body });
+    calls.push({ url, method: init.method, headers: init.headers, body: init.body, credentials: init.credentials });
     const [status, body] = answers.length ? answers.shift() : [500, { error: "server_error" }];
     return { status, headers: { get: () => null }, text: async () => JSON.stringify(body) };
   };
-  st.S.code = "new-link";
+  const meAnswer = (id, extra) => [200, Object.assign({ id, name: "R" + id, books: [{ id: "SC", title: "", round: null, earlier: 0 }],
+    chapters: [{ book: "SC", id: "SC03", n: 3, title: "t", version: "v" }] }, extra || {})];
+  const pause = ms => new Promise(r => setTimeout(r, ms));
+  const created = (id, cid) => [201, { id, client_id: cid, kind: "flag", quote: "", text: "words" }];
+
+  // Signed in (session mode): the session cookie, which the page never sees, and X-Review-Page: 1; never a link's
+  // code or the device key (61-contract.md 1.A).
+  Object.assign(st.S, { mode: "session", code: null, reader: 7 });
+  answers = [[200, { ok: true }]];
+  await net.api("GET", "api/me");
+  assert.deepStrictEqual(calls[0].headers, { "X-Review-Page": "1" });
+  assert.strictEqual(calls[0].credentials, "same-origin");
+  assert.strictEqual(net.who(), 7);
+  // Link mode: the link's code and the device key, without the cookies, so that a session of another reader on this
+  // browser never answers for the link (61-contract.md section 8).
+  Object.assign(st.S, { mode: "link", code: "new-link", reader: null });
+  answers = [[200, { ok: true }], [200, { ok: true }]];
+  await net.api("GET", "api/me");
+  assert.deepStrictEqual(calls[1].headers, { "X-Review-Page": "1", Authorization: "Bearer new-link", "X-Review-Device": key1 });
+  assert.strictEqual(calls[1].credentials, "omit");
+  // The sign-in routes go with the cookies and never with the link's code.
+  await net.api("POST", "api/auth/claim", { page: true, body: { link: "new-link" } });
+  assert.deepStrictEqual(calls[2].headers, { "X-Review-Page": "1", "Content-Type": "application/json" });
+  assert.strictEqual(calls[2].credentials, "same-origin");
+  assert.strictEqual(net.who(), "link:new-link", "before the device knows the link's number, the link stands for its reader");
+  calls.length = 0;
+
   // The device waits: /api/me answers 403 device_waiting; the page stops sending and keeps everything.
-  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "w1" }), "new-link", 0));
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "w1" }), net.who(), 0));
   answers = [[403, { error: "device_waiting", message: "x", device: 12 }]];
   assert.strictEqual(await net.refreshMe(), false);
   assert.strictEqual(st.S.deviceWaiting, true);
   assert.strictEqual(st.S.deviceNumber, 12, "the waiting screen names the device's number (45 SEC3-5)");
-  assert.strictEqual(calls[0].headers["X-Review-Device"], key1, "every request carries the device key");
+  assert.strictEqual(calls[0].headers["X-Review-Device"], key1, "every request in link mode carries the device key");
   net.flush();
-  await new Promise(r => setTimeout(r, 20));
+  await pause(20);
   assert.strictEqual(calls.length, 1, "nothing is sent while the device waits");
   assert.strictEqual(outbox().length, 1);
-  // A new link of reader 7, whose old link is known on this device: the old link's ops and drafts move to it.
+  // /api/me names the link's reader, 7, whose earlier link is known on this device: the ops and drafts of the earlier
+  // link, and those of the link open now, become reader 7's and go; another reader's wait untouched.
   st.store.set("rv.links", { [store.linkTag("old-link")]: 7, [store.linkTag("someone-else")]: 8 });
-  st.store.set("rv.outbox", outbox().concat(core.queueCreate([], Object.assign({}, c, { client_id: "o1" }), "old-link", 0),
-    core.queueCreate([], Object.assign({}, c, { client_id: "s1" }), "someone-else", 0)));
+  st.store.set("rv.outbox", outbox().concat([legacy("o1", "old-link"), legacy("s1", "someone-else")]));
   st.store.set(store.draftKey(store.linkTag("old-link"), "SC", "SC03", "SC 23.3"), { kind: "flag", quote: "", text: "draft of the old link" });
   st.store.set(store.draftKey(store.linkTag("someone-else"), "SC", "SC03", "SC 23.3"), { kind: "flag", quote: "", text: "another reader's draft" });
   st.store.set("rv.cm:SC/SC09", { list: [] });   // a chapter no longer open
-  answers = [[200, { id: 7, name: "Anan", books: [{ id: "SC", title: "", round: null, earlier: 0 }],
-    chapters: [{ book: "SC", id: "SC03", n: 3, title: "t", version: "v" }] }]];
-  for (let i = 0; i < 4; i++) answers.push([201, { id: 100 + i, client_id: "?", kind: "flag", quote: "", text: "words" }]);
+  answers = [meAnswer(7)];
+  for (let i = 0; i < 4; i++) answers.push(created(100 + i, "?"));
   calls.length = 0;
   assert.strictEqual(await net.refreshMe(), true);
   assert.strictEqual(st.S.deviceWaiting, false, "an answer of /api/me means the device was let in");
   assert.strictEqual(st.S.me.id, 7);
+  assert.strictEqual(st.S.reader, 7);
+  assert.strictEqual(net.who(), 7);
+  assert.strictEqual(st.store.get("rv.reader"), 7);
   assert.strictEqual(st.store.get("rv.links")[store.linkTag("new-link")], 7);
-  assert.deepStrictEqual(outbox().filter(o => o.cid === "o1").map(o => o.code), ["new-link"], "the old link's op goes under the new link");
-  assert.deepStrictEqual(outbox().filter(o => o.cid === "s1").map(o => o.code), ["someone-else"], "another reader's op waits untouched");
-  assert.strictEqual(st.store.get(store.draftKey(store.linkTag("new-link"), "SC", "SC03", "SC 23.3")).text, "draft of the old link");
+  assert.deepStrictEqual(outbox().filter(o => o.cid === "s1").map(core.ownerOf), [8], "another reader's op waits untouched");
+  assert.strictEqual(st.store.get(store.draftKey("R7", "SC", "SC03", "SC 23.3")).text, "draft of the old link");
   assert.strictEqual(st.store.get(store.draftKey(store.linkTag("old-link"), "SC", "SC03", "SC 23.3")), null);
   assert.strictEqual(st.store.get(store.draftKey(store.linkTag("someone-else"), "SC", "SC03", "SC 23.3")).text, "another reader's draft");
   assert.strictEqual(st.store.get("rv.cm:SC/SC09"), null, "a closed chapter's comment list leaves the device");
-  // The flush that follows the wait sends this link's ops only, each under the new link.
-  await new Promise(r => setTimeout(r, 50));
+  // The flush that follows the wait sends reader 7's ops, in link mode with the link open now.
+  await pause(50);
   const posts = calls.filter(x => x.method === "POST");
   assert.deepStrictEqual(posts.map(x => JSON.parse(x.body).client_id).sort(), ["o1", "w1"]);
-  assert.ok(posts.every(x => x.headers.Authorization === "Bearer new-link"));
+  assert.ok(posts.every(x => x.headers.Authorization === "Bearer new-link" && x.credentials === "omit"));
   assert.deepStrictEqual(outbox().map(o => o.cid), ["s1"]);
-  // A link that takes over another link's ops sends them at once, without waiting for another write.
+  // A link the device learns belongs to reader 7 sends its ops at once, without waiting for another write.
   st.store.set("rv.links", Object.assign(st.store.get("rv.links"), { [store.linkTag("older-link")]: 7 }));
-  st.store.set("rv.outbox", outbox().concat(core.queueCreate([], Object.assign({}, c, { client_id: "o2" }), "older-link", 0)));
-  answers = [[200, { id: 7, name: "Anan", books: [{ id: "SC", title: "", round: null, earlier: 0 }],
-    chapters: [{ book: "SC", id: "SC03", n: 3, title: "t", version: "v" }] }], [201, { id: 120, client_id: "o2", kind: "flag", quote: "", text: "words" }]];
+  st.store.set("rv.outbox", outbox().concat([legacy("o2", "older-link")]));
+  answers = [meAnswer(7), created(120, "o2")];
   calls.length = 0;
   assert.strictEqual(await net.refreshMe(), true);
-  await new Promise(r => setTimeout(r, 50));
+  await pause(50);
   assert.deepStrictEqual(calls.filter(x => x.method === "POST").map(x => [JSON.parse(x.body).client_id, x.headers.Authorization]), [["o2", "Bearer new-link"]]);
   assert.deepStrictEqual(outbox().map(o => o.cid), ["s1"]);
-  // A new link keeps the device key, the link numbers, the outbox and the drafts.
+  // Forgetting what the device keeps for reading keeps the device key, the link numbers, the outbox and the drafts.
   net.forgetReader();
   assert.strictEqual(net.deviceKey(), key1);
   assert.ok(st.store.get("rv.links"));
   assert.strictEqual(outbox().length, 1);
-  assert.ok(st.store.get(store.draftKey(store.linkTag("new-link"), "SC", "SC03", "SC 23.3")));
-  // Drafts kept by a page before round 3b go to the link the device held then.
+  assert.ok(st.store.get(store.draftKey("R7", "SC", "SC03", "SC 23.3")));
+  // Drafts kept by a page before round 3b go to the link the device held then, and from there to its reader.
   st.store.set("rv.draft:SC/SC03/SC 23.4", { kind: "flag", quote: "", text: "old page's draft" });
   st.store.set("rv.draftOwner", "Anan");
   net.adoptOldDrafts("new-link");
@@ -494,10 +548,10 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(st.store.get("rv.draftOwner"), null);
   // A new round of a book makes its kept comment lists stale; another book's stay.
   st.store.set("rv.cm:SC/SC03", { list: [{ client_id: "old-round" }] });
-  answers = [[200, { id: 7, name: "Anan", books: [{ id: "SC", title: "", round: { name: "second", started: "2026-11-01T00:00:00Z" }, earlier: 1 }],
-    chapters: [{ book: "SC", id: "SC03", n: 3, title: "t", version: "v" }] }]];
+  answers = [meAnswer(7, { books: [{ id: "SC", title: "", round: { name: "second", started: "2026-11-01T00:00:00Z" }, earlier: 1 }] })];
   await net.refreshMe();
   assert.strictEqual(st.store.get("rv.cm:SC/SC03"), null);
+  assert.strictEqual(st.store.get(store.draftKey("R7", "SC", "SC03", "SC 23.4")).text, "old page's draft");
   // An earlier wording or a comment list refused for the device leaves the kept chapter where it is.
   st.store.set("rv.ch:SC/SC03", { etag: '"v"', variant: "", data: { book: "SC", id: "SC03", version: "v", title: "t", paras: [] } });
   answers = [[403, { error: "device_waiting" }]];
@@ -520,34 +574,201 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   st.S.deviceWaiting = false;
   let frozen = null;
   navigator.locks.request("rv-outbox", () => new Promise(() => {})).catch(e => { frozen = e.name; });
-  await new Promise(r => setTimeout(r, 10));
-  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "z1" }), st.S.code, 0));
-  answers = [[201, { id: 300, client_id: "z1", kind: "flag", quote: "", text: "words" }]];
+  await pause(10);
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "z1" }), net.who(), 0));
+  answers = [created(300, "z1")];
   calls.length = 0;
   net.flush();
-  await new Promise(r => setTimeout(r, 30));
+  await pause(30);
   assert.strictEqual(calls.length, 0, "the lock is taken: nothing goes yet");
   const realNow = Date.now;
   Date.now = () => realNow() + core.LEASE_MS + 1000;
   net.flush();
-  await new Promise(r => setTimeout(r, 50));
+  await pause(50);
   Date.now = realNow;
   assert.deepStrictEqual(calls.map(x => x.method === "POST" && JSON.parse(x.body).client_id), ["z1"]);
   assert.strictEqual(frozen, "AbortError", "the frozen page's hold ended");
-  assert.deepStrictEqual(outbox(), []);
+  assert.deepStrictEqual(outbox().filter(o => o.cid === "z1"), []);
 
   // A refusal that a newer chapter list explains asks for /api/me at once: a chapter closed meanwhile then leaves
   // the page, and a lowered limit is named rightly (48 UX3-5, UX3-6).
-  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "z2" }), st.S.code, 0));
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "z2" }), net.who(), 0));
   answers = [[404, { error: "no_chapter", message: "x" }], [200, { id: 7, name: "Anan", limits: { text: 40 },
     books: [], chapters: [] }]];
   calls.length = 0;
   net.flush();
-  await new Promise(r => setTimeout(r, 50));
+  await pause(50);
   assert.deepStrictEqual(calls.map(x => x.method + " " + x.url), ["POST api/comments", "GET api/me"]);
   assert.strictEqual(st.S.me.limits.text, 40);
   assert.strictEqual(outbox()[0].failed.error, "no_chapter");
   st.store.set("rv.outbox", []);
+
+  // ---- Signed in (session mode): a 401 pauses the outbox and keeps every op; each reader's ops wait for that reader ----
+  Object.assign(st.S, { mode: "session", code: null, reader: 7, authBlocked: false, deviceWaiting: false });
+  st.store.set("rv.outbox", core.queueCreate(core.queueCreate([], Object.assign({}, c, { client_id: "q7" }), 7, 0),
+    Object.assign({}, c, { client_id: "q8" }), 8, 0));
+  answers = [[401, { error: "signed_out", message: "x" }]];
+  calls.length = 0;
+  events.length = 0;
+  net.flush();
+  await pause(50);
+  assert.deepStrictEqual(calls.map(x => [x.method, JSON.parse(x.body).client_id, x.credentials, x.headers.Authorization]),
+    [["POST", "q7", "same-origin", undefined]], "reader 7's op goes with the cookie; reader 8's waits");
+  assert.deepStrictEqual(events, [["auth", "signed_out"]], "the page learns why: the sign-in screen says the browser was signed out");
+  assert.strictEqual(st.S.authBlocked, true);
+  assert.deepStrictEqual(outbox().map(o => [o.cid, o.failed, o.sending]), [["q7", null, 0], ["q8", null, 0]],
+    "a 401 never marks a comment failed or drops it (spec 3.M)");
+  net.flush();
+  await pause(20);
+  assert.strictEqual(calls.length, 1, "nothing goes while the browser is not signed in");
+  for (const [status, error] of [[401, "no_code"], [401, "stopped"], [401, "link_used"], [401, "sign_in_required"], [401, ""]]) {
+    assert.strictEqual(core.classify("create", status, error), "auth", error);
+  }
+  // Signed in again: reader 7's op goes; reader 8's waits.
+  st.S.authBlocked = false;
+  answers = [created(400, "q7")];
+  calls.length = 0;
+  net.flush();
+  await pause(50);
+  assert.deepStrictEqual(calls.map(x => JSON.parse(x.body).client_id), ["q7"]);
+  assert.deepStrictEqual(outbox().map(o => o.cid), ["q8"]);
+  // A 403 bad_page is a fault of the page: the op waits, nothing more goes at once, and the general notice shows.
+  assert.strictEqual(core.classify("create", 403, "bad_page"), "page");
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "q9" }), 7, 0).concat(outbox()));
+  answers = [[403, { error: "bad_page", message: "x" }]];
+  events.length = 0;
+  calls.length = 0;
+  net.flush();
+  await pause(50);
+  assert.deepStrictEqual(events, [["fault"]]);
+  assert.strictEqual(calls.length, 1);
+  assert.deepStrictEqual(outbox().filter(o => o.cid === "q9").map(o => [o.failed, o.sending, o.tries > 0]), [[null, 0, true]],
+    "the op waits and goes again later, never refused for a fault of the page");
+  st.store.set("rv.outbox", outbox().filter(o => o.cid !== "q9"));
+  // /api/me names another reader, 8 (the browser was signed in as reader 8 in another tab): what the device kept for
+  // reading goes, the device notes reader 8, and reader 8's waiting op goes at once (61-contract.md 7.D, 7.F).
+  st.store.set("rv.ch:SC/SC03", { etag: '"v"', variant: "", data: { book: "SC", id: "SC03", version: "v", title: "t", paras: [] } });
+  st.store.set(store.draftKey("R7", "SC", "SC03", "SC 1.1"), { kind: "flag", quote: "", text: "reader 7's draft" });
+  answers = [meAnswer(8), created(401, "q8")];
+  calls.length = 0;
+  assert.strictEqual(await net.refreshMe(), true);
+  await pause(50);
+  assert.strictEqual(st.S.reader, 8);
+  assert.strictEqual(st.store.get("rv.reader"), 8);
+  assert.strictEqual(st.store.get("rv.ch:SC/SC03"), null, "the other reader's kept chapters leave the device");
+  assert.strictEqual(st.store.get(store.draftKey("R7", "SC", "SC03", "SC 1.1")).text, "reader 7's draft", "what reader 7 wrote stays");
+  assert.deepStrictEqual(calls.filter(x => x.method === "POST").map(x => JSON.parse(x.body).client_id), ["q8"]);
+  assert.deepStrictEqual(outbox(), []);
+  // A reader in link mode signs in, on a device that already knew the reader's number: the op written in link
+  // mode waited for the sign-in, and the first answer of /api/me sends it, with nothing new to adopt
+  // (66-adversarial.md ADV4-01).
+  st.store.set("rv.reader", 8);
+  Object.assign(st.S, { mode: "session", code: null, reader: 8, authBlocked: true, deviceWaiting: false });
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "s8" }), 8, 0));
+  st.S.authBlocked = false;
+  answers = [meAnswer(8), created(402, "s8")];
+  calls.length = 0;
+  assert.strictEqual(await net.refreshMe(), true);
+  await pause(50);
+  assert.deepStrictEqual(calls.map(x => x.method + " " + x.url), ["GET api/me", "POST api/comments"]);
+  assert.deepStrictEqual(outbox(), [], "the waiting comment went with the sign-in, without a reload");
+  // Nobody signed in: nothing is sent and /api/me is not asked.
+  Object.assign(st.S, { mode: null, code: null, reader: null });
+  st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "n1" }), 8, 0));
+  calls.length = 0;
+  net.flush();
+  assert.strictEqual(await net.refreshMe(), false);
+  await pause(20);
+  assert.strictEqual(calls.length, 0);
+  assert.strictEqual(outbox().length, 1);
+  st.store.set("rv.outbox", []);
+
+  // ---- The rules of signing in (core/auth.js) ----
+  const auth = await load("auth.js");
+  // The code: six digits, with spaces between them, Thai or Lao digits read as Western ones; anything else is refused
+  // on the page before it is sent.
+  assert.strictEqual(auth.sixDigits("123456"), "123456");
+  assert.strictEqual(auth.sixDigits(" 123 456 "), "123456");
+  const digitsIn = (base, s) => s.replace(/[0-9]/g, d => String.fromCharCode(base + Number(d)));   // Thai 0x0E50, Lao 0x0ED0
+  assert.strictEqual(auth.sixDigits(digitsIn(0x0E50, "123456")), "123456");
+  assert.strictEqual(auth.sixDigits(digitsIn(0x0ED0, "09") + " 1234"), "091234");
+  for (const bad of ["12345", "1234567", "12a456", "", null]) assert.strictEqual(auth.sixDigits(bad), null, String(bad));
+  // An email address by the server's own pattern.
+  assert.ok(auth.isAddress("Mali@Example.org"));
+  assert.ok(auth.isAddress("  pim@example.co.th "));
+  for (const bad of ["mali", "mali@example", "@example.org", "a b@example.org", "mali@exa mple.org"]) assert.ok(!auth.isAddress(bad), bad);
+  // Before the @ only A to Z, digits and . _ % + -, as the server takes it (65-security.md item 10).
+  assert.ok(auth.isAddress("a.b-c_d+e%f@example.org"));
+  for (const bad of ["x\u001b@evil.example", "group:x@evil.example", "a(b)c@evil.example", "\u202ex@evil.example",
+    "x\u200b@evil.example", "\uff58@evil.example"]) assert.ok(!auth.isAddress(bad), JSON.stringify(bad));
+  // Each sign-in route takes the code of the screen it starts from in its body, never in an address.
+  assert.deepStrictEqual(auth.startBody("link", "C"), { link: "C" });
+  assert.deepStrictEqual(auth.startBody("join", "C"), { join: "C" });
+  assert.deepStrictEqual(auth.startBody("add", "C"), { add: true });
+  assert.deepStrictEqual(auth.startBody("signin", "C"), {});
+  // Every result of server/auth.py has a screen (61-contract.md 4.C).
+  const results = { signed_in: "list", added: "account", request_sent: "request", request_waiting: "request",
+    request_declined: "request", no_account: "signin", identity_taken: "start", link_used: "signin", link_signs_in: "claim", stopped: "stopped",
+    join_closed: "closed", join_busy: "start", cancelled: "start", expired: "start", other_browser: "start", failed: "start" };
+  for (const [result, screen] of Object.entries(results)) assert.strictEqual(auth.afterSignIn(result).screen, screen, result);
+  assert.strictEqual(auth.afterSignIn("cancelled").key, "", "a cancel shows the screen as it was");
+  assert.strictEqual(auth.afterSignIn("expired").key, "line_expired");
+  assert.deepStrictEqual(auth.afterSignIn("nonsense"), { screen: "signin", key: "" });
+  assert.deepStrictEqual(auth.afterSignIn("constructor"), { screen: "signin", key: "" });
+  // Every 401 of a reader route has a screen (61-contract.md section 6); no_code right after a sign-in means the
+  // browser refused the cookie (spec 3.L).
+  assert.deepStrictEqual(auth.afterRefusal("no_code", false), { screen: "signin", key: "" });
+  assert.deepStrictEqual(auth.afterRefusal("no_code", true), { screen: "blocked", key: "" });
+  assert.deepStrictEqual(auth.afterRefusal("signed_out", false), { screen: "signin", key: "line_signed_out" });
+  assert.deepStrictEqual(auth.afterRefusal("link_used", false), { screen: "signin", key: "line_link_used" });
+  assert.strictEqual(auth.afterRefusal("stopped", false).screen, "stopped");
+  assert.strictEqual(auth.afterRefusal("bad_code", false).screen, "link");
+  assert.strictEqual(auth.afterRefusal("sign_in_required", false).screen, "claim");
+  assert.strictEqual(auth.afterRefusal("", false), null);
+  // A refusal of a start or of the code is a line under the field, or another screen.
+  const said = (status, data, wait) => auth.startRefusal({ status, data, wait: wait || 0 });
+  assert.deepStrictEqual(said(400, { error: "wrong_code", tries_left: 2 }), { key: "wrong_code_many", vars: { n: 2 }, screen: "" });
+  assert.deepStrictEqual(said(400, { error: "wrong_code", tries_left: 1 }), { key: "wrong_code_one", vars: { n: 1 }, screen: "" });
+  assert.strictEqual(said(400, { error: "code_used_up" }).key, "code_used_up");
+  assert.strictEqual(said(400, { error: "code_expired" }).key, "code_expired");
+  assert.strictEqual(said(400, { error: "bad_email" }).key, "bad_email");
+  assert.strictEqual(said(503, { error: "mail_failed" }, 60000).key, "mail_failed");
+  assert.strictEqual(said(429, { error: "slow_down" }, 60000).key, "too_many");
+  assert.strictEqual(said(429, { error: "slow_down" }, 600000).key, "too_many_hour", "an hourly limit");
+  // A limit that names itself: the codes of a day, of an hour, and the wrong codes of an hour (65-security.md item 4).
+  assert.strictEqual(said(429, { error: "slow_down", limit: "day" }, 3600000).key, "too_many_day");
+  assert.strictEqual(said(429, { error: "slow_down" }, 80000000).key, "too_many_day", "a wait of a day without a name");
+  assert.strictEqual(said(429, { error: "slow_down", limit: "hour" }, 60000).key, "too_many_hour");
+  assert.strictEqual(said(429, { error: "slow_down", limit: "wrong" }, 3000000).key, "too_many_wrong");
+  // "Link signs in" came on: the link's claim says the screen again.
+  assert.deepStrictEqual(said(409, { error: "link_signs_in" }), { key: "", vars: {}, screen: "claim" });
+  assert.strictEqual(said(429, null, 0).key, "too_many");
+  assert.deepStrictEqual(said(409, { error: "link_used" }), { key: "line_link_used", vars: {}, screen: "signin" });
+  assert.strictEqual(said(410, { error: "join_closed" }).screen, "closed");
+  assert.strictEqual(said(401, { error: "signed_out" }).screen, "signin");
+  assert.strictEqual(said(0, null).key, "cannot_connect");
+  assert.strictEqual(said(404, { error: "route_off" }).key, "error_generic");
+  // The screen kept for the way back from LINE counts for half an hour.
+  assert.ok(auth.flowFresh({ kind: "link", code: "C", at: 1000 }, 1000 + 29 * 60000));
+  assert.ok(!auth.flowFresh({ kind: "link", code: "C", at: 1000 }, 1000 + 31 * 60000));
+  assert.ok(!auth.flowFresh(null, 1000));
+  // The hint on adding the site to the Home Screen: Safari on an iPhone or iPad only, and not once the site runs from
+  // the Home Screen (spec 3.K).
+  const ua = {
+    iphone: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1",
+    ipad: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+    chrome: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/118.0 Mobile/15E148 Safari/604.1",
+    line: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari Line/13.17.0",
+    android: "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0 Mobile Safari/537.36",
+  };
+  assert.ok(auth.wantsHomeHint({ userAgent: ua.iphone, platform: "iPhone", maxTouchPoints: 5 }));
+  assert.ok(auth.wantsHomeHint({ userAgent: ua.ipad, platform: "MacIntel", maxTouchPoints: 5 }), "an iPad names itself a Mac");
+  assert.ok(!auth.wantsHomeHint({ userAgent: ua.ipad, platform: "MacIntel", maxTouchPoints: 0 }), "Safari on a Mac");
+  assert.ok(!auth.wantsHomeHint({ userAgent: ua.iphone, platform: "iPhone", maxTouchPoints: 5, standalone: true }), "already on the Home Screen");
+  assert.ok(!auth.wantsHomeHint({ userAgent: ua.chrome, platform: "iPhone", maxTouchPoints: 5 }));
+  assert.ok(!auth.wantsHomeHint({ userAgent: ua.line, platform: "iPhone", maxTouchPoints: 5 }));
+  assert.ok(!auth.wantsHomeHint({ userAgent: ua.android, platform: "Linux armv8l", maxTouchPoints: 5 }));
+  assert.ok(!auth.wantsHomeHint(undefined));
 
   // Features: a place's entry shows only while its feature is on; an unknown feature is off.
   ext.feature({ name: "probe", variant: "pr" });
@@ -592,6 +813,13 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(loaded, [true, false]);
   assert.deepStrictEqual(logged, ["feature features/no-such-feature.js did not load"]);
   assert.strictEqual(ext.isOn({ features: { english: { on: true } } }, "english"), true);
+  // The address at the start: a personal link, a general link, or the result of a sign-in with LINE.
+  assert.deepStrictEqual(main.readHash("#k=Abc_123-x"), { link: "Abc_123-x", join: null, result: null });
+  assert.deepStrictEqual(main.readHash("#k=Abc_123-x."), { link: "Abc_123-x", join: null, result: null }, "a full stop after the link");
+  assert.deepStrictEqual(main.readHash("#join=Gen_1"), { link: null, join: "Gen_1", result: null });
+  assert.deepStrictEqual(main.readHash("#auth=request_sent"), { link: null, join: null, result: "request_sent" });
+  assert.deepStrictEqual(main.readHash("#SC/SC03"), { link: null, join: null, result: null });
+  assert.deepStrictEqual(main.readHash(""), { link: null, join: null, result: null });
 
   // Sentence pairs: how the ranges cut a text's nodes. Two nodes of 5 and 6 code points; pair 0 covers
   // [0, 3), pair 1 covers [4, 9), which crosses from the first node into the second.

@@ -1,22 +1,26 @@
 /* Proofreading site: the router and the plain screens (web/core/screens.js).
 
-   The address holds the open chapter as #SC/SC03, and "My earlier comments" as #earlier; an empty hash is
-   the chapter list. This module also draws the link, offline, loading and device screens, the list of
-   comments the server refused (with the unsaved drafts whose paragraph is no longer open), the note at
-   the foot of the screen, the bar with its "Show spaces" button, and the settings. */
+   The address holds the open chapter as #SC/SC03, "My earlier comments" as #earlier, and "Your devices" as
+   #account; an empty hash is the chapter list. This module also draws the link, offline, loading and device
+   screens, the list of comments the server refused (with the unsaved drafts whose paragraph is no longer
+   open), the note at the foot of the screen, the bar with its "Show spaces" button, and the settings. The
+   screens of signing in are core/signin.js's, and "Your devices" is core/account.js's. */
 
+import { ownerOf } from "./outbox.js";
 import { S, store } from "./state.js";
-import { linkTag, parseDraftKey } from "./store.js";
+import { ownerTag, parseDraftKey } from "./store.js";
 import { t, tIn, plural, hasWords, loadWords, setLang, UI_LANGS } from "./words.js";
 import { h, $, shortA, copyButton, twoTapButton, drawn, spacesOn } from "./dom.js";
 import { active, settingsItem } from "./ext.js";
-import { loadOb, mutateOb, refreshMe, keptChapter } from "./net.js";
+import { loadOb, mutateOb, refreshMe, keptChapter, who } from "./net.js";
 import { explain } from "./refusals.js";
 import { bookLang, showLanguages, shownLanguages } from "./languages.js";
 import { leaveChapter, openChapter, openComment, redrawChapter } from "./chapter.js";
 import { showHome, renderHome } from "./home.js";
 import { failText } from "./notes.js";
 import { showEarlier } from "./earlier.js";
+import { showAuthAgain, redrawAuth, showBlocked } from "./signin.js";
+import { showAccount, redrawAccount } from "./account.js";
 
 export function setHash(hash, push) {
   const url = location.pathname + location.search + hash;
@@ -27,11 +31,17 @@ export function setHash(hash, push) {
 }
 
 export function route() {
-  if (!S.code || S.authBlocked) return showLink();
+  if (store.blocked) return showBlocked();
+  if (!S.mode || S.authBlocked) return showAuthAgain();
   if (S.deviceWaiting) return showDeviceWaiting();
   if (!S.me) return showBoot();
   if (location.hash === "#earlier") {
     if (S.view !== "earlier") showEarlier(false);
+    return;
+  }
+  if (location.hash === "#account") {
+    if (S.mode !== "session") { setHash("", false); return showHome(); }
+    if (S.view !== "account") showAccount(false, null);
     return;
   }
   const m = /^#([^/=&]+)\/([^/=&]+)$/.exec(location.hash);
@@ -63,6 +73,8 @@ export function rerender() {
   applyLang();
   if (S.view === "home") renderHome(true);
   else if (S.view === "link") showLink();
+  else if (S.view === "signin" || S.view === "blocked") redrawAuth();
+  else if (S.view === "account") redrawAccount();
   else if (S.view === "offline") showOffline();
   else if (S.view === "unsaved") showUnsaved();
   else if (S.view === "device") showDeviceWaiting();
@@ -114,8 +126,8 @@ function langSwitch() {
 }
 settingsItem({ name: "language", order: 0, render: () => langSwitch() });
 
-/* The settings of a screen. On the link and offline screens there is no chapter list, so only the
-   core items show. */
+/* The settings of a screen. On the link, offline and sign-in screens there is no chapter list, so only the
+   language switch shows. */
 export function settingsBar(screen) {
   const me = screen === "home" ? S.me : null;
   return h("div", { class: "settings" }, active("settings", me).map(d => drawn(d, { me, screen })));
@@ -147,7 +159,7 @@ export function showDeviceWaiting() {
     btn.disabled = false;
     status.textContent = S.meStatus === 0 ? t("cannot_connect") : t("device_still");
   });
-  const unsent = loadOb().some(o => o.code === S.code) || ownDrafts().length > 0;
+  const unsent = loadOb().some(o => ownerOf(o) === who()) || ownDrafts().length > 0;
   // The device's number, as the translator's lists show it, so the reader can say which device to let in.
   const number = typeof S.deviceNumber === "number" ? h("p", { class: "lead device-number", text: t("device_number", { n: String(S.deviceNumber) }) }) : null;
   showScreen("device", h("section", { class: "message" },
@@ -167,11 +179,18 @@ export function showDeviceWaiting() {
   }
 }
 
-export function showOffline() {
+/* The site cannot be reached and nothing is on the device to show. again, when given, is what Try again
+   does, as asking a link's claim again; it is kept for the redraw after a change of language. */
+let offlineAgain = null;
+export function showOffline(again) {
+  if (typeof again === "function") offlineAgain = again;
+  else if (S.view !== "offline") offlineAgain = null;
+  const then = offlineAgain;
   const retry = async () => {
     showBoot();
     if (!hasWords() && (await loadWords())) applyLang();
-    refreshMe();
+    if (then) then();
+    else refreshMe();
   };
   showScreen("offline", h("section", { class: "message" },
     h("div", { class: "home-top" }, h("h1", { text: t("app_title") }), settingsBar("offline")),
@@ -183,12 +202,16 @@ export function showOffline() {
    Comments the server refused make it a button that lists them; changes that wait because the
    reader is offline, or because the server asked to try later, show as a count. */
 
+/* The screens on which the note shows nothing: before a reader is signed in, no reader's words are shown. */
+const QUIET = ["signin", "blocked", "link", "boot"];
+
 export function paintSync() {
   const el = $("sync");
   if (!el) return;
-  const ob = loadOb().filter(o => o.code === S.code);
+  if (QUIET.indexOf(S.view) >= 0) { el.textContent = ""; el.hidden = true; return; }
+  const ob = loadOb().filter(o => ownerOf(o) === who());
   const waiting = ob.filter(o => !o.failed).length;
-  const failed = ob.length - waiting + goneDrafts().length;
+  const failed = ob.length - waiting + goneDrafts().length + orphanOps().length;
   const offline = S.netFails > 0 || navigator.onLine === false;
   const retrying = ob.some(o => !o.failed && o.tries > 0);
   el.textContent = "";
@@ -203,13 +226,25 @@ export function paintSync() {
 
 /* ---- comments the server refused ---- */
 
-const failedOps = () => loadOb().filter(o => o.code === S.code && o.failed);
+const failedOps = () => loadOb().filter(o => ownerOf(o) === who() && o.failed);
 
-/* The drafts of the link open now: [{tag, book, ch, a, key}]. Drafts of other links stay on the device,
-   unseen, until their link opens again or a new link of the same reader takes them over (net.js). */
+/* Comments written under a link whose reader number this device never learnt, other than the link open now: a
+   page of round 3b wrote them under a link that no chapter list answered on this device. They stay in the
+   outbox, never deleted unasked, and go out if that link opens here again; meanwhile the list of comments not
+   saved shows their words. */
+export function orphanOps() {
+  const now = who();
+  return loadOb().filter(o => {
+    const w = ownerOf(o);
+    return typeof w === "string" && w !== now && !!o.cid && (o.type === "create" || o.type === "update") && !!o.body;
+  });
+}
+
+/* The drafts of the reader signed in now: [{tag, book, ch, a, key}]. Drafts of other readers stay on the
+   device, unseen, until their reader signs in on this browser again (net.js). */
 export function ownDrafts() {
-  if (!S.code) return [];
-  const tag = linkTag(S.code);
+  const tag = ownerTag(who());
+  if (!tag) return [];
   const out = [];
   for (const key of store.keys()) {
     const d = parseDraftKey(key);
@@ -261,6 +296,25 @@ function draftCard(d) {
     h("div", { class: "note-acts" }, copyButton(all, words), twoTapButton(t("remove"), t("remove_confirm"), remove)));
 }
 
+/* A card for a comment of orphanOps(): its words, where it was written, Copy and Remove. */
+function orphanCard(o) {
+  const where = o.ch + " · " + t("para_n", { a: shortA(o.a) });
+  const body = o.body || {};
+  const words = h("div", { class: "note-words", lang: bookLang(o.book) },
+    body.quote ? h("p", { class: "note-quote", text: "“" + body.quote + "”" }) : null,
+    h("p", { class: "note-text", text: body.text || "" }));
+  const all = (body.quote ? "“" + body.quote + "”\n" : "") + (body.text || "");
+  const remove = () => {
+    mutateOb(ob => ob.filter(x => x.cid !== o.cid));
+    showUnsaved();
+  };
+  return h("div", { class: "note failed" },
+    h("p", { class: "note-where", text: where }),
+    words,
+    h("p", { class: "note-why", text: t("orphan_op") }),
+    h("div", { class: "note-acts" }, copyButton(all, words), twoTapButton(t("remove"), t("remove_confirm"), remove)));
+}
+
 /* Whether the comment of a refused op can be opened for a change: its chapter is open to the reader
    and its paragraph is in the chapter as kept on the device (or the chapter is not kept yet). */
 function canOpen(o) {
@@ -302,10 +356,11 @@ export function showUnsaved() {
   };
   const list = failedOps();
   const drafts = goneDrafts();
+  const orphans = orphanOps();
   showScreen("unsaved", h("section", { class: "message" },
     h("h1", { text: t("unsaved_title") }),
-    list.length || !drafts.length ? h("p", { class: "lead", text: list.length ? t("unsaved_lead") : t("unsaved_none") }) : null,
-    h("div", { class: "notes" }, list.map(unsavedCard), drafts.map(draftCard)),
+    list.length || !(drafts.length || orphans.length) ? h("p", { class: "lead", text: list.length ? t("unsaved_lead") : t("unsaved_none") }) : null,
+    h("div", { class: "notes" }, list.map(unsavedCard), drafts.map(draftCard), orphans.map(orphanCard)),
     h("div", { class: "row" }, h("button", { type: "button", class: "btn ghost", text: t("close"), onclick: close }))));
   paintSync();
 }

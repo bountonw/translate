@@ -16,6 +16,7 @@ from unittest import mock
 from wsgiref.util import setup_testing_defaults
 
 from helpers import DEVICE, REPO, ROOT, sample_chapter
+from test_cli import FRESH_LINK, Browser
 
 import review
 import review_admin
@@ -152,8 +153,7 @@ class Console(unittest.TestCase):
         self.assertTrue(made["ok"], made)
         self.assertTrue(made["result"]["link"].startswith("https://review.example.org/#k="))
         self.assertEqual(made["lines"][-2], made["result"]["link"])
-        self.assertEqual(made["lines"][-1], "Admin Page Reader is invited; the link works on the first devices that "
-                                            "open it.")
+        self.assertEqual(made["lines"][-1], f"Admin Page Reader is invited; {FRESH_LINK}.")
         again = self.post("invite", {"name": "Admin Page Reader", "grant": ["SC01"]})
         self.assertEqual(again["ok"], False)
         self.assertIn("already exists", again["error"])
@@ -298,6 +298,107 @@ class Console(unittest.TestCase):
         done = self.post("triage", {"export": str(export)})
         self.assertTrue(done["ok"], done)
         self.assertEqual(done["result"]["export"], str(export))
+
+    def test_signing_in_through_the_local_routes(self):
+        """The routes of 61-admin-contract.md: the sign-in settings, the switch Link signs in, browsers, LINE
+        accounts and addresses, requests and general links, each running its review.py command."""
+        auth = self.request("GET", "/local/auth")[1]
+        self.assertTrue(auth["ok"], auth)
+        self.assertEqual(auth["result"]["routes"], {"line": True, "email": True})
+        self.assertTrue(auth["lines"][0].startswith("Sign-in with LINE: on, channel "))
+        checked = self.post("signin", {"action": "check"})
+        self.assertTrue(checked["ok"], checked)
+        self.assertEqual(checked["lines"][-1], "Nothing changed: the check signs no one in and sends no mail.")
+        sent = self.post("signin", {"action": "test-mail", "to": "admin-test@example.org"})
+        self.assertEqual(sent["lines"], ["A test mail went to admin-test@example.org."])
+        self.assertIn("a test mail by file: sent", " ".join(self.request("GET", "/local/auth")[1]["lines"]))
+        for body in ({"action": "test-mail"}, {"action": "send"}, {}):
+            self.assertEqual(self.request("POST", "/local/signin", body)[:2][0], 400, body)
+
+        made = self.post("invite", {"name": "Switch Reader", "grant": ["SC01"], "link_signs_in": True})
+        self.assertEqual(made["lines"][-1], "Switch Reader is invited; the link signs in by itself and works on the first "
+                                            "devices that open it.")
+        off = self.post("link-signs-in", {"names": ["Switch Reader"], "state": "off"})
+        self.assertEqual(off["lines"][-1], "Link signs in is now off for Switch Reader: Switch Reader signs in with LINE "
+                                           "or email.")
+        self.assertEqual(self.request("POST", "/local/link-signs-in", {"names": ["Switch Reader"]})[0], 400)
+
+        # A reader signs in with LINE through the stand-in; the page sees the identity and the browser.
+        code = self.post("invite", {"name": "Line Reader", "grant": ["SC01"]})["result"]["link"].split("#k=")[1]
+        standin = self.httpd.standin
+        standin.users.append(("U" + "7" * 32, "Admin Tester"))
+        browser = Browser(self.app)
+        self.assertEqual(browser.line(standin, {"link": code}, len(standin.users) - 1), "signed_in")
+        found = self.request("GET", "/local/readers?identity=line")[1]
+        self.assertIn("Line Reader", [r["name"] for r in found["result"]["readers"]])
+        self.assertTrue(any("signs in with LINE (Admin Tester); 1 browser signed in" in x for x in found["lines"]))
+        sessions = self.request("GET", "/local/sessions?name=Line%20Reader")[1]
+        self.assertTrue(sessions["ok"], sessions)
+        (session,) = sessions["result"]["sessions"]
+        self.assertEqual((session["name"], session["via"], session["active"]), ("Line Reader", "line", True))
+        self.assertEqual(sessions["lines"][-1], "1 browser signed in. Sign one out with: review.py session end NUMBER")
+        added = self.post("identity", {"action": "add", "name": "Line Reader", "address": "line-reader@example.org"})
+        self.assertEqual(added["lines"][-1], "Line Reader can now sign in with a code sent to line-reader@example.org.")
+        ids = self.request("GET", "/local/identities?name=Line%20Reader")[1]["result"]["identities"]
+        self.assertEqual([i["provider"] for i in ids], ["line", "email"])
+        ended = self.post("session", {"action": "end", "ids": [session["id"]]})
+        self.assertEqual(ended["lines"][-1], f"Browser {session['id']} of Line Reader (iPhone, Safari) is signed out.")
+        self.assertEqual(browser.call("GET", "/api/me")[1]["error"], "signed_out")
+        everything = self.request("GET", "/local/sessions?name=Line%20Reader&all=1")[1]["result"]["sessions"]
+        self.assertEqual([(s["id"], s["ended_by"]) for s in everything], [(session["id"], "translator")])
+        out = self.post("signout", {"names": ["Line Reader"]})
+        self.assertEqual(out["lines"][-1], "Nothing changed: Line Reader is signed in on no browser.")
+        gone = self.post("unbind", {"ids": [ids[1]["id"]]})
+        self.assertEqual(gone["lines"], ["line-reader@example.org no longer signs in to Line Reader, and no browser was "
+                                         "signed in."])
+        relinked = self.post("relink", {"names": ["Line Reader"], "unbind": True})
+        self.assertEqual(relinked["lines"][-1], "Line Reader has a new link; the old link no longer works, LINE (Admin "
+                                                "Tester) no longer signs in, and no browser was signed in.")
+        self.assertEqual(self.request("GET", "/local/identities?name=Line%20Reader")[1]["result"]["identities"], [])
+        for route, body in (("session", {"action": "end"}), ("session", {"action": "stop", "ids": [1]}),
+                            ("identity", {"name": "Line Reader"}), ("unbind", {}), ("unbind", {"ids": ["-1"]})):
+            self.assertEqual(self.request("POST", f"/local/{route}", body)[0], 400, (route, body))
+        self.assertEqual(self.request("GET", "/local/sessions?name=-x")[0], 400)
+
+        # A general link of a group takes requests, which the page approves, declines and forgets.
+        self.post("group", {"action": "create", "group": "Askers", "grant": ["SC01"]})
+        made = self.post("general-link", {"action": "new", "group": "Askers", "uses": 5, "days": "30"})
+        self.assertTrue(made["ok"], made)
+        self.assertIn("#join=", made["result"]["link"])
+        self.assertIn(made["result"]["link"], made["lines"])
+        self.assertRegex(made["lines"][-1], r"^Askers has a new general link, which takes up to 5 requests until ")
+        join = made["result"]["link"].split("#join=")[1]
+        links = self.request("GET", "/local/general-links?group=Askers")[1]
+        self.assertEqual([x["state"] for x in links["result"]["links"]], ["open"])
+        for address in ("asker-one@example.org", "asker-two@example.org"):
+            self.assertEqual(Browser(self.app).email(self.data, self.app, address, {"join": join}), "request_sent")
+        waiting = self.request("GET", "/local/requests")[1]
+        self.assertEqual(waiting["result"]["open"], 2)
+        self.assertEqual(waiting["lines"][-1], "2 requests waiting for you. Approve one with: review.py request approve "
+                                               "NUMBER")
+        number = {q["display"]: q["id"] for q in waiting["result"]["requests"]}
+        approved = self.post("request", {"action": "approve", "id": number["asker-one@example.org"], "name": "Asker One",
+                                         "grant": "SC01", "group": ["Askers"], "english": True})
+        self.assertEqual(approved["lines"][-1], "asker-one@example.org is now the reader Asker One, who reads SC01 and "
+                                                "is in the group Askers, and signs in with that address.")
+        declined = self.post("request", {"action": "decline", "id": str(number["asker-two@example.org"])})
+        self.assertTrue(declined["lines"][-1].startswith(f"Request {number['asker-two@example.org']} of "
+                                                         "asker-two@example.org is declined;"))
+        self.assertEqual(self.request("GET", "/local/requests?state=declined")[1]["result"]["requests"][0]["display"],
+                         "asker-two@example.org")
+        forgot = self.post("request", {"action": "forget", "id": number["asker-two@example.org"]})
+        self.assertEqual(forgot["lines"], [f"Request {number['asker-two@example.org']} is forgotten; "
+                                           "asker-two@example.org may ask again."])
+        self.assertEqual(len(self.request("GET", "/local/requests?state=all")[1]["result"]["requests"]), 1)
+        stopped = self.post("general-link", {"action": "off", "group": "Askers"})
+        self.assertEqual(stopped["lines"][-1], "The general link of Askers no longer takes requests; a new one is made "
+                                               "with: review.py general-link Askers --new")
+        for route, body in (("request", {"action": "approve"}), ("request", {"action": "keep", "id": 1}),
+                            ("request", {"action": "approve", "id": -1}), ("general-link", {"action": "on", "group": "Askers"}),
+                            ("general-link", {"action": "new"}), ("general-link", {"action": "new", "group": "Askers",
+                                                                                   "days": "x"})):
+            self.assertEqual(self.request("POST", f"/local/{route}", body)[0], 400, (route, body))
+        self.assertEqual(self.request("GET", "/local/requests?state=x")[0], 400)
 
     def test_backup_and_a_new_dev_token(self):
         done = self.post("backup", {"keep": 3})

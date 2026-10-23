@@ -14,8 +14,10 @@
 <link rel="modulepreload" href="chapters.js">
 <link rel="modulepreload" href="readers.js">
 <link rel="modulepreload" href="devices.js">
+<link rel="modulepreload" href="accounts.js">
 <link rel="modulepreload" href="groups.js">
 <link rel="modulepreload" href="comments.js">
+<link rel="modulepreload" href="requests.js">
 <link rel="modulepreload" href="site.js">
 <script type="module" src="admin.js"></script>
 </head>
@@ -25,9 +27,10 @@
   <nav id="nav" aria-label="Sections" data-t-label="nav_label">
     <a href="#chapters" data-section="chapters"><span data-t="nav_chapters">Chapters</span></a>
     <a href="#readers" data-section="readers"><span data-t="nav_readers">Readers</span><span id="waiting" class="badge" hidden></span></a>
+    <a href="#requests" data-section="requests"><span data-t="nav_requests">Requests</span><span id="asking" class="badge" hidden></span></a>
     <a href="#groups" data-section="groups"><span data-t="nav_groups">Groups</span></a>
     <a href="#comments" data-section="comments"><span data-t="nav_comments">Comments</span></a>
-    <a href="#site" data-section="site"><span data-t="nav_site">Site</span></a>
+    <a href="#site" data-section="site"><span data-t="nav_site">Site</span><span id="mailbad" class="badge" hidden></span></a>
     <span id="busy" class="busy" data-t="busy" hidden>Working: a command is running.</span>
   </nav>
 </header>
@@ -36,6 +39,7 @@
   <p id="nowords" hidden>The admin page cannot read its words in admin/strings.json. Check that the file is there and is valid JSON, then reload the page.</p>
   <section id="chapters" hidden></section>
   <section id="readers" hidden></section>
+  <section id="requests" hidden></section>
   <section id="groups" hidden></section>
   <section id="comments" hidden></section>
   <section id="site" hidden></section>

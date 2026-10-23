@@ -20,7 +20,7 @@ import { K, openedKey } from "./store.js";
 import { t, plural, dateText } from "./words.js";
 import { h, bookHtml, applyMarks, decorateText } from "./dom.js";
 import { drawerPanel } from "./ext.js";
-import { api, mutateOb, flush, authFailed, isDeviceWaiting, deviceWaiting } from "./net.js";
+import { api, mutateOb, flush, authFailed, isDeviceWaiting, deviceWaiting, who } from "./net.js";
 import { bookLang } from "./languages.js";
 
 const enc = encodeURIComponent;
@@ -60,7 +60,7 @@ function sendOpenedIfDue(data) {
   c.opened = data.version;
   c.changed = null;
   store.set(K.me, S.me);
-  mutateOb(ob => queueSet(ob, "opened", { book: data.book, ch: data.id, version: data.version }, S.code, Date.now(), 0));
+  mutateOb(ob => queueSet(ob, "opened", { book: data.book, ch: data.id, version: data.version }, who(), Date.now(), 0));
   flush();
 }
 
@@ -159,7 +159,7 @@ function earlierBlock(ctx, change, rec) {
       status.textContent = t("loading");
       const r = await api("GET", "api/earlier/" + enc(ctx.book) + "/" + enc(ctx.chapter.id) + "?a=" + enc(ctx.p.a) + "&version=" + enc(rec.since));
       btn.disabled = false;
-      if (r.status === 401) { authFailed(); return; }
+      if (r.status === 401) { authFailed(r.data && r.data.error); return; }
       if (isDeviceWaiting(r)) { deviceWaiting(r.data); return; }
       if (r.status !== 200 || !r.data || typeof earlierText(r.data) !== "string") {
         const code = r.data && r.data.error;

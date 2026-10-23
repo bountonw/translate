@@ -39,7 +39,7 @@ AUTHS = {"reader": "/api/{name}/", "any_reader": "/api/{name}/", None: "/api/{na
 # The first path segments of the core routes (server/app.py). A feature never takes one as its name.
 RESERVED = frozenset({"admin", "health", "me", "chapter", "comments", "place", "finished", "opened", "earlier",
                       "chapters", "readers", "groups", "features", "export", "processed", "replies", "devices",
-                      "rounds"})
+                      "rounds", "auth", "sessions", "identities", "requests", "general", "dev"})
 
 
 class FeatureError(ValueError):

@@ -1,8 +1,9 @@
 // Groups: the list, with the switch of each group, and create; for the group opened: switch it on or off, remove
 // it, open or close chapters for the group, give each current member their own copy of chapters, its own English
 // and features, its members (add them from the reader list or a CSV file, take them out, list them in the Readers
-// section), and new links for every member. Each group choice is its own button and asks once, with the
-// sentence of what it changes.
+// section), and new links for every member, with a box that also removes their LINE accounts and addresses
+// (relink --group G --unbind). Each group choice is its own button and asks once, with the sentence of what it
+// changes.
 import { get, post, busy } from "./api.js";
 import { h, clear, button, field, fill, td, answer, ask, refuse, working, stamp, compact, csvRows, readFile } from "./ui.js";
 import { t, plural } from "./words.js";
@@ -64,6 +65,8 @@ function buildPanel() {
   g.foundCount = h("p", { class: "count", id: "g-found-count" });
   g.inFile = h("input", { type: "file", id: "g-in-file", accept: ".csv,text/csv" });
   g.box = h("div", { class: "answer", id: "g-answer", hidden: true, "aria-live": "polite" });
+  // relink --group G --unbind: the box of the Readers section's New links, for every member of the group.
+  g.unbind = h("input", { type: "checkbox", id: "g-unbind" });
   g.find.addEventListener("input", () => {
     clearTimeout(timer);
     timer = setTimeout(findReaders, 200);
@@ -98,7 +101,8 @@ function buildPanel() {
       button(t("g_add_file"), () => fromFile("add"), { id: "g-add-file" })),
     h("h4", null, t("g_relink_title")),
     h("p", { class: "hint" }, t("g_relink_hint")),
-    h("div", { class: "row" }, button(t("g_relink"), () => relinkAll(), { id: "g-relink" })));
+    h("div", { class: "row" }, button(t("g_relink"), () => relinkAll(), { id: "g-relink" }),
+      h("label", { class: "check" }, g.unbind, " " + t("r_unbind"))));
   return g.panel;
 }
 
@@ -148,6 +152,7 @@ function openGroup(name) {
     found = [];
     foundSel = {};
     g.find.value = "";
+    g.unbind.checked = false;
     clear(g.box);
     g.box.hidden = true;
   }
@@ -357,19 +362,23 @@ async function relinkAll() {
     refuse(g.box, t("g_relink_none", { group: x.name }));
     return;
   }
-  if (!(await ask(t("g_relink_q", { members: plural(count, "member"), group: x.name }),
-    { list: x.members.map(m => m.name), note: t("g_relink_note"), go: t("r_relink_go") }))) return;
+  // With the box ticked, the LINE accounts and addresses of every member are removed too (--unbind).
+  const unbind = g.unbind.checked;
+  const note = t(unbind ? "g_relink_unbind_note" : "g_relink_note");
+  if (!(await ask(t(unbind ? "g_relink_unbind_q" : "g_relink_q", { members: plural(count, "member"), group: x.name }),
+    { list: x.members.map(m => m.name), note: note, go: t("r_relink_go") }))) return;
   working(g.box);
-  let res = await post("relink", { group: x.name, confirm: count });
+  let res = await post("relink", { group: x.name, confirm: count, unbind: unbind });
   // The group changed after this page read it: the command names the number it now holds and changes nothing.
   const m = res.ok ? null : /This gives (\d+) readers/.exec(res.error);
   if (m && Number(m[1]) !== count) {
     count = Number(m[1]);
-    if (await ask(t("g_relink_again_q", { group: x.name, members: plural(count, "member") }),
-      { note: t("g_relink_note"), go: t("r_relink_go") })) {
-      res = await post("relink", { group: x.name, confirm: count });
+    if (await ask(t(unbind ? "g_relink_unbind_again_q" : "g_relink_again_q", { group: x.name, members: plural(count, "member") }),
+      { note: note, go: t("r_relink_go") })) {
+      res = await post("relink", { group: x.name, confirm: count, unbind: unbind });
     }
   }
   answer(g.box, res, { title: t("g_relink_title_answer", { group: x.name }) });
+  g.unbind.checked = false;
   await load();
 }

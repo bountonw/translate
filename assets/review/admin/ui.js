@@ -292,7 +292,29 @@ const NEXT = [
   [/review\.py groups\)?$/, () => ({ label: t("next_show_groups"), go: "#groups" })],
   [/review\.py group add \S+ NAME\)?$/, () => ({ label: t("next_show_groups"), go: "#groups" })],
   [/review\.py readers --name TEXT$/, () => ({ label: t("next_show_readers"), go: "#readers" })],
-  [/review\.py export --round NAME\)?$/, () => ({ label: t("next_show_comments"), go: "#comments" })]
+  [/review\.py export --round NAME\)?$/, () => ({ label: t("next_show_comments"), go: "#comments" })],
+  // Signing in (61-admin-contract.md): a reader with no way left to sign in needs a new link, which is shown once with
+  // a Copy button; a declined request is forgotten; the requests and general links are in the Requests section.
+  [/review\.py relink ((?!NAME ).+)$/, m => {
+    // Only a line that ends with the command: a ; outside quotes means more of the line follows the names.
+    const list = /;/.test(m[1].replace(/'[^']*'/g, "")) ? null : shellWords(m[1]);
+    if (!list || !list.length) return null;
+    return {
+      label: t("next_relink", { readers: list.length === 1 ? list[0] : plural(list.length, "reader") }), names: list,
+      question: () => t("next_relink_q", { readers: list.length === 1 ? list[0] : plural(list.length, "reader") }),
+      note: () => t("next_relink_note"),
+      send: () => post("relink", { names: list }),
+      links: res => res.ok && res.result && res.result.readers ? res.result.readers.map(r => ({ name: r.name, link: r.link,
+        note: r.stopped || "" })) : []
+    };
+  }],
+  [/review\.py request forget (\d+)$/, m => ({
+    label: t("next_forget", { id: m[1] }), names: [],
+    question: () => t("next_forget_q", { id: m[1] }),
+    note: () => t("q_forget_note"),
+    send: () => post("request", { action: "forget", id: Number(m[1]) }) })],
+  [/review\.py general-link \S+ --new$/, () => ({ label: t("next_show_requests"), go: "#requests" })],
+  [/List them with: review\.py requests$/, () => ({ label: t("next_show_requests"), go: "#requests" })]
 ];
 
 // The steps the lines of an answer offer, as buttons or links; tests/test_admin_page.py reads them too. members
@@ -331,7 +353,7 @@ function nextButton(step, box, after) {
     if (!(await ask(step.question(n), { go: t("go_on"), note: step.note(n), list: list || [] }))) return;
     b.disabled = true;
     const res = await step.send(list);
-    addAnswer(box, res, { title: step.label, after: after });
+    addAnswer(box, res, { title: step.label, after: after, links: step.links ? step.links(res) : [] });
     if (after) after();
   }, { class: "act next" });
   return b;

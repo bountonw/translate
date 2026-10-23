@@ -11,7 +11,7 @@ import { K } from "./store.js";
 import { t } from "./words.js";
 import { h, $, shortA, paraId, drawn, spacesOn, markSpaces } from "./dom.js";
 import { active, hintKey, variantOf } from "./ext.js";
-import { loadOb, mutateOb, flush, schedule, PLACE_DELAY_MS, keptChapter, keptComments, revalidateChapter, loadComments } from "./net.js";
+import { loadOb, mutateOb, flush, schedule, PLACE_DELAY_MS, keptChapter, keptComments, revalidateChapter, loadComments, who } from "./net.js";
 import { bookLang } from "./languages.js";
 import { setHash, setBar, goHome } from "./screens.js";
 import { showHome, titleLines } from "./home.js";
@@ -169,7 +169,7 @@ export function jumpTo(a, withFlash) {
 }
 
 export function currentComments() {
-  return overlay(keptComments(S.book, S.ch) || [], loadOb(), S.book, S.ch, S.code);
+  return overlay(keptComments(S.book, S.ch) || [], loadOb(), S.book, S.ch, who());
 }
 
 export function repaintComments() {
@@ -226,7 +226,7 @@ function setFinished(v) {
   if (!c) return;
   c.finished = v;
   store.set(K.me, S.me);
-  mutateOb(ob => queueSet(ob, "finished", { book: S.book, ch: S.ch, finished: v }, S.code, Date.now(), 0));
+  mutateOb(ob => queueSet(ob, "finished", { book: S.book, ch: S.ch, finished: v }, who(), Date.now(), 0));
   $("finish").replaceWith(renderFinish());
   flush();
 }
@@ -268,7 +268,7 @@ export function savePlace() {
   if (!c || c.place === p.a) return;
   c.place = p.a;
   store.set(K.me, S.me);
-  mutateOb(ob => queueSet(ob, "place", { book: p.book, ch: p.ch, a: p.a }, S.code, Date.now(), PLACE_DELAY_MS));
+  mutateOb(ob => queueSet(ob, "place", { book: p.book, ch: p.ch, a: p.a }, who(), Date.now(), PLACE_DELAY_MS));
   schedule(0);
 }
 

@@ -185,9 +185,11 @@ class Words(unittest.TestCase):
             for a, b in re.findall(r'\bplural\([^,]+,\s*"(\w+)",\s*"(\w+)"', text):
                 keys |= {a, b}
             keys |= set(re.findall(r'\b(?:key|hint):\s*"(\w+)"', text))
-            if path.name == "refusals.js":
+            if path.name in ("refusals.js", "auth.js", "account.js", "signin.js"):
                 for a, b in re.findall(r'\?\s*"(\w+)"\s*:\s*"(\w*)"', text):
                     keys |= {a, b} - {""}
+            if path.name == "auth.js":
+                keys |= set(re.findall(r'\bline\(\s*"(\w+)"', text))
         langs = re.search(r"UI_LANGS = \[(.*?)\]", (WEB / "core" / "words.js").read_text()).group(1)
         keys |= {"lang_" + code for code in re.findall(r'"(\w+)"', langs)}
         return keys
@@ -231,13 +233,14 @@ class Words(unittest.TestCase):
 class RoundThreeB(unittest.TestCase):
     """The reader page's parts of round 3b that a static check can see."""
 
-    def test_every_request_carries_the_device_key(self):
+    def test_every_request_in_link_mode_carries_the_device_key(self):
         net = (WEB / "core" / "net.js").read_text()
         self.assertIn('"X-Review-Device": deviceKey()', net)
         self.assertIn('device: "rv.device"', (WEB / "core" / "store.js").read_text())
-        # A new link clears what the device keeps for reading, never the device key, the link numbers or the drafts.
+        # A sign-in as another reader clears what the device keeps for reading, never the device key, the link
+        # numbers, the outbox or the drafts.
         forget = re.search(r"export function forgetReader\(\) \{(.*?)\n\}", net, re.S).group(1)
-        self.assertNotRegex(forget, r"device|links|draft")
+        self.assertNotRegex(forget, r"device|links|draft|outbox")
 
     def test_show_spaces_sits_in_the_bar(self):
         html = (WEB / "index.html").read_text()
@@ -258,6 +261,78 @@ class RoundThreeB(unittest.TestCase):
         text = (ROOT / "EXTENDING.md").read_text()
         side = text[text.index("### The page side"):text.index("#### A feature's page part")]
         self.assertEqual(sorted(re.findall(r"^\| ((?:core|features)/[a-z0-9_-]+\.js) \|", side, re.M)), modules())
+
+
+class RoundFourA(unittest.TestCase):
+    """The reader page's parts of the sign-in round (61-contract.md) that a static check can see."""
+
+    def test_every_request_says_it_comes_from_the_page(self):
+        net = (WEB / "core" / "net.js").read_text()
+        self.assertIn('const headers = { "X-Review-Page": "1" };', net)
+        self.assertIn('credentials: link ? "omit" : "same-origin"', net)
+        # Only api() talks to the API; getFile() fetches the page's own files without the cookies.
+        for path in scripts():
+            if path.name in ("net.js", "sw.js"):
+                continue
+            self.assertNotRegex(code_only(path.read_text()), r"\bfetch\(", path.name)
+
+    def test_the_page_keeps_nothing_that_signs_in(self):
+        """The session lives in an HttpOnly cookie: no script reads cookies, and no key of the device holds a token."""
+        for path in scripts():
+            self.assertNotIn("document.cookie", path.read_text(), path.name)
+        keys = re.search(r"export const K = \{(.*?)\};", (WEB / "core" / "store.js").read_text(), re.S).group(1)
+        self.assertNotRegex(keys, r"(?i)token|session|cookie")
+
+    def test_a_link_code_travels_only_in_a_body(self):
+        """The sign-in routes take the link's code in the body of the request (core/auth.js, startBody); the page goes
+        to LINE's address as the site gives it."""
+        signin = (WEB / "core" / "signin.js").read_text()
+        self.assertIn("location.href = r.data.url;", signin)
+        self.assertNotRegex(code_only(signin), r"api/auth/[a-z/]*\?")
+        self.assertNotIn("location.href", code_only((WEB / "core" / "account.js").read_text()))
+
+    def test_plain_modules_hold_no_dom(self):
+        for name in ("auth.js", "outbox.js", "model.js", "refusals.js", "ext.js", "changes.js", "store.js"):
+            code = code_only((WEB / "core" / name).read_text())
+            self.assertNotRegex(code, r"\b(document|window|navigator|location)\b", name)
+
+    def test_enter_as_shows_only_on_the_dev_server(self):
+        signin = (WEB / "core" / "signin.js").read_text()
+        self.assertIn("S.auth.dev !== true", signin)
+
+    def test_new_words_have_english_and_a_thai_field(self):
+        strings = json.loads((WEB / "ui-strings.json").read_text())
+        for key in ("welcome_title", "line_continue", "email_use", "skip_now", "signin_title", "line_link_used",
+                    "line_signed_out", "line_no_account", "email_send", "code_label", "wrong_code_one", "wrong_code_many",
+                    "code_used_up", "code_expired", "request_title", "request_sent", "request_waiting",
+                    "request_declined", "join_closed", "stopped", "blocked", "devices_title", "this_browser", "sign_out",
+                    "ways_title", "add_line", "add_email", "dev_enter", "home_hint", "home_hint_hide"):
+            self.assertIn(key, strings)
+            self.assertTrue(strings[key]["en"], key)
+            self.assertIn("th", strings[key], key)
+        for key in ("wrong_code_one", "wrong_code_many"):
+            self.assertIn("{n}", strings[key]["en"], key)
+
+    def test_english_speaks_to_the_reader_as_you(self):
+        """The ruling: English interface text speaks to the reader as "you" or uses no pronoun; "My wording" is the
+        one exception."""
+        strings = json.loads((WEB / "ui-strings.json").read_text())
+        for key, value in strings.items():
+            if key == "kind_wording":
+                continue
+            self.assertNotRegex(value["en"], r"\b(I|me|my|mine|myself)\b", key)
+
+    def test_a_limit_the_page_names_is_one_the_server_applies(self):
+        """A comment of the page that names a constant of server/auth.py, in parentheses after the file's name, names
+        one the file defines; the code button's comment names the daily limits of codes (70-verify.md item 7)."""
+        defined = set(re.findall(r"^([A-Z][A-Z0-9_]*) *=", (ROOT / "server" / "auth.py").read_text(), re.M))
+        cited = set()
+        for path in scripts():
+            for window in re.findall(r"server/auth\.py[^)]*\)", path.read_text()):
+                cited |= set(re.findall(r"\b[A-Z][A-Z0-9_]{4,}\b(?![.\w])", window))
+        self.assertLessEqual({"CODES_PER_CLIENT_DAY", "CODES_PER_DAY", "RESULTS"}, cited)
+        self.assertEqual(sorted(cited - defined), [])
+        self.assertNotIn("five an hour", (WEB / "core" / "signin.js").read_text())
 
 
 if __name__ == "__main__":

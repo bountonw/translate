@@ -7,11 +7,17 @@ probe.html, and runs every command with HOME set to $TMPDIR/admin-browser/home, 
 folder, the links files and the alignment packets all land there and nothing of ~/claude-sandbox is touched.
 It sets up a dev server, publishes SC01-03 from the translation repository, makes two groups and the readers,
 writes three comments and two more by Boon Mee, opens Boon Mee's link on three devices so that the third waits for
-approval, starts review.py admin, and opens the probe, which drives every control of every section of the page
+approval, signs Anan Chaiyo in with LINE on three browsers through the dev server's stand-in for LINE, Somchai
+Jaidee with a code sent by email and the last reader of the file with LINE, makes a general link of Pastors and three requests through it (two by email, one
+with LINE), starts review.py admin, and opens the probe, which drives every control of every section of the page
 (tests/admin_probe.js). It ends with the probe's checks, the timings, and a check that the page called every
 local route of review_admin.routes(). unittest does not run it; it needs Firefox and the translation repository.
 """
 import argparse
+import csv
+import email
+import email.policy
+import http.client
 import json
 import os
 import re
@@ -40,6 +46,7 @@ user_pref("network.proxy.type", 0);
 user_pref("browser.aboutwelcome.enabled", false);
 """
 OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+IPHONE = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Safari/604.1"
 
 
 def free_port():
@@ -126,6 +133,60 @@ def main():
             with e:
                 return json.loads(e.read())
 
+    def browser(method, url, body=None, jar=None, page=True):
+        """One request of a reader's browser: (status, headers, body). jar keeps the cookies the site sets, as a
+        browser does; page sends X-Review-Page: 1, as the page does (README.md, "One person per account")."""
+        parts = urllib.parse.urlsplit(url)
+        conn = http.client.HTTPConnection(parts.hostname, parts.port, timeout=10)
+        headers = {"User-Agent": IPHONE}
+        if page:
+            headers["X-Review-Page"] = "1"
+        if body is not None:
+            headers["Content-Type"] = "application/json"
+        if jar:
+            headers["Cookie"] = "; ".join(f"{k}={v}" for k, v in jar.items())
+        conn.request(method, parts.path + ("?" + parts.query if parts.query else ""),
+                     body=None if body is None else json.dumps(body), headers=headers)
+        r = conn.getresponse()
+        data = r.read()
+        conn.close()
+        for k, v in r.getheaders():
+            if k.lower() == "set-cookie" and jar is not None:
+                name, _, value = v.split(";")[0].partition("=")
+                if "max-age=0" in v.lower():
+                    jar.pop(name.strip(), None)
+                else:
+                    jar[name.strip()] = value
+        return r.status, {k.lower(): v for k, v in r.getheaders()}, data
+
+    def line_signin(body, user):
+        """Sign in with LINE through the dev server's stand-in, as its test user number user: the result."""
+        jar = {}
+        status, _, raw = browser("POST", site + "/api/auth/line/start", body, jar)
+        if status != 200:
+            raise SystemExit(f"LINE sign-in did not start: {status} {raw[:200]}")
+        url = urllib.parse.urlsplit(json.loads(raw)["url"])
+        approve = f"http://{url.netloc}{url.path.replace('/authorize', '/approve')}?{url.query}&user={user}"
+        status, headers, _ = browser("GET", approve, page=False)
+        status, headers, _ = browser("GET", headers["location"], jar=jar, page=False)
+        return headers["location"].split("#auth=")[1]
+
+    def email_signin(address, body):
+        """Sign in with a six-digit code sent to address, read from the dev server's mail files: the result."""
+        jar = {}
+        folder = data / "mail"
+        before = set(folder.glob("*.eml")) if folder.is_dir() else set()
+        status, _, answer = browser("POST", site + "/api/auth/email/start", dict(body, email=address), jar)
+        if status != 200:
+            raise SystemExit(f"The email code was not sent: {status} {answer[:200]}")
+        deadline = time.monotonic() + 10
+        while time.monotonic() < deadline and not set(folder.glob("*.eml")) - before:
+            time.sleep(0.05)
+        newest = max(set(folder.glob("*.eml")) - before, key=lambda f: f.stat().st_mtime_ns)
+        text = email.message_from_bytes(newest.read_bytes(), policy=email.policy.default).get_content()
+        code = next(w for w in text.replace(".", " ").split() if w.isdigit() and len(w) == 6)
+        return json.loads(browser("POST", site + "/api/auth/email/finish", {"code": code}, jar)[2])["result"]
+
     def start(args, ready, log):
         """Start a review.py command that keeps running; its output after the line `ready` goes to the file log."""
         p = subprocess.Popen([sys.executable, str(code / "review.py"), *args], stdout=subprocess.PIPE,
@@ -160,7 +221,7 @@ def main():
         many = tmp / "seed.csv"
         many.write_text("name,groups,grants,english\n" + "".join(f"Reader {i:03d},Youth,SC01,no\n"
                                                                   for i in range(1, a.readers + 1)))
-        cli("invite", "--from", str(many))
+        made = cli("invite", "--from", str(many))
         codes = {n: l.split("#k=")[1] for n, l in links.items()}
         anchors = [p["a"] for p in call("GET", "/api/chapter/SC/SC01", None, codes["Mali Srisuk"])["paragraphs"]]
         ids = []
@@ -175,6 +236,20 @@ def main():
         waiting = call("GET", "/api/me", None, codes["Boon Mee"], "admin-browser-device-03")
         if waiting.get("error") != "device_waiting":
             raise SystemExit(f"The third device of Boon Mee did not wait for approval: {waiting}")
+        # Signing in: Anan Chaiyo with LINE on three browsers, Somchai Jaidee with an email code; then a general link
+        # of Pastors, and three requests to read through it.
+        # The last reader of the file signs in with LINE through the link, which is then used: removing that LINE
+        # account leaves the reader with a new link as the only way in, which the probe gives.
+        last = f"Reader {a.readers:03d}"
+        with open(re.search(r"The links are in (\S+) \(mode 600\)", made).group(1), newline="") as f:
+            seed = next(row["link"] for row in csv.DictReader(f) if row["name"] == last).split("#k=")[1]
+        results = [line_signin({"link": codes["Anan Chaiyo"]}, 0), line_signin({}, 0), line_signin({}, 0),
+                   email_signin("somchai@example.org", {"link": codes["Somchai Jaidee"]}), line_signin({"link": seed}, 1)]
+        join = re.search(r"#join=(\S+)", cli("general-link", "Pastors", "--new")).group(1)
+        results += [email_signin("kanya@example.org", {"join": join}), email_signin("pim@example.org", {"join": join}),
+                    line_signin({"join": join}, 2)]
+        if results != ["signed_in"] * 5 + ["request_sent"] * 3:
+            raise SystemExit(f"Signing in before the probe went wrong: {results}")
         commit = subprocess.run(["git", "-C", str(REPO), "log", "-1", "--format=%h", "main"], capture_output=True,
                                 text=True).stdout.strip()
         line = start(["--server", site, "--repo", str(REPO), "admin", "--port", str(admin_port), "--no-open"], "#key=",
@@ -182,9 +257,9 @@ def main():
         key = line.strip().rsplit("#key=", 1)[1]
         query = urllib.parse.urlencode({
             "mode": "main", "commit": commit, "total": a.readers + 4, "ids": ",".join(map(str, ids)),
-            "link": links["Mali Srisuk"], "site": site, "data": str(data), "home": str(home),
+            "link": links["Mali Srisuk"], "site": site, "data": str(data), "home": str(home), "last": last,
             "exports": str(data / "export")})
-        secrets = [key] + list(codes.values())
+        secrets = [key, join, seed] + list(codes.values())
         shown = browse(f"http://127.0.0.1:{admin_port}/probe.html?{query}#key={key}", "main", secrets)
 
         # The live site: review.py admin through a stand-in for ssh (tests/test_ssh.py) that forwards the tunnel's

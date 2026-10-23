@@ -19,7 +19,7 @@ from server.app import App  # noqa: E402
 SC_COUNTS = {1: 17, 2: 12, 3: 37, 4: 11, 5: 14, 6: 17, 7: 22, 8: 19}
 SC_BOOK = {"id": "SC", "language": "th", "parser": "sc_typst", "stages": ["03_public", "02_edit", "01_raw"],
            "source": "th/SC/{stage}/SC{nn}_th.typ", "english": "th/SC/00_source/SC{nn}_en.md"}
-# The device key every test reader sends unless a test names another (README.md, "One person per link").
+# The device key every test reader sends unless a test names another (README.md, "Link signs in").
 DEVICE = "test-device-0000000001"
 
 

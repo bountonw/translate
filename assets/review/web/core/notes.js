@@ -5,17 +5,17 @@
    the server refused says why (refusals.js) and offers the buttons that help. A card says when its
    paragraph changed after the comment was written, and shows the translator's reply under the comment.
    A comment held back by the daily limit says how long until the limit resets. The cards of "My earlier
-   comments" (earlier.js) are read-only cards made here too. A draft is kept per paragraph and per link
+   comments" (earlier.js) are read-only cards made here too. A draft is kept per paragraph and per reader
    (store.js, draftKey). */
 
 import { queueCreate, queueEdit, queueDelete, queueRetry, randomId } from "./outbox.js";
 import { DEFAULT_LIMITS } from "./model.js";
-import { draftKey, linkTag } from "./store.js";
+import { draftKey, ownerTag } from "./store.js";
 import { S, store } from "./state.js";
 import { t, durationText } from "./words.js";
 import { h, shortA, copyButton, twoTapButton } from "./dom.js";
 import { chapterSection } from "./ext.js";
-import { mutateOb, flush, keptChapter } from "./net.js";
+import { mutateOb, flush, keptChapter, who } from "./net.js";
 import { explain, waitNote, untilReset, checkComment, counter } from "./refusals.js";
 import { bookLang } from "./languages.js";
 import { currentComments, repaintComments } from "./chapter.js";
@@ -128,7 +128,7 @@ export function readOnlyCard(c, book) {
 
 function deleteButton(c) {
   return twoTapButton(t("delete"), t("delete_confirm"), () => {
-    mutateOb(ob => queueDelete(ob, c, S.code, Date.now()));
+    mutateOb(ob => queueDelete(ob, c, who(), Date.now()));
     repaintComments();
     flush();
   });
@@ -163,7 +163,7 @@ function countLine(box, max) {
    says what to fix instead of sending one the server would refuse. */
 export function commentForm(art, p, c, quote) {
   const seq = ++formSeq;
-  const dKey = draftKey(linkTag(S.code), S.book, S.ch, p.a);
+  const dKey = draftKey(ownerTag(who()), S.book, S.ch, p.a);
   const draft = c ? null : store.get(dKey);
   const kindNow = c ? c.kind : draft ? draft.kind : "flag";
   const L = limits();
@@ -234,9 +234,9 @@ export function commentForm(art, p, c, quote) {
       return;
     }
     const now = Date.now();
-    if (c) mutateOb(ob => queueEdit(ob, c, { kind: k, quote: q, text }, S.code, now));
+    if (c) mutateOb(ob => queueEdit(ob, c, { kind: k, quote: q, text }, who(), now));
     else {
-      mutateOb(ob => queueCreate(ob, { client_id: randomId(), book: S.book, ch: S.ch, a: p.a, kind: k, quote: q, text }, S.code, now));
+      mutateOb(ob => queueCreate(ob, { client_id: randomId(), book: S.book, ch: S.ch, a: p.a, kind: k, quote: q, text }, who(), now));
       store.del(dKey);
     }
     f.replaceWith(commentForm(art, p, null, null));

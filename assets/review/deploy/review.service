@@ -40,8 +40,18 @@ ProtectHostname=yes
 ProtectProc=invisible
 ProcSubset=pid
 RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
-IPAddressDeny=any
-IPAddressAllow=localhost
+# The API makes outbound connections: signing in with LINE needs LINE's token endpoint (api.line.me) over
+# HTTPS, and mail through Resend needs api.resend.com. The lines IPAddressDeny=any and IPAddressAllow=localhost,
+# which this file held before, blocked every address but this machine's, so they are gone. The API still
+# listens on 127.0.0.1 alone (server/prod.py), so the internet reaches it only through Apache; every other
+# protection in this file stays. A mail server on 127.0.0.1 is reached either way. deploy/DEPLOY.md,
+# "Updating the code", gives the commands that install this file.
+# The API needs only the internet and this machine, so these addresses stay closed to it: link-local, which
+# holds DigitalOcean's metadata service at 169.254.169.254; multicast; 10.0.0.0/8, DigitalOcean's private
+# network; 100.64.0.0/10; and the private IPv6 range fc00::/7. 172.16.0.0/12 and 192.168.0.0/16 stay open:
+# Docker's networks use them, and a mail server in Docker is reached through them even when it is named by its
+# public address. systemd allows every address this line does not name.
+IPAddressDeny=link-local multicast 10.0.0.0/8 100.64.0.0/10 fc00::/7
 RestrictNamespaces=yes
 RestrictRealtime=yes
 RestrictSUIDSGID=yes

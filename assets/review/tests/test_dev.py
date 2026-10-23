@@ -59,7 +59,7 @@ class Static(unittest.TestCase):
 
     def test_api_goes_to_the_app(self):
         status, headers, body = self.get("/api/health")
-        self.assertEqual((status, body), (200, b'{"ok":true}'))
+        self.assertEqual((status, body), (200, b'{"ok":true}\n'))
         self.assertEqual(headers["Cache-Control"], "no-store")
 
 
@@ -98,7 +98,7 @@ class FromEnvironment(unittest.TestCase):
         application = app_module._FromEnvironment()
         with mock.patch.dict("os.environ", {"REVIEW_DATA": tmp.name}):
             body = b"".join(application(environ, lambda s, h, e=None: got.update(status=s)))
-        self.assertEqual((got["status"], body), ("200 OK", b'{"ok":true}'))
+        self.assertEqual((got["status"], body), ("200 OK", b'{"ok":true}\n'))
         self.assertTrue((Path(tmp.name) / "review.sqlite3").exists())
         self.assertIsInstance(app_module.application, app_module._FromEnvironment)
 
@@ -166,6 +166,62 @@ class Deploy(unittest.TestCase):
         body = re.search(r"<VirtualHost \*:80>(.*)</VirtualHost>", vhost, re.S).group(1)
         lines = [l.strip() for l in body.splitlines() if l.strip() and not l.strip().startswith("#")]
         self.assertEqual([l.split()[0] for l in lines], ["ServerName", "Include", "ErrorLog", "CustomLog"])
+
+    def test_the_service_reaches_the_internet_but_not_the_droplets_private_addresses(self):
+        # 65-security.md item 9 and 67-operations.md item 8: LINE, Resend and a mail server in Docker stay open;
+        # the metadata service (link-local) and the private networks of the droplet stay closed.
+        service = self.read("review.service")
+        (deny,) = re.findall(r"(?m)^IPAddressDeny=(.*)$", service)
+        self.assertEqual(deny.split(), ["link-local", "multicast", "10.0.0.0/8", "100.64.0.0/10", "fc00::/7"])
+        self.assertNotRegex(service, r"(?m)^IPAddressAllow=")
+        self.assertNotIn("172.16.0.0/12", deny)
+        self.assertIn("169.254.169.254", service)
+        deploy = self.read("DEPLOY.md")
+        self.assertIn("IPAddressDeny=link-local multicast 10.0.0.0/8 100.64.0.0/10 fc00::/7", deploy)
+        self.assertIn("grep nameserver /etc/resolv.conf", deploy)
+
+    def test_deploy_md_keeps_the_mail_and_sign_in_steps_right(self):
+        text = self.read("DEPLOY.md")
+        # 67-operations.md item 1: the check of config.json before each restart.
+        self.assertIn('sudo -u review python3 -m json.tool /var/lib/review/config.json > /dev/null && echo "config.json '
+                      'is valid"', text)
+        # Item 2: SPF, DKIM and DMARC exist for forum.laoegw.com alone.
+        self.assertNotIn("review@laoegw.com", text)
+        self.assertIn('"from": "review@forum.laoegw.com"', text)
+        self.assertIn("published for forum.laoegw.com only", text)
+        # Item 3: the rules of 10.A and the fourth command.
+        for words in ("Postfix or Exim runs as a service on the droplet", "never 127.0.0.1 or a 172.x address",
+                      "Only Discourse's mail-receiver listens on port 25", "DISCOURSE_SMTP_USER_NAME",
+                      "/var/discourse/containers/*.yml", "FORCE_TLS", "test mail to a Gmail address"):
+            self.assertIn(words, text)
+        # Item 6: what a restore does to sign-ins.
+        self.assertIn("A backup holds the sign-ins of its own time.", text)
+        # Item 9: the LINE console as it is.
+        self.assertIn("As the channel's creator you are its Admin", text)
+        self.assertNotIn("add yourself as a Tester", text)
+        self.assertIn("LINE Developers Agreement", text)
+        # Item 11: Resend's free plan.
+        self.assertIn("Resend's free plan sends 100 mails a day", text)
+        self.assertIn("notify.laoegw.com", text)
+        # 65-security.md item 13: the secrets of config.json and general links.
+        secret = text[text.index("## What is secret"):]
+        for words in ("Channel secret", "Resend key", "general-link GROUP --off"):
+            self.assertIn(words, secret)
+        # The examples of the code name the forum's domain too.
+        for name in ("auth.py", "mail.py"):
+            self.assertNotIn("review@laoegw.com", (ROOT / "server" / name).read_text(), name)
+        self.assertNotIn('"from": "review@laoegw.com"', (ROOT / "README.md").read_text())
+
+    def test_the_walk_through_keeps_the_dev_data_and_shows_the_code(self):
+        # 67-operations.md item 7: its own folder, the notes, the token of that folder, and where the code is.
+        readme = (ROOT / "README.md").read_text()
+        walk = readme[readme.index("## Try it on this machine"):readme.index("## Who can open what")]
+        for words in ("python3 review.py setup --data ~/claude-sandbox/review-walk",
+                      "python3 review.py serve --dev --data ~/claude-sandbox/review-walk",
+                      '"notify": {"email": "you@example.org"}',
+                      "export REVIEW_TOKEN_FILE=~/claude-sandbox/review-walk/admin-token",
+                      "grep -h '^Subject:'"):
+            self.assertIn(words, walk)
 
     def test_backup_unit_is_sandboxed_like_the_service(self):
         missing = self.settings("review.service") - self.settings("review-backup.service")

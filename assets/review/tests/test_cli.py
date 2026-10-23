@@ -1,6 +1,8 @@
 """Tests for every review.py command against a dev server on 127.0.0.1:8090 (another free port if taken)."""
 import contextlib
 import csv
+import email
+import email.policy
 import io
 import json
 import os
@@ -14,6 +16,7 @@ import threading
 import time
 import unittest
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from unittest import mock
@@ -50,11 +53,88 @@ def http(method, url, code=None, body=None, device=DEVICE):
             return e.code, json.loads(e.read() or b"{}"), dict(e.headers)
 
 
+# What a new link does on the dev server of these tests, whose sign-in routes are on (server/dev.py): it is used once
+# to sign in with LINE or email, and until then it works by itself, with the two-device lock.
+FRESH_LINK = ("the link is used once, to sign in with LINE or email, and until then works by itself on the first devices "
+              "that open it")
+
+
 def link_in(out):
     """The code of the one link a command printed."""
     links = re.findall(r"https://review\.example\.org/#k=([A-Za-z0-9_-]+)", out)
     assert len(links) == 1, out
     return links[0]
+
+
+class Browser:
+    """One browser of a reader, called in-process on the App behind the dev server: it keeps its cookies and sends
+    X-Review-Page: 1, as the page does (server/auth.py)."""
+
+    made = 0
+
+    def __init__(self, app, agent="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 "
+                                  "Version/17.0 Safari/604.1"):
+        self.app, self.agent, self.jar = app, agent, {}
+        # Each browser comes from its own address, so the limits on signing in from one address (server/auth.py)
+        # do not add up across the tests of this class.
+        Browser.made += 1
+        self.addr = f"10.63.{Browser.made // 250}.{Browser.made % 250 + 1}"
+
+    def call(self, method, path, body=None, page=True):
+        from wsgiref.util import setup_testing_defaults
+        env = {}
+        setup_testing_defaults(env)
+        path, _, query = path.partition("?")
+        data = b"" if body is None else json.dumps(body).encode()
+        env.update({"REQUEST_METHOD": method, "PATH_INFO": path, "QUERY_STRING": query, "CONTENT_LENGTH": str(len(data)),
+                    "wsgi.input": io.BytesIO(data), "wsgi.errors": io.StringIO(), "HTTP_USER_AGENT": self.agent,
+                    "REMOTE_ADDR": self.addr})
+        if page:
+            env["HTTP_X_REVIEW_PAGE"] = "1"
+        if self.jar:
+            env["HTTP_COOKIE"] = "; ".join(f"{k}={v}" for k, v in self.jar.items())
+        got = {}
+
+        def start_response(status, headers, exc_info=None):
+            got["status"], got["headers"] = int(status.split()[0]), headers
+
+        out = b"".join(self.app(env, start_response))
+        for k, v in got["headers"]:
+            if k.lower() == "set-cookie":
+                first, *attrs = [x.strip() for x in v.split(";")]
+                name, _, value = first.partition("=")
+                if any(x.lower() == "max-age=0" for x in attrs):
+                    self.jar.pop(name, None)
+                else:
+                    self.jar[name] = value
+        headers = {k.lower(): v for k, v in got["headers"]}
+        try:
+            answer = json.loads(out) if out else None
+        except ValueError:
+            answer = None
+        return got["status"], answer, headers
+
+    def line(self, standin, body, user):
+        """Sign in with LINE through the stand-in of the dev server as the test user numbered user: the result."""
+        status, answer, _ = self.call("POST", "/api/auth/line/start", body)
+        assert status == 200, answer
+        q = {k: v[-1] for k, v in urllib.parse.parse_qs(urllib.parse.urlsplit(answer["url"]).query).items()}
+        back = urllib.parse.urlsplit(standin.approve(q, user))
+        status, _, headers = self.call("GET", back.path + "?" + back.query, page=False)
+        assert status == 302, status
+        return headers["location"].split("#auth=")[1]
+
+    def email(self, data, app, address, body=None):
+        """Sign in with a six-digit code sent to address, read from the dev server's mail files: the result."""
+        before = set((data / "mail").glob("*.eml")) if (data / "mail").is_dir() else set()
+        status, answer, _ = self.call("POST", "/api/auth/email/start", dict(body or {}, email=address))
+        assert status == 200, answer
+        app.mail_idle()
+        new = sorted(set((data / "mail").glob("*.eml")) - before, key=lambda f: f.stat().st_mtime_ns)
+        msg = email.message_from_bytes(new[-1].read_bytes(), policy=email.policy.default)
+        assert msg["To"] == address, msg["To"]
+        code = next(w for w in msg.get_content().replace(".", " ").split() if w.isdigit() and len(w) == 6)
+        return self.call("POST", "/api/auth/email/finish", {"code": code})[1]["result"]
 
 
 class CLI(unittest.TestCase):
@@ -103,7 +183,7 @@ class CLI(unittest.TestCase):
     def invite(self, name, *grant):
         _, out, _ = self.cli("invite", name, *[x for g in grant for x in ("--grant", g)])
         self.assertEqual(out.strip().splitlines()[-1],
-                         f"{name} is invited; the link works on the first devices that open it.")
+                         f"{name} is invited; {FRESH_LINK}.")
         return link_in(out)
 
     # ---------- setup, serve, backup ----------
@@ -215,6 +295,19 @@ class CLI(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             review.main(["--server", self.url, "--token-file", str(self.token), "publish", "SC"])
 
+    def test_book_written_together_with_its_chapters(self):
+        split = review.split_joined_book
+        self.assertEqual(split(["publish", "SC01-08"]), ["publish", "SC", "01-08"])
+        self.assertEqual(split(["--repo", "x", "publish", "sc03", "--ref", "v1"]),
+                         ["--repo", "x", "publish", "sc", "03", "--ref", "v1"])
+        self.assertEqual(split(["publish", "--ref", "SC09", "SC1,3"]), ["publish", "--ref", "SC09", "SC", "1,3"])
+        self.assertEqual(split(["withdraw", "SC03"]), ["withdraw", "SC", "03"])
+        self.assertEqual(split(["align-packet", "SC01"]), ["align-packet", "SC", "01"])
+        self.assertEqual(split(["publish", "SC", "01-08"]), ["publish", "SC", "01-08"])
+        self.assertEqual(split(["open", "Somchai", "SC01"]), ["open", "Somchai", "SC01"])
+        _, out, _ = self.cli("withdraw", "QQ07")
+        self.assertIn("QQ07: not on the server.", out)
+
     def test_withdraw_whole_book(self):
         _, out, _ = self.cli("withdraw", "QQ")
         self.assertIn("No chapter of QQ is published.", out)
@@ -273,8 +366,8 @@ class CLI(unittest.TestCase):
         self.cli("english", "Somchai Test", "off")
 
         _, out, _ = self.cli("revoke", "Somchai Test")
-        self.assertEqual(out.strip(), "The link of Somchai Test is stopped: it opens nothing now, and the comments "
-                                      "are kept.")
+        self.assertEqual(out.strip(), "Somchai Test is stopped: the link, LINE and email open nothing now, and the "
+                                      "comments are kept.")
         self.assertEqual(http("GET", f"{self.url}/api/me", code)[0], 401)
         _, out, _ = self.cli("restore", "Somchai Test")
         self.assertEqual(out.strip(), "The link of Somchai Test works again.")
@@ -282,8 +375,8 @@ class CLI(unittest.TestCase):
 
         _, out, _ = self.cli("relink", "Somchai Test")
         new = link_in(out)
-        self.assertEqual(out.strip().splitlines()[-1], "Somchai Test has a new link; the old link no longer works, "
-                                                       "and a new link works on the first devices that open it.")
+        self.assertEqual(out.strip().splitlines()[-1], f"Somchai Test has a new link; the old link no longer works, "
+                                                       f"and the new {FRESH_LINK[4:]}.")
         self.assertEqual(http("GET", f"{self.url}/api/me", code)[0], 401)
         self.assertEqual(http("GET", f"{self.url}/api/me", new)[0], 200)
 
@@ -367,11 +460,11 @@ class CLI(unittest.TestCase):
         self.cli("group", "add", "Choir", "Choir 0", "Choir 1")
         # Reader commands take several names, and say in one sentence what changed.
         _, out, _ = self.cli("revoke", "Choir 0", "Choir 1")
-        self.assertEqual(out.strip(), "The links of Choir 0 and Choir 1 are stopped: they open nothing now, and the "
-                                      "comments are kept.")
+        self.assertEqual(out.strip(), "Choir 0 and Choir 1 are stopped: the links, LINE and email open nothing now, "
+                                      "and the comments are kept.")
         self.assertEqual([self.me(c)[0] for c in codes], [401, 401, 200])
         _, out, _ = self.cli("restore", "Choir 0", "Choir 1", "Choir 2")
-        self.assertEqual(out.strip(), "The links of Choir 0 and Choir 1 work again; Choir 2 already worked.")
+        self.assertEqual(out.strip(), "The links of Choir 0 and Choir 1 work again; Choir 2 was not stopped.")
         _, out, _ = self.cli("english", "Choir 0", "Choir 1", "on")
         self.assertEqual(out.strip(), "English is now on for Choir 0 and Choir 1, as their own setting.")
         self.assertEqual([self.me(c)[2]["english"] for c in codes], [True, True, False])
@@ -960,7 +1053,7 @@ class CLI(unittest.TestCase):
         self.put_chapter(46)
         _, out, _ = self.cli("invite", "Mali  Boon46", "--grant", "SC46")
         self.assertEqual(out.strip().splitlines()[-1],
-                         "Mali Boon46 is invited; the link works on the first devices that open it.")
+                         f"Mali Boon46 is invited; {FRESH_LINK}.")
         code_, _, err = self.cli("invite", "mali\u00a0boon46", "--grant", "SC46", ok=False)
         self.assertIn("409", err)
         _, out, _ = self.cli("readers", "--name", "Boon46")
@@ -1031,7 +1124,8 @@ class CLI(unittest.TestCase):
         self.assertIn("The link of Stopped Reader48 stays stopped, so the new link opens nothing until: review.py "
                       "restore 'Stopped Reader48'", out)
         self.assertEqual(out.strip().splitlines()[-1], "Stopped Reader48 and Working Reader48 have new links; the old "
-                         "links no longer work; the new link of Working Reader48 works on the first devices that open it.")
+                         "links no longer work; the new link of Working Reader48 is used once, to sign in with LINE or "
+                         "email, and until then works by itself on the first devices that open it.")
 
     def test_devices_of_an_old_link_are_not_counted_as_waiting(self):
         self.put_chapter(49)
@@ -1159,6 +1253,414 @@ class CLI(unittest.TestCase):
         code_, _, err = self.cli("readers", "--link", "https://review.example.org/", ok=False)
         self.assertIn("Cannot find a code in that link", err)
 
+    # ---------- signing in ----------
+
+    def line_user(self, name):
+        """A LINE test user of the stand-in, made for one test, since a LINE account belongs to one reader: its
+        number for Browser.line."""
+        users = self.httpd.standin.users
+        users.append((f"U{len(users):032d}", name))
+        return len(users) - 1
+
+    def last(self, out):
+        return out.strip().splitlines()[-1]
+
+    def test_signin_shows_the_settings_checks_and_sends_a_test_mail(self):
+        _, out, _ = self.cli("signin")
+        self.assertIn(f"Sign-in with LINE: on, channel {self.httpd.standin.channel_id}; LINE sends readers back to "
+                      "https://review.example.org/api/auth/line/callback.", out)
+        self.assertIn("Sign-in with a six-digit email code: on.", out)
+        self.assertIn("A link alone also signs in a reader who has not signed in with LINE or email yet "
+                      "(auth.require_identity is false).", out)
+        self.assertIn("A browser stays signed in for 30 days after its last visit.", out)
+        self.assertIn(f"Mail: written to files in {self.data / 'mail'}, from Proofreading site (dev) <review@dev.invalid>"
+                      " (no mail leaves this computer).", out)
+        self.assertIn("Notes to you: none (config.json has no notify.email)", out)
+        self.assertIn("This is the dev server: LINE goes to a stand-in and mail to files.", out)
+        self.assertRegex(self.last(out), r"^\d+ requests? waiting for you; \d+ browsers? signed in\.")
+        _, out, _ = self.cli("signin", "check")
+        self.assertIn(f"LINE: works. The API reached {self.httpd.standin.base}", out)
+        self.assertIn("Mail: works. Mail is written to files in", out)
+        self.assertEqual(self.last(out), "Nothing changed: the check signs no one in and sends no mail.")
+        _, out, _ = self.cli("signin", "test-mail", "Translator63@Example.org")
+        self.assertEqual(out.strip(), "A test mail went to translator63@example.org.")
+        _, out, _ = self.cli("signin")
+        self.assertRegex(out, r"Last mail: \d{4}-\d\d-\d\d \d\d:\d\d UTC, a test mail by file: sent\.")
+        _, _, err = self.cli("signin", "test-mail", "translator", ok=False)
+        self.assertIn("400: to must be an email address", err)
+        _, _, err = self.cli("signin", "test-mail", ok=False)
+        self.assertIn("Name the address: review.py signin test-mail ADDRESS", err)
+
+    def test_invite_with_link_signs_in_and_the_switch(self):
+        self.put_chapter(63)
+        _, out, _ = self.cli("invite", "Dao63", "--grant", "SC63", "--link-signs-in")
+        self.assertEqual(self.last(out), "Dao63 is invited; the link signs in by itself and works on the first devices "
+                                         "that open it.")
+        code = link_in(out)
+        self.assertEqual(http("GET", f"{self.url}/api/me", code)[0], 200)
+        _, out, _ = self.cli("readers", "--name", "Dao63")
+        self.assertIn("; the link signs in by itself (Link signs in)", out)
+        self.invite("Chai63", "SC63")
+        _, out, _ = self.cli("readers", "--name", "Chai63")
+        self.assertIn("; has not signed in with LINE or email yet, so the link still signs in by itself", out)
+        _, out, _ = self.cli("link-signs-in", "Dao63", "off")
+        self.assertEqual(out.strip().splitlines(), [
+            "Dao63 has not signed in with LINE or email yet, so until then the link still signs in by itself.",
+            "Link signs in is now off for Dao63: Dao63 signs in with LINE or email."])
+        _, out, _ = self.cli("link-signs-in", "dao63", "off")
+        self.assertEqual(out.strip(), "Nothing changed: Link signs in is already off for Dao63.")
+        _, out, _ = self.cli("link-signs-in", "Dao63", "Chai63", "on")
+        self.assertEqual(out.strip(), "Link signs in is now on for Chai63 and Dao63: the links sign in by themselves, "
+                                      "with the two-device lock.")
+        _, out, _ = self.cli("link-signs-in", "Chai63", "off")
+        self.assertEqual(self.last(out), "Link signs in is now off for Chai63: Chai63 signs in with LINE or email.")
+        _, _, err = self.cli("link-signs-in", "Chai63", "maybe", ok=False)
+        self.assertIn("Write on or off at the end, not 'maybe'", err)
+        _, _, err = self.cli("invite", "--from", "x.csv", "--link-signs-in", ok=False)
+        self.assertIn("--link-signs-in", err)
+
+    def test_browsers_identities_and_unbind(self):
+        self.put_chapter(64)
+        code = self.invite("Anan64", "SC64")
+        line = Browser(self.app)
+        self.assertEqual(line.line(self.httpd.standin, {"link": code}, self.line_user("Tester 64")), "signed_in")
+        self.assertEqual(http("GET", f"{self.url}/api/me", code)[1]["error"], "link_used")
+        _, out, _ = self.cli("readers", "--name", "Anan64")
+        self.assertRegex(out, r"; signs in with LINE \(Tester 64\); 1 browser signed in, last seen \d{4}-\d\d-\d\d "
+                              r"\d\d:\d\d UTC\n")
+        _, out, _ = self.cli("readers", "--identity", "line")
+        self.assertIn("Anan64: active;", out)
+        _, out, _ = self.cli("readers", "--identity", "none")
+        self.assertNotIn("Anan64", out)
+        _, out, _ = self.cli("sessions", "Anan64")
+        (first, last) = out.strip().splitlines()
+        self.assertRegex(first, r"^(\d+)\. Anan64: iPhone, Safari; signed in with LINE as Tester 64 on \d{4}-.* UTC; last "
+                                r"seen .* UTC; signed in until .* UTC unless visited again$")
+        line_session = int(first.split(".")[0])
+        self.assertEqual(last, "1 browser signed in. Sign one out with: review.py session end NUMBER")
+        _, out, _ = self.cli("identity", "add", "Anan64", "Anan64@Example.org")
+        self.assertEqual(self.last(out), "Anan64 can now sign in with a code sent to anan64@example.org.")
+        _, out, _ = self.cli("identity", "add", "anan64", "anan64@example.org")
+        self.assertEqual(self.last(out), "Nothing changed: Anan64 already signs in with anan64@example.org.")
+        self.invite("Mali64", "SC64")
+        _, _, err = self.cli("identity", "add", "Mali64", "anan64@example.org", ok=False)
+        self.assertIn("409: The address anan64@example.org belongs to Anan64", err)
+        phone = Browser(self.app, "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/126.0 Mobile Safari/537.36")
+        self.assertEqual(phone.email(self.data, self.app, "anan64@example.org"), "signed_in")
+        _, out, _ = self.cli("identities", "Anan64")
+        lines = out.strip().splitlines()
+        self.assertEqual(lines[-1], "2 ways of signing in. Remove one with: review.py unbind NUMBER")
+        self.assertRegex(lines[0], r"^\d+\. Anan64: LINE \(Tester 64\); added .* UTC, last used .* UTC; 1 browser "
+                                   r"signed in$")
+        ids = {x.split(": ")[1].split(";")[0]: int(x.split(".")[0]) for x in lines[:-1]}
+        _, out, _ = self.cli("sessions", "Anan64")
+        self.assertEqual(self.last(out), "2 browsers signed in. Sign one out with: review.py session end NUMBER")
+        email_session = [int(x.split(".")[0]) for x in out.splitlines() if "an email code to anan64@example.org" in x][0]
+        _, out, _ = self.cli("session", "end", str(email_session))
+        self.assertEqual(self.last(out), f"Browser {email_session} of Anan64 (Android, Chrome) is signed out.")
+        self.assertEqual(phone.call("GET", "/api/me")[1]["error"], "signed_out")
+        _, out, _ = self.cli("session", "end", str(email_session))
+        self.assertEqual(self.last(out), f"Nothing changed: browser {email_session} was signed out already.")
+        _, _, err = self.cli("session", "end", str(email_session), "999999", ok=False)
+        self.assertIn("No browser numbered 999999; the others are as listed.", err)
+        _, out, _ = self.cli("sessions", "Anan64", "--all")
+        self.assertIn(f"{email_session}. Anan64: Android, Chrome; signed in with an email code to anan64@example.org", out)
+        self.assertIn("signed out", out)
+        self.assertIn("by you", out)
+        self.assertEqual(self.last(out), "2 browsers, 1 signed in now. Sign one out with: review.py session end NUMBER")
+        _, out, _ = self.cli("signout", "Anan64")
+        self.assertEqual(self.last(out), "Anan64 is signed out on 1 browser; the reader signs in again with LINE or "
+                                         "email.")
+        self.assertEqual(line.call("GET", "/api/me")[1]["error"], "signed_out")
+        _, out, _ = self.cli("signout", "Anan64")
+        self.assertEqual(out.strip(), "Nothing changed: Anan64 is signed in on no browser.")
+        self.assertEqual(line.line(self.httpd.standin, {}, self.httpd.standin.users.index(
+            next(u for u in self.httpd.standin.users if u[1] == "Tester 64"))), "signed_in")
+        _, out, _ = self.cli("unbind", str(ids["anan64@example.org"]))
+        self.assertEqual(out.strip(), "anan64@example.org no longer signs in to Anan64, and no browser was signed in.")
+        _, out, _ = self.cli("unbind", str(ids["LINE (Tester 64)"]))
+        self.assertEqual(out.strip().splitlines(), [
+            "Anan64 has no LINE account or address left and can get in again only through a new link: review.py relink "
+            "Anan64", "LINE (Tester 64) no longer signs in to Anan64, and 1 browser is signed out."])
+        _, _, err = self.cli("unbind", str(ids["LINE (Tester 64)"]), ok=False)
+        self.assertIn(f"No LINE account or address numbered {ids['LINE (Tester 64)']}", err)
+        _, out, _ = self.cli("readers", "--name", "Anan64")
+        self.assertIn("; the link was used, and no LINE account or address signs in now: give a new link with: "
+                      "review.py relink Anan64", out)
+        _, out, _ = self.cli("identities", "Anan64")
+        self.assertEqual(out.strip(), "No LINE account or address signs in to Anan64 yet.")
+        _, out, _ = self.cli("relink", "Anan64")
+        self.assertEqual(self.last(out), f"Anan64 has a new link; the old link no longer works, and the new {FRESH_LINK[4:]}.")
+        # An address the translator added, never used: removing it leaves the unused link working by itself.
+        self.cli("identity", "add", "Mali64", "mali64@example.org")
+        _, out, _ = self.cli("identities", "Mali64")
+        mali = int(out.split(".")[0])
+        _, out, _ = self.cli("unbind", str(mali))
+        self.assertEqual(out.strip().splitlines(), [
+            "Mali64 has no LINE account or address left, and the link of Mali64 still signs in by itself.",
+            "mali64@example.org no longer signs in to Mali64, and no browser was signed in."])
+
+    def test_unbind_several_at_once(self):
+        self.put_chapter(67)
+        self.invite("Ree67", "SC67")
+        self.cli("identity", "add", "Ree67", "ree67@example.org")
+        self.cli("identity", "add", "Ree67", "ree67b@example.org")
+        _, out, _ = self.cli("identities", "Ree67")
+        numbers = [x.split(".")[0] for x in out.strip().splitlines()[:-1]]
+        _, out, _ = self.cli("unbind", *numbers)
+        self.assertEqual(out.strip().splitlines(), [
+            "Ree67 has no LINE account or address left, and the link of Ree67 still signs in by itself.",
+            "ree67@example.org no longer signs in to Ree67, and no browser was signed in.",
+            "ree67b@example.org no longer signs in to Ree67, and no browser was signed in.",
+            "2 LINE accounts and addresses no longer sign in, and no browser was signed in."])
+
+    def test_a_new_link_keeps_or_unbinds_the_line_account(self):
+        self.put_chapter(65)
+        code = self.invite("Bee65", "SC65")
+        browser = Browser(self.app)
+        user = self.line_user("Tester 65")
+        self.assertEqual(browser.line(self.httpd.standin, {"link": code}, user), "signed_in")
+        _, out, _ = self.cli("relink", "Bee65")
+        self.assertEqual(self.last(out), "Bee65 has a new link; the old link no longer works, and Bee65 still signs in "
+                                         "with LINE (Tester 65).")
+        self.assertEqual(browser.call("GET", "/api/me")[0], 200)
+        _, out, _ = self.cli("relink", "Bee65", "--unbind")
+        self.assertEqual(self.last(out), "Bee65 has a new link; the old link no longer works, LINE (Tester 65) no longer "
+                                         "signs in, and 1 browser is signed out.")
+        self.assertEqual(browser.call("GET", "/api/me")[1]["error"], "signed_out")
+        # Bee65 signed in before, so the line no longer says "has not signed in yet" (70-verify.md item 6).
+        _, line, _ = self.cli("readers", "--name", "Bee65")
+        self.assertIn("; has no LINE account or address now, so the link signs in by itself until the next sign-in "
+                      "with LINE or email\n", line)
+        code = link_in(out.replace("Bee65: ", ""))
+        self.assertEqual(Browser(self.app).line(self.httpd.standin, {"link": code}, user), "signed_in")
+        self.invite("Cee65", "SC65")
+        _, out, _ = self.cli("relink", "Bee65", "Cee65")
+        self.assertIn("Bee65 still signs in with LINE (Tester 65).", out)
+        self.assertEqual(self.last(out), "Bee65 and Cee65 have new links; the old links no longer work; the new link of "
+                                         "Cee65 " + FRESH_LINK[9:] + ".")
+        self.cli("group", "create", "Bees65")
+        self.cli("group", "add", "Bees65", "Bee65", "Cee65")
+        _, out, _ = self.cli("relink", "--group", "Bees65", "--yes", "--unbind")
+        self.assertEqual(self.last(out), "2 readers of Bees65 have new links; the old links no longer work; 1 LINE account "
+                                         "or address no longer signs in, and 1 browser is signed out.")
+
+    def test_no_line_says_that_a_revoked_reader_s_link_signs_in(self):
+        # 70-verify.md item 6: a revoked reader's link opens nothing, so neither readers, link-signs-in off nor unbind
+        # says that it signs in by itself.
+        self.put_chapter(72)
+        code = self.invite("Dee72", "SC72")
+        self.cli("revoke", "Dee72")
+        self.assertEqual(http("GET", f"{self.url}/api/me", code)[0], 401)
+        _, out, _ = self.cli("readers", "--name", "Dee72")
+        self.assertIn("Dee72: revoked;", out)
+        self.assertIn("; has not signed in with LINE or email yet\n", out)
+        # 72-verify.md item 4: link-signs-in on and off and identity add say that a revoked reader stays stopped until
+        # restore, each in a sentence of its own beside an active reader's.
+        _, out, _ = self.cli("link-signs-in", "Dee72", "on")
+        self.assertEqual(out.strip(), "Link signs in is now on for Dee72; the link of Dee72 stays stopped until: "
+                                      "review.py restore Dee72")
+        _, out, _ = self.cli("readers", "--name", "Dee72")
+        self.assertIn("; Link signs in is on\n", out)
+        _, out, _ = self.cli("link-signs-in", "Dee72", "off")
+        self.assertEqual(out.strip(), "Link signs in is now off for Dee72; Dee72 stays stopped until: review.py restore "
+                                      "Dee72")
+        self.invite("Eve72", "SC72")
+        _, out, _ = self.cli("link-signs-in", "Dee72", "Eve72", "on")
+        self.assertEqual(out.strip().splitlines(), [
+            "Link signs in is now on for Eve72: the link signs in by itself, with the two-device lock.",
+            "Link signs in is now on for Dee72; the link of Dee72 stays stopped until: review.py restore Dee72"])
+        _, out, _ = self.cli("link-signs-in", "Dee72", "Eve72", "off")
+        self.assertEqual(out.strip().splitlines(), [
+            "Eve72 has not signed in with LINE or email yet, so until then the link still signs in by itself.",
+            "Link signs in is now off for Eve72: Eve72 signs in with LINE or email.",
+            "Link signs in is now off for Dee72; Dee72 stays stopped until: review.py restore Dee72"])
+        self.cli("link-signs-in", "Eve72", "on")
+        _, out, _ = self.cli("link-signs-in", "Dee72", "Eve72", "on")
+        self.assertEqual(out.strip(), "Link signs in is now on for Dee72; it was already on for Eve72; the link of Dee72 "
+                                      "stays stopped until: review.py restore Dee72")
+        self.cli("link-signs-in", "Dee72", "off")
+        _, out, _ = self.cli("identity", "add", "Dee72", "dee72@example.org")
+        self.assertEqual(self.last(out), "Dee72 will sign in with a code sent to dee72@example.org once restored: "
+                                         "review.py restore Dee72")
+        _, out, _ = self.cli("identities", "Dee72")
+        _, out, _ = self.cli("unbind", out.split(".")[0])
+        self.assertEqual(out.strip().splitlines(), [
+            "Dee72 has no LINE account or address left, and the link of Dee72 stays stopped.",
+            "dee72@example.org no longer signs in to Dee72, and no browser was signed in."])
+        # Restored, the reader's unused link signs in by itself again, and the line says so.
+        _, out, _ = self.cli("restore", "Dee72")
+        self.assertEqual(out.strip(), "The link of Dee72 works again.")
+        _, out, _ = self.cli("readers", "--name", "Dee72")
+        self.assertIn("; has not signed in with LINE or email yet, so the link still signs in by itself\n", out)
+
+    def test_revoke_and_restore_name_the_reader_s_access(self):
+        # 72-verify.md item 3: a reader who signed in with LINE no longer reads through the link, which stays used, so
+        # revoke and restore name the reader's access and not the link alone.
+        self.put_chapter(73)
+        code = self.invite("Fon73", "SC73")
+        browser = Browser(self.app)
+        self.assertEqual(browser.line(self.httpd.standin, {"link": code}, self.line_user("Tester 73")), "signed_in")
+        self.assertEqual(http("GET", f"{self.url}/api/me", code)[1]["error"], "link_used")
+        _, out, _ = self.cli("revoke", "Fon73")
+        self.assertEqual(out.strip(), "Fon73 is stopped: the link, LINE and email open nothing now, and the 1 browser "
+                                      "signed in is refused; the comments are kept.")
+        self.assertEqual(browser.call("GET", "/api/me")[1]["error"], "stopped")
+        _, out, _ = self.cli("revoke", "fon73")
+        self.assertEqual(out.strip(), "Nothing changed: Fon73 is already stopped.")
+        _, out, _ = self.cli("restore", "Fon73")
+        self.assertEqual(out.strip(), "Fon73 can read again: the 1 browser signed in works again, and Fon73 signs in "
+                                      "with LINE or email.")
+        self.assertEqual(browser.call("GET", "/api/me")[0], 200)
+        self.assertEqual(http("GET", f"{self.url}/api/me", code)[1]["error"], "link_used")
+        _, out, _ = self.cli("restore", "Fon73")
+        self.assertEqual(out.strip(), "Nothing changed: Fon73 is not stopped.")
+        # With no LINE account or address left, the used link lets the reader in nowhere, so restore names the relink;
+        # a reader whose link signs in by itself has a sentence of its own.
+        _, out, _ = self.cli("identities", "Fon73")
+        self.cli("unbind", out.split(".")[0])
+        self.invite("Gun73", "SC73")
+        self.invite("Hom73", "SC73")
+        _, out, _ = self.cli("revoke", "Fon73", "Gun73")
+        self.assertEqual(out.strip(), "Fon73 and Gun73 are stopped: the links, LINE and email open nothing now, and the "
+                                      "comments are kept.")
+        _, out, _ = self.cli("restore", "Fon73", "Gun73", "Hom73")
+        self.assertEqual(out.strip().splitlines(), [
+            "The link of Gun73 works again; Hom73 was not stopped.",
+            "Fon73 can read again only through a new link, because the link was used and no LINE account or address "
+            "signs in now: review.py relink Fon73"])
+
+    def test_requests_through_a_general_link(self):
+        self.put_chapter(66)
+        self.cli("group", "create", "Seekers66", "--grant", "SC66")
+        _, out, _ = self.cli("general-link", "Seekers66")
+        self.assertEqual(out.strip(), "No general link of Seekers66 yet. Make one with: review.py general-link Seekers66 --new")
+        _, out, _ = self.cli("general-link", "seekers66", "--new", "--uses", "5")
+        self.assertRegex(self.last(out), r"^Seekers66 has a new general link, which takes up to 5 requests until "
+                                         r"\d{4}-\d\d-\d\d \d\d:\d\d UTC\.$")
+        first = re.search(r"https://review\.example\.org/#join=([A-Za-z0-9_-]+)", out).group(1)
+        _, out, _ = self.cli("general-link", "Seekers66", "--new")
+        self.assertIn("100 requests", self.last(out))
+        self.assertTrue(self.last(out).endswith("; the link before it no longer takes requests."))
+        self.assertEqual(len(re.findall(r"#join=", out)), 1)
+        join = re.search(r"#join=([A-Za-z0-9_-]+)", out).group(1)
+        self.assertEqual(Browser(self.app).call("POST", "/api/auth/join", {"join": first})[1]["state"], "closed")
+        _, out, _ = self.cli("general-link", "Seekers66")
+        self.assertRegex(out, r"\d+\. Seekers66: made .* UTC; open until .* UTC or the 100th request; 0 requests made "
+                              r"through it\n")
+        self.assertIn("; off since ", out)
+        self.assertEqual(self.last(out), "2 general links of Seekers66, 1 taking requests.")
+        # Three people ask: two by email, one with LINE; nothing opens before approval.
+        asking = Browser(self.app)
+        self.assertEqual(asking.email(self.data, self.app, "seeker66@example.org", {"join": join}), "request_sent")
+        self.assertEqual(asking.call("GET", "/api/me")[1]["error"], "no_code")
+        self.assertEqual(Browser(self.app).line(self.httpd.standin, {"join": join}, self.line_user("Tester 66")),
+                         "request_sent")
+        self.assertEqual(Browser(self.app).email(self.data, self.app, "junk66@example.org", {"join": join}),
+                         "request_sent")
+        self.assertEqual(Browser(self.app).email(self.data, self.app, "tie66@example.org", {"join": join}),
+                         "request_sent")
+        _, out, _ = self.cli("requests")
+        lines = out.strip().splitlines()
+        self.assertEqual(lines[-1], "4 requests waiting for you. Approve one with: review.py request approve NUMBER")
+        number = {x.split(": ")[0].split(". ")[1]: int(x.split(".")[0]) for x in lines[:-1]}
+        self.assertRegex(lines[0], r"^\d+\. tie66@example\.org: email, through the general link of Seekers66, .* UTC; "
+                                   r"waiting for you$")
+        _, _, err = self.cli("request", "approve", str(number["seeker66@example.org"]), ok=False)
+        self.assertIn("came from the address seeker66@example.org, which would become the reader's name. Give a name: "
+                      f"review.py request approve {number['seeker66@example.org']} --name NAME", err)
+        _, out, _ = self.cli("request", "approve", str(number["seeker66@example.org"]), "--name", "Seeker66", "--grant",
+                             "SC66", "--english")
+        self.assertEqual(self.last(out), "seeker66@example.org is now the reader Seeker66, who reads SC66, and signs in "
+                                         "with that address.")
+        self.assertEqual(asking.email(self.data, self.app, "seeker66@example.org"), "signed_in")
+        self.assertEqual([c["id"] for c in asking.call("GET", "/api/me")[1]["chapters"]], ["SC66"])
+        _, out, _ = self.cli("request", "approve", str(number["Tester 66"]))
+        self.assertEqual(self.last(out), "Tester 66 is now a reader, who is in the group Seekers66, and signs in with "
+                                         "that LINE account.")
+        _, _, err = self.cli("request", "approve", str(number["Tester 66"]), ok=False)
+        self.assertIn("409: Request", err)
+        _, out, _ = self.cli("request", "approve", str(number["tie66@example.org"]), "--reader", "Seeker66")
+        self.assertEqual(self.last(out), "tie66@example.org now signs in to Seeker66.")
+        _, out, _ = self.cli("request", "decline", str(number["junk66@example.org"]))
+        self.assertEqual(self.last(out), f"Request {number['junk66@example.org']} of junk66@example.org is declined; that "
+                                         f"address cannot ask again until: review.py request forget "
+                                         f"{number['junk66@example.org']}")
+        self.assertEqual(Browser(self.app).email(self.data, self.app, "junk66@example.org", {"join": join}),
+                         "request_declined")
+        _, out, _ = self.cli("requests", "--declined")
+        self.assertEqual(self.last(out), "1 request; 0 waiting for you.")
+        _, out, _ = self.cli("requests", "--approved")
+        self.assertIn("now the reader Seeker66", out)
+        self.assertEqual(self.last(out), "3 requests; 0 waiting for you.")
+        _, out, _ = self.cli("request", "forget", str(number["junk66@example.org"]))
+        self.assertEqual(out.strip(), f"Request {number['junk66@example.org']} is forgotten; junk66@example.org may ask "
+                                      "again.")
+        _, out, _ = self.cli("requests")
+        self.assertEqual(out.strip(), "No request is waiting for you.")
+        _, out, _ = self.cli("requests", "--all")
+        self.assertEqual(self.last(out), "3 requests; 0 waiting for you.")
+        _, _, err = self.cli("request", "decline", "999999", ok=False)
+        self.assertIn("404", err)
+        _, _, err = self.cli("request", "decline", "1", "--name", "X", ok=False)
+        self.assertIn("request decline takes the number alone", err)
+        _, out, _ = self.cli("general-link", "Seekers66", "--off")
+        self.assertEqual(self.last(out), "The general link of Seekers66 no longer takes requests; a new one is made with: "
+                                         "review.py general-link Seekers66 --new")
+        self.assertEqual(Browser(self.app).call("POST", "/api/auth/join", {"join": join})[1]["state"], "closed")
+        _, out, _ = self.cli("general-link", "Seekers66", "--off")
+        self.assertEqual(out.strip(), "Nothing changed: Seekers66 has no general link that takes requests.")
+        _, out, _ = self.cli("general-link")
+        self.assertRegex(self.last(out), r"^\d+ general links, 0 taking requests\.$")
+        _, _, err = self.cli("general-link", "--new", ok=False)
+        self.assertIn("Name the group: review.py general-link G --new", err)
+        _, _, err = self.cli("general-link", "Nobody66", ok=False)
+        self.assertIn("No group named Nobody66", err)
+        _, _, err = self.cli("general-link", "Seekers66", "--days", "5", ok=False)
+        self.assertIn("--days and --uses go with --new.", err)
+
+    def test_group_remove_names_its_general_link_and_waiting_requests(self):
+        # 66-adversarial.md item 9: the last sentence says what happens to the group's general link and requests.
+        self.put_chapter(69)
+        self.cli("group", "create", "Youth69", "--grant", "SC69")
+        _, out, _ = self.cli("general-link", "Youth69", "--new")
+        join = re.search(r"#join=([A-Za-z0-9_-]+)", out).group(1)
+        self.assertEqual(Browser(self.app).line(self.httpd.standin, {"join": join}, self.line_user("Tester 69")),
+                         "request_sent")
+        _, out, _ = self.cli("group", "remove", "Youth69")
+        self.assertEqual(self.last(out), "The group Youth69 is removed; its 0 members keep their own chapters; its "
+                                         "general link no longer takes requests; its 1 waiting request needs chapters "
+                                         "or a group when you approve it: review.py request approve NUMBER --grant "
+                                         "SC01, or --group GROUP.")
+        _, out, _ = self.cli("requests")
+        number = int(re.search(r"^(\d+)\. Tester 69:", out, re.M).group(1))
+        _, _, err = self.cli("request", "approve", str(number), ok=False)
+        self.assertIn(f"Request {number} came through a general link whose group was removed, so it needs chapters "
+                      f"or a group: review.py request approve {number} --grant SC01, or --group GROUP. Nothing "
+                      "changed.", err)
+        self.assertNotIn("server answered", err)
+        _, out, _ = self.cli("request", "approve", str(number), "--grant", "SC69")
+        self.assertIn("Tester 69", self.last(out))
+        self.cli("request", "forget", str(number))      # the other tests of this class count the requests
+        # A group without a general link says nothing of one.
+        self.cli("group", "create", "Quiet69")
+        _, out, _ = self.cli("group", "remove", "Quiet69")
+        self.assertEqual(self.last(out), "The group Quiet69 is removed; its 0 members keep their own chapters.")
+
+    def test_a_session_that_ran_out_names_its_own_days(self):
+        # 66-adversarial.md item 8: the days come from the session, which kept auth.session_days of its last visit.
+        self.put_chapter(68)
+        code = self.invite("Ran68", "SC68")
+        self.assertEqual(Browser(self.app).line(self.httpd.standin, {"link": code}, self.line_user("Tester 68")),
+                         "signed_in")
+        con = db.connect(self.data / db.DB_NAME)
+        self.addCleanup(con.close)
+        con.execute("UPDATE session SET last_seen = ?, expires = ? WHERE account = (SELECT id FROM reader WHERE name ="
+                    " 'Ran68')", (db.ago(9), db.ago(2)))
+        _, out, _ = self.cli("sessions", "Ran68", "--all")
+        self.assertRegex(out, r"; ran out \d{4}-\d\d-\d\d \d\d:\d\d UTC, 7 days after its last visit\n")
+        self.assertEqual(review.session_days({"last_seen": "2026-10-01T00:00:00Z", "expires": "2026-10-02T00:00:00Z"}), 1)
+
     # ---------- errors ----------
 
     def test_server_down_and_bad_token(self):
@@ -1181,9 +1683,86 @@ class CLI(unittest.TestCase):
         for name in ("setup", "serve", "backup", "publish", "withdraw", "chapters", "invite", "readers", "open",
                      "close", "revoke", "restore", "english", "feature", "features", "relink", "groups", "group",
                      "devices", "device", "rounds", "round", "export", "processed", "triage", "replies",
-                     "delete-comments", "align-packet", "admin"):
+                     "delete-comments", "align-packet", "admin", "signin", "link-signs-in", "sessions", "session",
+                     "signout", "identities", "identity", "unbind", "requests", "request", "general-link"):
             self.assertIn(name, out.getvalue())
         self.assertNotRegex(out.getvalue(), r"\b(grant|ungrant)\b")
+
+
+class SigninWords(unittest.TestCase):
+    """The sentences of the sign-in commands for settings the dev server of CLI never has: no sign-in route, a mail
+    server that refused, auth.require_identity, a reader whose LINE accounts and addresses were all removed."""
+
+    BARE = {"routes": {"line": False, "email": False}, "require_identity": False, "session_days": 30, "line": None,
+            "email": False, "mail": None, "notify": {"email": "", "requests": True, "first_signin": True, "on": False},
+            "invite": {"external_browser": False, "general_days": 90, "general_uses": 100}, "last_mail": None,
+            "mail_log": [], "last_line": None, "requests_open": 0, "sessions_active": 0, "dev": False}
+
+    def test_without_sign_in_routes_every_link_signs_in_by_itself(self):
+        lines = review.signin_lines(self.BARE)
+        self.assertIn("Sign-in with LINE: off (config.json has no auth.line).", lines)
+        self.assertIn("No sign-in route is on, so every reader's link signs in by itself, with the two-device lock.", lines)
+        self.assertIn('Mail: none: config.json has no "mail", so no sign-in code or note can be sent.', lines)
+        self.assertEqual(lines[-1], "0 requests waiting for you; 0 browsers signed in.")
+        self.assertEqual(review.new_link_phrase(self.BARE), "works on the first devices that open it")
+        self.assertEqual(review.signin_note({"name": "Anan", "identities": []}, self.BARE), "")
+
+    def test_a_production_site_with_smtp_and_a_failed_mail(self):
+        res = dict(self.BARE, routes={"line": True, "email": True}, require_identity=True,
+                   line={"channel_id": "1234567890", "callback": "https://review.laoegw.com/api/auth/line/callback"},
+                   mail={"provider": "smtp", "host": "127.0.0.1", "port": 25, "security": "none", "user": False,
+                         "from": "review@laoegw.com", "from_name": "Proofreading site"},
+                   notify={"email": "brian@example.org", "requests": True, "first_signin": False, "on": True},
+                   invite={"external_browser": True, "general_days": 60, "general_uses": 20},
+                   last_mail={"at": "2026-10-23T02:21:18Z", "kind": "code", "provider": "smtp", "ok": False,
+                              "detail": "The mail server at 127.0.0.1:25 cannot be reached."},
+                   last_line={"at": "2026-10-23T02:21:18Z", "ok": False,
+                              "detail": "The ID token's nonce is not the one this sign-in sent."},
+                   requests_open=2, sessions_active=1)
+        lines = review.signin_lines(res)
+        self.assertEqual(lines[:3], [
+            "Sign-in with LINE: on, channel 1234567890; LINE sends readers back to "
+            "https://review.laoegw.com/api/auth/line/callback.",
+            "Sign-in with a six-digit email code: on.",
+            "A link alone signs in only readers with Link signs in on (auth.require_identity is true)."])
+        self.assertIn("Mail: smtp through 127.0.0.1:25, security none, without a login, from Proofreading site "
+                      "<review@laoegw.com>.", lines)
+        self.assertIn("Notes to you: to brian@example.org, for each new request.", lines)
+        self.assertIn("Invite links: end with ?openExternalBrowser=1; a general link lasts 60 days and takes 20 requests.",
+                      lines)
+        self.assertIn("Last mail: 2026-10-23 02:21 UTC, a sign-in code by smtp: NOT sent: The mail server at "
+                      "127.0.0.1:25 cannot be reached.", lines)
+        self.assertIn("Last LINE sign-in that came back: 2026-10-23 02:21 UTC, refused: The ID token's nonce is not the "
+                      "one this sign-in sent.", lines)
+        self.assertEqual(lines[-1], "2 requests waiting for you; 1 browser signed in. List them with: review.py requests")
+        self.assertEqual(review.new_link_phrase(res), "is used once, to sign in with LINE or email")
+        self.assertEqual(review.signin_note({"name": "Anan", "identities": []}, res),
+                         "has not signed in with LINE or email yet")
+        self.assertFalse(review.link_alone({"identities": [], "link_used": None}, res))
+        self.assertTrue(review.link_alone({"identities": [], "link_signs_in": True}, res))
+        self.assertEqual(review.signin_note({"name": "Mali Boon", "identities": [], "link_used": "2026-10-23T02:21:18Z"}),
+                         "the link was used, and no LINE account or address signs in now: give a new link with: "
+                         "review.py relink 'Mali Boon'")
+
+    def test_a_revoked_reader_and_a_reader_who_signed_in_before(self):
+        # 70-verify.md item 6: what the readers line says of a reader with no LINE account or address and an unused
+        # link, under each setting.
+        both = dict(self.BARE, routes={"line": True, "email": True})
+        strict = dict(both, require_identity=True)
+        fresh = {"name": "Anan", "identities": [], "active": True}
+        again = dict(fresh, first_signin="2026-10-23T02:21:18Z")
+        for r, auth, said in (
+                (fresh, both, "has not signed in with LINE or email yet, so the link still signs in by itself"),
+                (dict(fresh, active=False), both, "has not signed in with LINE or email yet"),
+                (again, both, "has no LINE account or address now, so the link signs in by itself until the next "
+                              "sign-in with LINE or email"),
+                (dict(again, active=False), both, "has no LINE account or address now"),
+                (again, strict, "has no LINE account or address now"),
+                (fresh, strict, "has not signed in with LINE or email yet"),
+                (dict(fresh, link_signs_in=True), both, "the link signs in by itself (Link signs in)"),
+                (dict(fresh, link_signs_in=True, active=False), both, "Link signs in is on"),
+                (again, self.BARE, "")):
+            self.assertEqual(review.signin_note(r, auth), said, (r, auth["routes"], auth["require_identity"]))
 
 
 if __name__ == "__main__":

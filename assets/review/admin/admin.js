@@ -5,14 +5,16 @@
 import { takeKey, get, on, file } from "./api.js";
 import { clear, h } from "./ui.js";
 import { t, setWords, language } from "./words.js";
-import { state, countWaiting } from "./shared.js";
+import { state, countWaiting, countRequests, loadAuth } from "./shared.js";
 import * as chapters from "./chapters.js";
 import * as readers from "./readers.js";
+import * as requests from "./requests.js";
 import * as groups from "./groups.js";
 import * as comments from "./comments.js";
 import * as site from "./site.js";
 
-const SECTIONS = { chapters: chapters, readers: readers, groups: groups, comments: comments, site: site };
+const SECTIONS = { chapters: chapters, readers: readers, requests: requests, groups: groups, comments: comments,
+  site: site };
 const START = "chapters";
 
 function stop(message) {
@@ -75,6 +77,8 @@ async function start() {
   window.addEventListener("hashchange", open);
   open();
   countWaiting();
+  countRequests();
+  loadAuth();
 }
 
 start();

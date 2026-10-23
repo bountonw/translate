@@ -2,7 +2,11 @@
    and logs "P ok ...", "P FAIL ...", "P TIME ..." and "P ROUTES ..." lines, ending with "P DONE".
    It is a classic script loaded before admin.js, so it sees every request the page makes.
    Query: mode (main, badkey, nokey, live, onceused), commit (main's commit), total (readers), ids (comment numbers),
-   link (a reader's link), exports (the export folder), data (the dev data folder), home (the HOME of the run). */
+   link (a reader's link), exports (the export folder), data (the dev data folder), home (the HOME of the run).
+   tests/admin_browser.py signs Anan Chaiyo in with LINE on three browsers, Somchai Jaidee with an email code and the
+   last reader of its file (query: last) with LINE through the link, and
+   makes three requests to read through the general link of Pastors (kanya@example.org, pim@example.org, and LINE
+   tester 3 with LINE) before the probe starts. */
 (function () {
   "use strict";
   const params = new URLSearchParams(location.search);
@@ -114,6 +118,14 @@
   function run(buttonId, boxId, ask) {
     return press(document.getElementById(buttonId), boxId, ask, buttonId);
   }
+  // One request to a local route without the page's controls, with the key the page keeps: the answer's JSON.
+  async function local(route, body) {
+    let key = "";
+    try { key = sessionStorage.getItem("review-admin.key") || ""; } catch (e) { key = ""; }
+    const res = await fetch("/local/" + route, { method: "POST", cache: "no-store", credentials: "same-origin",
+      headers: { "X-Admin-Key": key, "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    return res.json();
+  }
   // Today in Thailand (UTC+7), as a date field gives it.
   function thaiDay(offset) {
     return new Date(Date.now() + 7 * 3600 * 1000 + (offset || 0) * 86400 * 1000).toISOString().slice(0, 10);
@@ -207,6 +219,22 @@
     check(boon && boon.textContent === "3 devices, 1 waiting" && boon.className === "flag",
       "the link on a third device is flagged: " + (boon ? boon.textContent : "no flag"));
     check($$("#r-table .flag").length === 1, "only that link is flagged");
+    // How each reader signs in (61-admin-contract.md 1.A), and the filter of readers --identity.
+    const signin = n => text("#r-table [data-signin-of='" + n + "']");
+    check(signin("Anan Chaiyo") === "LINE (LINE tester 1); 3 browsers signed in", "Anan Chaiyo signs in with LINE on 3 browsers: " + signin("Anan Chaiyo"));
+    check(signin("Somchai Jaidee") === "somchai@example.org; 1 browser signed in", "Somchai Jaidee signs in with an address: " + signin("Somchai Jaidee"));
+    check(signin("Mali Srisuk") === "not yet", "Mali Srisuk has not signed in: " + signin("Mali Srisuk"));
+    const last = params.get("last");
+    for (const [kind, want] of [["line", "Anan Chaiyo, " + last], ["email", "Somchai Jaidee"],
+      ["any", "Anan Chaiyo, " + last + ", Somchai Jaidee"]]) {
+      set("r-identity", kind);
+      await until(() => text("#r-count").indexOf(" of ") > 0 && names() === want);
+      check(names() === want, "readers --identity " + kind + ": " + names());
+    }
+    set("r-identity", "none");
+    await until(() => text("#r-count") === (total - 3) + " of " + total + " readers.");
+    check(text("#r-count") === (total - 3) + " of " + total + " readers.", "readers --identity none: " + text("#r-count"));
+    await clearReaders(total);
     set("r-name", "chai");
     await until(() => text("#r-count").indexOf(" of ") > 0);
     check(text("#r-count") === "2 of " + total + " readers." && names() === "Anan Chaiyo, Somchai Jaidee",
@@ -265,11 +293,13 @@
     check(out.indexOf("english.on is now on for Anan Chaiyo and Mali Srisuk") >= 0, "a feature on");
     res = await counted("POST revoke", () => run("r-revoke", "r-answer", "Stop the links of 2 readers?"));
     out = res[0];
-    check(res[1] === 1 && out.indexOf("The links of Anan Chaiyo and Mali Srisuk are stopped") >= 0, "revoke in one request");
+    check(res[1] === 1 && out.indexOf("Anan Chaiyo and Mali Srisuk are stopped: the links, LINE and email open nothing now") >= 0,
+      "revoke in one request: " + out.slice(-160));
     await until(() => $$("#r-table tr.revoked").length === 2);
     check($$("#r-table tr.revoked").length === 2, "the list shows 2 stopped links");
     out = await run("r-restore", "r-answer", "Restore the links of 2 readers?");
-    check(out.indexOf("The links of Anan Chaiyo and Mali Srisuk work again.") >= 0, "restore");
+    check(out.indexOf("The link of Mali Srisuk works again.") >= 0 && out.indexOf("Anan Chaiyo can read again: ") >= 0 &&
+      out.indexOf("Anan Chaiyo signs in with LINE or email.") >= 0, "restore: " + out.slice(-200));
     res = await counted("POST relink", () => run("r-relink", "r-answer", "Give 2 readers new links?"));
     out = res[0];
     const rows = $$("#r-answer .linkrow");
@@ -292,7 +322,7 @@
 
     // The stop switch on a reader's row.
     out = await press($("#r-table button[data-switch='Mali Srisuk']"), "r-answer", "", "the stop switch of Mali Srisuk");
-    check(out.indexOf("The link of Mali Srisuk is stopped: it opens nothing now") >= 0, "the row's switch stops one link: " + out.slice(-120));
+    check(out.indexOf("Mali Srisuk is stopped: the link, LINE and email open nothing now") >= 0, "the row's switch stops one link: " + out.slice(-120));
     await until(() => ($("#r-table tr[data-reader='Mali Srisuk']") || {}).className === "revoked");
     const sw = $("#r-table button[data-switch='Mali Srisuk']");
     check(sw && sw.textContent === "Restore", "the switch now offers Restore");
@@ -306,6 +336,27 @@
     await until(() => $("#r-table button[data-switch='Mali Srisuk']"));
     out = await press($("#r-table button[data-switch='Mali Srisuk']"), "r-answer", "", "the restore switch of Mali Srisuk");
     check(out.indexOf("The link of Mali Srisuk works again.") >= 0, "the row's switch restores the link");
+
+    // The switch Link signs in on a reader's row, and for the readers ticked (link-signs-in NAME ... on|off).
+    out = await press($("#r-table button[data-link-signs-in='Mali Srisuk']"), "r-answer", "", "the Link signs in switch of Mali Srisuk");
+    check(out.indexOf("Link signs in is now on for Mali Srisuk: the link signs in by itself, with the two-device lock.") >= 0,
+      "the row's switch turns Link signs in on: " + out.slice(-160));
+    await until(() => signin("Mali Srisuk") === "Link signs in");
+    check(signin("Mali Srisuk") === "Link signs in" && text("#r-table button[data-link-signs-in='Mali Srisuk']") === "Link signs in: switch off",
+      "the row says Link signs in and offers to switch it off");
+    pick(["Mali Srisuk", "Boon Mee"]);
+    res = await counted("POST link-signs-in", () => run("r-lsi-off", "r-answer", "Switch Link signs in off for 2 readers?"));
+    out = res[0];
+    check(res[1] === 1 && out.indexOf("Mali Srisuk has not signed in with LINE or email yet, so until then the link still signs in by itself.") >= 0 &&
+      out.indexOf("Link signs in is now off for Mali Srisuk: Mali Srisuk signs in with LINE or email; it was already off for Boon Mee.") >= 0,
+      "Link signs in off for the readers ticked, in one request: " + out.slice(-260));
+    out = await run("r-lsi-on", "r-answer", "Switch Link signs in on for 2 readers?");
+    check(out.indexOf("Link signs in is now on for Boon Mee and Mali Srisuk: the links sign in by themselves, with the two-device lock.") >= 0,
+      "Link signs in on for the readers ticked: " + out.slice(-160));
+    out = await run("r-lsi-off", "r-answer", "Switch Link signs in off for 2 readers?");
+    check(out.indexOf("Link signs in is now off for Boon Mee and Mali Srisuk: they sign in with LINE or email.") >= 0,
+      "Link signs in off again: " + out.slice(-160));
+    tick("#r-all", false);
 
     // Devices: the one waiting, approve, the devices of one reader, remove and approve several, earlier links.
     await until(() => $$("#v-table tbody tr").length === 1);
@@ -352,6 +403,85 @@
     $("#v-waiting").click();
     await until(() => text("#v-count") === "No device is waiting for your approval.");
 
+    // A new link that also removes the reader's LINE accounts and addresses (relink NAME --unbind).
+    pick(["Somchai Jaidee"]);
+    tick("#r-unbind", true);
+    out = await run("r-relink", "r-answer", "Give Somchai Jaidee a new link, and remove the LINE accounts and addresses of Somchai Jaidee?");
+    check(out.indexOf("Somchai Jaidee has a new link; the old link no longer works, somchai@example.org no longer signs in, and 1 browser is signed out.") >= 0 &&
+      JSON.parse(bodies["POST relink"] || "{}").unbind === true, "relink --unbind removes the address and signs the browser out: " + out.slice(-200));
+    check(!$("#r-unbind").checked, "the unbind box is cleared after the new link");
+    // Somchai Jaidee signed in before, so the row does not say "not yet" (70-verify.md item 6).
+    await until(() => signin("Somchai Jaidee") === "none now; the next sign-in is through the link");
+    check(signin("Somchai Jaidee") === "none now; the next sign-in is through the link",
+      "the row shows no way of signing in now: " + signin("Somchai Jaidee"));
+    tick("#r-all", false);
+
+    // Sign-in and browsers: a row's Sign-in button, an address added and removed, browsers signed out.
+    $("#r-table button[data-signin='Anan Chaiyo']").click();
+    await until(() => text("#a-count") === "Anan Chaiyo: 1 way of signing in, 3 browsers signed in.");
+    check(text("#a-count") === "Anan Chaiyo: 1 way of signing in, 3 browsers signed in." && $("#a-name").value === "Anan Chaiyo",
+      "the row's Sign-in button shows the reader's sign-in: " + text("#a-count"));
+    check($$("#a-ids tbody tr").length === 1 && text("#a-ids").indexOf("LINE (LINE tester 1)") >= 0, "the LINE account is listed");
+    // The hint names the site's own auth.session_days (66-adversarial.md ADV4-08).
+    check(!$("#a-hint").hidden && text("#a-hint").indexOf("stays signed in on each browser for 30 days after the last visit") >= 0,
+      "the hint names the days of the site: " + text("#a-hint").slice(0, 160));
+    check($$("#a-sessions tbody tr").length === 3 && $$("#a-sessions tbody tr").every(r =>
+      r.textContent.indexOf("iPhone, Safari") >= 0 && r.textContent.indexOf("LINE as LINE tester 1") >= 0), "the three browsers are listed");
+    set("a-address", "anan@example.org");
+    out = await run("a-add", "a-answer", "");
+    check(out.indexOf("Anan Chaiyo can now sign in with a code sent to anan@example.org.") >= 0, "identity add: " + out.slice(-120));
+    await until(() => $$("#a-ids tbody tr").length === 2);
+    const mailRow = $$("#a-ids tbody tr").filter(r => r.textContent.indexOf("anan@example.org") >= 0)[0];
+    out = await press(mailRow && mailRow.querySelector("button[data-unbind]"), "a-answer", "Remove anan@example.org from Anan Chaiyo?", "Remove on an address's row");
+    check(out.indexOf("anan@example.org no longer signs in to Anan Chaiyo, and no browser was signed in.") >= 0, "unbind: " + out.slice(-120));
+    await until(() => $$("#a-ids tbody tr").length === 1);
+    const sids = $$("#a-sessions tbody tr").map(r => r.getAttribute("data-session"));
+    out = await press($("#a-sessions button[data-end='" + sids[0] + "']"), "a-answer", "", "Sign out on a browser's row");
+    check(out.indexOf("Browser " + sids[0] + " of Anan Chaiyo (iPhone, Safari) is signed out.") >= 0, "session end: " + out.slice(-120));
+    await until(() => $$("#a-sessions tbody tr").length === 2);
+    tick("#a-select-all", true);
+    res = await counted("POST session", () => run("a-end", "a-answer", "Sign out 2 browsers?"));
+    out = res[0];
+    check(res[1] === 1 && out.indexOf("Browsers " + sids[1] + " and " + sids[2] + " of Anan Chaiyo are signed out.") >= 0,
+      "the browsers ticked are signed out in one request: " + out.slice(-160));
+    await until(() => text("#a-count") === "Anan Chaiyo: 1 way of signing in, 0 browsers signed in.");
+    tick("#a-all", true);
+    await until(() => $$("#a-sessions tbody tr").length === 3);
+    check($$("#a-sessions tbody tr.off").length === 3 && text("#a-sessions").indexOf("signed out by you") >= 0,
+      "sessions --all lists the browsers signed out");
+    tick("#a-all", false);
+    out = await run("a-signout", "a-answer", "Sign Anan Chaiyo out on every browser (0 browsers signed in now)?");
+    check(out.indexOf("Nothing changed: Anan Chaiyo is signed in on no browser.") >= 0, "signout: " + out.slice(-120));
+    // The last way of signing in removed. Anan Chaiyo's link was renewed above and is unused, so it still signs in by
+    // itself; the last reader of the file used the link, so the answer offers a new link, shown once.
+    out = await press($("#a-ids button[data-unbind]"), "a-answer", "Remove LINE (LINE tester 1) from Anan Chaiyo?", "Remove the LINE account");
+    check(out.indexOf("Anan Chaiyo has no LINE account or address left, and the link of Anan Chaiyo still signs in by itself.") >= 0 &&
+      out.indexOf("LINE (LINE tester 1) no longer signs in to Anan Chaiyo, and no browser was signed in.") >= 0, "unbind the last way: " + out.slice(-260));
+    check(!$("#a-answer .steps button"), "nothing more is offered");
+    set("a-name", last);
+    $("#a-show").click();
+    await until(() => text("#a-count") === last + ": 1 way of signing in, 1 browser signed in.");
+    check(text("#a-count") === last + ": 1 way of signing in, 1 browser signed in.", "Show this reader's: " + text("#a-count"));
+    out = await press($("#a-ids button[data-unbind]"), "a-answer", "Remove LINE (LINE tester 2) from " + last + "?", "Remove the LINE account of " + last);
+    check(out.indexOf(last + " has no LINE account or address left and can get in again only through a new link: review.py relink '" + last + "'") >= 0 &&
+      out.indexOf("LINE (LINE tester 2) no longer signs in to " + last + ", and 1 browser is signed out.") >= 0, "unbind the last way of " + last + ": " + out.slice(-260));
+    const again = $$("#a-answer .steps button").filter(b => b.textContent === "Give " + last + " a new link")[0];
+    check(!!again, "the answer offers a new link");
+    if (again) {
+      again.click();
+      const opened = await until(() => $("#ask").open, 5000);
+      check(opened && text("#ask-text") === "Give " + last + " a new link?", "the offered new link asks first: " + text("#ask-text"));
+      $("#ask-go").click();
+      await until(() => $("#a-answer .linkrow input.link"));
+      const fresh = $("#a-answer .linkrow input.link");
+      check(fresh && fresh.value.indexOf(params.get("site") + "/#k=") === 0 && text("#a-answer").indexOf(last + " has a new link;") >= 0,
+        "the offered new link is shown once, with a Copy button");
+      check($$("#a-answer pre").every(x => x.textContent.indexOf("#k=") < 0), "the new link is not repeated in the lines");
+    }
+    $("#a-every").click();
+    await until(() => text("#a-count").indexOf("Every reader: ") === 0);
+    check(text("#a-count") === "Every reader: 0 ways of signing in, 0 browsers signed in.", "every reader's sign-in: " + text("#a-count"));
+
     // Deleting one reader's comments between two dates: the count first, one question, then the deletion.
     set("dc-name", "Boon Mee");
     set("dc-from", thaiDay(0));
@@ -377,11 +507,13 @@
     set("i-grant", "SC01");
     tick("#i-groups input[data-group='Youth']", true);
     tick("#i-english", true);
+    tick("#i-link-signs-in", true);
     out = await run("i-go", "i-answer", "");
     const link = $("#i-answer .linkrow input.link");
     check(link && link.value.indexOf(params.get("site") + "/#k=") === 0 && out.indexOf("Probe Reader can read SC01; groups Youth") >= 0 &&
-      out.indexOf("Probe Reader is invited; the link works on the first devices that open it.") >= 0,
-      "invite shows the new link once, with a Copy button");
+      out.indexOf("Probe Reader is invited; the link signs in by itself and works on the first devices that open it.") >= 0,
+      "invite --link-signs-in shows the new link once, with a Copy button: " + out.slice(-160));
+    check(!$("#i-link-signs-in").checked, "the Link signs in box is cleared after the invite");
     await until(() => text("#r-count") === (total + 1) + " readers.");
     check(text("#r-count") === (total + 1) + " readers.", "the list counts the new reader");
     set("i-name", "Probe Reader");
@@ -498,6 +630,20 @@
     check(out.indexOf("2 readers of Probe have new links") >= 0 && out.indexOf(params.get("data") + "/links-relink-") >= 0,
       "new links for every member go to a file");
     check(out.indexOf("#k=") < 0, "the group's new links are not shown");
+    check(JSON.parse(bodies["POST relink"] || "{}").unbind === false, "without the box the members keep their LINE accounts and addresses");
+    // relink --group G --unbind (70-verify.md item 5): the box beside the button removes every member's LINE accounts
+    // and addresses with the new links. Reader 001 gets an address first, so one is removed.
+    const added = await local("identity", { action: "add", name: "Reader 001", address: "reader001@example.org" });
+    check(added.ok === true, "an address for Reader 001: " + (added.error || ""));
+    check(text("#g-panel label.check").indexOf("and remove their LINE accounts and addresses") >= 0 && !$("#g-unbind").checked,
+      "the box of --unbind stands beside New links for every member, not ticked");
+    tick("#g-unbind", true);
+    out = await run("g-relink", "g-answer", "Give the 2 members of Probe new links, and remove their LINE accounts and addresses?");
+    check(out.indexOf("2 readers of Probe have new links; the old links no longer work; 1 LINE account or address no longer " +
+      "signs in, and no browser was signed in.") >= 0 && out.indexOf(params.get("data") + "/links-relink-") >= 0 &&
+      JSON.parse(bodies["POST relink"] || "{}").unbind === true, "relink --group --unbind removes the address: " + out.slice(-220));
+    check(out.indexOf("#k=") < 0, "the group's new links are still not shown");
+    check(!$("#g-unbind").checked, "the unbind box of the group is cleared after the new links");
     out = await run("g-remove", "g-answer", "Remove the group Probe?");
     check(out.indexOf("The group Probe is removed; its 2 members keep their own chapters.") >= 0, "remove the group");
     await until(() => text("#g-count") === "2 groups.");
@@ -512,7 +658,7 @@
     out = await run("g-open", "g-answer", "Open SC01 to the group Youth and its " + youth + " members?");
     check(out.indexOf("SC01 is now open to the group Youth and its " + youth + " members.") >= 0, "open for a group of " + youth);
     out = await press($("#g-table button[data-group-switch='Youth']"), "g-list-answer", "Switch the group Youth off?", "the switch on the row of Youth");
-    check(out.indexOf("To close it for them: review.py close NAME [NAME ...] SC01, SC03, with their names") >= 0,
+    check(out.indexOf("To close it for them: review.py close NAME [NAME ...] SC01,SC03, with their names") >= 0,
       "with more than 20 such members the line names no names: " + out.slice(0, 260));
     next = $$("#g-list-answer .steps button").filter(b => b.textContent === "Close SC01,SC03 for the members of Youth who hold it as their own")[0];
     check(!!next, "the page offers the close for the members");
@@ -540,6 +686,100 @@
     check(text("#g-list-answer").indexOf("The group Youth is now on") >= 0, "Youth is on again");
     out = await run("g-close", "g-answer", "Close SC01 to the group Youth?");
     check(out.indexOf("SC01 is now closed to the group Youth.") >= 0, "Youth no longer holds SC01");
+  }
+
+  // Requests to read through a general link, and the general links (61-admin-contract.md section 5).
+  async function requests() {
+    await go("#requests", () => text("#q-count") === "3 requests waiting for you." && $$("#gl-table tbody tr").length === 1);
+    check(text("#q-count") === "3 requests waiting for you.", "the requests waiting are listed: " + text("#q-count"));
+    check(text("#asking") === "3 waiting" && !$("#asking").hidden, "the menu counts the requests waiting: " + text("#asking"));
+    const row = who => $$("#q-table tbody tr").filter(r => (r.querySelector("td.name") || {}).textContent === who)[0];
+    const id = who => (row(who) || { getAttribute: () => "" }).getAttribute("data-request");
+    check(row("LINE tester 3") && row("LINE tester 3").textContent.indexOf("Pastors") >= 0, "a LINE request names its group");
+    // Approve as a new reader: the name starts as the address, which the hint asks to change.
+    row("kanya@example.org").querySelector("button[data-approve-request]").click();
+    await until(() => !$("#q-panel").hidden);
+    check($("#q-name").value === "kanya@example.org" && text("#q-name-hint").indexOf("would become the reader's name") >= 0,
+      "approve offers the address as the name and asks for a name");
+    check($("#q-groups input[data-group='Pastors']").checked, "the group of the general link is ticked");
+    set("q-name", "Kanya");
+    set("q-grant", "SC02");
+    const kanya = id("kanya@example.org");
+    let out = await run("q-approve-new", "q-answer", "");
+    check(out.indexOf("kanya@example.org is now the reader Kanya, who reads SC02 and is in the group Pastors, and signs in with that address.") >= 0,
+      "request approve --name --grant --group: " + out.slice(-200));
+    check(JSON.parse(bodies["POST request"] || "{}").id === Number(kanya), "the approval names the request");
+    await until(() => $("#q-panel").hidden && text("#q-count") === "2 requests waiting for you.");
+    check(text("#asking") === "2 waiting", "the menu's count follows: " + text("#asking"));
+    // Approve for a reader who exists.
+    row("LINE tester 3").querySelector("button[data-approve-request]").click();
+    await until(() => !$("#q-panel").hidden);
+    set("q-reader", "Boon Mee");
+    out = await run("q-approve-reader", "q-answer", "Let LINE tester 3 sign in to Boon Mee?");
+    check(out.indexOf("The LINE account LINE tester 3 now signs in to Boon Mee.") >= 0, "request approve --reader: " + out.slice(-160));
+    await until(() => text("#q-count") === "1 request waiting for you.");
+    // Decline, then forget.
+    const pim = id("pim@example.org");
+    out = await press(row("pim@example.org").querySelector("button[data-decline]"), "q-answer", "Decline request " + pim + " of pim@example.org?", "Decline");
+    check(out.indexOf("Request " + pim + " of pim@example.org is declined; that address cannot ask again until: review.py request forget " + pim) >= 0,
+      "request decline: " + out.slice(-200));
+    await until(() => text("#q-count") === "No request is waiting for you." && $("#asking").hidden);
+    check($("#asking").hidden, "the menu no longer counts requests");
+    set("q-state", "declined");
+    await until(() => $$("#q-table tbody tr").length === 1);
+    // The answer offers the forget it names; the list follows.
+    const offered = $$("#q-answer .steps button").filter(b => b.textContent === "Forget request " + pim)[0];
+    check(!!offered, "the answer offers: Forget request " + pim);
+    if (offered) {
+      offered.click();
+      const opened = await until(() => $("#ask").open, 5000);
+      check(opened && text("#ask-text") === "Forget request " + pim + "?", "the offered forget asks first: " + text("#ask-text"));
+      $("#ask-go").click();
+      await until(() => text("#q-answer").indexOf("Request " + pim + " is forgotten; pim@example.org may ask again.") >= 0);
+      check(text("#q-answer").indexOf("Request " + pim + " is forgotten; pim@example.org may ask again.") >= 0, "request forget");
+      await until(() => $$("#q-table tbody tr").length === 0);
+      check($$("#q-table tbody tr").length === 0, "the declined list is empty after the forget");
+    }
+    set("q-state", "all");
+    await until(() => text("#q-count") === "2 requests; 0 waiting for you.");
+    check(text("#q-count") === "2 requests; 0 waiting for you." && text("#q-table").indexOf("now the reader Kanya") >= 0,
+      "requests --all: " + text("#q-count"));
+    set("q-state", "approved");
+    await until(() => text("#q-count") === "2 requests; 0 waiting for you.");
+    const tied = id("LINE tester 3");
+    out = await press($("#q-table button[data-forget='" + tied + "']"), "q-answer", "Forget request " + tied + " of LINE tester 3?", "Forget on a row");
+    check(out.indexOf("Request " + tied + " is forgotten; LINE tester 3 may ask again.") >= 0, "Forget on a request's row: " + out.slice(-120));
+    await until(() => text("#q-count") === "1 request; 0 waiting for you.");
+    check(text("#q-count") === "1 request; 0 waiting for you.", "requests --approved after the forget: " + text("#q-count"));
+    set("q-state", "open");
+
+    // General links: one of Pastors exists; make one of Youth, list one group's, switch it off, replace Pastors'.
+    check(text("#gl-count") === "1 general link; 1 taking requests." && text("#gl-table").indexOf("Pastors") >= 0, "the general link of Pastors is listed");
+    set("gl-new-group", "Youth");
+    set("gl-days", "10");
+    set("gl-uses", "3");
+    out = await run("gl-new", "gl-answer", "Make a new general link of Youth, for 10 days or 3 requests?");
+    const glink = $("#gl-answer .linkrow input.link");
+    check(glink && glink.value.indexOf(params.get("site") + "/#join=") === 0 && out.indexOf("Youth has a new general link, which takes up to 3 requests until ") >= 0,
+      "general-link --new shows the link once, with a Copy button: " + out.slice(-160));
+    check($$("#gl-answer pre").every(x => x.textContent.indexOf("#join=") < 0), "the general link is not repeated in the lines");
+    await until(() => $$("#gl-table tbody tr").length === 2);
+    set("gl-group", "Youth");
+    await until(() => $$("#gl-table tbody tr").length === 1);
+    check(text("#gl-table").indexOf("Youth") >= 0 && text("#gl-table").indexOf("Pastors") < 0, "general-link Youth lists one group's");
+    out = await press($("#gl-table button[data-gl-off='Youth']"), "gl-answer", "Switch off the general link of Youth?", "Switch off");
+    check(out.indexOf("The general link of Youth no longer takes requests; a new one is made with: review.py general-link Youth --new") >= 0,
+      "general-link --off: " + out.slice(-160));
+    set("gl-group", "");
+    await until(() => $$("#gl-table tbody tr").length === 2);
+    set("gl-new-group", "Pastors");
+    set("gl-days", "");
+    set("gl-uses", "");
+    out = await run("gl-new", "gl-answer", "Make a new general link of Pastors, for 90 days or 100 requests?");
+    check($("#ask-more").textContent.indexOf("The link of Pastors before it stops taking requests now.") === 0, "the question says the old link stops");
+    check(out.indexOf("; the link before it no longer takes requests.") >= 0, "a new link of Pastors replaces the old: " + out.slice(-160));
+    await until(() => $$("#gl-table tbody tr").length === 3);
+    check(text("#gl-count") === "3 general links; 1 taking requests.", "the list counts the links: " + text("#gl-count"));
   }
 
   async function comments() {
@@ -632,6 +872,31 @@
     check($$("#chapters-SC tbody tr").length >= 13, "the page goes on working with the new token");
   }
 
+  // Signing in, in the Site section: review.py signin, signin check and signin test-mail.
+  async function siteSignin() {
+    await go("#site", () => $$("#s-signin li").length > 5);
+    check(text("#s-signin").indexOf("Sign-in with LINE: on, channel ") >= 0 && text("#s-signin").indexOf("This is the dev server") >= 0,
+      "the sign-in settings are listed: " + text("#s-signin").slice(0, 200));
+    check(text("#s-last-mail").indexOf("Last mail: a note to an approved requester, ") === 0 ||
+      text("#s-last-mail").indexOf("Last mail: a sign-in code, ") === 0, "the last mail and its result: " + text("#s-last-mail"));
+    // The menu marks Site only while the last mail failed (67-operations.md OPS4-10); here it was sent.
+    check($("#mailbad") && $("#mailbad").hidden && text("#mailbad") === "", "the menu does not mark Site while mail works");
+    check($$("#s-mail-log tbody tr").length >= 4, "the mails sent lately are listed: " + $$("#s-mail-log tbody tr").length);
+    let out = await run("s-check", "s-signin-answer", "");
+    check(out.indexOf("LINE: works. The API reached ") >= 0 && out.indexOf("Mail: works. Mail is written to files in ") >= 0,
+      "signin check: " + out.slice(0, 200));
+    out = await run("s-test-mail", "s-signin-answer", "");
+    check(out.indexOf("Write the address the test mail goes to.") >= 0, "a test mail needs an address");
+    set("s-test-to", "probe@example.org");
+    out = await run("s-test-mail", "s-signin-answer", "");
+    check(out.indexOf("A test mail went to probe@example.org.") >= 0, "signin test-mail: " + out.slice(-120));
+    await until(() => text("#s-last-mail").indexOf("Last mail: a test mail, ") === 0);
+    check(/^Last mail: a test mail, \d{4}-\d\d-\d\d \d\d:\d\d UTC: sent\.$/.test(text("#s-last-mail")), "the last mail is the test: " + text("#s-last-mail"));
+    set("s-test-to", "probe");
+    out = await run("s-test-mail", "s-signin-answer", "");
+    check(out.indexOf("to must be an email address") >= 0 && $("#s-signin-answer .reply.bad"), "a wrong address is refused: " + out.slice(-120));
+  }
+
   function header() {
     const bar = text("#server");
     check(bar.indexOf("Server: " + params.get("site")) === 0 && bar.indexOf("dev server") > 0, "the server is shown at the top: " + bar);
@@ -657,7 +922,8 @@
     check(text("nav a[data-section='readers']").indexOf("Readers") === 0 && $("#nav").getAttribute("aria-label") === "Sections",
       "the menu takes its words from strings.json");
     header();
-    const steps = [["chapters", chapters], ["readers", readers], ["groups", groups], ["comments", comments], ["site", site]];
+    const steps = [["chapters", chapters], ["readers", readers], ["groups", groups], ["requests", requests],
+      ["comments", comments], ["site signing in", siteSignin], ["site", site]];
     for (let i = 0; i < steps.length; i++) {
       try {
         await steps[i][1]();
@@ -701,7 +967,7 @@
   // groups and rounds through the tunnel, the live export folder, and no backup or token button.
   async function live() {
     await until(() => $$("#chapters-SC tbody tr").length > 0, 20000);
-    const sections = ["#chapters", "#readers", "#groups", "#comments", "#site"];
+    const sections = ["#chapters", "#readers", "#requests", "#groups", "#comments", "#site"];
     for (let i = 0; i < sections.length; i++) {
       await go(sections[i], () => !$(sections[i]).hidden && $(sections[i]).children.length > 0);
       const bar = $("#server");
@@ -719,6 +985,11 @@
     check(text("#v-count") === "No device is waiting for your approval.", "the devices come through the tunnel: " + text("#v-count"));
     await go("#comments", () => /round/.test(text("#o-count")));
     check(text("#o-count") === "1 round.", "the rounds come through the tunnel: " + text("#o-count"));
+    await go("#requests", () => text("#q-count") !== "" && text("#gl-count") !== "");
+    check(text("#q-count") === "No request is waiting for you." && text("#gl-count") === "3 general links; 1 taking requests.",
+      "the requests and general links come through the tunnel: " + text("#q-count") + " " + text("#gl-count"));
+    await go("#site", () => $$("#s-signin li").length > 5);
+    check(text("#s-signin").indexOf("Sign-in with LINE: on") >= 0, "the sign-in settings come through the tunnel");
     // review.py admin opened the browser at a one-time code, which the page traded for the key (45 SEC3-7).
     check(/^#once=/.test(hashAtStart) && used["POST trade"], "the page traded the browser's one-time code for its key");
     log("ROUTES " + Object.keys(used).filter(k => k.indexOf(" ") > 0).sort().join(","));

@@ -1,11 +1,12 @@
 /* Proofreading site: the start of the page (web/core/main.js).
 
-   web/app.js loads this module and calls boot(). It reads the link, loads the words, the languages
-   and the chapter list, wires the page's events, and loads the features. Each feature's page part is
-   one module in web/features/, named only by its modulepreload line in web/index.html: boot() loads
-   every such module with its own import() before the page starts, so a feature that fails as it
-   loads is logged and left out, and the page works without it. The same line makes the browser fetch
-   the file at once and the service worker keep it for offline use. */
+   web/app.js loads this module and calls boot(). It reads the address (a personal link #k=, a general link
+   #join=, or the result of a sign-in with LINE #auth=), loads the words, the languages and the chapter list,
+   wires the page's events, and loads the features; core/signin.js decides which screen comes first. Each
+   feature's page part is one module in web/features/, named only by its modulepreload line in
+   web/index.html: boot() loads every such module with its own import() before the page starts, so a feature
+   that fails as it loads is logged and left out, and the page works without it. The same line makes the
+   browser fetch the file at once and the service worker keep it for offline use. */
 
 // Every core module is named here, so that each one runs before the page starts, whichever module
 // first needs it.
@@ -15,16 +16,19 @@ import "./notes.js";
 import "./changes.js";
 import "./updates.js";
 import "./earlier.js";
+import "./auth.js";
+import "./account.js";
+import "./outbox.js";
 
-import { applyPending } from "./outbox.js";
 import { upgradeMe } from "./model.js";
 import { K } from "./store.js";
 import { S, store, on } from "./state.js";
 import { t, useKeptWords, loadWords, hasWords, keptLang } from "./words.js";
 import { showNotice, spacesOn, setSpaces } from "./dom.js";
-import { loadOb, flush, refreshMe, startMe, forgetReader, schedulePrefetch, adoptOldDrafts } from "./net.js";
+import { flush, refreshMe, startMe, schedulePrefetch, adoptOldDrafts } from "./net.js";
 import { useKeptLanguages, loadLanguages, showLanguages, shownLanguages, loadedFontFiles } from "./languages.js";
-import { route, rerender, applyLang, paintSync, paintSpaces, showLink, showOffline, showDeviceWaiting, goHome, setHash } from "./screens.js";
+import { route, rerender, applyLang, paintSync, paintSpaces, showOffline, showDeviceWaiting, goHome, setHash } from "./screens.js";
+import { keptMode, startAuth, onRefused } from "./signin.js";
 import { renderHome } from "./home.js";
 import { repaintComments, onScroll, onMeInChapter, savePlace, sendPlaceNow } from "./chapter.js";
 import { onSelection } from "./para.js";
@@ -32,8 +36,9 @@ import { onSelection } from "./para.js";
 /* ---- news from net.js ---- */
 
 on("sync", paintSync);
-on("auth", showLink);
-on("offline", showOffline);
+on("auth", onRefused);
+on("offline", () => showOffline());
+on("fault", () => showNotice(t("error_generic")));
 on("device", () => { if (S.view !== "device") showDeviceWaiting(); });
 on("lang", rerender);
 on("me", () => {
@@ -57,9 +62,12 @@ on("comments", ev => onCommentsOf(ev.book, ev.id));
 
 /* ---- events of the browser ---- */
 
+/* Another tab of this browser changed what it keeps: a new link, or another reader signed in or out, starts
+   this tab again too, so that every tab shows one reader. */
 function onStorage(ev) {
   if (!ev.key) return;
   if (ev.key === K.code && store.get(K.code) !== S.code) { location.reload(); return; }
+  if (ev.key === K.reader && store.get(K.reader) !== S.reader) { location.reload(); return; }
   if (ev.key === K.outbox || ev.key.startsWith("rv.cm:")) { repaintComments(); paintSync(); }
   if (ev.key === K.me && S.view === "home") {
     const me = upgradeMe(store.get(K.me));
@@ -70,10 +78,10 @@ function onStorage(ev) {
 /* A fault in the page's own code shows the general error notice. */
 const OWN_CODE = /\/(app|core\/\w+|features\/\w+)\.js(\?|$)/;
 
-/* A link opened in a tab that shows the page already changes only the address's #k=...; the page starts
-   again so that boot() reads the new link. */
+/* A link opened in a tab that shows the page already changes only the address's #k=... or #join=... (or #auth=...);
+   the page starts again so that boot() reads it. */
 function onHash() {
-  if (/^#(?:.*&)?k=/.test(location.hash)) location.reload();
+  if (/^#(?:.*&)?(?:k|join|auth)=/.test(location.hash)) location.reload();
 }
 
 function wireEvents() {
@@ -99,6 +107,11 @@ function wireEvents() {
     }
   });
   window.addEventListener("pagehide", savePlace);
+  // Back from LINE's page with the browser's back button, the page may come from the browser's cache with the
+  // LINE button still waiting.
+  window.addEventListener("pageshow", ev => {
+    if (ev.persisted) for (const b of document.querySelectorAll("#main button[disabled]")) b.disabled = false;
+  });
   window.addEventListener("storage", onStorage);
   document.addEventListener("selectionchange", onSelection);
   window.addEventListener("error", ev => { if (ev.filename && OWN_CODE.test(ev.filename)) showNotice(t("error_generic")); });
@@ -119,16 +132,11 @@ function registerWorker() {
   }, 3000);
 }
 
-function start() {
+function start(hash) {
   applyLang();
   registerWorker();
-  if (!S.code) return showLink();
-  S.me = upgradeMe(store.get(K.me));
-  if (S.me) S.me = applyPending(S.me, loadOb(), S.code);
   showLanguages(shownLanguages());
-  route();
-  refreshMe();
-  flush();
+  startAuth(hash);
 }
 
 /* The page parts of the features: every module index.html names under features/ in a modulepreload line,
@@ -142,22 +150,28 @@ export function loadFeatures(doc) {
     .then(() => true, err => { console.error("feature " + href + " did not load", err); return false; })));
 }
 
+/* What the address holds for the start: {link, join, result}. A personal link is https://<host>/#k=<code>, a
+   general link https://<host>/#join=<code>, and a sign-in with LINE comes back as /#auth=<result>; a link may
+   also carry ?openExternalBrowser=1 before its fragment, for LINE alone, which the page leaves where it is.
+   The fragment never reaches the server; it is read here and taken out of the address bar. Codes hold only
+   A-Z, a-z, 0-9, _ and -, so a full stop or bracket after the link is left out. */
+export function readHash(hash) {
+  const get = name => {
+    const m = new RegExp("^#(?:.*&)?" + name + "=([A-Za-z0-9_-]+)").exec(hash || "");
+    return m ? m[1] : null;
+  };
+  return { link: get("k"), join: get("join"), result: get("auth") };
+}
+
 export function boot() {
   S.lang = keptLang();
-  // The link is https://<host>/#k=<code>. The fragment never reaches the server; it is kept here
-  // and taken out of the address bar.
-  // Codes hold only A-Z, a-z, 0-9, _ and -, so a full stop or bracket after the link is left out.
-  const m = /^#(?:.*&)?k=([A-Za-z0-9_-]+)/.exec(location.hash);
+  const hash = readHash(location.hash);
   // Drafts kept by a page before round 3b belong to the link the device held then (net.js, adoptOldDrafts).
-  adoptOldDrafts(store.get(K.code) || (m && m[1]));
-  if (m) {
-    let code = m[1];
-    try { code = decodeURIComponent(code); } catch (e) { /* keep it as it is */ }
-    if (code !== store.get(K.code)) forgetReader();
-    store.set(K.code, code);
-    setHash("", false);
-  }
-  S.code = store.get(K.code);
+  adoptOldDrafts(store.get(K.code) || hash.link);
+  if (hash.link || hash.join || hash.result) setHash("", false);
+  // Without a link or a sign-in in the address, the device signs in as it did last, and the chapter list is
+  // asked for at once.
+  else if (!store.blocked) keptMode();
   useKeptWords();
   useKeptLanguages();
   wireEvents();
@@ -168,9 +182,9 @@ export function boot() {
   const features = loadFeatures(document);
   const fresh = loadWords();
   if (hasWords()) {
-    features.then(start);
+    features.then(() => start(hash));
     fresh.then(changed => { if (changed) rerender(); });
   } else {
-    Promise.all([fresh, features]).then(start);
+    Promise.all([fresh, features]).then(() => start(hash));
   }
 }

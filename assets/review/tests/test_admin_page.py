@@ -31,10 +31,15 @@ ADMIN = ROOT / "admin"
 OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 # The local routes of 41-admin-contract.md: those of 31-admin-contract.md with open and close for grant and ungrant,
 # and the routes for devices, review rounds and deleting one reader's comments; and trade, which gives the page its
-# key for the one-time code of the address the browser is opened at.
+# key for the one-time code of the address the browser is opened at. Round 4a (61-admin-contract.md) adds the routes
+# of signing in: auth (review.py signin), sessions, identities, requests and general-links to read, and signin
+# (check, test-mail), link-signs-in, session, signout, identity, unbind, request and general-link to change.
 CONTRACT = {
     "info": "GET", "chapters": "GET", "readers": "GET", "groups": "GET", "features": "GET", "exports": "GET",
     "source": "GET", "rounds": "GET", "devices": "GET",
+    "auth": "GET", "sessions": "GET", "identities": "GET", "requests": "GET", "general-links": "GET",
+    "signin": "POST", "link-signs-in": "POST", "session": "POST", "signout": "POST", "identity": "POST",
+    "unbind": "POST", "request": "POST", "general-link": "POST",
     "publish": "POST", "withdraw": "POST", "align-packet": "POST",
     "invite": "POST", "open": "POST", "close": "POST", "revoke": "POST", "restore": "POST", "relink": "POST",
     "english": "POST", "feature": "POST", "group": "POST", "round": "POST", "device": "POST",
@@ -52,16 +57,23 @@ RETIRED_FROM_THE_PAGE = set()
 OPTIONS = {
     "publish": {"book", "chapters", "ref"}, "withdraw": {"book", "chapters"},
     "align-packet": {"book", "chapter", "ref", "out"}, "source": {"book", "ref"},
-    "invite": {"name", "grant", "group", "english", "csv"},
-    "readers": {"name", "link", "group", "book", "inactive", "revoked", "devices"},
+    "invite": {"name", "grant", "group", "english", "link_signs_in", "csv"},
+    "readers": {"name", "link", "group", "book", "inactive", "revoked", "devices", "identity"},
     "open": {"names", "spec"}, "close": {"names", "spec"}, "revoke": {"names"}, "restore": {"names"},
-    "relink": {"names", "group", "confirm"}, "english": {"names", "state"}, "feature": {"names", "feature", "state"},
+    "relink": {"names", "group", "confirm", "unbind"}, "english": {"names", "state"},
+    "feature": {"names", "feature", "state"},
     "group": {"action", "group", "args", "grant", "english", "csv"},
     "devices": {"name", "all"}, "device": {"action", "ids"},
     "rounds": {"book"}, "round": {"book", "name"},
     "export": {"all", "round", "before_first_round", "out", "book", "ch", "reader", "unprocessed"},
     "processed": {"ids", "export", "undo"}, "triage": {"export", "ref"}, "replies": {"csv", "json"},
     "delete-comments": {"name", "from", "to", "yes", "upto"}, "backup": {"keep"}, "trade": {"code"},
+    # signing in (61-admin-contract.md section 6)
+    "signin": {"action", "to"}, "link-signs-in": {"names", "state"}, "sessions": {"name", "all"},
+    "session": {"action", "ids"}, "signout": {"names"}, "identities": {"name"}, "identity": {"action", "name", "address"},
+    "unbind": {"ids"}, "requests": {"state"},
+    "request": {"action", "id", "name", "grant", "group", "english", "reader"},
+    "general-links": {"group"}, "general-link": {"action", "group", "days", "uses"},
 }
 CALL_RE = re.compile(r'\b(get|post)\("([a-z-]+)"')
 WORDS = ADMIN / "strings.json"
@@ -127,11 +139,19 @@ class Routes(unittest.TestCase):
             code = "\n".join(p.read_text() for p in modules.get(route, ()))
             for name in sorted(fields):
                 self.assertRegex(code, r'(?:\b|")' + re.escape(name) + r'"?\s*:', f"/local/{route} never sends {name}")
-        self.assertEqual(set(OPTIONS) | {"info", "chapters", "groups", "features", "exports", "new-token"}, set(CONTRACT))
+        self.assertEqual(set(OPTIONS) | {"info", "chapters", "groups", "features", "exports", "new-token", "auth"},
+                         set(CONTRACT))
         # Each action of review.py group is named by the Groups section, which sends it as the action.
         groups_code = (ADMIN / "groups.js").read_text()
         for action in review.GROUP_ACTIONS:
             self.assertIn(f'"{action}"', groups_code, f"no control of the Groups section sends group {action}")
+        # The options of relink are checked per route above; relink --group G --unbind is one combination, which the
+        # Groups section sends itself (70-verify.md item 5).
+        sent = re.findall(r'post\("relink", \{([^}]*)\}', groups_code)
+        self.assertTrue(sent, "the Groups section sends no relink")
+        for body in sent:
+            self.assertRegex(body, r"\bgroup:", body)
+            self.assertRegex(body, r"\bunbind:", body)
 
     def test_only_api_js_talks_to_the_server(self):
         for path in scripts():
@@ -262,6 +282,27 @@ class Words(unittest.TestCase):
         self.assertEqual(json.loads(r.stdout), names + ["SC01"])
 
 
+    @unittest.skipIf(shutil.which("node") is None, "node is not installed")
+    def test_the_menu_marks_site_while_the_last_mail_failed(self):
+        # 67-operations.md OPS4-10: a mail outage shows from every section, not only in Site.
+        self.assertIn('<span id="mailbad" class="badge" hidden></span>', (ADMIN / "index.html").read_text())
+        self.assertIn("loadAuth();", (ADMIN / "admin.js").read_text())
+        self.assertIn("showMail(last);", (ADMIN / "site.js").read_text())
+        script = ("const el = { textContent: '', hidden: true };\n"
+                  "globalThis.document = { getElementById: id => (id === 'mailbad' ? el : null) };\n"
+                  f"const words = await import({json.dumps((ADMIN / 'words.js').as_uri())});\n"
+                  f"words.setWords({WORDS.read_text(encoding='utf-8')});\n"
+                  f"const shared = await import({json.dumps((ADMIN / 'shared.js').as_uri())});\n"
+                  "const seen = [];\n"
+                  "for (const last of [{ ok: false, detail: 'x' }, { ok: true }, null, { ok: false }]) {\n"
+                  "  shared.showMail(last); seen.push([el.hidden, el.textContent]);\n"
+                  "}\n"
+                  "console.log(JSON.stringify(seen));")
+        r = subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, timeout=60)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertEqual(json.loads(r.stdout), [[False, "mail fails"], [True, ""], [True, ""], [False, "mail fails"]])
+
+
 class NextSteps(unittest.TestCase):
     """The buttons the page offers for the commands that a command's lines name, read from lines review.py makes."""
 
@@ -317,6 +358,27 @@ class NextSteps(unittest.TestCase):
         self.assertEqual(self.steps(lines), [["Close SC09 for the whole group Pastors", None, None, None],
                                              ["Switch the group Pastors on", None, None, None],
                                              ["Show the groups", None, None, "#groups"]])
+
+    @unittest.skipIf(shutil.which("node") is None, "node is not installed")
+    def test_the_commands_the_lines_of_signing_in_name(self):
+        # 61-admin-contract.md: a reader with no way left to sign in needs a new link; a declined request is forgotten;
+        # the requests and general links are in the Requests section. A relink in the middle of a line offers nothing.
+        used = review.describe({"name": "Mali Boon", "active": True, "grants": [], "groups": [], "settings": {},
+                                "english": False, "comments": 0, "last_active": None, "identities": [],
+                                "link_used": "2026-10-23T02:21:18Z"})
+        full = review.describe({"name": "Anan", "active": True, "grants": [], "groups": [], "settings": {},
+                                "english": False, "comments": 0, "last_active": None, "identities": [],
+                                "devices": {"total": 12, "waiting": 10, "full": True}},
+                               auth={"routes": {"line": True, "email": False}, "require_identity": False})
+        self.assertIn("review.py relink Anan; has not signed in with LINE yet", full)
+        lines = [used, full,
+                 "Request 4 of kanya@example.org is declined; that address cannot ask again until: review.py request forget 4",
+                 "The general link of Pastors no longer takes requests; a new one is made with: review.py general-link "
+                 "Pastors --new",
+                 "2 requests waiting for you; 1 browser signed in. List them with: review.py requests"]
+        self.assertEqual(self.steps(lines), [["Give Mali Boon a new link", ["Mali Boon"], None, None],
+                                             ["Forget request 4", [], None, None],
+                                             ["Show the requests and general links", None, None, "#requests"]])
 
 
 class Source(unittest.TestCase):

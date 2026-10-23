@@ -1,6 +1,7 @@
 // Readers: find readers by any part of the name, by group, book, inactivity, revoked links, links used on more
-// than two devices, or a link; act on the readers ticked, all in one request, as the commands do with several
-// names; stop or restore one reader's link from its row; the devices of each link (devices.js); delete one
+// than two devices, how they sign in, or a link; act on the readers ticked, all in one request, as the commands do
+// with several names; stop or restore one reader's link, and switch "Link signs in", from its row; the devices of
+// each link (devices.js); each reader's LINE accounts, addresses and browsers signed in (accounts.js); delete one
 // reader's comments between two dates; invite one reader, or many from a CSV file.
 import { get, post, busy } from "./api.js";
 import { h, clear, button, field, fill, td, answer, ask, refuse, working, stamp, compact, csvRows, readFile, names,
@@ -8,6 +9,7 @@ import { h, clear, button, field, fill, td, answer, ask, refuse, working, stamp,
 import { t, plural } from "./words.js";
 import { bookIds, featureSelect } from "./shared.js";
 import * as devices from "./devices.js";
+import * as accounts from "./accounts.js";
 
 const f = {};
 const invite = {};
@@ -40,7 +42,7 @@ export async function show(root) {
   takeGroups(both[0]);
   if (mine === seq) take(both[1]);
   render();
-  await devices.load();
+  await Promise.all([devices.load(), accounts.load()]);
 }
 
 // Open this section with the members of one group listed, from the Groups section.
@@ -58,6 +60,9 @@ function build(root) {
   f.inactive = h("input", { type: "number", id: "r-inactive", min: "0", step: "1", placeholder: t("r_any"), class: "short" });
   f.revoked = h("input", { type: "checkbox", id: "r-revoked" });
   f.devices = h("input", { type: "checkbox", id: "r-devices" });
+  f.identity = h("select", { id: "r-identity" }, [["", "r_identity_all"], ["none", "r_identity_none"],
+    ["line", "r_identity_line"], ["email", "r_identity_email"], ["any", "r_identity_any"]].map(v =>
+    h("option", { value: v[0] }, t(v[1]))));
   f.link = h("input", { type: "text", id: "r-link", placeholder: t("r_link_placeholder"), autocomplete: "off",
     spellcheck: "false" });
   f.count = h("p", { class: "count", id: "r-count", "aria-live": "polite" });
@@ -67,6 +72,7 @@ function build(root) {
   f.spec = h("input", { type: "text", id: "r-spec", placeholder: t("spec_placeholder"), autocomplete: "off",
     spellcheck: "false" });
   f.feature = featureSelect("r-feature");
+  f.unbind = h("input", { type: "checkbox", id: "r-unbind" });
   f.box = h("div", { class: "answer", id: "r-answer", hidden: true, "aria-live": "polite" });
   f.buttons = [
     button(t("r_open"), () => act("open"), { id: "r-open" }),
@@ -77,10 +83,12 @@ function build(root) {
     button(t("english_on"), () => act("english", "on"), { id: "r-english-on" }),
     button(t("english_off"), () => act("english", "off"), { id: "r-english-off" }),
     button(t("on"), () => act("feature", "on"), { id: "r-feature-on" }),
-    button(t("off"), () => act("feature", "off"), { id: "r-feature-off" })
+    button(t("off"), () => act("feature", "off"), { id: "r-feature-off" }),
+    button(t("r_lsi_on"), () => act("link-signs-in", "on"), { id: "r-lsi-on", title: t("r_lsi_hint") }),
+    button(t("r_lsi_off"), () => act("link-signs-in", "off"), { id: "r-lsi-off", title: t("r_lsi_hint") })
   ];
   [f.name, f.link, f.inactive].forEach(input => input.addEventListener("input", later));
-  [f.group, f.book, f.revoked, f.devices].forEach(input => input.addEventListener("change", search));
+  [f.group, f.book, f.revoked, f.devices, f.identity].forEach(input => input.addEventListener("change", search));
   const b = f.buttons;
   root.append(h("h2", null, t("r_title")),
     h("div", { class: "filters" },
@@ -90,6 +98,7 @@ function build(root) {
       field(t("r_f_inactive"), f.inactive, t("r_f_inactive_hint")),
       h("label", { class: "check" }, f.revoked, " " + t("r_f_revoked")),
       h("label", { class: "check" }, f.devices, " " + t("r_f_devices")),
+      field(t("r_f_identity"), f.identity),
       field(t("r_f_link"), f.link, t("r_f_link_hint")),
       button(t("r_clear"), clearFilters, { id: "r-clear", class: "plain" })),
     f.count,
@@ -98,10 +107,12 @@ function build(root) {
     h("div", { class: "actions", id: "r-actions" },
       f.chosen,
       h("div", { class: "row" }, field(t("chapters"), f.spec), b[0], b[1]),
-      h("div", { class: "row" }, b[2], b[3], b[4], h("span", { class: "gap" }), b[5], b[6], h("span", { class: "gap" }),
-        field(t("feature"), f.feature), b[7], b[8]),
+      h("div", { class: "row" }, b[2], b[3], b[4], h("label", { class: "check" }, f.unbind, " " + t("r_unbind"))),
+      h("div", { class: "row" }, b[5], b[6], h("span", { class: "gap" }), field(t("feature"), f.feature), b[7], b[8],
+        h("span", { class: "gap" }), b[9], b[10]),
       f.box));
   devices.build(root, search);
+  accounts.build(root, search);
   buildDelete(root);
   buildInvite(root);
 }
@@ -129,6 +140,7 @@ function buildInvite(root) {
     spellcheck: "false" });
   invite.groups = h("div", { class: "choices", id: "i-groups" });
   invite.english = h("input", { type: "checkbox", id: "i-english" });
+  invite.lsi = h("input", { type: "checkbox", id: "i-link-signs-in" });
   invite.box = h("div", { class: "answer", id: "i-answer", hidden: true, "aria-live": "polite" });
   invite.file = h("input", { type: "file", id: "m-file", accept: ".csv,text/csv" });
   invite.many = h("div", { class: "answer", id: "m-answer", hidden: true, "aria-live": "polite" });
@@ -136,7 +148,8 @@ function buildInvite(root) {
     h("div", { class: "row" },
       field(t("name"), invite.name),
       field(t("chapters"), invite.grant, t("i_chapters_hint")),
-      h("label", { class: "check" }, invite.english, " " + t("english"))),
+      h("label", { class: "check" }, invite.english, " " + t("english")),
+      h("label", { class: "check", title: t("i_lsi_hint") }, invite.lsi, " " + t("i_lsi"))),
     h("div", { class: "row" }, h("span", { class: "label" }, t("groups")), invite.groups),
     h("div", { class: "bar" }, button(t("i_go"), inviteOne, { id: "i-go" })),
     invite.box,
@@ -148,7 +161,7 @@ function buildInvite(root) {
 
 function params() {
   return { name: f.name.value.trim(), group: f.group.value, book: f.book.value, inactive: f.inactive.value.trim(),
-    revoked: f.revoked.checked, devices: f.devices.checked, link: f.link.value.trim() };
+    revoked: f.revoked.checked, devices: f.devices.checked, identity: f.identity.value, link: f.link.value.trim() };
 }
 
 function filtered() {
@@ -168,6 +181,7 @@ function clearFilters() {
   f.inactive.value = "";
   f.revoked.checked = false;
   f.devices.checked = false;
+  f.identity.value = "";
   f.link.value = "";
   search();
 }
@@ -231,6 +245,36 @@ function deviceCell(r) {
     " ", button(t("r_devices_show"), () => devices.ofReader(r.name), { class: "plain small", "data-devices": r.name })];
 }
 
+// How the reader signs in: "Link signs in", the LINE accounts and addresses with the browsers signed in, a link
+// used whose LINE accounts and addresses were all removed (flagged: the reader needs a new link), none now for a
+// reader who signed in before and has an unused link, with the next sign-in through the link only for an active
+// reader, since a revoked reader's link opens nothing, or not yet.
+function signinCell(r) {
+  const ids = r.identities || [];
+  let text;
+  let flagged = false;
+  if (r.link_signs_in) {
+    text = t("r_signin_link");
+  } else if (ids.length) {
+    text = ids.map(i => i.provider === "line" ? t("r_signin_line", { name: i.display }) : i.display).join(", ") +
+      (r.sessions ? t("r_signin_browsers", { browsers: plural(r.sessions, "browser") }) : t("r_signin_no_browser"));
+  } else if (r.link_used) {
+    text = t("r_signin_used");
+    flagged = true;
+  } else if (r.first_signin) {
+    // The reader signed in before, and every LINE account and address was removed since, as relink --unbind does.
+    text = r.active ? t("r_signin_none_now") : t("r_signin_none_stopped");
+  } else {
+    text = t("r_signin_not_yet");
+  }
+  // The switch "Link signs in", for this reader alone; and the reader's sign-in and browsers below the list.
+  const sw = button(r.link_signs_in ? t("r_lsi_switch_off") : t("r_lsi_switch_on"), () => switchLsi(r),
+    { class: "plain small", "data-link-signs-in": r.name,
+      "aria-label": t(r.link_signs_in ? "r_lsi_switch_off_aria" : "r_lsi_switch_on_aria", { name: r.name }) });
+  return [h("span", { class: flagged ? "flag" : null, "data-signin-of": r.name }, text), " ", sw, " ",
+    button(t("r_signin_show"), () => accounts.ofReader(r.name), { class: "plain small", "data-signin": r.name })];
+}
+
 function render() {
   const keep = {};
   rows.forEach(r => { if (selected[r.id]) keep[r.id] = r; });
@@ -245,7 +289,7 @@ function render() {
     render();
   });
   fill(f.table, [all, t("r_col_name"), t("r_col_link"), t("r_col_own"), t("r_col_groups"), t("r_col_english"),
-    t("r_col_devices"), t("r_col_comments"), t("r_col_last")],
+    t("r_col_signin"), t("r_col_devices"), t("r_col_comments"), t("r_col_last")],
     rows.map((r, i) => {
       const box = h("input", { type: "checkbox", value: String(r.id), "aria-label": t("select_one", { name: r.name }),
         "data-reader": r.name });
@@ -265,7 +309,8 @@ function render() {
           "aria-label": t(r.active ? "r_stop_one_aria" : "r_restore_one_aria", { name: r.name }) });
       return h("tr", { class: r.active ? "" : "revoked", title: lines[i] || "", "data-reader": r.name },
         td(box, "pick"), td(r.name, "name"), td([r.active ? t("r_works") : t("r_stopped"), " ", sw], "nowrap"),
-        td(compact(r.grants) || t("nothing")), td(marked.join(", ")), td(englishText(r)), td(deviceCell(r), "nowrap"),
+        td(compact(r.grants) || t("nothing")), td(marked.join(", ")), td(englishText(r)), td(signinCell(r)),
+        td(deviceCell(r), "nowrap"),
         td(String(r.comments), "num"), td(r.last_active ? stamp(r.last_active) : t("never"), "nowrap"));
     }));
   clear(f.names);
@@ -299,8 +344,12 @@ function plan(kind, spec, state, feature) {
       send: list => post("revoke", { names: list }) },
     restore: { q: "r_restore_q", note: "r_restore_note", go: "r_restore", title: "r_restore_title",
       send: list => post("restore", { names: list }) },
-    relink: { q: "r_relink_q", note: "r_relink_note", go: "r_relink_go", title: "r_relink_title",
-      send: list => post("relink", { names: list }) },
+    relink: { q: f.unbind.checked ? "r_relink_unbind_q" : "r_relink_q",
+      note: f.unbind.checked ? "r_relink_unbind_note" : "r_relink_note", go: "r_relink_go", title: "r_relink_title",
+      send: list => post("relink", { names: list, unbind: f.unbind.checked }) },
+    "link-signs-in": { q: state === "on" ? "r_lsi_on_q" : "r_lsi_off_q", note: state === "on" ? "r_lsi_on_note" : "r_lsi_off_note",
+      go: state === "on" ? "r_lsi_on" : "r_lsi_off", title: state === "on" ? "r_lsi_on_title" : "r_lsi_off_title",
+      send: list => post("link-signs-in", { names: list, state: state }) },
     english: { q: state === "on" ? "r_english_on_q" : "r_english_off_q", note: "r_english_note",
       go: state === "on" ? "english_on" : "english_off", title: state === "on" ? "r_english_on_title" : "r_english_off_title",
       send: list => post("english", { names: list, state: state }) },
@@ -326,7 +375,7 @@ async function act(kind, state) {
   const p = plan(kind, spec, state, feature);
   const vars = { spec: spec, feature: feature, readers: plural(list.length, "reader"), name: list[0].name };
   if (list.length > 1 || kind === "relink") {
-    const q = kind === "relink" && list.length === 1 ? "r_relink_one_q" : p.q;
+    const q = kind === "relink" && list.length === 1 ? (f.unbind.checked ? "r_relink_unbind_one_q" : "r_relink_one_q") : p.q;
     if (!(await ask(t(q, vars), { list: list.map(r => r.name), note: t(p.note), go: t(p.go) }))) return;
   }
   working(f.box);
@@ -334,6 +383,18 @@ async function act(kind, state) {
   const links = res.ok && res.result && res.result.readers
     ? res.result.readers.map(r => ({ name: r.name, link: r.link, note: r.stopped || "" })) : [];
   answer(f.box, res, { title: t(p.title, vars), links: links, after: search });
+  if (kind === "relink") f.unbind.checked = false;
+  await search();
+  if (kind === "relink") await accounts.load();
+}
+
+// The switch "Link signs in" on a reader's row, for that reader alone.
+async function switchLsi(r) {
+  if (busy()) return;
+  working(f.box);
+  const p = plan("link-signs-in", "", r.link_signs_in ? "off" : "on");
+  const res = await p.send([r.name]);
+  answer(f.box, res, { title: t(p.title, { readers: r.name }) });
   await search();
 }
 
@@ -396,11 +457,12 @@ async function inviteOne() {
   const groupNames = Array.from(invite.groups.querySelectorAll("input:checked")).map(c => c.value);
   working(invite.box);
   const res = await post("invite", { name: name, grant: invite.grant.value.trim(), group: groupNames,
-    english: invite.english.checked });
+    english: invite.english.checked, link_signs_in: invite.lsi.checked });
   const links = res.ok && res.result ? [{ name: res.result.name, link: res.result.link }] : [];
   answer(invite.box, res, { title: t("i_answer_title", { name: name }), links: links, after: search });
   if (res.ok) {
     invite.name.value = "";
+    invite.lsi.checked = false;
     await search();
   }
 }

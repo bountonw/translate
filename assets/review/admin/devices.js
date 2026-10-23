@@ -1,4 +1,5 @@
-// Devices, in the Readers section (README.md, "One person per link"): the devices waiting for approval, as
+// Devices, in the Readers section (README.md, "Link signs in"): the devices of the links that sign in by themselves,
+// with the two-device lock: the devices waiting for approval, as
 // review.py devices lists them, or every device of one reader's link, and with "earlier links" those of the
 // links the reader no longer has (devices NAME --all); approve and remove one device, or the devices ticked in one
 // request (device approve|remove NUMBER [NUMBER ...]).

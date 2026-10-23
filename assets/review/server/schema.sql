@@ -7,8 +7,9 @@
 -- translator's reply), and comment_made (new comments of the last day, for the daily limit). Migration 6
 -- renames the fields that hold the translation's text (book.title, chapter.title, chapter.source,
 -- chapter_version.title, and "text" in each stored paragraph) and adds review_round, comment.round,
--- reader_device and comment_gone. Migration 7 adds comment_gone.client_id. The names below are those of
--- version 1.
+-- reader_device and comment_gone. Migration 7 adds comment_gone.client_id. Migration 8 adds accounts:
+-- identity, session, auth_flow, general_link, access_request, mail_log, and reader.link_used, first_signin and
+-- link_signs_in. The names below are those of version 1.
 
 CREATE TABLE IF NOT EXISTS book (
   id       TEXT PRIMARY KEY,

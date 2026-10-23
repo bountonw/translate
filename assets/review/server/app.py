@@ -2,19 +2,23 @@
 
 server.app:application reads its data directory from REVIEW_DATA on the
 first request. Tests and the dev server build their own with App(data_dir).
-Readers send "Authorization: Bearer <code>"; the routes under /api/admin/
-take the admin token instead. Each reader sees and changes only their own
+A reader signs in with LINE or an email code and then sends the session
+cookie (server/auth.py); a reader whose link still signs in by itself sends
+"Authorization: Bearer <code>"; the routes under /api/admin/ take the admin
+token instead. Each reader sees and changes only their own
 comments, and only in published chapters open to them: covered by their own
 grants or by the grants of a group of theirs that is switched on.
 
 This module holds the reader routes, the chapter, round, export and reply
 admin routes and the routing. Readers, groups and devices are in
-server/people.py, shared helpers in server/common.py, and each feature in
-server/features/.
+server/people.py, sign-in and sessions in server/auth.py, the admin routes of
+accounts in server/accounts.py, the mailer in server/mail.py, shared helpers
+in server/common.py, and each feature in server/features/.
 
-A link works on the first devices_per_link devices that open it (two unless
-config.json says otherwise): the page sends a random key made on the device
-in X-Review-Device, and a further device waits for the translator's approval
+Where a link signs in by itself (server/auth.py, link_alone), it works on the
+first devices_per_link devices that open it (two unless config.json says
+otherwise): the page sends a random key made on the device in
+X-Review-Device, and a further device waits for the translator's approval
 (403 device_waiting). A reader sees only the chapters open to them now, and
 only their comments on those chapters in the book's current review round; a
 closed chapter refuses adding, changing and deleting comments, and a comment
@@ -44,8 +48,10 @@ from http import HTTPStatus
 from pathlib import Path
 
 from . import db, features
+from .accounts import Accounts
+from .auth import TOKEN_RE, SignIn
 from .common import (ADMIN_LIMIT, GROUP_NAME_RE, REPLY_LIMIT, WAITING_MOST, HTTPError, Request, bool_field, clean,
-                     dumps, id_list, load_limits, name_key)
+                     device_agent, dumps, id_list, load_limits, name_key)
 from .content import align_text, plain, safe_html, words_html
 from .languages import REGISTRY
 from .people import People
@@ -73,7 +79,6 @@ SEEN_EVERY = 10                  # minutes between two records of when a device 
 ROUND_NAME_RE = GROUP_NAME_RE    # a round name fits a command line: letters, digits, dots, hyphens, underscores
 STAMP_RE = re.compile(r"\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ")
 
-TOKEN_RE = re.compile(r"(?i:bearer) +([A-Za-z0-9_-]{16,128})")
 CLIENT_ID_RE = re.compile(r"[A-Za-z0-9_.:-]{1,64}")
 ANCHOR_RE = re.compile(r"[A-Za-z]{1,10} \d{1,4}\.\d{1,4}")
 COMMIT_RE = re.compile(r"[0-9a-f]{4,40}")
@@ -106,8 +111,16 @@ WRITE_ERRORS = {
 
 # Why the server refuses any request of a reader, before it looks at what the request asks.
 ACCESS_ERRORS = {
-    "no_code": (401, "the request carries no link code"),
+    "no_code": (401, "the request carries neither a session cookie nor a link code: the browser is not signed in"),
+    "signed_out": (401, "the browser's session ended: the reader or the translator ended it, or "
+                        "auth.session_days passed without a visit; the answer clears the cookie"),
+    "stopped": (401, "the reader signed in on this browser, but the reader's access is stopped (revoke)"),
     "bad_code": (401, "the code is wrong, or its link was stopped (revoke) or replaced by a new link (relink)"),
+    "link_used": (401, "the link was used to sign in with LINE or email, so it no longer signs in by itself"),
+    "sign_in_required": (401, "the link no longer signs in by itself (the reader has an identity, or "
+                              "auth.require_identity is on); sign in with LINE or email"),
+    "bad_page": (403, "a request with the session cookie that did not come from the site's own page: it lacks "
+                      "X-Review-Page: 1, or names another site in Origin or Sec-Fetch-Site"),
     "no_device": (400, "the request carries no device key in X-Review-Device: a fault in the page"),
     "device_waiting": (403, "the link already works on limits.devices_per_link other devices; it works on this "
                             "device once the translator approves it"),
@@ -197,20 +210,6 @@ def check_pairs(pairs, a, text, en):
     return pairs
 
 
-def device_agent(ua):
-    """A short description of a device from its User-Agent, so the translator can tell a reader's phone from
-    their computer: "iPhone, Safari", "Android, LINE", "Windows, Chrome"."""
-    ua = ua or ""
-    system = next((name for key, name in (("iPhone", "iPhone"), ("iPad", "iPad"), ("Android", "Android"),
-                                          ("Windows", "Windows"), ("Macintosh", "Mac"), ("CrOS", "ChromeOS"),
-                                          ("Linux", "Linux")) if key in ua), "")
-    browser = next((name for key, name in (("Line/", "LINE"), ("FBAN", "Facebook"), ("FBAV", "Facebook"),
-                                           ("Edg/", "Edge"), ("SamsungBrowser", "Samsung Internet"),
-                                           ("Firefox/", "Firefox"), ("FxiOS", "Firefox"), ("CriOS", "Chrome"),
-                                           ("Chrome/", "Chrome"), ("Safari/", "Safari")) if key in ua), "")
-    return ", ".join(x for x in (system, browser) if x) or "an unknown browser"
-
-
 def forget(conn, rows):
     """Delete comments (rows with id, client_id, reader, book and ch), inside the caller's transaction, and record
     each in comment_gone, so the next export of what changed names it, and a device that sends the comment again
@@ -228,7 +227,7 @@ def anchor_order(a):
     return tuple(int(x) for x in re.findall(r"\d+", a or ""))
 
 
-class App(People):
+class App(People, SignIn, Accounts):
     """The API as a WSGI callable over one data directory."""
 
     def __init__(self, data_dir, writes_per_minute=None, public_url=None, feature_list=None, limits=None):
@@ -240,10 +239,11 @@ class App(People):
         if writes_per_minute is not None:
             overrides["writes_per_minute"] = writes_per_minute
         self.limits = load_limits(self.data, overrides)
+        self.public_url = public_url
+        self.setup_auth()               # the sign-in settings: a wrong one stops the start, naming config.json
         self.registry = features.Registry(features.load() if feature_list is None else feature_list)
         db.init_db(self.db_path, [(f.name, f.migrations) for f in self.registry.features.values()])
         self.writes_per_minute = self.limits["writes_per_minute"]
-        self.public_url = public_url
         self.lock = threading.Lock()
         self.writes = {}                # reader id -> times of their other writes in the last minute
         self.made = {}                  # reader id -> times of their new comments in the last minute
@@ -263,6 +263,18 @@ class App(People):
             ("PUT", r"/api/finished", self.put_finished, "reader"),
             ("PUT", r"/api/opened", self.put_opened, "reader"),
             ("GET", rf"/api/earlier/{BOOK}/{CHAP}", self.earlier, "reader"),
+            # Signing in (server/auth.py). "page": only the site's own page may call it (X-Review-Page: 1);
+            # "account": a reader signed in with LINE or email, never a link's code.
+            ("GET", r"/api/auth/state", self.auth_state, "page"),
+            ("POST", r"/api/auth/claim", self.auth_claim, "page"),
+            ("POST", r"/api/auth/join", self.auth_join, "page"),
+            ("POST", r"/api/auth/line/start", self.line_start, "page"),
+            ("GET", r"/api/auth/line/callback", self.line_callback, None),
+            ("POST", r"/api/auth/email/start", self.email_start, "page"),
+            ("POST", r"/api/auth/email/finish", self.email_finish, "page"),
+            ("POST", r"/api/auth/logout", self.logout, "page"),
+            ("GET", r"/api/auth/sessions", self.my_sessions, "account"),
+            ("DELETE", rf"/api/auth/sessions/{NUM}", self.end_my_session, "account"),
             ("GET", r"/api/admin/chapters", self.admin_chapters, "admin"),
             ("PUT", rf"/api/admin/chapters/{BOOK}/{CHAP}", self.admin_publish, "admin"),
             ("DELETE", rf"/api/admin/chapters/{BOOK}/{CHAP}", self.admin_withdraw, "admin"),
@@ -287,6 +299,22 @@ class App(People):
             ("GET", r"/api/admin/export", self.admin_export, "admin"),
             ("POST", r"/api/admin/processed", self.admin_processed, "admin"),
             ("POST", r"/api/admin/replies", self.admin_replies, "admin"),
+            # Accounts (server/accounts.py): sign-in settings, sessions, identities, requests, general links.
+            ("GET", r"/api/admin/auth", self.admin_auth_status, "admin"),
+            ("POST", r"/api/admin/auth/check", self.admin_auth_check, "admin"),
+            ("POST", r"/api/admin/auth/test-mail", self.admin_test_mail, "admin"),
+            ("GET", r"/api/admin/sessions", self.admin_sessions, "admin"),
+            ("PATCH", r"/api/admin/sessions", self.admin_end_sessions, "admin"),
+            ("GET", r"/api/admin/identities", self.admin_identities, "admin"),
+            ("POST", r"/api/admin/identities", self.admin_add_identity, "admin"),
+            ("DELETE", rf"/api/admin/identities/{NUM}", self.admin_remove_identity, "admin"),
+            ("GET", r"/api/admin/requests", self.admin_requests, "admin"),
+            ("POST", rf"/api/admin/requests/{NUM}/approve", self.admin_approve_request, "admin"),
+            ("POST", rf"/api/admin/requests/{NUM}/decline", self.admin_decline_request, "admin"),
+            ("DELETE", rf"/api/admin/requests/{NUM}", self.admin_forget_request, "admin"),
+            ("GET", r"/api/admin/general-links", self.admin_general_links, "admin"),
+            ("POST", r"/api/admin/general-links", self.admin_new_general_link, "admin"),
+            ("PATCH", rf"/api/admin/general-links/{NUM}", self.admin_edit_general_link, "admin"),
         ]
         # (method, pattern, handler, auth, feature): feature is None for a core route.
         r = [route + (None,) for route in r]
@@ -338,9 +366,13 @@ class App(People):
                                     "tunnel that review.py opens.")
                 self.admin_auth(req)
                 req.limit = ADMIN_LIMIT
+            elif auth == "account":
+                self.reader_auth(req, session_only=True)
+            elif auth == "page":
+                self.page_guard(req)
             result = handler(req, *m.groups())
             status, payload = result[0], result[1]
-            extra = result[2] if len(result) > 2 else []
+            extra = list(result[2] if len(result) > 2 else []) + req.headers_out
             if payload is None or isinstance(payload, bytes):
                 return status, payload, extra
             return status, dumps(payload), extra
@@ -350,24 +382,18 @@ class App(People):
 
     # ---------- auth and limits ----------
 
-    def reader_auth(self, req):
-        """The reader of the link's code, on a device where the link works; otherwise ACCESS_ERRORS."""
-        m = TOKEN_RE.fullmatch(req.header("Authorization").strip())
-        if not m:
-            raise HTTPError(401, "no_code", "This link has no code. Ask the translator for a new link.")
-        row = req.conn.execute("SELECT * FROM reader WHERE code_hash = ?", (db.sha256(m.group(1)),)).fetchone()
-        if row is None or not row["active"]:
-            raise HTTPError(401, "bad_code", "This link does not work. Ask the translator for a new link.")
+    def device_check(self, req, reader):
+        """The device check of a link that signs in by itself (server/auth.py, reader_auth): the page's device key,
+        and the device's state for the reader's current link; otherwise no_device or device_waiting."""
         key = req.header(DEVICE_HEADER).strip()
         if not DEVICE_RE.fullmatch(key):
             raise HTTPError(400, "no_device", "The page sent no device key. Reload the page.")
-        state, number = self.device_state(req, row, key)
+        state, number = self.device_state(req, reader, key)
         if state != "ok":
             # The device's number, which the waiting page shows, so the reader can tell the translator which
             # device to approve; none for a device refused unrecorded (WAITING_MOST).
             raise HTTPError(403, "device_waiting", "This link already works on other devices. It works on this "
                             "device once the translator approves it.", details={"device": number})
-        req.reader = row
 
     def device_state(self, req, reader, key):
         """(state, number) of this device for the reader's current link: state is ok or waiting, and number is

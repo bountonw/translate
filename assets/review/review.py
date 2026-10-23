@@ -5,7 +5,9 @@ On this machine:  setup, serve --dev, backup, triage, align-packet
 On the server:    publish, withdraw, chapters, invite, readers, open, close,
                   revoke, restore, relink, english, feature, features, groups,
                   group, devices, device, rounds, round, export, processed,
-                  replies, delete-comments, admin
+                  replies, delete-comments, admin; and for signing in: signin,
+                  link-signs-in, sessions, session, signout, identities,
+                  identity, unbind, requests, request, general-link
 
 Reader commands take several names. Each command that changes something ends
 with one plain sentence saying what changed.
@@ -615,9 +617,10 @@ def groups_by_name(client):
     return {g["name"].casefold(): g for g in client.call("GET", "/api/admin/groups")["groups"]}
 
 
-def describe(r, groups=None):
+def describe(r, groups=None, auth=None):
     """One line for a reader: the own grants, the chapters each group that is on gives, and the groups,
-    with (off) after a group that is switched off. groups is groups_by_name()."""
+    with (off) after a group that is switched off, the devices of the link, and how the reader signs in.
+    groups is groups_by_name(); auth is GET /api/admin/auth, needed only where needs_auth(r) says so."""
     groups = groups or {}
     state = "active" if r["active"] else "revoked"
     reads = [f"own: {specs.compact(r['grants']) or 'nothing'}"]
@@ -636,15 +639,18 @@ def describe(r, groups=None):
     if dev.get("full"):
         devices += ("; the link was tried on too many devices, and a further device is not even listed: give a new "
                     f"link with: {reader_command('relink', [r['name']], '')}")
+    signin = signin_note(r, auth)
     return (f"{r['name']}: {state}; {'; '.join(reads)}{member}; "
             f"English {english_note(r)}; {count(r['comments'], 'comment')}; "
-            f"last active {r['last_active'] or 'never'}{devices}")
+            f"last active {r['last_active'] or 'never'}{devices}{'; ' + signin if signin else ''}")
 
 
 def describe_all(client, readers):
-    """describe() for each reader, asking for the groups once, and only when a reader has one."""
+    """describe() for each reader, asking for the groups once, and only when a reader has one, and for the sign-in
+    settings once, and only when a reader's line depends on them."""
     groups = groups_by_name(client) if any(r.get("groups") for r in readers) else {}
-    return [describe(r, groups) for r in readers]
+    auth = auth_status(client) if any(needs_auth(r) for r in readers) else None
+    return [describe(r, groups, auth) for r in readers]
 
 
 def off_groups_note(client, names):
@@ -676,7 +682,11 @@ def setting_key(name):
 
 def cmd_setup(a):
     data = Path(a.data).expanduser()
-    token_path, created = db.setup(data, a.public_url, a.new_token)
+    try:
+        token_path, created = db.setup(data, a.public_url, a.new_token)
+    except ValueError as e:
+        # config.json that is not valid JSON: setup never writes over it.
+        raise CLIError(f"{e}\nNothing changed.")
     print(f"Data directory: {data}")
     print(f"Database: {data / db.DB_NAME}")
     if created:
@@ -697,7 +707,10 @@ def cmd_serve(a):
     from server.app import App
     data = Path(a.data).expanduser()
     if not (data / db.TOKEN_HASH).exists():
-        token_path, _ = db.setup(data)
+        try:
+            token_path, _ = db.setup(data)
+        except ValueError as e:
+            raise CLIError(f"{e}\nThe site did not start.")
         print(f"Created the data directory {data}. Admin token file: {token_path}")
     if not (WEB / "index.html").exists():
         print(f"Note: {WEB / 'index.html'} does not exist yet; only the API answers.")
@@ -713,7 +726,7 @@ def cmd_serve(a):
         raise CLIError(f"Port {a.port} is in use. Is serve --dev already running? "
                        f"Stop it, or pass --port {a.port + 1}.")
     except ValueError as e:
-        # A wrong limit in config.json: App() names the file and the setting.
+        # A wrong setting in config.json, or a config.json that is not valid JSON: App() names the file.
         raise CLIError(f"{e}\nThe site did not start.")
     print(f"Serving http://127.0.0.1:{a.port}/ from {WEB} with data in {data}. Stop with Ctrl-C.", flush=True)
     try:
@@ -950,9 +963,9 @@ def read_invites(path):
 
 def cmd_invite(a, client):
     if a.file:
-        if a.name or a.grant or a.group or a.english:
-            raise CLIError("invite --from FILE takes everything from the file; give no name, --grant, --group "
-                           "or --english with it.")
+        if a.name or a.grant or a.group or a.english or a.link_signs_in:
+            raise CLIError("invite --from FILE takes everything from the file; give no name, --grant, --group, "
+                           "--english or --link-signs-in with it.")
         rows, columns, extras = read_invites(a.file)
         out = LinksFile(client, "invite")
         try:
@@ -976,8 +989,10 @@ def cmd_invite(a, client):
     if a.name.strip().startswith(FORMULA_START):
         raise CLIError("A reader name may not start with =, +, - or @, which a spreadsheet may run as a formula.")
     grants = checked_grants(a.grant or [])
-    res = client.call("POST", "/api/admin/readers", {"name": a.name, "grants": labels(grants),
-                                                     "groups": a.group or [], "english": a.english})
+    body = {"name": a.name, "grants": labels(grants), "groups": a.group or [], "english": a.english}
+    if a.link_signs_in:
+        body["link_signs_in"] = True
+    res = client.call("POST", "/api/admin/readers", body)
     groups = f"; groups {', '.join(res['groups'])}" if res["groups"] else ""
     print(f"{res['name']} can read {specs.compact(res['grants']) or 'nothing of their own'}{groups}; "
           f"English {english_note(res)}.")
@@ -986,7 +1001,10 @@ def cmd_invite(a, client):
     a.result = {"id": res["id"], "name": res["name"], "link": res["link"]}
     print("Send this link to the reader. It is shown only this once:")
     print(res["link"])
-    print(f"{res['name']} is invited; the link works on the first devices that open it.")
+    if res.get("link_signs_in"):
+        print(f"{res['name']} is invited; the link signs in by itself and works on the first devices that open it.")
+    else:
+        print(f"{res['name']} is invited; the link {new_link_phrase(auth_status(client))}.")
 
 
 def code_of(link):
@@ -1000,7 +1018,7 @@ def code_of(link):
 def cmd_readers(a, client):
     query = {"group": a.group, "book": (a.book or "").upper(), "revoked": "1" if a.revoked else "",
              "idle": "" if a.inactive is None else str(a.inactive), "contains": a.name_part or "",
-             "devices": "1" if a.devices else "",
+             "devices": "1" if a.devices else "", "identity": a.identity or "",
              # The code never leaves this computer: the server stores only its SHA-256, and is asked by that.
              "code_hash": hashlib.sha256(code_of(a.link).encode()).hexdigest() if a.link else ""}
     res = client.call("GET", "/api/admin/readers", query=query)
@@ -1099,22 +1117,57 @@ def cmd_restore(a, client):
 
 
 def set_active(client, names, active):
-    """Stop the readers' links (revoke) or make them work again (restore)."""
+    """Stop the readers (revoke): the link, LINE and email open nothing and the browsers signed in are refused; or
+    let them read again (restore). The sentences name the reader's access, since a reader who signs in with LINE or
+    email no longer reads through the link, which stays used."""
     readers = find_readers(client, names)
     todo = [r for r in readers if r["active"] != active]
     same = [r["name"] for r in readers if r["active"] == active]
     if not todo:
-        print(f"Nothing changed: the link of {and_list(same)} already {'works' if active else 'is stopped'}.")
+        print(f"Nothing changed: {and_list(same)} {'is' if len(same) == 1 else 'are'} "
+              f"{'not stopped' if active else 'already stopped'}.")
         return
     done = change_readers(client, [(r, {"active": active}) for r in todo])
-    who = and_list(r["name"] for r in done)
-    one = len(done) == 1
-    rest = f"; {and_list(same)} already {'worked' if active else 'was stopped'}" if same else ""
-    if active:
-        print(f"The {'link' if one else 'links'} of {who} {'works' if one else 'work'} again{rest}.")
-    else:
-        print(f"The {'link' if one else 'links'} of {who} {'is' if one else 'are'} stopped: "
-              f"{'it opens' if one else 'they open'} nothing now, and the comments are kept{rest}.")
+    auth = auth_status(client)
+    rest = (f"; {and_list(same)} {'was' if len(same) == 1 else 'were'} "
+            f"{'not stopped' if active else 'already stopped'}") if same else ""
+    if not active:
+        who, one = and_list(r["name"] for r in done), len(done) == 1
+        routes = (auth or {}).get("routes") or {}
+        ways = ["the link" if one else "the links"] + [w for k, w in (("line", "LINE"), ("email", "email"))
+                                                       if routes.get(k)]
+        n = sum(r.get("sessions") or 0 for r in done)
+        refused = f", and the {count(n, 'browser')} signed in {'is' if n == 1 else 'are'} refused;" if n else ", and"
+        print(f"{who} {'is' if one else 'are'} stopped: {and_list(ways)} {'opens' if len(ways) == 1 and one else 'open'} "
+              f"nothing now{refused} the comments are kept{rest}.")
+        return
+    # Restored: a link that signs in by itself works again; a reader who signs in with LINE or email has the browsers
+    # signed in back and signs in as before; a reader whose link was used and who has no LINE account or address left
+    # needs a new link.
+    alone = [r for r in done if link_alone(r, auth)]
+    used = [r for r in done if r not in alone and r.get("link_used") and not r.get("identities")]
+    signs = [r for r in done if r not in alone and r not in used]
+    said = []
+    if alone:
+        who, one = and_list(r["name"] for r in alone), len(alone) == 1
+        said.append(f"The {'link' if one else 'links'} of {who} {'works' if one else 'work'} again")
+    if signs:
+        who, one = and_list(r["name"] for r in signs), len(signs) == 1
+        n = sum(r.get("sessions") or 0 for r in signs)
+        back = f"the {count(n, 'browser')} signed in {'works' if n == 1 else 'work'} again, and " if n else ""
+        said.append(f"{who} can read again: {back}{who + ' signs' if one else 'they sign'} in with {routes_on(auth)}")
+    if said:
+        said[0] += rest
+    elif rest:
+        said.append(rest[2:])
+    for line in said:
+        print(line + ".")
+    if used:
+        # Last, so that the line ends with the command, as the admin page's button for relink needs (admin/ui.js).
+        names_used = [r["name"] for r in used]
+        print(f"{and_list(names_used)} can read again only through a new link, because the "
+              f"{'link was' if len(used) == 1 else 'links were'} used and no LINE account or address signs in now: "
+              f"{reader_command('relink', names_used, '')}")
 
 
 def setting_default(client, key):
@@ -1191,10 +1244,12 @@ def cmd_relink(a, client):
     written to a links file."""
     if bool(a.names) == bool(a.group):
         raise CLIError("Name the readers, or give --group G for every member of a group.")
+    body = {"unbind": True} if a.unbind else {}
     if a.names:
         readers = find_readers(client, a.names)
         stopped = {r["id"] for r in readers if not r["active"]}
-        res = client.call("POST", "/api/admin/readers/codes", {"ids": [r["id"] for r in readers]})["readers"]
+        alone = {r["id"] for r in readers if r.get("link_signs_in")}
+        res = client.call("POST", "/api/admin/readers/codes", dict(body, ids=[r["id"] for r in readers]))["readers"]
         a.result = {"readers": [{"id": r["id"], "name": r["name"], "link": r["link"],
                                  "stopped": stopped_line([r["name"]]) if r["id"] in stopped else ""} for r in res]}
         if len(res) == 1:
@@ -1205,25 +1260,54 @@ def cmd_relink(a, client):
         off = [r["name"] for r in res if r["id"] in stopped]
         if off:
             print(stopped_line(off))
-        works = [r["name"] for r in res if r["id"] not in stopped]
-        who = and_list(r["name"] for r in res)
-        tail = (f", and a new link works on the first devices that open it" if not off else
-                f"; the new {'link' if len(works) == 1 else 'links'} of {and_list(works)} "
-                f"{'works' if len(works) == 1 else 'work'} on the first devices that open "
-                f"{'it' if len(works) == 1 else 'them'}" if works else "")
-        print(f"{who} {'has a new link' if len(res) == 1 else 'have new links'}; the old "
-              f"{'link no longer works' if len(res) == 1 else 'links no longer work'}{tail}.")
+        # How each reader signs in after the new link: the identities kept, or those unbound.
+        fresh = [r for r in res if r["id"] not in stopped and not r.get("identities")]
+        auth = auth_status(client) if any(r["id"] not in alone for r in fresh) else None
+        if len(res) > 1:
+            for r in res:
+                if r.get("unbound"):
+                    print(f"{unbound_text(r)} no longer {'signs' if len(r['unbound']) == 1 else 'sign'} in to "
+                          f"{r['name']}, and {signed_out_text(r.get('sessions_ended', 0))}.")
+                elif r.get("identities"):
+                    print(f"{r['name']} still signs in with {unbound_text(r, 'identities')}.")
+        if len(res) == 1:
+            r = res[0]
+            if r.get("unbound"):
+                tail = (f", {unbound_text(r)} no longer {'signs' if len(r['unbound']) == 1 else 'sign'} in, and "
+                        f"{signed_out_text(r.get('sessions_ended', 0))}")
+            elif r.get("identities"):
+                tail = f", and {r['name']} still signs in with {unbound_text(r, 'identities')}"
+            elif r["id"] in stopped:
+                tail = ""
+            else:
+                tail = f", and the new link {new_link_phrase(auth, r['id'] in alone)}"
+            print(f"{r['name']} has a new link; the old link no longer works{tail}.")
+            return
+        tails = []
+        for kind in (True, False):      # the new links that sign in by themselves, then the others
+            group = [r["name"] for r in fresh if (r["id"] in alone) == kind]
+            if group:
+                one = len(group) == 1
+                tails.append(f"the new {'link' if one else 'links'} of {and_list(group)} "
+                             f"{new_link_phrase(auth, kind, plural=not one)}")
+        ended = sum(r.get("sessions_ended", 0) for r in res)
+        if ended:
+            tails.append(f"{signed_out_text(ended)} in all")
+        print(f"{and_list(r['name'] for r in res)} have new links; the old links no longer work"
+              + "".join("; " + x for x in tails) + ".")
         return
     find_group(client, a.group)
     readers = client.call("GET", "/api/admin/readers", query={"group": a.group})["readers"]
     if not readers:
         raise CLIError(f"The group {a.group} has no members. Add them with: review.py group add {a.group} NAME")
     if len(readers) > 1 and not a.yes:
-        confirm(f"This gives {len(readers)} readers of {a.group} new links, and their old links stop working.",
+        more = " Their LINE accounts and addresses no longer sign in, and their browsers are signed out." \
+            if a.unbind else ""
+        confirm(f"This gives {len(readers)} readers of {a.group} new links, and their old links stop working.{more}",
                 len(readers))
     out = LinksFile(client, "relink")
     try:
-        res = client.call("POST", "/api/admin/readers/codes", {"ids": [r["id"] for r in readers]})
+        res = client.call("POST", "/api/admin/readers/codes", dict(body, ids=[r["id"] for r in readers]))
     except CLIError:
         out.discard()
         raise
@@ -1233,7 +1317,15 @@ def cmd_relink(a, client):
     off = [r["name"] for r in readers if not r["active"]]
     if off:
         print(stopped_line(off))
-    print(f"{count(len(res['readers']), 'reader')} of {a.group} have new links; the old links no longer work.")
+    tail = ""
+    if a.unbind:
+        n = sum(len(r.get("unbound") or []) for r in res["readers"])
+        ended = sum(r.get("sessions_ended", 0) for r in res["readers"])
+        tail = (f"; {'1 LINE account or address no longer signs' if n == 1 else f'{n} LINE accounts and addresses no longer sign'}"
+                f" in, and {signed_out_text(ended)}")
+    one = len(res["readers"]) == 1
+    print(f"{count(len(res['readers']), 'reader')} of {a.group} {'has a new link' if one else 'have new links'}; the "
+          f"old {'link no longer works' if one else 'links no longer work'}{tail}.")
 
 
 # ---------- groups ----------
@@ -1358,7 +1450,15 @@ def cmd_group(a, client):
     if act == "remove":
         res = client.call("DELETE", path)
         lines = still_open(client, g, opened(g["grants"], published), gone=True) if g["active"] else []
-        end = f"The group {res['name']} is removed; its {count(res['members'], 'member')} keep their own chapters."
+        end = f"The group {res['name']} is removed; its {count(res['members'], 'member')} keep their own chapters"
+        links, waiting = res.get("general_links", 0), res.get("requests_waiting", 0)
+        if links:
+            end += "; its general link no longer takes requests"
+        if waiting:
+            end += (f"; its {count(waiting, 'waiting request')} {'needs' if waiting == 1 else 'need'} chapters or a "
+                    f"group when you approve {'it' if waiting == 1 else 'them'}: review.py request approve NUMBER "
+                    "--grant SC01, or --group GROUP")
+        end += "."
     elif act in ("on", "off"):
         if g["active"] == (act == "on"):
             print(f"Nothing changed: the group {g['name']} is already {act}.")
@@ -2146,6 +2246,599 @@ def cmd_device(a, client):
         print(f"{word} {be} removed: {links} no longer {works} on {it}{rest}.")
 
 
+# ---------- signing in ----------
+# Readers sign in with LINE or a six-digit code sent by email (README.md, "One person per account"). These
+# commands show the sign-in settings and the mailer, the browsers signed in, the LINE accounts and addresses
+# readers sign in with, the switch "Link signs in", the requests to read, and the general links of groups.
+
+VIA = {"line": "LINE", "email": "an email code", "dev": "the dev server's Enter as"}
+ENDED_BY = {"reader": "by the reader", "translator": "by you", "unbind": "when its LINE account or address was removed",
+            "relink": "by a new link that removed the reader's LINE accounts and addresses",
+            "signin": "when the browser signed in as another reader"}
+
+
+def auth_status(client):
+    """GET /api/admin/auth: the sign-in routes switched on and the settings of config.json, without any secret."""
+    return client.call("GET", "/api/admin/auth")
+
+
+def routes_on(auth):
+    """The sign-in routes switched on, in words: 'LINE or email', 'LINE', 'email', or ''."""
+    routes = (auth or {}).get("routes") or {}
+    return " or ".join(w for k, w in (("line", "LINE"), ("email", "email")) if routes.get(k))
+
+
+def link_alone(r, auth):
+    """Whether the reader's link signs in by itself, as server/auth.py decides it (link_alone): with "Link signs
+    in" on, or while no sign-in route is on; otherwise only while the link is unused, the reader has no identity,
+    and auth.require_identity is false."""
+    if r.get("link_signs_in") or not routes_on(auth):
+        return True
+    if r.get("link_used") or (auth or {}).get("require_identity"):
+        return False
+    return not r.get("identities")
+
+
+def needs_auth(r):
+    """Whether a reader's line depends on the sign-in settings: a reader with no identity and an unused link."""
+    return not r.get("link_signs_in") and not r.get("identities") and not r.get("link_used")
+
+
+def new_link_phrase(auth, alone=False, plural=False):
+    """What a new or fresh link does, after "the link" or "the new links of A and B": it signs in by itself on the
+    first devices that open it, or it is used once to sign in with LINE or email."""
+    it, works, them = ("they", "work", "them") if plural else ("it", "works", "it")
+    ways = routes_on(auth)
+    if alone or not ways:
+        return f"{works} on the first devices that open {them}"
+    used = "are used once" if plural else "is used once"
+    if (auth or {}).get("require_identity"):
+        return f"{used}, to sign in with {ways}"
+    return f"{used}, to sign in with {ways}, and until then {works} by {'themselves' if plural else 'itself'} on " \
+           f"the first devices that open {them}"
+
+
+def identity_text(i):
+    """An identity as a sentence names it: 'LINE (LINE tester 1)' or 'anan@example.org'."""
+    return f"LINE ({i['display']})" if i["provider"] == "line" else i["display"]
+
+
+def unbound_text(r, key="unbound"):
+    """The identities of a new link's answer, as a list in a sentence."""
+    return and_list(identity_text(i) for i in r.get(key) or [])
+
+
+def signed_out_text(n):
+    """'1 browser is signed out', '3 browsers are signed out', 'no browser was signed in'."""
+    if not n:
+        return "no browser was signed in"
+    return f"{count(n, 'browser')} {'is' if n == 1 else 'are'} signed out"
+
+
+def signin_note(r, auth=None):
+    """How the reader signs in, for the reader's line: the identities and the browsers signed in, the switch "Link
+    signs in", a link used whose identities were all removed, or, with auth, a reader with no identity and an unused
+    link: one who has not signed in yet, or one who signed in before (first_signin) and whose LINE accounts and
+    addresses were all removed, as relink --unbind does. A revoked reader's link opens nothing, so that reader's
+    line says nothing of what the link does."""
+    active = r.get("active", True)
+    if r.get("link_signs_in"):
+        return "the link signs in by itself (Link signs in)" if active else "Link signs in is on"
+    if r.get("identities"):
+        n = r.get("sessions") or 0
+        seen = f", last seen {stamp_text(r['last_seen'])}" if n and r.get("last_seen") else ""
+        browsers = f"{count(n, 'browser')} signed in{seen}" if n else "no browser signed in"
+        return f"signs in with {and_list(identity_text(i) for i in r['identities'])}; {browsers}"
+    if r.get("link_used"):
+        return (f"the link was used, and no LINE account or address signs in now: give a new link with: "
+                f"{reader_command('relink', [r['name']], '')}")
+    if auth is None or not routes_on(auth):
+        return ""
+    ways = routes_on(auth)
+    if r.get("first_signin"):
+        said = "has no LINE account or address now"
+        alone = f"the link signs in by itself until the next sign-in with {ways}"
+    else:
+        said, alone = f"has not signed in with {ways} yet", "the link still signs in by itself"
+    if not active or auth.get("require_identity"):
+        return said
+    return f"{said}, so {alone}"
+
+
+def cmd_signin(a, client):
+    """signin: the sign-in settings; signin check: whether the API reaches LINE and the mailer; signin test-mail
+    ADDRESS: a test mail now."""
+    if a.action == "check":
+        if a.address:
+            raise CLIError("signin check takes nothing more: review.py signin check")
+        res = client.call("POST", "/api/admin/auth/check")
+        a.result = res
+        for key, label in (("line", "LINE"), ("mail", "Mail")):
+            x = res[key]
+            state = "off" if not x["on"] else ("works" if x["ok"] else "FAILED")
+            print(f"{label}: {state}. {x['detail']}")
+        failed = [label for key, label in (("line", "LINE"), ("mail", "the mailer")) if res[key]["on"] and not res[key]["ok"]]
+        if failed:
+            raise CLIError(f"The check of {and_list(failed)} failed; the lines above say why. Nothing changed.")
+        print("Nothing changed: the check signs no one in and sends no mail.")
+        return
+    if a.action == "test-mail":
+        if not a.address:
+            raise CLIError("Name the address: review.py signin test-mail ADDRESS")
+        res = client.call("POST", "/api/admin/auth/test-mail", {"to": a.address})
+        a.result = res
+        if not res["sent"]:
+            raise CLIError(f"The test mail to {res['to']} was not sent: {res['detail']}")
+        print(f"A test mail went to {res['to']}.")
+        return
+    if a.address:
+        raise CLIError("Write: review.py signin, review.py signin check, or review.py signin test-mail ADDRESS")
+    res = auth_status(client)
+    a.result = res
+    for line in signin_lines(res):
+        print(line)
+
+
+def mail_text(m):
+    """The mailer of GET /api/admin/auth in words."""
+    if not m:
+        return 'none: config.json has no "mail", so no sign-in code or note can be sent'
+    sender = f"{m.get('from_name')} <{m['from']}>" if m.get("from_name") else m["from"]
+    if m["provider"] == "smtp":
+        login = "with a login" if m.get("user") else "without a login"
+        return f"smtp through {m['host']}:{m['port']}, security {m['security']}, {login}, from {sender}"
+    if m["provider"] == "resend":
+        return f"Resend's API at {m.get('url', 'https://api.resend.com')}, from {sender}"
+    return f"written to files in {m.get('dir')}, from {sender} (no mail leaves this computer)"
+
+
+MAIL_KINDS = {"code": "a sign-in code", "notify": "a note to you", "approved": "a note to an approved requester",
+              "test": "a test mail"}
+
+
+def mail_log_line(m):
+    result = "sent" if m["ok"] else f"NOT sent: {m['detail']}"
+    return f"{stamp_text(m['at'])}, {MAIL_KINDS.get(m['kind'], m['kind'])} by {m['provider']}: {result}"
+
+
+def signin_lines(res):
+    """The lines of review.py signin."""
+    line = res.get("line")
+    out = [f"Sign-in with LINE: on, channel {line['channel_id']}; LINE sends readers back to {line['callback']}."
+           if line else "Sign-in with LINE: off (config.json has no auth.line).",
+           "Sign-in with a six-digit email code: " + ("on." if res["routes"].get("email") else
+                                                     "off (config.json has no auth.email: true).")]
+    if not routes_on(res):
+        out.append("No sign-in route is on, so every reader's link signs in by itself, with the two-device lock.")
+    elif res["require_identity"]:
+        out.append("A link alone signs in only readers with Link signs in on (auth.require_identity is true).")
+    else:
+        out.append("A link alone also signs in a reader who has not signed in with "
+                   f"{routes_on(res)} yet (auth.require_identity is false).")
+    out.append(f"A browser stays signed in for {count(res['session_days'], 'day')} after its last visit.")
+    out.append(f"Mail: {mail_text(res.get('mail'))}.")
+    n = res.get("notify") or {}
+    if n.get("email"):
+        what = [w for k, w in (("requests", "each new request"), ("first_signin", "each reader's first sign-in"))
+                if n.get(k)]
+        sent = "" if n.get("on") else "; no mailer, so none is sent"
+        out.append(f"Notes to you: to {n['email']}, for {and_list(what) if what else 'nothing (both switches are off)'}"
+                   f"{sent}.")
+    else:
+        out.append("Notes to you: none (config.json has no notify.email); the admin page and the commands show "
+                   "requests and first sign-ins.")
+    inv = res.get("invite") or {}
+    out.append(f"Invite links: {'end with ?openExternalBrowser=1' if inv.get('external_browser') else 'without ?openExternalBrowser=1'}"
+               f"; a general link lasts {count(inv.get('general_days', 90), 'day')} and takes "
+               f"{count(inv.get('general_uses', 100), 'request')}.")
+    last = f"Last mail: {mail_log_line(res['last_mail'])}" if res.get("last_mail") else "Last mail: none since the log began"
+    out.append(last if last.endswith(".") else last + ".")
+    ll = res.get("last_line")
+    out.append(("Last LINE sign-in that came back: " + stamp_text(ll["at"]) +
+                (", signed in." if ll["ok"] else f", refused: {ll['detail']}")) if ll else
+               "Last LINE sign-in that came back: none since the API started.")
+    if res.get("dev"):
+        out.append("This is the dev server: LINE goes to a stand-in and mail to files.")
+    waiting = res.get("requests_open", 0)
+    out.append(f"{count(waiting, 'request')} waiting for you; {count(res.get('sessions_active', 0), 'browser')} "
+               "signed in." + (" List them with: review.py requests" if waiting else ""))
+    return out
+
+
+def cmd_link_signs_in(a, client):
+    """link-signs-in NAME [NAME ...] on|off: the switch "Link signs in" for each reader, for a reader with neither
+    LINE nor email: the link then signs in by itself, with the two-device lock."""
+    names, (state,) = names_and_last(a.args, 1, "link-signs-in NAME [NAME ...] on|off")
+    if state not in ("on", "off"):
+        raise CLIError(f"Write on or off at the end, not {state!r}: review.py link-signs-in NAME [NAME ...] on")
+    on = state == "on"
+    readers = find_readers(client, names)
+    todo = [r for r in readers if bool(r.get("link_signs_in")) != on]
+    same = [r["name"] for r in readers if r not in todo]
+    if not todo:
+        print(f"Nothing changed: Link signs in is already {state} for {and_list(same)}.")
+        return
+    done = change_readers(client, [(r, {"link_signs_in": on}) for r in todo])
+    a.result = {"readers": done}
+    auth = auth_status(client)
+    rest = f"; it was already {state} for {and_list(same)}" if same else ""
+    # A revoked reader's link, LINE and email open nothing whatever the switch says, so the sentence of that reader
+    # says that the reader stays stopped and ends with the restore that ends it.
+    live = [r for r in done if r.get("active", True)]
+    stopped = [r["name"] for r in done if not r.get("active", True)]
+    if stopped:
+        one = len(stopped) == 1
+        whose = (f"the {'link' if one else 'links'} of {and_list(stopped)}" if on else and_list(stopped)) + \
+            (" stays" if one else " stay")
+        stopped_line = (f"Link signs in is now {state} for {and_list(stopped)}{'' if live else rest}; {whose} stopped "
+                        f"until: {reader_command('restore', stopped, '')}")
+    who = and_list(r["name"] for r in live) if live else None
+    if on:
+        if live:
+            one = len(live) == 1
+            print(f"Link signs in is now on for {who}: the "
+                  f"{'link signs in by itself' if one else 'links sign in by themselves'}, with the two-device lock{rest}.")
+        if stopped:
+            print(stopped_line)
+        return
+    if live:
+        if not routes_on(auth):
+            print("No sign-in route is on in config.json, so every link still signs in by itself.")
+        else:
+            # A reader who signed in before has had every LINE account and address removed (signin_note).
+            still = [r for r in live if link_alone(r, auth)]
+            new = [r["name"] for r in still if not r.get("first_signin")]
+            again = [r["name"] for r in still if r.get("first_signin")]
+            if new:
+                print(f"{and_list(new)} {'has' if len(new) == 1 else 'have'} not signed in with {routes_on(auth)} yet, "
+                      f"so until then the link still signs in by itself.")
+            if again:
+                print(f"{and_list(again)} {'has' if len(again) == 1 else 'have'} no LINE account or address now, so "
+                      f"the link signs in by itself until the next sign-in with {routes_on(auth)}.")
+        ways = f": {'they sign' if len(live) > 1 else who + ' signs'} in with {routes_on(auth)}" if routes_on(auth) else ""
+        print(f"Link signs in is now off for {who}{ways}{rest}.")
+    if stopped:
+        print(stopped_line)
+
+
+def session_days(s):
+    """The days a session lasted after its last visit: auth.session_days of the site when it was last seen."""
+    try:
+        gap = db.parse_stamp(s["expires"]) - db.parse_stamp(s["last_seen"])
+    except (KeyError, TypeError, ValueError):
+        return 0
+    return max(0, round(gap.total_seconds() / 86400))
+
+
+def describe_session(s):
+    """One line for a browser signed in: its number, reader, browser, how it signed in, and when."""
+    how = VIA.get(s["via"], s["via"])
+    if s.get("identity"):
+        how += f" as {s['identity']['display']}" if s["identity"]["provider"] == "line" else \
+            f" to {s['identity']['display']}"
+    if s["active"]:
+        state = f"signed in until {stamp_text(s['expires'])} unless visited again"
+    elif s.get("ended"):
+        state = f"signed out {stamp_text(s['ended'])} {ENDED_BY.get(s.get('ended_by'), '')}".rstrip()
+    else:
+        state = f"ran out {stamp_text(s['expires'])}, {count(session_days(s), 'day')} after its last visit"
+    return (f"{s['id']}. {s['name']}: {s['agent']}; signed in with {how} on {stamp_text(s['created'])}; last seen "
+            f"{stamp_text(s['last_seen'])}; {state}")
+
+
+def cmd_sessions(a, client):
+    """sessions [NAME ...] [--all]: the browsers signed in now, of every reader or of those named; --all adds those
+    that ended in the last 90 days."""
+    found = []
+    query = {"all": "1" if a.all else ""}
+    if a.names:
+        for r in find_readers(client, a.names):
+            found += client.call("GET", "/api/admin/sessions", query=dict(query, reader=str(r["id"])))["sessions"]
+    else:
+        found = client.call("GET", "/api/admin/sessions", query=query)["sessions"]
+    for s in found:
+        print(describe_session(s))
+    a.result = {"sessions": found}
+    active = sum(1 for s in found if s["active"])
+    if not found:
+        print("No browser is signed in" + (f" for {and_list(a.names)}." if a.names else "."))
+    else:
+        print(f"{count(len(found), 'browser')}, {active} signed in now. Sign one out with: review.py session end "
+              "NUMBER" if a.all else f"{count(active, 'browser')} signed in. Sign one out with: review.py session end "
+              "NUMBER")
+
+
+def cmd_session(a, client):
+    """session end NUMBER [NUMBER ...]: those browsers are signed out at their next request."""
+    ids = list(dict.fromkeys(parse_ids(a.ids)))
+    res = client.call("PATCH", "/api/admin/sessions", {"ids": ids})
+    a.result = res
+    for s in res["sessions"]:
+        print(describe_session(s))
+    if res["missing"]:
+        raise CLIError(f"No browser numbered {names_text(map(str, res['missing']))}; the others are as listed.")
+    ended = set(res["ended"])
+    done = [s for s in res["sessions"] if s["id"] in ended]
+    same = [str(s["id"]) for s in res["sessions"] if s["id"] not in ended]
+    rest = f"; {'browser' if len(same) == 1 else 'browsers'} {and_list(same)} {'was' if len(same) == 1 else 'were'} " \
+           "signed out already" if same else ""
+    if not done:
+        print(f"Nothing changed: {'browser' if len(same) == 1 else 'browsers'} {and_list(same)} "
+              f"{'was' if len(same) == 1 else 'were'} signed out already.")
+        return
+    if len(done) == 1:
+        which = f"Browser {done[0]['id']} of {done[0]['name']} ({done[0]['agent']}) is"
+    else:
+        by_reader = {}
+        for s in done:
+            by_reader.setdefault(s["name"], []).append(str(s["id"]))
+        which = "Browsers " + and_list(f"{and_list(ids)} of {name}" for name, ids in by_reader.items()) + " are"
+    print(f"{which} signed out{rest}.")
+
+
+def cmd_signout(a, client):
+    """signout NAME [NAME ...]: every browser of those readers is signed out at its next request."""
+    readers = find_readers(client, a.names)
+    res = client.call("PATCH", "/api/admin/sessions", {"readers": [r["id"] for r in readers]})
+    a.result = res
+    for s in res["sessions"]:
+        print(describe_session(s))
+    n = len(res["ended"])
+    who = and_list(r["name"] for r in readers)
+    if not n:
+        print(f"Nothing changed: {who} {'is' if len(readers) == 1 else 'are'} signed in on no browser.")
+        return
+    print(f"{who} {'is' if len(readers) == 1 else 'are'} signed out on {count(n, 'browser')}; "
+          "the reader signs in again with LINE or email.")
+
+
+def describe_identity(i):
+    used = f"last used {stamp_text(i['last_used'])}" if i.get("last_used") else "not used yet"
+    return (f"{i['id']}. {i['name']}: {identity_text(i)}; added {stamp_text(i['created'])}, {used}; "
+            f"{count(i.get('sessions') or 0, 'browser')} signed in")
+
+
+def cmd_identities(a, client):
+    """identities [NAME ...]: the LINE accounts and addresses readers sign in with."""
+    found = []
+    if a.names:
+        for r in find_readers(client, a.names):
+            found += client.call("GET", "/api/admin/identities", query={"reader": str(r["id"])})["identities"]
+    else:
+        found = client.call("GET", "/api/admin/identities")["identities"]
+    for i in found:
+        print(describe_identity(i))
+    a.result = {"identities": found}
+    if not found:
+        print(("No LINE account or address signs in to " + and_list(a.names) + " yet.") if a.names else
+              "No reader signs in with LINE or email yet.")
+    else:
+        print(f"{count(len(found), 'way')} of signing in. Remove one with: review.py unbind NUMBER")
+
+
+def cmd_identity(a, client):
+    """identity add NAME ADDRESS: the reader can sign in with a code sent to that address, without the link."""
+    (r,) = find_readers(client, [a.name])
+    res = client.call("POST", "/api/admin/identities", {"reader": r["id"], "address": a.address})
+    a.result = res
+    print(describe_identity(res))
+    if not res.get("added"):
+        print(f"Nothing changed: {r['name']} already signs in with {res['display']}.")
+        return
+    if not r["active"]:
+        # A revoked reader gets no sign-in code (server/auth.py), so the sentence ends with the restore.
+        print(f"{r['name']} will sign in with a code sent to {res['display']} once restored: "
+              f"{reader_command('restore', [r['name']], '')}")
+        return
+    print(f"{r['name']} can now sign in with a code sent to {res['display']}.")
+
+
+def cmd_unbind(a, client):
+    """unbind NUMBER [NUMBER ...]: the LINE account or address of each number (review.py identities) no longer
+    signs in, and the browsers it signed in are signed out."""
+    ids = list(dict.fromkeys(parse_ids(a.ids)))
+    done, missing = [], []
+    for iid in ids:
+        try:
+            done.append(client.call("DELETE", f"/api/admin/identities/{iid}"))
+        except CLIError as e:
+            if "404" not in str(e):
+                raise
+            missing.append(str(iid))
+    a.result = {"unbound": done, "missing": missing}
+    auth = None
+    # First what a reader left with no way to sign in can do, then what changed, one sentence for each.
+    for res in done:
+        if not res["identities_left"]:
+            auth = auth or auth_status(client)
+            found = client.call("GET", "/api/admin/readers", query={"name": res["name"]})["readers"]
+            r = next((x for x in found if x["id"] == res["reader"]), None)
+            if r is not None and not r["active"]:
+                # A revoked reader's link opens nothing, whatever it would do once restored (signin_note).
+                print(f"{res['name']} has no LINE account or address left, and the link of {res['name']} stays "
+                      "stopped.")
+            elif r is not None and link_alone(r, auth):
+                print(f"{res['name']} has no LINE account or address left, and the link of {res['name']} still signs "
+                      "in by itself.")
+            else:
+                print(f"{res['name']} has no LINE account or address left and can get in again only through a new "
+                      f"link: {reader_command('relink', [res['name']], '')}")
+    for res in done:
+        print(f"{identity_text(res)} no longer signs in to {res['name']}, and {signed_out_text(res['sessions_ended'])}.")
+    if len(done) > 1:
+        ended = sum(res["sessions_ended"] for res in done)
+        print(f"{len(done)} LINE accounts and addresses no longer sign in, and {signed_out_text(ended)}.")
+    if missing:
+        raise CLIError(f"No LINE account or address numbered {names_text(missing)}; the others are as listed. "
+                       "List them with: review.py identities")
+
+
+def describe_request(q):
+    kind = "LINE" if q["provider"] == "line" else "email"
+    through = f"through the general link of {q['group']}" if q.get("group") else "through a general link whose group was removed"
+    if q.get("decision") == "approved":
+        state = f"approved {stamp_text(q['decided'])}, now the reader {q['name']}" if q.get("name") else \
+            f"approved {stamp_text(q['decided'])}"
+    elif q.get("decision") == "declined":
+        state = f"declined {stamp_text(q['decided'])}"
+    else:
+        state = "waiting for you"
+    return f"{q['id']}. {q['display']}: {kind}, {through}, {stamp_text(q['created'])}; {state}"
+
+
+def cmd_requests(a, client):
+    """requests [--all | --approved | --declined]: the requests to read made through general links."""
+    state = "all" if a.all else "approved" if a.approved else "declined" if a.declined else "open"
+    res = client.call("GET", "/api/admin/requests", query={"state": state})
+    a.result = res
+    for q in res["requests"]:
+        print(describe_request(q))
+    if state != "open":
+        print(f"{count(len(res['requests']), 'request')}; {res['open']} waiting for you.")
+    elif res["open"]:
+        print(f"{count(res['open'], 'request')} waiting for you. Approve one with: review.py request approve NUMBER")
+    else:
+        print("No request is waiting for you.")
+
+
+def cmd_request(a, client):
+    """request approve|decline|forget NUMBER: decide or forget a request to read."""
+    try:
+        qid = int(a.id)
+    except ValueError:
+        raise CLIError(f"Write the request's number, as review.py requests lists it, not {a.id!r}.")
+    if a.action != "approve" and (a.name or a.grant or a.group or a.english or a.reader):
+        raise CLIError(f"request {a.action} takes the number alone; --name, --grant, --group, --english and "
+                       "--reader go with request approve.")
+    if a.action == "forget":
+        res = client.call("DELETE", f"/api/admin/requests/{qid}")
+        a.result = res
+        print(f"Request {qid} is forgotten; {res['display']} may ask again.")
+        return
+    if a.action == "decline":
+        res = client.call("POST", f"/api/admin/requests/{qid}/decline")["request"]
+        a.result = res
+        print(describe_request(res))
+        what = "LINE account" if res["provider"] == "line" else "address"
+        print(f"Request {qid} of {res['display']} is declined; that {what} cannot ask again until: "
+              f"review.py request forget {qid}")
+        return
+    if a.reader and (a.name or a.grant or a.group or a.english):
+        raise CLIError("--reader ties the request to a reader who exists; give no --name, --grant, --group or "
+                       "--english with it.")
+    body = {}
+    if a.reader:
+        (r,) = find_readers(client, [a.reader])
+        body["reader"] = r["id"]
+    else:
+        if a.name:
+            body["name"] = a.name
+        if a.grant:
+            body["grants"] = labels(checked_grants(a.grant))
+        if a.group:
+            body["groups"] = a.group
+        if a.english:
+            body["english"] = True
+        found = []
+        if not a.name or not (a.grant or a.group):
+            found = [q for q in client.call("GET", "/api/admin/requests", query={"state": "all"})["requests"]
+                     if q["id"] == qid]
+        if found and not found[0].get("decided") and not found[0].get("group") and not (a.grant or a.group):
+            # The group of the general link was removed (group remove): the request needs chapters or a group.
+            raise CLIError(f"Request {qid} came through a general link whose group was removed, so it needs chapters "
+                           f"or a group: review.py request approve {qid} --grant SC01, or --group GROUP. Nothing "
+                           "changed.")
+        if not a.name:
+            # An email request would be named by its address: ask for a name, offering the address.
+            if found and found[0]["provider"] == "email" and not found[0].get("decided"):
+                raise CLIError(f"Request {qid} came from the address {found[0]['display']}, which would become the "
+                               f"reader's name. Give a name: review.py request approve {qid} --name NAME, or keep "
+                               f"the address with --name {found[0]['display']}. Nothing changed.")
+    res = client.call("POST", f"/api/admin/requests/{qid}/approve", body)
+    a.result = res
+    q, r = res["request"], res["reader"]
+    print(describe_request(q))
+    print(describe(r))
+    way = "that LINE account" if q["provider"] == "line" else "that address"
+    if a.reader:
+        what = f"The LINE account {q['display']}" if q["provider"] == "line" else q["display"]
+        print(f"{what} now signs in to {r['name']}.")
+        return
+    reads = []
+    if r.get("grants"):
+        reads.append(f"reads {specs.compact(r['grants'])}")
+    if r.get("groups"):
+        reads.append(f"is in the group{'s' if len(r['groups']) > 1 else ''} {and_list(r['groups'])}")
+    what = f"the reader {r['name']}" if r["name"] != q["display"] else "a reader"
+    print(f"{q['display']} is now {what}, who {and_list(reads) if reads else 'reads nothing yet'}, and signs in "
+          f"with {way}.")
+
+
+def describe_general_link(g):
+    state = {"open": f"open until {stamp_text(g['expires'])} or the {ordinal(g['uses_most'])} request",
+             "off": f"off since {stamp_text(g['stopped'])}" if g.get("stopped") else "off",
+             "expired": f"expired {stamp_text(g['expires'])}",
+             "full": f"full: it took its {count(g['uses_most'], 'request')}"}[g["state"]]
+    waiting = f", {g['waiting']} still waiting for you" if g.get("waiting") else ""
+    return (f"{g['id']}. {g['group']}: made {stamp_text(g['created'])}; {state}; {count(g['uses'], 'request')} "
+            f"made through it{waiting}")
+
+
+def ordinal(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def cmd_general_link(a, client):
+    """general-link [G]: the general links, of every group or of G; general-link G --new [--days N] [--uses N]: a
+    new one, printed once, which stops the group's link before it; general-link G --off: the group's link stops
+    taking requests."""
+    if (a.new or a.off) and not a.group:
+        raise CLIError(f"Name the group: review.py general-link G {'--new' if a.new else '--off'}")
+    if a.new and a.off:
+        raise CLIError("Give --new or --off, not both.")
+    if (a.days is not None or a.uses is not None) and not a.new:
+        raise CLIError("--days and --uses go with --new.")
+    if a.new:
+        body = {"group": find_group(client, a.group)["name"]}
+        if a.days is not None:
+            body["days"] = a.days
+        if a.uses is not None:
+            body["uses"] = a.uses
+        res = client.call("POST", "/api/admin/general-links", body)
+        a.result = {"id": res["id"], "group": res["group"], "link": res["link"], "replaced": res["replaced"]}
+        print(describe_general_link(res))
+        print("Send this link to the people who may ask to read; each asks with LINE or email, and nothing opens "
+              "before you approve the request. It is shown only this once:")
+        print(res["link"])
+        before = "; the link before it no longer takes requests" if res["replaced"] else ""
+        print(f"{res['group']} has a new general link, which takes up to {count(res['uses_most'], 'request')} until "
+              f"{stamp_text(res['expires'])}{before}.")
+        return
+    query = {"group": find_group(client, a.group)["name"]} if a.group else {}
+    links = client.call("GET", "/api/admin/general-links", query=query)["links"]
+    if a.off:
+        live = [g for g in links if g["active"]]
+        if not live:
+            print(f"Nothing changed: {query['group']} has no general link that takes requests.")
+            return
+        done = [client.call("PATCH", f"/api/admin/general-links/{g['id']}", {"active": False}) for g in live]
+        a.result = {"links": done}
+        for g in done:
+            print(describe_general_link(g))
+        print(f"The general link of {query['group']} no longer takes requests; a new one is made with: "
+              f"review.py general-link {query['group']} --new")
+        return
+    a.result = {"links": links}
+    for g in links:
+        print(describe_general_link(g))
+    taking = sum(1 for g in links if g["state"] == "open")
+    where = f" of {query['group']}" if query else ""
+    if not links:
+        print(f"No general link{where} yet. Make one with: review.py general-link {query.get('group', 'G')} --new")
+    else:
+        print(f"{count(len(links), 'general link')}{where}, {taking} taking requests.")
+
+
 # ---------- deleting one reader's comments ----------
 
 def thai_bound(text, end):
@@ -2233,11 +2926,11 @@ def build_parser():
     s.add_argument("--keep", type=int, default=14, metavar="DAYS",
                    help="delete backups older than DAYS days, keeping the newest DAYS copies (default %(default)s)")
 
-    s = add("publish", cmd_publish, "Publish or update chapters from git: publish SC 01-08.")
+    s = add("publish", cmd_publish, "Publish or update chapters from git: publish SC 01-08, or SC01-08.")
     s.add_argument("book")
     s.add_argument("chapters", nargs="+", help="the chapters ready for readers: 01-08, 03 or 1,3,5")
     s.add_argument("--ref", help="git ref to read (default: the book's ref in books.json)")
-    s = add("withdraw", cmd_withdraw, "Withdraw chapters; their comments are kept: withdraw SC 03.")
+    s = add("withdraw", cmd_withdraw, "Withdraw chapters; their comments are kept: withdraw SC 03, or SC03.")
     s.add_argument("book")
     s.add_argument("chapters", nargs="*", help="01-08 or 03 (default: every published chapter of the book)")
     add("chapters", cmd_chapters, "List the chapters on the server.")
@@ -2247,6 +2940,9 @@ def build_parser():
     s.add_argument("--grant", action="append", help="SC01-08, SC03, or SC for every chapter")
     s.add_argument("--group", action="append", help="a group the reader joins")
     s.add_argument("--english", action="store_true", help="show the English source to this reader")
+    s.add_argument("--link-signs-in", action="store_true",
+                   help="for a reader with neither LINE nor email: the link signs in by itself, with the two-device "
+                        "lock")
     s.add_argument("--from", dest="file", metavar="FILE",
                    help="a CSV file with the columns name,groups,grants,english, and any others, such as email; the "
                         "links go to a file of mode 600 beside the token file, with those other columns")
@@ -2260,12 +2956,16 @@ def build_parser():
     s.add_argument("--link", metavar="URL", help="the reader whose link this is; the code is hashed on this computer")
     s.add_argument("--devices", action="store_true",
                    help="readers whose link is on more devices than it works on unasked, or has a device waiting")
+    s.add_argument("--identity", choices=("none", "line", "email", "any"),
+                   help="readers who sign in with no LINE account or address yet (none), with LINE, with email, or "
+                        "with either (any)")
     s = add("open", cmd_open, "Open chapters to readers as their own: open NAME [NAME ...] SC09.")
     s.add_argument("args", nargs="+", metavar="NAME [NAME ...] SPEC", help="the readers' names, then SC09, SC01-08 or SC")
     s = add("close", cmd_close, "Close chapters of the readers' own: close NAME [NAME ...] SC09.")
     s.add_argument("args", nargs="+", metavar="NAME [NAME ...] SPEC", help="the readers' names, then SC09, SC01-08 or SC")
-    for name, func, text in (("revoke", cmd_revoke, "Stop readers' links: revoke NAME [NAME ...]."),
-                             ("restore", cmd_restore, "Make stopped links work again: restore NAME [NAME ...].")):
+    for name, func, text in (("revoke", cmd_revoke, "Stop readers, so that the link, LINE and email open nothing: "
+                                                    "revoke NAME [NAME ...]."),
+                             ("restore", cmd_restore, "Let stopped readers read again: restore NAME [NAME ...].")):
         s = add(name, func, text)
         s.add_argument("names", nargs="+", metavar="NAME")
     s = add("relink", cmd_relink, "Give readers new links; the old ones stop working: relink NAME [NAME ...], "
@@ -2273,6 +2973,9 @@ def build_parser():
     s.add_argument("names", nargs="*", metavar="NAME")
     s.add_argument("--group", help="every member of this group, with the links written to a file")
     s.add_argument("--yes", action="store_true", help="with --group: go on without asking for the count")
+    s.add_argument("--unbind", action="store_true",
+                   help="also remove the readers' LINE accounts and addresses and sign out their browsers, as after "
+                        "a stranger signed in with the old link")
     s = add("english", cmd_english, "Show or hide the English for readers: english NAME [NAME ...] on.")
     s.add_argument("args", nargs="+", metavar="NAME [NAME ...] on|off")
     s = add("feature", cmd_feature, "Turn a feature on or off for readers: feature NAME [NAME ...] english on.")
@@ -2296,6 +2999,60 @@ def build_parser():
     s = add("device", cmd_device, "Approve devices, or remove them: device approve|remove NUMBER [NUMBER ...].")
     s.add_argument("action", choices=("approve", "remove"))
     s.add_argument("ids", nargs="+", metavar="NUMBER")
+    s = add("signin", cmd_signin, "Show the sign-in settings and the mailer: signin; check that the API reaches LINE "
+                                  "and the mailer: signin check; send a test mail: signin test-mail ADDRESS.")
+    s.add_argument("action", nargs="?", choices=("check", "test-mail"))
+    s.add_argument("address", nargs="?", help="with test-mail: the address the test mail goes to")
+    s = add("link-signs-in", cmd_link_signs_in, "Switch Link signs in on or off for readers with neither LINE nor "
+                                                "email: link-signs-in NAME [NAME ...] on.")
+    s.add_argument("args", nargs="+", metavar="NAME [NAME ...] on|off")
+    s = add("sessions", cmd_sessions, "List the browsers signed in, of every reader or of those named: "
+                                      "sessions [NAME ...].")
+    s.add_argument("names", nargs="*", metavar="NAME")
+    s.add_argument("--all", action="store_true", help="also the browsers signed out or run out in the last 90 days")
+    s = add("session", cmd_session, "Sign browsers out: session end NUMBER [NUMBER ...].")
+    s.add_argument("action", choices=("end",))
+    s.add_argument("ids", nargs="+", metavar="NUMBER")
+    s = add("signout", cmd_signout, "Sign readers out on every browser: signout NAME [NAME ...].")
+    s.add_argument("names", nargs="+", metavar="NAME")
+    s = add("identities", cmd_identities, "List the LINE accounts and addresses readers sign in with: "
+                                          "identities [NAME ...].")
+    s.add_argument("names", nargs="*", metavar="NAME")
+    s = add("identity", cmd_identity, "Let a reader sign in with a code sent to an address: "
+                                      "identity add NAME ADDRESS.")
+    s.add_argument("action", choices=("add",))
+    s.add_argument("name")
+    s.add_argument("address")
+    s = add("unbind", cmd_unbind, "Stop a LINE account or address signing in, and sign out its browsers: "
+                                  "unbind NUMBER [NUMBER ...].")
+    s.add_argument("ids", nargs="+", metavar="NUMBER", help="the numbers that review.py identities lists")
+    s = add("requests", cmd_requests, "List the requests to read made through general links: requests.")
+    which = s.add_mutually_exclusive_group()
+    which.add_argument("--all", action="store_true", help="every request, decided or not")
+    which.add_argument("--approved", action="store_true", help="the requests approved")
+    which.add_argument("--declined", action="store_true", help="the requests declined")
+    s = add("request", cmd_request, "Approve, decline or forget a request to read: request approve|decline|forget "
+                                    "NUMBER.")
+    s.add_argument("action", choices=("approve", "decline", "forget"))
+    s.add_argument("id", metavar="NUMBER")
+    s.add_argument("--name", help="with approve: the new reader's name (default: the LINE name; an address must be "
+                                  "named)")
+    s.add_argument("--grant", action="append", help="with approve: SC01-08, SC03, or SC")
+    s.add_argument("--group", action="append", help="with approve: a group the reader joins (default: the group "
+                                                    "of the general link, when no --grant or --group is given)")
+    s.add_argument("--english", action="store_true", help="with approve: show the English to the new reader")
+    s.add_argument("--reader", metavar="NAME", help="with approve: tie the request's LINE account or address to "
+                                                    "this reader instead of making a new one")
+    s = add("general-link", cmd_general_link, "List the general links of groups, through which people ask to read: "
+                                              "general-link [G]; make a new one: general-link G --new; switch it "
+                                              "off: general-link G --off.")
+    s.add_argument("group", nargs="?", metavar="G")
+    s.add_argument("--new", action="store_true", help="a new general link of G, printed once; the one before stops")
+    s.add_argument("--days", type=int, metavar="N", help="with --new: it takes requests for N days (default "
+                                                         "invite.general_days, 90)")
+    s.add_argument("--uses", type=int, metavar="N", help="with --new: it takes at most N requests (default "
+                                                         "invite.general_uses, 100)")
+    s.add_argument("--off", action="store_true", help="the general link of G stops taking requests")
     add("rounds", cmd_rounds, "List the review rounds: rounds [BOOK].").add_argument("book", nargs="?")
     s = add("round", cmd_round, "Start a review round of a book: round start SC NAME.")
     s.add_argument("action", choices=("start",))
@@ -2335,7 +3092,7 @@ def build_parser():
     s.add_argument("--ref", help="the git ref whose chapter files and notes file are read (default: the book's ref)")
     s = add("replies", cmd_replies, "Send the translator's replies: a JSON or CSV file of id and reply.")
     s.add_argument("file", help="a .json or .csv file of id and reply, and rev if wanted; an empty reply clears one")
-    s = add("align-packet", cmd_align_packet, "Write what an agent needs to align one chapter: align-packet SC 01.")
+    s = add("align-packet", cmd_align_packet, "Write what an agent needs to align one chapter: align-packet SC 01, or SC01.")
     s.add_argument("book")
     s.add_argument("chapter")
     s.add_argument("--ref", help="git ref to read (default: the book's ref in books.json)")
@@ -2353,6 +3110,34 @@ RENAMED = {
     "ungrant": "Chapters are closed with: review.py close NAME [NAME ...] SC09",
 }
 GROUP_RENAMED = {"grant": "group open G SC09", "ungrant": "group close G SC09"}
+
+
+# A book may be written together with its chapters, as SC01-08 for SC 01-08, in the commands that take both.
+BOOK_FIRST = {"publish", "withdraw", "align-packet"}
+JOINED_BOOK = re.compile(r"([A-Za-z]+)(\d[\d,\-]*)")
+VALUE_OPTIONS = {"--server", "--token-file", "--repo", "--ref", "--out"}
+
+
+def split_joined_book(argv):
+    """argv with a book written together with its chapters, as SC01-08, split into SC and 01-08."""
+    out, i, cmd = list(argv), 0, None
+    while i < len(out):
+        t = out[i]
+        if t in VALUE_OPTIONS:
+            i += 2
+        elif t.startswith("-"):
+            i += 1
+        elif cmd is None:
+            cmd = t
+            if cmd not in BOOK_FIRST:
+                return out
+            i += 1
+        else:
+            m = JOINED_BOOK.fullmatch(t)
+            if m:
+                out[i:i + 1] = [m.group(1), m.group(2)]
+            return out
+    return out
 
 
 def renamed(argv):
@@ -2378,7 +3163,8 @@ def renamed(argv):
 
 
 def main(argv=None):
-    gone = renamed(sys.argv[1:] if argv is None else argv)
+    argv = split_joined_book(sys.argv[1:] if argv is None else argv)
+    gone = renamed(argv)
     if gone:
         print(gone, file=sys.stderr)
         return 2

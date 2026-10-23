@@ -22,7 +22,11 @@ from .db import TooNew
 # 4.5 MiB bodies: a chapter upload or hundreds of readers at once (4 MiB of JSON) with room to spare. Such
 # requests come only through the SSH tunnel that review.py opens, straight to 127.0.0.1; Apache refuses
 # /api/admin/ from the internet and more than 64 KiB on every other path before a request reaches waitress.
+# trusted_proxy: Apache on this machine passes each request on with the reader's address appended to
+# X-Forwarded-For; waitress takes that last address as REMOTE_ADDR, so the limits on signing in count each
+# address on the internet (server/auth.py, client_key). Every other proxy header is removed.
 WAITRESS = dict(threads=4, connection_limit=200, channel_timeout=30, max_request_body_size=4718592,
+                trusted_proxy="127.0.0.1", trusted_proxy_count=1, trusted_proxy_headers={"x-forwarded-for"},
                 clear_untrusted_proxy_headers=True, ident="review")
 
 
@@ -44,6 +48,10 @@ def main():
     except TooNew as e:
         # Older code on a database that newer code moved: the service stops with this line in its journal.
         raise SystemExit(str(e))
+    except ValueError as e:
+        # A wrong setting in config.json (a limit, auth, mail, notify or invite): one plain sentence that names
+        # the file and the setting, in the journal, and the service does not start.
+        raise SystemExit(f"{e}\nThe API did not start.")
     waitress.serve(app, host="127.0.0.1", port=port, **WAITRESS)
 
 

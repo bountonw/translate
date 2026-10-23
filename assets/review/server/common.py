@@ -73,7 +73,8 @@ class HTTPError(Exception):
 
 
 def dumps(payload):
-    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode()
+    """A JSON answer, ending with a newline so that curl leaves the shell prompt on its own line."""
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode() + b"\n"
 
 
 def clean(value, name, limit, required):
@@ -145,6 +146,25 @@ def without_surrogates(value):
     return value
 
 
+# The name of a browser whose User-Agent names no known system or browser, in the translator's lists; the
+# reader's page gets "" in its place and shows its own word (server/auth.py, my_sessions).
+UNKNOWN_AGENT = "an unknown browser"
+
+
+def device_agent(ua):
+    """A short description of a device from its User-Agent, so the translator can tell a reader's phone from
+    their computer: "iPhone, Safari", "Android, LINE", "Windows, Chrome"."""
+    ua = ua or ""
+    system = next((name for key, name in (("iPhone", "iPhone"), ("iPad", "iPad"), ("Android", "Android"),
+                                          ("Windows", "Windows"), ("Macintosh", "Mac"), ("CrOS", "ChromeOS"),
+                                          ("Linux", "Linux")) if key in ua), "")
+    browser = next((name for key, name in (("Line/", "LINE"), ("FBAN", "Facebook"), ("FBAV", "Facebook"),
+                                           ("Edg/", "Edge"), ("SamsungBrowser", "Samsung Internet"),
+                                           ("Firefox/", "Firefox"), ("FxiOS", "Firefox"), ("CriOS", "Chrome"),
+                                           ("Chrome/", "Chrome"), ("Safari/", "Safari")) if key in ua), "")
+    return ", ".join(x for x in (system, browser) if x) or UNKNOWN_AGENT
+
+
 # A group name: letters, digits, dot, hyphen and underscore, so it fits a command line and a CSV cell.
 GROUP_NAME_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,39}")
 
@@ -157,10 +177,20 @@ class Request:
         self.path = environ.get("PATH_INFO", "") or "/"
         self.query = {k: v[-1] for k, v in parse_qs(environ.get("QUERY_STRING", "")).items()}
         self.reader = None
+        self.session = None             # the session of a reader signed in with LINE or email (server/auth.py)
         self.limit = BODY_LIMIT
+        self.headers_out = []           # headers every answer adds, such as a session cookie sent again
 
     def header(self, name):
         return self.environ.get("HTTP_" + name.upper().replace("-", "_"), "")
+
+    def json_or_empty(self, limit=None):
+        """The JSON body, or {} when the request has no body."""
+        try:
+            length = int(self.environ.get("CONTENT_LENGTH") or 0)
+        except ValueError:
+            length = 1
+        return self.json(limit) if length else {}
 
     def json(self, limit=None):
         limit = limit or self.limit
