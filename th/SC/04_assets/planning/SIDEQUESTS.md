@@ -62,8 +62,14 @@ The proofreader site gives each reader a personal link to read chapters and comm
 
 Detail: assets/review/README.md and assets/review/deploy/DEPLOY.md. Medium.
 
-## 20. Rewrite the proofreader site's README for a human reader
+## 20. A readability round for the proofreader site
 
-assets/review/README.md on SC-review is to say, in plain words, only what the translator needs to run and use the site; detail meant for agents moves to EXTENDING.md or into the code. The section "The translator's rulings" stays.
+Reviewers who play an outside code reviewer meeting the code for the first time judge how the code under assets/review/ on SC-review is structured, how its functions and parameters are named, and how much documentation it carries, and propose changes that let such a reviewer follow it without confusion and without wading through more documentation than the code needs. The changes keep every behaviour and every test. The round also rewrites assets/review/README.md so that it says, in plain words, only what the translator needs to run and use the site; detail meant for agents moves to EXTENDING.md or into the code. The section "The translator's rulings" stays. The round runs after the panel round and the remaining round 4 items.
 
-Detail: this entry. Small.
+Detail: this entry. Medium.
+
+## 21. Grow the proofreader site into a translation suite
+
+The translator's goal is one system for the whole translation. An editor and the translator work on one file over several turns: the editor comments, the translator processes the comments, both discuss them, and the translator then commits the result to a branch. The QA rounds and raw-translation rounds now run in this repository, such as th/SC's qa1 to qa3 and th/DA's drafting, also run in it. The proofreader site under assets/review/ on SC-review is the base, and every round of it is built so that these additions stay possible.
+
+Detail: this entry, and the last line of "The translator's rulings" in assets/review/README.md. Large.
