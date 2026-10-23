@@ -1,0 +1,18 @@
+{
+  "code_subject": {
+    "en": "{code} is your sign-in code",
+    "th": "{code} คือรหัสเข้าสู่ระบบของคุณ"
+  },
+  "code_body": {
+    "en": "{code} is your code for signing in to the proofreading site. Type it on the page within {minutes} minutes.\n\nIf you did not ask for this code, ignore this email. Nobody can sign in without it.",
+    "th": "{code} คือรหัสสำหรับเข้าสู่ระบบตรวจทาน กรุณาพิมพ์รหัสนี้ในหน้าเว็บภายใน {minutes} นาที\n\nถ้าคุณไม่ได้ขอรหัสนี้ ไม่ต้องสนใจอีเมลนี้ ไม่มีใครเข้าสู่ระบบได้โดยไม่มีรหัสนี้"
+  },
+  "approved_subject": {
+    "en": "You can now read on the proofreading site",
+    "th": "ตอนนี้คุณอ่านในระบบตรวจทานได้แล้ว"
+  },
+  "approved_body": {
+    "en": "The translator approved your request. Open {url} and sign in with this email address.",
+    "th": "ผู้แปลอนุมัติคำขอของคุณแล้ว กรุณาเปิด {url} แล้วเข้าสู่ระบบด้วยที่อยู่อีเมลนี้"
+  }
+}
