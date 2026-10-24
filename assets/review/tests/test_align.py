@@ -79,7 +79,7 @@ class Attach(unittest.TestCase):
             self.assertNotIn("al", ch["paragraphs"][1])
 
     def test_a_paragraph_no_longer_in_the_chapter_is_not_counted_as_dropped(self):
-        # 39-verify.md item 4: an anchor of the file that left the chapter is neither kept nor dropped.
+        # An anchor of the file that left the chapter is neither kept nor dropped, since nobody reads it.
         ch = self.chapter()
         data = align_file(ch, {"SC 9.1": [{"text": [0, 5], "en": [1]}], "SC 9.2": [{"text": [0, 3], "en": [1]}]})
         del ch["paragraphs"][1]

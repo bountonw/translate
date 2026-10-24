@@ -168,8 +168,8 @@ class Deploy(unittest.TestCase):
         self.assertEqual([l.split()[0] for l in lines], ["ServerName", "Include", "ErrorLog", "CustomLog"])
 
     def test_the_service_reaches_the_internet_but_not_the_droplets_private_addresses(self):
-        # 65-security.md item 9 and 67-operations.md item 8: LINE, Resend and a mail server in Docker stay open;
-        # the metadata service (link-local) and the private networks of the droplet stay closed.
+        # LINE, Resend and a mail server in Docker stay open; the metadata service (link-local) and the private
+        # networks of the droplet stay closed, so a fault in the site cannot reach the droplet's own services.
         service = self.read("review.service")
         (deny,) = re.findall(r"(?m)^IPAddressDeny=(.*)$", service)
         self.assertEqual(deny.split(), ["link-local", "multicast", "10.0.0.0/8", "100.64.0.0/10", "fc00::/7"])
@@ -180,30 +180,41 @@ class Deploy(unittest.TestCase):
         self.assertIn("IPAddressDeny=link-local multicast 10.0.0.0/8 100.64.0.0/10 fc00::/7", deploy)
         self.assertIn("grep nameserver /etc/resolv.conf", deploy)
 
+    def test_deploy_md_names_every_database_version_an_update_brings(self):
+        """"Updating the code" names the update that brings each database version since version 3, so the
+        translator knows before an update whether going back needs the backup."""
+        from server import db
+        text = self.read("DEPLOY.md")
+        for n in range(3, db.MIGRATIONS[-1][0] + 1):
+            self.assertIn(f"brings database version {n}", text, n)
+        self.assertIn("database version 9, which records where a comment's quoted words start; code of version 8 "
+                      "cannot open it", text)
+
     def test_deploy_md_keeps_the_mail_and_sign_in_steps_right(self):
         text = self.read("DEPLOY.md")
-        # 67-operations.md item 1: the check of config.json before each restart.
+        # The check of config.json before each restart, since a stray comma would stop the site.
         self.assertIn('sudo -u review python3 -m json.tool /var/lib/review/config.json > /dev/null && echo "config.json '
                       'is valid"', text)
-        # Item 2: SPF, DKIM and DMARC exist for forum.laoegw.com alone.
+        # SPF, DKIM and DMARC exist for forum.laoegw.com alone, so mail from any other domain lands in spam.
         self.assertNotIn("review@laoegw.com", text)
         self.assertIn('"from": "review@forum.laoegw.com"', text)
         self.assertIn("published for forum.laoegw.com only", text)
-        # Item 3: the rules of 10.A and the fourth command.
+        # The rules for choosing the mail route (step 10.A), and the fourth command, which shows where the forum
+        # sends its mail.
         for words in ("Postfix or Exim runs as a service on the droplet", "never 127.0.0.1 or a 172.x address",
                       "Only Discourse's mail-receiver listens on port 25", "DISCOURSE_SMTP_USER_NAME",
                       "/var/discourse/containers/*.yml", "FORCE_TLS", "test mail to a Gmail address"):
             self.assertIn(words, text)
-        # Item 6: what a restore does to sign-ins.
+        # What a restore does to sign-ins.
         self.assertIn("A backup holds the sign-ins of its own time.", text)
-        # Item 9: the LINE console as it is.
+        # The LINE console as it is today.
         self.assertIn("As the channel's creator you are its Admin", text)
         self.assertNotIn("add yourself as a Tester", text)
         self.assertIn("LINE Developers Agreement", text)
-        # Item 11: Resend's free plan.
+        # Resend's free plan and its limit of mails a day.
         self.assertIn("Resend's free plan sends 100 mails a day", text)
         self.assertIn("notify.laoegw.com", text)
-        # 65-security.md item 13: the secrets of config.json and general links.
+        # The secrets of config.json and the general links, which DEPLOY.md lists so that none is shared.
         secret = text[text.index("## What is secret"):]
         for words in ("Channel secret", "Resend key", "general-link GROUP --off"):
             self.assertIn(words, secret)
@@ -213,7 +224,8 @@ class Deploy(unittest.TestCase):
         self.assertNotIn('"from": "review@laoegw.com"', (ROOT / "README.md").read_text())
 
     def test_the_walk_through_keeps_the_dev_data_and_shows_the_code(self):
-        # 67-operations.md item 7: its own folder, the notes, the token of that folder, and where the code is.
+        # Its own folder, so the dev data keeps its database version; the notes; the token of that folder; and where
+        # the code is.
         readme = (ROOT / "README.md").read_text()
         walk = readme[readme.index("## Try it on this machine"):readme.index("## Who can open what")]
         for words in ("python3 review.py setup --data ~/claude-sandbox/review-walk",

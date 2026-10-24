@@ -1,7 +1,9 @@
 /* Proofreading site: the reader's comments (web/core/notes.js).
 
-   The comment cards in a drawer and at the end of a chapter, the form for a new comment or a change,
-   and the section at the end of a chapter that lists comments on paragraphs no longer in it. A card
+   The comment cards in a paragraph's panel (core/panel.js) and at the end of a chapter, the form for a new
+   comment or a change, and the section at the end of a chapter that lists comments on paragraphs no longer in it.
+   The form's quote box takes the words the reader selects or picks (Pick words), with where they start in the
+   paragraph's reading text, `at`, which a comment keeps; words the reader types have no known place. A card
    the server refused says why (refusals.js) and offers the buttons that help. A card says when its
    paragraph changed after the comment was written, and shows the translator's reply under the comment.
    A comment held back by the daily limit says how long until the limit resets. The cards of "My earlier
@@ -10,16 +12,18 @@
 
 import { queueCreate, queueEdit, queueDelete, queueRetry, randomId } from "./outbox.js";
 import { DEFAULT_LIMITS } from "./model.js";
-import { draftKey, ownerTag } from "./store.js";
+import { draftKey, draftHolds, ownerTag } from "./store.js";
 import { S, store } from "./state.js";
 import { t, durationText } from "./words.js";
-import { h, shortA, copyButton, twoTapButton } from "./dom.js";
+import { h, shortA, copyButton, twoTapButton, readingText } from "./dom.js";
 import { chapterSection } from "./ext.js";
 import { mutateOb, flush, keptChapter, who } from "./net.js";
 import { explain, waitNote, untilReset, checkComment, counter } from "./refusals.js";
 import { bookLang } from "./languages.js";
 import { currentComments, repaintComments } from "./chapter.js";
-import { closeDrawer } from "./para.js";
+import { locate } from "./quotes.js";
+import { bookTextOf } from "./para.js";
+import { closePanel, panelForm, startPick, forgetPick, justSaved } from "./panel.js";
 
 const limits = () => (S.me && S.me.limits) || DEFAULT_LIMITS;
 
@@ -28,16 +32,17 @@ export function failText(why) {
   return t(why.key, Object.assign({ edit: t("edit") }, why.vars));
 }
 
-/* Replace the drawer's form with the form that changes comment cid, and put the cursor in it. */
+/* Replace the panel's form with the form that changes comment cid, and put the cursor in it. */
 export function editNote(art, p, cid) {
   const c = currentComments().find(x => x.client_id === cid);
-  const f = art.querySelector(".drawer form.note-form");
+  const f = panelForm(art);
   if (!c || !f) return;
-  f.replaceWith(commentForm(art, p, c, null));
-  art.querySelector(".drawer form.note-form textarea").focus();
+  const fresh = commentForm(art, p, c, null);
+  f.replaceWith(fresh);
+  fresh.querySelector("textarea").focus();
 }
 
-/* The reader's comments in a drawer (art is the paragraph), or at the chapter's end for paragraphs
+/* The reader's comments in a paragraph's panel (art is the paragraph), or at the chapter's end for paragraphs
    that are gone (art is null: no Change button, and each comment names its paragraph). */
 export function renderNotes(art, box, list) {
   box.textContent = "";
@@ -159,12 +164,15 @@ function countLine(box, max) {
   return { line, paint };
 }
 
-/* The form for a new comment (c null) or for changing comment c. Save checks the comment first and
-   says what to fix instead of sending one the server would refuse. */
+/* The form for a new comment (c null) or for changing comment c. quote, when given, is {text, at}: words the
+   reader selected, for the quote box. Save checks the comment first and says what to fix instead of sending one
+   the server would refuse. */
 export function commentForm(art, p, c, quote) {
   const seq = ++formSeq;
   const dKey = draftKey(ownerTag(who()), S.book, S.ch, p.a);
-  const draft = c ? null : store.get(dKey);
+  // A draft of words the page put in the quote box alone, kept by a page before this rule, is not offered.
+  const kept = c ? null : store.get(dKey);
+  const draft = draftHolds(kept) ? kept : null;
   const kindNow = c ? c.kind : draft ? draft.kind : "flag";
   const L = limits();
 
@@ -177,9 +185,14 @@ export function commentForm(art, p, c, quote) {
   }
   const quoteLabel = h("span");
   const lg = bookLang(S.book);
-  const quoteBox = h("input", { name: "quote", type: "text", autocomplete: "off", lang: lg, value: c ? c.quote || "" : quote || (draft && draft.quote) || "" });
-  // Words the page put in the box, from a selection, may be replaced by a new selection; a draft keeps the mark.
+  const quoteBox = h("input", { name: "quote", id: "quote-" + seq, type: "text", autocomplete: "off", lang: lg,
+    value: c ? c.quote || "" : quote ? quote.text : (draft && draft.quote) || "" });
+  // Words the page put in the box, from a selection or a pick, may be replaced by a new selection; a draft keeps
+  // the mark. dataset.at keeps where the words start in the paragraph's reading text, while it is known.
   if (!c && (quote || (draft && draft.quote && draft.auto))) quoteBox.dataset.auto = "1";
+  const at = c ? c.at : quote ? quote.at : draft && draft.quote ? draft.at : null;
+  if (typeof at === "number") quoteBox.dataset.at = String(at);
+  const pick = h("button", { type: "button", class: "btn ghost pick-btn", text: t("pick_words"), onclick: startPick });
   const textLabel = h("span");
   const textBox = h("textarea", { name: "text", rows: "4", lang: lg, value: c ? c.text || "" : (draft && draft.text) || "" });
   const quoteCount = countLine(quoteBox, L.quote);
@@ -187,12 +200,13 @@ export function commentForm(art, p, c, quote) {
   const status = h("span", { class: "status", "aria-live": "polite" });
   const f = h("form", { class: "note-form", novalidate: true },
     kinds,
-    h("div", { class: "field-wrap" }, h("label", { class: "field" }, quoteLabel, quoteBox), quoteCount.line),
+    h("div", { class: "field-wrap" }, h("label", { class: "field", for: "quote-" + seq }, quoteLabel),
+      h("div", { class: "quote-row" }, quoteBox, pick), quoteCount.line),
     h("div", { class: "field-wrap" }, h("label", { class: "field" }, textLabel, textBox), textCount.line),
     h("div", { class: "row" },
       h("button", { type: "submit", class: "btn", text: t("save") }),
       h("button", { type: "button", class: "btn ghost", text: c ? t("cancel") : t("close"),
-        onclick: () => (c ? f.replaceWith(commentForm(art, p, null, null)) : closeDrawer(art)) }),
+        onclick: ev => (c ? f.replaceWith(commentForm(art, p, null, null)) : closePanel(ev.detail === 0)) }),
       status));
 
   const kind = () => (f.querySelector("input[name=kind]:checked") || {}).value || "flag";
@@ -201,11 +215,22 @@ export function commentForm(art, p, c, quote) {
     quoteLabel.textContent = w ? t("quote_label_wording") : t("quote_label_flag");
     textLabel.textContent = w ? t("text_label_wording") : t("text_label_flag");
   };
+  const quoteAt = () => (quoteBox.value.trim() && quoteBox.dataset.at ? Number(quoteBox.dataset.at) : null);
+  // A draft is kept only while it holds words the reader wrote (store.js, draftHolds).
   const keepDraft = () => {
     if (c) return;
-    if (quoteBox.value || textBox.value) {
-      store.set(dKey, { kind: kind(), quote: quoteBox.value, text: textBox.value, auto: quoteBox.dataset.auto === "1" });
-    } else store.del(dKey);
+    const d = { kind: kind(), quote: quoteBox.value, text: textBox.value, auto: quoteBox.dataset.auto === "1", at: quoteAt() };
+    if (draftHolds(d)) store.set(dKey, d);
+    else store.del(dKey);
+  };
+  // Where the quoted words start, sent with the comment only when they stand there in the paragraph's text on the
+  // screen: a place kept from an earlier version of the paragraph (a draft, a comment changed, a selection of the
+  // last 90 seconds) is not known any more. The server checks the place too, against the version it records.
+  const placeNow = q => {
+    const where = q ? quoteAt() : null;
+    const bt = where === null ? null : bookTextOf(art);
+    const found = bt ? locate(readingText(bt), q, where) : null;
+    return found && found[0] === where ? where : null;
   };
   const say = (text, bad) => {
     status.textContent = text;
@@ -219,7 +244,14 @@ export function commentForm(art, p, c, quote) {
     textCount.paint();
     if (status.classList.contains("bad")) say("", false);
   });
-  quoteBox.addEventListener("input", ev => { if (ev.isTrusted) delete quoteBox.dataset.auto; });
+  // Words the reader types are the reader's own: a new selection does not replace them, and their place is not known.
+  quoteBox.addEventListener("input", ev => {
+    if (!ev.isTrusted) return;
+    delete quoteBox.dataset.auto;
+    delete quoteBox.dataset.at;
+    forgetPick(art);
+    keepDraft();
+  });
 
   f.addEventListener("submit", ev => {
     ev.preventDefault();
@@ -234,13 +266,18 @@ export function commentForm(art, p, c, quote) {
       return;
     }
     const now = Date.now();
-    if (c) mutateOb(ob => queueEdit(ob, c, { kind: k, quote: q, text }, who(), now));
+    const where = placeNow(q);
+    const cid = c ? c.client_id : randomId();
+    if (c) mutateOb(ob => queueEdit(ob, c, { kind: k, quote: q, text, at: where }, who(), now));
     else {
-      mutateOb(ob => queueCreate(ob, { client_id: randomId(), book: S.book, ch: S.ch, a: p.a, kind: k, quote: q, text }, who(), now));
+      mutateOb(ob => queueCreate(ob, { client_id: cid, book: S.book, ch: S.ch, a: p.a, kind: k, quote: q, text, at: where }, who(), now));
       store.del(dKey);
     }
     f.replaceWith(commentForm(art, p, null, null));
+    // The form is empty again: the line at the top of the comment box says that the comment is being saved.
+    justSaved(art, cid);
     S.lastSel = null;   // the words just saved are not offered again as the quote of the next comment
+    forgetPick(art);
     repaintComments();
     flush();
   });

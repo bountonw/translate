@@ -1,5 +1,6 @@
 """Checks of the page's files in web/: the module list of the service worker, the imports, the words,
-and the rules the page keeps for older phones and for the strict CSP."""
+and the rules the page keeps for older phones and for the strict CSP; and, for every file of this folder, that no
+note points to a report kept outside the repository and that no file names a person's login."""
 import json
 import re
 import shutil
@@ -128,6 +129,15 @@ class OlderPhones(unittest.TestCase):
             self.assertNotIn("??", code, f"{path.name}: nullish coalescing")
             self.assertNotRegex(code, r"\bclass\s+[A-Za-z_$][\w$]*\s*(extends\b[^{]*)?\{", f"{path.name}: a class, which may hold fields")
             self.assertNotRegex(code, r"^await\b", f"{path.name}: top-level await")
+
+    def test_every_sticky_rule_names_the_older_safari_form_first(self):
+        """Safari before version 13, as on iOS 12, knows position: sticky only as -webkit-sticky; without it the bar,
+        with A- and A+, would scroll away with the text."""
+        css = (WEB / "app.css").read_text()
+        sticky = [r for r in re.findall(r"\{([^{}]*)\}", css) if re.search(r"position:\s*sticky", r)]
+        self.assertTrue(sticky)
+        for rule in sticky:
+            self.assertRegex(rule, r"position:\s*-webkit-sticky;\s*position:\s*sticky", " ".join(rule.split())[:80])
 
     @unittest.skipIf(shutil.which("node") is None, "node is not installed")
     def test_every_script_parses(self):
@@ -264,7 +274,7 @@ class RoundThreeB(unittest.TestCase):
 
 
 class RoundFourA(unittest.TestCase):
-    """The reader page's parts of the sign-in round (61-contract.md) that a static check can see."""
+    """The reader page's parts of signing in that a static check can see."""
 
     def test_every_request_says_it_comes_from_the_page(self):
         net = (WEB / "core" / "net.js").read_text()
@@ -292,7 +302,7 @@ class RoundFourA(unittest.TestCase):
         self.assertNotIn("location.href", code_only((WEB / "core" / "account.js").read_text()))
 
     def test_plain_modules_hold_no_dom(self):
-        for name in ("auth.js", "outbox.js", "model.js", "refusals.js", "ext.js", "changes.js", "store.js"):
+        for name in ("auth.js", "outbox.js", "model.js", "refusals.js", "ext.js", "changes.js", "store.js", "quotes.js"):
             code = code_only((WEB / "core" / name).read_text())
             self.assertNotRegex(code, r"\b(document|window|navigator|location)\b", name)
 
@@ -306,7 +316,8 @@ class RoundFourA(unittest.TestCase):
                     "line_signed_out", "line_no_account", "email_send", "code_label", "wrong_code_one", "wrong_code_many",
                     "code_used_up", "code_expired", "request_title", "request_sent", "request_waiting",
                     "request_declined", "join_closed", "stopped", "blocked", "devices_title", "this_browser", "sign_out",
-                    "ways_title", "add_line", "add_email", "dev_enter", "home_hint", "home_hint_hide"):
+                    "ways_title", "add_line", "add_email", "dev_enter", "home_hint", "home_hint_hide", "link_for",
+                    "signed_in_as", "continue_as", "signin_as", "signs_out_other"):
             self.assertIn(key, strings)
             self.assertTrue(strings[key]["en"], key)
             self.assertIn("th", strings[key], key)
@@ -324,7 +335,7 @@ class RoundFourA(unittest.TestCase):
 
     def test_a_limit_the_page_names_is_one_the_server_applies(self):
         """A comment of the page that names a constant of server/auth.py, in parentheses after the file's name, names
-        one the file defines; the code button's comment names the daily limits of codes (70-verify.md item 7)."""
+        one the file defines; the code button's comment names the daily limits of codes."""
         defined = set(re.findall(r"^([A-Z][A-Z0-9_]*) *=", (ROOT / "server" / "auth.py").read_text(), re.M))
         cited = set()
         for path in scripts():
@@ -333,6 +344,170 @@ class RoundFourA(unittest.TestCase):
         self.assertLessEqual({"CODES_PER_CLIENT_DAY", "CODES_PER_DAY", "RESULTS"}, cited)
         self.assertEqual(sorted(cited - defined), [])
         self.assertNotIn("five an hour", (WEB / "core" / "signin.js").read_text())
+
+
+class RoundFourB(unittest.TestCase):
+    """The reader page's parts of the panel, and of the screens of another reader's link, that a static check can
+    see."""
+
+    def test_the_panel_s_words_have_english_and_a_thai_field(self):
+        strings = json.loads((WEB / "ui-strings.json").read_text())
+        for key in ("prev_sentence", "next_sentence", "pick_words", "pick_hint", "reply", "text_smaller", "text_larger",
+                    "english_beside"):
+            self.assertTrue(strings[key]["en"], key)
+            self.assertIn("th", strings[key], key)
+        # The two-step screen for another reader's link, with the words the translator ruled for it.
+        self.assertEqual(strings["continue_as"]["th"], "ดำเนินการต่อในชื่อคุณ{name}")
+        self.assertEqual(strings["skip_now"], {"en": "Continue without signing in", "th": "ทำต่อโดยไม่เข้าสู่ระบบ"})
+        for key in ("link_for", "signed_in_as", "continue_as", "signin_as", "signs_out_other"):
+            self.assertIn("{name}", strings[key]["en"], key)
+            self.assertIn("{name}", strings[key]["th"], key)
+
+    def test_closing_the_panel_moves_nothing(self):
+        """The trial ruling: nothing moves when the panel closes, so closePanel scrolls nothing."""
+        panel = (WEB / "core" / "panel.js").read_text()
+        body = re.search(r"export function closePanel\(\w*\) \{(.*?)\n\}", panel, re.S).group(1)
+        self.assertNotRegex(code_only(body), r"scroll(By|To|IntoView)|scrollTop")
+        self.assertNotIn("closeDrawer", (WEB / "core" / "para.js").read_text())
+
+    def test_the_panel_keys_its_layout_on_the_window_s_shape(self):
+        panel = (WEB / "core" / "panel.js").read_text()
+        self.assertIn('const SIDE = "(min-width: 640px) and (orientation: landscape)";', panel)
+        css = (WEB / "app.css").read_text()
+        for rule in ("html.panel-side body.reading", ".panel.sheet", ".panel.column", "calc(1.2rem * var(--ts))",
+                     ".qm.q1", ".qm.q2", ".qm.pk", ".para.was"):
+            self.assertIn(rule, css, rule)
+
+    def test_the_word_picker_says_what_it_does_without_a_segmenter(self):
+        quotes = (WEB / "core" / "quotes.js").read_text()
+        self.assertIn("Intl.Segmenter", (WEB / "core" / "panel.js").read_text())
+        self.assertIn("a run of characters between white space", quotes)
+
+
+class PanelFixes(unittest.TestCase):
+    """The panel's rules of style and layout that a static check can see; tests/reader_browser.py drives the rest."""
+
+    def css_rule(self, selector):
+        css = (WEB / "app.css").read_text()
+        m = re.search(r"(?m)^" + re.escape(selector) + r" \{([^}]*)\}", css)
+        self.assertIsNotNone(m, selector)
+        return m.group(1)
+
+    def test_a_minus_and_a_plus_are_44_pixels_wide_and_keep_the_focus_at_the_ends(self):
+        """A- and A+ at an end of the sizes are aria-disabled, not disabled, which would take the focus away."""
+        self.assertIn("min-width: 44px", self.css_rule(".size-btn"))
+        self.assertIn("background: none", self.css_rule('.size-btn[aria-disabled="true"]:hover'))
+        self.assertNotIn(".size-btn:disabled", (WEB / "app.css").read_text())
+        screens = code_only((WEB / "core" / "screens.js").read_text())
+        self.assertNotRegex(screens, r"\b(down|up)\.disabled\b")
+        self.assertEqual((WEB / "core" / "screens.js").read_text().count('setAttribute("aria-disabled"'), 2)
+
+    def test_the_sheet_drags_by_its_head_too(self):
+        """The head of a sheet takes the drag too, never from one of its buttons."""
+        panel = (WEB / "core" / "panel.js").read_text()
+        self.assertIn("wireDrag(grab, head)", panel)
+        self.assertIn('closest("button")', panel)
+        self.assertIn("touch-action: none", self.css_rule(".panel.sheet .panel-head"))
+
+    def test_the_focus_ring_shows_inside_the_switches(self):
+        """.faces and .lang clip what stands outside their buttons, so the focus ring is drawn inside them."""
+        self.assertIn("outline-offset: -4px", self.css_rule(".face-btn:focus-visible, .lang-btn:focus-visible"))
+
+    def test_the_note_at_the_foot_stands_in_the_middle_and_on_one_line(self):
+        """The note no longer keeps to the left half of the screen, and moves left of the column only in a
+        chapter."""
+        rule = self.css_rule(".sync")
+        self.assertNotIn("translateX", rule)
+        self.assertIn("max-content", rule)
+        self.assertNotIn("--panel-w", rule)
+        self.assertIn("--panel-w", self.css_rule("html.panel-side body.reading .sync"))
+        self.assertIn('$("sync")', (WEB / "core" / "panel.js").read_text())   # freeArea counts the note
+
+    def test_the_column_head_meets_the_bar_and_the_bar_drops_words_beside_it(self):
+        """The column's head stands level with the bar, and beside the column on a screen up to 900 pixels wide the
+        bar leaves out "Chapters" and the reader's place, so the chapter's title keeps its room."""
+        rule = self.css_rule(".panel.column .panel-head")
+        self.assertIn("padding-top: 0", rule)
+        self.assertIn("padding-bottom: 0", rule)
+        css = (WEB / "app.css").read_text()
+        block = re.search(r"@media \(max-width: 900px\) \{(.*?)\n\}", css, re.S).group(1)
+        self.assertIn("html.panel-side body.reading .back-word, html.panel-side body.reading .bar-place", block)
+
+    def test_previous_and_next_follow_the_english_in_a_low_sheet(self):
+        """In a sheet dragged low, Previous and Next sentence follow the English instead of covering it."""
+        self.assertIn("position: static", self.css_rule(".panel.short .steps"))
+        self.assertIn('el.classList.toggle("short"', (WEB / "core" / "panel.js").read_text())
+
+    def test_the_hint_names_selecting_and_pick_words(self):
+        """The hint under a chapter's title names Pick words and no longer says "select them first"."""
+        strings = json.loads((WEB / "ui-strings.json").read_text())
+        for key in ("hint", "hint_english"):
+            self.assertIn(strings["pick_words"]["en"], strings[key]["en"], key)
+            self.assertNotIn("first", strings[key]["en"], key)
+            self.assertIn("th", strings[key], key)
+
+    def test_a_closed_chapter_gives_back_the_room_of_the_column(self):
+        """The message that a chapter closed gives back the room the column kept at the right."""
+        chapter = (WEB / "core" / "chapter.js").read_text()
+        body = re.search(r"export function showChapterMessage\(.*?\n\}", chapter, re.S).group(0)
+        self.assertIn('document.body.classList.remove("reading", "beside")', body)
+
+    def test_a_shared_english_range_names_both_pairs(self):
+        """An English sentence that two Thai sentences share lights for either: quotes.js englishRanges
+        (tests/core_test.js) is what sentences.js wraps and lights."""
+        sentences = (WEB / "features" / "sentences.js").read_text()
+        self.assertIn("wrapRanges(el, englishRanges(al), englishSpan)", sentences)
+        self.assertIn('holdsPair(x.getAttribute("data-s"), i)', sentences)
+        self.assertIn('"aria-describedby": "step-count"', sentences)
+
+    def test_no_note_names_the_drawer_the_panel_replaced(self):
+        for path in scripts() + [WEB / "app.css", WEB / "index.html"]:
+            self.assertNotRegex(path.read_text(), r"(?i)drawer", path.name)
+
+
+def folder_texts():
+    """Every text file of this folder that goes with the code, as (path relative to the folder, text); compiled
+    Python, fonts and the folders of Claude's own tools are left out."""
+    out = []
+    for path in sorted(ROOT.rglob("*")):
+        rel = path.relative_to(ROOT)
+        if not path.is_file() or {"__pycache__", ".claude"} & set(rel.parts) or rel.parts[:2] == ("web", "fonts"):
+            continue
+        if path.suffix in (".py", ".js", ".json", ".md", ".css", ".html", ".conf", ".service", ".timer", ".sql", ".txt"):
+            out.append((str(rel), path.read_text(encoding="utf-8")))
+    return out
+
+
+class PublicFolder(unittest.TestCase):
+    """Rules for every file of this folder, which is to be public in a repository of its own: a note gives its reason
+    in plain words, and no file names a person."""
+
+    # A report of the build kept outside the repository: its file name (two digits, a hyphen and a name, with .md or
+    # another ending), the number of one of its findings (ADV, SEC, OPS or UX, the round, a hyphen and a number), or
+    # one of its items or sections by number alone. The pattern and its examples are written so that this file does
+    # not match it.
+    REPORT = re.compile(r"\b\d{2}[a-z]?-[a-z][a-z0-9-]*\.(md|json|html|diff|patch)\b|\b(ADV|SEC|OPS|UX)\d+-\d+\b|"
+                        r"\bround3-pla[n]\b|\b(readme|ui)-rulings\b|review-build-report[s]|\b[Ii]tems? \d|\bspec \d")
+
+    def test_the_pattern_finds_a_report(self):
+        n, item, spec = "82", "item", "spec"
+        for text in (f"see {n}-fixes.md", f"(46 ADV3-{n})", f"(48 UX3-{n})", f"{n}b-thai-strings-12.md {item} 4",
+                     f"the stopped screen ({item} 5)", f"# {item.title()} 2: SPF", f"refused the cookie ({spec} 3.L)"):
+            self.assertRegex(text, self.REPORT, text)
+        for text in ("assets/read-through.md section 2", "deploy/DEPLOY.md", "SC01-08", "review-site.conf"):
+            self.assertNotRegex(text, self.REPORT, text)
+
+    def test_no_note_points_to_a_report_outside_the_repository(self):
+        found = [f"{rel}:{n}" for rel, text in folder_texts() for n, line in enumerate(text.splitlines(), 1)
+                 if self.REPORT.search(line)]
+        self.assertEqual(found, [])
+
+    def test_an_ssh_address_names_no_person_s_login(self):
+        """The live site is written ssh://USER@HOST; an example names the login "translator", and the tests use the
+        made-up logins tester, a:b and -l, the last two refused."""
+        users = {u for _, text in folder_texts() for u in re.findall(r"ssh://([A-Za-z0-9._:\[-]+)@", text)}
+        self.assertIn("translator", users)
+        self.assertLessEqual(users, {"USER", "[USER", "translator", "tester", "a:b", "-l"})
 
 
 if __name__ == "__main__":

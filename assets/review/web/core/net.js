@@ -245,9 +245,9 @@ export async function refreshMe() {
     store.set(K.me, S.me);
     emit("me");
     // Every answer of 200 sends what waits: ops that waited for the device, for the reader's number or for a
-    // sign-in (a reader in link mode who signs in, on a device that already knew the number, 66-adversarial.md
-    // ADV4-01), and ops written under the reader's earlier links. flush() returns at once when nothing of the
-    // reader's is due, and sends only the ops of the reader signed in now.
+    // sign-in (a reader in link mode who signs in, on a device that already knew the number), and ops written
+    // under the reader's earlier links. flush() returns at once when nothing of the reader's is due, and sends only
+    // the ops of the reader signed in now.
     flush();
     return true;
   }

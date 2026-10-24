@@ -148,7 +148,7 @@ class Tunnel:
     def __init__(self, target):
         parts = urllib.parse.urlsplit(target)
         if parts.scheme != "ssh" or not parts.hostname or parts.path not in ("", "/") or parts.password:
-            raise CLIError(f"Write the live site as ssh://USER@HOST, as ssh://brian@review.laoegw.com, not {target!r}.")
+            raise CLIError(f"Write the live site as ssh://USER@HOST, as ssh://translator@review.laoegw.com, not {target!r}.")
         query = urllib.parse.parse_qs(parts.query)
         if set(query) - {"api_port"}:
             raise CLIError(f"{target}: the only setting after ? is api_port, the API's port on the droplet.")
@@ -1829,7 +1829,9 @@ TRIAGE_ABOUT = ("Triage packet: the comments of one chapter from one export, gro
                 "paragraph's text now, in the book's language (chapter.language), and a comment's paragraph_seen "
                 "the paragraph as that reviewer saw it, when it differs; markers are the [[...]] spans standing at "
                 "the paragraph in the chapter file at ref; notes are the lines of the book's notes file whose span "
-                "of the book's text or English words appear in a comment's quote or paragraph.")
+                "of the book's text or English words appear in a comment's quote or paragraph. A comment's at, when "
+                "not null, is where its quote starts in its paragraph_seen, or in paragraph when it has no "
+                "paragraph_seen, counted in characters of that text, so it says which place a repeated word means.")
 
 
 def export_file(path):
@@ -1997,7 +1999,7 @@ def cmd_triage(a):
                 used = matching_notes(notes, c)
                 lines_used += used
                 cs.append({k: c.get(k) for k in (
-                    "id", "rev", "reader", "round", "kind", "quote", "text", "created", "updated", "processed",
+                    "id", "rev", "reader", "round", "kind", "quote", "at", "text", "created", "updated", "processed",
                     "reply", "reply_at", "version_seen", "version_now", "changed", "changed_at", "quote_found")}
                           | {"paragraph_seen": c.get("paragraph_seen")
                              if c.get("paragraph_seen") != c.get("paragraph") else None, "notes": used})

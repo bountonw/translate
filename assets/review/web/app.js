@@ -5,8 +5,10 @@
 
      core/      main.js (the start), state.js, store.js, words.js, languages.js, net.js, outbox.js,
                 model.js, refusals.js, ext.js (the places where features plug in), dom.js, screens.js,
-                home.js, chapter.js, para.js, notes.js, changes.js and updates.js (a new version of a
-                chapter), and earlier.js ("My earlier comments")
+                home.js, chapter.js, para.js (a paragraph), panel.js (its panel: the English and the comment
+                box), quotes.js (quoted and picked words), notes.js, changes.js and updates.js (a new version
+                of a chapter), earlier.js ("My earlier comments"), and auth.js, signin.js and account.js
+                (signing in)
      features/  the page parts of features: english.js, and sentences.js, which adds to english
 
    This file stays a plain script, so a page saved on the device by an older version can still run

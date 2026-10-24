@@ -226,14 +226,14 @@ class Tunnel(unittest.TestCase):
         self.assertEqual(json.loads(out.read_text())["server"], self.target)
 
     def test_ssh_options_and_port(self):
-        t = review.Tunnel("ssh://brian@review.laoegw.com:2222")
+        t = review.Tunnel("ssh://translator@review.laoegw.com:2222")
         self.assertEqual(t.api_port, 8087)
         cmd = t.command(Path("/run/x/api.sock"))
         self.assertEqual(cmd[0:2], ["ssh", "-N"])
         self.assertEqual(cmd[cmd.index("-L") + 1], "/run/x/api.sock:127.0.0.1:8087")
         self.assertEqual(t.command(40001)[cmd.index("-L") + 1], "127.0.0.1:40001:127.0.0.1:8087")
         self.assertEqual(cmd[cmd.index("-p") + 1], "2222")
-        self.assertEqual(cmd[-2:], ["--", "brian@review.laoegw.com"])
+        self.assertEqual(cmd[-2:], ["--", "translator@review.laoegw.com"])
         self.assertEqual(review.Tunnel("ssh://droplet").dest, "droplet")
         for bad in ("ssh://", "ssh://host/path", "ssh://a:b@host", "ssh://host?other=1", "ssh://-oProxyCommand=x",
                     "ssh://-oProxyCommand", "ssh://-l@host", "ssh://host?api_port=x"):

@@ -329,6 +329,142 @@ class Migration7(unittest.TestCase):
         self.assertIsInstance(e.exception, ValueError)
 
 
+class QuotePlace(Base):
+    """A comment records where its quoted words start in the paragraph's reading text (`at`), which the reader
+    routes and the export give back; the site keeps no place for a comment without quoted words."""
+
+    def test_a_comment_keeps_where_its_quoted_words_start(self):
+        # In "Paragraph 2 of chapter 1 (v1) <em>word</em>" the reading text drops the tag, so "word" starts at 30.
+        c = self.site.comment(self.code, "SC 101.2", quote="word", text="Twice?", at=30)
+        self.assertEqual(c.status, 201, c.body)
+        self.assertEqual(c.json["at"], 30)
+        listed = self.site.call("GET", "/api/comments?book=SC&ch=SC01", token=self.code).json["comments"]
+        self.assertEqual([x["at"] for x in listed], [30])
+        ex = self.site.admin_call("GET", "/api/admin/export").json["comments"]
+        self.assertEqual(ex[0]["at"], 30)
+        self.assertEqual(ex[0]["quote"], "word")
+        # Without quoted words there is no place, whatever the page sent; without `at` the place is not known.
+        bare = self.site.comment(self.code, "SC 101.1", text="No quote", at=4).json
+        self.assertIsNone(bare["at"])
+        older = self.site.comment(self.code, "SC 101.3", quote="Paragraph", text="From an older page").json
+        self.assertIsNone(older["at"])
+
+    def test_a_place_that_is_not_a_whole_number_is_refused(self):
+        for bad in (-1, 1.5, "3", True, 100_001, [2]):
+            r = self.site.comment(self.code, "SC 101.2", quote="word", text="x", at=bad)
+            self.assertEqual((r.status, r.json["error"]), (400, "bad_at"), bad)
+        self.assertEqual(self.site.comment(self.code, "SC 101.2", quote="word", text="x", at=None).status, 201)
+        self.assertEqual(self.site.comment(self.code, "SC 101.2", quote="word", text="x", at=100_000).status, 201)
+
+    def test_new_quoted_words_without_a_place_have_none(self):
+        c = self.site.comment(self.code, "SC 101.2", quote="word", text="x", at=30).json
+        path = f"/api/comments/{c['id']}"
+        # A change of the text alone keeps the place.
+        r = self.site.call("PATCH", path, {"text": "y"}, token=self.code)
+        self.assertEqual((r.status, r.json["at"]), (200, 30))
+        # New quoted words with their place take it; new words without one have none.
+        r = self.site.call("PATCH", path, {"quote": "Paragraph 2", "at": 0}, token=self.code)
+        self.assertEqual((r.json["quote"], r.json["at"]), ("Paragraph 2", 0))
+        r = self.site.call("PATCH", path, {"quote": "chapter"}, token=self.code)
+        self.assertEqual((r.json["quote"], r.json["at"]), ("chapter", None))
+        # A place alone is a change, and clears the processed mark as any change does.
+        self.site.admin_call("POST", "/api/admin/processed", {"ids": [c["id"]]})
+        r = self.site.call("PATCH", path, {"at": 15}, token=self.code)
+        self.assertEqual((r.json["at"], r.json["processed"]), (15, False))
+        r = self.site.call("PATCH", path, {"at": "15"}, token=self.code)
+        self.assertEqual((r.status, r.json["error"]), (400, "bad_at"))
+
+    def test_a_place_where_the_quoted_words_do_not_stand_is_not_kept(self):
+        """The site keeps `at` only where the quoted words stand in the reading text of
+        the version it records with the comment, and never at white space."""
+        # "Paragraph 2 of chapter 1 (v1) word": "word" starts at 30; 29 is the space before it, 31 inside it.
+        for at, kept in ((30, 30), (29, None), (31, None), (0, None)):
+            c = self.site.comment(self.code, "SC 101.2", quote="word", text="Where?", at=at)
+            self.assertEqual((c.status, c.json["at"]), (201, kept), at)
+        # White space in the quote counts as one space, as on the page.
+        c = self.site.comment(self.code, "SC 101.2", quote="of  chapter", text="Spaces", at=12)
+        self.assertEqual(c.json["at"], 12)
+
+    def test_a_place_counted_in_an_earlier_version_is_dropped(self):
+        """A new version puts five letters before the words; a change, a draft or a new
+        comment that still sends the old place gets none, and the new place is kept."""
+        c = self.site.comment(self.code, "SC 101.2", quote="word", text="Before", at=30).json
+        ch = sample_chapter(1)
+        ch["paragraphs"][1]["text"] = "Intro " + ch["paragraphs"][1]["text"]
+        ch["commit"] = "abc0002"
+        v2 = self.site.publish(ch)["version"]
+        path = f"/api/comments/{c['id']}"
+        # A change of the text alone moves the comment to version 2, where "word" starts at 36, not 30.
+        r = self.site.call("PATCH", path, {"text": "After"}, token=self.code)
+        self.assertEqual((r.status, r.json["version"], r.json["at"]), (200, v2, None))
+        r = self.site.call("PATCH", path, {"at": 36}, token=self.code)
+        self.assertEqual(r.json["at"], 36)
+        r = self.site.call("PATCH", path, {"text": "Again", "at": 30}, token=self.code)
+        self.assertEqual(r.json["at"], None)
+        old = self.site.comment(self.code, "SC 101.2", quote="word", text="Old place", at=30).json
+        new = self.site.comment(self.code, "SC 101.2", quote="word", text="New place", at=36).json
+        self.assertEqual((old["at"], new["at"]), (None, 36))
+        ex = {x["text"]: x["at"] for x in self.site.admin_call("GET", "/api/admin/export").json["comments"]}
+        self.assertEqual((ex["Old place"], ex["New place"]), (None, 36))
+
+    def test_the_export_gives_at_as_a_place_in_the_paragraph_it_shows(self):
+        """paragraph_seen has a line break for each <br> and its ends trimmed, which the
+        reading text has not; the export's `at` is a place in paragraph_seen, from which the quote starts, while
+        the reader routes keep the place in the reading text."""
+        ch = sample_chapter(1)
+        ch["paragraphs"][1]["text"] = "  first twice<br>twice <em>again</em> &amp; twice"
+        ch["commit"] = "abc0003"
+        self.site.publish(ch)
+        # The reading text is "  first twicetwice again & twice": the second "twice" starts at 13.
+        c = self.site.comment(self.code, "SC 101.2", quote="twice", text="The second one", at=13).json
+        self.assertEqual(c["at"], 13)
+        listed = self.site.call("GET", "/api/comments?book=SC&ch=SC01", token=self.code).json["comments"]
+        self.assertEqual([x["at"] for x in listed], [13])
+        third = self.site.comment(self.code, "SC 101.2", quote="twice", text="The third one", at=27).json
+        self.assertEqual(third["at"], 27)
+
+        def exported():
+            return {x["text"]: x for x in self.site.admin_call("GET", "/api/admin/export").json["comments"]}
+
+        ex = exported()
+        for text in ("The second one", "The third one"):
+            x = ex[text]
+            self.assertEqual(x["paragraph_seen"], "first twice\ntwice again & twice")
+            self.assertTrue(x["paragraph_seen"][x["at"]:].startswith("twice"), text)
+        self.assertEqual((ex["The second one"]["at"], ex["The third one"]["at"]), (12, 26))
+        # After a new version, the place still counts in the paragraph as the reader saw it.
+        ch["paragraphs"][1]["text"] = "Changed now"
+        ch["commit"] = "abc0004"
+        self.site.publish(ch)
+        x = exported()["The second one"]
+        self.assertNotEqual(x["version_seen"], x["version_now"])
+        self.assertEqual((x["paragraph"], x["paragraph_seen"], x["at"]), ("Changed now", "first twice\ntwice again & twice", 12))
+
+
+class Migration9(unittest.TestCase):
+    """Version 9 adds where a comment's quoted words start; the comments of a version 8 database have none."""
+
+    def test_a_version_8_database_keeps_its_comments_without_a_place(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        path = Path(tmp.name) / db.DB_NAME
+        con = database_at(path, 8)
+        con.execute("INSERT INTO book (id) VALUES ('SC')")
+        con.execute("INSERT INTO chapter (book, id, n, title, title_en, version, content_hash, count, paragraphs,"
+                    " updated) VALUES ('SC', 'SC01', 1, 'T', 'T', 'v1', 'h', 0, '[]', 'now')")
+        con.execute("INSERT INTO reader (name, code_hash, created) VALUES ('R', 'x', 'now')")
+        con.execute("INSERT INTO comment (client_id, reader, book, ch, a, kind, quote, text, created, updated)"
+                    " VALUES ('c1', 1, 'SC', 'SC01', 'SC 101.1', 'flag', 'word', 'A note', 'now', 'now')")
+        con.commit()
+        con.close()
+        db.init_db(path)
+        con = sqlite3.connect(path)
+        self.addCleanup(con.close)
+        self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], db.MIGRATIONS[-1][0])
+        self.assertEqual(con.execute("SELECT client_id, quote, quote_at FROM comment").fetchall(), [("c1", "word", None)])
+        self.assertEqual(con.execute("PRAGMA integrity_check").fetchone()[0], "ok")
+
+
 class Caches(unittest.TestCase):
     def test_comparisons_are_bounded_and_forgotten_when_the_chapter_changes(self):
         site = Site()

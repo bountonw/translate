@@ -4,7 +4,10 @@
    the sign-in routes of server/auth.py; core/auth.js holds the rules that decide which screen and which line:
 
      - the welcome screen of a personal link (#k=): "Continue with LINE", the smaller "Use your email instead",
-       and "Not now" while the link alone still works for the reader;
+       and "Continue without signing in" while the link alone still works for the reader. In a browser signed in
+       as another reader it comes in two steps: first "Continue as" the reader signed in, or "Sign in as" the
+       link's reader, each button naming its person; then the welcome screen, which says that the reader signed
+       in is signed out on this browser, with "Continue as" that reader as its small button;
      - the sign-in screen, for a browser that is not signed in, a link that was used, a browser signed out, or
        a LINE account or address that no reader uses;
      - the request screen of a general link (#join=), which asks the translator for access, and the screens
@@ -31,10 +34,11 @@ import { startBody, sixDigits, isAddress, afterSignIn, afterRefusal, startRefusa
 import { route, showScreen, settingsBar, setHash, showLink, showOffline, showBoot } from "./screens.js";
 import { showAccount } from "./account.js";
 
-/* The screen of signing in shown now: {kind, code, id, name, skip, routes, signedIn, line, email, draw}, where
-   kind is link, join, signin or add (core/auth.js), line is {key, vars, bad} or null, and email is the state
-   of the email form, {stage: "address" or "code", address, code, error}, or null; address and code keep what the
-   reader typed, so that a change of language keeps it. draw() draws the screen again. */
+/* The screen of signing in shown now: {kind, code, id, name, skip, routes, signedIn, chosen, line, email, draw},
+   where kind is link, join, signin or add (core/auth.js), chosen is true once the reader chose "Sign in as" the
+   link's reader (or the screen came back from LINE with a line), line is {key, vars, bad} or null, and email is the
+   state of the email form, {stage: "address" or "code", address, code, error}, or null; address and code keep
+   what the reader typed, so that a change of language keeps it. draw() draws the screen again. */
 let ctx = null;
 /* A function that draws the screen of signing in shown now again, as after a change of language. */
 let shown = null;
@@ -108,7 +112,7 @@ export async function openLink(code, line) {
   if (r.status === 0) return showOffline(() => openLink(code, line));
   if (r.status === 401 || r.status === 400) {
     // An old link, as one kept in a LINE chat after a new link came: a browser signed in goes to its chapter
-    // list, and any other shows the sign-in screen with the line "This link does not work" (68-reader.md item 1);
+    // list, and any other shows the sign-in screen with the line "This link does not work";
     // with no sign-in route on, the link screen shows as before accounts.
     forgetLink(code);
     return signInScreen({ key: "link_title", vars: {}, bad: false });
@@ -125,7 +129,7 @@ export async function openLink(code, line) {
   }
   store.set(K.flow, { kind: "link", code, at: Date.now() });
   showAuth({ kind: "link", code, id: d.id, name: d.name || "", skip: d.skip === true, routes: d.routes || {},
-    signedIn: d.signed_in || null, line });
+    signedIn: d.signed_in || null, chosen: !!line, line });
 }
 
 /* A general link: whether it still takes requests. */
@@ -290,33 +294,50 @@ function showAuth(c) {
 }
 
 /* Lines that say on their own what to do, so the sign-in screen leaves out its lead under them: after a used link
-   the lead, which says to open the personal link, would send the reader in a circle (68-reader.md item 7), and a
+   the lead, which says to open the personal link, would send the reader in a circle, and a
    person who asked through a general link has no personal link. */
 const SELF_SAID = ["line_link_used", "join_closed_signin"];
 
 /* A line under the title: why the screen shows, or what a sign-in ended in. */
 const lineOf = line => (line && line.key ? h("p", { class: "lead auth-line" + (line.bad ? " bad" : ""), role: "status", text: t(line.key, line.vars) }) : null);
 
+/* Whether the browser is signed in as another reader than the one of the link on the screen. */
+const otherReader = c => c.kind === "link" && !!c.signedIn && typeof c.signedIn.id === "number" && c.signedIn.id !== c.id;
+
 function drawAuth() {
   const c = ctx;
   if (!c) return;
-  const title = c.kind === "link" ? t("welcome_title", { name: c.name }) : c.kind === "join" ? t("request_title") : t("signin_title");
-  const lead = c.kind === "link" ? t("welcome_text") : c.kind === "join" ? t("request_text") : t("signin_text");
-  const other = c.kind === "link" && c.signedIn && c.signedIn.id !== c.id
-    ? h("p", { class: "lead", text: t("signed_in_as", { name: c.signedIn.name || "" }) }) : null;
-  showScreen("signin", h("section", { class: "message auth" },
-    h("div", { class: "home-top" }, h("h1", { text: title }), settingsBar("signin")),
-    lineOf(c.line),
-    // In the email form the welcome stays, while the sign-in screen's and the request screen's own words give way.
-    (!c.email || c.kind === "link") && !(c.line && SELF_SAID.indexOf(c.line.key) >= 0) ? h("p", { class: "lead", text: lead }) : null,
-    other,
-    c.email ? emailForm(c) : choices(c),
-    devBox()));
+  const other = otherReader(c);
+  const otherName = other ? c.signedIn.name || "" : "";
+  // Another reader is signed in: first ask who is reading, each button naming its person, so that nobody signs the
+  // other reader out by mistake.
+  if (other && !c.chosen && !c.email) {
+    showScreen("signin", h("section", { class: "message auth" },
+      h("div", { class: "home-top" }, h("h1", { text: t("link_for", { name: c.name }) }), settingsBar("signin")),
+      h("p", { class: "lead", text: t("signed_in_as", { name: otherName }) }),
+      h("div", { class: "auth-choices" },
+        h("button", { type: "button", class: "btn", text: t("continue_as", { name: otherName }),
+          onclick: () => enterSession(c.signedIn.id, false) }),
+        h("button", { type: "button", class: "btn ghost", text: t("signin_as", { name: c.name }),
+          onclick: () => { c.chosen = true; c.draw(); } })),
+      devBox()));
+  } else {
+    const title = c.kind === "link" ? t("welcome_title", { name: c.name }) : c.kind === "join" ? t("request_title") : t("signin_title");
+    const lead = c.kind === "link" ? t("welcome_text") : c.kind === "join" ? t("request_text") : t("signin_text");
+    showScreen("signin", h("section", { class: "message auth" },
+      h("div", { class: "home-top" }, h("h1", { text: title }), settingsBar("signin")),
+      lineOf(c.line),
+      // In the email form the welcome stays, while the sign-in screen's and the request screen's own words give way.
+      (!c.email || c.kind === "link") && !(c.line && SELF_SAID.indexOf(c.line.key) >= 0) ? h("p", { class: "lead", text: lead }) : null,
+      other ? h("p", { class: "lead", text: t("signs_out_other", { name: otherName }) }) : null,
+      c.email ? emailForm(c) : choices(c),
+      devBox()));
+  }
   if (!S.auth) loadAuthState().then(st => { if (st && st.dev && shown === drawAuth && ctx === c && !c.email) drawAuth(); });
 }
 
-/* "Continue with LINE", "Use your email instead", and "Not now" on the welcome screen while the link alone
-   still works. */
+/* "Continue with LINE", "Use your email instead", and the small button of the welcome screen: "Continue as" the
+   reader signed in on this browser, or "Continue without signing in" while the link alone still works. */
 function choices(c) {
   const box = h("div", { class: "auth-choices" });
   if (c.routes.line) {
@@ -333,12 +354,12 @@ function choices(c) {
       focusField();
     } }));
   }
-  // The browser is signed in as another reader: "Not now" keeps it so, as the line above promises, and opens that
-  // reader's chapter list (66-adversarial.md ADV4-07, 68-reader.md item 3). Otherwise it goes on in link mode while
-  // the link alone still works.
-  const other = c.kind === "link" && c.signedIn && typeof c.signedIn.id === "number" && c.signedIn.id !== c.id;
-  if (other) {
-    box.append(h("button", { type: "button", class: "link skip-btn", text: t("skip_now"), onclick: () => enterSession(c.signedIn.id, false) }));
+  // The browser is signed in as another reader: "Continue as" that reader keeps it so and opens that reader's
+  // chapter list. Otherwise "Continue without signing in" goes on
+  // in link mode while the link alone still works.
+  if (otherReader(c)) {
+    box.append(h("button", { type: "button", class: "link skip-btn", text: t("continue_as", { name: c.signedIn.name || "" }),
+      onclick: () => enterSession(c.signedIn.id, false) }));
   } else if (c.kind === "link" && c.skip) {
     box.append(h("button", { type: "button", class: "link skip-btn", text: t("skip_now"), onclick: () => enterLink(c.code, c.id) }));
   }
@@ -420,7 +441,7 @@ export function emailForm(c) {
     h("p", { class: "hint", text: t("email_spam") }),
     h("label", { class: "field" }, h("span", { text: t("code_label") }), input),
     error,
-    // Cancel closes the form, as on the address step, since the browser's Back leaves the site (68-reader.md item 10).
+    // Cancel closes the form, as on the address step, since the browser's Back leaves the site.
     h("div", { class: "row" }, go,
       h("button", { type: "button", class: "btn ghost", text: t("cancel"), onclick: () => { c.email = null; c.draw(); } })),
     h("div", { class: "row" }, again,
@@ -509,7 +530,7 @@ function showRequestDone(key) {
 
 /* A general link that takes no more requests: the sign-in screen, with a line that says so. A person who asked
    through it already signs in there and sees the chapters once approved, or that the request still waits, or
-   that it was declined (66-adversarial.md ADV4-02, 68-reader.md item 2). */
+   that it was declined. */
 function showClosed() {
   store.del(K.flow);
   return signInScreen({ key: "join_closed_signin", vars: {}, bad: false });
@@ -517,7 +538,7 @@ function showClosed() {
 
 /* The reader's access is stopped. The reader's waiting comments stay on the device. "Try again" asks the site
    again, so that a reader let back in reaches the chapter list without reloading the page, which a site opened
-   from the Home Screen cannot do (68-reader.md item 5): signed in or in link mode, /api/me answers; with no mode,
+   from the Home Screen cannot do: signed in or in link mode, /api/me answers; with no mode,
    as after a LINE sign-in that ended in stopped, the sign-in screen shows. */
 function showStopped() {
   ctx = null;
@@ -535,14 +556,15 @@ function tryStoppedAgain() {
   refreshMe();
 }
 
-/* The browser refuses the site's data: the page sends nothing (45-security.md SEC3-4). */
+/* The browser refuses the site's data: the page sends nothing, since it could keep no comment waiting, and a link
+   would count this browser as a new device on every visit. */
 export function showBlocked() {
   ctx = null;
   shown = showBlocked;
   showScreen("blocked", h("section", { class: "message auth" },
     h("div", { class: "home-top" }, h("h1", { text: t("app_title") }), settingsBar("blocked")),
     h("p", { class: "lead", text: t("blocked") }),
-    // After the reader allows the site's data in the browser's settings, the page starts again (68-reader.md item 6).
+    // After the reader allows the site's data in the browser's settings, the page starts again.
     h("div", { class: "row" }, h("button", { type: "button", class: "btn ghost", text: t("retry_load"), onclick: () => location.reload() }))));
 }
 

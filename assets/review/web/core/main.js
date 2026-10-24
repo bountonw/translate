@@ -19,6 +19,7 @@ import "./earlier.js";
 import "./auth.js";
 import "./account.js";
 import "./outbox.js";
+import "./quotes.js";
 
 import { upgradeMe } from "./model.js";
 import { K } from "./store.js";
@@ -27,11 +28,13 @@ import { t, useKeptWords, loadWords, hasWords, keptLang } from "./words.js";
 import { showNotice, spacesOn, setSpaces } from "./dom.js";
 import { flush, refreshMe, startMe, schedulePrefetch, adoptOldDrafts } from "./net.js";
 import { useKeptLanguages, loadLanguages, showLanguages, shownLanguages, loadedFontFiles } from "./languages.js";
-import { route, rerender, applyLang, paintSync, paintSpaces, showOffline, showDeviceWaiting, goHome, setHash } from "./screens.js";
+import { route, rerender, applyLang, paintSync, paintSpaces, showOffline, showDeviceWaiting, goHome, setHash, applyTextSize,
+  changeTextSize } from "./screens.js";
 import { keptMode, startAuth, onRefused } from "./signin.js";
 import { renderHome } from "./home.js";
 import { repaintComments, onScroll, onMeInChapter, savePlace, sendPlaceNow } from "./chapter.js";
 import { onSelection } from "./para.js";
+import { watchLayout, panelArt, closePanel, picking, stopPick } from "./panel.js";
 
 /* ---- news from net.js ---- */
 
@@ -47,7 +50,7 @@ on("me", () => {
   else if (S.view === "home") renderHome(false);
   else if (S.view === "chapter") {
     onMeInChapter();
-    repaintComments();    // a refusal's message names the site's limits, which may have changed (48 UX3-5)
+    repaintComments();    // a refusal's message names the site's limits, which may have changed
   }
   paintSync();          // a draft whose chapter closed now counts as unsaved
   schedulePrefetch();
@@ -89,6 +92,17 @@ function wireEvents() {
   document.getElementById("bar-spaces").addEventListener("click", () => {
     setSpaces(!spacesOn());
     paintSpaces();
+  });
+  document.getElementById("bar-smaller").addEventListener("click", () => changeTextSize(-1));
+  document.getElementById("bar-larger").addEventListener("click", () => changeTextSize(1));
+  // The panel is a sheet or a column by the window's shape, and the English beside the paragraphs needs a wide one.
+  window.addEventListener("resize", watchLayout);
+  window.addEventListener("orientationchange", watchLayout);
+  // Escape stops picking words, or closes the panel and gives the focus back to its paragraph.
+  document.addEventListener("keydown", ev => {
+    if (ev.key !== "Escape") return;
+    if (picking()) stopPick(true);
+    else if (panelArt()) closePanel(true);
   });
   window.addEventListener("popstate", route);
   window.addEventListener("hashchange", onHash);
@@ -133,6 +147,8 @@ function registerWorker() {
 }
 
 function start(hash) {
+  applyTextSize();
+  watchLayout();
   applyLang();
   registerWorker();
   showLanguages(shownLanguages());

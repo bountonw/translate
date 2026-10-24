@@ -14,6 +14,8 @@ export const K = {
   reader: "rv.reader",           // the number of the reader whose chapter list the device keeps: the reader signed in last
   flow: "rv.flow",               // the sign-in screen the reader is on, {kind, code, at}, for the way back from LINE
   homeHint: "rv.homeHint",       // true once the reader hid the hint on adding the site to the Home Screen
+  size: "rv.size",               // the text size the reader chose with A- and A+: a step of TEXT_SIZES in screens.js
+  side: "rv.side",               // true when each paragraph shows its English beside it on a wide screen (panel.js)
 };
 export const chKey = (b, c) => "rv.ch:" + b + "/" + c;
 export const cmKey = (b, c) => "rv.cm:" + b + "/" + c;
@@ -44,6 +46,13 @@ export function ownerTag(who) {
 /* One unsent comment per paragraph and per reader: rv.draft:<tag>:BOOK/CH/A, where the tag is the reader's
    (ownerTag). A page of round 3b used the tag of the link instead, and a page before round 3b no tag. */
 export const draftKey = (tag, b, c, a) => "rv.draft:" + tag + ":" + b + "/" + c + "/" + a;
+
+/* Whether a draft ({kind, quote, text, auto, at}) holds words the reader wrote: some text, or quoted words the
+   reader typed. Words a selection or a pick put in the quote box (auto) are not the reader's comment until the
+   reader writes one, so a draft of those alone is not kept, never fills the quote box later, and never counts as a
+   comment not saved: the quote box starts empty (README.md, "The translator's rulings"). */
+export const draftHolds = d => !!d && typeof d === "object" &&
+  (String(d.text || "").trim() !== "" || (String(d.quote || "").trim() !== "" && !d.auto));
 
 /* The tag ("" for a key without one), book, chapter and paragraph of a draft's key, or null for any other key. */
 export function parseDraftKey(k) {

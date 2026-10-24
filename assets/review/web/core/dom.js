@@ -1,9 +1,12 @@
 /* Proofreading site: building the page (web/core/dom.js).
 
    h() makes elements; bookHtml() rebuilds book text safely; decorateText() runs the bookText place and
-   the dots of "Show spaces"; the small buttons every screen uses. */
+   the dots of "Show spaces"; the reading text of book text (textNodes, readingText, readingOffset), the
+   character under a tap (caretAt, tappedOffset) and the spans wrapped around ranges of it (wrapRanges, unwrap);
+   the small buttons every screen uses. */
 
 import { markFor, safely, active } from "./ext.js";
+import { pieces, charUnder } from "./quotes.js";
 import { K } from "./store.js";
 import { S, store } from "./state.js";
 import { t } from "./words.js";
@@ -86,7 +89,7 @@ export function tapMark(target, ctx) {
    wording) carries the class "bt". The English is the source, not the book text, and gets no dots. */
 
 /* Run every bookText entry that is on over el, then put the dots on its spaces when they are shown. ctx is
-   that of drawerPanel; where says what el holds (ext.js, bookText). */
+   that of panelSection; where says what el holds (ext.js, bookText). */
 export function decorateText(el, ctx, where) {
   const c = Object.assign({}, ctx, { where });
   for (const d of active("texts", S.me)) if (d.decorate) safely(d, () => d.decorate(el, c));
@@ -94,6 +97,122 @@ export function decorateText(el, ctx, where) {
 }
 
 export const spacesOn = () => store.get(K.spaces) === true;
+
+/* ---- the reading text: the text nodes of book text without the footnote numbers (quotes.js) ---- */
+
+const inFootnoteNumber = (n, root) => {
+  for (let e = n.parentNode; e && e !== root; e = e.parentNode) {
+    if (e.tagName === "SUP" && e.getAttribute("class") === "fn") return true;
+  }
+  return false;
+};
+
+/* The text nodes of root in document order, without those inside <sup class="fn">, the footnote numbers, which
+   the reading text does not count. */
+export function textNodes(root) {
+  const out = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (!inFootnoteNumber(n, root)) out.push(n);
+  return out;
+}
+
+/* The reading text of root: its text without the footnote numbers. */
+export const readingText = root => textNodes(root).map(n => n.data).join("");
+
+/* The offset in root's reading text, in code points, of a point in the document (a node and an offset in it, as
+   a selection or a caret gives them): a point before root is 0, one after it the text's length, and one inside a
+   footnote number the offset where that number stands. */
+export function readingOffset(root, node, offset) {
+  if (!root.contains(node)) {
+    const before = root.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_PRECEDING;
+    return before ? 0 : Array.from(readingText(root)).length;
+  }
+  const r = document.createRange();
+  r.setStart(root, 0);
+  r.setEnd(node, offset);
+  const frag = r.cloneContents();
+  for (const x of frag.querySelectorAll("sup.fn")) x.remove();
+  return Array.from(frag.textContent).length;
+}
+
+/* The caret at a point of the screen, the place between two characters that the browser puts there: {node,
+   offset}, or null. */
+function caretAt(x, y) {
+  if (document.caretPositionFromPoint) {
+    const c = document.caretPositionFromPoint(x, y);
+    return c ? { node: c.offsetNode, offset: c.offset } : null;
+  }
+  if (document.caretRangeFromPoint) {
+    const r = document.caretRangeFromPoint(x, y);
+    return r ? { node: r.startContainer, offset: r.startOffset } : null;
+  }
+  return null;
+}
+
+/* The point of the document at offset i of a reading text made of the text nodes `nodes`: {node, offset}, with
+   the offset counted as the DOM counts it. A start point (end false) lies in the node that holds the character at
+   i; an end point lies in the node that holds the character before i. null past the text. */
+function readingPoint(nodes, i, end) {
+  let pos = 0;
+  for (const n of nodes) {
+    const chars = Array.from(n.data);
+    if (end ? i > pos && i <= pos + chars.length : i < pos + chars.length) {
+      return { node: n, offset: chars.slice(0, i - pos).join("").length };
+    }
+    pos += chars.length;
+  }
+  return null;
+}
+
+/* The offset in root's reading text of the character under the point x, y, as quotes.js charUnder finds it from
+   the boxes of the characters around the browser's caret; null when the caret lies outside root. */
+export function tappedOffset(root, x, y) {
+  const c = caretAt(x, y);
+  if (!c || !root.contains(c.node)) return null;
+  const nodes = textNodes(root);
+  const boxes = (start, end) => {
+    const s = readingPoint(nodes, start, false), e = readingPoint(nodes, end, true);
+    if (!s || !e) return [];
+    const r = document.createRange();
+    r.setStart(s.node, s.offset);
+    r.setEnd(e.node, e.offset);
+    return Array.from(r.getClientRects());
+  };
+  return charUnder(nodes.map(n => n.data).join(""), readingOffset(root, c.node, c.offset), boxes, x, y, 2);
+}
+
+/* Wrap each range [start, end, i] of root's reading text in spans made by make(i), one span per piece of a text
+   node, so the words stay as they are (quotes.js, pieces). */
+export function wrapRanges(root, ranges, make) {
+  const nodes = textNodes(root);
+  const plan = pieces(nodes.map(n => Array.from(n.data).length), ranges);
+  nodes.forEach((n, k) => {
+    const list = plan[k];
+    if (list.every(x => x[2] < 0)) return;
+    const chars = Array.from(n.data);
+    const frag = document.createDocumentFragment();
+    for (const x of list) {
+      const text = chars.slice(x[0], x[1]).join("");
+      if (x[2] < 0) { frag.append(text); continue; }
+      const span = make(x[2]);
+      span.textContent = text;
+      frag.append(span);
+    }
+    n.parentNode.replaceChild(frag, n);
+  });
+}
+
+/* Take out the spans of root that match selector, leaving their words where they stood. */
+export function unwrap(root, selector) {
+  const spans = Array.from(root.querySelectorAll(selector));
+  if (!spans.length) return;
+  for (const sp of spans) {
+    const parent = sp.parentNode;
+    while (sp.firstChild) parent.insertBefore(sp.firstChild, sp);
+    parent.removeChild(sp);
+  }
+  root.normalize();
+}
 
 /* Wrap every space of el's text in <span class="sp"> </span>. The dot is the span's ::after (app.css), which
    is not text, so selecting or copying the words gives the same text as without the dots. */

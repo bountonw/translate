@@ -25,7 +25,8 @@ Version 7 records the client_id of each comment deleted. Version 8 adds accounts
 signed in (session), the sign-ins under way (auth_flow), general links and the
 requests made through them (general_link, access_request), the mails sent
 (mail_log), and on each reader link_used, first_signin and link_signs_in. Today
-every account is a reader, so "account" holds a reader's number. An entry may hold a
+every account is a reader, so "account" holds a reader's number. Version 9 records
+where a comment's quoted words start (comment.quote_at). An entry may hold a
 Python function beside its SQL, for a change SQL cannot make. init_db refuses a
 database of a version newer than its last entry, which newer code made.
 
@@ -442,6 +443,13 @@ MIGRATIONS = [
   ok       INTEGER NOT NULL,
   detail   TEXT NOT NULL DEFAULT ''
 )""",
+    ]),
+    (9, [
+        # Where a comment's quoted words start in the paragraph's reading text (align_text() of server/content.py,
+        # in code points), from the reader's selection or picked words, so that words that occur twice are noted
+        # where the reader chose them; the API and the export call it `at`. NULL when not known, as for every
+        # comment written before this version and for words the reader typed.
+        "ALTER TABLE comment ADD COLUMN quote_at INTEGER",
     ]),
 ]
 

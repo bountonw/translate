@@ -29,9 +29,9 @@ from server.app import App
 
 ADMIN = ROOT / "admin"
 OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
-# The local routes of 41-admin-contract.md: those of 31-admin-contract.md with open and close for grant and ungrant,
-# and the routes for devices, review rounds and deleting one reader's comments; and trade, which gives the page its
-# key for the one-time code of the address the browser is opened at. Round 4a (61-admin-contract.md) adds the routes
+# The local routes of review_admin.py, which the admin page calls: one for each command of review.py, with open and
+# close in the place of grant and ungrant, the routes for devices, review rounds and deleting one reader's comments;
+# trade, which gives the page its key for the one-time code of the address the browser is opened at; and the routes
 # of signing in: auth (review.py signin), sessions, identities, requests and general-links to read, and signin
 # (check, test-mail), link-signs-in, session, signout, identity, unbind, request and general-link to change.
 CONTRACT = {
@@ -47,13 +47,13 @@ CONTRACT = {
     "export": "POST", "processed": "POST", "triage": "POST", "replies": "POST",
     "backup": "POST", "new-token": "POST", "trade": "POST",
 }
-# Round 3b built the server first and the admin page after it, from 41-admin-contract.md; these sets held the routes
-# the page did not call yet, and the two it no longer names. The page now calls every route of the contract and
-# names no retired one, so both are empty, and the tests below check every route.
+# The server's routes were once built before the admin page called them; these sets held the routes the page did not
+# call yet, and the two it no longer names. The page now calls every route of CONTRACT and names no retired one, so
+# both are empty, and the tests below check every route.
 NOT_YET_ON_THE_PAGE = set()
 RETIRED_FROM_THE_PAGE = set()
-# Every option of the command line, as the field of its local route (41-admin-contract.md section 5), which the page
-# must send from some control: "Every command and every option of the command line has a control on the admin page."
+# Every option of the command line, as the field of its local route, which the page must send from some control:
+# "Every command and every option of the command line has a control on the admin page."
 OPTIONS = {
     "publish": {"book", "chapters", "ref"}, "withdraw": {"book", "chapters"},
     "align-packet": {"book", "chapter", "ref", "out"}, "source": {"book", "ref"},
@@ -68,7 +68,7 @@ OPTIONS = {
     "export": {"all", "round", "before_first_round", "out", "book", "ch", "reader", "unprocessed"},
     "processed": {"ids", "export", "undo"}, "triage": {"export", "ref"}, "replies": {"csv", "json"},
     "delete-comments": {"name", "from", "to", "yes", "upto"}, "backup": {"keep"}, "trade": {"code"},
-    # signing in (61-admin-contract.md section 6)
+    # signing in
     "signin": {"action", "to"}, "link-signs-in": {"names", "state"}, "sessions": {"name", "all"},
     "session": {"action", "ids"}, "signout": {"names"}, "identities": {"name"}, "identity": {"action", "name", "address"},
     "unbind": {"ids"}, "requests": {"state"},
@@ -146,7 +146,7 @@ class Routes(unittest.TestCase):
         for action in review.GROUP_ACTIONS:
             self.assertIn(f'"{action}"', groups_code, f"no control of the Groups section sends group {action}")
         # The options of relink are checked per route above; relink --group G --unbind is one combination, which the
-        # Groups section sends itself (70-verify.md item 5).
+        # Groups section sends itself.
         sent = re.findall(r'post\("relink", \{([^}]*)\}', groups_code)
         self.assertTrue(sent, "the Groups section sends no relink")
         for body in sent:
@@ -284,7 +284,7 @@ class Words(unittest.TestCase):
 
     @unittest.skipIf(shutil.which("node") is None, "node is not installed")
     def test_the_menu_marks_site_while_the_last_mail_failed(self):
-        # 67-operations.md OPS4-10: a mail outage shows from every section, not only in Site.
+        # A mail outage shows from every section, not only in Site.
         self.assertIn('<span id="mailbad" class="badge" hidden></span>', (ADMIN / "index.html").read_text())
         self.assertIn("loadAuth();", (ADMIN / "admin.js").read_text())
         self.assertIn("showMail(last);", (ADMIN / "site.js").read_text())
@@ -361,7 +361,7 @@ class NextSteps(unittest.TestCase):
 
     @unittest.skipIf(shutil.which("node") is None, "node is not installed")
     def test_the_commands_the_lines_of_signing_in_name(self):
-        # 61-admin-contract.md: a reader with no way left to sign in needs a new link; a declined request is forgotten;
+        # A reader with no way left to sign in needs a new link; a declined request is forgotten;
         # the requests and general links are in the Requests section. A relink in the middle of a line offers nothing.
         used = review.describe({"name": "Mali Boon", "active": True, "grants": [], "groups": [], "settings": {},
                                 "english": False, "comments": 0, "last_active": None, "identities": [],

@@ -1,7 +1,8 @@
 /* Checks of the page's plain modules in web/core/ (the outbox, the server's answers, the refusals, the
-   feature places, what changed since the reader last opened a chapter, the words, and the rules of signing in),
-   of web/core/net.js with a stand-in for fetch, and of the plain part of web/features/sentences.js, run by
-   test_core.py with node. Prints "ok" and exits 0 when every check passes. */
+   feature places, what changed since the reader last opened a chapter, the words, the rules of signing in, and
+   the quoted words, picked words and sentence steps of quotes.js), of web/core/net.js with a stand-in for fetch,
+   and of the entries of web/features/sentences.js, run by test_core.py with node. Prints "ok" and exits 0 when
+   every check passes. */
 "use strict";
 const assert = require("assert");
 const path = require("path");
@@ -272,14 +273,14 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(moves, [[dk(tagA, "SC 1.1"), dk(tagB, "SC 1.1")]]);
   assert.deepStrictEqual(store.draftMoves(["rv.draft:SC/SC03/SC 1.1"], tagA, t => t === ""), [["rv.draft:SC/SC03/SC 1.1", dk(tagA, "SC 1.1")]]);
   // A draft is kept per reader, under R and the reader's fixed number; in link mode before the device knows the link's
-  // number, under the link's tag, from which it moves to the reader's (spec 3.M, 61-contract.md 7.E).
+  // number, under the link's tag, from which it moves to the reader's.
   assert.strictEqual(store.ownerTag(7), "R7");
   assert.strictEqual(store.ownerTag("link:code-of-link-A"), tagA);
   assert.strictEqual(store.ownerTag(null), "");
   assert.deepStrictEqual(store.parseDraftKey(dk("R12", "SC 1.1")), { tag: "R12", book: "SC", ch: "SC03", a: "SC 1.1" });
   assert.deepStrictEqual(store.draftMoves([dk(tagA, "SC 1.1"), dk("R7", "SC 1.2"), dk(tagC, "SC 1.3")], "R7", t => t === tagA),
     [[dk(tagA, "SC 1.1"), dk("R7", "SC 1.1")]]);
-  // A browser that refuses storage outright is named, so the page shows the plain screen for it (spec 3.L).
+  // A browser that refuses storage outright is named, so the page shows the plain screen for it.
   assert.strictEqual(store.makeStore({ setItem() { throw new Error("SecurityError"); } }).blocked, true);
   assert.strictEqual(store.makeStore(null).blocked, true);
   const okStore = new Map();
@@ -324,7 +325,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(box.map(o => o.cid || o.key), ["x1", "place:SC/SC03", "place:SC/SC03"]);
   // An op of a page of round 3b names its link in `code`, and so does one written in link mode before the device
   // knew the link's number ("link:" and the code). Once the device knows the number of the link, the op becomes
-  // that reader's; the op of a link the device never tied to a number stays as it is (spec 3.M, 61-contract.md 7.C).
+  // that reader's; the op of a link the device never tied to a number stays as it is.
   const legacy = (cid, link) => ({ op: "o-" + cid, type: "create", code: link, cid, book: "SC", ch: "SC03", a: "SC 23.3",
     body: { client_id: cid, book: "SC", ch: "SC03", a: "SC 23.3", kind: "flag", quote: "", text: "words" },
     t: 0, rev: 0, tries: 0, sent: 0, next: 0, sending: 0, failed: null, why: "" });
@@ -394,7 +395,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   obr = core.settle(obr, obr[0].op, 0, "fail", { error: "round_closed", message: "x" }, 409, 1);
   assert.strictEqual(obr[0].failed.error, "round_closed", "an edit refused for its round keeps the reader's words");
   // A delete the site refuses stays, with the comment's words, and says that the comment was not deleted and the
-  // translator still receives it (46 ADV3-03, 48 UX3-4); only no_comment means the comment is already gone.
+  // translator still receives it; only no_comment means the comment is already gone.
   let obrd = core.queueDelete([], Object.assign({}, c, { id: 4 }), code, 0);
   assert.deepStrictEqual(obrd[0].body, { kind: "flag", quote: "", text: "words" });
   assert.strictEqual(core.requestFor(obrd[0])[2], undefined, "a delete sends no body");
@@ -437,7 +438,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   const net = await load("net.js");
   const outbox = () => st.store.get("rv.outbox") || [];
   // Storage that passed the start check of store.js and then refuses every write, as a full one does: the page
-  // keeps one key for the whole visit, never a new one per request (45 SEC3-9).
+  // keeps one key for the whole visit, never a new one per request, which the site would count as a new device.
   const realGet = st.store.get, realSet = st.store.set;
   st.store.get = () => null;
   st.store.set = () => false;
@@ -464,7 +465,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   const created = (id, cid) => [201, { id, client_id: cid, kind: "flag", quote: "", text: "words" }];
 
   // Signed in (session mode): the session cookie, which the page never sees, and X-Review-Page: 1; never a link's
-  // code or the device key (61-contract.md 1.A).
+  // code or the device key.
   Object.assign(st.S, { mode: "session", code: null, reader: 7 });
   answers = [[200, { ok: true }]];
   await net.api("GET", "api/me");
@@ -472,7 +473,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(calls[0].credentials, "same-origin");
   assert.strictEqual(net.who(), 7);
   // Link mode: the link's code and the device key, without the cookies, so that a session of another reader on this
-  // browser never answers for the link (61-contract.md section 8).
+  // browser never answers for the link.
   Object.assign(st.S, { mode: "link", code: "new-link", reader: null });
   answers = [[200, { ok: true }], [200, { ok: true }]];
   await net.api("GET", "api/me");
@@ -490,7 +491,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   answers = [[403, { error: "device_waiting", message: "x", device: 12 }]];
   assert.strictEqual(await net.refreshMe(), false);
   assert.strictEqual(st.S.deviceWaiting, true);
-  assert.strictEqual(st.S.deviceNumber, 12, "the waiting screen names the device's number (45 SEC3-5)");
+  assert.strictEqual(st.S.deviceNumber, 12, "the waiting screen names the device's number");
   assert.strictEqual(calls[0].headers["X-Review-Device"], key1, "every request in link mode carries the device key");
   net.flush();
   await pause(20);
@@ -562,7 +563,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(await net.fetchEarlier(), null);
   assert.strictEqual(st.S.deviceNumber, 12, "an answer without a number keeps the one known");
 
-  // Safari before iOS 12.2 has no AbortController: a request still goes, without a timeout (48 UX3-9).
+  // Safari before iOS 12.2 has no AbortController: a request still goes, without a timeout.
   const realAbort = globalThis.AbortController;
   globalThis.AbortController = undefined;
   answers = [[200, { ok: true }]];
@@ -570,7 +571,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   globalThis.AbortController = realAbort;
 
   // A page frozen while it held the outbox lock, as Firefox keeps a page left in the same tab: the page open now
-  // finds the lock taken, and once it has been taken for longer than an op's lease, takes it over (48 UX3-1).
+  // finds the lock taken, and once it has been taken for longer than an op's lease, takes it over.
   st.S.deviceWaiting = false;
   let frozen = null;
   navigator.locks.request("rv-outbox", () => new Promise(() => {})).catch(e => { frozen = e.name; });
@@ -591,7 +592,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(outbox().filter(o => o.cid === "z1"), []);
 
   // A refusal that a newer chapter list explains asks for /api/me at once: a chapter closed meanwhile then leaves
-  // the page, and a lowered limit is named rightly (48 UX3-5, UX3-6).
+  // the page, and a lowered limit is named rightly.
   st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "z2" }), net.who(), 0));
   answers = [[404, { error: "no_chapter", message: "x" }], [200, { id: 7, name: "Anan", limits: { text: 40 },
     books: [], chapters: [] }]];
@@ -617,7 +618,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(events, [["auth", "signed_out"]], "the page learns why: the sign-in screen says the browser was signed out");
   assert.strictEqual(st.S.authBlocked, true);
   assert.deepStrictEqual(outbox().map(o => [o.cid, o.failed, o.sending]), [["q7", null, 0], ["q8", null, 0]],
-    "a 401 never marks a comment failed or drops it (spec 3.M)");
+    "a 401 never marks a comment failed or drops it");
   net.flush();
   await pause(20);
   assert.strictEqual(calls.length, 1, "nothing goes while the browser is not signed in");
@@ -646,7 +647,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
     "the op waits and goes again later, never refused for a fault of the page");
   st.store.set("rv.outbox", outbox().filter(o => o.cid !== "q9"));
   // /api/me names another reader, 8 (the browser was signed in as reader 8 in another tab): what the device kept for
-  // reading goes, the device notes reader 8, and reader 8's waiting op goes at once (61-contract.md 7.D, 7.F).
+  // reading goes, the device notes reader 8, and reader 8's waiting op goes at once.
   st.store.set("rv.ch:SC/SC03", { etag: '"v"', variant: "", data: { book: "SC", id: "SC03", version: "v", title: "t", paras: [] } });
   st.store.set(store.draftKey("R7", "SC", "SC03", "SC 1.1"), { kind: "flag", quote: "", text: "reader 7's draft" });
   answers = [meAnswer(8), created(401, "q8")];
@@ -660,8 +661,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(calls.filter(x => x.method === "POST").map(x => JSON.parse(x.body).client_id), ["q8"]);
   assert.deepStrictEqual(outbox(), []);
   // A reader in link mode signs in, on a device that already knew the reader's number: the op written in link
-  // mode waited for the sign-in, and the first answer of /api/me sends it, with nothing new to adopt
-  // (66-adversarial.md ADV4-01).
+  // mode waited for the sign-in, and the first answer of /api/me sends it, with nothing new to adopt.
   st.store.set("rv.reader", 8);
   Object.assign(st.S, { mode: "session", code: null, reader: 8, authBlocked: true, deviceWaiting: false });
   st.store.set("rv.outbox", core.queueCreate([], Object.assign({}, c, { client_id: "s8" }), 8, 0));
@@ -697,7 +697,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.ok(auth.isAddress("Mali@Example.org"));
   assert.ok(auth.isAddress("  pim@example.co.th "));
   for (const bad of ["mali", "mali@example", "@example.org", "a b@example.org", "mali@exa mple.org"]) assert.ok(!auth.isAddress(bad), bad);
-  // Before the @ only A to Z, digits and . _ % + -, as the server takes it (65-security.md item 10).
+  // Before the @ only A to Z, digits and . _ % + -, as the server takes it.
   assert.ok(auth.isAddress("a.b-c_d+e%f@example.org"));
   for (const bad of ["x\u001b@evil.example", "group:x@evil.example", "a(b)c@evil.example", "\u202ex@evil.example",
     "x\u200b@evil.example", "\uff58@evil.example"]) assert.ok(!auth.isAddress(bad), JSON.stringify(bad));
@@ -706,7 +706,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(auth.startBody("join", "C"), { join: "C" });
   assert.deepStrictEqual(auth.startBody("add", "C"), { add: true });
   assert.deepStrictEqual(auth.startBody("signin", "C"), {});
-  // Every result of server/auth.py has a screen (61-contract.md 4.C).
+  // Every result of server/auth.py has a screen.
   const results = { signed_in: "list", added: "account", request_sent: "request", request_waiting: "request",
     request_declined: "request", no_account: "signin", identity_taken: "start", link_used: "signin", link_signs_in: "claim", stopped: "stopped",
     join_closed: "closed", join_busy: "start", cancelled: "start", expired: "start", other_browser: "start", failed: "start" };
@@ -715,8 +715,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(auth.afterSignIn("expired").key, "line_expired");
   assert.deepStrictEqual(auth.afterSignIn("nonsense"), { screen: "signin", key: "" });
   assert.deepStrictEqual(auth.afterSignIn("constructor"), { screen: "signin", key: "" });
-  // Every 401 of a reader route has a screen (61-contract.md section 6); no_code right after a sign-in means the
-  // browser refused the cookie (spec 3.L).
+  // Every 401 of a reader route has a screen; no_code right after a sign-in means the browser refused the cookie.
   assert.deepStrictEqual(auth.afterRefusal("no_code", false), { screen: "signin", key: "" });
   assert.deepStrictEqual(auth.afterRefusal("no_code", true), { screen: "blocked", key: "" });
   assert.deepStrictEqual(auth.afterRefusal("signed_out", false), { screen: "signin", key: "line_signed_out" });
@@ -735,7 +734,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.strictEqual(said(503, { error: "mail_failed" }, 60000).key, "mail_failed");
   assert.strictEqual(said(429, { error: "slow_down" }, 60000).key, "too_many");
   assert.strictEqual(said(429, { error: "slow_down" }, 600000).key, "too_many_hour", "an hourly limit");
-  // A limit that names itself: the codes of a day, of an hour, and the wrong codes of an hour (65-security.md item 4).
+  // A limit that names itself: the codes of a day, of an hour, and the wrong codes of an hour.
   assert.strictEqual(said(429, { error: "slow_down", limit: "day" }, 3600000).key, "too_many_day");
   assert.strictEqual(said(429, { error: "slow_down" }, 80000000).key, "too_many_day", "a wait of a day without a name");
   assert.strictEqual(said(429, { error: "slow_down", limit: "hour" }, 60000).key, "too_many_hour");
@@ -753,7 +752,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.ok(!auth.flowFresh({ kind: "link", code: "C", at: 1000 }, 1000 + 31 * 60000));
   assert.ok(!auth.flowFresh(null, 1000));
   // The hint on adding the site to the Home Screen: Safari on an iPhone or iPad only, and not once the site runs from
-  // the Home Screen (spec 3.K).
+  // the Home Screen, since the reader has added it then.
   const ua = {
     iphone: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1",
     ipad: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
@@ -772,7 +771,7 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
 
   // Features: a place's entry shows only while its feature is on; an unknown feature is off.
   ext.feature({ name: "probe", variant: "pr" });
-  ext.drawerPanel({ name: "probe-panel", feature: "probe", order: 5, hint: "hint_probe", render: () => null });
+  ext.panelSection({ name: "probe-panel", feature: "probe", order: 5, hint: "hint_probe", render: () => null });
   ext.chapterSection({ name: "core-section", order: 1, render: () => null });
   const on = { features: { probe: { on: true } } };
   const off = { features: { probe: { on: false } } };
@@ -821,17 +820,138 @@ const load = name => import(pathToFileURL(path.join(__dirname, "..", "web", "cor
   assert.deepStrictEqual(main.readHash("#SC/SC03"), { link: null, join: null, result: null });
   assert.deepStrictEqual(main.readHash(""), { link: null, join: null, result: null });
 
-  // Sentence pairs: how the ranges cut a text's nodes. Two nodes of 5 and 6 code points; pair 0 covers
+  // Ranges over a text's nodes: how they cut the nodes. Two nodes of 5 and 6 code points; pair 0 covers
   // [0, 3), pair 1 covers [4, 9), which crosses from the first node into the second.
-  const sentences = await import(pathToFileURL(path.join(__dirname, "..", "web", "features", "sentences.js")).href);
-  assert.deepStrictEqual(sentences.pieces([5, 6], [[0, 3, 0], [4, 9, 1]]),
+  const quotes = await load("quotes.js");
+  assert.deepStrictEqual(quotes.pieces([5, 6], [[0, 3, 0], [4, 9, 1]]),
     [[[0, 3, 0], [3, 4, -1], [4, 5, 1]], [[0, 4, 1], [4, 6, -1]]]);
-  assert.deepStrictEqual(sentences.pieces([4], []), [[[0, 4, -1]]]);
-  assert.deepStrictEqual(sentences.pieces([2, 0, 2], [[0, 4, 0]]), [[[0, 2, 0]], [], [[0, 2, 0]]]);
-  // The sentence module adds to english: on with English, off without it, and a sentence span is its mark.
-  assert.strictEqual(ext.markFor("sentence", { features: { english: { on: true } } }).name, "sentences");
+  assert.deepStrictEqual(quotes.pieces([4], []), [[[0, 4, -1]]]);
+  assert.deepStrictEqual(quotes.pieces([2, 0, 2], [[0, 4, 0]]), [[[0, 2, 0]], [], [[0, 2, 0]]]);
+  // The sentence module adds to english: on with English, off without it, and a sentence span is its mark; the
+  // English leads the panel's first face, and Previous and Next sentence follow it.
+  await import(pathToFileURL(path.join(__dirname, "..", "web", "features", "sentences.js")).href);
+  const english = { features: { english: { on: true } } };
+  assert.strictEqual(ext.markFor("sentence", english).name, "sentences");
   assert.strictEqual(ext.markFor("sentence", { features: { english: { on: false } } }), null);
-  assert.deepStrictEqual(ext.active("texts", { features: { english: { on: true } } }).map(d => d.name), ["sentences"]);
+  assert.deepStrictEqual(ext.active("texts", english).map(d => d.name), ["sentences"]);
+  assert.deepStrictEqual(ext.active("panels", english).map(d => [d.name, !!d.lead]),
+    [["english", true], ["steps", false], ["earlier", false]]);
+  assert.deepStrictEqual(ext.active("panels", { features: {} }).map(d => d.name), ["earlier"]);
+
+  // Words: with a segmenter, Thai splits into its words; without one, a word runs between white space.
+  const run1 = "เมื่อพระเจ้าทรงสร้างมนุษย์", run2 = "ขึ้นมา", thai = run1 + " " + run2;
+  const n1 = Array.from(run1).length, n2 = Array.from(run2).length;
+  assert.deepStrictEqual(quotes.wordRanges("ab  cd e", null), [[0, 2], [4, 6], [7, 8]]);
+  assert.deepStrictEqual(quotes.wordRanges(thai, null), [[0, n1], [n1 + 1, n1 + 1 + n2]]);
+  if (typeof Intl === "object" && Intl.Segmenter) {
+    const words = quotes.wordRanges(thai, new Intl.Segmenter("th", { granularity: "word" }));
+    assert.ok(words.length > 3, "the segmenter splits a Thai run into words");
+    assert.deepStrictEqual(words[0], [0, 5]);   // เมื่อ
+  }
+  // A segment with a letter or a digit is a word even when the segmenter calls it not word-like, as Firefox does
+  // with โรม; spaces and punctuation are no words.
+  const like = { segment: () => [["(", false], ["โรม", false], [" ", false], ["7", true], [":", false], ["24", true], [")", false]]
+    .map(x => ({ segment: x[0], isWordLike: x[1] })) };
+  assert.deepStrictEqual(quotes.wordRanges("(โรม 7:24)", like), [[1, 4], [5, 6], [7, 9]]);
+  // The word under a tap: the one holding the offset, the one ending there (a tap on its last letter), the nearest.
+  const ws = [[0, 2], [4, 6], [7, 8]];
+  assert.deepStrictEqual(quotes.wordAt(ws, 1), [0, 2]);
+  assert.deepStrictEqual(quotes.wordAt(ws, 6), [4, 6]);
+  assert.deepStrictEqual(quotes.wordAt(ws, 3), [0, 2]);
+  assert.strictEqual(quotes.wordAt([], 3), null);
+  // Clusters: a letter with the marks drawn on it, the vowel AM among them, as the browser measures them.
+  assert.deepStrictEqual(quotes.clusters("สร้าง"), [[0, 1], [1, 3], [3, 4], [4, 5]]);
+  assert.deepStrictEqual(quotes.clusters("กำลัง"), [[0, 2], [2, 4], [4, 5]]);
+  assert.deepStrictEqual(quotes.clusters("น้ำ"), [[0, 3]]);
+  assert.deepStrictEqual(quotes.clusters("ab c"), [[0, 1], [1, 2], [2, 3], [3, 4]]);
+  // The character under a tap. On a made-up line each cluster of "สร้างมนุษย์ขึ้น" is a box 10 pixels wide and
+  // 20 high, side by side. A tap on the right half of ง, the last letter of สร้าง, gets the caret after it, at 5,
+  // where มนุษย์ starts; the boxes give ง, so the word is สร้าง, not the next one.
+  const line = "สร้างมนุษย์ขึ้น", cls = quotes.clusters(line);
+  const boxesOf = (s, e) => {
+    const j0 = cls.findIndex(c => c[0] === s), j1 = cls.findIndex(c => c[1] === e);
+    return j0 < 0 || j1 < 0 ? [] : [{ left: 10 * j0, right: 10 * j1 + 10, top: 0, bottom: 20 }];
+  };
+  const lineWords = [[0, 5], [5, 11], [11, 15]];   // สร้าง, มนุษย์, ขึ้น
+  assert.strictEqual(quotes.charUnder(line, 5, boxesOf, 38, 10), 4);
+  assert.deepStrictEqual(quotes.wordAt(lineWords, quotes.charUnder(line, 5, boxesOf, 38, 10)), [0, 5]);
+  assert.deepStrictEqual(quotes.wordAt(lineWords, 5), [5, 11], "the word at the caret would be the next one");
+  // A tap on the tone mark above ขึ้ (high in its box) gives the cluster's letter, so the word ขึ้น.
+  assert.strictEqual(quotes.charUnder(line, 14, boxesOf, 85, 2), 11);
+  assert.deepStrictEqual(quotes.wordAt(lineWords, quotes.charUnder(line, 14, boxesOf, 85, 2)), [11, 15]);
+  // A caret one cluster away from the letter tapped still finds it; a tap under the line takes the nearest box.
+  assert.strictEqual(quotes.charUnder(line, 3, boxesOf, 35, 10), 4);
+  assert.strictEqual(quotes.charUnder(line, 5, boxesOf, 38, 30), 4);
+  // Without any box, as where the browser measures nothing, the caret stands; a box without width counts for nothing.
+  assert.strictEqual(quotes.charUnder(line, 5, () => [], 38, 10), 5);
+  assert.strictEqual(quotes.charUnder(line, 5, (s, e) => s === 4 ? [{ left: 40, right: 40, top: 0, bottom: 20 }] : boxesOf(s, e), 40, 10), 5);
+  // The words between two picks: trimmed, white space as one space, and where they start and end.
+  assert.deepStrictEqual(quotes.quoteBetween("ab  cd\ne", 0, 9), { at: 0, end: 8, text: "ab cd e" });
+  assert.deepStrictEqual(quotes.quoteBetween(" ab ", 0, 4), { at: 1, end: 3, text: "ab" });
+  assert.strictEqual(quotes.quoteBetween("a   b", 1, 4), null);
+  assert.deepStrictEqual(quotes.quoteBetween("abcdef", 0, 6, 3), { at: 0, end: 6, text: "abc" }, "cut to the longest quote");
+  // Where a quote stands: at its place when it stands there, else the first place, else nowhere; white space
+  // counts as one space either way.
+  const para = "the word and the word again";
+  assert.deepStrictEqual(quotes.locate(para, "the word", 13), [13, 21]);
+  assert.deepStrictEqual(quotes.locate(para, "the word", 5), [0, 8], "at does not fit: the first place");
+  assert.deepStrictEqual(quotes.locate(para, "the word", null), [0, 8]);
+  assert.deepStrictEqual(quotes.locate("a  b c", "a b", 0), [0, 4]);
+  assert.strictEqual(quotes.locate(para, "absent", 0), null);
+  assert.strictEqual(quotes.locate(para, "  ", 0), null);
+  // The backgrounds: soft for one comment, deeper for two or more, and the picked words over both.
+  assert.deepStrictEqual(quotes.marks([[0, 8], [4, 12]], null), [[0, 4, "q1"], [4, 8, "q2"], [8, 12, "q1"]]);
+  assert.deepStrictEqual(quotes.marks([[0, 8]], [2, 4]), [[0, 2, "q1"], [2, 4, "pk"], [4, 8, "q1"]]);
+  assert.deepStrictEqual(quotes.marks([], null), []);
+  assert.deepStrictEqual(quotes.marks([[0, 4], [0, 4]], null), [[0, 4, "q2"]]);
+  // Previous and Next sentence: every pair of each paragraph with English, a paragraph without pairs as one stop,
+  // into the next paragraph after the last pair, and nothing past either end.
+  const stops = quotes.stepList([{ a: "A", en: "x", al: [{}, {}] }, { a: "B", en: "" }, { a: "C", en: "y" }, { a: "D", en: "z", al: [{}] }]);
+  assert.deepStrictEqual(stops, [{ a: "A", s: 0 }, { a: "A", s: 1 }, { a: "C", s: -1 }, { a: "D", s: 0 }]);
+  assert.deepStrictEqual(quotes.stepFrom(stops, "A", 1, 1), { a: "C", s: -1 });
+  assert.deepStrictEqual(quotes.stepFrom(stops, "C", -1, 1), { a: "D", s: 0 });
+  assert.deepStrictEqual(quotes.stepFrom(stops, "D", 0, -1), { a: "C", s: -1 });
+  assert.strictEqual(quotes.stepFrom(stops, "A", 0, -1), null);
+  assert.strictEqual(quotes.stepFrom(stops, "D", 0, 1), null);
+  // A paragraph opened without a sentence: Next goes to its first pair, Previous to the stop before it.
+  assert.deepStrictEqual(quotes.stepFrom(stops, "D", -1, 1), { a: "D", s: 0 });
+  assert.deepStrictEqual(quotes.stepFrom(stops, "A", -1, 1), { a: "A", s: 0 });
+  assert.deepStrictEqual(quotes.stepFrom(stops, "D", -1, -1), { a: "C", s: -1 });
+  assert.strictEqual(quotes.stepFrom(stops, "B", -1, 1), null);
+
+  // The English ranges of the pairs: a range two pairs share, as in {SC 18.2} where one English sentence is rendered
+  // by two Thai sentences around a Bible reference, is wrapped once and names both pairs, so either lights it.
+  const shared = [{ text: [0, 5], en: [[0, 184]] }, { text: [5, 9], en: [[185, 200]] }, { text: [9, 12], en: [[0, 184]] },
+    { text: [12, 15], en: [[201, 210], [211, 220]] }];
+  assert.deepStrictEqual(quotes.englishRanges(shared), [[0, 184, "0 2"], [185, 200, "1"], [201, 210, "3"], [211, 220, "3"]]);
+  assert.deepStrictEqual(quotes.englishRanges([]), []);
+  assert.strictEqual(quotes.holdsPair("0 2", "2"), true);
+  assert.strictEqual(quotes.holdsPair("0 2", "0"), true);
+  assert.strictEqual(quotes.holdsPair("12", "1"), false);
+  assert.strictEqual(quotes.holdsPair("0 2", null), false);
+
+  // A draft is kept only while it holds words the reader wrote: words a selection or a pick put in the quote box
+  // alone are not the reader's comment, so they never come back as a draft or count as not saved.
+  assert.strictEqual(store.draftHolds({ kind: "flag", quote: "ครทูตเปาโลเข", text: "", auto: true, at: 322 }), false);
+  assert.strictEqual(store.draftHolds({ kind: "flag", quote: "ครทูตเปาโลเข", text: "  ", auto: true, at: 322 }), false);
+  assert.strictEqual(store.draftHolds({ kind: "flag", quote: "ครทูตเปาโลเข", text: "why?", auto: true, at: 322 }), true);
+  assert.strictEqual(store.draftHolds({ kind: "wording", quote: "typed", text: "", auto: false, at: null }), true);
+  assert.strictEqual(store.draftHolds({ kind: "flag", quote: "", text: "" }), false);
+  assert.strictEqual(store.draftHolds(null), false);
+
+  // A comment keeps where its quoted words start (`at`) through the outbox; a comment without quoted words keeps no
+  // place. An answer that gives the same place settles the op; one that lacks it, from a server before version 9,
+  // sends the place again as a change.
+  let obAt = core.queueCreate([], Object.assign({}, c, { quote: "words", at: 0 }), code, 0);
+  assert.strictEqual(obAt[0].body.at, 0);
+  assert.strictEqual(core.queueCreate([], Object.assign({}, c, { at: 4 }), code, 0)[0].body.at, null);
+  const same = core.settle(obAt.slice(), obAt[0].op, 0, "ok", { id: 9, kind: "flag", quote: "words", text: "words", at: 0 }, 201, 1);
+  assert.deepStrictEqual(same, []);
+  const older = core.settle(obAt, obAt[0].op, 0, "ok", { id: 9, kind: "flag", quote: "words", text: "words" }, 201, 1);
+  assert.strictEqual(older[0].type, "update");
+  assert.deepStrictEqual(older[0].body, { kind: "flag", quote: "words", text: "words", at: 0 });
+  let obEdit = core.queueEdit([], Object.assign({ id: 3 }, c), { kind: "flag", quote: "new", text: "t", at: 7 }, code, 0);
+  assert.deepStrictEqual(core.requestFor(obEdit[0]), ["PATCH", "api/comments/3", { kind: "flag", quote: "new", text: "t", at: 7 }]);
 
   console.log("ok");
 })().catch(err => { console.error(err); process.exit(1); });

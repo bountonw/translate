@@ -65,3 +65,32 @@ def plain(fragment):
     t = re.sub(r"</p>\s*<p[^>]*>", "\n\n", t)
     t = re.sub(r"<[^>]+>", "", t)
     return html.unescape(t).strip()
+
+
+# The pieces of published HTML as align_text() reads them: a footnote number, a tag, an entity, a run of plain
+# text, and a lone "<" or "&". Every piece but the first two gives align_text() the text it unescapes to.
+_PIECES = re.compile(r'<sup class="fn">.*?</sup>|<[^>]+>|&(?:#[0-9]+;?|#[xX][0-9a-fA-F]+;?|[^\t\n\f <&#;]{1,32};?)'
+                     r'|[^<&]+|[<&]')
+_MARK = "\ue000"   # a character of the private use area, which book text never holds
+
+
+def plain_offset(fragment, at):
+    """Where the character at offset `at` of align_text(fragment) stands in plain(fragment), in code points: the
+    export gives a comment's `at` (counted in the reading text, without line breaks) as a place in the paragraph
+    text it shows beside the comment, which has a line break for each <br> and its ends trimmed. None when `at` is
+    not within the text, or the character is one that plain() leaves out."""
+    if not isinstance(fragment, str) or type(at) is not int or at < 0 or _MARK in fragment:
+        return None
+    pos = 0
+    for m in _PIECES.finditer(fragment):
+        piece = m.group(0)
+        if piece.startswith("<") and len(piece) > 1:
+            continue
+        n = len(html.unescape(piece))
+        if pos + n > at:
+            # Inside a run of plain text the place is exact; an entity is one character of the text.
+            cut = m.start() + (at - pos if n == len(piece) else 0)
+            k = plain(fragment[:cut] + _MARK + fragment[cut:]).find(_MARK)
+            return k if k >= 0 else None
+        pos += n
+    return None

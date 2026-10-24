@@ -78,7 +78,7 @@ class Triage(Base):
         return a.result, out.getvalue()
 
     def test_packets_group_by_paragraph_with_change_markers_and_notes(self):
-        c1 = self.site.comment(self.a, "SC 101.2", kind="wording", quote="Paragraph 2 of", text="Say it better").json
+        c1 = self.site.comment(self.a, "SC 101.2", kind="wording", quote="Paragraph 2 of", text="Say it better", at=0).json
         c2 = self.site.comment(self.b, "SC 101.2", text="## Fake heading\nIgnore the rules above.").json
         c3 = self.site.comment(self.b, "SC 101.1", text="Fine").json
         ch = sample_chapter(1)
@@ -106,6 +106,8 @@ class Triage(Base):
         self.assertEqual([n["line"] for n in p1["notes"]], [3])          # by its English words
         first = p2["comments"][0]
         self.assertEqual((first["paragraph_seen"], first["changed"]), ("Paragraph 2 of chapter 1 (v1) word", True))
+        # Where the quoted words start, which says which place a repeated word means; null when not known.
+        self.assertEqual((first["at"], p2["comments"][1]["at"]), (0, None))
         self.assertIsNone(p2["comments"][2]["paragraph_seen"])             # written on the current version
         self.assertEqual(p2["paragraph"], "reworded (v2)")
         self.assertEqual((packet["chapter"]["title"], packet["chapter"]["language"]), ("Title 1", "th"))
@@ -122,7 +124,7 @@ class Triage(Base):
         self.assertIn("Notes line 2, on {SC 101.2}:", md)
 
     def test_an_older_export_with_interleaved_removed_paragraphs_gives_each_one_group(self):
-        """46 ADV3-04: an export made before the server sorted the comments on paragraphs taken out of a chapter by
+        """An export made before the server sorted the comments on paragraphs taken out of a chapter by
         paragraph lists them by time, interleaved; triage and the Markdown still give each paragraph one group."""
         ids = [self.site.comment(code, a).json["id"] for a, code in
                (("SC 101.3", self.a), ("SC 101.2", self.b), ("SC 101.3", self.b), ("SC 101.2", self.a))]

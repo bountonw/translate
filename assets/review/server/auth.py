@@ -669,7 +669,7 @@ class SignIn:
         if data.get("join"):
             row, state = self.general_link(req.conn, data["join"])
             if state != "open":
-                raise HTTPError(410, "join_closed", "This link no longer takes requests. Ask the translator.")
+                raise HTTPError(410, "join_closed", "This link no longer takes requests to join the proofreading. Ask the translator for a new link.")
             return "join", None, None, row["id"]
         if data.get("add"):
             if data["add"] is not True:

@@ -3,24 +3,25 @@
    The address holds the open chapter as #SC/SC03, "My earlier comments" as #earlier, and "Your devices" as
    #account; an empty hash is the chapter list. This module also draws the link, offline, loading and device
    screens, the list of comments the server refused (with the unsaved drafts whose paragraph is no longer
-   open), the note at the foot of the screen, the bar with its "Show spaces" button, and the settings. The
+   open), the note at the foot of the screen, the bar with its "Show spaces" button and A− and A+, and the settings. The
    screens of signing in are core/signin.js's, and "Your devices" is core/account.js's. */
 
 import { ownerOf } from "./outbox.js";
 import { S, store } from "./state.js";
-import { ownerTag, parseDraftKey } from "./store.js";
+import { K, ownerTag, parseDraftKey, draftHolds } from "./store.js";
 import { t, tIn, plural, hasWords, loadWords, setLang, UI_LANGS } from "./words.js";
 import { h, $, shortA, copyButton, twoTapButton, drawn, spacesOn } from "./dom.js";
 import { active, settingsItem } from "./ext.js";
 import { loadOb, mutateOb, refreshMe, keptChapter, who } from "./net.js";
 import { explain } from "./refusals.js";
 import { bookLang, showLanguages, shownLanguages } from "./languages.js";
-import { leaveChapter, openChapter, openComment, redrawChapter } from "./chapter.js";
+import { leaveChapter, openChapter, openComment, redrawChapter, markJump } from "./chapter.js";
 import { showHome, renderHome } from "./home.js";
 import { failText } from "./notes.js";
 import { showEarlier } from "./earlier.js";
 import { showAuthAgain, redrawAuth, showBlocked } from "./signin.js";
 import { showAccount, redrawAccount } from "./account.js";
+import { keepLit, noteShown } from "./panel.js";
 
 export function setHash(hash, push) {
   const url = location.pathname + location.search + hash;
@@ -63,8 +64,10 @@ export function goHome() {
 export function applyLang() {
   document.documentElement.lang = S.lang;
   document.title = t("app_title");
-  $("back").textContent = t("back");
+  $("back-word").textContent = t("back");
+  $("back").setAttribute("aria-label", t("back"));
   paintSpaces();
+  paintTextSize();
   showLanguages(shownLanguages());
 }
 
@@ -83,8 +86,8 @@ export function rerender() {
   paintSync();
 }
 
-/* The bar shows inside a chapter: the way back, the chapter, the reader's place and the "Show spaces"
-   button. Given a title instead of a chapter, as on "My earlier comments", it shows the way back and that
+/* The bar shows inside a chapter: the way back, the chapter, the reader's place, the "Show spaces" button,
+   and A− and A+. Given a title instead of a chapter, as on "My earlier comments", it shows the way back and that
    title only. */
 export function setBar(c, title) {
   $("bar").hidden = !c && !title;
@@ -93,6 +96,7 @@ export function setBar(c, title) {
   if (lg) $("bar-title").lang = lg; else $("bar-title").removeAttribute("lang");
   $("bar-place").textContent = "";
   $("bar-spaces").hidden = !c;
+  $("bar-size").hidden = !c;
 }
 
 /* The "Show spaces" button in the bar: a faint dot on every space of the book text, a choice kept on this
@@ -102,6 +106,65 @@ export function paintSpaces() {
   if (!b) return;
   b.textContent = t("show_spaces");
   b.setAttribute("aria-pressed", String(spacesOn()));
+}
+
+/* ---- A− and A+: the size of the book text and the English, a choice kept on this device ---- */
+
+/* The steps of the text size, as parts of the usual size; the second is the usual size. */
+export const TEXT_SIZES = [0.9, 1, 1.15, 1.3, 1.5];
+
+function sizeStep() {
+  const n = store.get(K.size);
+  return typeof n === "number" && n >= 0 && n < TEXT_SIZES.length ? n : 1;
+}
+
+/* Set the text size kept on the device: app.css multiplies the book text and the English by --ts. */
+export function applyTextSize() {
+  document.documentElement.style.setProperty("--ts", String(TEXT_SIZES[sizeStep()]));
+}
+
+/* At either end of the sizes its button says so with aria-disabled rather than disabled: a disabled button loses
+   the focus, which would leave a reader who presses it from the keyboard nowhere. changeTextSize does nothing
+   there. */
+export function paintTextSize() {
+  const down = $("bar-smaller"), up = $("bar-larger");
+  if (!down || !up) return;
+  down.setAttribute("aria-label", t("text_smaller"));
+  down.title = t("text_smaller");
+  up.setAttribute("aria-label", t("text_larger"));
+  up.title = t("text_larger");
+  down.setAttribute("aria-disabled", String(sizeStep() === 0));
+  up.setAttribute("aria-disabled", String(sizeStep() === TEXT_SIZES.length - 1));
+}
+
+/* A− (dir -1) or A+ (dir 1). With the panel open on words it keeps in view (a lit sentence, picked words), those
+   words keep their place and the panel shows them again (panel.js, keepLit); otherwise the line under the bar
+   stays where it is (keepLine). */
+export function changeTextSize(dir) {
+  const n = Math.max(0, Math.min(TEXT_SIZES.length - 1, sizeStep() + dir));
+  if (n === sizeStep()) return;
+  store.set(K.size, n);
+  if (S.view === "chapter") { if (!keepLit(applyTextSize)) keepLine(applyTextSize); }
+  else applyTextSize();
+  paintTextSize();
+}
+
+/* Run fn, which changes the size of the text, keeping the line the reader reads where it stands: the line at the
+   foot of the bar, found as a part of the height of the paragraph it is in, comes back to the same part. A
+   paragraph that starts below the bar's foot keeps its top where it stands. One paragraph of a book can fill
+   two or three screens, so keeping only the paragraph's top would move the line by hundreds of pixels. */
+function keepLine(fn) {
+  const bar = $("bar");
+  const y = (bar && !bar.hidden ? bar.getBoundingClientRect().bottom : 0) + 1;
+  const top = Array.from(document.querySelectorAll("#main .para")).find(x => x.getBoundingClientRect().bottom > y);
+  if (!top) { fn(); return; }
+  const r = top.getBoundingClientRect();
+  const part = r.top < y && r.height ? (y - r.top) / r.height : 0;
+  const was = r.top + part * r.height;
+  fn();
+  const r2 = top.getBoundingClientRect();
+  const by = r2.top + part * r2.height - was;
+  if (Math.abs(by) >= 0.5) { markJump(); window.scrollBy(0, by); }
 }
 
 let devicePoll = 0;
@@ -214,6 +277,7 @@ export function paintSync() {
   const failed = ob.length - waiting + goneDrafts().length + orphanOps().length;
   const offline = S.netFails > 0 || navigator.onLine === false;
   const retrying = ob.some(o => !o.failed && o.tries > 0);
+  const shownBefore = !el.hidden;
   el.textContent = "";
   el.classList.toggle("bad", failed > 0);
   el.classList.toggle("has-btn", failed > 0);
@@ -222,6 +286,8 @@ export function paintSync() {
   } else if (waiting && offline) el.textContent = t("offline") + " · " + plural(waiting, "waiting_one", "waiting_many");
   else if (waiting && retrying) el.textContent = plural(waiting, "waiting_one", "waiting_many");
   el.hidden = !el.textContent;
+  // A note that comes up while the panel is open may cover the words the panel keeps in view.
+  if (!el.hidden && !shownBefore && S.view === "chapter") noteShown();
 }
 
 /* ---- comments the server refused ---- */
@@ -253,7 +319,7 @@ export function ownDrafts() {
   return out;
 }
 
-/* The reader's unsaved drafts that no drawer shows any more: their chapter is closed now, or the chapter
+/* The reader's unsaved drafts that no panel shows any more: their chapter is closed now, or the chapter
    kept on the device no longer has their paragraph. A chapter not kept yet is not judged. */
 export function goneDrafts() {
   if (!S.me) return [];
@@ -271,7 +337,7 @@ export function goneDrafts() {
     const open = S.me.chapters.some(x => x.book === d.book && x.id === d.ch);
     if (open && has(d.book, d.ch, d.a)) continue;
     const body = store.get(d.key);
-    if (!body || (!body.text && !body.quote)) continue;
+    if (!draftHolds(body)) continue;
     out.push(Object.assign(d, { body }));
   }
   return out;

@@ -402,8 +402,8 @@ class Limits(Base):
         self.assertEqual(self.site.call("GET", "/api/me", token=self.a).status, 200)
 
     def test_no_limit_on_the_comments_a_reader_keeps(self):
-        # The daily limit replaced the lifetime limit of 5,000 comments (round3-plan.md item 10): a reader who
-        # keeps 6,000 comments still writes the next one.
+        # The daily limit replaced the lifetime limit of 5,000 comments: a reader who keeps 6,000 comments still
+        # writes the next one.
         rid = next(r["id"] for r in self.site.admin_call("GET", "/api/admin/readers").json["readers"]
                    if r["name"] == "Reader A")
         con = sqlite3.connect(self.site.data / db.DB_NAME)

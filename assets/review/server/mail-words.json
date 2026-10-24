@@ -12,7 +12,7 @@
     "th": "ตอนนี้คุณอ่านในระบบตรวจทานได้แล้ว"
   },
   "approved_body": {
-    "en": "The translator approved your request. Open {url} and sign in with this email address.",
-    "th": "ผู้แปลอนุมัติคำขอของคุณแล้ว กรุณาเปิด {url} แล้วเข้าสู่ระบบด้วยที่อยู่อีเมลนี้"
+    "en": "The translator approved your request to join the proofreading. Open {url} and sign in with this email address.",
+    "th": "ผู้แปลอนุมัติให้คุณเข้าร่วมการตรวจทานแล้ว กรุณาเปิด {url} แล้วเข้าสู่ระบบด้วยที่อยู่อีเมลนี้"
   }
 }

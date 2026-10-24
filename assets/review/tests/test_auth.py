@@ -401,8 +401,8 @@ class Email(Base):
                              "bad_email", bad)
 
     def test_codes_to_one_address_a_share_for_each_address_on_the_internet(self):
-        # 65-security.md item 4 and 66-adversarial.md item 5: a stranger at one address on the internet uses up only
-        # that address's share of a reader's codes, and the address alone gets at most CODES_PER_DAY in 24 hours.
+        # A stranger at one address on the internet uses up only that address's share of a reader's codes, and the
+        # address alone gets at most CODES_PER_DAY in 24 hours.
         anan = self.invite()
         self.email_signin(Browser(self.site.app), "anan@example.org", {"link": anan["code"]})
         start = lambda ip: Browser(self.site.app).post("/api/auth/email/start", {"email": "anan@example.org"},
@@ -428,8 +428,8 @@ class Email(Base):
                                                      environ={"REMOTE_ADDR": "192.0.2.99"}).status, 200)
 
     def test_adding_addresses_is_capped_for_each_reader(self):
-        # 66-adversarial.md item 6: a signed-in browser sends at most ADD_CODES_PER_HOUR add codes an hour, from
-        # any address on the internet.
+        # A signed-in browser sends at most ADD_CODES_PER_HOUR add codes an hour, from any address on the internet,
+        # so one reader's browser cannot fill strangers' mailboxes.
         anan = self.invite()
         b = Browser(self.site.app)
         self.line_signin(b, {"link": anan["code"]})
@@ -585,8 +585,8 @@ class Links(Base):
         self.assertEqual(Browser(self.site.app).post("/api/auth/claim", {"link": chai["code"]}).json["state"], "link")
         devices = [Browser(self.site.app) for _ in range(3)]
         self.assertEqual([d.get("/api/me", token=chai["code"], page=False).status for d in devices], [200, 200, 403])
-        # 65-security.md item 1 and 66-adversarial.md item 3: while the switch is on, the link starts no sign-in
-        # with LINE or email, so nobody holding it signs in past the two-device lock.
+        # While the switch is on, the link starts no sign-in with LINE or email, so nobody holding it signs in past
+        # the two-device lock.
         third = devices[2]
         r = third.post("/api/auth/line/start", {"link": chai["code"]})
         self.assertEqual((r.status, r.json["error"]), (409, "link_signs_in"))
@@ -740,7 +740,7 @@ class Requests(Base):
         self.assertEqual((r.status, r.json["reader"]["id"], r.json["request"]["name"]), (200, anan["id"], "Anan"))
         approved = [m for m in self.site.mails() if m[0] == "new@example.org"][-1]
         self.assertEqual(approved[1], mail.words()["approved_subject"]["th"])
-        self.assertIn("The translator approved your request. Open https://", approved[2])
+        self.assertIn("The translator approved your request to join the proofreading. Open https://", approved[2])
         self.assertEqual(self.email_signin(Browser(self.site.app), "new@example.org").json,
                          {"result": "signed_in", "name": "Anan"})
 
@@ -965,7 +965,7 @@ class Mailers(unittest.TestCase):
         self.assertEqual((msg["From"], msg["Subject"]), ("Proofreading <review@laoegw.com>",
                                                          "123456 is your sign-in code"))
         self.assertIn("ภาษาไทย", msg.get_content())
-        # The code mail as the site sends it: the Thai subject travels encoded and arrives whole (70-verify.md item 3).
+        # The code mail as the site sends it: the Thai subject travels encoded and arrives whole.
         title = mail.subject("code_subject", code="654321")
         m.send("reader@example.org", title, mail.both("code_body", code="654321", minutes=10))
         self.assertEqual(len(server.messages), 2)
@@ -1019,8 +1019,8 @@ class Mailers(unittest.TestCase):
         for key, w in words.items():
             self.assertEqual(set(w), {"en", "th"}, key)
             self.assertTrue(w["en"], key)
-            # The Thai of 69b-thai-strings-9.md item 6 is written (70-verify.md item 3): the same values to fill in,
-            # the same paragraphs, no Thai or Lao digit, no invisible character and no full stop at the end.
+            # The Thai of every mail word is written: the same values to fill in, the same paragraphs, no Thai or Lao
+            # digit, no invisible character and no full stop at the end.
             self.assertTrue(w["th"], key)
             self.assertEqual(sorted(re.findall(r"\{(\w+)\}", w["th"])), sorted(re.findall(r"\{(\w+)\}", w["en"])), key)
             self.assertEqual(w["th"].count("\n\n"), w["en"].count("\n\n"), key)
@@ -1078,7 +1078,7 @@ class Helpers(unittest.TestCase):
         class R:
             def __init__(self, addr):
                 self.environ = {"REMOTE_ADDR": addr}
-        # 65-security.md item 11: every written form of an IPv6 address counts as its /64 network.
+        # Every written form of an IPv6 address counts as its /64 network, so one network cannot pass for many.
         self.assertEqual(auth.client_key(R("2001:db8:1:2:3:4:5:6")), "2001:db8:1:2::/64")
         self.assertEqual(auth.client_key(R("2001:db8::1")), auth.client_key(R("2001:db8:0:0:ffff::9")))
         self.assertEqual(auth.client_key(R("2001:DB8::1")), "2001:db8::/64")
@@ -1119,7 +1119,7 @@ class Migration8(unittest.TestCase):
         db.init_db(path)
         con = sqlite3.connect(path)
         self.addCleanup(con.close)
-        self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], 8)
+        self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], db.MIGRATIONS[-1][0])
         for t, n in counts.items():
             self.assertEqual(con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0], n, t)
         self.assertEqual(con.execute("SELECT link_used, first_signin, link_signs_in FROM reader").fetchall(),
@@ -1133,10 +1133,11 @@ class Migration8(unittest.TestCase):
 
 
 class Round4aFixes(Base):
-    """The fixes of 69-fixes.md: each test names the finding it covers."""
+    """Checks of signing in that need the stand-in for LINE; each test says what it guards against."""
 
     def test_an_add_finishes_only_while_its_browser_is_signed_in(self):
-        # 65-security.md item 2: the translator's sign-out also ends an add the browser began.
+        # The translator's sign-out also ends an add the browser began, so a browser signed out cannot tie an
+        # address to the reader.
         anan = self.invite()
         b = Browser(self.site.app)
         self.email_signin(b, "anan@example.org", {"link": anan["code"]})
@@ -1160,7 +1161,8 @@ class Round4aFixes(Base):
         self.assertEqual(self.email_signin(b2, "second@example.org", {"add": True}).json["result"], "added")
 
     def test_codes_typed_at_the_same_moment_get_three_tries_between_them(self):
-        # 65-security.md item 3 and 66-adversarial.md item 4.
+        # The tries are counted in the same write that checks a code, so codes typed at the same moment never get
+        # more than three tries between them.
         anan = self.invite()
         for run in range(3):
             b = Browser(self.site.app)
@@ -1188,7 +1190,8 @@ class Round4aFixes(Base):
             self.assertEqual(sum(1 for a in answers if a.get("error") == "wrong_code"), 2, answers)
 
     def test_thirty_wrong_codes_an_hour_from_one_address(self):
-        # 65-security.md item 4.
+        # One address on the internet types at most WRONG_CODES_PER_HOUR wrong codes an hour, whatever the
+        # addresses it asks codes for, so nobody can guess codes across many readers.
         anan = self.invite()
         refused = None
         for n in range(auth.WRONG_CODES_PER_HOUR // 2 + 2):
@@ -1209,7 +1212,7 @@ class Round4aFixes(Base):
         self.assertGreater(int(r.headers["retry-after"]), 3000)
 
     def test_the_first_sign_in_note_names_the_step_that_removes_a_stranger(self):
-        # 65-security.md item 6.
+        # The note of a reader's first sign-in names the one command that removes a stranger who used the link.
         mali = self.invite("Mali Boon")
         self.line_signin(Browser(self.site.app), {"link": mali["code"]})
         (note,) = [m for m in self.site.mails() if m[0] == "translator@example.org"]
@@ -1218,7 +1221,8 @@ class Round4aFixes(Base):
         self.assertNotIn("sign that browser out", note[2])
 
     def test_an_unknown_browser_is_sent_to_the_page_without_a_name(self):
-        # 68-reader.md item 8.
+        # The site sends no name for a browser it cannot name, so the page shows its own words in the reader's
+        # language.
         anan = self.invite()
         b = Browser(self.site.app, agent="Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0")
         self.line_signin(b, {"link": anan["code"]})
@@ -1228,7 +1232,7 @@ class Round4aFixes(Base):
         self.assertEqual(theirs["agent"], "an unknown browser")
 
     def test_a_person_who_asked_by_email_sees_the_request_from_the_sign_in_screen(self):
-        # 66-adversarial.md item 2: a closed general link shows the sign-in screen, where a person who asked by
+        # A closed general link shows the sign-in screen, where a person who asked by
         # email gets a code and sees whether the request waits or was declined.
         self.site.admin_call("POST", "/api/admin/groups", {"name": "Youth", "grants": ["SC01"]})
         join = self.site.admin_call("POST", "/api/admin/general-links", {"group": "Youth"}).json["code"]
@@ -1249,7 +1253,7 @@ class Round4aFixes(Base):
         self.assertEqual((r.status, len(self.site.mails())), (200, before))
 
     def test_removing_a_group_counts_its_general_link_and_waiting_requests(self):
-        # 66-adversarial.md item 9.
+        # Removing a group says what becomes of its general link and of the requests still waiting through it.
         self.site.admin_call("POST", "/api/admin/groups", {"name": "Youth", "grants": ["SC01"]})
         join = self.site.admin_call("POST", "/api/admin/general-links", {"group": "Youth"}).json["code"]
         self.assertEqual(self.result(self.line_signin(Browser(self.site.app), {"join": join}, user=2)), "request_sent")
@@ -1266,7 +1270,8 @@ class Round4aFixes(Base):
 
 
 class Round4aServer(unittest.TestCase):
-    """The fixes of 69-fixes.md that need no stand-in for LINE."""
+    """Checks of signing in that need no stand-in for LINE: config.json at the start, addresses, the dev server
+    and the mailer."""
 
     def data_with(self, text):
         tmp = tempfile.TemporaryDirectory()
@@ -1277,7 +1282,7 @@ class Round4aServer(unittest.TestCase):
         return data
 
     def test_a_config_json_that_is_not_valid_json_stops_the_start(self):
-        # 67-operations.md item 1: a stray comma no longer starts the site without its settings.
+        # A stray comma no longer starts the site without its settings.
         data = self.data_with('{"public_url": "https://review.example.org", "auth": {"email": true,}}')
         with self.assertRaises(ValueError) as e:
             App(data)
@@ -1300,7 +1305,8 @@ class Round4aServer(unittest.TestCase):
         self.assertEqual(db.read_config(data), {})
 
     def test_an_http_public_url_with_signing_in_on_stops_the_start(self):
-        # 65-security.md item 12.
+        # With a sign-in route on, public_url must be https (or http on this machine), so that the session cookie
+        # travels only encrypted.
         mail_cfg = {"provider": "file", "from": "review@example.org"}
         for url, ok in (("http://review.example.org", False), ("", False), ("https://review.example.org", True),
                         ("http://127.0.0.1:8087", True), ("http://localhost:8090", True)):
@@ -1319,7 +1325,8 @@ class Round4aServer(unittest.TestCase):
         self.assertFalse(auth.load_settings(self.data_with('{"public_url": "http://review.example.org"}')).any_route)
 
     def test_an_address_holds_only_plain_characters_before_the_at(self):
-        # 65-security.md item 10.
+        # Before the @ only A to Z, digits and . _ % + - pass, so no control character or quoting reaches the mail
+        # server.
         for good in ("a.b-c_d+e%f@example.org", "Somchai.W@Gmail.com"):
             self.assertEqual(mail.address(good), good.lower(), good)
         for bad in ("x\x1b@evil.example", "x\x00@evil.example", "group:x@evil.example", "a(b)c@evil.example",
@@ -1328,7 +1335,7 @@ class Round4aServer(unittest.TestCase):
             self.assertIsNone(mail.address(bad), repr(bad))
 
     def test_the_dev_server_refuses_another_host(self):
-        # 65-security.md item 8: a page on a rebound address cannot reach the dev server.
+        # A page on a rebound address cannot reach the dev server.
         site = Site()
         self.addCleanup(site.close)
         anan = site.invite("Anan", ["SC"])
@@ -1350,7 +1357,8 @@ class Round4aServer(unittest.TestCase):
             self.assertEqual(wsgi(dev_site, "GET", "/api/dev/readers", None, dict(headers, Host=host))[0], 200, host)
 
     def test_mail_failures_quote_the_server_and_the_check_asks_it_to_take_a_mail(self):
-        # 67-operations.md item 4.
+        # A failed send quotes the mail server's own words, and the check asks the server to take a mail, so a
+        # server that will not pass mail on shows in the check.
         relay = smtp_standin(self, refuse_rcpt="554 5.7.1 <x@example.org>: Relay access denied")
         m = mail.Mailer(mail.load({"provider": "smtp", "from": "review@forum.laoegw.com",
                                    "port": relay.server_address[1]}, "/tmp", "x"))
@@ -1384,7 +1392,7 @@ class Round4aServer(unittest.TestCase):
         self.assertTrue(text.endswith("did not answer within 10 seconds."), text)
 
     def test_a_stalled_mail_server_answers_mail_failed_in_seconds(self):
-        # 67-operations.md item 5 and item 10: the API waits at most MAIL_WAIT seconds, and the journal says so.
+        # The API waits at most MAIL_WAIT seconds for a mail server, and the journal says so.
         stalled = smtp_standin(self, stall=True)
         site = AuthSite({"auth": {"email": True}, "mail": {"provider": "smtp", "from": "review@example.org",
                                                            "port": stalled.server_address[1]}})

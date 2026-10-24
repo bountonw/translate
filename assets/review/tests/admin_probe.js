@@ -219,7 +219,7 @@
     check(boon && boon.textContent === "3 devices, 1 waiting" && boon.className === "flag",
       "the link on a third device is flagged: " + (boon ? boon.textContent : "no flag"));
     check($$("#r-table .flag").length === 1, "only that link is flagged");
-    // How each reader signs in (61-admin-contract.md 1.A), and the filter of readers --identity.
+    // How each reader signs in, and the filter of readers --identity.
     const signin = n => text("#r-table [data-signin-of='" + n + "']");
     check(signin("Anan Chaiyo") === "LINE (LINE tester 1); 3 browsers signed in", "Anan Chaiyo signs in with LINE on 3 browsers: " + signin("Anan Chaiyo"));
     check(signin("Somchai Jaidee") === "somchai@example.org; 1 browser signed in", "Somchai Jaidee signs in with an address: " + signin("Somchai Jaidee"));
@@ -326,7 +326,7 @@
     await until(() => ($("#r-table tr[data-reader='Mali Srisuk']") || {}).className === "revoked");
     const sw = $("#r-table button[data-switch='Mali Srisuk']");
     check(sw && sw.textContent === "Restore", "the switch now offers Restore");
-    // A new link of a stopped reader says, beside the link, that it stays stopped (46 ADV3-06).
+    // A new link of a stopped reader says, beside the link, that it stays stopped.
     pick(["Mali Srisuk"]);
     out = await run("r-relink", "r-answer", "Give Mali Srisuk a new link?");
     check(text("#r-answer .linkrow .linknote").indexOf("The link of Mali Srisuk stays stopped, so the new link opens nothing " +
@@ -410,7 +410,7 @@
     check(out.indexOf("Somchai Jaidee has a new link; the old link no longer works, somchai@example.org no longer signs in, and 1 browser is signed out.") >= 0 &&
       JSON.parse(bodies["POST relink"] || "{}").unbind === true, "relink --unbind removes the address and signs the browser out: " + out.slice(-200));
     check(!$("#r-unbind").checked, "the unbind box is cleared after the new link");
-    // Somchai Jaidee signed in before, so the row does not say "not yet" (70-verify.md item 6).
+    // Somchai Jaidee signed in before, so the row does not say "not yet".
     await until(() => signin("Somchai Jaidee") === "none now; the next sign-in is through the link");
     check(signin("Somchai Jaidee") === "none now; the next sign-in is through the link",
       "the row shows no way of signing in now: " + signin("Somchai Jaidee"));
@@ -422,7 +422,7 @@
     check(text("#a-count") === "Anan Chaiyo: 1 way of signing in, 3 browsers signed in." && $("#a-name").value === "Anan Chaiyo",
       "the row's Sign-in button shows the reader's sign-in: " + text("#a-count"));
     check($$("#a-ids tbody tr").length === 1 && text("#a-ids").indexOf("LINE (LINE tester 1)") >= 0, "the LINE account is listed");
-    // The hint names the site's own auth.session_days (66-adversarial.md ADV4-08).
+    // The hint names the site's own auth.session_days, which need not be 30.
     check(!$("#a-hint").hidden && text("#a-hint").indexOf("stays signed in on each browser for 30 days after the last visit") >= 0,
       "the hint names the days of the site: " + text("#a-hint").slice(0, 160));
     check($$("#a-sessions tbody tr").length === 3 && $$("#a-sessions tbody tr").every(r =>
@@ -493,7 +493,7 @@
       " 00:00 Thailand time are deleted (SC01: 2); the next export names them.") >= 0, "delete-comments counts, asks once, deletes: " + out.slice(-200));
     const sentDelete = JSON.parse(bodies["POST delete-comments"] || "{}");
     check(sentDelete.yes === true && typeof sentDelete.upto === "number" && sentDelete.upto > 0,
-      "the deletion sends the last comment the count found, so nothing written since is deleted (45 SEC3-8): " + bodies["POST delete-comments"]);
+      "the deletion sends the last comment the count found, so nothing written since is deleted: " + bodies["POST delete-comments"]);
     out = await run("dc-go", "dc-answer", "");
     check(out.indexOf("Nothing was deleted: Boon Mee wrote no comment") >= 0, "a second time finds nothing and asks nothing");
     set("dc-from-time", "14:30");
@@ -631,7 +631,7 @@
       "new links for every member go to a file");
     check(out.indexOf("#k=") < 0, "the group's new links are not shown");
     check(JSON.parse(bodies["POST relink"] || "{}").unbind === false, "without the box the members keep their LINE accounts and addresses");
-    // relink --group G --unbind (70-verify.md item 5): the box beside the button removes every member's LINE accounts
+    // relink --group G --unbind: the box beside the button removes every member's LINE accounts
     // and addresses with the new links. Reader 001 gets an address first, so one is removed.
     const added = await local("identity", { action: "add", name: "Reader 001", address: "reader001@example.org" });
     check(added.ok === true, "an address for Reader 001: " + (added.error || ""));
@@ -688,7 +688,7 @@
     check(out.indexOf("SC01 is now closed to the group Youth.") >= 0, "Youth no longer holds SC01");
   }
 
-  // Requests to read through a general link, and the general links (61-admin-contract.md section 5).
+  // Requests to read through a general link, and the general links.
   async function requests() {
     await go("#requests", () => text("#q-count") === "3 requests waiting for you." && $$("#gl-table tbody tr").length === 1);
     check(text("#q-count") === "3 requests waiting for you.", "the requests waiting are listed: " + text("#q-count"));
@@ -879,7 +879,7 @@
       "the sign-in settings are listed: " + text("#s-signin").slice(0, 200));
     check(text("#s-last-mail").indexOf("Last mail: a note to an approved requester, ") === 0 ||
       text("#s-last-mail").indexOf("Last mail: a sign-in code, ") === 0, "the last mail and its result: " + text("#s-last-mail"));
-    // The menu marks Site only while the last mail failed (67-operations.md OPS4-10); here it was sent.
+    // The menu marks Site only while the last mail failed; here it was sent.
     check($("#mailbad") && $("#mailbad").hidden && text("#mailbad") === "", "the menu does not mark Site while mail works");
     check($$("#s-mail-log tbody tr").length >= 4, "the mails sent lately are listed: " + $$("#s-mail-log tbody tr").length);
     let out = await run("s-check", "s-signin-answer", "");
@@ -990,7 +990,8 @@
       "the requests and general links come through the tunnel: " + text("#q-count") + " " + text("#gl-count"));
     await go("#site", () => $$("#s-signin li").length > 5);
     check(text("#s-signin").indexOf("Sign-in with LINE: on") >= 0, "the sign-in settings come through the tunnel");
-    // review.py admin opened the browser at a one-time code, which the page traded for the key (45 SEC3-7).
+    // review.py admin opened the browser at a one-time code, which the page traded for the key, since every account
+    // of the computer can read a program's command line.
     check(/^#once=/.test(hashAtStart) && used["POST trade"], "the page traded the browser's one-time code for its key");
     log("ROUTES " + Object.keys(used).filter(k => k.indexOf(" ") > 0).sort().join(","));
     errors.forEach(e => check(false, e));

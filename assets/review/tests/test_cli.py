@@ -216,7 +216,7 @@ class CLI(unittest.TestCase):
         self.assertNotIn("Traceback", err)
 
     def test_serve_dev_names_a_wrong_limit_without_a_traceback(self):
-        # 39-verify.md item 5: a wrong limit in config.json is one plain message, as every refusal of review.py.
+        # A wrong limit in config.json is one plain message, as every refusal of review.py.
         data = Path(self.tmp.name) / "bad-limit-data"
         db.setup(data)
         config = data / db.CONFIG
@@ -348,7 +348,7 @@ class CLI(unittest.TestCase):
         _, out, _ = self.cli("close", "Somchai Test", "SC32")
         self.assertNotIn("own: SC;", out)
         self.assertIn("SC31, SC33", out)
-        # The line names the next chapter, so the command it gives does not open SC32 again (46 ADV3-05).
+        # The line names the next chapter, so the command it gives does not open SC32 again.
         printed = re.search(r"published later open to Somchai Test only when each is opened by name, as: "
                             r"review\.py (open 'Somchai Test' SC\d\d)$", out, re.M)
         self.assertIsNotNone(printed, out)
@@ -753,10 +753,10 @@ class CLI(unittest.TestCase):
         self.assertIn("is removed: the link of Device Reader45 no longer works on it.", out)
         code_, _, err = self.cli("device", "approve", "999999", ok=False)
         self.assertIn("No device numbered 999999", err)
-        # Removing it twice changes nothing and says so (47 OPS3-3).
+        # Removing it twice changes nothing and says so.
         _, out, _ = self.cli("device", "remove", number)
         self.assertEqual(out.strip().splitlines()[-1], f"Nothing changed: device {number} is already removed.")
-        # The removed device comes back: it waits again, and the list of waiting devices shows it (45 SEC3-3).
+        # The removed device comes back: it waits again, and the list of waiting devices shows it.
         status, body, _ = http("GET", f"{self.url}/api/me", code, device="device-reader-45-3")
         self.assertEqual((status, body["device"]), (403, int(number)))
         _, out, _ = self.cli("devices")
@@ -778,7 +778,7 @@ class CLI(unittest.TestCase):
         upto = re.search(r"Nothing was deleted; to delete them, run the command again with --yes --upto (\d+), which "
                          r"leaves any comment written after this count\.", out)
         self.assertIsNotNone(upto, out)
-        # A comment written after the count stays (45 SEC3-8).
+        # A comment written after the count stays, so a delete never takes a comment nobody counted.
         status, later, _ = http("POST", f"{self.url}/api/comments", code, {
             "client_id": "junk45-late", "book": "SC", "ch": "SC45", "a": "SC 145.1", "kind": "flag", "quote": "",
             "text": "written after the count"}, device="device-reader-45-1")
@@ -825,7 +825,7 @@ class CLI(unittest.TestCase):
         with self.assertRaisesRegex(review.CLIError, "must be ssh://USER@HOST"):
             review.Client("review.example.org", self.token)
         self.assertTrue(review.Client("http://localhost:8087", self.token).local)
-        ssh = review.Client("ssh://brian@review.example.org", self.token)
+        ssh = review.Client("ssh://translator@review.example.org", self.token)
         self.assertFalse(ssh.local)
         self.assertEqual(ssh.export_dir(), review.PROD_EXPORT)
         self.assertEqual(review.Client(self.url, self.token).export_dir(), review.DEV_DATA / "export")
@@ -862,7 +862,7 @@ class CLI(unittest.TestCase):
         self.assertIn("answered 301", err)
         self.assertEqual(seen, [])
 
-    # ---------- the fixes of 28-fixes.md ----------
+    # ---------- backups, the token's server, compressed answers, closing chapters, invite files, processed ----------
 
     def test_backups_are_never_written_over_and_go_by_age(self):
         data = Path(self.tmp.name) / "backup-data"
@@ -1048,7 +1048,7 @@ class CLI(unittest.TestCase):
         self.assertEqual(set(review.export_revs(folder, self.url, [ids[1]])), {ids[1]})
 
     def test_two_spellings_of_one_name_are_one_reader(self):
-        """45 SEC3-2, 46 ADV3-01, 47 OPS3-1: a second reader whose name differs only in its spaces is refused, and a
+        """A second reader whose name differs only in its spaces is refused, and a
         name that two readers of an older site share stops a command instead of acting on one of them."""
         self.put_chapter(46)
         _, out, _ = self.cli("invite", "Mali  Boon46", "--grant", "SC46")
@@ -1075,7 +1075,7 @@ class CLI(unittest.TestCase):
             self.assertIn("nothing changed", err, args)
 
     def test_closing_one_chapter_of_a_groups_whole_book_names_the_next_chapter(self):
-        """46 ADV3-05: the printed group open names the next chapter, so it does not open the closed one again."""
+        """The printed group open names the next chapter, so it does not open the closed one again."""
         self.put_chapter(55)
         self.cli("group", "create", "Whole55", "--grant", "SC")
         _, out, _ = self.cli("group", "close", "Whole55", "SC55")
@@ -1177,7 +1177,7 @@ class CLI(unittest.TestCase):
         self.assertEqual(review.export_base(folder, self.url), (None, None))
 
     def test_serve_dev_takes_a_port_a_site_just_left(self):
-        """46 ADV3-08: a port left in TIME_WAIT by a site just stopped is free to the next serve --dev."""
+        """A port left in TIME_WAIT by a site just stopped is free to the next serve --dev."""
         listener = socket.socket()
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         listener.bind(("127.0.0.1", 0))
@@ -1428,7 +1428,7 @@ class CLI(unittest.TestCase):
         self.assertEqual(self.last(out), "Bee65 has a new link; the old link no longer works, LINE (Tester 65) no longer "
                                          "signs in, and 1 browser is signed out.")
         self.assertEqual(browser.call("GET", "/api/me")[1]["error"], "signed_out")
-        # Bee65 signed in before, so the line no longer says "has not signed in yet" (70-verify.md item 6).
+        # Bee65 signed in before, so the line no longer says "has not signed in yet".
         _, line, _ = self.cli("readers", "--name", "Bee65")
         self.assertIn("; has no LINE account or address now, so the link signs in by itself until the next sign-in "
                       "with LINE or email\n", line)
@@ -1446,7 +1446,7 @@ class CLI(unittest.TestCase):
                                          "or address no longer signs in, and 1 browser is signed out.")
 
     def test_no_line_says_that_a_revoked_reader_s_link_signs_in(self):
-        # 70-verify.md item 6: a revoked reader's link opens nothing, so neither readers, link-signs-in off nor unbind
+        # A revoked reader's link opens nothing, so neither readers, link-signs-in off nor unbind
         # says that it signs in by itself.
         self.put_chapter(72)
         code = self.invite("Dee72", "SC72")
@@ -1455,7 +1455,7 @@ class CLI(unittest.TestCase):
         _, out, _ = self.cli("readers", "--name", "Dee72")
         self.assertIn("Dee72: revoked;", out)
         self.assertIn("; has not signed in with LINE or email yet\n", out)
-        # 72-verify.md item 4: link-signs-in on and off and identity add say that a revoked reader stays stopped until
+        # link-signs-in on and off and identity add say that a revoked reader stays stopped until
         # restore, each in a sentence of its own beside an active reader's.
         _, out, _ = self.cli("link-signs-in", "Dee72", "on")
         self.assertEqual(out.strip(), "Link signs in is now on for Dee72; the link of Dee72 stays stopped until: "
@@ -1495,7 +1495,7 @@ class CLI(unittest.TestCase):
         self.assertIn("; has not signed in with LINE or email yet, so the link still signs in by itself\n", out)
 
     def test_revoke_and_restore_name_the_reader_s_access(self):
-        # 72-verify.md item 3: a reader who signed in with LINE no longer reads through the link, which stays used, so
+        # A reader who signed in with LINE no longer reads through the link, which stays used, so
         # revoke and restore name the reader's access and not the link alone.
         self.put_chapter(73)
         code = self.invite("Fon73", "SC73")
@@ -1620,7 +1620,7 @@ class CLI(unittest.TestCase):
         self.assertIn("--days and --uses go with --new.", err)
 
     def test_group_remove_names_its_general_link_and_waiting_requests(self):
-        # 66-adversarial.md item 9: the last sentence says what happens to the group's general link and requests.
+        # The last sentence says what happens to the group's general link and requests.
         self.put_chapter(69)
         self.cli("group", "create", "Youth69", "--grant", "SC69")
         _, out, _ = self.cli("general-link", "Youth69", "--new")
@@ -1648,7 +1648,7 @@ class CLI(unittest.TestCase):
         self.assertEqual(self.last(out), "The group Quiet69 is removed; its 0 members keep their own chapters.")
 
     def test_a_session_that_ran_out_names_its_own_days(self):
-        # 66-adversarial.md item 8: the days come from the session, which kept auth.session_days of its last visit.
+        # The days come from the session, which kept auth.session_days of its last visit.
         self.put_chapter(68)
         code = self.invite("Ran68", "SC68")
         self.assertEqual(Browser(self.app).line(self.httpd.standin, {"link": code}, self.line_user("Tester 68")),
@@ -1712,7 +1712,7 @@ class SigninWords(unittest.TestCase):
                    line={"channel_id": "1234567890", "callback": "https://review.laoegw.com/api/auth/line/callback"},
                    mail={"provider": "smtp", "host": "127.0.0.1", "port": 25, "security": "none", "user": False,
                          "from": "review@laoegw.com", "from_name": "Proofreading site"},
-                   notify={"email": "brian@example.org", "requests": True, "first_signin": False, "on": True},
+                   notify={"email": "translator@example.org", "requests": True, "first_signin": False, "on": True},
                    invite={"external_browser": True, "general_days": 60, "general_uses": 20},
                    last_mail={"at": "2026-10-23T02:21:18Z", "kind": "code", "provider": "smtp", "ok": False,
                               "detail": "The mail server at 127.0.0.1:25 cannot be reached."},
@@ -1727,7 +1727,7 @@ class SigninWords(unittest.TestCase):
             "A link alone signs in only readers with Link signs in on (auth.require_identity is true)."])
         self.assertIn("Mail: smtp through 127.0.0.1:25, security none, without a login, from Proofreading site "
                       "<review@laoegw.com>.", lines)
-        self.assertIn("Notes to you: to brian@example.org, for each new request.", lines)
+        self.assertIn("Notes to you: to translator@example.org, for each new request.", lines)
         self.assertIn("Invite links: end with ?openExternalBrowser=1; a general link lasts 60 days and takes 20 requests.",
                       lines)
         self.assertIn("Last mail: 2026-10-23 02:21 UTC, a sign-in code by smtp: NOT sent: The mail server at "
@@ -1745,7 +1745,7 @@ class SigninWords(unittest.TestCase):
                          "review.py relink 'Mali Boon'")
 
     def test_a_revoked_reader_and_a_reader_who_signed_in_before(self):
-        # 70-verify.md item 6: what the readers line says of a reader with no LINE account or address and an unused
+        # What the readers line says of a reader with no LINE account or address and an unused
         # link, under each setting.
         both = dict(self.BARE, routes={"line": True, "email": True})
         strict = dict(both, require_identity=True)

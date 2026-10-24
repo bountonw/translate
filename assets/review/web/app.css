@@ -13,6 +13,7 @@
   --accent: #1b5a84; --accent-ink: #ffffff;
   --flag: #9a4f0c; --flag-bg: #fbecd9; --mine: #1b5a84; --mine-bg: #e1edf6;
   --done: #276f45; --done-bg: #dff1e6; --done-ink: #ffffff; --hl: #fff0b8;
+  --q1: #e3ecf4; --q2: #c4d7e8; --pk: #ffd66b;   /* words one comment quotes, two or more, and the words picked now */
   --bad: #b3261e; --bad-bg: #fbe4e2;
   --line: #05803a; --line-ink: #ffffff;   /* "Continue with LINE": LINE's green, dark enough for white text */
   --f-book: system-ui, -apple-system, "Segoe UI", sans-serif;   /* the book's text */
@@ -21,6 +22,9 @@
   --gutter: 16px;
   --column: 40rem;
   --bar-h: 56px;
+  --ts: 1;            /* the text size of A- and A+ (core/screens.js), a part of the usual size */
+  --panel-w: 0px;     /* the room of the panel's column at the right, in a chapter on a screen wider than tall */
+  --side-gap: 24px;   /* between a paragraph and its English beside it */
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -30,6 +34,7 @@
     --accent: #7db3dc; --accent-ink: #0d1a24;
     --flag: #eea456; --flag-bg: #3a2a18; --mine: #7db3dc; --mine-bg: #1b2d3b;
     --done: #6cc08b; --done-bg: #183026; --done-ink: #0d1f15; --hl: #4a4220;
+    --q1: #1f2d38; --q2: #2c4458; --pk: #6b5a1c;
     --bad: #f2a29b; --bad-bg: #3d1d1a;
     --line: #05803a; --line-ink: #ffffff;
   }
@@ -52,9 +57,18 @@ button { cursor: pointer; }
   padding: 0 max(var(--gutter), env(safe-area-inset-right, 0px)) 72px max(var(--gutter), env(safe-area-inset-left, 0px));
 }
 
+/* ---- the layout of a chapter beside the panel (core/panel.js) ----
+   On a screen wider than it is tall and at least 640 pixels wide (html.panel-side) the panel is a column at the
+   right, and in a chapter the page keeps its room free whether it is open or not, so the reading column never
+   moves. With the English beside each paragraph (body.beside, at least 1200 pixels wide) the page is wider. */
+html.panel-side { --panel-w: min(28rem, 44vw); }
+html.panel-side body.reading { padding-right: var(--panel-w); }
+body.beside .page, body.beside .bar-row { max-width: calc(2 * var(--column) + var(--side-gap) + 2 * var(--gutter)); }
+html:not(.wide) .wide-only { display: none; }
+
 /* ---- bar ---- */
 .bar {
-  position: sticky; top: 0; z-index: 5;
+  position: -webkit-sticky; position: sticky; top: 0; z-index: 5;   /* Safari before 13 knows only -webkit-sticky */
   background: var(--paper); border-bottom: 1px solid var(--rule);
   padding-top: env(safe-area-inset-top, 0px);
 }
@@ -69,6 +83,23 @@ button { cursor: pointer; }
   color: var(--accent); font-weight: 500; white-space: nowrap;
 }
 .back::before { content: "‹"; font-size: 1.7em; line-height: 1; margin: -2px 6px 0 0; }
+/* A− and A+ in the bar, next to "Show spaces", each a tap target of 44 by 44 pixels. At either end of the sizes a
+   button is marked aria-disabled, not disabled, so it keeps the keyboard's focus (core/screens.js). */
+.bar-size { display: flex; flex: none; margin-right: -8px; }
+.size-btn { min-width: 44px; margin: 0; padding: 0 6px; font-size: 15px; font-weight: 600; }
+.size-btn[aria-disabled="true"] { color: var(--muted); opacity: .45; cursor: default; }
+.size-btn[aria-disabled="true"]:hover { background: none; }
+/* On a phone the bar has room for the chapter's title only without the word of the way back and the place. */
+@media (max-width: 400px) {
+  .back-word, .bar-place { display: none; }
+  .back::before { margin-right: 0; }
+  .bar-row { gap: 4px; }
+}
+/* Beside the panel's column on a phone held sideways, the bar is as narrow as a phone's. */
+@media (max-width: 900px) {
+  html.panel-side body.reading .back-word, html.panel-side body.reading .bar-place { display: none; }
+  html.panel-side body.reading .back::before { margin-right: 0; }
+}
 .back:hover { background: var(--hover); }
 .bar-title { flex: 1; min-width: 0; font-family: var(--f-book); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bar-place { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -79,14 +110,19 @@ button { cursor: pointer; }
 }
 .bar-btn:hover { background: var(--hover); }
 .bar-btn[aria-pressed="true"] { background: var(--mine-bg); color: var(--mine); font-weight: 600; }
-/* Offline and not-saved notes float at the foot of the screen, over nothing the reader must tap. */
+/* Offline and not-saved notes float at the foot of the screen, over nothing the reader must tap: above the panel's
+   sheet (--sheet-h, set by core/panel.js), in the middle of the screen, and in a chapter in the middle of the
+   reading column beside the panel's column. The note is as wide as its words, centred between its left and right
+   edges, so it may use the whole width before it wraps; core/panel.js keeps the words it uncovers above it. */
 .sync {
-  position: fixed; z-index: 6; left: 50%; transform: translateX(-50%);
-  bottom: calc(12px + env(safe-area-inset-bottom, 0px)); max-width: calc(100% - 2 * var(--gutter));
+  position: fixed; z-index: 6; left: var(--gutter); right: var(--gutter); margin: 0 auto;
+  width: -webkit-max-content; width: max-content; max-width: calc(100% - 2 * var(--gutter));
+  bottom: calc(12px + var(--sheet-h, 0px) + env(safe-area-inset-bottom, 0px));
   padding: 6px 14px; border: 1px solid var(--rule); border-radius: 999px;
   background: var(--surface); color: var(--muted); font-size: 14px; text-align: center;
   box-shadow: 0 2px 10px rgb(0 0 0 / .15);
 }
+html.panel-side body.reading .sync { right: calc(var(--gutter) + var(--panel-w)); max-width: calc(100% - 2 * var(--gutter) - var(--panel-w)); }
 .sync.bad { color: var(--bad); border-color: var(--bad); background: var(--bad-bg); }
 .sync.has-btn { padding: 0; }
 .sync-btn {
@@ -94,25 +130,6 @@ button { cursor: pointer; }
   color: inherit; font-size: 14px; font-weight: 600;
 }
 .sync-btn::after { content: " \203A"; }
-/* While a drawer is open, the round close button takes the bottom right corner, so the note moves left. */
-.drawer-open .sync {
-  left: max(var(--gutter), env(safe-area-inset-left, 0px)); transform: none;
-  max-width: calc(100% - 2 * var(--gutter) - 64px);
-}
-/* The round button that closes the open drawer, at the bottom right of the screen. */
-.float-close {
-  position: fixed; z-index: 7;
-  right: max(var(--gutter), env(safe-area-inset-right, 0px));
-  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-  width: 52px; height: 52px; padding: 0; border: 1px solid var(--rule); border-radius: 50%;
-  background: var(--surface); color: var(--ink); box-shadow: 0 2px 10px rgb(0 0 0 / .2);
-}
-.float-close::before, .float-close::after {
-  content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 2px; margin: -1px 0 0 -10px;
-  border-radius: 1px; background: currentColor; transform: rotate(45deg);
-}
-.float-close::after { transform: rotate(-45deg); }
-.float-close:hover { background: var(--hover); }
 
 .notice {
   max-width: var(--column); margin: 16px var(--gutter) 0; padding: 10px 14px;
@@ -201,10 +218,15 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .para.open { background: var(--surface); box-shadow: 0 0 0 1px var(--rule); cursor: default; }
 .para.open.has-notes { box-shadow: 0 0 0 1px var(--rule), inset 3px 0 0 var(--flag); }
 .para.open.has-failed { box-shadow: 0 0 0 1px var(--rule), inset 3px 0 0 var(--bad); }
+/* The paragraph whose panel closed last keeps a soft background until another opens. */
+.para.was { background: var(--surface); }
+/* While the reader picks words, the open paragraph is the place to tap. */
+body.picking .para.open { box-shadow: 0 0 0 2px var(--accent); }
+body.picking .para.open .para-text { cursor: crosshair; }
 .para.flash { animation: flash 1.6s ease-out; }
 @keyframes flash { from { background: var(--hl); } to { background: transparent; } }
 
-.para-text { margin: 0 0 4px; font-family: var(--f-book); font-size: 1.2rem; line-height: 1.95; }
+.para-text { margin: 0 0 4px; font-family: var(--f-book); font-size: calc(1.2rem * var(--ts)); line-height: 1.95; }
 .para-text em { font-style: italic; }
 .para-text sup.fn { font-size: .62em; color: var(--accent); margin: 0 1px; }
 .tag { margin-left: .4em; color: var(--muted); font-family: var(--f-ui); font-size: .66em; white-space: nowrap; }
@@ -226,24 +248,27 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
   color: var(--muted); opacity: .75; font-weight: 700; pointer-events: none;
   -webkit-user-select: none; user-select: none;
 }
-/* A Thai sentence and its English, lit while the paragraph's drawer is open (features/sentences.js). */
+/* A Thai sentence and its English, lit while the paragraph's panel is open (features/sentences.js). */
 .para.open .al-s { cursor: pointer; }
-.para.open .al-s.hl, .en .al-e.hl {
+.para.open .al-s.hl, .panel .en .al-e.hl, .para.open .side-en .al-e.hl {
   background: var(--hl); border-radius: 3px;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
+/* Words the reader's comments quote: soft where one comment quotes them, deeper where two or more do; the words the
+   comment being written holds from a pick or a selection are the strongest (core/para.js, paintQuotes). */
+.qm { border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.qm.q1 { background: var(--q1); }
+.qm.q2 { background: var(--q2); }
+.qm.pk { background: var(--pk); color: var(--ink); box-shadow: inset 0 -2px 0 var(--flag); }
+/* The English beside each paragraph on a wide screen, aligned at the top of the paragraph (features/english.js). */
+.para.with-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--side-gap); align-items: start; }
+.para.with-side > .para-text, .para.with-side > .fns { grid-column: 1; }
+.para.with-side > .side-en { grid-column: 2; grid-row: 1 / span 2; padding-top: .35em; }
 .has-failed .badge { color: var(--bad); }
-.fns { margin: 0 0 6px; padding-left: 1.6em; color: var(--ink-2); font-family: var(--f-book); font-size: 1rem; line-height: 1.7; }
+.fns { margin: 0 0 6px; padding-left: 1.6em; color: var(--ink-2); font-family: var(--f-book); font-size: calc(1rem * var(--ts)); line-height: 1.7; }
 
-.drawer {
-  display: grid; gap: 16px; margin-top: 8px; padding-top: 12px;
-  border-top: 1px dashed var(--rule); cursor: auto;
-}
-/* "Write a comment" at the top of the drawer, above the English, jumps to the comment form. */
-.drawer-top { display: flex; }
-.write-btn { padding: 8px 14px; }
 .label { margin: 0 0 6px; color: var(--muted); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
-.en { color: var(--ink-2); font-family: var(--f-en); font-size: 1.02rem; line-height: 1.62; }
+.en { color: var(--ink-2); font-family: var(--f-en); font-size: calc(1.02rem * var(--ts)); line-height: 1.62; }
 .en p { margin: 0 0 .6em; }
 .en p:last-child { margin-bottom: 0; }
 .en .verse { padding-left: 1.2em; font-style: italic; }
@@ -265,13 +290,13 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .note-reply { display: grid; gap: 4px; margin-top: 2px; padding: 8px 10px; border-left: 3px solid var(--done); border-radius: 4px; background: var(--done-bg); }
 .note-reply .label { margin: 0; }
 .reply-text { margin: 0; font-family: var(--f-book); font-size: 1.02rem; white-space: pre-wrap; overflow-wrap: anywhere; }
-/* "Show the earlier wording" in a drawer. */
+/* "Show the earlier wording" in a paragraph's panel. */
 .earlier-block { display: grid; gap: 6px; }
 .earlier-btn { justify-self: start; margin-left: -10px; }
 .earlier-block .status:empty { display: none; }
 .earlier-out:empty { display: none; }
 .earlier-out { padding: 8px 12px; border: 1px dashed var(--rule); border-radius: 8px; }
-.earlier-text { display: block; color: var(--ink-2); font-family: var(--f-book); font-size: 1.1rem; line-height: 1.9; }
+.earlier-text { display: block; color: var(--ink-2); font-family: var(--f-book); font-size: calc(1.1rem * var(--ts)); line-height: 1.9; }
 .earlier-out .fns { margin-top: 6px; }
 .gone { display: grid; gap: 10px; margin-top: 32px; }
 /* "My earlier comments": the reader's comments of earlier review rounds, read-only. */
@@ -291,7 +316,7 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .link.danger { color: var(--flag); }
 
 .note-form { display: grid; gap: 12px; }
-.kinds { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.kinds { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .kinds legend { padding: 0; }
 .kind {
   display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 12px;
@@ -305,12 +330,16 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .field-wrap { display: grid; gap: 2px; min-width: 0; }
 .field { display: grid; gap: 4px; }
 .field > span { color: var(--muted); font-size: 14px; }
-.field input, .field textarea {
+.field input, .field textarea, .quote-row input {
   width: 100%; min-height: 44px; padding: 8px 10px;
   border: 1px solid var(--field-rule); border-radius: 8px; background: var(--surface); color: var(--ink);
   font-family: var(--f-book); font-size: 17px; line-height: 1.6;
 }
 .field textarea { min-height: 6.5em; resize: vertical; }
+/* The quote box and Pick words beside it. */
+.quote-row { display: flex; align-items: stretch; gap: 8px; }
+.quote-row input { flex: 1; min-width: 0; }
+.pick-btn { flex: none; padding: 8px 12px; white-space: nowrap; }
 
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .btn {
@@ -354,7 +383,7 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .auth-form .row { margin-top: 0; }
 .auth-form .field input { font-family: var(--f-ui); }
 /* A grid item is never narrower than its longest word, so a long email address would widen the form and "Your
-   devices" past the phone: the items may shrink, and the address breaks inside itself (68-reader.md item 4). */
+   devices" past the phone: the items may shrink, and the address breaks inside itself. */
 .auth-form > *, .device > * { min-width: 0; }
 .auth-form .lead, .device-name { word-break: break-word; overflow-wrap: anywhere; }   /* word-break first: Safari before 15.4 */
 .code-field { letter-spacing: .3em; font-variant-numeric: tabular-nums; }
@@ -373,9 +402,84 @@ h1 { font-size: 1.75rem; line-height: 1.3; margin: 4px 0 8px; font-weight: 600; 
 .home-hint > span { flex: 1; }
 .home-hint .link { flex: none; font-size: 14px; }
 
+/* ---- the panel of a paragraph (core/panel.js): a sheet from the bottom, or a column at the right ---- */
+.panel {
+  position: fixed; z-index: 8; display: flex; flex-direction: column;
+  background: var(--surface); color: var(--ink);
+}
+.panel.sheet {
+  left: 0; right: 0; bottom: 0; max-height: 100%;
+  border-top: 1px solid var(--rule); border-radius: 16px 16px 0 0; box-shadow: 0 -8px 24px rgb(0 0 0 / .16);
+  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+.panel.column {
+  top: 0; right: 0; bottom: 0; width: var(--panel-w);
+  border-left: 1px solid var(--rule); padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) 0 0;
+}
+/* The sheet's bar: drag it to any height, or tap it to fill the screen and back. The head of a sheet, outside its
+   buttons, drags it too (core/panel.js, wireDrag). */
+.grab-zone { flex: none; padding: 8px 0 6px; touch-action: none; cursor: grab; }
+.panel.sheet .panel-head { touch-action: none; }
+.grab { display: block; width: 40px; height: 5px; margin: 0 auto; border-radius: 3px; background: var(--field-rule); opacity: .6; }
+.panel.column .grab-zone { display: none; }
+.panel-head { flex: none; display: flex; align-items: center; gap: 8px; padding: 0 8px 8px 16px; border-bottom: 1px solid var(--rule); }
+/* In a column the head is exactly as tall as the bar, so the line under it meets the bar's line. */
+.panel.column .panel-head { min-height: calc(var(--bar-h) + 1px); padding-top: 0; padding-bottom: 0; }
+.panel-where { flex: none; color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.faces { display: flex; flex: 1; min-width: 0; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+/* The English button keeps its one word whole; the comment button's label, as "Write a comment · 2" in a narrow
+   column, takes a second line rather than being cut. */
+.face-btn {
+  flex: 1 1 auto; min-width: 0; min-height: 44px; padding: 2px 10px; border: 0; background: var(--surface);
+  color: var(--muted); font-size: 14px; line-height: 1.2; overflow-wrap: normal; word-break: normal;
+}
+.face-btn[data-face="en"] { flex: none; }
+/* The switches clip what stands outside their buttons, so the focus ring is drawn inside them. */
+.face-btn:focus-visible, .lang-btn:focus-visible { outline-offset: -4px; }
+.face-btn + .face-btn { border-left: 1px solid var(--rule); }
+.face-btn[aria-pressed="true"] { background: var(--mine-bg); color: var(--mine); font-weight: 600; }
+/* With one face, its button is the panel's title. */
+.panel.one-face .faces { border: 0; border-radius: 0; }
+.panel.one-face .face-btn { flex: 0 1 auto; padding: 0; background: none; color: var(--ink); text-align: left; cursor: default; }
+.panel-close {
+  flex: none; min-height: 44px; min-width: 44px; padding: 0 6px; border: 0; border-radius: 8px; background: none;
+  color: var(--accent); font-weight: 500;
+}
+.panel-close:hover { background: var(--hover); }
+.panel-body {
+  flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  padding: 12px 16px 16px;
+}
+.face { display: grid; gap: 16px; }
+.face-note .notes-block { margin-top: 4px; }
+/* In the panel the text box starts three lines high, so Save stands near the comment box's resting height; the
+   reader can drag it taller, and the sheet takes the whole screen while the reader types. */
+.panel .field textarea { height: 4.6em; min-height: 4.6em; }
+.under-form:empty { display: none; }
+/* The state of the comment just saved, at the top of the comment box (core/panel.js, paintSaved). */
+.saved-line { margin: 0; font-weight: 500; }
+/* Previous sentence and Next sentence stay at the foot of the English while it scrolls; in a sheet dragged low
+   (.short, a body under 200 pixels) they follow the English instead of covering it. */
+.steps {
+  position: -webkit-sticky; position: sticky; bottom: -16px; z-index: 1;
+  display: flex; align-items: center; gap: 8px; margin: 0 -16px -16px; padding: 8px 16px calc(8px + 16px);
+  border-top: 1px solid var(--rule); background: var(--surface);
+}
+.panel.short .steps { position: static; }
+.step-btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 4px 8px; font-size: 14px; line-height: 1.25; }
+.step-btn:disabled { opacity: .4; cursor: default; }
+.step-count { flex: none; min-width: 3.2em; color: var(--muted); font-size: 13px; text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Pick words: the sheet becomes a strip at the foot with the line and Cancel; a column shows the line at its top. */
+.pick-strip { display: none; flex: none; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; color: var(--ink-2); }
+.pick-strip > span { flex: 1; }
+.panel.strip .pick-strip { display: flex; }
+.panel.sheet.strip .grab-zone, .panel.sheet.strip .panel-head, .panel.sheet.strip .panel-body { display: none; }
+.panel.column .pick-strip { order: 1; border-bottom: 1px solid var(--rule); background: var(--mine-bg); }
+.panel.column .panel-body { order: 2; }
+
 @media (max-width: 480px) {
   h1, .ch-head h1 { font-size: 1.55rem; }
-  .para-text { font-size: 1.15rem; }
+  .para-text { font-size: calc(1.15rem * var(--ts)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .para.flash { animation: none; }

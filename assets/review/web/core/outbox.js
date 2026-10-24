@@ -24,7 +24,11 @@
 export const TIMEOUT_MS = 8000;    // a fetch is given up after this long and tried again later
 export const LEASE_MS = 20000;     // an op marked "sending" longer ago than this was lost with its tab
 export const PLACE_DELAY_MS = 5000;   // places reported within this time go out as one write
-const FIELDS = ["kind", "quote", "text"];
+/* What a comment says, and `at`, where its quoted words start in the paragraph's reading text (core/quotes.js),
+   a number or null. */
+const FIELDS = ["kind", "quote", "text", "at"];
+const atOf = v => (typeof v === "number" ? v : null);
+const sameField = (f, x, y) => (f === "at" ? atOf(x) === atOf(y) : (x || "") === (y || ""));
 
 export function randomId() {
   const b = new Uint8Array(16);
@@ -60,7 +64,8 @@ function revive(o) {
 }
 
 export function queueCreate(ob, c, who, now) {
-  const body = { client_id: c.client_id, book: c.book, ch: c.ch, a: c.a, kind: c.kind, quote: c.quote || "", text: c.text };
+  const body = { client_id: c.client_id, book: c.book, ch: c.ch, a: c.a, kind: c.kind, quote: c.quote || "", text: c.text,
+    at: c.quote ? atOf(c.at) : null };
   ob.push(newOp("create", who, now, { cid: c.client_id, book: c.book, ch: c.ch, a: c.a, body }));
   return ob;
 }
@@ -181,9 +186,9 @@ export function settle(ob, opid, sentRev, verdict, data, status, now, wait) {
     if (o.type === "create" && data && data.id != null) {
       for (const x of ob) if (x.cid === o.cid) x.id = data.id;
       // The server keeps the first copy of a client_id, so an edit made meanwhile goes out as an update.
-      if (FIELDS.some(f => (data[f] || "") !== (o.body[f] || ""))) {
+      if (FIELDS.some(f => !sameField(f, data[f], o.body[f]))) {
         o.type = "update";
-        o.body = { kind: o.body.kind, quote: o.body.quote, text: o.body.text };
+        o.body = { kind: o.body.kind, quote: o.body.quote, text: o.body.text, at: atOf(o.body.at) };
         o.tries = 0;
         o.next = 0;
         o.why = "";

@@ -260,6 +260,8 @@ The third command lists the name servers the API asks for LINE's and Resend's ad
 
 Readers keep their links and their comments through this update. Until config.json holds the sign-in settings of step 10, every link signs in by itself as before.
 
+The update that adds the paragraph's panel brings database version 9, which records where a comment's quoted words start; code of version 8 cannot open it, so rolling back past it needs the backup that the update takes first. The update changes no file of deploy/.
+
 To check that the site answers quickly, run this on your machine. It prints the seconds the health check took, which should be well under one second; a slower answer at a quiet time means something to look into, with `sudo journalctl -u review -n 50`.
 
     curl -s -o /dev/null -w '%{time_total}\n' https://review.laoegw.com/api/health

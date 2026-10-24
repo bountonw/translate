@@ -25,7 +25,9 @@
 <link rel="modulepreload" href="core/net.js">
 <link rel="modulepreload" href="core/notes.js">
 <link rel="modulepreload" href="core/outbox.js">
+<link rel="modulepreload" href="core/panel.js">
 <link rel="modulepreload" href="core/para.js">
+<link rel="modulepreload" href="core/quotes.js">
 <link rel="modulepreload" href="core/refusals.js">
 <link rel="modulepreload" href="core/screens.js">
 <link rel="modulepreload" href="core/signin.js">
@@ -39,10 +41,14 @@
 <body>
 <header class="bar" id="bar" hidden>
   <div class="bar-row">
-    <button id="back" class="back" type="button"></button>
+    <button id="back" class="back" type="button"><span id="back-word" class="back-word"></span></button>
     <div id="bar-title" class="bar-title"></div>
     <div id="bar-place" class="bar-place"></div>
     <button id="bar-spaces" class="bar-btn" type="button" aria-pressed="false" hidden></button>
+    <div id="bar-size" class="bar-size" role="group" hidden>
+      <button id="bar-smaller" class="bar-btn size-btn" type="button">A−</button>
+      <button id="bar-larger" class="bar-btn size-btn" type="button">A+</button>
+    </div>
   </div>
 </header>
 <div id="notice" class="notice" role="alert" hidden></div>

@@ -293,7 +293,7 @@ const NEXT = [
   [/review\.py group add \S+ NAME\)?$/, () => ({ label: t("next_show_groups"), go: "#groups" })],
   [/review\.py readers --name TEXT$/, () => ({ label: t("next_show_readers"), go: "#readers" })],
   [/review\.py export --round NAME\)?$/, () => ({ label: t("next_show_comments"), go: "#comments" })],
-  // Signing in (61-admin-contract.md): a reader with no way left to sign in needs a new link, which is shown once with
+  // Signing in: a reader with no way left to sign in needs a new link, which is shown once with
   // a Copy button; a declined request is forgotten; the requests and general links are in the Requests section.
   [/review\.py relink ((?!NAME ).+)$/, m => {
     // Only a line that ends with the command: a ; outside quotes means more of the line follows the names.

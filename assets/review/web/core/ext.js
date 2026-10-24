@@ -3,7 +3,7 @@
    A feature's page part is one module in web/features/. It calls feature() once with its name, the
    same name as its module in server/features/, then adds itself to any of these places:
 
-     drawerPanel    a panel in a paragraph's drawer, above the reader's comments (English is the first)
+     panelSection   a section of a paragraph's panel; the English leads its first face (core/panel.js)
      spanMark       what a marked span in the book text does: <span data-kind="bible" data-value="...">
      chapterSection a section at the end of a chapter, before the "finished" box
      settingsItem   an item in the settings, beside the language switch
@@ -46,12 +46,17 @@ function add(place, def) {
   return def;
 }
 
-/* def.render(ctx) returns an element or null. ctx: {p, art, chapter, me, book, lang, span}; span is the
-   marked span the reader tapped to open the drawer, or null. def.hint names a key of ui-strings.json for the
-   line under a chapter title that says what a tap shows. */
-export const drawerPanel = def => add("panels", def);
+/* def.render(ctx) returns an element or null: a section of the paragraph's panel (core/panel.js). ctx: {p, art,
+   chapter, me, book, lang, span, show, beside, face}; span is the marked span the reader tapped, or null;
+   show(a, span) shows paragraph a in the panel with span lit (null for none), as Next sentence does; face is "en"
+   when the section stands on the lead's face and "note" when it stands under the comment form. The entry with lead: true,
+   the English, leads the panel's first face, whose button says the key `label`; the other sections follow it there,
+   or stand under the comment form when no lead section draws anything. With beside: true the lead section is
+   drawn beside the paragraph instead, when the reader shows it side by side on a wide screen. def.hint names a key
+   of ui-strings.json for the line under a chapter title that says what a tap shows. */
+export const panelSection = def => add("panels", def);
 /* def.kind is the data-kind it handles. def.decorate(span, ctx) changes the span once it is drawn;
-   def.tap(span, ctx) runs when the reader taps it and returns true to keep the drawer from opening. */
+   def.tap(span, ctx) runs when the reader taps it and returns true to keep the panel from opening or closing. */
 export const spanMark = def => add("marks", def);
 /* def.render(ctx) returns an element or null. ctx: {chapter, comments, me, book}. With refresh: true
    the section is drawn again whenever the reader's comments change. */
@@ -62,9 +67,9 @@ export const settingsItem = def => add("settings", def);
 /* def.render(ctx) returns an element or null. ctx: {chapter, me, where: "list" or "head"}. */
 export const titleLine = def => add("titles", def);
 /* def.decorate(el, ctx) changes book text once it is drawn, without changing its words: it may wrap words in
-   spans. ctx is that of drawerPanel plus `where`: "para" (a paragraph's text in the book's language, with
-   p.al its sentence pairs), "fn" (a footnote), "en" (the English panel) or "earlier" (the earlier
-   wording). */
+   spans. ctx is that of panelSection plus `where`: "para" (a paragraph's text in the book's language, with
+   p.al its sentence pairs), "fn" (a footnote), "en" (the English in the panel), "side" (the English beside the
+   paragraph) or "earlier" (the earlier wording). */
 export const bookText = def => add("texts", def);
 
 /* The entries of a place that are on for this reader, in order. */
@@ -84,7 +89,7 @@ export function variantOf(me) {
     .map(n => FEATURES[n].variant).join(".");
 }
 
-/* The key of the hint under a chapter title: the first panel on that names one, else "hint". */
+/* The key of the hint under a chapter title: the first panel section on that names one, else "hint". */
 export function hintKey(me) {
   const p = active("panels", me).find(d => d.hint);
   return p ? p.hint : "hint";

@@ -116,7 +116,8 @@ class Site:
         assert r.status == 201, r.body
         return r.json
 
-    def comment(self, code, a, ch="SC01", book="SC", client_id=None, kind="flag", quote="", text="A note"):
-        body = {"client_id": client_id or os.urandom(8).hex(), "book": book, "ch": ch, "a": a, "kind": kind,
-                "quote": quote, "text": text}
+    def comment(self, code, a, ch="SC01", book="SC", client_id=None, kind="flag", quote="", text="A note", **more):
+        """POST /api/comments; more adds fields, as at=12."""
+        body = dict({"client_id": client_id or os.urandom(8).hex(), "book": book, "ch": ch, "a": a, "kind": kind,
+                     "quote": quote, "text": text}, **more)
         return self.call("POST", "/api/comments", body, token=code)

@@ -34,7 +34,7 @@ export function build(root, done) {
   a.add = button(t("a_add"), addAddress, { id: "a-add" });
   a.all.addEventListener("change", load);
   a.name.addEventListener("keydown", e => { if (e.key === "Enter") ofReader(a.name.value.trim()); });
-  // The hint names the days a browser stays signed in, auth.session_days of the site (66-adversarial.md ADV4-08).
+  // The hint names the days a browser stays signed in, auth.session_days of the site, which need not be 30.
   a.hint = h("p", { class: "hint", id: "a-hint", hidden: true });
   (state.auth ? Promise.resolve({ ok: true, result: state.auth }) : loadAuth()).then(res => {
     if (!res.ok || typeof res.result.session_days !== "number") return;

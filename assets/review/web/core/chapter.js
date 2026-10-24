@@ -15,7 +15,8 @@ import { loadOb, mutateOb, flush, schedule, PLACE_DELAY_MS, keptChapter, keptCom
 import { bookLang } from "./languages.js";
 import { setHash, setBar, goHome } from "./screens.js";
 import { showHome, titleLines } from "./home.js";
-import { renderPara, paintPara, openDrawer, paintFloat } from "./para.js";
+import { renderPara, paintPara } from "./para.js";
+import { openPanel, panelArt, redrawPanel, resetPanel, besideOn } from "./panel.js";
 import { editNote } from "./notes.js";
 import { chapterShown, updateLine, repaintUpdates } from "./updates.js";
 
@@ -26,9 +27,10 @@ export const meChapter = () => (S.me ? S.me.chapters.find(c => c.book === S.book
 export function leaveChapter() {
   if (S.view !== "chapter") return;
   stopTracking();
+  resetPanel();
   S.book = S.ch = S.chapter = S.waiting = null;
   S.openNote = null;
-  paintFloat(true);
+  document.body.classList.remove("reading", "beside");
 }
 
 export function openChapter(book, id, opts) {
@@ -38,6 +40,8 @@ export function openChapter(book, id, opts) {
   S.view = "chapter";
   S.book = book;
   S.ch = id;
+  // In a chapter the page keeps the room of the panel's column free at the right (app.css, html.panel-side).
+  document.body.classList.add("reading");
   setHash("#" + enc(book) + "/" + enc(id), !!opts.push);
   setBar(meCh);
   const data = keptChapter(book, id);
@@ -67,7 +71,7 @@ function applyOpenNote() {
   const art = p && document.getElementById(paraId(p.a));
   if (!art) return;
   jumpTo(p.a, false);
-  openDrawer(art, p, null);
+  openPanel(art, p, { face: "note" });
   editNote(art, p, want.cid);
 }
 
@@ -76,9 +80,12 @@ export function showChapterMessage(text, canRetry) {
   stopTracking();
   S.chapter = null;
   const book = S.book, id = S.ch;
+  resetPanel();
+  // The message has no panel beside it: the page gives back the room of the panel's column and the width of the
+  // English beside the paragraphs; Try again opens the chapter, which takes them again.
+  document.body.classList.remove("reading", "beside");
   const main = $("main");
   main.textContent = "";
-  paintFloat();
   main.append(h("section", { class: "message" },
     h("p", { class: "lead", text }),
     h("div", { class: "row" },
@@ -88,17 +95,23 @@ export function showChapterMessage(text, canRetry) {
 }
 
 /* A chapter text arrived for the open chapter. Draw it if nothing is drawn yet; redraw only when
-   it differs from what is on screen, and not while a comment drawer is open. */
+   it differs from what is on screen, and not while a paragraph's panel is open: it is drawn when the panel closes. */
 export function offerChapter(data) {
   if (!S.chapter) return renderChapter(data, true);
   if (data.version === S.chapter.version && data.variant === S.chapter.variant) return;
-  if (document.querySelector("#main .para.open")) { S.waiting = data; return; }
+  if (panelArt()) { S.waiting = data; return; }
   keepPosition(() => renderChapter(data, false));
 }
 
-/* Draw the open chapter again in place, as after a change of language; not while a drawer is open. */
+/* Draw the open chapter again in place, as after a change of language. With a panel open, the panel is drawn
+   again in the new words now, on the same paragraph and face, and the chapter when the panel closes. */
 export function redrawChapter() {
-  if (!S.chapter || document.querySelector("#main .para.open")) return;
+  if (!S.chapter) return;
+  if (panelArt()) {
+    redrawPanel();
+    S.waiting = S.waiting || S.chapter;
+    return;
+  }
   const data = S.chapter;
   keepPosition(() => renderChapter(data, false));
 }
@@ -133,13 +146,14 @@ export function renderChapter(data, resume) {
     line,
     h("p", { class: "hint", text: t(hintKey(S.me)) })));
   const list = currentComments();
+  // Each paragraph with its English beside it, on a wide screen when the reader chose so: the page is wider.
+  document.body.classList.toggle("beside", besideOn());
   for (const p of data.paras) main.append(renderPara(p, list));
   main.append(renderSections(list), renderFinish());
   const c = meChapter();
   $("bar-place").textContent = c && c.place ? shortA(c.place) : "";
   if (resume) resumePlace();
   startTracking();
-  paintFloat();
   if (S.openNote) applyOpenNote();
 }
 

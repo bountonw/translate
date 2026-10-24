@@ -2,11 +2,11 @@
 
    The translator's ruling: a new version of a chapter shows the reader a line saying when it changed and how
    many paragraphs changed, marks each changed paragraph until the reader opens it, and offers "Show the
-   earlier wording" in the drawer. core/changes.js holds the rules; this module draws them:
+   earlier wording" in the paragraph's panel. core/changes.js holds the rules; this module draws them:
 
      - the line at the head of the chapter (updateLine, called by chapter.js);
      - the mark "Changed" or "New" at the start of a paragraph (paintMark, called by para.js);
-     - the drawer panel "Show the earlier wording", a core entry of the drawerPanel place (order 20, after the
+     - "Show the earlier wording", a core section of the panel (ext.js, panelSection, order 20, under the
        English), which fetches the paragraph as the reader last saw it with GET /api/earlier;
      - PUT /api/opened through the outbox, once the reader has opened every marked paragraph, or at once
        when nothing is marked.
@@ -19,7 +19,7 @@ import { S, store } from "./state.js";
 import { K, openedKey } from "./store.js";
 import { t, plural, dateText } from "./words.js";
 import { h, bookHtml, applyMarks, decorateText } from "./dom.js";
-import { drawerPanel } from "./ext.js";
+import { panelSection } from "./ext.js";
 import { api, mutateOb, flush, authFailed, isDeviceWaiting, deviceWaiting, who } from "./net.js";
 import { bookLang } from "./languages.js";
 
@@ -117,9 +117,13 @@ export function updateLine(data) {
   return h("p", { class: "upd-line", id: "upd-line", role: "status", text: parts.join(" ") });
 }
 
-/* ---- "Show the earlier wording": a core panel of the drawer ---- */
+/* ---- "Show the earlier wording": a core section of the panel ---- */
 
 const fetched = new Map();   // "book/ch/a/version" -> the answer of GET /api/earlier, for this visit
+/* The keys of fetched whose earlier wording the reader opened and has not folded again, for this visit: the panel
+   draws its sections anew at every Next sentence and every tap on another sentence, and the earlier wording stays
+   open through those, so a reader can compare it sentence by sentence. */
+const unfolded = new Set();
 
 /* The earlier wording's text in the book's language: `text`, or `th` from a server before round 3b. */
 const earlierText = d => (typeof d.text === "string" ? d.text : d.th);
@@ -143,16 +147,24 @@ function earlierBlock(ctx, change, rec) {
     decorateText(text, ctx, "earlier");
     if (fns) for (const li of fns.children) decorateText(li, ctx, "earlier");
   };
+  const key = [ctx.book, ctx.chapter.id, ctx.p.a, rec.since].join("/");
+  const open = d => {
+    status.textContent = "";
+    shown = true;
+    show(d);
+    btn.textContent = t("earlier_hide");
+    btn.setAttribute("aria-expanded", "true");
+  };
   const toggle = async () => {
     if (shown) {
       shown = false;
+      unfolded.delete(key);
       out.textContent = "";
       status.textContent = "";
       btn.textContent = t("earlier_show");
       btn.setAttribute("aria-expanded", "false");
       return;
     }
-    const key = [ctx.book, ctx.chapter.id, ctx.p.a, rec.since].join("/");
     let d = fetched.get(key);
     if (!d) {
       btn.disabled = true;
@@ -169,18 +181,16 @@ function earlierBlock(ctx, change, rec) {
       d = r.data;
       fetched.set(key, d);
     }
-    status.textContent = "";
-    shown = true;
-    show(d);
-    btn.textContent = t("earlier_hide");
-    btn.setAttribute("aria-expanded", "true");
+    unfolded.add(key);
+    open(d);
   };
   btn.addEventListener("click", toggle);
   box.append(btn, status, out);
+  if (unfolded.has(key) && fetched.has(key)) open(fetched.get(key));
   return box;
 }
 
-drawerPanel({
+panelSection({
   name: "earlier",
   order: 20,
   render(ctx) {

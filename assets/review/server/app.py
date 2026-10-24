@@ -52,7 +52,7 @@ from .accounts import Accounts
 from .auth import TOKEN_RE, SignIn
 from .common import (ADMIN_LIMIT, GROUP_NAME_RE, REPLY_LIMIT, WAITING_MOST, HTTPError, Request, bool_field, clean,
                      device_agent, dumps, id_list, load_limits, name_key)
-from .content import align_text, plain, safe_html, words_html
+from .content import align_text, plain, plain_offset, safe_html, words_html
 from .languages import REGISTRY
 from .people import People
 from .text import forbidden_char
@@ -89,6 +89,9 @@ BOOK_ID_RE = re.compile(BOOK)
 CHAPTER_ID_RE = re.compile(CHAP)
 SOURCE_RE = re.compile(r"[A-Za-z0-9_][A-Za-z0-9_./-]{0,199}")
 NUM = r"(\d{1,12})"
+# The largest `at` a comment may give: where its quoted words start, in code points of the paragraph's reading
+# text, far beyond any paragraph.
+AT_MOST = 100_000
 
 # Why the server refuses a reader's write: code -> (status, meaning). The page explains each code in
 # plain words; any other code is a fault in the site or the page, never in the reader's words.
@@ -167,7 +170,7 @@ def comment_json(row, changed=(False, None), rounds=None):
     the paragraph's words changed after the version the comment was written on (None: not known), and when.
     rounds maps round ids to names (round_names()); round is null for a comment from before the first round."""
     return {"id": row["id"], "client_id": row["client_id"], "book": row["book"], "ch": row["ch"],
-            "a": row["a"], "kind": row["kind"], "quote": row["quote"], "text": row["text"],
+            "a": row["a"], "kind": row["kind"], "quote": row["quote"], "text": row["text"], "at": row["quote_at"],
             "created": row["created"], "updated": row["updated"], "processed": bool(row["processed"]),
             "version": row["version"], "para_changed": changed[0], "para_changed_at": changed[1],
             "reply": row["reply"], "reply_at": row["reply_at"],
@@ -724,12 +727,33 @@ class App(People, SignIn, Accounts):
             raise HTTPError(404, "no_comment", "No such comment.")
         return row
 
-    def comment_fields(self, kind, quote, text):
+    def comment_fields(self, kind, quote, text, at):
+        """A comment's fields, checked. at is where the quoted words start in the paragraph's reading text
+        (align_text() of server/content.py, in code points), from the reader's selection or picked words: a whole
+        number from 0 to AT_MOST, or None when not known. A comment without quoted words keeps no place.
+        add_comment and edit_comment then keep it only where the words stand (place_in)."""
         if kind not in ("flag", "wording"):
             raise HTTPError(400, "bad_kind", "kind must be flag or wording.")
         quote = clean(quote, "quote", self.limits["quote"], kind == "wording")
         text = clean(text, "text", self.limits["text"], True)
-        return kind, quote, text
+        if at is not None and (type(at) is not int or not 0 <= at <= AT_MOST):
+            raise HTTPError(400, "bad_at", f"at must be a whole number from 0 to {AT_MOST}, or null.")
+        return kind, quote, text, at if quote else None
+
+    @staticmethod
+    def place_in(entry, a, quote, at):
+        """at, when the quoted words stand there in the reading text of paragraph a of entry, the chapter's version
+        that the site records with the comment; else None. A place the page counted in an earlier version of the
+        paragraph (a draft, the change form, words selected before a new version was drawn, a page that waited to
+        draw one) could name other words or the middle of a word, while the export says it belongs to the text the
+        reader saw. White space counts as one space, as on the page, and the place is the first character of the
+        words, never white space."""
+        if at is None or not quote or entry is None or entry["order"].get(a) is None:
+            return None
+        rest = align_text(entry["paras"][entry["order"][a]]["text"])[at:]
+        if not rest or rest[0].isspace():
+            return None
+        return at if squash(rest).startswith(squash(quote)) else None
 
     def add_comment(self, req):
         """A new comment, in the book's current review round. A client_id sent before answers the comment it
@@ -750,7 +774,9 @@ class App(People, SignIn, Accounts):
         self.not_deleted(req.conn, rid, client_id)
         entry = self.access(req, data.get("book"), data.get("ch"))
         a = self.anchor(entry, data.get("a"))
-        kind, quote, text = self.comment_fields(data.get("kind"), data.get("quote"), data.get("text"))
+        kind, quote, text, at = self.comment_fields(data.get("kind"), data.get("quote"), data.get("text"),
+                                                    data.get("at"))
+        at = self.place_in(entry, a, quote, at)
         reserved = self.window("made", req, self.limits["comments_per_minute"],
                                "Too many new comments in one minute. Wait and try again.")
         try:
@@ -759,10 +785,10 @@ class App(People, SignIn, Accounts):
                 self.not_deleted(req.conn, rid, client_id)
                 self.check_day(req.conn, rid, stamp)
                 cur = req.conn.execute(
-                    "INSERT INTO comment (client_id, reader, book, ch, a, kind, quote, text, version, created, updated,"
-                    " round) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    (client_id, rid, data["book"], data["ch"], a, kind, quote, text, entry["version"], stamp, stamp,
-                     current_rounds(req.conn).get(data["book"])))
+                    "INSERT INTO comment (client_id, reader, book, ch, a, kind, quote, quote_at, text, version, created,"
+                    " updated, round) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (client_id, rid, data["book"], data["ch"], a, kind, quote, at, text, entry["version"], stamp,
+                     stamp, current_rounds(req.conn).get(data["book"])))
                 req.conn.execute("INSERT INTO comment_made (reader, at) VALUES (?, ?)", (rid, stamp))
                 req.conn.execute("DELETE FROM comment_made WHERE reader = ? AND at <= ?", (rid, db.ago(2)))
         except sqlite3.IntegrityError:
@@ -810,17 +836,25 @@ class App(People, SignIn, Accounts):
         data = req.json()
         self.rate(req)
         row = self.changeable(req, ref)
-        if not any(k in data for k in ("kind", "quote", "text")):
-            raise HTTPError(400, "bad_field", "Send kind, quote or text.")
-        kind, quote, text = self.comment_fields(data.get("kind", row["kind"]), data.get("quote", row["quote"]),
-                                                data.get("text", row["text"]))
-        if (kind, quote, text) != (row["kind"], row["quote"], row["text"]):
-            v = req.conn.execute("SELECT version FROM chapter WHERE book = ? AND id = ?",
-                                 (row["book"], row["ch"])).fetchone()
+        if not any(k in data for k in ("kind", "quote", "text", "at")):
+            raise HTTPError(400, "bad_field", "Send kind, quote, text or at.")
+        if "at" in data:
+            at = data["at"]
+        elif "quote" in data and data["quote"] != row["quote"]:
+            at = None    # new quoted words sent without their place have none: the old place was the old words'
+        else:
+            at = row["quote_at"]
+        kind, quote, text, at = self.comment_fields(data.get("kind", row["kind"]), data.get("quote", row["quote"]),
+                                                    data.get("text", row["text"]), at)
+        # A change moves the comment to the chapter's version now, so its place must fit that version.
+        entry = self.parsed(req.conn, row["book"], row["ch"])
+        at = self.place_in(entry, row["a"], quote, at)
+        if (kind, quote, text, at) != (row["kind"], row["quote"], row["text"], row["quote_at"]):
             with db.tx(req.conn):
                 cur = req.conn.execute(
-                    "UPDATE comment SET kind = ?, quote = ?, text = ?, version = ?, updated = ?, processed = 0"
-                    " WHERE id = ?", (kind, quote, text, v["version"] if v else row["version"], db.now(), row["id"]))
+                    "UPDATE comment SET kind = ?, quote = ?, quote_at = ?, text = ?, version = ?, updated = ?,"
+                    " processed = 0 WHERE id = ?",
+                    (kind, quote, at, text, entry["version"] if entry else row["version"], db.now(), row["id"]))
             # A delete of the same comment from another tab or device may land between the read and the change.
             row = req.conn.execute("SELECT * FROM comment WHERE id = ?", (row["id"],)).fetchone() \
                 if cur.rowcount else None
@@ -1125,12 +1159,21 @@ class App(People, SignIn, Accounts):
             # The paragraph as the reader saw it, from the version the comment was written on, when kept.
             seen = self.kept_version(req.conn, *key, r["version"]) if r["version"] != entry["version"] else None
             j = seen["order"].get(r["a"]) if seen else None
+            html_seen = None
             if r["version"] == entry["version"]:
                 text_seen, notes_seen = text, notes
+                html_seen = para["text"] if para else None
             elif j is not None:
-                text_seen, notes_seen = plain(seen["paras"][j]["text"]), [plain(f) for f in seen["paras"][j]["fn"]]
+                html_seen = seen["paras"][j]["text"]
+                text_seen, notes_seen = plain(html_seen), [plain(f) for f in seen["paras"][j]["fn"]]
             else:
                 text_seen, notes_seen = None, None
+            # The place of the quoted words, as a place in paragraph_seen (which has a line break for each <br>):
+            # paragraph_seen from `at` starts with the quote. null when that text is not kept, or the quote does
+            # not stand there.
+            at_seen = plain_offset(html_seen, r["quote_at"]) if r["quote_at"] is not None and r["quote"] else None
+            if at_seen is not None and not squash(text_seen[at_seen:]).startswith(squash(r["quote"])):
+                at_seen = None
             changed, changed_at = self.para_changed(req.conn, *key, r["a"], r["version"], entry["version"])
             # A paragraph no longer in the chapter goes after those in it, in the order of its tag, so each
             # paragraph's comments stand together.
@@ -1138,8 +1181,8 @@ class App(People, SignIn, Accounts):
             out.append(({"n": entry["meta"]["n"], "at": at}, {
                 "id": r["id"], "rev": comment_rev(r["kind"], r["quote"], r["text"]), "reader": r["reader_name"],
                 "book": r["book"], "ch": r["ch"], "anchor": r["a"], "round": names.get(r["round"]),
-                "kind": r["kind"], "quote": r["quote"], "text": r["text"], "created": r["created"],
-                "updated": r["updated"], "processed": bool(r["processed"]), "version_seen": r["version"],
+                "kind": r["kind"], "quote": r["quote"], "at": at_seen, "text": r["text"],
+                "created": r["created"], "updated": r["updated"], "processed": bool(r["processed"]), "version_seen": r["version"],
                 "version_now": entry["version"], "anchor_missing": para is None, "quote_found": found,
                 "paragraph": text, "footnotes": notes, "en": plain(para.get("en", "")) if para else "",
                 "paragraph_seen": text_seen, "footnotes_seen": notes_seen, "changed": changed,

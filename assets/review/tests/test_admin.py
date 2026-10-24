@@ -300,7 +300,7 @@ class Console(unittest.TestCase):
         self.assertEqual(done["result"]["export"], str(export))
 
     def test_signing_in_through_the_local_routes(self):
-        """The routes of 61-admin-contract.md: the sign-in settings, the switch Link signs in, browsers, LINE
+        """The routes of signing in: the sign-in settings, the switch Link signs in, browsers, LINE
         accounts and addresses, requests and general links, each running its review.py command."""
         auth = self.request("GET", "/local/auth")[1]
         self.assertTrue(auth["ok"], auth)

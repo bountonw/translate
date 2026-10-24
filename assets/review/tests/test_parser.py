@@ -137,7 +137,7 @@ class MadeUpInputs(unittest.TestCase):
         self.assertEqual(c["paragraphs"][0]["en"], "<p>First paragraph.</p>")
 
     def test_block_comments_are_left_out_as_typst_leaves_them_out(self):
-        # A Typst block comment never prints, so readers never see it (39-verify.md item 3, {SC 64.1}).
+        # A Typst block comment never prints, so readers never see it, as in {SC 64.1}.
         c = self.load(TH.replace("Second paragraph.", "Second/*health of our countenance from Psalm 43:5*/ "
                                  "paragraph /* a /* nested */ note */ ends#footnote[A note/*hidden]*/.]."))
         p = c["paragraphs"][1]
