@@ -12,7 +12,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 1.F. "terms SC01 [SC02 ...]" — glossary mining, section 7.
 1.G. A term or corpus question — answer by grep over th/PP, th/MB, th/SJ and th/SC, copying every Thai form out of a file.
 1.H. "7/3/1" and "model: X/Y/Z" — the drill of the root CLAUDE.md.
-1.I. "read SC01 [SC02 ...]", or a chapter's done button on the reading page — the read-through, section 10.
+1.I. "read SC01 [SC02 ...]", a chapter's Finished button, or a reviewers' export — the read-through, section 10.
 1.J. Anything else — ask.
 
 ## 2. Paths
@@ -85,5 +85,4 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 ## 10. Read-through
 
-10.A. The translator reads each chapter once its qa3 is merged to main, on a private claude.ai reading page, and leaves notes by anchor; a note is a flag or his own wording.
-10.B. Each note becomes a marker at its anchor in the chapter on the branch SC-read, in the worktree ~/claude-sandbox/wt-SC-read. His wording is the new side as written; a flag is drilled under 3.F.
+10.A. The read-through follows assets/read-through.md, read in full before any part of it runs: the chapter is read at whatever stage it stands (2.A), the branch SC-read in ~/claude-sandbox/wt-SC-read, the notes file th/SC/04_assets/notes/SC_notes.txt, the drill agent sc-wording-drill.
