@@ -66,7 +66,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 ## 8. Git and files
 
-8.A. You never stage, commit, push, pull, merge, rebase, stash, tag, rename, delete or install a hook. The translator does all of that. Hand him the command and stop. Read-only git commands are allowed.
+8.A. You never stage, commit, push, pull, merge, rebase, stash, tag, rename, move, delete or install a hook, and you never run rm or mv. The translator does all of that. Put the command in a numbered item of the next report and carry on; never stop or wait for it. Read-only git commands are allowed.
 8.B. A script or record that operates on this repository lives in the repository. A session's own working files live in the sandbox directory outside the repository, ~/claude-sandbox/.
 8.C. A directory named sandbox inside the repository is the translator's. Never write to it.
 8.D. Standing memory is one markdown file per lesson under memory/ in the sandbox directory of 8.B; nothing there is loaded automatically. A lesson an agent needs on dispatch is written into that agent's definition.
