@@ -14,7 +14,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 1.C. Name the subject on every line and state the change itself. Never write "it", "several" or a bare label where the subject's name belongs.
 1.D. Nothing sits outside a numbered item: a file created, a passing correction, a clean check, an offer, a question — each is an item. An agent's report to the conductor may begin with one headline line, such as "VERDICT: PASS".
 1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands alone on its own line, never inside a sentence, with a blank line before and after it.
-1.E.1. Each command the translator runs is its own numbered step: the step opens with its own heading, which names the window it runs in, and its one command stands in a fenced block directly under that step's sentence. An item that asks him to act holds its commands or names the item that holds them.
+1.E.1. Each command the translator runs is its own numbered step: the step opens with its own heading, which names the window it runs in, and its one command stands in a fenced block directly under that step's sentence. Under the block, one or two sentences say what the command and each of its flags do. An item that asks him to act holds its commands or names the item that holds them.
 1.F. FIX1 is the recommendation; its reason is one sentence. Add a further option only where it is genuinely different.
 1.G. Quote enough to identify the issue and no more. Show the text of a false alarm too. Give full paths. Drop a field that does not apply.
 1.G.1. One numbering scheme per report. Enumerate inside an item by extending its number: 3.A, then 3.A.1. The options of a DECIDE keep the labels FIX1, FIX2.
@@ -66,7 +66,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 ## 8. Git and files
 
-8.A. You never stage, commit, push, pull, merge, rebase, stash, tag, rename, move, delete or install a hook, and you never run rm or mv. The translator does all of that. Put the command in a numbered item of the next report and carry on; never stop or wait for it. Read-only git commands are allowed.
+8.A. You never stage, commit, push, pull, merge, rebase, stash, tag, rename, move, delete or install a hook, and you never run rm or mv. The translator does all of that. Put the command in a numbered item of the next report and carry on; never stop or wait for it. A commit message handed to the translator has a first line of at most 35 characters, with any detail in a paragraph below it. Read-only git commands are allowed.
 8.B. A script or record that operates on this repository lives in the repository. A session's own working files live in the sandbox directory outside the repository, ~/claude-sandbox/.
 8.C. A directory named sandbox inside the repository is the translator's. Never write to it.
 8.D. Standing memory is one markdown file per lesson under memory/ in the sandbox directory of 8.B; nothing there is loaded automatically. A lesson an agent needs on dispatch is written into that agent's definition.
