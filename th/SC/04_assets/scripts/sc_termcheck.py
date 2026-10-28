@@ -74,6 +74,12 @@ class Row:
         return "bare"
 
     @property
+    def capitalised(self):
+        """True where the English cell says the head is written with a capital."""
+        low = self.label.lower()
+        return "capitalis" in low or "capitaliz" in low
+
+    @property
     def usable(self):
         return bool(self.en_variants and self.th_forms)
 
@@ -128,9 +134,12 @@ def head_key(variant):
     return k
 
 
-def en_pattern(variant):
-    """Whole words, any inflection of the last word; a head written in capitals,
-    as I AM, matches only in capitals; a NOUN_ONLY head needs its determiner."""
+def en_pattern(variant, capitalised=False):
+    """Whole words, any inflection of the last word; a head in capitals, as
+    I AM, or whose row's English cell says capitalised, as the Word (Christ),
+    matches only with its capitals, so the Word never fires on "the word of
+    God"; every other head matches in any case; a NOUN_ONLY head needs its
+    determiner."""
     words = fold(variant).split()
     parts = [re.escape(w) for w in words[:-1]]
     last = words[-1]
@@ -140,7 +149,7 @@ def en_pattern(variant):
         tail = re.escape(last) + r"(?:s|es|ed|d|ing)?"
     parts.append(tail)
     lead = NOUN_ONLY.get(variant.lower(), "")
-    flags = 0 if variant.isupper() else re.I
+    flags = 0 if variant.isupper() or capitalised else re.I
     return re.compile(r"(?<![A-Za-z])" + lead + r"\s+".join(parts) + r"(?![A-Za-z])", flags)
 
 
@@ -152,7 +161,7 @@ def group_rows(rows):
             g = groups.setdefault(head_key(v), {"rows": [], "patterns": OrderedDict()})
             if row not in g["rows"]:
                 g["rows"].append(row)
-            g["patterns"].setdefault(v, en_pattern(v))
+            g["patterns"].setdefault(v, en_pattern(v, row.capitalised))
     return groups
 
 
