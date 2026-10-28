@@ -5,8 +5,9 @@
 % -----------------------------------------------------------------------------
 % Widow and Orphan Control
 % -----------------------------------------------------------------------------
-\widowpenalty=2000
+\widowpenalty=10000
 \clubpenalty=2000
+\makeatletter\@clubpenalty=\clubpenalty\makeatother % LaTeX resets \clubpenalty to \@clubpenalty after every heading
 
 % -----------------------------------------------------------------------------
 % Justification and Tolerance
@@ -197,10 +198,14 @@
 % EGW Reference Citation
 % -----------------------------------------------------------------------------
 % Formats {GC x.y} style references with gray italic text
+% Each reference also sets the label egw:GCx.y, so a plate caption can give the page
+% of its paragraph with \pageref; the label sits inside the box and adds no width.
+\def\GCegwlabel#1{\begingroup\def\nbsp##1{}\edef\x{\endgroup\noexpand\label{egw:#1}}\x}
 \protected\def\egw#1{%
   \ifhmode\unskip\fi
   \nobreak\hskip0pt\kern .50em%
   \mbox{%
+    \GCegwlabel{#1}%
     \fontsize{0.8em}{0.8em}\selectfont
     \textcolor[gray]{0.3}{%
       {\itshape\{#1\}}%
@@ -253,6 +258,11 @@
     \xdef\currentchaptertitle{#2}% Store globally cleaned version
   \endgroup
   \par %
+  \clearpage
+  % A free left-hand page before the chapter carries the chapter's plate, if it has one (plates.tex).
+  \ifodd\value{page}\else
+    \ifcsname GCplate@#1\endcsname\csname GCplate@#1\endcsname\fi
+  \fi
   \begingroup
     \let\orig@lw\lw
     \def\lw##1{##1\ }% Plain content + space for heading
@@ -261,6 +271,15 @@
     \thispagestyle{empty}% No page number on opening page
   \endgroup
 }
+% The free left-hand page before chapter 1 is the last page of the front matter, made by
+% \mainmatter before \laochapter{1} runs; it carries the chapter 1 plate, if there is one.
+\let\GC@mainmatter\mainmatter
+\renewcommand{\mainmatter}{%
+  \clearpage
+  \ifodd\value{page}\else
+    \ifcsname GCplate@1\endcsname\csname GCplate@1\endcsname\fi
+  \fi
+  \GC@mainmatter}
 \makeatother
 
 % -----------------------------------------------------------------------------
@@ -286,8 +305,11 @@
   \renewcommand{\source}[1]{%
     \global\ThisChapterSourceToks={#1}%
     \enlargethispage{-1.5\baselineskip}% Shrink normal area of page to create space for footer on this page only
-    \ifprintsourcefoot 
+    \ifprintsourcefoot
     \thispagestyle{chapterstart}\fi
   }%
 }
 \makeatother
+
+% Plates on the free left-hand pages before chapter openings, made by scripts/make_plates.py
+\input{scripts/tex/plates}

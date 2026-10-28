@@ -89,7 +89,7 @@ Satan leads many to believe that God will overlook their unfaithfulness in the m
 
 ## {GC 620.3}
 
-Those professed Christians who come up to that last fearful conflict unprepared will, in their despair, confess their sins in words of burning anguish, while the wicked exult over their distress. These confessions are of the same character as was that of Esau or of Judas. Those who make them, lament the result of transgression, but not its guilt. They feel no true contrition, no abhorrence of evil. They acknowledge their sin, through fear of punishment; but, like Pharaoh of old, they would return to their defiance of Heaven should the judgments be removed. {GC 620.3}
+Those professed Christians who come up to that last fearful conflict unprepared will, in their despair, confess their sins in words of burning anguish, while the wicked exult over their distress. These confessions are of the same character as was that of Esau or of Judas. Those who make them, lament the *result* of transgression, but not its guilt. They feel no true contrition, no abhorrence of evil. They acknowledge their sin, through fear of punishment; but, like Pharaoh of old, they would return to their defiance of Heaven should the judgments be removed. {GC 620.3}
 
 ## {GC 621.1}
 
