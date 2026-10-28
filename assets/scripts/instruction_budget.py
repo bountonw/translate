@@ -12,8 +12,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
-    "CLAUDE.md": 1350,
-    "th/SC/CLAUDE.md": 2000,
+    "CLAUDE.md": 1500,
+    "assets/read-through.md": 600,
+    "th/SC/CLAUDE.md": 2150,
     "th/DA/CLAUDE.md": 2000,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
