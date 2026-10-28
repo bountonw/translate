@@ -12,6 +12,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 1.F. A definite reference the author trusted her readers to know may be named for today's reader, as กษัตริย์ดาวิด for "the psalmist", when the referent is certain.
 1.G. A first-person plural spoken from a Western standpoint may be addressed to the universal reader; the context decides.
 1.H. Scripture is quoted from the Thai version that best makes the author's point. Where no Thai version makes it, the verse is translated from the KJV or from the Greek and labelled as such.
+1.I. A negative rhetorical question that asks whether God is not, or does not do, something good may be stated as a positive where a reader could answer it literally; where the question cannot be misread, it may stand.
 
 ## 2. Bible versions and citations
 

@@ -83,4 +83,7 @@
 {SC 111.1} | in this spirit | ผู้ที่ศึกษาพระคัมภีร์ในลักษณะนี้ | ด้วยใจ is a set phrase meaning sincerely and does not carry "in this spirit".
 {SC 116.1} | make His service appear attractive, as it really is | เราจะให้การรับใช้พระองค์เป็นเรื่องน่ายินดี | The editor advised that ดู reads to many Thai readers as pretending, so the Thai states the appeal as fact.
 {SC 117.2} | are you not ... preventing those around you from walking in the path of life? | ด้วยหรือเปล่า | ด้วยหรือเปล่า sounds more friendly; ด้วยมิใช่หรือ sounded more antagonistic.
+{SC 119.1} | the unbelief you have suggested | ห้วงเหวแห่งความสงสัย | The proposed ความไม่เชื่อ reads clunky, and a clunky reading makes the point easier to miss.
+{SC 123.1} | Will not the Author of our being ... provide for our necessities if we but trust in Him? | จะทรงจัดเตรียมสิ่งจำเป็นให้เราอย่างแน่นอน หากเราเพียงแต่ไว้วางใจในพระองค์ | A rhetorical question that asks whether God will not do good is stated as a positive, because some readers answer the question literally; an earlier editor's round found this.
+{SC 126.1} | brightness of His glory | ความรุ่งโรจน์ของพระคริสต์ | The phrase is translated as a whole; brightness and glory are not rendered as separate words, so no glory-row form is needed.
 {SC 126.2} | over one soul redeemed | สำหรับทุกคนที่ได้รับการไถ่ให้รอด | A deliberate decision: the editor said over half of Thai readers would read "one soul" as only one person being saved, so the Thai gives the implied meaning; "for each individual" is hard to say, so the Thai says "for everyone".
