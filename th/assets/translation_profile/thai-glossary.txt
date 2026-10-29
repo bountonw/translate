@@ -29,20 +29,20 @@
 | Bible, Scripture, the Scriptures | พระคัมภีร์ | พระคริสตธรรมคัมภีร์ stands when found. MB 25.2, PP 114.1, SC 106.2 |
 | authority (of Scripture, of God's word) | สิทธิอำนาจ / อำนาจ | [CHECK] สิทธิอำนาจ first, where อำนาจ could read as power; มาจากพระเจ้า stands for divine authority. SC 108.2, SC 111.1, PP 114.1, SC 107.1 |
 | authority (of God, of Christ, of heaven, of God's law) | อำนาจ / อำนาจอธิปไตย / สิทธิอำนาจ | การปกครองของพระเจ้า, บังคับใช้ and obedience recasts stand; human authority falls outside. PP 69.1, PP 37.1, PP 71.1, PP 42.4, MB 49.3 |
-| skeptic | นักสงสัย / ความสงสัย | The person, then the attitude. PP 114.1 |
+| skeptic | นักสงสัย / คนที่สงสัย / ความสงสัย | The person, then the attitude. PP 114.1, SC 107.1 |
 | infidel | ผู้ที่ไม่เชื่อในพระเจ้า | Family head; wording may flex. PP 113.1, PP 123.4 |
 | evidence | หลักฐาน | SC 64.2, PP 38.2 |
 | majesty | ความน่าเกรงขาม / ความยิ่งใหญ่ | Context chooses. SC 73.1, PP 95.3 |
 | Almighty, the | องค์ผู้ทรงมหิทธิฤทธิ์ | PP 116.1 |
-| Infinite One, the; Infinite, the (title for God) | องค์ผู้สูงสุด / พระเจ้าองค์นิรันดร์ / ผู้ทรงอานุภาพอนันต์ / ผู้ทรงฤทธานุภาพสูงสุด | [CHECK] ผู้ทรงอานุภาพอนันต์ and ผู้ทรงฤทธานุภาพสูงสุด follow พระเจ้า or พระ; ไม่มีขีดจำกัด renders the attribute. PP 116.1, PP 97.1, PP 650.3, MB 105.2, SC 105.3 |
+| Infinite One, the; Infinite, the (title for God) | องค์ผู้สูงสุด / พระเจ้าองค์นิรันดร์ / ผู้ทรงอานุภาพอนันต์ / ผู้ทรงฤทธานุภาพสูงสุด | [CHECK] ผู้ทรงอานุภาพอนันต์ and ผู้ทรงฤทธานุภาพสูงสุด follow พระเจ้า or พระ; ไม่มีขีดจำกัด or ไร้ขอบเขต renders the attribute. PP 116.1, PP 97.1, PP 650.3, MB 105.2, SC 96.3, SC 105.3 |
 | Omniscience (noun: a name for God, the purposes of Omniscience; or God's attribute) | พระเจ้าผู้ทรงสัพพัญญู / ทรงสัพพัญญู / ความรอบรู้ | [CHECK] Name พระเจ้า with สัพพัญญู, never องค์สัพพัญญู alone; ความรอบรู้ needs ไม่มีที่สิ้นสุด or ทุกสิ่ง; recasts stand. โรม 16:27, โรม 11:33, PP 77.2, SC 108.1 |
 | I AM, the great (God's name from Exodus 3:14) | “เราเป็น” / ผู้สถิตในนิรันดร์กาล | [CHECK] Introduce the name with ผู้ทรงพระนามว่า or ผู้ตรัสว่า; a description of eternal being stands. อพยพ 3:14, PP 264.1, PP 704.1, SC 109.3, DA 24.3 |
 | I AM (Christ's capitalised sayings; the author's own I AM sentences) | เราเป็น | [CHECK] Opens the saying; a quotation takes a version that opens เราเป็น, as THSV does. ยอห์น 10:11, ยอห์น 6:51, ยอห์น 14:6, DA 24.3 |
 | existence (of God) | การทรงพระชนม์อยู่ / การมีอยู่ | ของพระเจ้า or ของพระองค์ follows as the sentence needs; other existence is recast or takes การมีอยู่. PP 113.3, SC 63.2, SC 105.2 |
-| testimony | หลักฐาน / คำยืนยัน | No fixed form; settled at each site. SC 89.3, PP 77.1 |
+| testimony | หลักฐาน / คำยืนยัน / เป็นพยาน | No fixed form; เป็นพยาน where a life or conduct bears witness. SC 89.3, PP 77.1, SC 83.1 |
 | Sermon on the Mount | คำเทศนาบนภูเขา | MB's title and SJ agree. MB vii.1, SJ 60.2 |
 | great white throne | พระที่นั่งใหญ่สีขาว | MB 90.2 |
-| resurrection | การฟื้นจากความตาย | The doctrine; royal ฟื้นพระชนม์ / คืนพระชนม์ for Christ's own rising. PP 478.4, MB 129.2 |
+| resurrection | การฟื้นจากความตาย / การเป็นขึ้นมาจากความตาย | The doctrine; royal ฟื้นพระชนม์ / คืนพระชนม์ for Christ's own rising. PP 478.4, MB 129.2, SC 106.2 |
 | assurance (felt certainty) | ความมั่นใจ | SC 53.2, PP 466.3 |
 | assurance (pledge given) | พระสัญญา / คำมั่นสัญญา / การรับรอง / หลักประกัน | A word given: พระสัญญา or คำมั่นสัญญา; a fact that makes sure: หลักประกัน. SC 93.3, MB 130.2, PP 449.1, PP 484.4, DA 24.3 |
 | benediction | คำอวยพร / พระพร | Spoken blessing, then the blessing itself. PP 471.1, MB 1.1 |
@@ -50,11 +50,11 @@
 | divine (adjective) | ของพระเจ้า / จากพระเจ้า / โดยพระเจ้า | The preposition follows the sentence: of, by, or from God as the text requires |
 | divinity, Deity, Godhead (Christ's divine nature set against His humanity; not the Trinity) | ความเป็นพระเจ้า | [CHECK] Pair with ความเป็นมนุษย์ or สภาพมนุษย์; a Bible quotation keeps its version's word. โคโลสี 2:9, SC 118.1, MB 34.1, SJ 89.5 |
 | divine test | การทดสอบจากพระเจ้า | Composed per the divine row and the trial row. SC 118.1 |
-| Man of Sorrows (Isaiah 53:3) | ผู้รับความเจ็บปวด | [CHECK] The title's half of the verse. SC 13.1, PP 762.2 |
+| Man of Sorrows (Isaiah 53:3) | ผู้รับความเจ็บปวด | [CHECK] The title's half of the verse; the THSV quotation after ทรง stands. SC 13.1, PP 762.2 |
 | acquainted with grief (Isaiah 53:3) | คุ้นเคยกับความทุกข์ยาก | The verse's second half. PP 762.2 |
 | incarnation (of Christ), incarnate | การบังเกิดเป็นมนุษย์ของพระคริสต์ / ทรงบังเกิดเป็นมนุษย์ / พระเจ้าในสภาพมนุษย์ / พระเจ้าผู้ทรงบังเกิดเป็นมนุษย์ | [CHECK] Noun, verb and adjective shapes; เสด็จมาเป็นมนุษย์ stands. SC 106.2, SC 14.3, MB 25.2, MB 103.2, MB 44.3 |
 | regeneration, new birth, born again | การบังเกิดใหม่ / บังเกิดใหม่ / เกิดใหม่ | [CHECK] Default การบังเกิดใหม่, the noun; บังเกิดใหม่ the verb; a possessor such as ของผู้เชื่อ may follow. SC 106.2, MB 141.3, SC 18.2 |
-| reverence | ความเคารพยำเกรง / ความยำเกรง | Awe-respect before God; in a doublet ความเชื่อศรัทธา may cover it. SC 109.3 |
+| reverence | ความเคารพยำเกรง / ความยำเกรง | Awe-respect before God; in a doublet ความเชื่อศรัทธา may cover it. SC 107.2, SC 109.3 |
 | Creator | พระผู้สร้าง | SC 9.1 |
 | transgression, transgress (of God's law) | การล่วงละเมิด / ละเมิด / ฝ่าฝืน / ทำบาป | [CHECK] Crossing God's law; ฝ่าฝืน a specific command; ทำบาป where sin is meant; quotations follow their version. PP 42.4, MB 104.3, PP 49.1, PP 723.2 |
 | transgressor | ผู้ล่วงละเมิด / ผู้ละเมิด / คนบาป | [CHECK] Before the law ผู้ล่วงละเมิด or ผู้ละเมิด; คนบาป where God pleads with the sinner. PP 349.2, MB 79.1, MB 105.2 |
@@ -73,7 +73,7 @@
 | hypocrisy | หน้าซื่อใจคด / หน้าไหว้หลังหลอก / เสแสร้ง | [CHECK] PP majority first; เสแสร้ง for the act of feigning. PP 475.3, PP 523.1, SC 40.2 |
 | unbelief | ขาดความเชื่อ / ไม่เชื่อ / การไม่เชื่อ / ไม่มีความเชื่อ | [CHECK] PP's order of use; ไม่เชื่อ covers the shorter forms. PP 292.2, PP 72.4, PP 95.2, PP 298.3 |
 | iniquity | ความผิดบาป / ความชั่วร้าย / ความชั่ว / ความอธรรม / ความชั่วช้า / ความบาป | [CHECK] Guilt borne or pardoned ความผิดบาป; prevailing wickedness ความชั่วร้าย, ความชั่ว; lawlessness ความอธรรม; depravity ความชั่วช้า. PP 138.4, PP 166.4, PP 67.3, PP 92.1 |
-| Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name may replace the title. PP 68.2, MB 75.1 |
+| Saviour | พระผู้ช่วยให้รอด / องค์พระผู้ช่วยให้รอด | [CHECK] The name, or a pronoun after it, may replace the title. PP 68.2, MB 75.1, SC 91.1 |
 | anointing (of Christ) | ทรงเจิม / เจิมตั้ง / การเจิม / ผู้รับการเจิม | [CHECK] The versions' verb for God anointing Christ; Lao GC uses ເຈີມຕັ້ງ. กิจการ 10:38, SC 11.2 |
 | propitiation, atoning sacrifice, expiate | เครื่องบูชาไถ่บาป / เครื่องบูชาลบบาป / ลบล้างความบาป / ชดใช้ | [CHECK] The two nouns first; ลบล้างความบาป and ชดใช้ are verb reworkings. SC 13.2, PP 279.1, PP 63.2 |
 | atonement, atoning | ลบมลทินบาป / ลบล้างบาป / การทรงไถ่ / คืนดี | [CHECK] Priestly act ลบมลทินบาป; the provision การทรงไถ่; its result คืนดี, KJV โรม 5:11; ฮีบรู 2:17 ลบล้างบาป. PP 500.2, PP 67.2, PP 178.2, PP 426.1 |
@@ -95,9 +95,9 @@
 | evil angels, angels of Satan | ทูตของซาตาน / ทูตของมาร / ทูตแห่งความชั่ว / ทูตบริวารของมัน | [CHECK] Never ทูตสวรรค์ for Satan's angels. PP 64.3, MB 29.2 |
 | Advocate | ผู้ทูลแก้ต่าง / ผู้ช่วยทูลขอพระบิดา | [CHECK] TNCV and THSV at 1 ยอห์น 2:1. SC 14.3 |
 | Son of man | บุตรมนุษย์ | [CHECK] MB 40.2, SC 14.3 |
-| holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] MB 10.2, SC 14.3 |
+| holiness | ความบริสุทธิ์ / ชีวิตที่บริสุทธิ์ | [CHECK] The pair "purity and holiness" may take ความสะอาดบริสุทธิ์. MB 10.2, SC 14.3, SC 97.2 |
 | apostle | อัครทูต | [CHECK] อัครสาวก is the older Bible's word and is not used from now on. MB 137.1 |
-| adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too. PP 36.3, PP 91.2, PP 63.3 |
+| adoration, adore | เคารพบูชา / บูชารัก / เทิดทูนบูชา / บูชา / นมัสการ | [CHECK] Worship may take these too; รักและเทิดทูน stands. PP 36.3, PP 91.2, PP 63.3, SC 89.1 |
 | sons of God, children of God, His children | บุตรของพระเจ้า / บุตรพระเจ้า / ลูกของพระเจ้า / ลูกๆ ของพระเจ้า | [CHECK] บุตร after เป็น and in teaching; ลูก, ลูกๆ under verbs of care; quotations follow version. SC 43.4, SC 85.3, SC 15.1 |
 | heavenly King, King of heaven | องค์ราชันแห่งฟ้าสวรรค์ / พระราชาแห่งสวรรค์ / พระมหากษัตริย์แห่งสวรรค์ | [CHECK] SC 15.2, PP 214.1, PP 324.2 |
 | redeem, redemption | ทรงไถ่ / ไถ่ / การไถ่ / การทรงไถ่ / ค่าไถ่ / ไถ่บาป | [CHECK] PP 63.2, PP 69.2, PP 63.3, MB 20.1, PP 68.1, PP 137.1 |
@@ -156,7 +156,7 @@
 | God's throne, His throne, the throne (of heaven) | พระที่นั่ง / พระบัลลังก์ | [CHECK] Quotations follow the version; บัลลังก์ stands when found, never proposed. MB 140.3, MB 106.2, SC 35.4 |
 | throne of grace | พระที่นั่งแห่งพระคุณ | [CHECK] THSV, TH1971, TKJV ฮีบรู 4:16; TNCV พระบัลลังก์แห่งพระคุณ; never พระที่นั่งกรุณา, the mercy seat. SC 98.3 |
 | enemy, the; adversary, the; foe, the (Satan's titles) | ศัตรู / มารร้าย / พญามาร / ซาตาน | [CHECK] ศัตรู first, epithet may follow; มัน may replace the title; ปรปักษ์ glosses the name only. MB 115.1, PP 65.4, PP 39.2 |
-| evil one, the; wicked one, the (Satan) | มารร้าย / พญามาร / ซาตาน | [CHECK] มารร้าย is THSV, TH1971 and TNCV at 1 ยอห์น 5:19; พญามาร is TKJV's. MB 68.3, PP 331.2, SC 64.1 |
+| evil one, the; wicked one, the (Satan) | มารร้าย / พญามาร / ซาตาน / มารซาตาน | [CHECK] มารร้าย is THSV, TH1971 and TNCV at 1 ยอห์น 5:19; พญามาร is TKJV's. MB 68.3, PP 331.2, SC 64.1, SC 94.2 |
 | deceiver, the; great deceiver, the (Satan) | ผู้หลอกลวง / จอมหลอกลวง / จอมล่อลวง / ซาตาน | [CHECK] จอม carries "great"; the versions write ผู้ล่อลวง at วิวรณ์ 12:9. PP 42.3, PP 53.5, PP 264.2 |
 | impenitent, the; impenitence | ไม่สำนึกผิด / ไม่กลับใจ / ไม่ยอมกลับใจ | [CHECK] Always a negated verb; คนใจแข็ง stands where the sentence is about hardness. SC 32.1, PP 140.1, PP 99.3, MB 105.2 |
 | procrastination, delay (in coming to Christ) | ผัดวันประกันพรุ่ง / ผัดผ่อน / ชักช้า / รีรอ | Putting off surrender; ordinary delay in a narrative is free. SC 32.2, PP 517.2 |
@@ -242,9 +242,9 @@
 | rest in Christ, rest of soul (Matthew 11:28, 29) | การพักสงบ / พักสงบ | [CHECK] TNCV's word; การพักใจ stands when found; never พักผ่อน; the Sabbath rest is หยุดพัก. มัทธิว 11:28–29 TNCV, สดุดี 62:1 TNCV, SC 70.2, SC 71.2, PP 294.1 |
 | providence (God leading, testing, speaking through events) | การทรงนำ / ทรงนำ | [CHECK] God guiding, testing, speaking through events; recasts ทรงจัดให้, ทรงเปิดทาง, ทรงควบคุมเหตุการณ์ stand; never แผนการ. MB 22.1, PP 128.2, SC 70.1 |
 | providence (provision, providential care) | ทรงเลี้ยงดู / ทรงดูแล / ทรงคุ้มครอง / ทรงจัดเตรียม / ประทาน | [CHECK] God supplying and keeping; a verb, never การทรงนำ; TNCV writes การจัดเตรียม at โยบ 10:12. PP 115.1, PP 568.1, SC 121.3 |
-| Providence (as a name for God) | พระเจ้า / การทรงนำของพระเจ้า | No Thai personification; the published books write the person or His leading. PP 128.2, PP 290.3, PP 739.1 |
+| Providence (capitalised, as a name for God) | พระเจ้า / การทรงนำของพระเจ้า | No Thai personification; the published books write the person or His leading. PP 128.2, PP 290.3, PP 739.1 |
 | guidance (of God, Christ, the Holy Spirit) | การทรงนำ / ทรงนำ | A person's or Satan's guidance takes การชี้นำ or a recast, never ทรงนำ. MB 117.2, PP 114.1, SC 91.1, SC 110.1 |
-| Master (Christ, of His disciples) | พระอาจารย์ | A human master is นาย or เจ้านาย. MB 4.4, MB 29.1, SC 73.1 |
+| Master (Christ, of His disciples) | พระอาจารย์ | A human master is นาย or เจ้านาย; องค์พระผู้เป็นเจ้า stands when "lord" or a servant's master is the sense. The name may replace the title. MB 4.4, MB 29.1, SC 73.1, SC 82.1, SC 101.1 |
 | humiliation (of Christ), humbled Himself | การถ่อมพระองค์ / การถ่อมพระองค์ลง / ทรงถ่อมพระองค์ | Christ's own condescension; อับอาย is shame, another sense; the penitent's humiliation is its own row. PP 154.2, PP 330.4, SC 70.2, SC 45.1 |
 | self-denial, self-denying, self-sacrifice | การเสียสละ / เสียสละ / ปฏิเสธตนเอง | ปฏิเสธตนเอง is THSV มัทธิว 16:24 and stands in a quotation or its echo. SC 70.2, SC 78.1, SC 79.3 |
 | Comforter (John 14–16) | องค์ผู้ช่วย / องค์พระผู้ช่วย / พระผู้ช่วย | THSV's title; TKJV ผู้ปลอบประโลมใจ and TNCV ที่ปรึกษา stand inside their own quotations. ยอห์น 14:26 THSV, SC 74.1 |
@@ -355,7 +355,7 @@
 | King of glory | กษัตริย์ผู้ทรงพระสิริ / พระมหากษัตริย์ผู้เปี่ยมด้วยพระสิริ | [CHECK] THSV Psalm 24 form in quotation; narrative may take the PP 154.2 form; องค์ราชันผู้ทรงพระสิริ stands. PP 707.4, PP 154.2, SC 125.3 |
 | angels of glory | เหล่าทูตสวรรค์ผู้สว่างเรืองรอง / ทูตสวรรค์ | Shining angels, PP 478.3; the bare word stands, MB 40.2; never พระสิริ for angels |
 | outshining of His glory, brightness of His glory, effulgence of His glory (Christ, Hebrews 1:3) | แสงสว่างแห่งพระสิริ / รัศมีแห่งพระสิริ / รัศมีเจิดจ้าแห่งพระเกียรติสิริ | [CHECK] Quotations follow their version; narrative รัศมีแห่งพระสิริ or the verb ฉาย as MB 49.2; แสงสะท้อน only inside TH1971. MB 49.2, PP 34.2, DA 19.1 |
-| the Word, the Word of God (Christ) | พระวาทะ | [CHECK] Christ's title, THSV ยอห์น 1:1, 14, วิวรณ์ 19:13; ของพระเจ้า where English has it; never พระวจนะ. MB 148.2, PP 34.1 |
+| the Word, the Word of God (Christ, capitalised) | พระวาทะ | [CHECK] Christ's title, THSV ยอห์น 1:1, 14, วิวรณ์ 19:13; ของพระเจ้า where English has it; never พระวจนะ. MB 148.2, PP 34.1 |
 | word of God, His word (God's speech, promise) | พระวจนะ / พระดำรัส / พระสัญญา | Scripture or God's word generally พระวจนะ; word spoken พระดำรัส; His word kept พระสัญญา; recasts stand. PP 71.2, PP 202.4, SC 106.2 |
 | from the days of eternity, from eternal ages, times eternal (eternity past) | ตั้งแต่นิรันดร์กาล / แต่นิรันดร์ | [CHECK] Eternity before creation; never โบราณกาล or ดึกดำบรรพ์ in narration; quotations keep their version. สดุดี 93:2, ฮาบากุก 1:12, DA 19.1, DA 22.2, DA 23.1 |
 | eternal ages, endless ages, throughout eternity (eternity future) | ตลอดชั่วนิรันดร์ / ตลอดนิรันดร์ / ตลอดนิรันดร์กาล / สืบไปเป็นนิตย์ | [CHECK] Any listed form; ตลอดไป and ตลอดกาล stand; นิรันดร์ as an adjective stands. PP 63.3, MB 90.2, SC 88.3, DA 19.2, DA 26.2 |
@@ -370,7 +370,7 @@
 | Infinite Love (capitalised, a name for God) | ผู้ทรงเปี่ยมด้วยความรัก / พระเจ้าแห่งความรัก / ความรักอันไม่สิ้นสุด / ความรักอันไม่มีที่สิ้นสุด | [CHECK] พระเจ้า or พระองค์ precedes ผู้ทรงเปี่ยมด้วย; forms combine, as ผู้ทรงเปี่ยมด้วยความรักอันไม่สิ้นสุด; a pronoun may stand. MB 11.2, MB 22.2, PP 197.1, PP 642.1, SC 13.2, SC 17.2 |
 | tabernacled among us, dwell among men, dwell with us (Christ or God dwelling among men) | ประทับอยู่ท่ามกลาง / ประทับท่ามกลาง / ประทับอยู่กับ / ตั้งเต็นท์ / กางเต็นท์ | [CHECK] Royal verb; the tent verbs where the author pitches a tent; quotations follow the version. SC 93.4, MB 25.2, PP 349.4, DA 23.3 |
 | tabernacle of God, His tabernacle (God's dwelling with men; the building has its own row) | ที่ประทับของพระเจ้า / พลับพลาของพระองค์ | [CHECK] THSV's noun at วิวรณ์ 21:3; พลับพลา or เต็นท์ where the author pitches a tent. MB 108.2, DA 23.3, DA 26.3 |
-| surety, pledge (a fact or token given as guarantee) | หลักประกัน / เครื่องยืนยัน / สิ่งยืนยัน | [CHECK] A fact or token that makes sure; สัญลักษณ์ and เครื่องหมาย stand; a person takes Surety. PP 484.4, PP 589.3, SJ 42.7, เอเฟซัส 1:14 NTV, DA 24.3, DA 25.3 |
+| surety, pledge (a fact or token given as guarantee) | หลักประกัน / เครื่องยืนยัน / สิ่งยืนยัน | [CHECK] สัญลักษณ์ and เครื่องหมาย stand; a person takes Surety; พระสัญญา stands for God's own promise. PP 484.4, PP 589.3, SJ 42.7, เอเฟซัส 1:14 NTV, DA 24.3, DA 25.3, SC 112.3 |
 | grace (God's favour and its gifts) | พระคุณ | [CHECK] THSV's word at ยอห์น 1:14, โรม 5:20; a recast with ความรัก or พระพร stands. DA 19.2, DA 23.2, DA 24.1, DA 26.3 |
 | government (of God) | การปกครองของพระเจ้า / การปกครอง | [CHECK] The noun; the title Ruler keeps ครอบครอง (its own row); a quotation keeps its version. MB 51.4, PP 34.3, DA 22.1, DA 26.2 |
 | universe | จักรวาล | [CHECK] The titles have the Ruler of the universe and King of the universe rows. MB 107.2, PP 34.1, SC 38.2, DA 19.2, DA 22.1 |

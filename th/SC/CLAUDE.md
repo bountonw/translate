@@ -12,7 +12,8 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 1.F. "terms SC01 [SC02 ...]" — glossary mining, section 7.
 1.G. A term or corpus question — answer by grep over th/PP, th/MB, th/SJ and th/SC, copying every Thai form out of a file.
 1.H. "7/3/1" and "model: X/Y/Z" — the drill of the root CLAUDE.md.
-1.I. Anything else — ask.
+1.I. "read SC01 [SC02 ...]", a chapter's Finished button, or a reviewers' export — the read-through, section 10.
+1.J. Anything else — ask.
 
 ## 2. Paths
 
@@ -45,7 +46,8 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 4.B.2. For qa3, build the changes file: python3 th/SC/04_assets/scripts/sc_changes.py --chapter NN --base COMMIT, where COMMIT is the parent of the chapter's QA1 commit, writes ~/claude-sandbox/sc-audit/scNN-changes.md with, per changed paragraph, the English, the Thai at the base, the Thai now and each changed run. Pass its path and the qa2 side list to every batch.
 4.C. Dispatch sc-batch-auditor (qa1), sc-batch-auditor-qa2 (qa2) or sc-reader-qa3 (qa3) per batch, in sequence, with chapter, stage directory, ref range, starting marker number, round name, first-batch flag, and the files of 4.B.1 or 4.B.2. Markers restart at #1 each round; the next start is the last reported number plus one.
 4.D. After the last batch, run python3 th/SC/04_assets/scripts/sc_resolution_sheet.py --chapter NN --round qa1 (or qa2, qa3) and read its VERDICT line. Delete a marker whose old side is not in the committed chapter and establish the finding again.
-4.E. Report: the counts table, the THSV-label count, every DECIDE, and any item whose effect reaches past its own site. A decision confined to one marker stays at the cursor. Give the sheet's path.
+4.D.1. Before the sheet, narrow every marker to the words that change: python3 th/SC/04_assets/scripts/sc_minspan.py --chapter NN prints each marker with the words common to its old and new sides moved outside the brackets, the candidates cut the same way, and any candidate that recasts the clause marked as replacing the whole span; where the script's cut splits a word, re-run it with --prefix or --suffix; write each narrowed marker into the chapter.
+4.E. Report: every marker as a full item with EN, the whole TH sentence, ISSUE, FIX1 and every further candidate printed in full, and no print sentence; then the counts table, the THSV-label count and every DECIDE. A decision confined to one marker is not raised as a DECIDE. Give the sheet's path.
 
 ## 5. Post-resolution check ("check SC01")
 
@@ -81,3 +83,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 9.A. The root CLAUDE.md report shape; TH: replaces LO:. A DECIDE opens with the decision and the recommendation.
 9.B. The batch auditors, sc-reader-qa3 and th-glossary-miner write for you; compose the report from their items, copying every Thai form from their files.
+
+## 10. Read-through
+
+10.A. The read-through follows assets/read-through.md, read in full before any part of it runs: the chapter is read at whatever stage it stands (2.A), the branch SC-read in ~/claude-sandbox/wt-SC-read, the notes file th/SC/04_assets/notes/SC_notes.txt, the drill agent sc-wording-drill.
