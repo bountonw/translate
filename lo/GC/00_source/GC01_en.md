@@ -137,11 +137,11 @@ All the predictions given by Christ concerning the destruction of Jerusalem were
 
 ## {GC 29.3}
 
-Signs and wonders appeared, foreboding disaster and doom. In the midst of the night an unnatural light shone over the temple and the altar. Upon the clouds at sunset were pictured chariots and men of war gathering for battle. The priests ministering by night in the sanctuary were terrified by mysterious sounds; the earth trembled, and a multitude of voices were heard crying: “Let us depart hence.” The great eastern gate, which was so heavy that it could hardly be shut by a score of men, and which was secured by immense bars of iron fastened deep in the pavement of solid stone, opened at midnight, without visible agency.—Milman, The History of the Jews, book 13. {GC 29.3}
+Signs and wonders appeared, foreboding disaster and doom. In the midst of the night an unnatural light shone over the temple and the altar. Upon the clouds at sunset were pictured chariots and men of war gathering for battle. The priests ministering by night in the sanctuary were terrified by mysterious sounds; the earth trembled, and a multitude of voices were heard crying: “Let us depart hence.” The great eastern gate, which was so heavy that it could hardly be shut by a score of men, and which was secured by immense bars of iron fastened deep in the pavement of solid stone, opened at midnight, without visible agency.—Milman, *The History of the Jews*, book 13. {GC 29.3}
 
 ## {GC 30.1}
 
-For seven years a man continued to go up and down the streets of Jerusalem, declaring the woes that were to come upon the city. By day and by night he chanted the wild dirge: “A voice from the east! a voice from the west! a voice from the four winds! a voice against Jerusalem and against the temple! a voice against the bridegrooms and the brides! a voice against the whole people!”—Ibid. This strange being was imprisoned and scourged, but no complaint escaped his lips. To insult and abuse he answered only: “Woe, woe to Jerusalem!” “woe, woe to the inhabitants thereof!” His warning cry ceased not until he was slain in the siege he had foretold. {GC 30.1}
+For seven years a man continued to go up and down the streets of Jerusalem, declaring the woes that were to come upon the city. By day and by night he chanted the wild dirge: “A voice from the east! a voice from the west! a voice from the four winds! a voice against Jerusalem and against the temple! a voice against the bridegrooms and the brides! a voice against the whole people!”—*Ibid*. This strange being was imprisoned and scourged, but no complaint escaped his lips. To insult and abuse he answered only: “Woe, woe to Jerusalem!” “woe, woe to the inhabitants thereof!” His warning cry ceased not until he was slain in the siege he had foretold. {GC 30.1}
 
 ## {GC 30.2}
 
@@ -181,7 +181,7 @@ The blind obstinacy of the Jewish leaders, and the detestable crimes perpetrated
 
 ## {GC 35.1}
 
-“The slaughter within was even more dreadful than the spectacle from without. Men and women, old and young, insurgents and priests, those who fought and those who entreated mercy, were hewn down in indiscriminate carnage. The number of the slain exceeded that of the slayers. The legionaries had to clamber over heaps of dead to carry on the work of extermination.”—Milman, The History of the Jews, book 16. {GC 35.1}
+“The slaughter within was even more dreadful than the spectacle from without. Men and women, old and young, insurgents and priests, those who fought and those who entreated mercy, were hewn down in indiscriminate carnage. The number of the slain exceeded that of the slayers. The legionaries had to clamber over heaps of dead to carry on the work of extermination.”—Milman, *The History of the Jews*, book 16. {GC 35.1}
 
 ## {GC 35.2}
 

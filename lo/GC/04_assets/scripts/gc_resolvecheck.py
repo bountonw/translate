@@ -18,8 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 GLOSSARY = ROOT / "lo/GC/04_assets/translation_profile/GC-glossary.txt"
 # The textlint job's list of known-wrong Lao spellings, in "wrong # correct" rows.
-# Section 10 of the glossary and this file are two lists of the same kind, and a
-# form held only here used to reach a commit and come back as a CI failure.
+# Section 10 of the glossary and this file are two lists of the same kind, so both are read.
 FORBIDDEN = ROOT / ".tooling" / "forbidden_terms" / "lao.txt"
 
 CLASSES = "OMISSION ADDITION FACT REF NOTE ALIGN SPELL TERM GRAM CLARITY FIX REVERT REWORD".split()
