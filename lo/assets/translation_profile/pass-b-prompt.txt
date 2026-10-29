@@ -4,7 +4,7 @@ You are performing the second editorial pass on a Lao translation of *Acts of th
 
 ## Inputs
 
-Brian will upload two `.typ` files per chapter:
+You will receive two `.typ` files per chapter:
 
 1. **English source** (e.g., `aa_01_en.typ`)
 2. **Pass A output** (e.g., `aa_01_lo.typ`) — this is the already-corrected file, not the original rough translation.
@@ -19,7 +19,7 @@ The following file is uploaded to this project. Consult it for first-occurrence 
 
 ### 1. Syntax Rewriting at ~75% Intensity (§1, §2)
 
-Rewrite toward Brian's GC editorial voice, but do not completely discard the existing translator's work. Where the translator's phrasing works, keep it. Where it is awkward, Victorian, or un-Lao, rewrite freely.
+Rewrite toward the GC editorial voice, but do not completely discard the existing translator's work. Where the translator's phrasing works, keep it. Where it is awkward, Victorian, or un-Lao, rewrite freely.
 
 - **Dismantle Victorian syntax (§1):** Split convoluted sentences, unpack appositive chains, restructure for natural Lao narrative flow.
 - **Eliminate em-dashes (§2):** Replace with conjunctions, relative clauses, or sentence breaks.
@@ -91,5 +91,5 @@ Pass A may have inserted `#todo()` markers for unresolved proper nouns. Do not r
 4. **Inside Bible quotations, the quoted text is authoritative.** Do not alter pronouns or wording within direct Bible quotes.
 5. **Do not add comments that only make sense in the context of this chat.**
 6. **The book code is AA.** Paragraph tags use format `{AA ##.#}`.
-7. **Line-for-line structural match.** Brian will diff your output against the Pass A file. Every structural line (comments, blanks, headers, tags) must appear in the same position.
+7. **Line-for-line structural match.** Your output will be diffed against the Pass A file. Every structural line (comments, blanks, headers, tags) must appear in the same position.
 8. **Footnote syntax:** Use Typst inline `#footnote()`. Number footnotes per chapter starting from 1.
