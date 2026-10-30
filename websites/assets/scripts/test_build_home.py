@@ -534,7 +534,7 @@ def test_real_news_file_lists_its_entries_in_every_language():
 
 def test_news_text_is_nine_tenths_of_the_reading_size_and_its_heading_is_not():
     layout = open(HOME_LAYOUT, encoding='utf-8').read()
-    assert re.search(r'\.news-list \{[^}]*font-size: 0\.9em;', layout)
+    assert re.search(r'\.news-list \{[^}]*font-size: 0\.9em;', open(os.path.join(SITE, 'css', 'style.css'), encoding='utf-8').read())
     assert not re.search(r'(\.news h2|#news-heading)[^{]*\{', layout)
 
 
@@ -607,19 +607,22 @@ def test_layout_takes_its_colours_and_dark_mode_from_the_book_stylesheet():
     stylesheet = open(os.path.join(SITE, 'css', 'style.css'), encoding='utf-8').read()
     defined = set(re.findall(r'(--[\w-]+):', stylesheet))
     used = set(re.findall(r'var\((--[\w-]+)\)', layout))
-    assert used - defined == {'--site-font'}
+    assert used - defined == set()
     style = ''.join(re.findall(r'<style>(.*?)</style>', layout, re.S))
     assert not re.search(r'#[0-9a-fA-F]{3,6}\b', style)
     assert 'prefers-color-scheme' not in layout
     assert '<link rel="stylesheet" href="css/style.css">' in layout
 
 
-def test_site_name_font_is_set_on_one_line():
-    layout = open(HOME_LAYOUT, encoding='utf-8').read()
-    lines = [line for line in layout.splitlines() if '--site-font:' in line]
-    assert len(lines) == 1
-    assert 'family=Lora:ital,wght@1,600' in lines[0] and 'italic 600 1.6rem/1.3 "Lora"' in lines[0]
-    assert layout.count('var(--site-font)') == 1
+def test_site_name_font_is_set_in_one_place_and_served_by_the_site():
+    stylesheet = open(os.path.join(SITE, 'css', 'style.css'), encoding='utf-8').read()
+    assert stylesheet.count('--brand-family: "Lora", serif;') == 1
+    assert stylesheet.count('var(--brand-family)') == 2
+    for name in ('lo/home.html', 'lo/chapter_header.html'):
+        layout = open(os.path.join(os.path.dirname(HOME_LAYOUT), '..', name), encoding='utf-8').read()
+        assert 'fonts.googleapis' not in layout and 'fonts.gstatic' not in layout and '<style' not in layout
+    for url in re.findall(r'url\("\.\./fonts/([^"]+)"\)', stylesheet):
+        assert os.path.isfile(os.path.join(SITE, 'fonts', url)), url
 
 
 def test_no_thai_or_lao_digits_and_no_invisible_characters(setup):

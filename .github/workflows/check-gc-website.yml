@@ -2,7 +2,10 @@ name: Check website
 
 # Fails a pull request when a book's web pages no longer match its chapter
 # text, so the pages are rebuilt (websites/assets/scripts/build_book.py) before
-# merging. It never uploads anything; the upload to the server is done by hand.
+# merging. It also rebuilds the home page (build_home.py --release) from the
+# list of books and the news, checks its links, and fails while a placeholder
+# ([OPEN or an unfilled {{field}}) stands on it. It never uploads anything; the upload to the server is
+# done by hand.
 # Python-Markdown is pinned to the version the pages are built with locally.
 
 on:
@@ -10,6 +13,9 @@ on:
     paths:
       - 'lo/GC/03_public/**'
       - 'lo/GC/metadata.yaml'
+      # the pages, the scripts, the layouts, the home page template
+      # (websites/assets/layout/lo/home.html), the list of books (websites/books.yaml)
+      # and the news (websites/news.yaml)
       - 'websites/**'
   workflow_dispatch:
 
@@ -21,14 +27,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install Python-Markdown
-        run: pip install markdown==3.10.3
+      - name: Install Python-Markdown and pytest
+        run: pip install markdown==3.10.3 pytest
+      - name: Run the tests of the website scripts
+        run: python3 -m pytest -q -p no:cacheprovider websites/assets/scripts
       - name: Rebuild the pages and check them against the chapter files
         run: python3 websites/assets/scripts/build_book.py lo/GC
+      - name: Rebuild the home page, check its links and refuse a placeholder
+        run: python3 websites/assets/scripts/build_home.py --release
       - name: Fail if the committed pages are out of date
         run: |
-          if ! git diff --quiet -- websites/laoegw; then
-            git diff --stat -- websites/laoegw
-            echo "::error::The website pages do not match the chapter text. Run python3 websites/assets/scripts/build_book.py lo/GC, commit the pages, and after merging upload them to the server."
+          if [ -n "$(git status --porcelain -- websites/laoegw)" ]; then
+            git status --short -- websites/laoegw
+            echo "::error::The website pages do not match the chapter text, the list of books or the news. Run python3 websites/assets/scripts/build_book.py lo/GC and python3 websites/assets/scripts/build_home.py, commit the pages, and after merging upload them to the server."
             exit 1
           fi
