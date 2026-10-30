@@ -6,17 +6,23 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 27. Build the home page of the website
-
-The front page of www.laoegw.com is basically blank. Build the home page of the whole site, not the page of one book: the books it holds, starting with ປາຍທາງແຫ່ງຄວາມຫວັງ, each with its title, author, a short description and the way into its text; the first printing of ປາຍທາງແຫ່ງຄວາມຫວັງ, October 2026, as the printed title page has it; and the contact address the introduction gives (laoegw@proton.me). The page is in Lao first; Thai and English follow soon, and the Thai books (MB first, then SC once it goes to press) join the site as they are ready (rulings of 28 October 2026). Design choices are the translator's: a few questions each turn draw out the ideas, then a mock to react to.
-
-Detail: none written; this entry is the whole brief. Small to medium.
-
 ## 29. Add the Thai books to the website
 
 The website build, `websites/assets/scripts/build_book.py`, reads Markdown chapters with GC's front matter. Add MB and LBF first, then SC and PP, which are written in Typst and need a Typst reader in the converter; SJ waits for its editing. Rulings of 16 October 2026: the Sarabun font; the page words สารบัญ, บทที่ and ต้นฉบับภาษาอังกฤษ; LBF's paragraph codes hidden on the page, as its metadata asks, with the paragraph link addresses kept, and its `original` source line left off; Thai line breaks left to the browser for now; no cover images until covers exist. Each book needs the Thai layout folder `websites/assets/layout/th/`, a contents page and a line in the GitHub check.
 
 Detail: this entry is the whole brief. Medium for MB and LBF; large for SC and PP.
+
+## 30. An EPUB of every book on the website
+
+Every book published on the website also gets an EPUB to download, starting with ປາຍທາງແຫ່ງຄວາມຫວັງ in Lao, hoped for by Friday 6 November 2026 (the translator's request of 29 October 2026). Planning starts once the more pressing work is through.
+
+Detail: none written; this entry is the whole brief. Medium.
+
+## 31. Move the Lao GC to /lo/GC/
+
+The Lao GC lives at /GC/, which leaves no room for a Thai GC at /th/GC/. Move the pages to /lo/GC/ and have the server answer every old /GC/ address with a permanent redirect (Apache: RedirectMatch 301 ^/GC/(.*)$ /lo/GC/$1), so that the printed book's QR code and links keep working. The build's web folder comes from websites/books.yaml (web: lo/GC) and the chapter pages' stylesheet path gains one folder. Raised 29 October 2026. The introduction's text and the book's QR code page also change to www.laoegw.com/lo/GC for the website and later printings; only copies already printed keep the old address, which the redirect serves. Every page the build writes shows an email address in a form that address-harvesting robots cannot read (put together by a small script, with a plain fallback). Due no later than Wednesday 4 November 2026.
+
+Detail: none written; this entry is the whole brief. Small to medium.
 
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
