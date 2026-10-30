@@ -2,6 +2,7 @@
 
 Usage, from the repository root:
     python3 websites/assets/scripts/check_book.py lo/GC
+    python3 websites/assets/scripts/check_book.py --home
 
 build_book.py runs this check after every build. For every chapter in the
 book's 03_public folder it checks that the page exists, that every link on
@@ -9,11 +10,14 @@ it leads to a file, that no TeX command is left, and that the text and the
 footnotes hold the same letters and digits, in the same order, as the
 chapter file. The chapter side is cleaned by this script's own rules, not
 the converter's, so a converter fault shows up as a difference.
+With --home it checks every link on the site's home page instead, the
+stylesheet and pictures included; build_home.py runs that check.
 Exits 1 when it finds a problem.
 """
 import os
 import re
 import sys
+from html import unescape
 from html.parser import HTMLParser
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -75,6 +79,24 @@ def md_parts(body):
     return clean_md(main), clean_md(notes)
 
 
+def broken_links(page, hrefs):
+    """The links among hrefs that lead to no file, read from the page's
+    folder. Web addresses, mail links and links within the page are not
+    followed; a link to a folder, such as GC/ or GC, needs the folder's
+    index.html."""
+    broken = []
+    for href in hrefs:
+        if href.startswith(('http://', 'https://', '#', 'mailto:')):
+            continue
+        path = re.split(r'[?#]', href)[0]
+        target = os.path.normpath(os.path.join(os.path.dirname(page), path))
+        if path.endswith('/') or os.path.isdir(target):
+            target = os.path.join(target, 'index.html')
+        if not os.path.exists(target):
+            broken.append(href)
+    return broken
+
+
 def first_difference(a, b):
     i = next((k for k in range(min(len(a), len(b))) if a[k] != b[k]), min(len(a), len(b)))
     return i, a[max(0, i - 25):i + 25], b[max(0, i - 25):i + 25]
@@ -99,13 +121,9 @@ def check(book, site=SITE):
             problems += 1
             continue
         raw = open(page, encoding='utf-8').read()
-        for href in visible(raw)[1]:
-            if href.startswith(('http', '#', 'mailto')):
-                continue
-            target = os.path.normpath(os.path.join(os.path.dirname(page), href.split('#')[0]))
-            if not os.path.exists(target):
-                print('BROKEN link', rel, '->', href)
-                problems += 1
+        for href in broken_links(page, visible(raw)[1]):
+            print('BROKEN link', rel, '->', href)
+            problems += 1
         if re.search(r'\\[A-Za-z]', raw):
             print('TeX left on', rel, re.findall(r'\\[A-Za-z]+', raw)[:5])
             problems += 1
@@ -124,5 +142,21 @@ def check(book, site=SITE):
     return problems
 
 
+def check_home(site=SITE):
+    """Print every broken link on the home page, <site>/index.html, and
+    return how many there are. Every href and src on the page is followed."""
+    page = os.path.join(site, 'index.html')
+    raw = open(page, encoding='utf-8').read()
+    problems = 0
+    hrefs = [unescape(href) for href in re.findall(r'\b(?:href|src)="([^"]*)"', raw)]
+    for href in broken_links(page, hrefs):
+        print('BROKEN link index.html ->', href)
+        problems += 1
+    print(f'home page: {problems} problems')
+    return problems
+
+
 if __name__ == '__main__':
+    if sys.argv[1] == '--home':
+        sys.exit(1 if check_home(*sys.argv[2:3]) else 0)
     sys.exit(1 if check(sys.argv[1], *sys.argv[2:3]) else 0)

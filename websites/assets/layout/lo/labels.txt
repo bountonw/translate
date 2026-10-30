@@ -2,3 +2,16 @@
 toc: ສາລະບານ
 chapter: ບົດທີ
 english: ຕົ້ນສະບັບພາສາອັງກິດ
+# The home page's own words in Lao; build_home.py writes each in every
+# language and the language buttons switch them. Every language has every word.
+home:
+  lang_lo: ລາວ
+  lang_th: ไทย
+  lang_en: English
+  books: ໜັງສື
+  start_reading: ເລີ່ມອ່ານ
+  news: ຄວາມຄືບໜ້າ
+  contact: ຕິດຕໍ່
+  licence: ສັນຍາອະນຸຍາດ
+  empty_tab_th: ກຳລັງກະກຽມໜັງສືພາສາໄທ.
+  empty_tab_en: ກຳລັງກະກຽມໜັງສືພາສາອັງກິດ.

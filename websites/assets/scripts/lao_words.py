@@ -96,9 +96,23 @@ def split_chapter(job):
         return chapter, {run: pieces(parse_chunk_with_lookahead(run, dictionary), run) for run in runs}
 
 
+# a script or style element, whose contents are code and never marked
+CODE = re.compile(r'(<(?:script|style)\b[^>]*>.*?</(?:script|style)\s*>)', re.S | re.I)
+
+
+def body_parts(body):
+    """The body cut into tags, whole script and style elements, and the
+    text between them. Only a part that does not start with < is text."""
+    for i, chunk in enumerate(CODE.split(body)):
+        if i % 2:
+            yield chunk
+        else:
+            yield from re.split(r'(<[^>]+>)', chunk)
+
+
 def body_runs(page):
     body = page.split('<body>', 1)[1]
-    return {run for part in re.split(r'(<[^>]+>)', body) if not part.startswith('<')
+    return {run for part in body_parts(body) if not part.startswith('<')
             for run in LAO_RUN.findall(part)}
 
 
@@ -116,16 +130,21 @@ def mark_page(page, table):
                        else f'<span class="w">{p}</span><wbr\n>' for p in parts[:-1]) + f'<span class="w">{parts[-1]}</span>'
 
     body = ''.join(part if part.startswith('<') else LAO_RUN.sub(wrap, part)
-                   for part in re.split(r'(<[^>]+>)', body))
+                   for part in body_parts(body))
     return head + '<body>' + body
 
 
-def mark(pages, book):
-    """pages: {chapter id such as GC01: page html}. Returns the pages marked."""
+def mark(pages, book, cache_path=CACHE):
+    """pages: {page id such as GC01, or home for the site's home page: page html}.
+    Returns the pages marked. Each page is split with the dictionaries of its id
+    and of the book; with book None, with the Lao dictionaries alone. The cache
+    keeps, for each page given, only the runs it uses now, and leaves the entries
+    of every other page as they are, so marking the home page keeps the book's
+    chapters in the cache."""
     sig = signature()
     cache = {}
-    if os.path.exists(CACHE):
-        with open(CACHE, encoding='utf-8') as f:
+    if os.path.exists(cache_path):
+        with open(cache_path, encoding='utf-8') as f:
             saved = json.load(f)
         if saved.get('signature') == sig:
             cache = saved['chapters']
@@ -139,11 +158,15 @@ def mark(pages, book):
         with ctx.Pool(min(len(need), os.cpu_count() or 1)) as pool:
             for cid, result in pool.imap_unordered(split_chapter, need):
                 cache.setdefault(cid, {}).update(result)
-    # keep only what the pages use now
-    used = {cid: {r: cache[cid][r] for r in runs[cid]} for cid in pages}
+    # keep only what the pages given use now; every other page keeps its entries
+    used = dict(cache)
+    used.update({cid: {r: cache[cid][r] for r in runs[cid]} for cid in pages})
     if need or used != cache:
-        os.makedirs(os.path.dirname(CACHE), exist_ok=True)
-        with open(CACHE, 'w', encoding='utf-8') as f:
+        os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+        # written beside the cache and then put in its place, so a build
+        # stopped while writing leaves the old cache whole
+        with open(cache_path + '.part', 'w', encoding='utf-8') as f:
             json.dump({'signature': sig, 'chapters': used}, f, ensure_ascii=False)
+        os.replace(cache_path + '.part', cache_path)
     cache = used
     return {cid: mark_page(page, cache[cid]) for cid, page in pages.items()}

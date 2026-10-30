@@ -10,7 +10,8 @@ rewrites the chapter list in <site>/<BOOK>/index.html, then runs
 check_book.py on the result. For a Lao book, lao_words.py marks every word so
 lines break only where the print dictionaries allow. The page header, footer and page words come
 from the layout folder of the book's language, such as layout/lo/, and are
-shared by every book in that language. Exits 1 when the check finds a problem.
+shared by every book in that language; the header opens every page with a
+link to the site's home page. Exits 1 when the check finds a problem.
 Needs the Python-Markdown library (python-markdown).
 """
 import argparse
@@ -95,6 +96,13 @@ def page_name(number, english_title):
     return f'{number:02d}_{slug.strip("_")}.html'
 
 
+def stylesheet_version(site):
+    """A version taken from the stylesheet's content, so a browser that saved
+    an older copy fetches the new one when it changes."""
+    with open(os.path.join(site, 'css', 'style.css'), 'rb') as f:
+        return hashlib.sha1(f.read()).hexdigest()[:8]
+
+
 def versioned(html, version):
     """Add ?v=version to every link to style.css."""
     return re.sub(r'(href="[^"]*css/style\.css)(\?v=[0-9a-f]+)?"', rf'\1?v={version}"', html)
@@ -139,10 +147,7 @@ def main():
         }
 
     header = open(os.path.join(layout, 'chapter_header.html'), encoding='utf-8').read()
-    # the stylesheet is asked for by a version taken from its content, so a
-    # browser that saved an older copy fetches the new one when it changes
-    with open(os.path.join(args.site, 'css', 'style.css'), 'rb') as f:
-        css_version = hashlib.sha1(f.read()).hexdigest()[:8]
+    css_version = stylesheet_version(args.site)
     header = versioned(header, css_version)
     footer = open(os.path.join(layout, 'chapter_footer.html'), encoding='utf-8').read()
     out_folder = os.path.join(args.site, code, 'chapters')
