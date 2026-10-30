@@ -1,0 +1,34 @@
+# The books on the home page of www.laoegw.com, in the order the page lists them.
+# websites/assets/scripts/build_home.py reads this file and writes each book's card
+# in the tab of the book's language. Each book's title and author come from its own
+# metadata.yaml (book.title.<lang> and author.<lang>).
+#
+# Each book starts with its repository folder, such as lo/GC, followed by:
+#   web: the book's folder on the site, such as GC for www.laoegw.com/GC/
+#   lang: the book's language, lo, th or en, as in its metadata.yaml; the home page
+#     layout (websites/assets/layout/lo/home.html) has one tab for each
+#   cover: optional; the cover picture, from the book's web folder, such as images/cover.jpg
+#   description: optional; one or two sentences about the book
+#   first_printing: optional; the first-printing line
+#   title_in: optional; under it, a line per page language, such as th, naming the
+#     book in that language; the card shows it under the title in that language's view
+#   author_in, first_printing_in: optional; under each, a line per page language, such as
+#     th, giving the author or the first-printing line in that language; that language's
+#     view shows it in place of the book's own, and a view with no line shows the book's own
+# An optional field left empty is left off the page. Each value stands on one line,
+# without quotation marks; a value of > or | stops the build.
+lo/GC:
+  web: GC
+  lang: lo
+  cover: images/cover.jpg
+  description:
+  first_printing: ພິມຄັ້ງທຳອິດ ເດືອນຕຸລາ 2026
+  title_in:
+    th: ปลายทางแห่งความหวัง ภาษาลาว
+    en: The Great Controversy, in Lao
+  author_in:
+    th: เอเลน จี. ไวท์
+    en: Ellen G. White
+  first_printing_in:
+    th: พิมพ์ครั้งแรก ตุลาคม 2026
+    en: First printing: October 2026

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="lo">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laoegw.com</title>
+    <!-- With scripts on, the language buttons and the book tabs show; with scripts off, every language's books show one under another. -->
+    <script>document.documentElement.className = 'js';</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <defs><clipPath id="flag-en-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="flag-en-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath></defs>
+        <symbol id="flag-lo" viewBox="0 0 30 20"><rect width="30" height="20" fill="#ce1126"/><rect y="5" width="30" height="10" fill="#002868"/><circle cx="15" cy="10" r="4" fill="#fff"/></symbol>
+        <symbol id="flag-th" viewBox="0 0 30 20"><rect width="30" height="20" fill="#a51931"/><rect y="3.33" width="30" height="13.33" fill="#f4f5f8"/><rect y="6.67" width="30" height="6.67" fill="#2d2a4a"/></symbol>
+        <symbol id="flag-en" viewBox="0 0 60 30"><g clip-path="url(#flag-en-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#flag-en-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></symbol>
+    </svg>
+    <header class="home-header">
+        <h1 class="site">laoegw.com</h1>
+        <div class="langs">
+            <button type="button" data-lang="lo" aria-pressed="true"><svg class="flag" aria-hidden="true"><use href="#flag-lo"></use></svg><span lang="lo">ລາວ</span></button>
+            <button type="button" data-lang="th" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#flag-th"></use></svg><span lang="th">ไทย</span></button>
+            <button type="button" data-lang="en" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#flag-en"></use></svg><span lang="en">English</span></button>
+        </div>
+    </header>
+
+    <!-- The language buttons above always name each language in its own words. Each word in double braces outside the card pattern is one of the page's own words. build_home.py writes it in every language of the home: tables in layout/<lang>/labels.txt, each in a span with its lang and data-l, the shown language visible and the others hidden; the language buttons switch them. -->
+    <main>
+        <section class="books" aria-labelledby="books-heading">
+            <h2 id="books-heading">{{books}}</h2>
+            <div class="tabs" role="tablist" aria-labelledby="books-heading">
+                <button type="button" role="tab" id="tab-lo" data-lang="lo" aria-controls="books-lo" aria-selected="true"><svg class="flag" aria-hidden="true"><use href="#flag-lo"></use></svg>{{lang_lo}}</button>
+                <button type="button" role="tab" id="tab-th" data-lang="th" aria-controls="books-th" aria-selected="false" tabindex="-1"><svg class="flag" aria-hidden="true"><use href="#flag-th"></use></svg>{{lang_th}}</button>
+                <button type="button" role="tab" id="tab-en" data-lang="en" aria-controls="books-en" aria-selected="false" tabindex="-1"><svg class="flag" aria-hidden="true"><use href="#flag-en"></use></svg>{{lang_en}}</button>
+            </div>
+            <!-- build_home.py writes one card per book of websites/books.yaml, from this pattern, into the list of the book's language, and leaves this pattern off the page. A line whose field the list leaves empty is left out. A list with no book keeps its own empty_tab line. -->
+            <template class="book-card">
+                    <li class="book" lang="{{lang}}">
+                        <img class="cover" src="{{cover}}" alt="">
+                        <div class="about">
+                            <h3 class="title">{{title}}</h3>
+                            {{title_in}}
+                            <p class="author">{{author}}</p>
+                            <p class="description">{{description}}</p>
+                            <p class="first-printing">{{first_printing}}</p>
+                            <a class="read" href="{{web}}/">{{start_reading}}</a>
+                        </div>
+                    </li>
+            </template>
+            <div class="panel shown" id="books-lo">
+                <p class="panel-label"><svg class="flag" aria-hidden="true"><use href="#flag-lo"></use></svg>{{lang_lo}}</p>
+                <ul class="book-list" data-lang="lo">
+                    <li class="empty"><p>{{empty_tab_lo}}</p></li>
+                </ul>
+            </div>
+            <div class="panel" id="books-th">
+                <p class="panel-label"><svg class="flag" aria-hidden="true"><use href="#flag-th"></use></svg>{{lang_th}}</p>
+                <ul class="book-list" data-lang="th">
+                    <li class="empty"><p>{{empty_tab_th}}</p></li>
+                </ul>
+            </div>
+            <div class="panel" id="books-en">
+                <p class="panel-label"><svg class="flag" aria-hidden="true"><use href="#flag-en"></use></svg>{{lang_en}}</p>
+                <ul class="book-list" data-lang="en">
+                    <li class="empty"><p>{{empty_tab_en}}</p></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="news" aria-labelledby="news-heading">
+            <h2 id="news-heading">{{news}}</h2>
+            <!-- build_home.py lists here the entries of websites/news.yaml in every language, newest first; only the shown language's entries are visible. -->
+            <ul class="news-list">
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>{{contact}}: <span id="mail">laoegw [at] proton.me</span></p>
+        <p>{{licence}}: <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a></p>
+    </footer>
+
+    <script>
+    (function () {
+        // The address is put together here, so that robots reading the page's source find none;
+        // where this script does not run, the page keeps the form "laoegw [at] proton.me".
+        var mail = document.getElementById('mail');
+        if (mail) {
+            var address = ['lao', 'egw'].join('') + '@' + ['proton', 'me'].join('.');
+            var link = document.createElement('a');
+            link.setAttribute('href', 'mailto:' + address);
+            link.textContent = address;
+            mail.textContent = '';
+            mail.appendChild(link);
+        }
+
+        // The page's own words stand in every language, each in a span marked
+        // data-l with its language. A language button shows its language's words,
+        // hides the others, and selects its tab of the book list; a tab only
+        // selects its list of books.
+        var tabs = [].slice.call(document.querySelectorAll('.tabs [role="tab"]'));
+        var langs = [].slice.call(document.querySelectorAll('.langs button'));
+        var words = [].slice.call(document.querySelectorAll('[data-l]'));
+        function select(lang, focus) {
+            tabs.forEach(function (tab) {
+                var on = tab.getAttribute('data-lang') === lang;
+                tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                tab.tabIndex = on ? 0 : -1;
+                document.getElementById(tab.getAttribute('aria-controls')).classList.toggle('shown', on);
+                if (on && focus) tab.focus();
+            });
+        }
+        function speak(lang) {
+            words.forEach(function (word) { word.hidden = word.getAttribute('data-l') !== lang; });
+            document.documentElement.lang = lang;
+            langs.forEach(function (button) {
+                button.setAttribute('aria-pressed', button.getAttribute('data-lang') === lang ? 'true' : 'false');
+            });
+        }
+        tabs.forEach(function (tab, i) {
+            var panel = document.getElementById(tab.getAttribute('aria-controls'));
+            panel.setAttribute('role', 'tabpanel');
+            panel.setAttribute('aria-labelledby', tab.id);
+            panel.tabIndex = 0;
+            tab.addEventListener('click', function () { select(tab.getAttribute('data-lang')); });
+            // Left and Right move to the next tab, Home and End to the first and the last
+            tab.addEventListener('keydown', function (event) {
+                var next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[event.key];
+                if (next === undefined) return;
+                event.preventDefault();
+                select(tabs[(next + tabs.length) % tabs.length].getAttribute('data-lang'), true);
+            });
+        });
+        langs.forEach(function (button) {
+            button.addEventListener('click', function () {
+                speak(button.getAttribute('data-lang'));
+                select(button.getAttribute('data-lang'));
+                document.getElementById('books-heading').scrollIntoView({ block: 'nearest' });
+            });
+        });
+        // the page starts in the language the build showed it in
+        speak(document.documentElement.lang);
+    })();
+    </script>
+</body>
+</html>
