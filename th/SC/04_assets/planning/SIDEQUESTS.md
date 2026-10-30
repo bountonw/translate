@@ -43,3 +43,9 @@ Detail: none written; this entry is the whole brief. `gc_th_hyphens.py` in `th/G
 th/SC/04_assets/template/dictionary.typ is stale against th/assets/typeset/thai-breaks.txt and the SC chapters as they now stand, so the resolution sheet of every SC round prints a FAIL line for it. The translator ruled that it is rebuilt once the qa2 and qa3 rounds of SC09 to SC13 are done, with python3 th/assets/scripts/build_breaks.py --book SC. Until then the sheet's stale-dictionary line and the rebuild in the check step, th/SC/CLAUDE.md 5.B, are left alone and reported as this entry.
 
 Detail: this entry. Small.
+
+## 18. Confirm the Thai title of SC
+
+The working title is สันติสุขที่โลกให้ไม่ได้, set on 30 October 2026 as the book title in th/SC/04_assets/template/config.typ (book-metadata). The translator confirms it or gives the final title before the book is printed or put on the website.
+
+Detail: this entry. Small.
