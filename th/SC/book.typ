@@ -30,8 +30,10 @@
 #include "02_edit/SC07_th.typ"
 #include "02_edit/SC08_th.typ"
 #include "02_edit/SC09_th.typ"
-#include "03_public/SC10_th.typ"
-#include "03_public/SC11_th.typ"
+#include "02_edit/SC10_th.typ"
+#include "02_edit/SC11_th.typ"
+#include "02_edit/SC12_th.typ"
+#include "02_edit/SC13_th.typ"
 
 // -----------------------------------------------------------------------------
 // Back matter

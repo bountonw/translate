@@ -8,23 +8,11 @@ The translator's editor and reviewers work in Google Docs while the repository s
 
 Detail: th/SC/04_assets/planning/gdocs-workflow.md. Medium.
 
-## 8. A site from the SC01 studies for SC11
-
-{SC 94.2} "the way to the mercy seat" stands without พระที่นั่งกรุณา, for SC11's qa2.
-
-Detail: this entry. Small.
-
 ## 13. Standardize sons of God in SJ
 
 SJ is unedited and its sons of God sites take one form under the row when SJ is edited.
 
 Detail: this entry. Small.
-
-## 15. SC12 note for qa2: the authority sentence at {SC 109.3}
-
-{SC 109.3} "reason must acknowledge an authority superior to itself" reads พระคัมภีร์มีอำนาจเหนือความคิดของเรา, the editor's wording, which stands until qa2 weighs the sentence. The editor rejected สิทธิอำนาจ here as personifying the Bible too much and sounding political; the editor check found that อำนาจเหนือความคิดของเรา can read as control over our thoughts. The drill's two candidates, which the editor has not seen: ยังมีอำนาจที่สูงกว่าความคิดของเราเอง, which leaves the authority unnamed as the English does, and พระคัมภีร์อยู่เหนือความคิดของเราเอง, which can also be heard as "beyond our thinking".
-
-Detail: ~/claude-sandbox/sc-audit/sc12-drill-2-editor.md. Small.
 
 ## 16. Feed the Thai GC hyphenation candidates into the Thai typesetting break list
 
