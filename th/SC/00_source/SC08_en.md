@@ -41,7 +41,7 @@ Many have an idea that they must do some part of the work alone. They have trust
 
 ## {SC 69.2}
 
-Do you ask, “How am I to abide in Christ?” In the same way as you received Him at first. “As ye have therefore received Christ Jesus the Lord, so walk ye in Him.” “The just shall live by faith.” Colossians 2:6; Hebrews 10:38. You gave yourself to God, to be His wholly, to serve and obey Him, and you took Christ as your Saviour. You could not yourself atone for your sins or change your heart; but having given yourself to God, you believe that He for Christ’s sake did all this for you. By faith you became Christ’s, and by faith you are to grow up in Him—by giving and taking. You are to give all,—your heart, your will, your service,—give yourself to Him to obey all His requirements; and you must take all,—Christ, the fullness of all blessing, to abide in your heart, to be your strength, your righteousness, your everlasting helper,—to give you power to obey. {SC 69.2}
+Do you ask, “How am I to abide in Christ?” In the same way as you received Him at first. “As ye have therefore received Christ Jesus the Lord, so walk ye in Him.” “The just shall live by faith.” Colossians 2:6; Hebrews 10:38. You gave yourself to God, to be His wholly, to serve and obey Him, and you took Christ as your Saviour. You could not yourself atone for your sins or change your heart; but having given yourself to God, you believe that He for Christ’s sake did all this for you. By *faith* you became Christ’s, and by faith you are to grow up in Him—by giving and taking. You are to *give* all,—your heart, your will, your service,—give yourself to Him to obey all His requirements; and you must *take* all,—Christ, the fullness of all blessing, to abide in your heart, to be your strength, your righteousness, your everlasting helper,—to give you power to obey. {SC 69.2}
 
 ## {SC 70.1}
 
@@ -61,7 +61,7 @@ When the mind dwells upon self, it is turned away from Christ, the source of str
 
 ## {SC 72.1}
 
-When Christ took human nature upon Him, He bound humanity to Himself by a tie of love that can never be broken by any power save the choice of man himself. Satan will constantly present allurements to induce us to break this tie—to choose to separate ourselves from Christ. Here is where we need to watch, to strive, to pray, that nothing may entice us to choose another master; for we are always free to do this. But let us keep our eyes fixed upon Christ, and He will preserve us. Looking unto Jesus, we are safe. Nothing can pluck us out of His hand. In constantly beholding Him, we “are changed into the same image from glory to glory, even as by the Spirit of the Lord.” 2 Corinthians 3:18. {SC 72.1}
+When Christ took human nature upon Him, He bound humanity to Himself by a tie of love that can never be broken by any power save the choice of man himself. Satan will constantly present allurements to induce us to break this tie—to choose to separate ourselves from Christ. Here is where we need to watch, to strive, to pray, that nothing may entice us to *choose* another master; for we are always free to do this. But let us keep our eyes fixed upon Christ, and He will preserve us. Looking unto Jesus, we are safe. Nothing can pluck us out of His hand. In constantly beholding Him, we “are changed into the same image from glory to glory, even as by the Spirit of the Lord.” 2 Corinthians 3:18. {SC 72.1}
 
 ## {SC 72.2}
 
