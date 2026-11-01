@@ -160,7 +160,7 @@ Even one wrong trait of character, one sinful desire, persistently cherished, wi
 
 ## {SC 34.2}
 
-Christ is ready to set us free from sin, but He does not force the will; and if by persistent transgression the will itself is wholly bent on evil, and we do not desire to be set free, if we will not accept His grace, what more can He do? We have destroyed ourselves by our determined rejection of His love. “Behold, now is the accepted time; behold, now is the day of salvation.” “Today if ye will hear His voice, harden not your hearts.” 2 Corinthians 6:2; Hebrews 3:7, 8. {SC 34.2}
+Christ is ready to set us free from sin, but He does not force the will; and if by persistent transgression the will itself is wholly bent on evil, and we do not *desire* to be set free, if we *will* not accept His grace, what more can He do? We have destroyed ourselves by our determined rejection of His love. “Behold, now is the accepted time; behold, now is the day of salvation.” “Today if ye will hear His voice, harden not your hearts.” 2 Corinthians 6:2; Hebrews 3:7, 8. {SC 34.2}
 
 ## {SC 34.3}
 

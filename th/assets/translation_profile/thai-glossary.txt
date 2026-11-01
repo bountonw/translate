@@ -211,7 +211,7 @@
 | self (warfare against self, self forgotten, the ego) | ตนเอง / ตัวเอง / อัตตา / ตัวตน | Free choice; อัตตา the ego. SC 43.3, MB 16.1, SC 71.2 |
 | ropes of sand | เชือกที่ทำด้วยทราย | Figure; translation memory. SC 47.1 |
 | bread of life | อาหารแห่งชีวิต | THSV ยอห์น 6:35. MB 18.3 |
-| heart-longing, longing of the heart | ความปรารถนาอันลึกซึ้ง / ความปรารถนาในใจ | ความหิวกระหาย only for hunger and thirst figures. SC 46.3, PP 86.4 |
+| heart-longing, longing of the heart or soul (for God, a Saviour, salvation) | ความปรารถนาอันลึกซึ้ง / ความปรารถนาในใจ / ความโหยหา / โหยหา | ความหิวกระหาย only for hunger and thirst figures; โหยหา takes ในจิตวิญญาณ or a spiritual object. SC 46.3, PP 86.4, MB 132.1, PP 198.1, SC 19.2 |
 | Prince of heaven | เจ้าชายแห่งสวรรค์ / พระราชาแห่งสวรรค์ | Christ as the King's Son; PP 161.1 renders it as พระเจ้า without a title. SC 45.2, SJ 17.2 |
 | Wonderful Counsellor (Isaiah 9:6) | ที่ปรึกษามหัศจรรย์ | THSV, TH1971, TNCV; TKJV splits ผู้ที่มหัศจรรย์ ที่ปรึกษา. |
 | mighty God (Isaiah 9:6) | พระเจ้าผู้ทรงมหิทธิฤทธิ์ | THSV, TH1971, TKJV; TNCV พระเจ้าผู้ทรงฤทธิ์, TH1940 พระเจ้าทรงอานุภาพ. |
@@ -386,6 +386,7 @@
 | victim (the one offered) | เครื่องบูชา | [CHECK] The thing offered, Christ or the animal; one preyed on takes เหยื่อ, ตกเป็น as the sentence needs. ฮีบรู 10:5, PP 68.1, PP 72.3, SC 27.1, DA 25.1 |
 | common priest | ปุโรหิตธรรมดา | PP 350.2, DA 25.1 |
 | pontifical robes, the high priest's robes (the garments of his office) | ชุดประจำตำแหน่งมหาปุโรหิต / เครื่องแต่งกายประจำตำแหน่งมหาปุโรหิต / เสื้อตำแหน่ง | [CHECK] ประจำตำแหน่ง marks the office; THSV อพยพ 28:2 เสื้อตำแหน่ง inside a quotation. PP 350.2, PP 701.3, อพยพ 28:2, DA 25.1 |
+| understand (God or Christ as subject) | ทรงเข้าใจ / เข้าพระทัย / ทรงประจักษ์ | [CHECK] Default ทรงเข้าใจ, the versions' verb; เข้าพระทัย stands; ทรงประจักษ์ where สดุดี 139:2 is echoed. 1 พงศาวดาร 28:9, สดุดี 139:2, MB 32.3, PP 50.1, PP 140.3, PP 152.1, SC 34.3 |
 
 ## 2. Proper nouns
 
