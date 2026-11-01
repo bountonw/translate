@@ -2,6 +2,14 @@
 
 Work that is agreed but not scheduled, in the order it will be done. When the translator asks how many SC side quests are open and in what order, this file is the answer and no agent answers from memory. An issue he defers rather than decides is added here in the same reply that defers it, and an entry is deleted when its work is finished, not marked done, because a finished quest is in the commit history. Each entry says what the job is, where its detail lives, and roughly how big it is. It sits under a numbered-stage assets directory because the linter excludes those from every check.
 
+## 19. Settle ดัง and ดั่ง site by site before links are shipped
+
+Urgent: done before reading links go to outside readers. The translator ruled on 1 November 2026 that no spelling rule is written for ดัง and ดั่ง in the sense "like, as": his editors hear a difference between the two and choose by ear, so each site is read aloud and settled one by one. The evidence from the SC04 SC05 read-through: both spellings are dictionary words for the same sense; the tone mark on ดั่ง sets the word apart from ดัง "loud"; the fixed compounds ดังนี้, ดังนั้น, ดังที่, ดังกล่าว, ดังเดิม and ดังต่อไปนี้ never take the mark; TH1971, TKJV and THSV write mostly ดัง (เป็นดัง 55, 60 and 40 times against เป็นดั่ง 5, 7 and 9), TNCV and NTV mostly ดั่ง (TNCV เป็นดั่ง 34 against เป็นดัง 4; NTV ดั่ง 413 and เป็นดัง 0); published PP prose writes เป็นดั่ง 10 times and เป็นดัง twice, with เป็นดัง also inside six quotations and a footnote; MB writes เป็นดัง 4 times and เป็นดั่ง 3; profile 2.G says the book's own spelling governs inside a quotation.
+
+The SC sites to read: เป็นดัง at {SC 47.1}, {SC 77.3} and {SC 119.1}; เหมือนดัง at {SC 72.2} and {SC 99.4}; เป็นดั่ง at {SC 17.2} twice, {SC 44.1}, {SC 51.4}, {SC 68.3}, {SC 88.2}, {SC 98.3} and {SC 112.2} inside a quotation; ดั่ง at {SC 19.1}, {SC 67.3} inside a quotation and {SC 120.4}; and {SC 125.3}, changed from เป็นดัง to เป็นดั่ง on the ruling of 1 November because ดังเสียงดนตรี reads first as "loud". The compounds are not in question.
+
+Detail: this entry. Small.
+
 ## 4. Google Docs round trip
 
 The translator's editor and reviewers work in Google Docs while the repository stays authoritative. The agreed design is th/SC/04_assets/planning/gdocs-workflow.md, distilled on 16 August; its minimal alternative, uploading the marker-laden file and letting the Doc's own comparison show the differences, is to be tested before anything larger is built. Until something is built, a chapter that passes check SCNN is uploaded by hand.
