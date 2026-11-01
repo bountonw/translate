@@ -49,7 +49,7 @@ Christ foresaw that the undue assumption of authority indulged by the scribes an
 
 ## {GC 596.3}
 
-The Roman Church reserves to the clergy the right to interpret the Scriptures. On the ground that ecclesiastics alone are competent to explain God’s word, it is withheld from the common people. [See Appendix note for page 340.] Though the Reformation gave the Scriptures to all, yet the selfsame principle which was maintained by Rome prevents multitudes in Protestant churches from searching the Bible for themselves. They are taught to accept its teachings as interpreted by the church; and there are thousands who dare receive nothing, however plainly revealed in Scripture, that is contrary to their creed or the established teaching of their church. {GC 596.3}
+The Roman Church reserves to the clergy the right to interpret the Scriptures. On the ground that ecclesiastics alone are competent to explain God’s word, it is withheld from the common people. [See Appendix note for page 340.] Though the Reformation gave the Scriptures to all, yet the selfsame principle which was maintained by Rome prevents multitudes in Protestant churches from searching the Bible for themselves. They are taught to accept its teachings *as interpreted by the church*; and there are thousands who dare receive nothing, however plainly revealed in Scripture, that is contrary to their creed or the established teaching of their church. {GC 596.3}
 
 ## {GC 596.4}
 

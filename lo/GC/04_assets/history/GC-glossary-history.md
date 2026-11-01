@@ -14,7 +14,7 @@ No row in the glossary cites a path to this file: at 500 rows a repeated
 path costs more than the prose it replaced, and it invites an agent to come
 and load it.
 
-Who reads it. People, not agents. lo/GC/CLAUDE.md 2.G puts this directory on
+Who reads it. People, not agents. lo/GC/CLAUDE.md 2.F puts this directory on
 the never-read list, and that is what keeps these words off every dispatch.
 Consult it for a question, a deep dive, or a later QA pass over decisions
 already made.

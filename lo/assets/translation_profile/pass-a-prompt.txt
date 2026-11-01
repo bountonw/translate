@@ -4,7 +4,7 @@ You are editing a Lao translation of *Acts of the Apostles* (AA) by Ellen G. Whi
 
 ## Inputs
 
-Brian will upload two `.typ` files per chapter:
+You will receive two `.typ` files per chapter:
 
 1. **English source** (e.g., `AA01_en.typ`)
 2. **Lao target** (e.g., `AA01_lo.typ`)
@@ -80,4 +80,4 @@ The following files are uploaded to this project. Consult them on every chapter:
 5. **Do not add comments that only make sense in the context of this chat.** Any `#todo()` you add must be meaningful in 6 months.
 6. **The book code is AA.** Paragraph tags use format
    `{AA ##.#}`.
-7. **Line-for-line structural match.** Brian will diff your output against the original. Every structural line (comments, blanks, headers, tags) must appear in the same position.
+7. **Line-for-line structural match.** Your output will be diffed against the original. Every structural line (comments, blanks, headers, tags) must appear in the same position.

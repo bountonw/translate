@@ -129,7 +129,7 @@ Still another fabrication was needed to enable Rome to profit by the fears and t
 
 ## {GC 59.2}
 
-The Scriptural ordinance of the Lord’s Supper had been supplanted by the idolatrous sacrifice of the mass. Papal priests pretended, by their senseless mummery, to convert the simple bread and wine into the actual “body and blood of Christ.”—Cardinal Wiseman, The Real Presence of the Body and Blood of Our Lord Jesus Christ in the Blessed Eucharist, Proved From Scripture, lecture 8, sec. 3, par. 26. With blasphemous presumption, they openly claimed the power of creating God, the Creator of all things. Christians were required, on pain of death, to avow their faith in this horrible, Heaven-insulting heresy. Multitudes who refused were given to the flames. (See Appendix.) {GC 59.2}
+The Scriptural ordinance of the Lord’s Supper had been supplanted by the idolatrous sacrifice of the mass. Papal priests pretended, by their senseless mummery, to convert the simple bread and wine into the actual “body and blood of Christ.”—Cardinal Wiseman, *The Real Presence of the Body and Blood of Our Lord Jesus Christ in the Blessed Eucharist, Proved From Scripture*, lecture 8, sec. 3, par. 26. With blasphemous presumption, they openly claimed the power of creating God, the Creator of all things. Christians were required, on pain of death, to avow their faith in this horrible, Heaven-insulting heresy. Multitudes who refused were given to the flames. (See Appendix.) {GC 59.2}
 
 ## {GC 59.3}
 
@@ -141,7 +141,7 @@ Popery had become the world’s despot. Kings and emperors bowed to the decrees 
 
 ## {GC 60.2}
 
-But “the noon of the papacy was the midnight of the world.”—J. A. Wylie, The History of Protestantism, b. 1, ch. 4. The Holy Scriptures were almost unknown, not only to the people, but to the priests. Like the Pharisees of old, the papal leaders hated the light which would reveal their sins. God’s law, the standard of righteousness, having been removed, they exercised power without limit, and practiced vice without restraint. Fraud, avarice, and profligacy prevailed. Men shrank from no crime by which they could gain wealth or position. The palaces of popes and prelates were scenes of the vilest debauchery. Some of the reigning pontiffs were guilty of crimes so revolting that secular rulers endeavored to depose these dignitaries of the church as monsters too vile to be tolerated. For centuries Europe had made no progress in learning, arts, or civilization. A moral and intellectual paralysis had fallen upon Christendom. {GC 60.2}
+But “the noon of the papacy was the midnight of the world.”—J. A. Wylie, *The History of Protestantism*, b. 1, ch. 4. The Holy Scriptures were almost unknown, not only to the people, but to the priests. Like the Pharisees of old, the papal leaders hated the light which would reveal their sins. God’s law, the standard of righteousness, having been removed, they exercised power without limit, and practiced vice without restraint. Fraud, avarice, and profligacy prevailed. Men shrank from no crime by which they could gain wealth or position. The palaces of popes and prelates were scenes of the vilest debauchery. Some of the reigning pontiffs were guilty of crimes so revolting that secular rulers endeavored to depose these dignitaries of the church as monsters too vile to be tolerated. For centuries Europe had made no progress in learning, arts, or civilization. A moral and intellectual paralysis had fallen upon Christendom. {GC 60.2}
 
 ## {GC 60.3}
 

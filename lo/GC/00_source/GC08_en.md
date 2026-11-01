@@ -21,7 +21,7 @@ The attention of all parties was now directed to the assembly of the German stat
 
 ## {GC 146.1}
 
-Charles had previously directed the elector to bring Luther with him to the Diet, assuring him of protection, and promising a free discussion, with competent persons, of the questions in dispute. Luther was anxious to appear before the emperor. His health was at this time much impaired; yet he wrote to the elector: “If I cannot go to Worms in good health, I will be carried there, sick as I am. For if the emperor calls me, I cannot doubt that it is the call of God Himself. If they desire to use violence against me, and that is very probable (for it is not for their instruction that they order me to appear), I place the matter in the Lord’s hands. He still lives and reigns who preserved the three young men in the burning fiery furnace. If He will not save me, my life is of little consequence. Let us only prevent the gospel from being exposed to the scorn of the wicked, and let us shed our blood for it, for fear they should triumph. It is not for me to decide whether my life or my death will contribute most to the salvation of all.... You may expect everything from me... except flight and recantation. Fly I cannot, and still less retract.”—Ibid., b. 7, ch. 1. {GC 146.1}
+Charles had previously directed the elector to bring Luther with him to the Diet, assuring him of protection, and promising a free discussion, with competent persons, of the questions in dispute. Luther was anxious to appear before the emperor. His health was at this time much impaired; yet he wrote to the elector: “If I cannot go to Worms in good health, I will be carried there, sick as I am. For if the emperor calls me, I cannot doubt that it is the call of God Himself. If they desire to use violence against me, and that is very probable (for it is not for their instruction that they order me to appear), I place the matter in the Lord’s hands. He still lives and reigns who preserved the three young men in the burning fiery furnace. If He will not save me, my life is of little consequence. Let us only prevent the gospel from being exposed to the scorn of the wicked, and let us shed our blood for it, for fear they should triumph. It is not for me to decide whether my life or my death will contribute most to the salvation of all.... You may expect everything from me... except flight and recantation. Fly I cannot, and still less retract.”—*Ibid*., b. 7, ch. 1. {GC 146.1}
 
 ## {GC 146.2}
 
@@ -29,7 +29,7 @@ As the news was circulated at Worms that Luther was to appear before the Diet, a
 
 ## {GC 147.1}
 
-Not content with this victory, Aleander labored with all the power and cunning at his command to secure Luther’s condemnation. With a persistence worthy of a better cause, he urged the matter upon the attention of princes, prelates, and other members of the assembly, accusing the Reformer of “sedition, rebellion, impiety, and blasphemy.” But the vehemence and passion manifested by the legate revealed too plainly the spirit by which he was actuated. “He is moved by hatred and vengeance,” was the general remark, “much more than by zeal and piety.”—Ibid., b. 7, ch. 1. The majority of the Diet were more than ever inclined to regard Luther’s cause with favor. {GC 147.1}
+Not content with this victory, Aleander labored with all the power and cunning at his command to secure Luther’s condemnation. With a persistence worthy of a better cause, he urged the matter upon the attention of princes, prelates, and other members of the assembly, accusing the Reformer of “sedition, rebellion, impiety, and blasphemy.” But the vehemence and passion manifested by the legate revealed too plainly the spirit by which he was actuated. “He is moved by hatred and vengeance,” was the general remark, “much more than by zeal and piety.”—*Ibid*., b. 7, ch. 1. The majority of the Diet were more than ever inclined to regard Luther’s cause with favor. {GC 147.1}
 
 ## {GC 147.2}
 
@@ -61,7 +61,7 @@ While most of the members of the Diet would not have hesitated to yield up Luthe
 
 ## {GC 149.3}
 
-“These are some of the abuses that cry out against Rome. All shame has been put aside, and their only object is ... money, money, money, ... so that the preachers who should teach the truth, utter nothing but falsehoods, and are not only tolerated, but rewarded, because the greater their lies, the greater their gain. It is from this foul spring that such tainted waters flow. Debauchery stretches out the hand to avarice.... Alas, it is the scandal caused by the clergy that hurls so many poor souls into eternal condemnation. A general reform must be effected.”—Ibid., b. 7, ch. 4. {GC 149.3}
+“These are some of the abuses that cry out against Rome. All shame has been put aside, and their only object is ... money, money, money, ... so that the preachers who should teach the truth, utter nothing but falsehoods, and are not only tolerated, but rewarded, because the greater their lies, the greater their gain. It is from this foul spring that such tainted waters flow. Debauchery stretches out the hand to avarice.... Alas, it is the scandal caused by the clergy that hurls so many poor souls into eternal condemnation. A general reform must be effected.”—*Ibid*., b. 7, ch. 4. {GC 149.3}
 
 ## {GC 150.1}
 
@@ -73,7 +73,7 @@ Had the eyes of the assembly been opened, they would have beheld angels of God i
 
 ## {GC 150.3}
 
-A committee was at once appointed by the Diet to prepare an enumeration of the papal oppressions that weighed so heavily on the German people. This list, containing a hundred and one specifications, was presented to the emperor, with a request that he would take immediate measures for the correction of these abuses. “What a loss of Christian souls,” said the petitioners, “what depredations, what extortions, on account of the scandals by which the spiritual head of Christendom is surrounded! It is our duty to prevent the ruin and dishonor of our people. For this reason we most humbly but most urgently entreat you to order a general reformation, and to undertake its accomplishment.”—Ibid., b. 7, ch. 4. {GC 150.3}
+A committee was at once appointed by the Diet to prepare an enumeration of the papal oppressions that weighed so heavily on the German people. This list, containing a hundred and one specifications, was presented to the emperor, with a request that he would take immediate measures for the correction of these abuses. “What a loss of Christian souls,” said the petitioners, “what depredations, what extortions, on account of the scandals by which the spiritual head of Christendom is surrounded! It is our duty to prevent the ruin and dishonor of our people. For this reason we most humbly but most urgently entreat you to order a general reformation, and to undertake its accomplishment.”—*Ibid*., b. 7, ch. 4. {GC 150.3}
 
 ## {GC 150.4}
 
@@ -81,15 +81,15 @@ The council now demanded the Reformer’s appearance before them. Notwithstandin
 
 ## {GC 150.5}
 
-The friends of Luther were terrified and distressed. Knowing the prejudice and enmity against him, they feared that even his safe-conduct would not be respected, and they entreated him not to imperil his life. He replied: “The papists do not desire my coming to Worms, but my condemnation and my death. It matters not. Pray not for me, but for the word of God.... Christ will give me His Spirit to overcome these ministers of error. I despise them during my life; I shall triumph over them by my death. They are busy at Worms about compelling me to retract; and this shall be my retraction: I said formerly that the pope was Christ’s vicar; now I assert that he is our Lord’s adversary, and the devil’s apostle.”—Ibid., b. 7, ch. 6. {GC 150.5}
+The friends of Luther were terrified and distressed. Knowing the prejudice and enmity against him, they feared that even his safe-conduct would not be respected, and they entreated him not to imperil his life. He replied: “The papists do not desire my coming to Worms, but my condemnation and my death. It matters not. Pray not for me, but for the word of God.... Christ will give me His Spirit to overcome these ministers of error. I despise them during my life; I shall triumph over them by my death. They are busy at Worms about compelling me to retract; and this shall be my retraction: I said formerly that the pope was Christ’s vicar; now I assert that he is our Lord’s adversary, and the devil’s apostle.”—*Ibid*., b. 7, ch. 6. {GC 150.5}
 
 ## {GC 151.1}
 
-Luther was not to make his perilous journey alone. Besides the imperial messenger, three of his firmest friends determined to accompany him. Melanchthon earnestly desired to join them. His heart was knit to Luther’s, and he yearned to follow him, if need be, to prison or to death. But his entreaties were denied. Should Luther perish, the hopes of the Reformation must center upon his youthful colaborer. Said the Reformer as he parted from Melanchthon: “If I do not return, and my enemies put me to death, continue to teach, and stand fast in the truth. Labor in my stead.... If you survive, my death will be of little consequence.”—Ibid., b. 7, ch. 7. Students and citizens who had gathered to witness Luther’s departure were deeply moved. A multitude whose hearts had been touched by the gospel, bade him farewell with weeping. Thus the Reformer and his companions set out from Wittenberg. {GC 151.1}
+Luther was not to make his perilous journey alone. Besides the imperial messenger, three of his firmest friends determined to accompany him. Melanchthon earnestly desired to join them. His heart was knit to Luther’s, and he yearned to follow him, if need be, to prison or to death. But his entreaties were denied. Should Luther perish, the hopes of the Reformation must center upon his youthful colaborer. Said the Reformer as he parted from Melanchthon: “If I do not return, and my enemies put me to death, continue to teach, and stand fast in the truth. Labor in my stead.... If you survive, my death will be of little consequence.”—*Ibid*., b. 7, ch. 7. Students and citizens who had gathered to witness Luther’s departure were deeply moved. A multitude whose hearts had been touched by the gospel, bade him farewell with weeping. Thus the Reformer and his companions set out from Wittenberg. {GC 151.1}
 
 ## {GC 151.2}
 
-On the journey they saw that the minds of the people were oppressed by gloomy forebodings. At some towns no honors were proffered them. As they stopped for the night, a friendly priest expressed his fears by holding up before Luther the portrait of an Italian reformer who had suffered martyrdom. The next day they learned that Luther’s writings had been condemned at Worms. Imperial messengers were proclaiming the emperor’s decree and calling upon the people to bring the proscribed works to the magistrates. The herald, fearing for Luther’s safety at the council, and thinking that already his resolution might be shaken, asked if he still wished to go forward. He answered: “Although interdicted in every city, I shall go on.”—Ibid., b. 7, ch. 7. {GC 151.2}
+On the journey they saw that the minds of the people were oppressed by gloomy forebodings. At some towns no honors were proffered them. As they stopped for the night, a friendly priest expressed his fears by holding up before Luther the portrait of an Italian reformer who had suffered martyrdom. The next day they learned that Luther’s writings had been condemned at Worms. Imperial messengers were proclaiming the emperor’s decree and calling upon the people to bring the proscribed works to the magistrates. The herald, fearing for Luther’s safety at the council, and thinking that already his resolution might be shaken, asked if he still wished to go forward. He answered: “Although interdicted in every city, I shall go on.”—*Ibid*., b. 7, ch. 7. {GC 151.2}
 
 ## {GC 152.1}
 
@@ -101,7 +101,7 @@ To a crowded assembly he spoke from the words of Christ, “Peace be unto you.�
 
 ## {GC 152.3}
 
-He continued, showing that true faith will be manifested by a holy life. “Since God has saved us, let us so order our works that they may be acceptable to Him. Art thou rich? let thy goods administer to the necessities of the poor. Art thou poor? let thy services be acceptable to the rich. If thy labor is useful to thyself alone, the service that thou pretendest to render unto God is a lie.”—Ibid., b. 7, ch. 7. {GC 152.3}
+He continued, showing that true faith will be manifested by a holy life. “Since God has saved us, let us so order our works that they may be acceptable to Him. Art thou rich? let thy goods administer to the necessities of the poor. Art thou poor? let thy services be acceptable to the rich. If thy labor is useful to thyself alone, the service that thou pretendest to render unto God is a lie.”—*Ibid*., b. 7, ch. 7. {GC 152.3}
 
 ## {GC 152.4}
 
@@ -109,11 +109,11 @@ The people listened as if spellbound. The bread of life was broken to those star
 
 ## {GC 153.1}
 
-As the Reformer proceeded on his journey, he was everywhere regarded with great interest. An eager multitude thronged about him, and friendly voices warned him of the purpose of the Romanists. “They will burn you,” said some, “and reduce your body to ashes, as they did with John Huss.” Luther answered, “Though they should kindle a fire all the way from Worms to Wittenberg, the flames of which reached to heaven, I would walk through it in the name of the Lord; I would appear before them; I would enter the jaws of this behemoth, and break his teeth, confessing the Lord Jesus Christ.”—Ibid., b. 7, ch. 7. {GC 153.1}
+As the Reformer proceeded on his journey, he was everywhere regarded with great interest. An eager multitude thronged about him, and friendly voices warned him of the purpose of the Romanists. “They will burn you,” said some, “and reduce your body to ashes, as they did with John Huss.” Luther answered, “Though they should kindle a fire all the way from Worms to Wittenberg, the flames of which reached to heaven, I would walk through it in the name of the Lord; I would appear before them; I would enter the jaws of this behemoth, and break his teeth, confessing the Lord Jesus Christ.”—*Ibid*., b. 7, ch. 7. {GC 153.1}
 
 ## {GC 153.2}
 
-The news of his approach to Worms created great commotion. His friends trembled for his safety; his enemies feared for the success of their cause. Strenuous efforts were made to dissuade him from entering the city. At the instigation of the papists he was urged to repair to the castle of a friendly knight, where, it was declared, all difficulties could be amicably adjusted. Friends endeavored to excite his fears by describing the dangers that threatened him. All their efforts failed. Luther, still unshaken, declared: “Even should there be as many devils in Worms as tiles on the housetops, still I would enter it.”—Ibid., b. 7, ch. 7. {GC 153.2}
+The news of his approach to Worms created great commotion. His friends trembled for his safety; his enemies feared for the success of their cause. Strenuous efforts were made to dissuade him from entering the city. At the instigation of the papists he was urged to repair to the castle of a friendly knight, where, it was declared, all difficulties could be amicably adjusted. Friends endeavored to excite his fears by describing the dangers that threatened him. All their efforts failed. Luther, still unshaken, declared: “Even should there be as many devils in Worms as tiles on the housetops, still I would enter it.”—*Ibid*., b. 7, ch. 7. {GC 153.2}
 
 ## {GC 153.3}
 
@@ -121,7 +121,7 @@ Upon his arrival at Worms, a vast crowd flocked to the gates to welcome him. So 
 
 ## {GC 153.4}
 
-The papists had not believed that Luther would really venture to appear at Worms, and his arrival filled them with consternation. The emperor immediately summoned his councilors to consider what course should be pursued. One of the bishops, a rigid papist, declared: “We have long consulted on this matter. Let your imperial majesty get rid of this man at once. Did not Sigismund cause John Huss to be burnt? We are not bound either to give or to observe the safe-conduct of a heretic.” “No,” said the emperor, “we must keep our promise.”—Ibid., b. 7, ch. 8. It was therefore decided that the Reformer should be heard. {GC 153.4}
+The papists had not believed that Luther would really venture to appear at Worms, and his arrival filled them with consternation. The emperor immediately summoned his councilors to consider what course should be pursued. One of the bishops, a rigid papist, declared: “We have long consulted on this matter. Let your imperial majesty get rid of this man at once. Did not Sigismund cause John Huss to be burnt? We are not bound either to give or to observe the safe-conduct of a heretic.” “No,” said the emperor, “we must keep our promise.”—*Ibid*., b. 7, ch. 8. It was therefore decided that the Reformer should be heard. {GC 153.4}
 
 ## {GC 154.1}
 
@@ -137,7 +137,7 @@ As he was about to enter the presence of his judges, an old general, the hero of
 
 ## {GC 155.1}
 
-At length Luther stood before the council. The emperor occupied the throne. He was surrounded by the most illustrious personages in the empire. Never had any man appeared in the presence of a more imposing assembly than that before which Martin Luther was to answer for his faith. “This appearance was of itself a signal victory over the papacy. The pope had condemned the man, and he was now standing before a tribunal which, by this very act, set itself above the pope. The pope had laid him under an interdict, and cut him off from all human society; and yet he was summoned in respectful language, and received before the most august assembly in the world. The pope had condemned him to perpetual silence, and he was now about to speak before thousands of attentive hearers drawn together from the farthest parts of Christendom. An immense revolution had thus been effected by Luther’s instrumentality. Rome was already descending from her throne, and it was the voice of a monk that caused this humiliation.”—Ibid., b. 7, ch. 8. {GC 155.1}
+At length Luther stood before the council. The emperor occupied the throne. He was surrounded by the most illustrious personages in the empire. Never had any man appeared in the presence of a more imposing assembly than that before which Martin Luther was to answer for his faith. “This appearance was of itself a signal victory over the papacy. The pope had condemned the man, and he was now standing before a tribunal which, by this very act, set itself above the pope. The pope had laid him under an interdict, and cut him off from all human society; and yet he was summoned in respectful language, and received before the most august assembly in the world. The pope had condemned him to perpetual silence, and he was now about to speak before thousands of attentive hearers drawn together from the farthest parts of Christendom. An immense revolution had thus been effected by Luther’s instrumentality. Rome was already descending from her throne, and it was the voice of a monk that caused this humiliation.”—*Ibid*., b. 7, ch. 8. {GC 155.1}
 
 ## {GC 155.2}
 
@@ -157,7 +157,7 @@ The next day he was to appear to render his final answer. For a time his heart s
 
 ## {GC 156.3}
 
-“O almighty and everlasting God,” he pleaded, “how terrible is this world! Behold, it openeth its mouth to swallow me up, and I have so little trust in Thee.... If it is only in the strength of this world that I must put my trust, all is over.... My last hour is come, my condemnation has been pronounced.... O God, do Thou help me against all the wisdom of the world. Do this, ... Thou alone; ... for this is not my work, but Thine. I have nothing to do here, nothing to contend for with these great ones of the world.... But the cause is Thine, ... and it is a righteous and eternal cause. O Lord, help me! Faithful and unchangeable God, in no man do I place my trust.... All that is of man is uncertain; all that cometh of man fails.... Thou hast chosen me for this work.... Stand at my side, for the sake of Thy well-beloved Jesus Christ, who is my defense, my shield, and my strong tower.”—Ibid., b. 7, ch. 8. {GC 156.3}
+“O almighty and everlasting God,” he pleaded, “how terrible is this world! Behold, it openeth its mouth to swallow me up, and I have so little trust in Thee.... If it is only in the strength of this world that I must put my trust, all is over.... My last hour is come, my condemnation has been pronounced.... O God, do Thou help me against all the wisdom of the world. Do this, ... Thou alone; ... for this is not my work, but Thine. I have nothing to do here, nothing to contend for with these great ones of the world.... But the cause is Thine, ... and it is a righteous and eternal cause. O Lord, help me! Faithful and unchangeable God, in no man do I place my trust.... All that is of man is uncertain; all that cometh of man fails.... Thou hast chosen me for this work.... Stand at my side, for the sake of Thy well-beloved Jesus Christ, who is my defense, my shield, and my strong tower.”—*Ibid*., b. 7, ch. 8. {GC 156.3}
 
 ## {GC 157.1}
 
@@ -165,7 +165,7 @@ An all-wise Providence had permitted Luther to realize his peril, that he might 
 
 ## {GC 157.2}
 
-With his mind stayed upon God, Luther prepared for the struggle before him. He thought upon the plan of his answer, examined passages in his own writings, and drew from the Holy Scriptures suitable proofs to sustain his positions. Then, laying his left hand on the Sacred Volume, which was open before him, he lifted his right hand to heaven and vowed “to remain faithful to the gospel, and freely to confess his faith, even should he seal his testimony with his blood.”—Ibid., b. 7, ch. 8. {GC 157.2}
+With his mind stayed upon God, Luther prepared for the struggle before him. He thought upon the plan of his answer, examined passages in his own writings, and drew from the Holy Scriptures suitable proofs to sustain his positions. Then, laying his left hand on the Sacred Volume, which was open before him, he lifted his right hand to heaven and vowed “to remain faithful to the gospel, and freely to confess his faith, even should he seal his testimony with his blood.”—*Ibid*., b. 7, ch. 8. {GC 157.2}
 
 ## {GC 158.1}
 
@@ -173,7 +173,7 @@ When he was again ushered into the presence of the Diet, his countenance bore no
 
 ## {GC 158.2}
 
-“Most serene emperor, illustrious princes, gracious lords,” said Luther, “I appear before you this day, in conformity with the order given me yesterday, and by God’s mercies I conjure your majesty and your august highnesses to listen graciously to the defense of a cause which I am assured is just and true. If, through ignorance, I should transgress the usages and proprieties of courts, I entreat you to pardon me; for I was not brought up in the palaces of kings, but in the seclusion of a convent.”—Ibid., b. 7, ch. 8. {GC 158.2}
+“Most serene emperor, illustrious princes, gracious lords,” said Luther, “I appear before you this day, in conformity with the order given me yesterday, and by God’s mercies I conjure your majesty and your august highnesses to listen graciously to the defense of a cause which I am assured is just and true. If, through ignorance, I should transgress the usages and proprieties of courts, I entreat you to pardon me; for I was not brought up in the palaces of kings, but in the seclusion of a convent.”—*Ibid*., b. 7, ch. 8. {GC 158.2}
 
 ## {GC 158.3}
 
@@ -185,7 +185,7 @@ Then, proceeding to the question, he stated that his published works were not al
 
 ## {GC 159.2}
 
-“What I have just said plainly shows, I hope, that I have carefully weighed and considered the dangers to which I expose myself; but far from being dismayed, I rejoice to see that the gospel is now, as in former times, a cause of trouble and dissension. This is the character, this is the destiny, of the word of God. ‘I came not to send peace on earth, but a sword,’ said Jesus Christ. God is wonderful and terrible in His counsels; beware lest, by presuming to quench dissensions, you should persecute the holy word of God, and draw down upon yourselves a frightful deluge of insurmountable dangers, of present disasters, and eternal desolation.... I might quote many examples from the oracles of God. I might speak of the Pharaohs, the kings of Babylon, and those of Israel, whose labors never more effectually contributed to their own destruction than when they sought by counsels, to all appearance most wise, to strengthen their dominion. ‘God removeth mountains, and they know it not.’”—Ibid., b. 7, ch. 8. {GC 159.2}
+“What I have just said plainly shows, I hope, that I have carefully weighed and considered the dangers to which I expose myself; but far from being dismayed, I rejoice to see that the gospel is now, as in former times, a cause of trouble and dissension. This is the character, this is the destiny, of the word of God. ‘I came not to send peace on earth, but a sword,’ said Jesus Christ. God is wonderful and terrible in His counsels; beware lest, by presuming to quench dissensions, you should persecute the holy word of God, and draw down upon yourselves a frightful deluge of insurmountable dangers, of present disasters, and eternal desolation.... I might quote many examples from the oracles of God. I might speak of the Pharaohs, the kings of Babylon, and those of Israel, whose labors never more effectually contributed to their own destruction than when they sought by counsels, to all appearance most wise, to strengthen their dominion. ‘God removeth mountains, and they know it not.’”—*Ibid*., b. 7, ch. 8. {GC 159.2}
 
 ## {GC 159.3}
 
@@ -197,7 +197,7 @@ Those who stubbornly closed their eyes to the light, and determined not to be co
 
 ## {GC 160.2}
 
-The Reformer answered: “Since your most serene majesty and your high mightinesses require from me a clear, simple, and precise answer, I will give you one, and it is this: I cannot submit my faith either to the pope or to the councils, because it is clear as the day that they have frequently erred and contradicted each other. Unless therefore I am convinced by the testimony of Scripture or by the clearest reasoning, unless I am persuaded by means of the passages I have quoted, and unless they thus render my conscience bound by the word of God, I cannot and I will not retract, for it is unsafe for a Christian to speak against his conscience. Here I stand, I can do no other; may God help me. Amen.”—Ibid., b. 7, ch. 8. {GC 160.2}
+The Reformer answered: “Since your most serene majesty and your high mightinesses require from me a clear, simple, and precise answer, I will give you one, and it is this: I cannot submit my faith either to the pope or to the councils, because it is clear as the day that they have frequently erred and contradicted each other. Unless therefore I am convinced by the testimony of Scripture or by the clearest reasoning, unless I am persuaded by means of the passages I have quoted, and unless they thus render my conscience bound by the word of God, *I cannot and I will not retract*, for it is unsafe for a Christian to speak against his conscience. Here I stand, I can do no other; may God help me. Amen.”—*Ibid*., b. 7, ch. 8. {GC 160.2}
 
 ## {GC 160.3}
 
@@ -213,7 +213,7 @@ The partisans of Rome had been worsted; their cause appeared in a most unfavorab
 
 ## {GC 161.2}
 
-Luther’s friend, who had with great joy listened to his noble defense, trembled at these words; but the doctor himself said calmly: “May God be my helper, for I can retract nothing.”—Ibid., b. 7, ch. 8. {GC 161.2}
+Luther’s friend, who had with great joy listened to his noble defense, trembled at these words; but the doctor himself said calmly: “May God be my helper, for I can retract nothing.”—*Ibid*., b. 7, ch. 8. {GC 161.2}
 
 ## {GC 161.3}
 
@@ -233,15 +233,15 @@ As the legate perceived the effect produced by Luther’s speech, he feared, as 
 
 ## {GC 162.3}
 
-His words were not without effect. On the day following Luther’s answer, Charles caused a message to be presented to the Diet, announcing his determination to carry out the policy of his predecessors to maintain and protect the Catholic religion. Since Luther had refused to renounce his errors, the most vigorous measures should be employed against him and the heresies he taught. “A single monk, misled by his own folly, has risen against the faith of Christendom. To stay such impiety, I will sacrifice my kingdoms, my treasures, my friends, my body, my blood, my soul, and my life. I am about to dismiss the Augustine Luther, forbidding him to cause the least disorder among the people; I shall then proceed against him and his adherents as contumacious heretics, by excommunication, by interdict, and by every means calculated to destroy them. I call on the members of the states to behave like faithful Christians.”—Ibid., b. 7, ch. 9. Nevertheless the emperor declared that Luther’s safe-conduct must be respected, and that before proceedings against him could be instituted, he must be allowed to reach his home in safety. {GC 162.3}
+His words were not without effect. On the day following Luther’s answer, Charles caused a message to be presented to the Diet, announcing his determination to carry out the policy of his predecessors to maintain and protect the Catholic religion. Since Luther had refused to renounce his errors, the most vigorous measures should be employed against him and the heresies he taught. “A single monk, misled by his own folly, has risen against the faith of Christendom. To stay such impiety, I will sacrifice my kingdoms, my treasures, my friends, my body, my blood, my soul, and my life. I am about to dismiss the Augustine Luther, forbidding him to cause the least disorder among the people; I shall then proceed against him and his adherents as contumacious heretics, by excommunication, by interdict, and by every means calculated to destroy them. I call on the members of the states to behave like faithful Christians.”—*Ibid*., b. 7, ch. 9. Nevertheless the emperor declared that Luther’s safe-conduct must be respected, and that before proceedings against him could be instituted, he must be allowed to reach his home in safety. {GC 162.3}
 
 ## {GC 163.1}
 
-Two conflicting opinions were now urged by the members of the Diet. The emissaries and representatives of the pope again demanded that the Reformer’s safe-conduct should be disregarded. “The Rhine,” they said, “should receive his ashes, as it had received those of John Huss a century ago.”—Ibid., b. 7, ch. 9. But princes of Germany, though themselves papists and avowed enemies to Luther, protested against such a breach of public faith, as a stain upon the honor of the nation. They pointed to the calamities which had followed the death of Huss, and declared that they dared not call down upon Germany, and upon the head of their youthful emperor, a repetition of those terrible evils. {GC 163.1}
+Two conflicting opinions were now urged by the members of the Diet. The emissaries and representatives of the pope again demanded that the Reformer’s safe-conduct should be disregarded. “The Rhine,” they said, “should receive his ashes, as it had received those of John Huss a century ago.”—*Ibid*., b. 7, ch. 9. But princes of Germany, though themselves papists and avowed enemies to Luther, protested against such a breach of public faith, as a stain upon the honor of the nation. They pointed to the calamities which had followed the death of Huss, and declared that they dared not call down upon Germany, and upon the head of their youthful emperor, a repetition of those terrible evils. {GC 163.1}
 
 ## {GC 163.2}
 
-Charles himself, in answer to the base proposal, said: “Though honor and faith should be banished from all the world, they ought to find a refuge in the hearts of princes.”—Ibid., b. 7, ch. 9. He was still further urged by the most bitter of Luther’s papal enemies to deal with the Reformer as Sigismund had dealt with Huss—abandon him to the mercies of the church; but recalling the scene when Huss in public assembly had pointed to his chains and reminded the monarch of his plighted faith, Charles V declared: “I should not like to blush like Sigismund.”—Lenfant, vol. 1, p. 422. {GC 163.2}
+Charles himself, in answer to the base proposal, said: “Though honor and faith should be banished from all the world, they ought to find a refuge in the hearts of princes.”—*Ibid*., b. 7, ch. 9. He was still further urged by the most bitter of Luther’s papal enemies to deal with the Reformer as Sigismund had dealt with Huss—abandon him to the mercies of the church; but recalling the scene when Huss in public assembly had pointed to his chains and reminded the monarch of his plighted faith, Charles V declared: “I should not like to blush like Sigismund.”—Lenfant, vol. 1, p. 422. {GC 163.2}
 
 ## {GC 163.3}
 
@@ -269,11 +269,11 @@ Earnest efforts were made to obtain Luther’s consent to a compromise with Rome
 
 ## {GC 166.1}
 
-Again he was urged to submit to the judgment of the emperor, and then he would have nothing to fear. “I consent,” said he in reply, “with all my heart, that the emperor, the princes, and even the meanest Christian, should examine and judge my works; but on one condition, that they take the word of God for their standard. Men have nothing to do but to obey it. Do not offer violence to my conscience, which is bound and chained up with the Holy Scriptures.”—Ibid., b. 7, ch. 10. {GC 166.1}
+Again he was urged to submit to the judgment of the emperor, and then he would have nothing to fear. “I consent,” said he in reply, “with all my heart, that the emperor, the princes, and even the meanest Christian, should examine and judge my works; but on one condition, that they take the word of God for their standard. Men have nothing to do but to obey it. Do not offer violence to my conscience, which is bound and chained up with the Holy Scriptures.”—*Ibid*., b. 7, ch. 10. {GC 166.1}
 
 ## {GC 166.2}
 
-To another appeal he said: “I consent to renounce my safe-conduct. I place my person and my life in the emperor’s hands, but the word of God—never!”—Ibid., b. 7, ch. 10. He stated his willingness to submit to the decision of a general council, but only on condition that the council be required to decide according to the Scriptures. “In what concerns the word of God and the faith,” he added, “every Christian is as good a judge as the pope, though supported by a million councils, can be for him.”—Martyn 1:410. Both friends and foes were at last convinced that further effort for reconciliation would be useless. {GC 166.2}
+To another appeal he said: “I consent to renounce my safe-conduct. I place my person and my life in the emperor’s hands, but the word of God—never!”—*Ibid*., b. 7, ch. 10. He stated his willingness to submit to the decision of a general council, but only on condition that the council be required to decide according to the Scriptures. “In what concerns the word of God and the faith,” he added, “every Christian is as good a judge as the pope, though supported by a million councils, can be for him.”—Martyn 1:410. Both friends and foes were at last convinced that further effort for reconciliation would be useless. {GC 166.2}
 
 ## {GC 166.3}
 
@@ -285,7 +285,7 @@ Luther was soon commanded by the authority of the emperor to return home, and he
 
 ## {GC 167.1}
 
-After his departure, still desirous that his firmness should not be mistaken for rebellion, Luther wrote to the emperor. “God, who is the searcher of hearts, is my witness,” he said, “that I am ready most earnestly to obey your majesty, in honor or in dishonor, in life or in death, and with no exception save the word of God, by which man lives. In all the affairs of this present life, my fidelity shall be unshaken, for here to lose or to gain is of no consequence to salvation. But when eternal interests are concerned, God wills not that man should submit unto man. For such submission in spiritual matters is a real worship, and ought to be rendered solely to the Creator.”—Ibid., b. 7, ch. 11. {GC 167.1}
+After his departure, still desirous that his firmness should not be mistaken for rebellion, Luther wrote to the emperor. “God, who is the searcher of hearts, is my witness,” he said, “that I am ready most earnestly to obey your majesty, in honor or in dishonor, in life or in death, and with no exception save the word of God, by which man lives. In all the affairs of this present life, my fidelity shall be unshaken, for here to lose or to gain is of no consequence to salvation. But when eternal interests are concerned, God wills not that man should submit unto man. For such submission in spiritual matters is a real worship, and ought to be rendered solely to the Creator.”—*Ibid*., b. 7, ch. 11. {GC 167.1}
 
 ## {GC 167.2}
 
@@ -305,7 +305,7 @@ Spring, summer, and autumn passed, and winter came, and Luther still remained a 
 
 ## {GC 168.3}
 
-In the friendly security of the Wartburg, Luther for a time rejoiced in his release from the heat and turmoil of battle. But he could not long find satisfaction in quiet and repose. Accustomed to a life of activity and stern conflict, he could ill endure to remain inactive. In those solitary days the condition of the church rose up before him, and he cried in despair. “Alas! there is no one in this latter day of His anger, to stand like a wall before the Lord, and save Israel!”—Ibid., b. 9, ch. 2. Again, his thoughts returned to himself, and he feared being charged with cowardice in withdrawing from the contest. Then he reproached himself for his indolence and self-indulgence. Yet at the same time he was daily accomplishing more than it seemed possible for one man to do. His pen was never idle. While his enemies flattered themselves that he was silenced, they were astonished and confused by tangible proof that he was still active. A host of tracts, issuing from his pen, circulated throughout Germany. He also performed a most important service for his countrymen by translating the New Testament into the German tongue. From his rocky Patmos he continued for nearly a whole year to proclaim the gospel and rebuke the sins and errors of the times. {GC 168.3}
+In the friendly security of the Wartburg, Luther for a time rejoiced in his release from the heat and turmoil of battle. But he could not long find satisfaction in quiet and repose. Accustomed to a life of activity and stern conflict, he could ill endure to remain inactive. In those solitary days the condition of the church rose up before him, and he cried in despair. “Alas! there is no one in this latter day of His anger, to stand like a wall before the Lord, and save Israel!”—*Ibid*., b. 9, ch. 2. Again, his thoughts returned to himself, and he feared being charged with cowardice in withdrawing from the contest. Then he reproached himself for his indolence and self-indulgence. Yet at the same time he was daily accomplishing more than it seemed possible for one man to do. His pen was never idle. While his enemies flattered themselves that he was silenced, they were astonished and confused by tangible proof that he was still active. A host of tracts, issuing from his pen, circulated throughout Germany. He also performed a most important service for his countrymen by translating the New Testament into the German tongue. From his rocky Patmos he continued for nearly a whole year to proclaim the gospel and rebuke the sins and errors of the times. {GC 168.3}
 
 ## {GC 169.1}
 

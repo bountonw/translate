@@ -93,7 +93,7 @@ Here is to be the home of Satan with his evil angels for a thousand years. Limit
 
 ## {GC 659.2}
 
-The prophet Isaiah, looking forward to the time of Satan’s overthrow, exclaims: “How art thou fallen from heaven, O Lucifer, son of the morning! how art thou cut down to the ground, which didst weaken the nations! ... Thou hast said in thine heart, I will ascend into heaven, I will exalt my throne above the stars of God: ... I will be like the Most High. Yet thou shalt be brought down to hell, to the sides of the pit. They that see thee shall narrowly look upon thee, and consider thee, saying, Is this the man that made the earth to tremble, that did shake kingdoms; that made the world as a wilderness, and destroyed the cities thereof; that opened not the house of his prisoners?” Isaiah 14:12-17. {GC 659.2}
+The prophet Isaiah, looking forward to the time of Satan’s overthrow, exclaims: “How art thou fallen from heaven, O Lucifer, son of the morning! how art thou cut down to the ground, which didst weaken the nations! ... Thou hast said in thine heart, I will ascend into heaven, I will exalt my throne above the stars of God: ... I will be like the Most High. Yet thou shalt be brought down to hell, to the sides of the pit. They that see thee shall narrowly look upon thee, and consider thee, saying, Is this the man that made the earth to tremble, that did shake kingdoms; that made the world as a wilderness, and destroyed the cities thereof; that *opened not the house of his prisoners?*” Isaiah 14:12-17. {GC 659.2}
 
 ## {GC 659.3}
 
@@ -121,4 +121,4 @@ Satan also and evil angels are judged by Christ and His people. Says Paul: “Kn
 
 ## {GC 661.2}
 
-At the close of the thousand years the second resurrection will take place. Then the wicked will be raised from the dead and appear before God for the execution of “the judgment written.” Thus the revelator, after describing the resurrection of the righteous, says: “The rest of the dead lived not again until the thousand years were finished.” Revelation 20:5. And Isaiah declares, concerning the wicked: “They shall be gathered together, as prisoners are gathered in the pit, and shall be shut up in the prison, and after many days shall they be visited.” Isaiah 24:22. {GC 661.2}
+At the close of the thousand years the second resurrection will take place. Then the wicked will be raised from the dead and appear before God for the execution of “the judgment written.” Thus the revelator, after describing the resurrection of the righteous, says: “The rest of the dead lived not again until the thousand years were finished.” Revelation 20:5. And Isaiah declares, concerning the wicked: “They shall be gathered together, as prisoners are gathered in the pit, and shall be shut up in the prison, and *after many days shall they be visited*.” Isaiah 24:22. {GC 661.2}

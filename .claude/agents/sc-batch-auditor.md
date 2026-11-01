@@ -67,7 +67,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
 
 4.B. #N continues from your starting number in text order. Every marker gets a number.
 4.C. old and new are the minimal differing run, extended only far enough to be unambiguous. old contains the defect itself and is copied out of the file, never typed. Where the difference is invisible, open the note with "invisible change:" and say in words what differs and where.
-4.C.1. Where content is dropped or changed, new is the sentence rewritten as far as it needs to read naturally with the sentences around it, never a phrase dropped in at the position the English word holds; old widens to the span the rewrite touches.
+4.C.1. Where content is dropped or changed, new is the sentence rewritten as far as it needs to read naturally with the sentences around it, never a phrase dropped in at the position the English word holds; old widens only to the words the rewrite touches, never to the sentence around them.
 4.D. Shapes:
 
     [[REF #4|(สดุดี 145:15 TNCV) -> (สดุดี 145:15, 16 TNCV)|EN "Psalm 145:**15, 16**"; the quotation covers both verses]]
@@ -77,7 +77,7 @@ Each finding line takes a marker, SPELL or REF; a NOTE line takes none. Where yo
     [[FACT MED #7|ข้อความ -> |verify: is the year 1844 or 1843 in the author's source?]]
 
 The last shape is a question you cannot settle: old is the doubtful span, new is empty, and the note begins verify: with the question. It proposes no change; the translator answers it. Never skip a doubt silently.
-4.E. Every marker's note opens with the English of its sentence, in double quotes, with the words at issue in **double asterisks**, and the reason follows it; a SPELL marker on one misspelled word quotes nothing. The note never repeats the severity.
+4.E. Every marker's note opens with the whole English sentence, in double quotes, with the words at issue in **double asterisks**; then the whole Thai sentence as it stands, with the span in **double asterisks**; then the reason, which names each fault in plain words and numbers them where there are several; a SPELL marker on one misspelled word quotes nothing. The note never repeats the severity.
 4.F. Never place a marker inside an "#EGW[...]" tag, a "// {SC ###.#}" comment, or the "#import" and "#show" lines. The title string in "#chapter(...)" is markable.
 4.G. Never write a marker whose two sides are identical or whose new side you would not defend. Where you propose wording, propose Thai; never ask the translator to supply it.
 4.H. An issue that needs more context than a note carries — a decision reaching several sites or another chapter — is a DECIDE item in your return, with the English and Thai quoted, so the conductor raises it in the report. No side file.

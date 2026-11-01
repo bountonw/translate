@@ -7,7 +7,7 @@ in as [[CLASS SEV #N|old -> new|note]] markers. Verification is all-or-nothing:
 if any block fails, nothing is written.
 
 Run from the repository root, by that exact relative path so the permission
-allow-rules match (lo/GC/CLAUDE.md 2.D):
+allow-rules match (lo/GC/CLAUDE.md 2.C):
 
   python3 lo/GC/04_assets/scripts/gc_import_handoff.py --chapter 12
   python3 lo/GC/04_assets/scripts/gc_import_handoff.py --chapter 12 --apply
@@ -24,7 +24,7 @@ from pathlib import Path
 REPO = str(Path(__file__).resolve().parents[4])
 
 # The handoff document is a session input rather than repository content, so
-# it stays in the sandbox: lo/GC/CLAUDE.md 4.B keeps a run's artifacts there.
+# it stays in the sandbox: lo/GC/CLAUDE.md 2.D keeps a run's artifacts there.
 SANDBOX = os.path.expanduser("~/claude-sandbox/gc-audit")
 
 HEADER_RE = re.compile(r"^#(\d+[a-z]?)\s+\{GC\s+([0-9]+\.[0-9]+)\}\s+([A-Z]+)(?:\s+(HIGH|MED|LOW))?\s*$")

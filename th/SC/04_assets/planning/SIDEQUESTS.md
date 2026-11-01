@@ -14,12 +14,6 @@ SJ is unedited and its sons of God sites take one form under the row when SJ is 
 
 Detail: this entry. Small.
 
-## 15. SC12 note for qa2: the authority sentence at {SC 109.3}
-
-{SC 109.3} "reason must acknowledge an authority superior to itself" reads พระคัมภีร์มีอำนาจเหนือความคิดของเรา, the editor's wording, which stands until qa2 weighs the sentence. The editor rejected สิทธิอำนาจ here as personifying the Bible too much and sounding political; the editor check found that อำนาจเหนือความคิดของเรา can read as control over our thoughts. The drill's two candidates, which the editor has not seen: ยังมีอำนาจที่สูงกว่าความคิดของเราเอง, which leaves the authority unnamed as the English does, and พระคัมภีร์อยู่เหนือความคิดของเราเอง, which can also be heard as "beyond our thinking".
-
-Detail: ~/claude-sandbox/sc-audit/sc12-drill-2-editor.md. Small.
-
 ## 16. Feed the Thai GC hyphenation candidates into the Thai typesetting break list
 
 Moved from the GC queue on 9 October. SC no longer keeps its own dictionary.typ list: break points now live in th/assets/typeset/thai-breaks.txt, which build_breaks.py turns into each book's dictionary.typ. The joined form of 77 of the 133 candidates already occurs in thai-breaks.txt, so about 56 remain to review, and the figures below for SJ and SC predate that change.

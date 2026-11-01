@@ -64,7 +64,7 @@ Jesus promised His disciples, “The Comforter which is the Holy Ghost, whom the
 
 ## {GC ix.1}
 
-For the believers at Ephesus the apostle prayed, “That the God of our Lord Jesus Christ, the Father of glory, may give unto you the Spirit of wisdom and revelation in the knowledge of Him: the eyes of your understanding being enlightened; that ye may know what is the hope of His calling, and ... what is the exceeding greatness of His power to usward who believe.” Ephesians 1:17-19. The ministry of the divine Spirit in enlightening the understanding and opening to the mind the deep things of God’s holy word, was the blessing which Paul thus besought for the Ephesian church. {GC ix.1}
+For the believers at Ephesus the apostle prayed, “That the God of our Lord Jesus Christ, the Father of glory, may give unto you the *Spirit of wisdom and revelation* in the knowledge of Him: *the eyes of your understanding being enlightened*; that ye may know what is the hope of His calling, and ... what is the *exceeding greatness* of His power to usward who believe.” Ephesians 1:17-19. The ministry of the divine Spirit in enlightening the understanding and opening to the mind the deep things of God’s holy word, was the blessing which Paul thus besought for the Ephesian church. {GC ix.1}
 
 ## {GC ix.2}
 

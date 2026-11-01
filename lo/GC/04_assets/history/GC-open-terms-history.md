@@ -1,6 +1,6 @@
 # GC open terms — decision history
 
-Why this file exists. gc-batch-auditor 2.B reads GC-open-terms.md for every
+Why this file exists. gc-batch-auditor 4.A reads GC-open-terms.md for every
 ref in a batch's range, so that file is loaded on every batch dispatch and
 its length is a tax the whole audit pays. An entry there carries only the
 decision an agent must act on. The reasoning behind it, the corpus counts,
@@ -14,7 +14,7 @@ GC-open-terms.md, with its type prefix — DEFER-TERM, EXCEPT-TERM, NOTE-TERM,
 NOTE-SPELL or DEFER-NOTE — and the chapter at which each ruling was made, so
 a later QA pass can tell when a decision was taken and against what evidence.
 
-Who reads it. People, not agents. lo/GC/CLAUDE.md 2.G puts this directory on
+Who reads it. People, not agents. lo/GC/CLAUDE.md 2.F puts this directory on
 the never-read list.
 
 ## DEFER-TERM ຄັ່ງສາສະໜາ without ໄຄ້ for "fanatic / fanatical" — closed by the translator at GC 22

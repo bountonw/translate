@@ -81,7 +81,7 @@ The apostle says, “Let every man, wherein he is called, therein abide with God
 
 ## {SC 82.2}
 
-Many have excused themselves from rendering their gifts to the service of Christ because others were possessed of superior endowments and advantages. The opinion has prevailed that only those who are especially talented are required to consecrate their abilities to the service of God. It has come to be understood by many that talents are given to only a certain favored class to the exclusion of others who of course are not called upon to share in the toils or the rewards. But it is not so represented in the parable. When the master of the house called his servants, he gave to every man his work. {SC 82.2}
+Many have excused themselves from rendering their gifts to the service of Christ because others were possessed of superior endowments and advantages. The opinion has prevailed that only those who are especially talented are required to consecrate their abilities to the service of God. It has come to be understood by many that talents are given to only a certain favored class to the exclusion of others who of course are not called upon to share in the toils or the rewards. But it is not so represented in the parable. When the master of the house called his servants, he gave to every man *his* work. {SC 82.2}
 
 ## {SC 82.3}
 

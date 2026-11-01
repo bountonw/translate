@@ -11,7 +11,7 @@ without generating reports.
 
 USAGE:
 - Called automatically by Module 2 after processing (debug mode only)
-- Can be run standalone: python3 nodict_context_analyzer.py
+- Can be run standalone: python3 dict_analyzer.py
 - Generates: 04_assets/scripts/build/temp/nodict_analysis.log
 
 FEATURES:

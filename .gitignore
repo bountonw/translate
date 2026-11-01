@@ -21,6 +21,9 @@
 **/backup--typst-custom
 **/book.pdf
 
+# Ignore Claude Code's per-computer permission file
+.claude/settings.local.json
+
 # Ignore mac generated files
 .DS_Store
 .AppleDouble

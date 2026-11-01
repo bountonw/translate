@@ -57,7 +57,7 @@ This is the only sanctuary that ever existed on the earth, of which the Bible gi
 
 ## {GC 413.1}
 
-Turning again to the book of Hebrews, the seekers for truth found that the existence of a second, or new-covenant sanctuary, was implied in the words of Paul already quoted: “Then verily the first covenant had also ordinances of divine service, and a worldly sanctuary.” And the use of the word “also” intimates that Paul has before made mention of this sanctuary. Turning back to the beginning of the previous chapter, they read: “Now of the things which we have spoken this is the sum: We have such an High Priest, who is set on the right hand of the throne of the Majesty in the heavens; a Minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man.” Hebrews 8:1, 2. {GC 413.1}
+Turning again to the book of Hebrews, the seekers for truth found that the existence of a second, or new-covenant sanctuary, was implied in the words of Paul already quoted: “Then verily the first covenant had *also* ordinances of divine service, and a worldly sanctuary.” And the use of the word “also” intimates that Paul has before made mention of this sanctuary. Turning back to the beginning of the previous chapter, they read: “Now of the things which we have spoken this is the sum: We have such an High Priest, who is set on the right hand of the throne of the Majesty in the heavens; a Minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man.” Hebrews 8:1, 2. {GC 413.1}
 
 ## {GC 413.2}
 
@@ -89,7 +89,7 @@ In the temple in heaven, the dwelling place of God, His throne is established in
 
 ## {GC 415.3}
 
-The work of Christ as man’s intercessor is presented in that beautiful prophecy of Zechariah concerning Him “whose name is the Branch.” Says the prophet: “He shall build the temple of the Lord; and He shall bear the glory, and shall sit and rule upon His [the Father’s] throne; and He shall be a priest upon His throne: and the counsel of peace shall be between Them both.” Zechariah 6:12, 13. {GC 415.3}
+The work of Christ as man’s intercessor is presented in that beautiful prophecy of Zechariah concerning Him “whose name is the Branch.” Says the prophet: “He shall build the temple of the Lord; and He shall bear the glory, and shall sit and rule upon His [the Father’s] throne; and He shall be a priest upon His throne: and the *counsel of peace* shall be between Them both.” Zechariah 6:12, 13. {GC 415.3}
 
 ## {GC 416.1}
 
@@ -105,7 +105,7 @@ He “shall sit and rule upon His throne; and He shall be a priest upon His thro
 
 ## {GC 416.4}
 
-“And the counsel of peace shall be between Them both.” The love of the Father, no less than of the Son, is the fountain of salvation for the lost race. Said Jesus to His disciples before He went away: “I say not unto you, that I will pray the Father for you: for the Father Himself loveth you.” John 16:26, 27. God was “in Christ, reconciling the world unto Himself.” 2 Corinthians 5:19. And in the ministration in the sanctuary above, “the counsel of peace shall be between Them both.” “God so loved the world, that He gave His only-begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.” John 3:16. {GC 416.4}
+“And the counsel of peace shall be between Them both.” The love of the Father, no less than of the Son, is the fountain of salvation for the lost race. Said Jesus to His disciples before He went away: “I say not unto you, that I will pray the Father for you: for the Father Himself loveth you.” John 16:26, 27. God was “in Christ, reconciling the world unto Himself.” 2 Corinthians 5:19. And in the ministration in the sanctuary above, “the counsel of peace shall be between Them both.” “God *so loved* the world, that He gave His only-begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.” John 3:16. {GC 416.4}
 
 ## {GC 417.1}
 
@@ -117,7 +117,7 @@ But the most important question remains to be answered: What is the cleansing of
 
 ## {GC 417.3}
 
-The cleansing, both in the typical and in the real service, must be accomplished with blood: in the former, with the blood of animals; in the latter, with the blood of Christ. Paul states, as the reason why this cleansing must be performed with blood, that without shedding of blood is no remission. Remission, or putting away of sin, is the work to be accomplished. But how could there be sin connected with the sanctuary, either in heaven or upon the earth? This may be learned by reference to the symbolic service; for the priests who officiated on earth, served “unto the example and shadow of heavenly things.” Hebrews 8:5. {GC 417.3}
+The cleansing, both in the typical and in the real service, must be accomplished with blood: in the former, with the blood of animals; in the latter, with the blood of Christ. Paul states, as the reason why this cleansing must be performed with blood, that without shedding of blood is no *remission*. Remission, or putting away of sin, is the work to be accomplished. But how could there be sin connected with the sanctuary, either in heaven or upon the earth? This may be learned by reference to the symbolic service; for the priests who officiated on earth, served “unto the example and shadow of heavenly things.” Hebrews 8:5. {GC 417.3}
 
 ## {GC 418.1}
 

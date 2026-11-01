@@ -21,7 +21,7 @@ The defenders of the papacy declare that the church has been maligned, and the P
 
 ## {GC 564.1}
 
-Have these persons forgotten the claim of infallibility put forth for eight hundred years by this haughty power? So far from being relinquished, this claim was affirmed in the nineteenth century with greater positiveness than ever before. As Rome asserts that the “church never erred; nor will it, according to the Scriptures, ever err” (John L. von Mosheim, Institutes of Ecclesiastical History, book 3, century II, part 2, chapter 2, section 9, note 17), how can she renounce the principles which governed her course in past ages? {GC 564.1}
+Have these persons forgotten the claim of infallibility put forth for eight hundred years by this haughty power? So far from being relinquished, this claim was affirmed in the nineteenth century with greater positiveness than ever before. As Rome asserts that the “church *never erred*; nor will it, according to the Scriptures, *ever err*” (John L. von Mosheim, *Institutes of Ecclesiastical History*, book 3, century II, part 2, chapter 2, section 9, note 17), how can she renounce the principles which governed her course in past ages? {GC 564.1}
 
 ## {GC 564.2}
 
@@ -37,7 +37,7 @@ A well-known writer speaks thus of the attitude of the papal hierarchy as regard
 
 ## {GC 564.5}
 
-“The Constitution of the United States guarantees liberty of conscience. Nothing is dearer or more fundamental. Pope Pius IX, in his Encyclical Letter of August 15, 1854, said: 'The absurd and erroneous doctrines or ravings in defense of liberty of conscience are a most pestilential error—a pest, of all others, most to be dreaded in a state.' The same pope, in his Encyclical Letter of December 8, 1864, anathematized 'those who assert the liberty of conscience and of religious worship,’ also ‘all such as maintain that the church may not employ force.' {GC 564.5}
+“The Constitution of the United States guarantees *liberty of conscience*. Nothing is dearer or more fundamental. Pope Pius IX, in his Encyclical Letter of August 15, 1854, said: 'The absurd and erroneous doctrines or ravings in defense of liberty of conscience are a most pestilential error—a pest, of all others, most to be dreaded in a state.' The same pope, in his Encyclical Letter of December 8, 1864, anathematized 'those who assert the liberty of conscience and of religious worship,’ also ‘all such as maintain that the church may not employ force.' {GC 564.5}
 
 ## {GC 565.1}
 
@@ -45,7 +45,7 @@ A well-known writer speaks thus of the attitude of the papal hierarchy as regard
 
 ## {GC 565.2}
 
-“Every cardinal, archbishop, and bishop in the Catholic Church takes an oath of allegiance to the pope, in which occur the following words: ‘Heretics, schismatics, and rebels to our said lord (the pope), or his aforesaid successors, I will to my utmost persecute and oppose.’”—Josiah Strong, Our Country, ch. 5, pars. 2-4. [See Appendix for Corrected References.] {GC 565.2}
+“Every cardinal, archbishop, and bishop in the Catholic Church takes an oath of allegiance to the pope, in which occur the following words: ‘Heretics, schismatics, and rebels to our said lord (the pope), or his aforesaid successors, I will to my utmost persecute and oppose.’”—Josiah Strong, *Our Country*, ch. 5, pars. 2-4. [See Appendix for Corrected References.] {GC 565.2}
 
 ## {GC 565.3}
 
@@ -153,7 +153,7 @@ Royal edicts, general councils, and church ordinances sustained by secular power
 
 ## {GC 574.2}
 
-The royal mandate not proving a sufficient substitute for divine authority, Eusebius, a bishop who sought the favor of princes, and who was the special friend and flatterer of Constantine, advanced the claim that Christ had transferred the Sabbath to Sunday. Not a single testimony of the Scriptures was produced in proof of the new doctrine. Eusebius himself unwittingly acknowledges its falsity and points to the real authors of the change. “All things,” he says, “whatever that it was duty to do on the Sabbath, these we have transferred to the Lord’s Day.”—Robert Cox, Sabbath Laws and Sabbath Duties, page 538. But the Sunday argument, groundless as it was, served to embolden men in trampling upon the Sabbath of the Lord. All who desired to be honored by the world accepted the popular festival. {GC 574.2}
+The royal mandate not proving a sufficient substitute for divine authority, Eusebius, a bishop who sought the favor of princes, and who was the special friend and flatterer of Constantine, advanced the claim that Christ had transferred the Sabbath to Sunday. Not a single testimony of the Scriptures was produced in proof of the new doctrine. Eusebius himself unwittingly acknowledges its falsity and points to the real authors of the change. “All things,” he says, “whatever that it was duty to do on the Sabbath, these we have transferred to the Lord’s Day.”—Robert Cox, *Sabbath Laws and Sabbath Duties*, page 538. But the Sunday argument, groundless as it was, served to embolden men in trampling upon the Sabbath of the Lord. All who desired to be honored by the world accepted the popular festival. {GC 574.2}
 
 ## {GC 574.3}
 
@@ -161,15 +161,15 @@ As the papacy became firmly established, the work of Sunday exaltation was conti
 
 ## {GC 575.1}
 
-Miracles also were called into requisition. Among other wonders it was reported that as a husbandman who was about to plow his field on Sunday cleaned his plow with an iron, the iron stuck fast in his hand, and for two years he carried it about with him, “to his exceeding great pain and shame.”—Francis West, Historical and Practical Discourse on the Lord’s Day, page 174. {GC 575.1}
+Miracles also were called into requisition. Among other wonders it was reported that as a husbandman who was about to plow his field on Sunday cleaned his plow with an iron, the iron stuck fast in his hand, and for two years he carried it about with him, “to his exceeding great pain and shame.”—Francis West, *Historical and Practical Discourse on the Lord’s Day*, page 174. {GC 575.1}
 
 ## {GC 575.2}
 
-Later the pope gave directions that the parish priest should admonish the violators of Sunday and wish them to go to church and say their prayers, lest they bring some great calamity on themselves and neighbors. An ecclesiastical council brought forward the argument, since so widely employed, even by Protestants, that because persons had been struck by lightning while laboring on Sunday, it must be the Sabbath. “It is apparent,” said the prelates, “how high the displeasure of God was upon their neglect of this day.” An appeal was then made that priests and ministers, kings and princes, and all faithful people “use their utmost endeavors and care that the day be restored to its honor, and, for the credit of Christianity, more devoutly observed for the time to come.”—Thomas Morer, Discourse in Six Dialogues on the Name, Notion, and Observation of the Lord’s Day, page 271. {GC 575.2}
+Later the pope gave directions that the parish priest should admonish the violators of Sunday and wish them to go to church and say their prayers, lest they bring some great calamity on themselves and neighbors. An ecclesiastical council brought forward the argument, since so widely employed, even by Protestants, that because persons had been struck by lightning while laboring on Sunday, it must be the Sabbath. “It is apparent,” said the prelates, “how high the displeasure of God was upon their neglect of this day.” An appeal was then made that priests and ministers, kings and princes, and all faithful people “use their utmost endeavors and care that the day be restored to its honor, and, for the credit of Christianity, more devoutly observed for the time to come.”—Thomas Morer, *Discourse in Six Dialogues on the Name, Notion, and Observation of the Lord’s Day*, page 271. {GC 575.2}
 
 ## {GC 575.3}
 
-The decrees of councils proving insufficient, the secular authorities were besought to issue an edict that would strike terror to the hearts of the people and force them to refrain from labor on the Sunday. At a synod held in Rome, all previous decisions were reaffirmed with greater force and solemnity. They were also incorporated into the ecclesiastical law and enforced by the civil authorities throughout nearly all Christendom. (See Heylyn, History of the Sabbath, pt. 2, ch. 5, sec. 7.) {GC 575.3}
+The decrees of councils proving insufficient, the secular authorities were besought to issue an edict that would strike terror to the hearts of the people and force them to refrain from labor on the Sunday. At a synod held in Rome, all previous decisions were reaffirmed with greater force and solemnity. They were also incorporated into the ecclesiastical law and enforced by the civil authorities throughout nearly all Christendom. (See Heylyn, *History of the Sabbath*, pt. 2, ch. 5, sec. 7.) {GC 575.3}
 
 ## {GC 576.1}
 
@@ -177,7 +177,7 @@ Still the absence of Scriptural authority for Sundaykeeping occasioned no little
 
 ## {GC 576.2}
 
-The roll forbade labor from the ninth hour, three o’clock, on Saturday afternoon, till sunrise on Monday; and its authority was declared to be confirmed by many miracles. It was reported that persons laboring beyond the appointed hour were stricken with paralysis. A Miller who attempted to grind his corn, saw, instead of flour, a torrent of blood come forth, and the mill wheel stood still, notwithstanding the strong rush of water. A woman who placed dough in the oven found it raw when taken out, though the oven was very hot. Another who had dough prepared for baking at the ninth hour, but determined to set it aside till Monday, found, the next day, that it had been made into loaves and baked by divine power. A man who baked bread after the ninth hour on Saturday found, when he broke it the next morning, that blood started therefrom. By such absurd and superstitious fabrications did the advocates of Sunday endeavor to establish its sacredness. (See Roger de Hoveden, Annals, vol. 2, pp. 526-530.) {GC 576.2}
+The roll forbade labor from the ninth hour, three o’clock, on Saturday afternoon, till sunrise on Monday; and its authority was declared to be confirmed by many miracles. It was reported that persons laboring beyond the appointed hour were stricken with paralysis. A Miller who attempted to grind his corn, saw, instead of flour, a torrent of blood come forth, and the mill wheel stood still, notwithstanding the strong rush of water. A woman who placed dough in the oven found it raw when taken out, though the oven was very hot. Another who had dough prepared for baking at the ninth hour, but determined to set it aside till Monday, found, the next day, that it had been made into loaves and baked by divine power. A man who baked bread after the ninth hour on Saturday found, when he broke it the next morning, that blood started therefrom. By such absurd and superstitious fabrications did the advocates of Sunday endeavor to establish its sacredness. (See Roger de Hoveden, *Annals*, vol. 2, pp. 526-530.) {GC 576.2}
 
 ## {GC 577.1}
 
@@ -185,11 +185,11 @@ In Scotland, as in England, a greater regard for Sunday was secured by uniting w
 
 ## {GC 577.2}
 
-But notwithstanding all the efforts to establish Sunday sacredness, papists themselves publicly confessed the divine authority of the Sabbath and the human origin of the institution by which it had been supplanted. In the sixteenth century a papal council plainly declared: “Let all Christians remember that the seventh day was consecrated by God, and hath been received and observed, not only by the Jews, but by all others who pretend to worship God; though we Christians have changed their Sabbath into the Lord’s Day.”—Ibid., pages 281, 282. Those who were tampering with the divine law were not ignorant of the character of their work. They were deliberately setting themselves above God. {GC 577.2}
+But notwithstanding all the efforts to establish Sunday sacredness, papists themselves publicly confessed the divine authority of the Sabbath and the human origin of the institution by which it had been supplanted. In the sixteenth century a papal council plainly declared: “Let all Christians remember that the seventh day was consecrated by God, and hath been received and observed, not only by the Jews, but by all others who pretend to worship God; though we Christians have changed their Sabbath into the Lord’s Day.”—*Ibid*., pages 281, 282. Those who were tampering with the divine law were not ignorant of the character of their work. They were deliberately setting themselves above God. {GC 577.2}
 
 ## {GC 577.3}
 
-A striking illustration of Rome’s policy toward those who disagree with her was given in the long and bloody persecution of the Waldenses, some of whom were observers of the Sabbath. Others suffered in a similar manner for their fidelity to the fourth commandment. The history of the churches of Ethiopia and Abyssinia is especially significant. Amid the gloom of the Dark Ages, the Christians of Central Africa were lost sight of and forgotten by the world, and for many centuries they enjoyed freedom in the exercise of their faith. But at last Rome learned of their existence, and the emperor of Abyssinia was soon beguiled into an acknowledgment of the pope as the vicar of Christ. Other concessions followed. An edict was issued forbidding the observance of the Sabbath under the severest penalties. (See Michael Geddes, Church History of Ethiopia, pages 311, 312.) But papal tyranny soon became a yoke so galling that the Abyssinians determined to break it from their necks. After a terrible struggle the Romanists were banished from their dominions, and the ancient faith was restored. The churches rejoiced in their freedom, and they never forgot the lesson they had learned concerning the deception, the fanaticism, and the despotic power of Rome. Within their solitary realm they were content to remain, unknown to the rest of Christendom. {GC 577.3}
+A striking illustration of Rome’s policy toward those who disagree with her was given in the long and bloody persecution of the Waldenses, some of whom were observers of the Sabbath. Others suffered in a similar manner for their fidelity to the fourth commandment. The history of the churches of Ethiopia and Abyssinia is especially significant. Amid the gloom of the Dark Ages, the Christians of Central Africa were lost sight of and forgotten by the world, and for many centuries they enjoyed freedom in the exercise of their faith. But at last Rome learned of their existence, and the emperor of Abyssinia was soon beguiled into an acknowledgment of the pope as the vicar of Christ. Other concessions followed. An edict was issued forbidding the observance of the Sabbath under the severest penalties. (See Michael Geddes, *Church History of Ethiopia*, pages 311, 312.) But papal tyranny soon became a yoke so galling that the Abyssinians determined to break it from their necks. After a terrible struggle the Romanists were banished from their dominions, and the ancient faith was restored. The churches rejoiced in their freedom, and they never forgot the lesson they had learned concerning the deception, the fanaticism, and the despotic power of Rome. Within their solitary realm they were content to remain, unknown to the rest of Christendom. {GC 577.3}
 
 ## {GC 578.1}
 
@@ -217,7 +217,7 @@ The Roman Catholic Church, with all its ramifications throughout the world, form
 
 ## {GC 580.3}
 
-History testifies of her artful and persistent efforts to insinuate herself into the affairs of nations; and having gained a foothold, to further her own aims, even at the ruin of princes and people. In the year 1204, Pope Innocent III extracted from Peter II, king of Arragon, the following extraordinary oath: “I, Peter, king of Arragonians, profess and promise to be ever faithful and obedient to my lord, Pope Innocent, to his Catholic successors, and the Roman Church, and faithfully to preserve my kingdom in his obedience, defending the Catholic faith, and persecuting heretical pravity.”—John Dowling, The History of Romanism, b. 5, ch. 6, sec.
+History testifies of her artful and persistent efforts to insinuate herself into the affairs of nations; and having gained a foothold, to further her own aims, even at the ruin of princes and people. In the year 1204, Pope Innocent III extracted from Peter II, king of Arragon, the following extraordinary oath: “I, Peter, king of Arragonians, profess and promise to be ever faithful and obedient to my lord, Pope Innocent, to his Catholic successors, and the Roman Church, and faithfully to preserve my kingdom in his obedience, defending the Catholic faith, and persecuting heretical pravity.”—John Dowling, *The History of Romanism*, b. 5, ch. 6, sec.
 55. This is in harmony with the claims regarding the power of the Roman pontiff “that it is lawful for him to depose emperors” and “that he can absolve subjects from their allegiance to unrighteous rulers.”—Mosheim, b. 3, cent. 11, pt. 2, ch. 2, sec. 9, note 17. (See also Appendix note for page 447.) {GC 580.3}
 
 ## {GC 581.1}

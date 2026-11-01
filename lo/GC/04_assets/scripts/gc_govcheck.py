@@ -30,7 +30,7 @@ anything was checked, so the number of rows each actually loads is
 asserted before and after.
 
 Usage, from the repository root, by that exact relative path so the
-permission allow-rules match (lo/GC/CLAUDE.md 2.D):
+permission allow-rules match (lo/GC/CLAUDE.md 2.C):
 
     python3 lo/GC/04_assets/scripts/gc_govcheck.py --snapshot
         Save the current governing files as the baseline. Do this before
@@ -60,7 +60,7 @@ from pathlib import Path
 DEFAULT_REPO = Path(__file__).resolve().parents[4]
 
 # Run artifacts — the before-edit snapshot — stay in the sandbox, per
-# lo/GC/CLAUDE.md 4.B. Only the durable history files are in the repo.
+# lo/GC/CLAUDE.md 2.D. Only the durable history files are in the repo.
 SANDBOX = Path.home() / "claude-sandbox" / "gc-audit"
 
 PROFILE = "lo/GC/04_assets/translation_profile"
@@ -69,8 +69,8 @@ OPENTERMS_REL = f"{PROFILE}/GC-open-terms.md"
 
 # The history files, tracked in the repository so that the record of how
 # each row was decided is versioned and survives the sandbox. No agent
-# reads them: lo/GC/CLAUDE.md 2.G puts the directory on the never-read
-# list, which is what keeps them off every dispatch.
+# reads them: lo/GC/CLAUDE.md 2.F lists the directory as not run input,
+# which keeps them off every dispatch.
 HISTORY_REL = "lo/GC/04_assets/history"
 DEFAULT_HISTORY = [
     DEFAULT_REPO / HISTORY_REL / "GC-glossary-history.md",
@@ -87,7 +87,7 @@ SEPARATOR = re.compile(r"^\|[\s:|-]+\|$")
 # has been, and only the second is a failure.
 REF = re.compile(r"\{GC\s*[0-9]+\.[0-9]+\}|\{[0-9]+\.[0-9]+\}|\b[0-9]{1,3}\.[0-9]{1,3}\b")
 
-# The five entry types the file actually uses. gc-batch-auditor 6.C keys
+# The five entry types the file actually uses. gc-batch-auditor 4.C keys
 # on the first three; the other two are the translator's own housekeeping. Any
 # line-initial token of this shape that is not in the set is reported, so
 # that a sixth type added later cannot slip past unnoticed.
@@ -96,7 +96,7 @@ KNOWN_PREFIXES = ("DEFER-TERM", "EXCEPT-TERM", "NOTE-TERM",
 PREFIX = re.compile(r"^(" + "|".join(KNOWN_PREFIXES) + r")\b")
 PREFIX_SHAPED = re.compile(r"^([A-Z]{3,}-[A-Z]{3,})\b")
 
-# Codepoints are named rather than printed, per lo/GC/CLAUDE.md 4.G, so
+# Codepoints are named rather than printed, per lo/GC/CLAUDE.md 5.H, so
 # that a sweep for stray digits does not flag the rule forbidding them.
 LAO = re.compile("[\u0E80-\u0EFF]+")
 FORBIDDEN_DIGITS = re.compile("[\u0ED0-\u0ED9\u0E50-\u0E59]")
@@ -386,7 +386,7 @@ def compare_open_terms(before_text, after_text, report):
         report.fail(
             "open-terms entry count",
             f"{len(old_entries)} entries became {len(new_entries)}. "
-            f"Missing: {lost[:6] or 'none'}. gc-batch-auditor 6.C keys on "
+            f"Missing: {lost[:6] or 'none'}. gc-batch-auditor 4.C keys on "
             "these entries; losing one changes what future audits report.",
         )
 
@@ -397,7 +397,7 @@ def compare_open_terms(before_text, after_text, report):
             report.fail(
                 "open-terms prefix",
                 f"{where}: prefix {old.prefix} became {new.prefix}. "
-                "gc-batch-auditor 6.C never reports EXCEPT-TERM and does not "
+                "gc-batch-auditor 4.C never reports EXCEPT-TERM and does not "
                 "re-mark occurrences logged under DEFER-TERM, so this changes "
                 "audit behaviour silently.",
             )
