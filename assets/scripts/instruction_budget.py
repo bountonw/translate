@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
     "CLAUDE.md": 1600,
     "assets/read-through.md": 600,
-    "th/SC/CLAUDE.md": 2150,
+    "th/SC/CLAUDE.md": 2200,
     "th/DA/CLAUDE.md": 2000,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,

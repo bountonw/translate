@@ -86,4 +86,4 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 
 ## 10. Read-through
 
-10.A. The read-through follows assets/read-through.md, read in full before any part of it runs: the chapter is read at whatever stage it stands (2.A), the branch SC-read in ~/claude-sandbox/wt-SC-read, the notes file th/SC/04_assets/notes/SC_notes.txt, the drill agent sc-wording-drill.
+10.A. The read-through follows assets/read-through.md, read in full before any part of it runs: the chapter is read at whatever stage it stands (2.A), the branch SC-read in ~/claude-sandbox/wt-SC-read, the notes file th/SC/04_assets/notes/SC_notes.txt, the drill agent sc-wording-drill. The translator's notes for a chapter are on the reading page https://claude.ai/artifact/2V3onQqicn2FdzgPvNnMvG: read its collection notes with the ArtifactData tool, where ch is the chapter, as SC02.
