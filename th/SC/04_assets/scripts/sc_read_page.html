@@ -99,6 +99,8 @@ mark.mk2 { background: var(--mk2); }
 .en { font-family: var(--f-en); font-size: calc(1.02rem * var(--fs, 1)); line-height: 1.62; color: var(--ink-2); }
 .en p { margin: 0 0 .6em; }
 .en p:last-child { margin-bottom: 0; }
+.en:not(.en-all) { max-height: 6.5em; overflow: hidden; }
+.en-more { margin-top: .4em; }
 .en .verse { padding-left: 1.2em; font-style: italic; }
 .notes { display: grid; gap: 10px; }
 .note { border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; background: var(--paper); }
@@ -516,6 +518,14 @@ form.note-form { display: grid; gap: 10px; }
     const en = el("div", "en");
     en.innerHTML = p.en;
     enWrap.append(en);
+    const enMore = el("button", "btn en-more", "Show all the English");
+    enMore.type = "button";
+    enMore.addEventListener("click", ev => {
+      ev.stopPropagation();
+      enMore.textContent = en.classList.toggle("en-all") ? "Show less of the English" : "Show all the English";
+    });
+    enWrap.append(enMore);
+    requestAnimationFrame(() => { if (en.scrollHeight <= en.clientHeight + 2) enMore.hidden = true; });
     d.append(enWrap);
 
     const notesWrap = el("div");
