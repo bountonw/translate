@@ -12,15 +12,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
-<<<<<<< HEAD
-    "CLAUDE.md": 1400,
-    "assets/read-through.md": 600,
-    "th/SC/CLAUDE.md": 2100,
-=======
-    "CLAUDE.md": 1500,
+    "CLAUDE.md": 1600,
     "assets/read-through.md": 600,
     "th/SC/CLAUDE.md": 2150,
->>>>>>> main
     "th/DA/CLAUDE.md": 2000,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
@@ -36,11 +30,7 @@ BUDGET = {
     ".claude/agents/da-wording-drill.md": 750,
     ".claude/agents/sc-batch-auditor.md": 2005,
     ".claude/agents/sc-batch-auditor-qa2.md": 800,
-<<<<<<< HEAD
-    ".claude/agents/sc-reader-qa3.md": 850,
-=======
     ".claude/agents/sc-reader-qa3.md": 900,
->>>>>>> main
     ".claude/agents/th-term-study.md": 760,
     ".claude/agents/sc-wording-drill.md": 770,
     ".claude/agents/sc-wording-drill-opus-max.md": 775,

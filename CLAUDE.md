@@ -4,16 +4,11 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 ## 1. Report shape
 
-1.A. A report is the detail section, then the summary list in full at the bottom.
-1.B. The summary list is one line per item, grouped FIX, DECIDE, NOTE, RESOLVED. Each line carries the number and label in bold, the reference that locates the item — a paragraph anchor, a marker number, or a path and line for code and governing files — and what changes, in one short sentence. A DECIDE line ends with the recommended option. A blank line stands before every numbered line, in the summary list as in the detail section, so that each number is easy to find. Anchored prose is located by its anchor, never by a line number.
-
-    **1. FIX** {SC 13.1} — the footnote cites Luke 21:39–45; Luke 21 has 38 verses.
-
-    **2. DECIDE** th/assets/translation_profile/thai-glossary.txt:14 — the trial row keeps การทดสอบ or adds ความยากลำบาก; I recommend adding.
-
+1.A. A report is the numbered items alone. It has no summary list.
+1.B. Each item carries its number and label in bold, FIX, DECIDE, NOTE or RESOLVED, and the reference that locates it: a paragraph anchor, a marker number, or a path and line for code and governing files. A blank line stands before every numbered line, so that each number is easy to find. Anchored prose is located by its anchor, never by a line number.
 1.C. Name the subject on every line and state the change itself. Never write "it", "several" or a bare label where the subject's name belongs.
 1.D. Nothing sits outside a numbered item: a file created, a passing correction, a clean check, an offer, a question — each is an item. An agent's report to the conductor may begin with one headline line, such as "VERDICT: PASS".
-1.E. The detail section comes first. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands alone on its own line, never inside a sentence, with a blank line before and after it. Each item opens with a SOURCE line: the round and agent that raised it, the translator's question quoted in his words, or the drill or study named with its model and X/Y/Z.
+1.E. Each item has a heading and a labelled block: EN (the source, words at issue in **bold**), TH or LO (the translation as it stands, the same way), ISSUE (one or two sentences), FIX1, FIX2, up to FIX4. Every labelled line opens with a sentence that can be read alone, and each labelled line, and any glossary row or marker quoted in an item, stands alone on its own line, never inside a sentence, with a blank line before and after it. Each item opens with a SOURCE line: the round and agent that raised it, the translator's question quoted in his words, or the drill or study named with its model and X/Y/Z.
 1.E.1. Each command the translator runs is its own numbered step: the step opens with its own heading, which names the window it runs in, and its one command stands in a fenced block directly under that step's sentence. Under the block, one or two sentences say what the command and each of its flags do, except those listed in ~/claude-sandbox/memory/translator-already-knows.md. An item that asks him to act holds its commands or names the item that holds them.
 1.F. FIX1 is the recommendation; its reason is one sentence. Add a further option only where it is genuinely different.
 1.G. Quote enough to identify the issue and no more. Show the text of a false alarm too. Give full paths. Drop a field that does not apply.
@@ -71,9 +66,6 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 8.C. A directory named sandbox inside the repository is the translator's. Never write to it.
 8.D. Standing memory is one markdown file per lesson under memory/ in the sandbox directory of 8.B; nothing there is loaded automatically. A lesson an agent needs on dispatch is written into that agent's definition.
 8.E. Run `echo ok` in the shell before any other work. On a bwrap error naming a file under .git, stop and hand the translator the fix in ~/claude-sandbox/memory/sandbox-bwrap-git-lock.md.
-<<<<<<< HEAD
-8.H. Grep ~/claude-sandbox/FACTS.md before studying a system; add what you studied, never word studies.
-=======
 8.F. At the start of a chat, confirm that the worktree the work writes into is on the work's branch, or that the branch is checked out nowhere so a worktree can be made for it; the branch of the folder the chat started in does not matter. If neither holds, the first report says so and gives the command, never one that switches the branch of a folder in use, and no project work starts; this start check is an exception to 8.A.
 8.G. When auto mode refuses or holds a command, keep working without it and raise a numbered item that carries the command.
->>>>>>> main
+8.H. Grep ~/claude-sandbox/FACTS.md before studying a system; add what you studied, never word studies.
