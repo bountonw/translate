@@ -90,6 +90,8 @@ def setup(tmp_path):
         (site / web / 'images').mkdir(parents=True)
         (site / web / 'index.html').write_text('<!DOCTYPE html>\n', encoding='utf-8')
     (site / 'en/CD/images/cover.jpg').write_bytes(b'')
+    for icon in ('favicon.png', 'apple-touch-icon.png'):
+        (site / icon).write_bytes(b'')
     return str(site), str(books), str(repo)
 
 
@@ -730,6 +732,8 @@ def release_run(tmp_path):
     (site / 'lo' / 'GC' / 'images').mkdir(parents=True)
     (site / 'lo' / 'GC' / 'index.html').write_text('', encoding='utf-8')
     (site / 'lo' / 'GC' / 'images' / 'cover.jpg').write_bytes(b'')
+    for icon in ('favicon.png', 'apple-touch-icon.png'):
+        (site / icon).write_bytes(b'')
     layout = tmp_path / 'layout'
     for lang in build_home.LANGS:
         (layout / lang).mkdir(parents=True)

@@ -77,7 +77,7 @@ def to_html(text):
                              extension_configs={'footnotes': {'BACKLINK_TITLE': '%d'}})
     html = re.sub(r'\\emph\{(.*?)\}', r'<em>\1</em>', html)
     html = re.sub(r'\\thai\{(.*?)\}', r'<span lang="th" class="thai">\1</span>', html)
-    html = html.replace('\\nbsp', '&nbsp;')
+    html = html.replace('\\nbsp{}', '&nbsp;').replace('\\nbsp', '&nbsp;')
     # a bare web address in the text, such as www.laoegw.com/GC, becomes a link
     html = re.sub(r'(?<![\w/.">])(www\.[A-Za-z0-9.-]+[A-Za-z0-9](?:/[^\s<.,;:)]*)?)',
                   r'<a href="https://\1">\1</a>', html)

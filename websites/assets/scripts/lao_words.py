@@ -42,13 +42,16 @@ SOFT_HYPHEN_MIN = 11
 
 def signature():
     """Changes whenever a dictionary file or the splitting rules change."""
-    h = hashlib.sha1(f'{SOFT_HYPHEN_MIN} {MARK.pattern} {sorted(ALLOWED)} pieces-v2'.encode())
+    h = hashlib.sha1(f'{SOFT_HYPHEN_MIN} {MARK.pattern} {sorted(ALLOWED)} pieces-v3'.encode())
     for folder in DICTIONARIES:
         for name in sorted(os.listdir(folder)):
             h.update(name.encode())
             with open(os.path.join(folder, name), 'rb') as f:
                 h.update(f.read())
     return h.hexdigest()
+
+
+MARK_START = re.compile('[\u0eb1\u0eb4-\u0ebc\u0ec8-\u0ecd]')
 
 
 def pieces(segments, run):
@@ -81,7 +84,14 @@ def pieces(segments, run):
             i = m.end()
         if cur:
             out.append(cur)
-    return out if ''.join(out).replace('\u00ad', '') == run else None
+    # a line must never break between a letter and its vowel or tone mark
+    joined = []
+    for piece in out:
+        if joined and MARK_START.match(piece):
+            joined[-1] = joined[-1].rstrip('\u00ad') + piece
+        else:
+            joined.append(piece)
+    return joined if ''.join(joined).replace('\u00ad', '') == run else None
 
 
 def split_chapter(job):

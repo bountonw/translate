@@ -216,6 +216,11 @@ h1 .chapter-name {
   display: block;
 }
 
+/* a chapter title may wrap, because some are one long word in the print dictionaries and pass a phone's edge */
+h1 span.w {
+    white-space: normal;
+}
+
 h2 {
   font-size: 1.15em;
   line-height: 1.5;
