@@ -4,7 +4,7 @@
 # metadata.yaml (book.title.<lang> and author.<lang>).
 #
 # Each book starts with its repository folder, such as lo/GC, followed by:
-#   web: the book's folder on the site, such as GC for www.laoegw.com/GC/
+#   web: the book's folder on the site, such as lo/GC for www.laoegw.com/lo/GC/
 #   lang: the book's language, lo, th or en, as in its metadata.yaml; the home page
 #     layout (websites/assets/layout/lo/home.html) has one tab for each
 #   cover: optional; the cover picture, from the book's web folder, such as images/cover.jpg
@@ -18,7 +18,7 @@
 # An optional field left empty is left off the page. Each value stands on one line,
 # without quotation marks; a value of > or | stops the build.
 lo/GC:
-  web: GC
+  web: lo/GC
   lang: lo
   cover: images/cover.jpg
   description:

@@ -22,9 +22,9 @@ def home_link(root):
 def test_chapter_header_opens_the_body_with_the_home_link():
     header = open(HEADER, encoding='utf-8').read()
     # a chapter page lives in <site>/<BOOK>/chapters/, two folders below the site's root,
-    # as the header's own stylesheet link ../../css/style.css says
-    assert '<link rel="stylesheet" href="../../css/style.css">' in header
-    assert header.split('<body>\n', 1)[1] == home_link('../../')
+    # as the header's own stylesheet link, from the root that the build fills in, says
+    assert '<link rel="stylesheet" href="{{root}}css/style.css">' in header
+    assert header.split('<body>\n', 1)[1] == home_link('{{root}}')
 
 
 def test_home_link_leads_to_the_site_root_from_a_chapter_and_the_contents_page(tmp_path):
@@ -39,9 +39,9 @@ def test_home_link_leads_to_the_site_root_from_a_chapter_and_the_contents_page(t
 
 
 def test_every_committed_gc_page_opens_with_the_home_link():
-    folder = os.path.join(SITE, 'GC')
+    folder = os.path.join(SITE, 'lo', 'GC')
     chapters = sorted(os.listdir(os.path.join(folder, 'chapters')))
-    pages = [('index.html', '../')] + [(os.path.join('chapters', name), '../../') for name in chapters]
+    pages = [('index.html', '../../')] + [(os.path.join('chapters', name), '../../../') for name in chapters]
     assert len(chapters) == 43
     for rel, root in pages:
         page = open(os.path.join(folder, rel), encoding='utf-8').read()

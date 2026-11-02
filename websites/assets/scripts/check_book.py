@@ -21,7 +21,7 @@ from html import unescape
 from html.parser import HTMLParser
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_book import SITE, front_matter, page_name  # noqa: E402
+from build_book import SITE, front_matter, page_name, web_folder  # noqa: E402
 
 
 class Text(HTMLParser):
@@ -105,7 +105,7 @@ def first_difference(a, b):
 def check(book, site=SITE):
     """Print every problem on the book's pages and return how many there are."""
     book = book.rstrip('/')
-    folder = os.path.join(site, os.path.basename(book))
+    folder = os.path.join(site, web_folder(book))
     chapters = os.path.join(book, '03_public')
     problems = pages = 0
     for name in sorted(os.listdir(chapters)):

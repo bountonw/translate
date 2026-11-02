@@ -130,7 +130,7 @@ def test_list_is_read_in_order_with_title_and_author_from_metadata(setup):
 def test_real_list_takes_gc_title_and_author_from_its_metadata():
     books = build_home.read_books()
     gc = next(b for b in books if b['folder'] == 'lo/GC')
-    assert gc['web'] == 'GC' and gc['lang'] == 'lo'
+    assert gc['web'] == 'lo/GC' and gc['lang'] == 'lo'
     meta = open(os.path.join(build_home.REPO, 'lo', 'GC', 'metadata.yaml'), encoding='utf-8').read()
     assert f'lo: {gc["title"]}\n' in meta
     assert f'lo: {gc["author"]}\n' in meta
@@ -727,9 +727,9 @@ def release_run(tmp_path):
     site = tmp_path / 'site'
     (site / 'css').mkdir(parents=True)
     (site / 'css' / 'style.css').write_text('', encoding='utf-8')
-    (site / 'GC' / 'images').mkdir(parents=True)
-    (site / 'GC' / 'index.html').write_text('', encoding='utf-8')
-    (site / 'GC' / 'images' / 'cover.jpg').write_bytes(b'')
+    (site / 'lo' / 'GC' / 'images').mkdir(parents=True)
+    (site / 'lo' / 'GC' / 'index.html').write_text('', encoding='utf-8')
+    (site / 'lo' / 'GC' / 'images' / 'cover.jpg').write_bytes(b'')
     layout = tmp_path / 'layout'
     for lang in build_home.LANGS:
         (layout / lang).mkdir(parents=True)

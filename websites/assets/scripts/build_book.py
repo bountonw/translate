@@ -113,6 +113,13 @@ def numbered(number, title):
     return f'{number}. {title}' if number > 0 else title
 
 
+def web_folder(book, books=None):
+    """The book's folder on the site, from websites/books.yaml; the book's own name when the list does not hold it."""
+    book = os.path.normpath(book)
+    with open(books or os.path.join(os.path.dirname(ASSETS), 'books.yaml'), encoding='utf-8') as f:
+        return read_yaml(f).get(f'{book}.web', os.path.basename(book)).strip('/')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     parser.add_argument('book', help='the book folder, such as lo/GC')
@@ -121,6 +128,9 @@ def main():
     args = parser.parse_args()
 
     code = os.path.basename(os.path.normpath(args.book))
+    web = web_folder(args.book)
+    # from a chapter page in <web>/chapters/ back to the top of the site
+    root = '../' * (web.count('/') + 2)
     meta = read_yaml(open(os.path.join(args.book, 'metadata.yaml'), encoding='utf-8'))
     lang = meta['lang'].split('-')[0]
     # each language has its own header, footer and page words
@@ -150,7 +160,7 @@ def main():
     css_version = stylesheet_version(args.site)
     header = versioned(header, css_version)
     footer = open(os.path.join(layout, 'chapter_footer.html'), encoding='utf-8').read()
-    out_folder = os.path.join(args.site, code, 'chapters')
+    out_folder = os.path.join(args.site, web, 'chapters')
     os.makedirs(out_folder, exist_ok=True)
     numbers = sorted(chapters)
     pages = {}
@@ -167,7 +177,7 @@ def main():
                     f'<span class="nav-next">{right}</span></nav>\n')
 
         page = header
-        for key, value in (('lang', lang), ('book', code), ('book_title', book_title), ('title', ch['title'])):
+        for key, value in (('lang', lang), ('web', web), ('root', root), ('book_title', book_title), ('title', ch['title'])):
             page = page.replace('{{' + key + '}}', value)
         page += nav('top', prev and prev['short'], nxt and nxt['short'])
         # as in the print: the number centred on its own line, the title below it
@@ -190,7 +200,7 @@ def main():
             f.write(pages[chapters[number]['id']])
 
     # the chapter list on the book's contents page
-    index_path = os.path.join(args.site, code, 'index.html')
+    index_path = os.path.join(args.site, web, 'index.html')
     index = versioned(open(index_path, encoding='utf-8').read(), css_version)
     items = ''.join(f'\n            <li>\n                <a href="chapters/{chapters[n]["page"]}">{chapters[n]["title"]}</a>\n            </li>'
                     for n in numbers)
