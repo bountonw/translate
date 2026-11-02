@@ -2,7 +2,7 @@
 // English title: Faith and Acceptance
 
 #import "../04_assets/template/lib.typ": *
-#show: apply-styles.with(proofing: true, updated: "13 ตุลาคม 2026")
+#show: apply-styles.with(proofing: true, updated: "2 พฤศจิกายน 2026")
 
 #chapter(
   number: 6,
