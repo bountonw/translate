@@ -52,7 +52,7 @@ LATIN = re.compile(r"[A-Za-z]{2,}")
 SPACE_BEFORE_CLOSE = re.compile(r" [”)\]]")
 BLOCK_COMMENT = re.compile(r"/\*.*?\*/", re.S)
 LINE_COMMENT = re.compile(r"(?<!:)//.*$", re.M)
-EDITOR_CHOICE = re.compile(r"\(\([^()]*\)\)")
+EDITOR_CHOICE = re.compile(r"\(\((?:[^()]|\([^()]*\))*\)\)")  # one level of ( ) inside, e.g. a citation
 ORIGINAL_TAG = re.compile(r"(?<=\(\()original:")
 BARE_CITATION = re.compile(r"(?:[1-3]\s)?[฀-๿]+\s\d+:\d+")
 GLOSSARY = ROOT / "th" / "assets" / "translation_profile" / "thai-glossary.txt"

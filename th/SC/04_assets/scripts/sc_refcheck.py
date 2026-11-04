@@ -10,6 +10,8 @@ English paragraph of the same anchor, and a quotation followed by its
 citation is compared word for word with the cited version from the offline
 Bible corpus (path in sc_common.py; New Testament books only are on disk).
 A #footnote[...] call inside a quotation is removed before the comparison.
+A parenthesis opening with ดู, as (ดู 2 เปโตร 1:16), is a pointer, not the
+citation of a quotation, so no quotation is compared with it.
 A chapter-only citation after a semicolon, as "14:10" in (ยอห์น 5:19 TNCV;
 14:10), takes the book cited before it, in the Thai and in the English.
 
@@ -259,6 +261,9 @@ def compare_paragraph(body, th_books, anchor, refs, skipped):
     """Pair each citation parenthesis with the quotations before it, in order."""
     pos = 0
     for m in CITE_PAREN.finditer(body):
+        if m.group(1).lstrip().startswith("ดู "):
+            pos = m.end()  # a pointer cites no quotation; the text before it is dropped
+            continue
         quotes = QUOTE.findall(strip_footnotes(body[pos:m.start()]))
         cites_ = [c.strip() for c in carry_books(m.group(1), TH_BOOK).split(";")]
         pos = m.end()
