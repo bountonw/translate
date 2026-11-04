@@ -61,7 +61,7 @@ If we take counsel with our doubts and fears, or try to solve everything that we
 
 ## {SC 97.1}
 
-When we come to ask mercy and blessing from God we should have a spirit of love and forgiveness in our own hearts. How can we pray, “Forgive us our debts, as we forgive our debtors,” and yet indulge an unforgiving spirit? Matthew 6:12. If we expect our own prayers to be heard we must forgive others in the same manner and to the same extent as we hope to be forgiven. {SC 97.1}
+When we come to ask mercy and blessing from God we should have a spirit of love and forgiveness in our own hearts. How can we pray, “Forgive us our debts, *as* we forgive our debtors,” and yet indulge an unforgiving spirit? Matthew 6:12. If we expect our own prayers to be heard we must forgive others in the same manner and to the same extent as we hope to be forgiven. {SC 97.1}
 
 ## {SC 97.2}
 
