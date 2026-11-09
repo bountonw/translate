@@ -16,8 +16,8 @@ Detail: this entry is the whole brief. Medium for MB and LBF; large for SC and P
 
 ### 2. An EPUB of every book on the website
 
-Every book published on the website also gets an EPUB to download. The Lao GC EPUB is live at www.laoegw.com/lo/GC/GC_lo.epub. The EPUB file stays out of git.
+Every book published on the website also gets an EPUB to download. The Lao GC EPUB is live at www.laoegw.com/lo/GC/GC_lo.epub. The EPUB file stays out of git; each published EPUB is attached, with its sha256 file, to a GitHub Release.
 
-Each book's EPUB builder goes on a branch of its own named BOOK-epub, made from main, never on another book's branch.
+Each book's EPUB builder goes on a branch of its own named BOOK-epub, made from main, never on another book's branch. The Lao GC builder, build_gc_epub_plates.py and add_plates.py, is still outside git and goes on GC-epub first.
 
 Detail: none written; this entry is the whole brief. Medium.
