@@ -48,7 +48,7 @@ This file governs the QA rounds of the Thai *The Story of Jesus* in th/SJ. An SJ
 4.C. Dispatch sj-batch-auditor (qa1), sj-batch-auditor-qa2 (qa2) or sj-reader-qa3 (qa3) per batch, in sequence, with chapter, stage directory, ref range, starting marker number, round name, first-batch flag, the report path ~/claude-sandbox/sj-audit/sjNN-ROUND-batchK.md, and the files of 4.B.1 or 4.B.2. Markers restart at #1 each round; the next start is the last reported number plus one.
 4.D. After the last batch, run python3 th/SJ/04_assets/scripts/sj_resolution_sheet.py --chapter NN --round qa1 (or qa2, qa3) and read its VERDICT line. Delete a marker whose old side is not in the committed chapter and establish the finding again.
 4.D.1. Before the sheet, narrow every marker to the words that change with python3 th/SJ/04_assets/scripts/sj_minspan.py --chapter NN; where its cut splits a word, re-run it with --prefix or --suffix; write each narrowed marker into the chapter.
-4.E. Report: every marker as a full item with EN, the whole TH sentence, ISSUE, FIX1 and every further candidate printed in full; then the counts table, the THSV-label count and every DECIDE. A decision confined to one marker is not raised as a DECIDE. Give the sheet's path.
+4.E. Report: every marker as a full item with EN, the whole TH sentence, PRINT (the print's sentence at that anchor, from th/SJ/01_raw at commit 2ca0d5a1), ISSUE, FIX1 and every further candidate printed in full; then the counts table, the THSV-label count and every DECIDE. A decision confined to one marker is not raised as a DECIDE. Give the sheet's path.
 
 ## 5. Post-resolution check ("check SJ01")
 

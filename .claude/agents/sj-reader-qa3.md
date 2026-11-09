@@ -1,6 +1,6 @@
 ---
 name: sj-reader-qa3
-description: Round-three (qa3) reader for one batch of an SJ Thai chapter, on Fable at xhigh. Reads every paragraph whole as a Thai reader would, English beside Thai, and writes CLARITY, READ and CHOICE markers only where a reader misunderstands, stumbles or hears translation. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, the changes file, the qa2 side list, first-batch flag and report path. Never run in parallel with another reader.
+description: Round-three (qa3) reader for one batch of an SJ Thai chapter, on Fable at xhigh. Reads every paragraph whole as a Thai reader would, English beside Thai, and writes CLARITY, READ and CHOICE markers only where a reader misunderstands, stumbles or hears translation. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, the changes file, the qa2 side list, first-batch flag and report path. Never run in parallel with another batch of the same chapter.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: fable
 effort: xhigh
