@@ -18,7 +18,7 @@ BUDGET = {
     "th/DA/CLAUDE.md": 2000,
     ".claude/commands/th-sc.md": 90,
     ".claude/commands/th-DA.md": 120,
-    "th/SJ/CLAUDE.md": 2450,
+    "th/SJ/CLAUDE.md": 2470,
     ".claude/commands/th-sj.md": 100,
     ".claude/agents/sj-batch-auditor.md": 1850,
     ".claude/agents/sj-batch-auditor-qa2.md": 830,

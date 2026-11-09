@@ -1,6 +1,6 @@
 ---
 name: sj-batch-auditor
-description: Round-one (qa1) accuracy auditor for one batch of an SJ Thai chapter against the English source, writing inline markers in the manuscript. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, round name, first-batch flag and report path. Never run in parallel with another SJ batch auditor.
+description: Round-one (qa1) accuracy auditor for one batch of an SJ Thai chapter against the English source, writing inline markers in the manuscript. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, round name, first-batch flag and report path. Never run in parallel with another batch of the same chapter.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: opus
 effort: high

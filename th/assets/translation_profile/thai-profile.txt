@@ -30,7 +30,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 
 3.A. Western numerals only.
 3.B. No invisible characters. Line breaking is decided at typesetting time from the template's word dictionary, never in a manuscript.
-3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”.
+3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”. A quotation spanning paragraphs opens at each paragraph and closes only where it ends.
 3.D. และ stays closed on both sides unless the clause it joins is long.
 3.D.1. ๆ takes a space after it, unless punctuation follows.
 3.E. Only Thai script stands in running text; Latin letters appear only in a citation's version label and in the parentheses of 5.B.

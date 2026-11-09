@@ -10,7 +10,7 @@ This file governs the QA rounds of the Thai *The Story of Jesus* in th/SJ. An SJ
 1.D. "qa3 SJ01 [SJ02 ...]" — round three, the reader's round (3.E), by section 4, only on a chapter whose QA2 is committed.
 1.E. "check SJ01" — the translator has resolved the markers; section 5.
 1.F. "editor SJ01" or "editor SJ01 #12 #14" — flatten the remaining markers, or the named ones, into editor parentheses so the chapter can go to Google Docs: python3 th/SJ/04_assets/scripts/sj_editor_markers.py --chapter 01 [--markers 12 14]. A verify: marker is left standing and reported by number.
-1.G. "terms SJ01 [SJ02 ...]" — glossary mining, section 7.
+1.G. "terms SJ01 [SJ02 ...]" — glossary mining, section 7, after the chapter's QA1 check passes and before its qa2.
 1.H. A term or corpus question — answer by grep over th/PP, th/MB, th/SC and th/SJ, copying every Thai form out of a file.
 1.I. "7/3/1" and "model: X/Y/Z" — the drill of the root CLAUDE.md, by sj-wording-drill.
 1.J. "read SJ01 [SJ02 ...]", a chapter's Finished button, or a reviewers' export — the read-through, section 10.
@@ -48,7 +48,7 @@ This file governs the QA rounds of the Thai *The Story of Jesus* in th/SJ. An SJ
 4.C. Dispatch sj-batch-auditor (qa1), sj-batch-auditor-qa2 (qa2) or sj-reader-qa3 (qa3) per batch, in sequence, with chapter, stage directory, ref range, starting marker number, round name, first-batch flag, the report path ~/claude-sandbox/sj-audit/sjNN-ROUND-batchK.md, and the files of 4.B.1 or 4.B.2. Markers restart at #1 each round; the next start is the last reported number plus one.
 4.D. After the last batch, run python3 th/SJ/04_assets/scripts/sj_resolution_sheet.py --chapter NN --round qa1 (or qa2, qa3) and read its VERDICT line. Delete a marker whose old side is not in the committed chapter and establish the finding again.
 4.D.1. Before the sheet, narrow every marker to the words that change with python3 th/SJ/04_assets/scripts/sj_minspan.py --chapter NN; where its cut splits a word, re-run it with --prefix or --suffix; write each narrowed marker into the chapter.
-4.E. Report: every marker as a full item with EN, the whole TH sentence, PRINT (the print's sentence at that anchor, from th/SJ/01_raw at commit 2ca0d5a1), ISSUE, FIX1 and every further candidate printed in full; then the counts table, the THSV-label count and every DECIDE. A decision confined to one marker is not raised as a DECIDE. Give the sheet's path.
+4.E. Report: every marker as a full item with EN, the whole TH sentence, PRINT (the print's sentence at that anchor, from th/SJ/01_raw at commit 2ca0d5a1; where layout or a citation is at issue, from th/SJ/04_assets/thai_original_pdfs), ISSUE, FIX1 and every further candidate printed in full; then the counts table, the THSV-label count and every DECIDE. A decision confined to one marker is not raised as a DECIDE. Give the sheet's path.
 
 ## 5. Post-resolution check ("check SJ01")
 
