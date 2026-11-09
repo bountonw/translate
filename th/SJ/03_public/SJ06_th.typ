@@ -1,4 +1,4 @@
-// Source-url: "https://egwwritings.org/read?panels=p144.175(144.179)&index=0"
+// Source-url: "https://egwwritings.org/read?panels=p144.179&index=0"
 // English title: "Days of Conflict"
 
 #import "../04_assets/template/lib.typ": *
