@@ -97,8 +97,8 @@ CHECKS = {
     "lao-digit": "a Lao digit U+0ED0–U+0ED9",
     "invisible": "a zero-width, joiner, BOM, soft-hyphen or no-break character",
     "double-space": "two or more spaces inside a paragraph",
-    "quote-balance": "double quotation marks that do not pair within the paragraph",
-    "single-quote-balance": "single quotation marks that do not pair within the paragraph",
+    "quote-balance": "double quotation marks that do not pair within the paragraph, unless one is left open and the next paragraph opens with “",
+    "single-quote-balance": "single quotation marks that do not pair within the paragraph, unless one is left open and the next paragraph opens with ‘",
     "space-before-close": "a space before a closing quotation mark, parenthesis or bracket",
     "anchor-tag": "the #EGW tag's anchor differs from the paragraph's comment anchor, or is missing or doubled",
     "anchor-order": "an anchor comment that does not ascend from the previous one",
@@ -122,7 +122,12 @@ def strip_markup(body):
     return body
 
 
-def check_para(p, out):
+def opening(p):
+    """The first two characters of a paragraph's text: the marks it opens with."""
+    return mask_markers(p.text).lstrip()[:2]
+
+
+def check_para(p, out, next_opening=""):
     raw = p.text
     body = mask_markers(raw)
 
@@ -147,11 +152,14 @@ def check_para(p, out):
     for m in BARE_CITATION.finditer(bare):
         out(p, "citation-bare", context(bare, m.start()))
 
+    # A quotation spanning paragraphs opens at each paragraph and closes only where
+    # it ends (thai-profile.txt 3.C): one unclosed mark passes when the next
+    # paragraph opens with that mark.
     opens, closes = body.count("“"), body.count("”")
-    if opens != closes:
+    if opens != closes and not (opens == closes + 1 and "“" in next_opening):
         out(p, "quote-balance", f"{opens} opening and {closes} closing double quotation marks")
     sopen, sclose = body.count("‘"), body.count("’")
-    if sopen != sclose:
+    if sopen != sclose and not (sopen == sclose + 1 and "‘" in next_opening):
         out(p, "single-quote-balance", f"{sopen} opening and {sclose} closing single quotation marks")
 
     # A Thai combining mark (vowel above or below, tone mark) must follow a base letter.
@@ -204,7 +212,7 @@ def main():
         return 0
     if a.file:
         path = Path(a.file)
-    elif a.chapter:
+    elif a.chapter is not None:
         path = chapter_path(a.chapter)
     else:
         ap.error("--chapter NN or --file PATH")
@@ -217,11 +225,11 @@ def main():
         findings.append(f"{{SJ {p.anchor}}} {check}: {what}")
 
     prev = None
-    for p in paras:
+    for i, p in enumerate(paras):
         if not in_range(p.anchor, first, last):
             prev = p.anchor
             continue
-        check_para(p, out)
+        check_para(p, out, opening(paras[i + 1]) if i + 1 < len(paras) else "")
         if prev and anchor_key(p.anchor) <= anchor_key(prev):
             out(p, "anchor-order", f"follows {{SJ {prev}}}")
         prev = p.anchor
