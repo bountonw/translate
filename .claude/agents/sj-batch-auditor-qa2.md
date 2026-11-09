@@ -1,6 +1,6 @@
 ---
 name: sj-batch-auditor-qa2
-description: Round-two (qa2) term auditor for one batch of an SJ Thai chapter, on Fable at xhigh. Judges every glossary candidate in its sentence and writes TERM markers where the sense deviates or misleads. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, the candidate file, the queue's qa2 sites, first-batch flag and report path. Never run in parallel with another SJ batch auditor.
+description: Round-two (qa2) term auditor for one batch of an SJ Thai chapter, on Fable at xhigh. Judges every glossary candidate in its sentence and writes TERM markers where the sense deviates or misleads. Dispatched by the conductor with chapter, stage directory, {SJ ###.#} range, starting marker number, the candidate file, the queue's qa2 sites, first-batch flag and report path. Never run in parallel with another batch of the same chapter.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: fable
 effort: xhigh
