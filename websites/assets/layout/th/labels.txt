@@ -1,0 +1,14 @@
+# Words the Thai pages use
+# The home page's own words in Thai; build_home.py writes each in every
+# language and the language buttons switch them. Every language has every word.
+home:
+  lang_lo: ลาว
+  lang_th: ไทย
+  lang_en: English
+  books: หนังสือ
+  start_reading: เริ่มอ่าน
+  news: ความคืบหน้า
+  contact: ติดต่อ
+  licence: สัญญาอนุญาต
+  empty_tab_th: กำลังเตรียมหนังสือภาษาไทย
+  empty_tab_en: กำลังเตรียมหนังสือภาษาอังกฤษ

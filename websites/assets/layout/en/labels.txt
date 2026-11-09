@@ -1,0 +1,14 @@
+# Words the English pages use
+# The home page's own words in English; build_home.py writes each in every
+# language and the language buttons switch them. Every language has every word.
+home:
+  lang_lo: Lao
+  lang_th: Thai
+  lang_en: English
+  books: Books
+  start_reading: Start reading
+  news: Progress
+  contact: Contact
+  licence: License
+  empty_tab_th: Thai books are in preparation.
+  empty_tab_en: English books are in preparation.
