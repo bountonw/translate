@@ -2,7 +2,7 @@
 chapter:
   number: 25
   title:
-    lo: ພຣະບັນຍັດຂອງພຣະເຈົ້າປ່ຽນແປ່ງບໍ່ໄດ້
+    lo: ພຣະບັນຍັດຂອງພຣະເຈົ້າປ່ຽນແປງບໍ່ໄດ້
     en: God’s Law Immutable
   url: https://m.egwwritings.org/en/book/132.1960#1960
 ---

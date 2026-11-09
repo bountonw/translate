@@ -53,7 +53,7 @@ def main():
     toc = Path(args.toc).read_text(encoding="utf-8")
     starts = [int(m) for m in re.findall(r"\\contentsline \{chapter\}\{.*?\}\{(\d+)\}", toc)]
     # The book's last page is the QR code for the online version, not chapter 42's text.
-    last_text = max(i for i, p in enumerate(pages) if p.strip() and "laoegw.com/GC" not in p)
+    last_text = max(i for i, p in enumerate(pages) if p.strip() and "laoegw.com/lo/GC" not in p)
     print(f"{len(pages)} pages, of which the last with text is page {last_text + 1}; "
           f"{len(starts)} chapters in the contents")
     found = 0

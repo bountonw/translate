@@ -1,0 +1,14 @@
+# What is new on www.laoegw.com, for the home page, newest first.
+# websites/assets/scripts/build_home.py reads this file and lists the entries of
+# every language under the news heading; the page shows one language's entries
+# and its language buttons switch them.
+#
+# Each language, such as lo, starts a group; under it, each entry is one line
+# starting with "- ", written as it stands on the page, without quotation marks.
+# A title may stand in <i> and </i>; any other < or & is shown as written.
+lo:
+  - 29 ເດືອນຕຸລາ 2026: ປັບປຸງເນື້ອໃນ <i>ປາຍທາງແຫ່ງຄວາມຫວັງ</i> ສະບັບອອນລາຍໃຫ້ກົງກັບສະບັບພິມ.
+th:
+  - 29 ตุลาคม 2026: ปรับปรุงเนื้อหาหนังสือ <i>ปลายทางแห่งความหวัง</i> ภาษาลาวฉบับออนไลน์ให้ตรงกับฉบับตีพิมพ์
+en:
+  - 29 October 2026: The online text of the Lao <i>Great Controversy</i> was updated to match the printed book.
