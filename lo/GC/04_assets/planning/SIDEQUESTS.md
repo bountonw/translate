@@ -6,24 +6,6 @@ It lives under `04_assets/planning/` for two reasons. Every numbered-stage asset
 
 Rules for keeping it. An issue he defers rather than decides is added here in the same reply that defers it, never left in a chat. An entry is deleted when the work is finished, not marked done, because a finished quest is in the git history. Each entry says what the job is, where its detail lives, and roughly how big it is, and nothing else — the reasoning belongs in the detail file.
 
-## 29. Add the Thai books to the website
-
-The website build, `websites/assets/scripts/build_book.py`, reads Markdown chapters with GC's front matter. Add MB and LBF first, then SC and PP, which are written in Typst and need a Typst reader in the converter; SJ waits for its editing. Rulings of 16 October 2026: the Sarabun font; the page words สารบัญ, บทที่ and ต้นฉบับภาษาอังกฤษ; LBF's paragraph codes hidden on the page, as its metadata asks, with the paragraph link addresses kept, and its `original` source line left off; Thai line breaks left to the browser for now; no cover images until covers exist. Each book needs the Thai layout folder `websites/assets/layout/th/`, a contents page and a line in the GitHub check.
-
-Detail: this entry is the whole brief. Medium for MB and LBF; large for SC and PP.
-
-## 30. An EPUB of every book on the website
-
-Every book published on the website also gets an EPUB to download, starting with ປາຍທາງແຫ່ງຄວາມຫວັງ in Lao, hoped for by Friday 6 November 2026 (the translator's request of 29 October 2026). Planning starts once the more pressing work is through.
-
-Detail: none written; this entry is the whole brief. Medium.
-
-## 31. Move the Lao GC to /lo/GC/
-
-The Lao GC lives at /GC/, which leaves no room for a Thai GC at /th/GC/. Move the pages to /lo/GC/ and have the server answer every old /GC/ address with a permanent redirect (Apache: RedirectMatch 301 ^/GC/(.*)$ /lo/GC/$1), so that the printed book's QR code and links keep working. The build's web folder comes from websites/books.yaml (web: lo/GC) and the chapter pages' stylesheet path gains one folder. Raised 29 October 2026. The introduction's text and the book's QR code page also change to www.laoegw.com/lo/GC for the website and later printings; only copies already printed keep the old address, which the redirect serves. Every page the build writes shows an email address in a form that address-harvesting robots cannot read (put together by a small script, with a plain fallback). Due no later than Wednesday 4 November 2026.
-
-Detail: none written; this entry is the whole brief. Small to medium.
-
 ## 17. Rework the glossary system: one glossary per language, with book-specific overlays
 
 The translator's direction of 23 August: what the GC governing files have become is not working, and the replacement has to serve every project in each language, with more projects lining up. One glossary per language holds the terms its books share; each book carries only its own differences on top; a rule is tight where the term is genuinely fixed, such as a proper noun or a closed term family, and loose where literary judgment in the paragraph decides; and the part an agent searches stays light enough to load on every dispatch, while the history and evidence for deep dives live beside it rather than inside it. The Thai language glossary, `th/assets/translation_profile/thai-glossary.txt`, is the model. The Lao language glossary, `lo/assets/translation_profile/lao-glossary.txt`, was begun with FB, and the rework moves the GC rows into it.
