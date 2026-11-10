@@ -2,7 +2,7 @@
 // English title: "Preface"
 #chapter(
   number: none,
-  title: "บทนำ",
+  title: "คำนำ",
 )
 
 // {SJ 12.1}
