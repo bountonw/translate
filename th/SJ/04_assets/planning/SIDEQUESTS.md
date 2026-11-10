@@ -4,7 +4,7 @@ Work that is agreed but not scheduled, in the order it will be done. When the tr
 
 ## SJ00, the preface
 
-1. Edit and review the Thai of the preface, th/SJ/01_raw/SJ00_th.typ, which is raw: it has had none of the rounds the chapters had. Then run QA1 on it again. The title is part of this job: บทนำ stands now, and คำนำ is the usual Thai word for "Preface". The file stays in 01_raw until then. Medium.
+1. Edit and review the Thai of the preface, th/SJ/01_raw/SJ00_th.typ, which is raw: it has had none of the rounds the chapters had. Then run QA1 on it again. The file stays in 01_raw until then. Medium.
 2. The 2023 foreword, คำนิยม, was removed from SJ00 and is kept in th/SJ/04_assets/planning/foreword-2023.txt. Decide whether the new edition carries it, a new foreword, or none; delete that file when this is decided. Small.
 
 ## Typesetting, after the qa, read and review rounds
