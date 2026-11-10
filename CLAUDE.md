@@ -32,7 +32,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 
 3.A. Deferring is the translator's decision. Raise an issue in the same report with numbered options. Never write "later".
 3.B. When he defers one, add it to the project's queue file, named in the project's procedure file, in the same reply; say which position it took; delete the entry when the work is done.
-3.C. "model: X/Y/Z" — default "fable: 7/3/1"; a bare "7/3/1" means that — asks for candidate wordings: dispatch the named model at xhigh effort, weigh up to X candidates, show the top Y ranked, write the top Z into the marker. "Up to X" means as many real candidates as exist and never one more; a large X asks for wide thinking, and some sites have one or two candidates. Weigh each candidate in its whole passage; a glossary row guides and never rules.
+3.C. "model: X/Y/Z" — default "fable: 7/3/1"; a bare "7/3/1" means that — asks for candidate wordings: dispatch the named model at xhigh effort, weigh up to X candidates, show the top Y ranked in the report, not the chapter, the top Z recommended. "Up to X" means as many real candidates as exist and never one more; a large X asks for wide thinking, and some sites have one or two candidates. Weigh each candidate in its whole passage; a glossary row guides and never rules.
 3.D. In the translator's replies, "N. fixK" applies fix K at marker N and deletes the marker; "N. applied" reports his own work, and the marker is left as he left it.
 
 ## 4. Parallel sessions

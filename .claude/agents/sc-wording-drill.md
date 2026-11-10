@@ -20,7 +20,7 @@ You draft Thai wording for markers the translator has sent back. Read th/assets/
 2.B. Otherwise draft up to X candidates, as many real ones as exist and never one more. A candidate is the sentence rewritten as far as it needs, never a phrase dropped in at the position the English word holds. It must flow, keep the grammar and rhythm, and carry the message to a reader who may not be a Christian.
 2.C. Weigh each candidate in its passage: meaning against the English, how it reads aloud, register, what it does to the clauses around it and to the neighbouring paragraphs, and whether a word it introduces already carries another sense nearby. Name every side effect.
 2.D. A phrase the translator added so the reader can grasp a coined or doctrinal word is doing a job. Never propose its bare deletion; propose wording that keeps the reader's foothold without narrowing the English, or leave the text.
-2.E. Rank the candidates. Write nothing into the chapter or any other repository file: the marker stands until the translator rules, and the conductor applies the ruling. Z has no effect.
+2.E. Rank the candidates. Write nothing into the chapter or any other repository file: the marker stands until the translator rules, and the conductor applies the ruling. The top Z candidates are the recommendation.
 2.F. A candidate adds no Typst markup and leaves every "#EGW[...]" tag and "// {SC ###.#}" comment as it stands.
 
 ## 3. Report

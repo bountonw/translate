@@ -70,7 +70,7 @@ This file governs the QA rounds of the Thai *The Story of Jesus* in th/SJ. An SJ
 6.G. Many readers of this book are not Christians. Where a passage teaches a principle, a wider word for the religious authority the reader knows may stand for the exact Christian term; where the passage tells history, the exact term stands.
 6.H. Never apply a fix across chapters on your own initiative. Give the translator the sites and the change at each.
 6.I. When the translator keeps a wording against a finding, get the translator's reason, asking if none was given, and in the same reply write one line, in anchor order, in th/SJ/04_assets/notes/SJ_notes.txt: {SJ ###.#} | English words | Thai span copied from the chapter | the translator's reason.
-6.J. You stage and commit nothing; every commit is the translator's, from the numbered item of 5.D or 11.E.
+6.J. You stage and commit nothing; every commit is the translator's, from the numbered item of 5.D or 11.D.
 
 ## 7. Glossary building ("terms")
 
@@ -94,8 +94,7 @@ This file governs the QA rounds of the Thai *The Story of Jesus* in th/SJ. An SJ
 
 ## 11. Pre-processing ("pre")
 
-11.A. Run python3 th/SJ/04_assets/scripts/sj_anchors.py --chapter NN, or --all, and read every DEFECT, FILLER and HOLD line; then run it again with --write. It writes the "// {SJ ###.#}" comment above each tagged paragraph and leaves a chapter with a DEFECT unchanged.
+11.A. Run python3 th/SJ/04_assets/scripts/sj_anchors.py --chapter NN, or --all, and read every DEFECT and FILLER line; then run it again with --write. It writes the "// {SJ ###.#}" comment above each tagged paragraph and leaves a chapter with a DEFECT unchanged.
 11.B. Each DEFECT is a DECIDE in the report: the English and Thai of the paragraphs at issue, and the corrected tag or split as FIX1. Apply the translator's ruling to the tags, then run 11.A on the chapter again.
-11.C. A HOLD line is a paragraph under the placeholder tag {SJ 666.66}: SJ00 runs no round until the translator rules which of its paragraphs answer the English preface.
-11.D. A FILLER line takes no marker; sj_punctcheck.py prints it as a NOTE.
-11.E. The report ends with the commit as a numbered item: the chapters by full path and the message "SJ anchor comments" (18 characters), or "SJNN anchors" for one chapter.
+11.C. A FILLER line takes no marker; sj_punctcheck.py prints it as a NOTE.
+11.D. The report ends with the commit as a numbered item: the chapters by full path and the message "SJ anchor comments" (18 characters), or "SJNN anchors" for one chapter.

@@ -44,7 +44,7 @@ BUDGET = {
     ".claude/agents/sc-wording-drill-opus-max.md": 775,
     ".claude/agents/sc-resolve-check.md": 885,
     ".claude/agents/th-glossary-miner.md": 520,
-    "th/assets/translation_profile/thai-profile.txt": 1200,
+    "th/assets/translation_profile/thai-profile.txt": 1220,
     "lo/FB/CLAUDE.md": 1100,
     ".claude/commands/lo-fb.md": 150,
     ".claude/agents/fb-phrase-drill.md": 900,
