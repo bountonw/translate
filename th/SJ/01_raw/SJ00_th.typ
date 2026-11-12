@@ -16,6 +16,6 @@
 // {SJ 12.3}
 
 ในหนังสือเล่มนี้ ไม่มีการปรุงแต่งเรื่องราวให้ไพเราะ แต่ผู้เขียนได้บรรยายอย่างตรงไปตรงมาด้วยความซาบซึ้งว่าเรื่องนี้ยิ่งใหญ่เกินประมาณ แล้วถ่ายทอดออกมาเป็นภาษาที่เด็กๆ เข้าใจได้ง่าย เหตุการณ์ที่บันทึกไว้นี้จึงไม่เพียงแต่จับใจผู้อ่านรุ่นเยาว์เท่านั้น แต่ยังสนองความปรารถนาของเราทุกคน ดังที่บทเพลง “โปรดบอกฉันถึงเรื่องก่อนเก่า” ร้องขอไว้ว่า #EGW[\{SJ 12.3\}] \
-“บอกฉันให้ง่ายเข้าใจพลัน ดังหนึ่งฉันยังเยาว์วัย” [[REF #1|(เพลงสรรเสริญเลขที่ 77) -> |verify: sj_refcheck.py reports this citation as an unknown Bible book; may the citation stand as the hymn citation it is, and the finding be closed? “Tell me the story simply, as to a little child.” “บอกฉันให้ง่ายเข้าใจพลัน ดังหนึ่งฉันยังเยาว์วัย” **(เพลงสรรเสริญเลขที่ 77)** The script's finding is a false alarm: the parenthesis cites hymn 77 of the Thai hymnal, whose line the translator copied, not a book of the Bible, so no Bible version applies to it. The English gives no number, and the number sends the reader to the page that prints the line. Recommended answer: leave alone, so that the check after this round does not raise the finding again.]] \
+“บอกฉันให้ง่ายเข้าใจพลัน ดังหนึ่งฉันยังเยาว์วัย” (เพลงสรรเสริญเลขที่ 77) \
 หวังว่าเรื่องราวนี้จะได้รับการตอบรับด้วยความเชื่อที่เรียบง่ายและบริสุทธิ์เช่นเดียวกัน \
 จอร์จ ซี. เทนนี
