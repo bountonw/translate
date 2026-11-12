@@ -161,6 +161,12 @@ body {
   color: var(--text);
 }
 
+/* the pages of a Thai book: Sarabun, since Noto Serif Lao has no Thai letters;
+   the home page keeps its own fonts, set by language below */
+html[lang="th"] body:has(> header.site-header) {
+  font-family: "Sarabun", sans-serif;
+}
+
 a {
   color: var(--link);
 }
@@ -182,7 +188,7 @@ header.site-header a {
   text-decoration: none;
 }
 
-/* a Lao word the converter marked; lines break only between these */
+/* a Lao word, or a listed Thai word, the converter marked; a line never ends inside one */
 span.w {
   white-space: nowrap;
 }
