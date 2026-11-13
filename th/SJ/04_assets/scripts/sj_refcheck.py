@@ -14,6 +14,8 @@ A parenthesis opening with ดู, as (ดู 2 เปโตร 1:16), is a poin
 citation of a quotation, so no quotation is compared with it.
 A chapter-only citation after a semicolon, as "14:10" in (ยอห์น 5:19 TNCV;
 14:10), takes the book cited before it, in the Thai and in the English.
+A hymn number, as (เพลงสรรเสริญเลขที่ 77), is not a Bible citation and is
+not reported.
 A version label hidden in a Typst comment, as (ลูกา 2:9–19/*THSV*/), is read
 as that label. An unlabelled citation means SJ's default version,
 DEFAULT_VERSION in sj_common.py.
@@ -52,6 +54,7 @@ TH_CITE = re.compile(
 EN_CITE = re.compile(
     r"(?P<book>(?:[1-3]\s)?[A-Z][a-z]+(?:\s(?:of\s)?[A-Z][a-z]+)?)\s+(?P<ch>\d+)(?::(?P<vv>" + VERSES + r"))?"
     r"(?:\s*[-–]\s*(?P<ch2>\d+):(?P<v2>\d+))?")
+HYMN = "เพลงสรรเสริญ"  # a hymn number, as (เพลงสรรเสริญเลขที่ 77), is not a Bible citation
 ONE_CHAPTER = {"OBA", "PHM", "2JN", "3JN", "JUD"}
 TH_BOOK = re.compile(rf"(?:[1-3]\s)?[{THAI}]+(?=\s+\d+)")
 EN_BOOK = re.compile(r"(?:[1-3]\s)?[A-Z][a-z]+(?:\s(?:of\s)?[A-Z][a-z]+)?(?=\s+\d+)")
@@ -323,6 +326,8 @@ def main():
             refs.append(f"{{SJ {p.anchor}}} REF align: no English paragraph carries this anchor")
         seen_pairs = set()
         for name, code, ch, vv, label, raw in th:
+            if code is None and name.startswith(HYMN):
+                continue
             if code is None:
                 refs.append(f"{{SJ {p.anchor}}} REF unknown-book: \"{raw}\" — {name} is not in th_books.txt")
                 continue
