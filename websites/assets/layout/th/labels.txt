@@ -10,6 +10,7 @@ home:
   lang_en: English
   books: หนังสือ
   start_reading: เริ่มอ่าน
+  download_epub: ดาวน์โหลด EPUB
   news: ความคืบหน้า
   contact: ติดต่อ
   licence: สัญญาอนุญาต

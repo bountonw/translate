@@ -28,7 +28,7 @@ from check_book import check_home
 
 HOME_LAYOUT = os.path.join(LAYOUT, 'lo', 'home.html')
 WORDS = build_home.read_words()
-BOOK_FIELDS = {'lang', 'web', 'title', 'author', 'cover', 'description', 'first_printing', 'title_in'}
+BOOK_FIELDS = {'lang', 'web', 'title', 'author', 'cover', 'description', 'first_printing', 'title_in', 'epub'}
 # Thai and Lao digits, and the invisible characters: zero-width space, joiners,
 # word joiner, byte order mark and soft hyphen
 FORBIDDEN = re.compile('[' + ''.join(f'{chr(first)}-{chr(last)}' for first, last in (
@@ -58,6 +58,7 @@ xx/CD:
   web: en/CD
   lang: en
   cover: images/cover.jpg
+  epub: CD_en.epub
   first_printing: Printed once.
 """
 
@@ -90,6 +91,7 @@ def setup(tmp_path):
         (site / web / 'images').mkdir(parents=True)
         (site / web / 'index.html').write_text('<!DOCTYPE html>\n', encoding='utf-8')
     (site / 'en/CD/images/cover.jpg').write_bytes(b'')
+    (site / 'en/CD/CD_en.epub').write_bytes(b'')
     for icon in ('favicon.png', 'apple-touch-icon.png'):
         (site / icon).write_bytes(b'')
     return str(site), str(books), str(repo)
