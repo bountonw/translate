@@ -4,7 +4,7 @@ chapter:
   title:
     th: บนภูเขาแห่งพระพร
     en: On the Mountainside
-  url: https://legacy.egwwritings.org/?ref=en_MB.1&para=150.30
+  url: https://m.egwwritings.org/en/book/150.30#30
 ---
 
 ## {MB 1.1}
