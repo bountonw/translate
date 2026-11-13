@@ -4,7 +4,7 @@ chapter:
   title:
     th: ธรรมบัญญัติสอนใจ
     en: The Spirituality of the Law
-  url: https://legacy.egwwritings.org/?ref=en_MB.45&para=150.237
+  url: https://m.egwwritings.org/en/book/150.237#237
 ---
 
 ## {MB 45.1}
