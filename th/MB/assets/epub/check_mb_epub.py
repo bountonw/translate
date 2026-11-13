@@ -4,8 +4,10 @@
 Usage, from the repository's top folder:
     python3 -B th/MB/assets/epub/check_mb_epub.py ~/MB_th.epub [--hand A.epub B.epub]
 Compares the letters and digits of each chapter with its chapter file, paragraph by
-paragraph; counts each paragraph anchor once; refuses Thai digits, soft hyphens and every
-invisible format character; parses every XML file; follows every internal link; looks for
+paragraph; finds under each chapter's title one link to the English original, whose address
+is the chapter file's url and whose words are the english line of the Thai labels; counts
+each paragraph anchor once; refuses Thai digits, soft hyphens and every invisible format
+character; parses every XML file; follows every internal link; looks for
 each word of the translator field of metadata.yaml. Exits 1 on any problem.
 """
 import argparse
@@ -38,6 +40,9 @@ def visible(xhtml):
 
 
 book = os.path.join(args.repo, 'th/MB')
+labels = open(os.path.join(args.repo, 'websites/assets/layout/th/labels.txt'), encoding='utf-8').read()
+english = re.search(r'^english:\s*(.+?)\s*$', labels, flags=re.M)
+english = english[1] if english else None
 meta = open(os.path.join(book, 'metadata.yaml'), encoding='utf-8').read()
 withheld = [w for line in meta.split('translator:')[1].split('book:')[0].split('\n')
             for w in line.partition(':')[2].split() if len(w) > 2]
@@ -66,6 +71,7 @@ for n, s in docs.items():
 source_paras = {}
 anchors_seen = {}
 compared = 0
+chapter_links = 0
 for name in sorted(os.listdir(os.path.join(book, '03_public'))):
     if not name.endswith('.md'):
         continue
@@ -85,6 +91,22 @@ for name in sorted(os.listdir(os.path.join(book, '03_public'))):
         anchor = re.match(r'## \{MB ([^}]+)\}', section)[1]
         source_paras[anchor] = (n, re.sub(r'^## .*$|^###.*$|^\[\^\w+\]:.*$|\[\^\w+\]|\{MB [^}]+\}', '', section, flags=re.M))
     text = page.split('</h1>', 1)[1]
+    # the link to the English original: one, right under the title, to the chapter file's url
+    url = re.search(r'^\s*url:\s*(\S+)\s*$', head, flags=re.M)
+    links = re.findall(r'<p class="chapter-url"><a href="([^"]*)">(.*?)</a></p>', page, flags=re.S)
+    if url and len(links) != 1:
+        problems.append(f'chapter {n}: {len(links)} links to the English original, not 1')
+    elif not url and links:
+        problems.append(f'chapter {n}: a link to the English original, but the chapter file has no url')
+    for href, words in links:
+        chapter_links += 1
+        if html.unescape(href) != (url[1] if url else None):
+            problems.append(f'chapter {n}: the English link goes to {href}, the chapter file gives {url and url[1]}')
+        if english is None or letters(visible(words)) != letters(english):
+            problems.append(f'chapter {n}: the English link reads {visible(words)!r}, the labels give {english!r}')
+    if links and not re.match(r'\s*<p class="chapter-url">', text):
+        problems.append(f'chapter {n}: the English link does not stand right under the title')
+    text = re.sub(r'<p class="chapter-url">.*?</p>', '', text, count=1, flags=re.S)
     main_x, _, notes_x = text.partition('<section class="notes"')
     notes_x = re.sub(r'<a href="#nr\d+">\d+</a>', '', notes_x)
     main_x = re.sub(r'<sup>.*?</sup>', '', main_x)
@@ -121,7 +143,8 @@ print(f'{args.epub}: files {len(names)}; {os.path.getsize(args.epub)} bytes; cha
 print(f'paragraph anchors in 03_public {sum(1 for _ in source_paras)}; ids in the EPUB {sum(anchors_seen.values())}; '
       f'note references {allx.count("epub:type=\"noteref\"")}; notes {allx.count("epub:type=\"footnote\"")}; '
       f'subheadings {allx.count("<h2>")}; poem blocks {allx.count("<div class=\"poem\"")}; internal links {links}')
-print(f'kept-whole spans {allx.count("<span class=\"nb\">")}; <wbr/> {allx.count("<wbr/>")}')
+print(f'kept-whole spans {allx.count("<span class=\"nb\">")}; <wbr/> {allx.count("<wbr/>")}; '
+      f'links to the English original {chapter_links}')
 for x in problems[:40]:
     print('PROBLEM', x)
 print(f'{len(problems)} problems')

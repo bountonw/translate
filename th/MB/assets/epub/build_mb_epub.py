@@ -7,7 +7,9 @@ Usage, from the repository's top folder (the script writes only the file named b
 Reads the book's metadata.yaml and its chapters in 03_public: "## {MB 1.1}" lines are
 navigation only, "### " lines are subheadings, "> " lines are lines of a poem ("> > " an
 indented line, a bare ">" a gap), "[^1]" a note. The translator field of metadata.yaml is
-never read into the book, and the build stops if any word of it reaches a page.
+never read into the book, and the build stops if any word of it reaches a page. A chapter's
+url line becomes a link under its title, worded as the english line of
+websites/assets/layout/th/labels.txt, as on the web pages.
 
 Line breaks. Thai has no spaces between words, so each reading app needs a place to end a
 line. Two things are added, neither a character:
@@ -47,6 +49,7 @@ FONT_DIR = 'th/assets/fonts/saraban'
 FONTS = [('Sarabun-Regular.ttf', 'normal', 'normal'), ('Sarabun-Bold.ttf', 'bold', 'normal'),
          ('Sarabun-Italic.ttf', 'normal', 'italic'), ('Sarabun-BoldItalic.ttf', 'bold', 'italic')]
 BREAKS = 'th/assets/typeset/thai-breaks.txt'
+LABELS = 'websites/assets/layout/th/labels.txt'
 EXTRAS = {'dedication': 'MB_00a_dedication_th.md', 'preface': 'MB_00c_preface_th.md'}
 WORDS = {'toc': 'สารบัญ'}
 LICENCE = 'https://creativecommons.org/licenses/by-nd/4.0/'
@@ -58,6 +61,7 @@ span.nb {{ white-space: nowrap; }}
 h1 {{ font-size: 1.5em; line-height: 1.5; text-align: center; margin: 0.8em 0 1.2em 0; font-weight: bold; }}
 h1 .chapter-number {{ display: block; font-size: 1.6em; font-weight: normal; line-height: 1.3; }}
 h1 .chapter-name {{ display: block; }}
+p.chapter-url {{ font-size: 0.9em; text-align: center; margin-bottom: 1.6em; }}
 h2 {{ font-size: 1.1em; line-height: 1.6; font-weight: bold; margin: 1.4em 0 0.6em 0;
       page-break-after: avoid; break-after: avoid; }}
 span.egw {{ font-size: 0.75em; color: #777777; white-space: nowrap; }}
@@ -288,6 +292,10 @@ def main():
     author, author_en = meta['author.th'], meta['author.en']
     withheld = [w for k, v in meta.items() if k.startswith('translator.') for w in v.split() if len(w) > 2]
     tree = thai_words.word_tree(open(os.path.join(repo, BREAKS), encoding='utf-8').read(), code, BREAKS)
+    # the words of the link to the English original under each chapter's title, as on the web pages
+    labels = read_yaml(open(os.path.join(repo, LABELS), encoding='utf-8'))
+    if 'english' not in labels:
+        raise SystemExit(f'{LABELS} has no english line; it comes with the Thai pages of the website')
 
     modified = args.modified
     date_time = tuple(int(x) for x in re.findall(r'\d+', modified)[:6])
@@ -303,7 +311,7 @@ def main():
             n = int(head['chapter.number'])
             blocks, notes = convert(body, code)
             chapters.append(dict(n=n, file=f'{code}{n:02d}.xhtml', name=head['chapter.title.th'],
-                                 blocks=blocks, notes=notes))
+                                 url=head.get('chapter.url'), blocks=blocks, notes=notes))
     chapters.sort(key=lambda c: c['n'])
     extras = {}
     for key in [k for k in args.extras.split(',') if k]:
@@ -329,10 +337,11 @@ def main():
         lines.append(('p', f'<p class="gap">{text}</p>' if gap else f'<p>{text}</p>'))
         gap = False
     front = dict(name=escape(title), blocks=lines, notes=[])
+    english = dict(name=escape(labels['english']), blocks=[], notes=[])
 
     # every Thai text the reader sees, kept whole where listed, then ICU's word ends
     def fragments():
-        for doc in chapters + list(extras.values()) + [front]:
+        for doc in chapters + list(extras.values()) + [front, english]:
             yield doc, 'name', None
             for i in range(len(doc['blocks'])):
                 yield doc, 'blocks', i
@@ -413,9 +422,14 @@ def main():
         spine.append('preface')
         toc.append((d['file'], d['name'], d['marked_name']))
     for c in chapters:
+        link = ''
+        if c['url']:
+            href = escape(c['url'], {'"': '&quot;'})
+            link = f'\n<p class="chapter-url"><a href="{href}">{english["marked_name"]}</a></p>'
         add(c['file'], f'{c["n"]}. {c["name"]}', body_of(
             c, 'epub:type="chapter" role="doc-chapter"',
-            f'<h1><span class="chapter-number">{c["n"]}</span> <span class="chapter-name">{c["marked_name"]}</span></h1>'))
+            f'<h1><span class="chapter-number">{c["n"]}</span> <span class="chapter-name">{c["marked_name"]}</span></h1>'
+            + link))
         spine.append(f'ch{c["n"]:02d}')
         toc.append((c['file'], f'{c["n"]}. {c["name"]}', f'{c["n"]}. {c["marked_name"]}'))
     first = chapters[0]
