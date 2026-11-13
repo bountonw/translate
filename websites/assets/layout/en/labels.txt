@@ -7,6 +7,8 @@ home:
   lang_en: English
   books: Books
   start_reading: Start reading
+  download_epub: Download EPUB
+  print_pdf: Print edition PDF
   news: Progress
   contact: Contact
   licence: License

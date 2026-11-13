@@ -43,7 +43,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # th/MB/assets/epub -> the repository's top folder
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 COVER = 'th/MB/04_pdf/MBTh v6.5.epub'
-MODIFIED = '2026-11-12T00:00:00Z'
+MODIFIED = '2026-11-13T00:00:00Z'
 
 FONT_DIR = 'th/assets/fonts/saraban'
 FONTS = [('Sarabun-Regular.ttf', 'normal', 'normal'), ('Sarabun-Bold.ttf', 'bold', 'normal'),
