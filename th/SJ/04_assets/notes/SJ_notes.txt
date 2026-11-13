@@ -1,1 +1,11 @@
 # SJ — wordings kept on purpose, sorted by anchor: {SJ ###.#} | English words | Thai span | reason
+{SJ 12.3} | Tell me the story simply, as to a little child. | (เพลงสรรเสริญเลขที่ 77) | A hymn number, not a Bible reference; the unknown-book finding of sj_refcheck.py is a false alarm.
+{SJ 12.3} | has been put into the language of the young | แล้วถ่ายทอดออกมาเป็นภาษาที่เด็กๆ เข้าใจได้ง่าย | "Obviously the victorian passive. The author put it in simple English."
+{SJ 13.1} | the home of Joseph and Mary | บ้านของโยเซฟและมารีย์ | "We didn't use นายโยเซฟ."
+{SJ 13.2} | Mary, who went with her husband | มารีย์เดินทางไปพร้อมกับสามี | "This is the actual story of Joseph and Mary. ... If we referred back to Mary we would use นาง."
+{SJ 13.3} | How she longed for a comfortable place | มารีย์หวังจะได้ห้องพักที่สะดวกสบาย | "This is the actual story of Joseph and Mary."
+{SJ 13.4} | Joseph and Mary possessed little | โยเซฟและมารีย์มีทรัพย์สมบัติทางโลกเพียงเล็กน้อย | "We didn't use นายโยเซฟ."
+{SJ 17.1} | Joseph and Mary were Jews | โยเซฟและมารีย์เป็นชาวยิว | "We didn't use นายโยเซฟ."
+{SJ 19.1} | Joseph and Mary brought Jesus | โยเซฟและมารีย์พาพระเยซู | "We didn't use นายโยเซฟ."
+{SJ 19.1} | in Joseph and Mary the priest saw nothing different | โยเซฟและมารีย์มีอะไรแตกต่าง | "We didn't use นายโยเซฟ."
+{SJ 20.2} | Mary, the mother of Jesus, pondered | มารีย์มารดาของพระเยซูใคร่ครวญ | "This is the actual story of Joseph and Mary."
