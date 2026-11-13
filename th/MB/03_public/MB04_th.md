@@ -4,7 +4,7 @@ chapter:
   title:
     th: แรงบันดาลใจในการรับใช้
     en: The True Motive in Service
-  url: https://legacy.egwwritings.org/?ref=en_MB.79&para=150.407
+  url: https://m.egwwritings.org/en/book/150.407#407
 ---
 
 ## {MB 79.1}

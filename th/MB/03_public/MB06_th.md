@@ -4,7 +4,7 @@ chapter:
   title:
     th: อย่าตัดสินผู้อื่น แต่จงปฏิบัติตามพระธรรม
     en: Not Judging, but Doing
-  url: https://legacy.egwwritings.org/?ref=en_MB.123&para=150.627
+  url: https://m.egwwritings.org/en/book/150.627#627
 ---
 
 ## {MB 123.1}
