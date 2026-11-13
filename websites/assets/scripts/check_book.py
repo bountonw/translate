@@ -83,13 +83,13 @@ def broken_links(page, hrefs):
     """The links among hrefs that lead to no file, read from the page's
     folder. Web addresses, mail links and links within the page are not
     followed; a link to a folder, such as GC/ or GC, needs the folder's
-    index.html. A link to an .epub file is not followed either: the EPUB
+    index.html. A link to an .epub or .pdf file is not followed either: those
     files are not kept in the repository; they are uploaded beside the pages."""
     broken = []
     for href in hrefs:
         if href.startswith(('http://', 'https://', '#', 'mailto:')):
             continue
-        if re.split(r'[?#]', href)[0].endswith('.epub'):
+        if re.split(r'[?#]', href)[0].endswith(('.epub', '.pdf')):
             continue
         path = re.split(r'[?#]', href)[0]
         target = os.path.normpath(os.path.join(os.path.dirname(page), path))

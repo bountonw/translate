@@ -9,6 +9,7 @@
 #     layout (websites/assets/layout/lo/home.html) has one tab for each
 #   cover: optional; the cover picture, from the book's web folder, such as images/cover.jpg
 #   epub: optional; the book's EPUB file in its web folder, such as GC_lo.epub; the card then has a Download EPUB link
+#   print: optional; the book's print-edition PDF in its web folder, such as GC_lo_print.pdf; the card then has a print-edition link
 #   description: optional; one or two sentences about the book
 #   first_printing: optional; the first-printing line
 #   title_in: optional; under it, a line per page language, such as th, naming the
@@ -23,6 +24,7 @@ lo/GC:
   lang: lo
   cover: images/cover.jpg
   epub: GC_lo.epub
+  print: GC_lo_print.pdf
   description:
   first_printing: ພິມຄັ້ງທຳອິດ ເດືອນພະຈິກ 2026
   title_in:

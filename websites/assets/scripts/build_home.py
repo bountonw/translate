@@ -54,7 +54,7 @@ LANGS = ('lo', 'th', 'en')
 LANG = 'lo'
 # the home page's name in the Lao word cache, beside the book's chapters
 HOME_ID = 'home'
-FIELDS = ('web', 'lang', 'cover', 'description', 'first_printing', 'epub')
+FIELDS = ('web', 'lang', 'cover', 'description', 'first_printing', 'epub', 'print')
 # a book's lines in the page languages, each under its group, such as title_in.th
 IN_LANGUAGE = ('title_in', 'author_in', 'first_printing_in')
 # web: and cover: are plain paths inside the site: no ../, no web address,
@@ -93,7 +93,7 @@ def read_books(path=BOOKS, repo=REPO):
         for field in ('web', 'lang'):
             if field not in entry:
                 raise SystemExit(f'{path}: {folder} has no {field}')
-        for field, value in (('web', entry['web'].strip('/')), ('cover', entry.get('cover')), ('epub', entry.get('epub'))):
+        for field, value in (('web', entry['web'].strip('/')), ('cover', entry.get('cover')), ('epub', entry.get('epub')), ('print', entry.get('print'))):
             if value is not None and not SAFE.fullmatch(value):
                 raise SystemExit(f'{path}: {folder} {field} {entry[field]} must be a plain path inside the site')
         meta_path = os.path.join(repo, folder, 'metadata.yaml')
@@ -182,7 +182,8 @@ def card(pattern, book, shown=LANG):
               'cover': f'{web}/{book["cover"]}' if book.get('cover') else '',
               'description': book.get('description', ''),
               'first_printing': book.get('first_printing', ''),
-              'epub': f'{web}/{book["epub"]}' if book.get('epub') else ''}
+              'epub': f'{web}/{book["epub"]}' if book.get('epub') else '',
+              'print': f'{web}/{book["print"]}' if book.get('print') else ''}
     values = {key: html.escape(value) for key, value in values.items()}
     values['title_in'] = ''.join(
         f'<p class="title-in" lang="{written_in(text)}" data-l="{lang}"{"" if lang == shown else " hidden"}>'
@@ -221,7 +222,7 @@ def fill(page, books, news=None, words=None, shown=LANG):
     page = page[:found.start()] + page[found.end():]
     own = {key: {lang: table[key] for lang, table in words.items()} for key in (words.get(shown) or {})}
     for key in own:
-        if key in ('lang', 'web', 'title', 'author', 'cover', 'description', 'first_printing', 'title_in', 'epub'):
+        if key in ('lang', 'web', 'title', 'author', 'cover', 'description', 'first_printing', 'title_in', 'epub', 'print'):
             raise SystemExit(f'the word {key} has the name of a book field')
 
     def own_word(m):

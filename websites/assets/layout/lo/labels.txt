@@ -11,6 +11,7 @@ home:
   books: ໜັງສື
   start_reading: ເລີ່ມອ່ານ
   download_epub: ດາວໂຫຼດ EPUB
+  print_pdf: ສະບັບພິມ PDF
   news: ຄວາມຄືບໜ້າ
   contact: ຕິດຕໍ່
   licence: ສັນຍາອະນຸຍາດ
