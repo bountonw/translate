@@ -9,3 +9,4 @@
 {SJ 19.1} | Joseph and Mary brought Jesus | โยเซฟและมารีย์พาพระเยซู | "We didn't use นายโยเซฟ."
 {SJ 19.1} | in Joseph and Mary the priest saw nothing different | โยเซฟและมารีย์มีอะไรแตกต่าง | "We didn't use นายโยเซฟ."
 {SJ 20.2} | Mary, the mother of Jesus, pondered | มารีย์มารดาของพระเยซูใคร่ครวญ | "This is the actual story of Joseph and Mary."
+{SJ 65.4} | brought him to an inn | พาไปยังโรงแรม | "Nine of the ten versions write โรงแรม at Luke 10:34."

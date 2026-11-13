@@ -394,6 +394,7 @@
 | Passover | ปัสกา / เทศกาลปัสกา / พิธีปัสกา | [CHECK] THSV, TNCV, TKJV, TH1971; เทศกาล for the feast, พิธี for the rite. อพยพ 12:11, PP 274.3, PP 277.1, SJ 18.4 |
 | manger | รางหญ้า | Every version at ลูกา 2:7, 2:12, 2:16. PP 69.3, SC 78.1, SJ 15.1 |
 | inn, inns (lodging for travellers: Luke 2:7, 10:34) | โรงแรม / ที่พักแรม | THSV's โรงแรม first; TFB's ที่พักแรม where a hotel would mislead; โรงเตี๊ยม reads Chinese. ลูกา 2:7, ลูกา 10:34, SJ 13.3, SJ 65.4 |
+| child Jesus, infant Jesus (Jesus from birth to age twelve: Luke 2, Matthew 2) | พระกุมารเยซู / พระกุมาร | [CHECK] THSV writes it from the manger to age twelve; พระเยซู, ทารก, เด็กน้อย stand. ลูกา 2:12, ลูกา 2:43, SJ 19.2, SJ 19.5 |
 | book of life | หนังสือแห่งชีวิต | [CHECK] THSV, TNCV, TKJV; หนังสือชีวิต stands in quotations. ฟีลิปปี 4:3, PP 326.3, SJ 18.6 |
 | decree (an edict of a king, emperor or state: Caesar's census, Pharaoh, the Persian kings) | พระราชกฤษฎีกา / พระราชโองการ / กฤษฎีกา / คำสั่ง / รับสั่ง | A published edict กฤษฎีกา, พระราชกฤษฎีกา for a monarch's; a king's command พระราชโองการ; an order คำสั่ง. ลูกา 2:1, ดาเนียล 6:26, PP 242.2, PP 626.1, SJ 13.2 |
 | decree (God's sentence, command or ordinance) | คำตัดสิน / คำพิพากษา / พระบัญชา / พระดำรัส / ประกาศิต | Reference only; sentence คำตัดสิน or คำพิพากษา, command พระบัญชา; recasts stand; กฤษฎีกา only quoted. ดาเนียล 4:24, PP 38.3, PP 65.4, PP 392.1, PP 722.3, SC 17.2 |
@@ -405,6 +406,12 @@
 | Captain of the Lord's host, captain of the host of the LORD (Joshua 5:14) | จอมทัพ / จอมพลโยธา | [CHECK] Possessor varies, as ของพระเจ้า; จอมพลโยธา inside TKJV and TH1971 quotations. โยชูวา 5:14, PP 435.1, PP 487.3, PP 493.1, PP 761.5 |
 | form of a servant, took the form of a servant (Philippians 2:7) | สภาพทาส / สภาพเป็นผู้รับใช้ / สภาพอย่างผู้รับใช้ | [CHECK] THSV, TNCV, TH1971 สภาพทาส; NTV, TKJV the ผู้รับใช้ forms; quotations follow their version. ฟีลิปปี 2:7, MB 14.2, SJ 15.3 |
 | courts of heaven, heavenly courts, courts above, celestial courts | สวรรค์ / สรวงสวรรค์ / ท้องพระโรงแห่งสวรรค์ | The published books write heaven itself; ท้องพระโรง only where the throne is in view. PP 63.1, PP 65.3, PP 594.3, SC 104.1, SJ 15.1 |
+| priests and rulers, Jewish rulers (the Jewish leaders of Christ's day) | ผู้นำ / ผู้ปกครอง | [CHECK] ผู้ปกครอง only with ปุโรหิต, ชาวยิว or another qualifier beside it. ลูกา 23:13, ลูกา 24:20, MB 2.1, SJ 15.7, SJ 19.8 |
+| angel of death, destroying angel, destroyer (God's angel who strikes, as at the Passover) | ทูตมรณะ / ผู้สังหาร / ผู้ทำลาย | [CHECK] ทูตมรณะ, THSV ฮีบรู 11:28; destroyer ผู้สังหาร or ผู้ทำลาย; องค์เพชฌฆาต stands; never มัจจุราช. อพยพ 12:23, วิวรณ์ 6:8, SJ 18.3, PP 292.3, PP 748.4 |
+| destroyer, the (Satan) | ผู้ทำลาย | ซาตาน may replace the title. PP 39.2, PP 53.4, SC 125.1 |
+| plague, plagues (a judgment God sends: on Egypt, in the wilderness, the last plagues) | ภัยพิบัติ / โรคระบาด / โรคร้าย | [CHECK] THSV's ภัยพิบัติ for God's judgments; โรคระบาด or โรคร้าย for disease; figurative uses free. อพยพ 11:1, อพยพ 12:13, วิวรณ์ 15:1, SJ 18.1, SJ 18.5, PP 263.1, SC 24.1 |
+| law, the (the law of Moses, the law God gave Israel) | ธรรมบัญญัติ | THSV's word; ของโมเสส may follow where Moses is named; บัญญัติของโมเสส stands. ลูกา 2:22, ลูกา 2:27, SJ 17.2, SJ 19.1, MB 72.1 |
+| ceremonial law, ritual law | กฎพิธีกรรม | [CHECK] The rites given through Moses; set against กฎศีลธรรม, the moral law, at PP 365.1. PP 364.3, PP 365.1, PP 367.2, SJ 123.2 |
 
 ## 2. Proper nouns
 
