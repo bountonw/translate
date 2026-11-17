@@ -14,7 +14,7 @@ This repository holds translation projects in Thai and Lao. These rules bind eve
 1.F. FIX1 is the recommendation; its reason is one sentence. Add a further option only where it is genuinely different.
 1.G. Quote enough to identify the issue and no more. Show the text of a false alarm too. Give full paths. Drop a field that does not apply.
 1.G.1. One numbering scheme per report. Each command step is its own numbered item; points inside an item take one letter, as 3.A, never deeper. The options of a DECIDE keep the labels FIX1, FIX2.
-1.G.2. An item about a marker carries the marker's own number. An item without one takes the next number above the highest marker standing in the chapter, and 1 when no marker stands; past 99 the count returns to 1 once no item below 50 is still open. Grouping never renumbers.
+1.G.2. An item about a marker carries the marker's own number. A report on two or more chapters numbers its items in one sequence, each heading names the chapter and marker, and "N. fixK" names the item. An item without one takes the next number above the highest marker standing in the chapter, and 1 when no marker stands; past 99 the count returns to 1 once no item below 50 is still open. Grouping never renumbers.
 1.G.3. Every item stands on its own with no memory of the exchange: name the text, the file and the change; give the figures rather than "several"; put the recommendation first.
 1.G.4. Several changes in one sentence are several items, each with its own number, unless one reason joins them.
 1.H. A dispatched agent does not receive this file. An agent definition that produces a report carries the format itself.
