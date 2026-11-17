@@ -38,7 +38,7 @@ The people were desperate in their disappointment and despair. A wail of agony a
 
 ## {PP 388.4}
 
-But the ten, interrupting him, pictured the obstacles in darker colors than at first. “We be not able to go up against the people,“ they declared; “for they are stronger than we.... All the people that we saw in it are men of a great stature. And there we saw the giants, the sons of Anak, which come of the giants: and we were in our own sight as grasshoppers, and so we were in their sight.” {PP 388.4}
+But the ten, interrupting him, pictured the obstacles in darker colors than at first. “We be not able to go up against the people,” they declared; “for they are stronger than we.... All the people that we saw in it are men of a great stature. And there we saw the giants, the sons of Anak, which come of the giants: and we were in our own sight as grasshoppers, and so we were in their sight.” {PP 388.4}
 
 ## {PP 389.1}
 
