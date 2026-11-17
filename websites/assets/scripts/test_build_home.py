@@ -729,9 +729,14 @@ def release_run(tmp_path):
     site = tmp_path / 'site'
     (site / 'css').mkdir(parents=True)
     (site / 'css' / 'style.css').write_text('', encoding='utf-8')
-    (site / 'lo' / 'GC' / 'images').mkdir(parents=True)
-    (site / 'lo' / 'GC' / 'index.html').write_text('', encoding='utf-8')
-    (site / 'lo' / 'GC' / 'images' / 'cover.jpg').write_bytes(b'')
+    # every listed book's contents page and cover, empty, where its card links to them
+    for book in build_home.read_books():
+        folder = site / book['web']
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / 'index.html').write_text('', encoding='utf-8')
+        if book.get('cover'):
+            (folder / book['cover']).parent.mkdir(parents=True, exist_ok=True)
+            (folder / book['cover']).write_bytes(b'')
     for icon in ('favicon.png', 'apple-touch-icon.png'):
         (site / icon).write_bytes(b'')
     layout = tmp_path / 'layout'
