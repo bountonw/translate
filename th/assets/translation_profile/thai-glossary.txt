@@ -91,7 +91,7 @@
 | fallen nature, sinful nature, fallen condition | ธรรมชาติบาป / ธรรมชาติของความบาป / ธรรมชาติแห่งความบาป | [CHECK] Since the Fall; เนื้อหนัง, a description or a recast may stand, never proposed; วิสัยบาป only quoted. PP 80.1, PP 238.2, PP 373.1 |
 | justify, justification, Justifier (God's act) | ให้เป็นคนชอบธรรม / ให้เป็นผู้ชอบธรรม / นับเป็นผู้ชอบธรรม / ชำระให้ชอบธรรม / ชำระให้เป็นคนชอบธรรม | [CHECK] God declaring the believer righteous, the versions' verb shapes; แก้ตัว is the excuse sense only. โรม 3:26, SC 14.1, MB 27.2, PP 373.1 |
 | cross | ไม้กางเขน / กางเขน | [CHECK] MB 10.1, SC 13.1 |
-| angel, angels (of God) | ทูตสวรรค์ / ทูตของพระเจ้า / ทูตแห่งพันธสัญญา / ทูตขององค์พระผู้เป็นเจ้า | [CHECK] ทูตสวรรค์ unmodified; a modifier replaces สวรรค์, as ทูตของพระเจ้า, ทูตมรณะ. MB 106.2, PP 145.3 |
+| angel, angels (of God) | ทูตสวรรค์ / ทูตของพระเจ้า / ทูตแห่งพันธสัญญา / ทูตขององค์พระผู้เป็นเจ้า / เทวทูต | [CHECK] ทูตสวรรค์ unmodified; modifier replaces สวรรค์. ทวยเทพ and เทวเทพ stand where exalted, literary or avoiding repetition; never เทวดา. เทวทูต, the older Bibles' word, stands where the passage plainly means God's angels; the dictionary gives only its Buddhist sense. MB 85.3, MB 106.2, PP 145.3 |
 | evil angels, angels of Satan | ทูตของซาตาน / ทูตของมาร / ทูตแห่งความชั่ว / ทูตบริวารของมัน | [CHECK] Never ทูตสวรรค์ for Satan's angels. PP 64.3, MB 29.2 |
 | Advocate | ผู้ทูลแก้ต่าง / ผู้ช่วยทูลขอพระบิดา | [CHECK] TNCV and THSV at 1 ยอห์น 2:1. SC 14.3 |
 | Son of man | บุตรมนุษย์ | [CHECK] MB 40.2, SC 14.3 |
@@ -130,6 +130,7 @@
 | stain of iniquity | มลทินบาป | Figure; translation memory; the stain row keeps its forms for a bare stain. SC 37.3 |
 | Searcher of hearts | พระเจ้าผู้ทรงชันสูตรจิตใจ / ผู้ทรงชันสูตรใจมนุษย์ | THSV's word at โรม 8:27; TKJV writes ตรวจค้น; MB and PP have no site for the title. SC 24.2 |
 | birthright | สิทธิบุตรหัวปี / สิทธิของบุตรหัวปี | [CHECK] THSV at ปฐมกาล 25:34 and ฮีบรู 12:16. PP 177.3, PP 178.3 |
+| first-born son (law of the first-born) | บุตรชายหัวปี | [CHECK] Where the child's sex matters, as presentation and redemption; quotations follow their version. ลูกา 2:23, SJ 17.3, SJ 18.1 |
 | Holy One of Israel | องค์บริสุทธิ์ของอิสราเอล / องค์บริสุทธิ์แห่งอิสราเอล | [CHECK] Prose ของ; THSV writes ของ 25 times, แห่ง 5; quotations follow their version. SC 24.1, MB 64.1, PP 360.2 |
 | Lamb of God | ลูกแกะของพระเจ้า | [CHECK] Prose and TCV's ยอห์น 1:29; the other versions' พระเมษโปดก stands inside their quotations. MB 1.3, SC 19.1, PP 63.3 |
 | plan of salvation | แผนการช่วยมนุษย์ให้รอด / แผนการแห่งความรอด | [CHECK] PP 63.3, PP 66.1, SC 27.2 |
@@ -353,6 +354,7 @@
 | enclosed religious life (shut themselves in monasteries; convent cells) | นักพรต / เป็นนักพรต | Reference only; the enclosed contemplative, never a public monk. GC 570.2, GC 72.2 |
 | restitution (repaying a wrong) | ชดใช้ | Repayment to the one wronged; the propitiation row's ชดใช้บาป is sin's penalty, another sense. MB 59.1 |
 | glory (God's honour), to the glory of God, glorify God | ถวายพระเกียรติ / พระเกียรติ / เกียรติ / ถวายเกียรติ | [CHECK] Honour; ถวายพระเกียรติแด่พระเจ้า for "to the glory of God"; พระสิริ stands as God's due. 1 โครินธ์ 10:31, ยอห์น 17:4, MB 15.2, PP 247.3, PP 421.1, SC 59.3 |
+| Lord of glory | องค์พระผู้เป็นเจ้าแห่งพระสิริ / พระเจ้าแห่งพระสิริ | THSV 1 โครินธ์ 2:8 form in quotation; narrative may take the shorter form. SC 45.1, MB 9.2 |
 | King of glory | กษัตริย์ผู้ทรงพระสิริ / พระมหากษัตริย์ผู้เปี่ยมด้วยพระสิริ | [CHECK] THSV Psalm 24 form in quotation; narrative may take the PP 154.2 form; องค์ราชันผู้ทรงพระสิริ stands. PP 707.4, PP 154.2, SC 125.3 |
 | angels of glory | เหล่าทูตสวรรค์ผู้สว่างเรืองรอง / ทูตสวรรค์ | Shining angels, PP 478.3; the bare word stands, MB 40.2; never พระสิริ for angels |
 | outshining of His glory, brightness of His glory, effulgence of His glory (Christ, Hebrews 1:3) | แสงสว่างแห่งพระสิริ / รัศมีแห่งพระสิริ / รัศมีเจิดจ้าแห่งพระเกียรติสิริ | [CHECK] Quotations follow their version; narrative รัศมีแห่งพระสิริ or the verb ฉาย as MB 49.2; แสงสะท้อน only inside TH1971. MB 49.2, PP 34.2, DA 19.1 |
@@ -388,6 +390,28 @@
 | common priest | ปุโรหิตธรรมดา | PP 350.2, DA 25.1 |
 | pontifical robes, the high priest's robes (the garments of his office) | ชุดประจำตำแหน่งมหาปุโรหิต / เครื่องแต่งกายประจำตำแหน่งมหาปุโรหิต / เสื้อตำแหน่ง | [CHECK] ประจำตำแหน่ง marks the office; THSV อพยพ 28:2 เสื้อตำแหน่ง inside a quotation. PP 350.2, PP 701.3, อพยพ 28:2, DA 25.1 |
 | understand (God or Christ as subject) | ทรงเข้าใจ / เข้าพระทัย / ทรงประจักษ์ | [CHECK] Default ทรงเข้าใจ, the versions' verb; เข้าพระทัย stands; ทรงประจักษ์ where สดุดี 139:2 is echoed. 1 พงศาวดาร 28:9, สดุดี 139:2, MB 32.3, PP 50.1, PP 140.3, PP 152.1, SC 34.3 |
+| prophetess | ผู้เผยพระวจนะหญิง | [CHECK] THSV and TNCV at ลูกา 2:36; TKJV's ผู้พยากรณ์หญิง only quoted. SJ 19.7 |
+| Passover | ปัสกา / เทศกาลปัสกา / พิธีปัสกา | [CHECK] THSV, TNCV, TKJV, TH1971; เทศกาล for the feast, พิธี for the rite. อพยพ 12:11, PP 274.3, PP 277.1, SJ 18.4 |
+| manger | รางหญ้า | Every version at ลูกา 2:7, 2:12, 2:16. PP 69.3, SC 78.1, SJ 15.1 |
+| inn, inns (lodging for travellers: Luke 2:7, 10:34) | โรงแรม / ที่พักแรม | THSV's โรงแรม first; TFB's ที่พักแรม where a hotel would mislead; โรงเตี๊ยม reads Chinese. ลูกา 2:7, ลูกา 10:34, SJ 13.3, SJ 65.4 |
+| child Jesus, infant Jesus (Jesus from birth to age twelve: Luke 2, Matthew 2) | พระกุมารเยซู / พระกุมาร | [CHECK] THSV writes it from the manger to age twelve; พระเยซู, ทารก, เด็กน้อย stand. ลูกา 2:12, ลูกา 2:43, SJ 19.2, SJ 19.5 |
+| book of life | หนังสือแห่งชีวิต | [CHECK] THSV, TNCV, TKJV; หนังสือชีวิต stands in quotations. ฟีลิปปี 4:3, PP 326.3, SJ 18.6 |
+| decree (an edict of a king, emperor or state: Caesar's census, Pharaoh, the Persian kings) | พระราชกฤษฎีกา / พระราชโองการ / กฤษฎีกา / คำสั่ง / รับสั่ง | A published edict กฤษฎีกา, พระราชกฤษฎีกา for a monarch's; a king's command พระราชโองการ; an order คำสั่ง. ลูกา 2:1, ดาเนียล 6:26, PP 242.2, PP 626.1, SJ 13.2 |
+| decree (God's sentence, command or ordinance) | คำตัดสิน / คำพิพากษา / พระบัญชา / พระดำรัส / ประกาศิต | Reference only; sentence คำตัดสิน or คำพิพากษา, command พระบัญชา; recasts stand; กฤษฎีกา only quoted. ดาเนียล 4:24, PP 38.3, PP 65.4, PP 392.1, PP 722.3, SC 17.2 |
+| door-posts, doorposts | วงกบประตู | THSV and TNCV at the Passover; เสาประตู for posts bearing God's words and the temple's. อพยพ 12:7, เฉลยธรรมบัญญัติ 6:9, 1 ซามูเอล 1:9, PP 274.1, SJ 18.2 |
+| shepherd, shepherds (herdsmen: Luke 2:8–20, David the shepherd boy, the patriarchs' men) | คนเลี้ยงแกะ / ผู้เลี้ยงแกะ | Free choice in prose; THSV writes คนเลี้ยงแกะ in ลูกา 2; quotations follow their version; Christ's title outside. ลูกา 2:8, PP 130.2, PP 641.1, SJ 16.1, SJ 20.2 |
+| Son of the Highest, Son of the Most High, Son of the most high God (Christ's title) | พระบุตรของพระเจ้าสูงสุด / พระบุตรของพระเจ้าผู้สูงสุด / พระบุตรขององค์ผู้สูงสุด | [CHECK] THSV, TNCV, TKJV, TH1971 at มาระโก 5:7; quotations follow their version. ลูกา 1:32, มาระโก 5:7, PP 762.2, SJ 15.1 |
+| Most High, the Highest, most high God (God's title) | องค์ผู้สูงสุด / พระเจ้าผู้สูงสุด / พระเจ้าสูงสุด / พระผู้สูงสุด | [CHECK] Default องค์ผู้สูงสุด, the Psalms' title; พระเจ้าผู้สูงสุด for "most high God"; quotations follow their version. สดุดี 91:1, ปฐมกาล 14:19, MB 106.2, MB 131.2, PP 106.2, PP 113.3, PP 124.3, PP 136.1 |
+| Commander (Christ's title: Commander of heaven, of the angel hosts; their Commander) | ผู้บัญชาการ / จอมทัพ | [CHECK] พระ may precede; ผู้ทรงบังคับบัญชา, ผู้บังคับบัญชา stand, never proposed; human commanders fall outside. อิสยาห์ 55:4, PP 63.2, PP 64.3, PP 155.2, SJ 15.2, SJ 15.5 |
+| Captain of the Lord's host, captain of the host of the LORD (Joshua 5:14) | จอมทัพ / จอมพลโยธา | [CHECK] Possessor varies, as ของพระเจ้า; จอมพลโยธา inside TKJV and TH1971 quotations. โยชูวา 5:14, PP 435.1, PP 487.3, PP 493.1, PP 761.5 |
+| form of a servant, took the form of a servant (Philippians 2:7) | สภาพทาส / สภาพเป็นผู้รับใช้ / สภาพอย่างผู้รับใช้ | [CHECK] THSV, TNCV, TH1971 สภาพทาส; NTV, TKJV the ผู้รับใช้ forms; quotations follow their version. ฟีลิปปี 2:7, MB 14.2, SJ 15.3 |
+| courts of heaven, heavenly courts, courts above, celestial courts | สวรรค์ / สรวงสวรรค์ / ท้องพระโรงแห่งสวรรค์ | The published books write heaven itself; ท้องพระโรง only where the throne is in view. PP 63.1, PP 65.3, PP 594.3, SC 104.1, SJ 15.1 |
+| priests and rulers, Jewish rulers (the Jewish leaders of Christ's day) | ผู้นำ / ผู้ปกครอง | [CHECK] ผู้ปกครอง only with ปุโรหิต, ชาวยิว or another qualifier beside it. ลูกา 23:13, ลูกา 24:20, MB 2.1, SJ 15.7, SJ 19.8 |
+| angel of death, destroying angel, destroyer (God's angel who strikes, as at the Passover) | ทูตมรณะ / ผู้สังหาร / ผู้ทำลาย | [CHECK] ทูตมรณะ, THSV ฮีบรู 11:28; destroyer ผู้สังหาร or ผู้ทำลาย; องค์เพชฌฆาต stands; never มัจจุราช. อพยพ 12:23, วิวรณ์ 6:8, SJ 18.3, PP 292.3, PP 748.4 |
+| destroyer, the (Satan) | ผู้ทำลาย | ซาตาน may replace the title. PP 39.2, PP 53.4, SC 125.1 |
+| plague, plagues (a judgment God sends: on Egypt, in the wilderness, the last plagues) | ภัยพิบัติ / โรคระบาด / โรคร้าย | [CHECK] THSV's ภัยพิบัติ for God's judgments; โรคระบาด or โรคร้าย for disease; figurative uses free. อพยพ 11:1, อพยพ 12:13, วิวรณ์ 15:1, SJ 18.1, SJ 18.5, PP 263.1, SC 24.1 |
+| law, the (the law of Moses, the law God gave Israel) | ธรรมบัญญัติ | THSV's word; ของโมเสส may follow where Moses is named; บัญญัติของโมเสส stands. ลูกา 2:22, ลูกา 2:27, SJ 17.2, SJ 19.1, MB 72.1 |
+| ceremonial law, ritual law | กฎพิธีกรรม | [CHECK] The rites given through Moses; set against กฎศีลธรรม, the moral law, at PP 365.1. PP 364.3, PP 365.1, PP 367.2, SJ 123.2 |
 
 ## 2. Proper nouns
 
@@ -410,6 +434,7 @@
 | Shittim, Abel-shittim, shittim tree | ชิทธีม / อาเบลชิทธีม / ต้นชิทธีม | [CHECK] Also inside a quotation. TNCV; THSV writes อาเบลชิทธิม, TKJV ชิทธิม. PP 453.2 |
 | Bethesda | เบธซาธา | [CHECK] THSV, TKJV and TH1971 at ยอห์น 5:2; TNCV writes เบเธสดา. SC 50.1 |
 | Nazareth | นาซาเร็ธ / เมืองนาซาเร็ธ | THSV's spelling. MB 2.1, PP 475.2, PP 592.3, SC 81.4 |
+| Jesus of Nazareth | พระเยซูชาวนาซาเร็ธ | THSV, TH1971 form; TNCV พระเยซูแห่งนาซาเร็ธ in its quotations. กิจการ 2:22, มาระโก 10:47 |
 | Galilee | กาลิลี / แคว้นกาลิลี / ทะเลสาบกาลิลี | THSV; ทะเลกาลิลี stands at MB 147.2, never proposed. MB 2.1, MB 4.1, PP 538.2, SC 81.4, SC 82.1 |
 | Philip (the apostle) | ฟีลิป | THSV. SC 11.1, SC 78.2, SC 91.1 |
 | Augustinian, Augustinians (the order); the Augustine Luther | คณะออกัสติน | [CHECK] Member นักบวชคณะออกัสติน; never ออกัสติน as Luther's forename; Saint Augustine himself is ออกัสติน. GC 162.3 |
@@ -430,7 +455,7 @@
 | Laban | ลาบัน | [CHECK] THSV's spelling. PP 173.1 |
 | Rachel | ราเชล | [CHECK] THSV's spelling. PP 188.2 |
 | Leah | เลอาห์ | [CHECK] THSV's spelling. PP 188.3 |
-| Joseph (son of Jacob) | โยเซฟ | [CHECK] Jacob's son, in Egypt; THSV's spelling. MB 41.2, PP 206.3 |
+| Joseph (son of Jacob; husband of Mary) | โยเซฟ | [CHECK] THSV's spelling for both men. MB 41.2, PP 206.3, ลูกา 2:4, SJ 13.1 |
 | Potiphar | โปทิฟาร์ | [CHECK] THSV's spelling. PP 214.2 |
 | Pharaoh | ฟาโรห์ | [CHECK] title of Egypt's kings; พระราชา stands for the man; THSV's spelling. MB 62.3, PP 130.2 |
 | Adam | อาดัม | [CHECK] THSV's spelling. MB 27.1, PP 44.3 |
@@ -479,6 +504,8 @@
 | Shechem | เชเคม | [CHECK] THSV's spelling. MB 1.1, PP 127.2 |
 | Bethel | เบธเอล | [CHECK] THSV's spelling. PP 127.2 |
 | Bethlehem | เบธเลเฮม | [CHECK] THSV's spelling. MB 1.1, PP 65.3 |
+| city of David (Bethlehem: Luke 2:4, 11) | เมืองของดาวิด | [CHECK] THSV's form; เมืองของกษัตริย์ดาวิด acceptable in prose; quotations follow their version; never นครดาวิด. ลูกา 2:4, ลูกา 2:11, SJ 13.2, SJ 16.4 |
+| city of David (Zion, the stronghold of Jerusalem; the kings' burial place) | นครดาวิด / นครของดาวิด | [CHECK] THSV's form at 44 verses; นครของกษัตริย์ดาวิด acceptable in prose; quotations follow their version. 2 ซามูเอล 5:7, 1 พงศ์กษัตริย์ 2:10 |
 | Jabbok | ยับบอก | [CHECK] THSV's spelling. PP 196.2 |
 | Mahanaim | มาหะนาอิม | [CHECK] THSV's spelling. PP 195.3 |
 | Ephrath | เอฟราธาห์ | [CHECK] THSV's spelling. PP 206.3 |
@@ -530,6 +557,9 @@
 | Barachias | เบเรคียาห์ | [CHECK] THSV มัทธิว 23:35 |
 | Herodians | กลุ่มผู้สนับสนุนเฮโรด | [CHECK] TNCV มัทธิว 22:16, มาระโก 3:6, 12:13; THSV พวกเฮโรด, พรรคพวกของเฮโรด |
 | Herodias | นางเฮโรเดียส | [CHECK] THSV มัทธิว 14:3; นาง at 5 of its 6 verses |
+| Mary (mother of Jesus) | มารีย์ / นางมารีย์ | [CHECK] Bare in her own story, as โยเซฟ; นางมารีย์ where a passage refers back to her. ลูกา 2:5, SJ 13.1, SJ 13.2 |
+| Simeon (son of Jacob; the old man of Luke 2:25) | สิเมโอน | [CHECK] THSV's spelling for both men. ลูกา 2:25, PP 204.3, SJ 19.3 |
+| Anna (the prophetess, Luke 2:36) | อันนา | [CHECK] THSV's spelling; whether นาง goes before it is judged in context. ลูกา 2:36, SJ 19.3 |
 | Baal, Baalim | บาอัล / พระบาอัล | [CHECK] Every version บาอัล; THSV พระบาอัล for the god, 99 of 157 sites; ผู้วินิจฉัย 2:11 พระบาอัลทั้งหลาย |
 | Ethiopia, Ethiopian, Ethiopians | เอธิโอเปีย / ชาวเอธิโอเปีย | [CHECK] TH1971, TKJV, กิจการ 8:27; THSV, TNCV คูช; a chapter's first quoted คูช takes a footnote |
 | Cush (where the author writes Cush) | คูช | [CHECK] [FLAG] THSV's spelling; decide at the site whether it reads คูช or เอธิโอเปีย, never skip |

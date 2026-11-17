@@ -16,7 +16,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 
 ## 2. Bible versions and citations
 
-2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971. MB: THSV.
+2.A. Each book sets its own default version, and an unlabelled citation in that book means its default. SC: THSV. PP: TH1971. MB: THSV. SJ: THSV.
 2.B. Every other version is labelled after the reference, as (สดุดี 145:15, 16 TNCV). Labels in use: THSV, TNCV, TKJV, TH1940, TH1971, THA-ERV, TCV, NTV, TCL, TFB.
 2.C. Which version a quotation uses is decided at each site for what the paragraph needs; one verse may sit in two versions in one paragraph.
 2.C.1. Where two versions serve the passage equally, prefer the one that does not write พระยาห์เวห์; THSV's พระยาห์เวห์ stands where THSV is the version the passage needs.
@@ -30,7 +30,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 
 3.A. Western numerals only.
 3.B. No invisible characters. Line breaking is decided at typesetting time from the template's word dictionary, never in a manuscript.
-3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”.
+3.C. Thai punctuation is Thai: no sentence-final period, and spaces mark phrase and sentence boundaries, so a space is never added or removed without a reason. Whether question marks and exclamation marks are used is decided per book. Quotations take the curly pair “ ”. A quotation spanning paragraphs opens at each paragraph and closes only where it ends.
 3.D. และ stays closed on both sides unless the clause it joins is long.
 3.D.1. ๆ takes a space after it, unless punctuation follows.
 3.E. Only Thai script stands in running text; Latin letters appear only in a citation's version label and in the parentheses of 5.B.
@@ -41,6 +41,7 @@ Read this file and thai-glossary.txt before drafting or auditing Thai. Where the
 4.B. Satan and demons take the lowest register: the pronoun is มัน in every narrative timeframe. Lucifer before his fall, where the text names him Lucifer, takes เขา, neither ท่าน nor มัน: he was the highest angel in the universe and not yet the enemy.
 4.B.1. มัน never stands for the Bible or God's word; the noun is repeated or the subject is carried from the clause before.
 4.C. The author and the reader together are เรา; a direct appeal to the reader takes ท่าน; where the author speaks in the first person, each book decides the pronoun, and SC writes ข้าพเจ้า. In a narrative, the men of faith and the prophets and apostles take ท่าน and others take เขา, and a figure may move from เขา to ท่าน as his story turns. A woman takes นาง with her name as her title, and นาง or เธอ as her pronoun.
+4.D. Match one modifier to the strength of the scene; never stack superlatives or intensifiers.
 
 ## 5. Proper nouns
 
