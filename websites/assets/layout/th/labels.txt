@@ -1,4 +1,7 @@
 # Words the Thai pages use
+toc: สารบัญ
+chapter: บทที่
+english: ต้นฉบับภาษาอังกฤษ
 # The home page's own words in Thai; build_home.py writes each in every
 # language and the language buttons switch them. Every language has every word.
 home:

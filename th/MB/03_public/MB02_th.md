@@ -4,7 +4,7 @@ chapter:
   title:
     th: ผู้เป็นสุข
     en: The Beatitudes
-  url: https://legacy.egwwritings.org/?ref=en_MB.6&para=150.52
+  url: https://m.egwwritings.org/en/book/150.52#52
 ---
 
 ## {MB 6.1}
