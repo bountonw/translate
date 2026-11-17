@@ -8,7 +8,8 @@ one page per chapter into <site>/<BOOK>/chapters/, named from the chapter
 number and English title (01_the_destruction_of_jerusalem.html). It also
 rewrites the chapter list in <site>/<BOOK>/index.html, then runs
 check_book.py on the result. For a Lao book, lao_words.py marks every word so
-lines break only where the print dictionaries allow. The page header, footer and page words come
+lines break only where the print dictionaries allow; for a Thai book,
+thai_words.py keeps the words of the Thai break list whole. The page header, footer and page words come
 from the layout folder of the book's language, such as layout/lo/, and are
 shared by every book in that language; the header opens every page with a
 link to the site's home page. Exits 1 when the check finds a problem.
@@ -190,6 +191,11 @@ def main():
         page += footer
         pages[ch['id']] = page
 
+    # Thai: a line never ends inside a word of the Thai break list
+    if lang == 'th':
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from thai_words import mark as mark_thai
+        pages = mark_thai(pages, code)
     # Lao: lines break only where the print dictionaries allow
     if lang == 'lo':
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

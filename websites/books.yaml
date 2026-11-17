@@ -8,6 +8,8 @@
 #   lang: the book's language, lo, th or en, as in its metadata.yaml; the home page
 #     layout (websites/assets/layout/lo/home.html) has one tab for each
 #   cover: optional; the cover picture, from the book's web folder, such as images/cover.jpg
+#   epub: optional; the book's EPUB file in its web folder, such as GC_lo.epub; the card then has a Download EPUB link
+#   print: optional; the book's print-edition PDF in its web folder, such as GC_lo_print.pdf; the card then has a print-edition link
 #   description: optional; one or two sentences about the book
 #   first_printing: optional; the first-printing line
 #   title_in: optional; under it, a line per page language, such as th, naming the
@@ -21,6 +23,8 @@ lo/GC:
   web: lo/GC
   lang: lo
   cover: images/cover.jpg
+  epub: GC_lo.epub
+  print: GC_lo_print.pdf
   description:
   first_printing: ພິມຄັ້ງທຳອິດ ເດືອນພະຈິກ 2026
   title_in:
@@ -32,3 +36,16 @@ lo/GC:
   first_printing_in:
     th: พิมพ์ครั้งแรก พฤศจิกายน 2026
     en: First printing: November 2026
+th/MB:
+  web: th/MB
+  lang: th
+  cover: images/cover.jpg
+  epub: MB_th.epub
+  description:
+  first_printing:
+  title_in:
+    lo: ປັນຍາຈາກຄຳເທດສະໜາເທິງພູເຂົາ
+    en: Thoughts From the Mount of Blessing, in Thai
+  author_in:
+    lo: ເອເລນ ຈີ. ໄວທ໌
+    en: Ellen G. White
