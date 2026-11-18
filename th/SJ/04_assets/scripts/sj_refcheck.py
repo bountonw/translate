@@ -10,6 +10,11 @@ English paragraph of the same anchor, and a quotation followed by its
 citation is compared word for word with the cited version from the offline
 Bible corpus (path in sj_common.py; New Testament books only are on disk).
 A #footnote[...] call inside a quotation is removed before the comparison.
+A quotation followed directly by a footnote that holds a citation, as
+“...”#footnote[มัทธิว 2:16], is compared with that citation. A quotation with
+no citation after it in its paragraph takes a NOTE naming the next citation
+in the chapter and whether the quotation matches that citation's version, so
+the auditor compares it by hand.
 A parenthesis opening with ดู, as (ดู 2 เปโตร 1:16), is a pointer, not the
 citation of a quotation, so no quotation is compared with it.
 A chapter-only citation after a semicolon, as "14:10" in (ยอห์น 5:19 TNCV;
@@ -26,7 +31,8 @@ DEFAULT_VERSION in sj_common.py.
           chapter cited with fewer verses than the English, or a quotation
           that differs from its version (the version's text is printed).
     NOTE  not a marker: a citation the Thai carries beyond the English, extra
-          verses, a THSV label, a quotation that could not be compared.
+          verses, a THSV label, a quotation that could not be compared, a
+          quotation with no citation after it.
 
 Exit status 1 when any REF line was printed.
 """
@@ -238,39 +244,50 @@ def strip_footnotes(text):
         i = k
 
 
-def compare_quote(quote, cite, th_books, anchor, refs, skipped):
-    """Compare one quotation with its cited verses in the labelled version."""
+def match_quote(quote, cite, th_books):
+    """Set one quotation beside its cited verses in the labelled version.
+    Returns (status, raw, label, version text); status is "match", "differs",
+    "not on disk", "verse not found" or None when cite holds no verse citation."""
     found = cites(cite, TH_CITE, th_books)
     if not found or found[0][1] is None or found[0][3] is None or isinstance(found[0][3], tuple):
-        return
+        return None, None, None, None
     name, code, ch, vv, label, raw = found[0]
     label = label or DEFAULT_VERSION
     verses = load_version(label, code)
     if verses is None:
-        skipped.append(f"{raw} (not on disk)")
-        return
+        return "not on disk", raw, label, None
     texts = [verses.get((ch, v)) for v in sorted(vv)]
     if any(t is None for t in texts):
-        skipped.append(f"{raw} (verse not found in {label})")
-        return
+        return "verse not found", raw, label, None
     expected = STRIP.sub("", "".join(texts))
     quote = TYPST_FN.sub("", quote)
     parts = [STRIP.sub("", p) for p in ELLIPSIS.split(quote) if STRIP.sub("", p)]
-    pos, ok = 0, True
+    pos = 0
     for part in parts:
         i = expected.find(part, pos)
         if i < 0:
-            ok = False
-            break
+            return "differs", raw, label, " ".join(texts)
         pos = i + len(part)
-    if ok:
-        return
-    shown = " ".join(texts)
-    refs.append(f"{{SJ {anchor}}} REF quote: the quotation cited \"{raw}\" differs from {label}, which reads: {shown[:300]}")
+    return "match", raw, label, None
+
+
+def compare_quote(quote, cite, th_books, anchor, refs, skipped):
+    """Compare one quotation with its cited verses in the labelled version."""
+    status, raw, label, shown = match_quote(quote, cite, th_books)
+    if status == "not on disk":
+        skipped.append(f"{raw} (not on disk)")
+    elif status == "verse not found":
+        skipped.append(f"{raw} (verse not found in {label})")
+    elif status == "differs":
+        refs.append(f"{{SJ {anchor}}} REF quote: the quotation cited \"{raw}\" differs from {label}, which reads: {shown[:300]}")
+
+
+FOOTNOTE_CITE = re.compile(r"\s*#footnote\[([^\[\]]*\d+:\d+[^\[\]]*)\]")
 
 
 def compare_paragraph(body, th_books, anchor, refs, skipped):
-    """Pair each citation parenthesis with the quotations before it, in order."""
+    """Pair each citation parenthesis with the quotations before it, in order.
+    Returns the quotations after the last citation that no footnote cites."""
     pos = 0
     for m in CITE_PAREN.finditer(body):
         if m.group(1).lstrip().startswith("ดู "):
@@ -288,6 +305,34 @@ def compare_paragraph(body, th_books, anchor, refs, skipped):
             compare_quote(quotes[-1], cites_[0], th_books, anchor, refs, skipped)
         else:
             skipped.append(f"({m.group(1)[:60]}) ({len(quotes)} quotations, {len(cites_)} citations)")
+    uncited = []
+    tail = body[pos:]
+    for q in QUOTE.finditer(tail):
+        f = FOOTNOTE_CITE.match(tail, q.end())
+        quote = strip_footnotes(q.group(1))
+        if f is None:
+            uncited.append(quote)
+        elif not f.group(1).lstrip().startswith("ดู "):
+            compare_quote(quote, f.group(1).strip(), th_books, anchor, refs, skipped)
+    return uncited
+
+
+def uncited_note(quote, anchor, later, th_all, th_books):
+    """The NOTE for a quotation with no citation after it in its paragraph:
+    the next verse citation in the chapter and how the quotation fares in it."""
+    head = re.sub(r"\s+", " ", quote).strip()[:40]
+    line = f"{{SJ {anchor}}} NOTE uncited-quote: “{head}…” has no citation after it"
+    for a in later:
+        for name, code, ch, vv, label, raw in th_all[a]:
+            if code is None or vv is None or isinstance(vv, tuple):
+                continue
+            status, raw, label, shown = match_quote(quote, raw, th_books)
+            verdict = {"match": f"the quotation matches {label} there",
+                       "differs": f"the quotation differs from {label} there, compare it by hand",
+                       "not on disk": f"{label} is not on disk, compare it by hand",
+                       "verse not found": f"the verse is not in {label}, compare it by hand"}.get(status, "compare it by hand")
+            return f"{line}; the next citation is \"{raw}\" at {{SJ {a}}}, and {verdict}"
+    return f"{line}; no later citation in the chapter, compare it by hand if it is Scripture"
 
 
 def main():
@@ -364,8 +409,10 @@ def main():
             else:
                 refs.append(f"{{SJ {p.anchor}}} REF missing: EN \"{raw}\" — no Thai citation of {code} {ch} in the paragraph")
         before = len(skipped)
-        compare_paragraph(body, th_books, p.anchor, refs, skipped)
+        uncited = compare_paragraph(body, th_books, p.anchor, refs, skipped)
         skipped[before:] = [f"{{SJ {p.anchor}}} {s}" for s in skipped[before:]]
+        for quote in uncited:
+            notes.append(uncited_note(quote, p.anchor, order[i + 1:], th_all, th_books))
 
     if skipped:
         notes.append("NOTE quotations not compared: " + "; ".join(skipped))

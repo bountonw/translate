@@ -19,7 +19,9 @@ ROOT = Path(__file__).resolve().parents[4]
 PROJECT = ROOT / "th" / "SJ"
 STAGES = ("03_public", "02_edit", "01_raw")
 SOURCE_DIRS = (PROJECT / "00_source", ROOT / "source" / "SJ")
-SANDBOX = Path(os.path.expanduser("~/claude-sandbox/sj-audit"))
+# The session's working files. Set SJ_SANDBOX in the environment when the
+# session runs under a different home directory.
+SANDBOX = Path(os.path.expanduser(os.environ.get("SJ_SANDBOX", "~/claude-sandbox/sj-audit")))
 # SJ's default Bible version: an unlabelled citation means this version.
 DEFAULT_VERSION = "THSV"
 # The offline Bible corpus: one directory per version, one file per book. Set

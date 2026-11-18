@@ -9,4 +9,9 @@
 {SJ 19.1} | Joseph and Mary brought Jesus | โยเซฟและมารีย์พาพระเยซู | "We didn't use นายโยเซฟ."
 {SJ 19.1} | in Joseph and Mary the priest saw nothing different | โยเซฟและมารีย์มีอะไรแตกต่าง | "We didn't use นายโยเซฟ."
 {SJ 20.2} | Mary, the mother of Jesus, pondered | มารีย์มารดาของพระเยซูใคร่ครวญ | "This is the actual story of Joseph and Mary."
+{SJ 23.1} | These wise men were philosophers. | นักปราชญ์เหล่านั้นเป็นผู้คงแก่เรียน | The paragraph says the men studied nature and the stars, and เรียน leads into the words for study that follow.
+{SJ 24.3} | the heavenly Friend who has given them every blessing | พระเยซูผู้เป็นพระสหายผู้ประทานพระพรทั้งสิ้น | พระสหาย beside เพื่อนๆ already marks the Friend as divine.
+{SJ 27.2} | sent soldiers to kill “all the children | ให้ออก “ไปฆ่าเด็กผู้ชายทั้งหมด | The quotation is exact THSV, whose Matthew 2:16 carries ไปฆ่า, and the print opens it at the same place.
+{SJ 33.6} | Luke 2:48, 49. | (ลูกา 2:49 TKJV) | The translator moved (ลูกา 2:48) to Mary's words in {SJ 33.5}, so each quotation carries its own verse and version; the REF verses finding of sj_refcheck.py is expected.
+{SJ 41.3} | The kingdom of God is at hand | เวลากำหนดมาถึงแล้วและ | "The problem of not including the beginning, renders the remainder of the verse non-grammatical."
 {SJ 65.4} | brought him to an inn | พาไปยังโรงแรม | "Nine of the ten versions write โรงแรม at Luke 10:34."
