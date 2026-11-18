@@ -6,6 +6,10 @@ Work that is agreed but not scheduled, in the order it will be done. When the tr
 
 1. Have editor review SJ00.
 
+## Later review
+
+1. Footnoted references. Review every Bible reference that sits in a footnote across the book and confirm whether it should be inline, in parentheses after its sentence, or stay a footnote. The Thai profile's rule: a citation sits in parentheses where it fits the flow of the sentence, and becomes a footnote only where a parenthesis would break it. About 11 footnotes in 9 chapters today; footnotes that explain a word are not references and stay.
+
 ## Typesetting, after the qa, read and review rounds
 
 1. Filler quotations. At the last step of typesetting, once paper size, font size and the final text are set, decide whether any chapter end takes a filler quotation, an illustration or nothing. The 32 quotations the 2023 print used, each with its former place, are in th/SJ/04_assets/planning/filler-quotes.txt; delete that file when this is decided. Small.
