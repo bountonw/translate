@@ -390,6 +390,7 @@
 | common priest | ปุโรหิตธรรมดา | PP 350.2, DA 25.1 |
 | pontifical robes, the high priest's robes (the garments of his office) | ชุดประจำตำแหน่งมหาปุโรหิต / เครื่องแต่งกายประจำตำแหน่งมหาปุโรหิต / เสื้อตำแหน่ง | [CHECK] ประจำตำแหน่ง marks the office; THSV อพยพ 28:2 เสื้อตำแหน่ง inside a quotation. PP 350.2, PP 701.3, อพยพ 28:2, DA 25.1 |
 | understand (God or Christ as subject) | ทรงเข้าใจ / เข้าพระทัย / ทรงประจักษ์ | [CHECK] Default ทรงเข้าใจ, the versions' verb; เข้าพระทัย stands; ทรงประจักษ์ where สดุดี 139:2 is echoed. 1 พงศาวดาร 28:9, สดุดี 139:2, MB 32.3, PP 50.1, PP 140.3, PP 152.1, SC 34.3 |
+| prophet | ผู้เผยพระวจนะ | [CHECK] THSV, TNCV and TH1971; TKJV's ผู้พยากรณ์ only quoted. MB 1.3, MB 43.1, MB 53.3 |
 | prophetess | ผู้เผยพระวจนะหญิง | [CHECK] THSV and TNCV at ลูกา 2:36; TKJV's ผู้พยากรณ์หญิง only quoted. SJ 19.7 |
 | Passover | ปัสกา / เทศกาลปัสกา / พิธีปัสกา | [CHECK] THSV, TNCV, TKJV, TH1971; เทศกาล for the feast, พิธี for the rite. อพยพ 12:11, PP 274.3, PP 277.1, SJ 18.4 |
 | manger | รางหญ้า | Every version at ลูกา 2:7, 2:12, 2:16. PP 69.3, SC 78.1, SJ 15.1 |
@@ -412,6 +413,9 @@
 | plague, plagues (a judgment God sends: on Egypt, in the wilderness, the last plagues) | ภัยพิบัติ / โรคระบาด / โรคร้าย | [CHECK] THSV's ภัยพิบัติ for God's judgments; โรคระบาด or โรคร้าย for disease; figurative uses free. อพยพ 11:1, อพยพ 12:13, วิวรณ์ 15:1, SJ 18.1, SJ 18.5, PP 263.1, SC 24.1 |
 | law, the (the law of Moses, the law God gave Israel) | ธรรมบัญญัติ | THSV's word; ของโมเสส may follow where Moses is named; บัญญัติของโมเสส stands. ลูกา 2:22, ลูกา 2:27, SJ 17.2, SJ 19.1, MB 72.1 |
 | ceremonial law, ritual law | กฎพิธีกรรม | [CHECK] The rites given through Moses; set against กฎศีลธรรม, the moral law, at PP 365.1. PP 364.3, PP 365.1, PP 367.2, SJ 123.2 |
+| wise men (the magi of Matthew 2) | นักปราชญ์ | [CHECK] THSV's word; never โหราจารย์; พวก, เหล่า or บรรดา may stand before it. มัทธิว 2:1, มัทธิว 2:7, PP 637.1, SJ 21.4, SJ 23.7 |
+| Friend, heavenly Friend, best Friend (capitalised: Christ or God) | มิตรสหาย / พระสหาย / สหาย | [CHECK] Default มิตรสหาย; พระสหาย where a human เพื่อน stands beside it. MB 9.2, MB 120.1, PP 128.2, SC 103.2, SJ 24.3 |
+| handiwork, work of His hands, works of His hands (God's works in creation) | ฝีพระหัตถ์ / พระหัตถกิจ | [CHECK] ฝีพระหัตถ์ where the craftsmanship shows; แห่งการทรงสร้าง may follow; THSV's ผลงานแห่งพระหัตถ์ only quoted. สดุดี 19:1, MB 26.4, PP 47.2, PP 48.1, PP 49.3, PP 103.2, SC 87.1, SJ 23.1 |
 
 ## 2. Proper nouns
 
@@ -504,6 +508,7 @@
 | Shechem | เชเคม | [CHECK] THSV's spelling. MB 1.1, PP 127.2 |
 | Bethel | เบธเอล | [CHECK] THSV's spelling. PP 127.2 |
 | Bethlehem | เบธเลเฮม | [CHECK] THSV's spelling. MB 1.1, PP 65.3 |
+| Judea | ยูเดีย | [CHECK] THSV's spelling, usually with แคว้น. มัทธิว 2:1, MB 2.1, MB 4.2, PP 166.3 |
 | city of David (Bethlehem: Luke 2:4, 11) | เมืองของดาวิด | [CHECK] THSV's form; เมืองของกษัตริย์ดาวิด acceptable in prose; quotations follow their version; never นครดาวิด. ลูกา 2:4, ลูกา 2:11, SJ 13.2, SJ 16.4 |
 | city of David (Zion, the stronghold of Jerusalem; the kings' burial place) | นครดาวิด / นครของดาวิด | [CHECK] THSV's form at 44 verses; นครของกษัตริย์ดาวิด acceptable in prose; quotations follow their version. 2 ซามูเอล 5:7, 1 พงศ์กษัตริย์ 2:10 |
 | Jabbok | ยับบอก | [CHECK] THSV's spelling. PP 196.2 |
@@ -555,6 +560,7 @@
 | Hivite, Hivites | ชาวฮีไวต์ | [CHECK] DA 3.K and TNCV's form; THSV, TH1971 and TKJV write คนฮีไวต์ |
 | Kenite, Kenites | ชาวเคไนต์ | [CHECK] DA 3.K and TNCV's form; THSV คนเคไนต์ |
 | Barachias | เบเรคียาห์ | [CHECK] THSV มัทธิว 23:35 |
+| Herod (the Great, Matthew 2) | เฮโรด | [CHECK] THSV's spelling; กษัตริย์เฮโรด or bare เฮโรด. มัทธิว 2:1, SJ 23.7, SJ 25.1 |
 | Herodians | กลุ่มผู้สนับสนุนเฮโรด | [CHECK] TNCV มัทธิว 22:16, มาระโก 3:6, 12:13; THSV พวกเฮโรด, พรรคพวกของเฮโรด |
 | Herodias | นางเฮโรเดียส | [CHECK] THSV มัทธิว 14:3; นาง at 5 of its 6 verses |
 | Mary (mother of Jesus) | มารีย์ / นางมารีย์ | [CHECK] Bare in her own story, as โยเซฟ; นางมารีย์ where a passage refers back to her. ลูกา 2:5, SJ 13.1, SJ 13.2 |
