@@ -428,6 +428,19 @@
 | prodigals (wastrels, spendthrifts; not Luke 15's son) | คนเสเพลสุรุ่ยสุร่าย / คนสุรุ่ยสุร่าย / คนเสเพล / ผลาญทรัพย์ (modifier) | [CHECK] Wastrels who squander their means; not Luke 15's son, so never บุตรที่หลงหาย. ลูกา 15:13, SJ 40.2 |
 | priest, priests (Jewish, of the temple) | ปุโรหิต | [CHECK] The Bible's word; never บาทหลวง or นักบวช. ลูกา 1:5, MB 1.1, SJ 31.8 |
 | synagogue | ธรรมศาลา | [CHECK] THSV ลูกา 4:16. SC 41.1, SJ 30.3 |
+| public ministry, His ministry (Christ's work on earth) | พระราชกิจ / พันธกิจ | [CHECK] Christ's earthly work; default พระราชกิจ, royal register; "public" means openly, among the people. ลูกา 3:23, ฮีบรู 8:6, MB 1.3, MB 2.1, MB 13.1, SJ 41.1 |
+| access (to God, to the Father, to the throne of grace) | เข้าเฝ้า / เข้าไปถึง / เข้าถึง / เข้ามาหา | [CHECK] Coming before God through Christ; เข้าเฝ้า as THSV; a recast such as ใบเบิกทาง stands. เอเฟซัส 2:18, เอเฟซัส 3:12, MB 140.1, SJ 42.8 |
+| access (to a place, a tree, a throne, a person's mind) | เข้าถึง / เข้าไปถึง / เข้าหา | Free choice; access that is not access to God. PP 47.1, PP 53.3, PP 330.4, PP 514.3 |
+| miracle (a work of God's or Christ's power, or Satan's counterfeit) | การอัศจรรย์ / อย่างอัศจรรย์ / การมหัศจรรย์ / อิทธิฤทธิ์ / การมหิทธิฤทธิ์ | [CHECK] ปาฏิหาริย์ stands where a display is demanded; the verb follows each book's register. มัทธิว 13:58, MB 146.2, PP 214.4, SC 49.3, PP 151.4, PP 315.3, PP 761.7 |
+| indulge, indulgence, self-indulgence | ตามใจ / ปล่อยตัว / สนอง / หลงระเริง | Object decides: ตามใจปาก for appetite, ปล่อยตัวไปกับ sin; ตามอำเภอใจ is self-will, never appetite. PP 142.4, PP 181.3, SC 34.1, SJ 45.1 |
+| fast, fasting (Christ's forty days; fasting as a practice) | อดอาหาร / การอดอาหาร / ถืออดอาหาร | [CHECK] Also for Christ, as THSV มัทธิว 4:2; อดพระกระยาหาร stands where the prose wants it. มัทธิว 4:2, มัทธิว 6:16, MB 87.1, SJ 43.7 |
+| pinnacle of the temple (Matthew 4:5, Luke 4:9) | ยอดพระวิหาร / ยอดหลังคาพระวิหาร / จุดสูงสุดของพระวิหาร | Default ยอดพระวิหาร as TFB; THSV, TKJV, TH1971 ยอดหลังคาพระวิหาร; quotations follow their version. มัทธิว 4:5, ลูกา 4:9, SJ 46.1 |
+| angel of light (Satan's disguise, 2 Corinthians 11:14) | ทูตแห่งความสว่าง | [CHECK] ทูตสวรรค์แห่งความสว่าง and ทูตสวรรค์ของความสว่าง stand; so does a description with สว่าง. 2 โครินธ์ 11:14, SJ 45.4, PP 679.3 |
+| worship Satan, worshiping Satan, worship of Satan, demand for worship (Satan's: Matthew 4:9, Luke 4:7) | กราบไหว้ / นมัสการ / บูชา | กราบไหว้ in narration; Satan's demand echoes มัทธิว 4:9 ก้มลงนมัสการ; บูชาซาตาน may read as a cult. มัทธิว 4:9, ลูกา 4:7, SJ 46.8, SJ 47.2, SJ 47.5, SJ 47.10 |
+| pride of life (1 John 2:16) | ความทะนงในลาภยศ / ความทะนงในสิ่งที่ตนมีหรือทำ / ความเย่อหยิ่งในชีวิต | [CHECK] Default THSV ลาภยศ; quotations follow their version; a bare pride word loses the object. 1 ยอห์น 2:16, MB 95.1, SJ 47.7 |
+| lust of the flesh (1 John 2:16) | ตัณหาของเนื้อหนัง / ความต้องการของเนื้อหนัง | Five versions write ตัณหา at 1 ยอห์น 2:16; THSV ความต้องการ at กาลาเทีย 5:16. 1 ยอห์น 2:16, 1 เปโตร 2:11, MB 95.1 |
+| lust of the eyes (1 John 2:16) | ตัณหาของตา | Five versions at 1 ยอห์น 2:16. 1 ยอห์น 2:16, MB 95.1 |
+| first parents, our (Adam and Eve) | บรรพบุรุษคู่แรก / มนุษย์คู่แรก | [CHECK] Default บรรพบุรุษคู่แรก, ของเรา where "our" matters; มนุษย์คู่แรก where the first humans are meant; names stand. MB 17.2, MB 52.2, PP 48.4, SC 62.1, SJ 45.1 |
 
 ## 2. Proper nouns
 
