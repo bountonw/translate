@@ -39,7 +39,7 @@ BUDGET = {
     ".claude/agents/sc-batch-auditor.md": 2005,
     ".claude/agents/sc-batch-auditor-qa2.md": 800,
     ".claude/agents/sc-reader-qa3.md": 900,
-    ".claude/agents/th-term-study.md": 760,
+    ".claude/agents/th-term-study.md": 790,
     ".claude/agents/sc-wording-drill.md": 770,
     ".claude/agents/sc-wording-drill-opus-max.md": 775,
     ".claude/agents/sc-resolve-check.md": 885,

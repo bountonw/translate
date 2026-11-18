@@ -15,7 +15,7 @@
 | psalmist | ผู้ประพันธ์สดุดี / ผู้ประพันธ์พระธรรมสดุดี / ผู้ประพันธ์เพลงสดุดี / ผู้ประพันธ์บทเพลงสดุดี / ดาวิด | [CHECK] Default ผู้ประพันธ์สดุดี as PP; ดาวิด only where the psalm's title names him; พระธรรมสดุดี as the book stands. PP 33.2, SC 9.1, SC 37.4 |
 | temptation | การทดลอง / ถูกทดลอง | [CHECK] Enticement to sin; the Bible's word. ถูกทดลอง is the verb. มัทธิว 6:13, MB 116.2 |
 | trial (God testing) | การทดสอบ / ทดสอบ / ถูกทดสอบ / ลองใจ / การทดลองใจ | [CHECK] God proving faith or character; THSV writes ทดลอง here too, ambiguous but not wrong. ปฐมกาล 22:1, PP 48.4 |
-| trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
+| trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ / ปัญหายุ่งยาก | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
 | tempt (Satan lures) | ล่อลวง / ทดลอง / หลอกล่อ / ชักนำ | [CHECK] Satan as agent: ล่อลวง where luring is the point, ทดลอง where testing is. ยากอบ 1:14, PP 54.3 |
 | tempter, the | ผู้ทดลอง / มารผู้ทดลอง / ซาตาน | The name may replace the title. มัทธิว 4:3, PP 54.2 |
 | test (proof, criterion) | พิสูจน์ / บทพิสูจน์ / เกณฑ์วัด | A standard something is measured by, not God's testing. MB 145.1, PP 707.2 |
@@ -62,7 +62,7 @@
 | law of love | พระบัญญัติแห่งความรัก / กฎแห่งความรัก | [CHECK] Both stand. PP 34.3, MB 97.3 |
 | curse, verb and noun | สาปแช่ง / คำสาปแช่ง / การสาปแช่ง | [CHECK] The verb, then the two nouns. MB 17.3, MB 1.1, PP 78.2 |
 | character (of God, of Christ) | พระลักษณะ / พระลักษณะนิสัย / พระอุปนิสัย | [CHECK] In this order of preference. MB 49.2, MB 77.1, MB 54.1 |
-| goodness (of God) | พระคุณความดี / ความดีของพระเจ้า | [CHECK] MB 26.3, PP 74.1 |
+| goodness (of God) | คุณความดี / ความดีของพระเจ้า / พระกรุณาคุณ | [CHECK] Never พระคุณความดี, it reads as grace. อพยพ 33:19, สดุดี 31:19, โรม 2:4, PP 74.1 |
 | glory (of God, of Christ) | พระสิริ / พระเกียรติสิริ | [CHECK] THSV, TH1971 พระสิริ; TNCV พระเกียรติสิริ; ถวายพระเกียรติแด่ or ถวายเกียรติแด่ stands where glory is the aim, 1 โครินธ์ 10:31, ยอห์น 17:4; visible radiance may take รัศมี, heaven's glory สง่าราศี. MB 26.2, MB 43.1, PP 330.4, SC 59.3 |
 | the enemy of good | ศัตรูแห่งความดี | Follows SC 10.3; PP and MB have no site for the phrase |
 | ruin and degradation; degradation | ความตกต่ำ / ความเสื่อมทราม / ความเสื่อมเสีย / ความเสื่อมโทรม | [CHECK] Pair ความหายนะ or ความพินาศ with ความตกต่ำ or ความเสื่อมทราม; เสื่อมเสีย means disgrace. SC 14.3, MB 69.2 |
@@ -169,7 +169,7 @@
 | Spirit of truth | พระวิญญาณแห่งความจริง | [CHECK] Every version's title at ยอห์น 14:17, 15:26, 16:13; a 1 ยอห์น 4:6 quotation follows its version. SC 91.2, SC 109.2 |
 | confession, confess (of sin) | สารภาพ | [CHECK] The verb; object บาป, ความผิด or ความผิดบาป; การ prefix makes the noun. MB 84.4, MB 58.3 |
 | High Priest (Christ) | มหาปุโรหิต | [CHECK] Names Aaron and Caiaphas too; "great High Priest" adds ผู้ยิ่งใหญ่ standing alone, cut in apposition. PP 351.1, PP 426.1, SC 37.3 |
-| publican | คนเก็บภาษี | [CHECK] The Gospel tax collector; พวก may precede. MB 7.2, MB 129.2 |
+| publican, taxgatherer, tax-gatherer | คนเก็บภาษี | [CHECK] The Gospel tax collector; พวก may precede. MB 7.2, MB 129.2, SJ 40.2 |
 | father of lies | บิดาแห่งการมุสา | [CHECK] Satan's title, John 8:44. PP 58.1 |
 | self-justification, excuse (for sin) | แก้ตัว / คำแก้ตัว / ข้อแก้ตัว | [CHECK] แก้ตัว the verb; คำแก้ตัว and ข้อแก้ตัว the nouns. PP 57.5, PP 58.1, PP 153.3 |
 | Holy Spirit | พระวิญญาณบริสุทธิ์ | [CHECK] |
@@ -416,6 +416,18 @@
 | wise men (the magi of Matthew 2) | นักปราชญ์ | [CHECK] THSV's word; never โหราจารย์; พวก, เหล่า or บรรดา may stand before it. มัทธิว 2:1, มัทธิว 2:7, PP 637.1, SJ 21.4, SJ 23.7 |
 | Friend, heavenly Friend, best Friend (capitalised: Christ or God) | มิตรสหาย / พระสหาย / สหาย | [CHECK] Default มิตรสหาย; พระสหาย where a human เพื่อน stands beside it. MB 9.2, MB 120.1, PP 128.2, SC 103.2, SJ 24.3 |
 | handiwork, work of His hands, works of His hands (God's works in creation) | ฝีพระหัตถ์ / พระหัตถกิจ | [CHECK] ฝีพระหัตถ์ where the craftsmanship shows; แห่งการทรงสร้าง may follow; THSV's ผลงานแห่งพระหัตถ์ only quoted. สดุดี 19:1, MB 26.4, PP 47.2, PP 48.1, PP 49.3, PP 103.2, SC 87.1, SJ 23.1 |
+| rabbi, rabbis (the Jewish teachers of the law in Christ's day) | ธรรมาจารย์ / รับบี | [CHECK] รับบี only where the title itself is named or spoken; อาจารย์ forms stand. มัทธิว 23:2, มัทธิว 23:7, ยอห์น 1:38, MB 3.1, MB 46.4, MB 131.2, SJ 30.3, SJ 37.3, DA 85.1 |
+| Jewish teachers, learned teachers (the rabbis by another name; the great teachers, the doctors of Luke 2:46) | ธรรมาจารย์ / อาจารย์ | [CHECK] The rabbi row's men; ชาวยิว may follow; ครู alone reads as a schoolteacher; ปรมาจารย์ stands. ลูกา 2:46, MB 2.1, SJ 32.3, SJ 37.1, SJ 40.6, SJ 67.4 |
+| learned men (men of learning: the rabbis, or the scholars of an age) | ผู้คงแก่เรียน / ผู้รอบรู้ / ผู้มีความรู้ | Men of learning; the scholar row's forms and descriptions such as มีความรู้ stand. SJ 12.2, SJ 32.4, SJ 181.6, 1 โครินธ์ 1:20 TCL |
+| brothers of Jesus, His brothers, His own brothers, His brethren (Joseph's sons in His home; His capitalised) | พี่ชาย / พี่ๆ | [CHECK] Older than Jesus, so never น้อง; a quoted verse takes a version writing พี่น้อง. DA 86.2, DA 87.2, PP 332.2, SJ 38.1, SJ 38.6, ยอห์น 2:12 TFB |
+| It is written (Christ's formula, quoted or cited as His answer) | มีพระคัมภีร์เขียนไว้ว่า / พระคัมภีร์มีเขียนไว้ / พระคัมภีร์เขียนไว้ว่า | [CHECK] Christ's formula, quoted or cited alone; default THSV มัทธิว 4:4; quotations keep their verse's wording. มัทธิว 4:4, มัทธิว 4:7, ลูกา 4:8, SJ 39.1, SJ 39.3 |
+| it is written (the author introducing a verse, as Of Enoch it is written that) | (free choice) | Narration, not Christ's formula; พระคัมภีร์เขียนไว้ว่า, บันทึกไว้ว่า and recasts stand; never marked. PP 84.3, PP 140.3, PP 584.3, MB 106.3, SC 41.2 |
+| light of the world (Christ, John 8:12, 9:5; His people, Matthew 5:14) | ความสว่างของโลก / แสงสว่างของโลก | [CHECK] Quotations follow their version; narrative takes either. ยอห์น 8:12, MB 39.2, MB 41.1, PP 607.5 |
+| powers of darkness, power of darkness (Satan and his angels; Luke 22:53, Colossians 1:13) | อำนาจฝ่ายมืด / อำนาจของความมืด / อำนาจแห่งความมืด | [CHECK] Quotations follow their version; bare อำนาจมืด only in a quoted verse or with clear reason. โคโลสี 1:13, SJ 38.9 |
+| prince of darkness, prince of the power of darkness, prince of the powers of darkness (Satan) | เจ้าแห่งความมืด / ซาตาน | [CHECK] เจ้าแห่ง as เอเฟซัส 2:2 TKJV; เจ้าชาย is Christ's; the name may stand. MB 145.2 |
+| prodigals (wastrels, spendthrifts; not Luke 15's son) | คนเสเพลสุรุ่ยสุร่าย / คนสุรุ่ยสุร่าย / คนเสเพล / ผลาญทรัพย์ (modifier) | [CHECK] Wastrels who squander their means; not Luke 15's son, so never บุตรที่หลงหาย. ลูกา 15:13, SJ 40.2 |
+| priest, priests (Jewish, of the temple) | ปุโรหิต | [CHECK] The Bible's word; never บาทหลวง or นักบวช. ลูกา 1:5, MB 1.1, SJ 31.8 |
+| synagogue | ธรรมศาลา | [CHECK] THSV ลูกา 4:16. SC 41.1, SJ 30.3 |
 
 ## 2. Proper nouns
 
@@ -577,6 +589,7 @@
 | Christ | พระคริสต์ | The finished books' form. MB 10.1, PP 38.1, SC 14.2 |
 | Jesus Christ, Christ Jesus | พระเยซูคริสต์ | Every version; TFB's พระคริสต์เยซู stands inside a TFB quotation. 2 โครินธ์ 4:6, MB 27.2, PP 373.1 |
 | Lord Jesus Christ, our Lord Jesus Christ | องค์พระเยซูคริสต์เจ้า / พระเยซูคริสต์องค์พระผู้เป็นเจ้า / พระเยซูคริสต์เจ้า | ของเรา where the English has "our"; a quotation keeps its version. TNCV ACT 11:17, PP 373.1, PP 761.3, SC 107.2, MB 27.2, DA 19.1 |
+| Samaritan, Samaritans | ชาวสะมาเรีย | [CHECK] THSV ยอห์น 4:9. MB 25.2, SJ 40.2 |
 
 ## 3. Spelling
 

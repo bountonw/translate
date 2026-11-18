@@ -4,7 +4,9 @@
     python3 th/SC/04_assets/scripts/sc_term_data.py --head "propitiation|atonement" \\
         --thai เครื่องบูชาลบบาป,การไถ่ --verses "ROM 3:25,1JN 2:2" --out ~/claude-sandbox/sc-audit/term-propitiation.md
 
-Sections: 1 sites in th/MB, th/PP and th/SC where the English source matches --head
+Sections: 0 every row of th/assets/translation_profile/thai-glossary.txt whose English cell
+matches --head or whose Thai cell holds a --thai form, so a head the glossary already
+rules is seen before any study (the count is printed too); 1 sites in th/MB, th/PP and th/SC where the English source matches --head
 (anchor, set, the English sentence, the --thai forms found in the Thai paragraph or
 "none"); 2 counts of each --thai form, as matched sites per set and as occurrences per
 book; 3 Bible: each --thai form counted per version on disk, the --verses in THSV,
@@ -27,6 +29,22 @@ EGW_INDEX = Path(os.path.expanduser(os.environ.get(
     "EGW_TH_INDEX",
     "~/programming/bible/egw-download/egw-data/PWBRSPX93T.com.whiteestate.library/Application Support/index/th/1099.sqlite")))
 EGW_BOOK = "ThSC"
+GLOSSARY = ROOT / "th" / "assets" / "translation_profile" / "thai-glossary.txt"
+
+
+def glossary_rows(head, forms):
+    """Glossary rows whose English cell matches the head regex or whose Thai
+    cell holds one of the forms, as (line number, row)."""
+    out = []
+    for n, line in enumerate(GLOSSARY.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.startswith("| "):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 2 or cells[0] == "English":
+            continue
+        if head.search(cells[0]) or any(f in cells[1] for f in forms):
+            out.append((n, line))
+    return out
 
 
 def form_in(form, text):
@@ -164,7 +182,11 @@ def main():
     head = re.compile(a.head, re.I)
     forms = [x.strip() for x in a.thai.split(",") if x.strip()]
     L = [f"# Term data: {a.head}", ""]
-    L += ["## 1. Sites", "", "| Anchor | Set | English | Thai forms found |", "|---|---|---|---|"]
+    existing = glossary_rows(head, forms)
+    L += ["## 0. Glossary rows already holding the head or a form", ""]
+    L += [f"- line {n}: {row}" for n, row in existing] or ["none"]
+    L += [""]
+    L += ["## 1. Sites","", "| Anchor | Set | English | Thai forms found |", "|---|---|---|---|"]
     site_counts = {f: {"published": 0, "unpublished": 0, "SC": 0} for f in forms}
     recast = {"published": 0, "unpublished": 0, "SC": 0}
     nsites = {"published": 0, "unpublished": 0, "SC": 0}
@@ -237,6 +259,8 @@ def main():
                 snip = content[max(0, i - 70):i + len(f) + 70].replace("\r", " ").replace("\n", " ")
                 L.append(f"- {refcode}: …{snip}…")
     Path(os.path.expanduser(a.out)).write_text("\n".join(L) + "\n", encoding="utf-8")
+    print(f"glossary rows already holding the head or a form: {len(existing)}"
+          + (" (lines " + ", ".join(str(n) for n, _ in existing) + ")" if existing else ""))
     print(f"wrote {a.out}: sites published {nsites['published']}, unpublished {nsites['unpublished']}, SC {nsites['SC']}; KJV hits {len(hits)}")
     return 0
 
