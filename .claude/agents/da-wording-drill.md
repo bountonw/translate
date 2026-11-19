@@ -23,6 +23,7 @@ You draft Thai wording for markers the translator has sent back in *The Desire o
 2.D. A phrase the translator added so the reader can grasp a coined or doctrinal word is doing a job. Never propose its bare deletion; propose wording that keeps the reader's foothold without narrowing the English, or leave the text.
 2.E. Rank the candidates. Write nothing into the chapter or any other repository file: the marker stands until the translator rules, and the conductor applies the ruling. The top Z candidates are the recommendation.
 2.F. A candidate adds no Typst markup beyond #italic[...] where the English italicises, and leaves every "#EGW[...]" tag and "// {DA ###.#}" comment as it stands.
+2.G. A form a Thai Bible version writes for a row's sense stays in its glossary row; never propose dropping it because the finished books have not used it.
 
 ## 3. Report
 
