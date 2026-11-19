@@ -16,4 +16,5 @@
 {SJ 41.3} | The kingdom of God is at hand | เวลากำหนดมาถึงแล้วและ | "The problem of not including the beginning, renders the remainder of the verse non-grammatical."
 {SJ 42.6} | Matthew 3:16, 17. | (มัทธิว 3:17) | The author's citation covers {SJ 42.4} to {SJ 42.6}; each Thai quotation carries its own verse, as at {SJ 33.6}; the REF verses finding of sj_refcheck.py is expected.
 {SJ 43.7} | depart from the will of His Father | พระประสงค์ของพระบิดา | THSV writes พระประสงค์ where Christ does the will of the One who sent Him, ยอห์น 4:34 and 6:38.
+{SJ 47.8} | pay homage to the principles of evil | หลักการแห่งอำนาจชั่วร้าย | อำนาจ gives the bow a power to bow to and changes no meaning; ruled at terms, not a qa1 or qa2 finding.
 {SJ 65.4} | brought him to an inn | พาไปยังโรงแรม | "Nine of the ten versions write โรงแรม at Luke 10:34."
