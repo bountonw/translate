@@ -431,16 +431,23 @@
 | public ministry, His ministry (Christ's work on earth) | พระราชกิจ / พันธกิจ | [CHECK] Christ's earthly work; default พระราชกิจ, royal register; "public" means openly, among the people. ลูกา 3:23, ฮีบรู 8:6, MB 1.3, MB 2.1, MB 13.1, SJ 41.1 |
 | access (to God, to the Father, to the throne of grace) | เข้าเฝ้า / เข้าไปถึง / เข้าถึง / เข้ามาหา | [CHECK] Coming before God through Christ; เข้าเฝ้า as THSV; a recast such as ใบเบิกทาง stands. เอเฟซัส 2:18, เอเฟซัส 3:12, MB 140.1, SJ 42.8 |
 | access (to a place, a tree, a throne, a person's mind) | เข้าถึง / เข้าไปถึง / เข้าหา | Free choice; access that is not access to God. PP 47.1, PP 53.3, PP 330.4, PP 514.3 |
-| miracle (a work of God's or Christ's power, or Satan's counterfeit) | การอัศจรรย์ / อย่างอัศจรรย์ / การมหัศจรรย์ / อิทธิฤทธิ์ / การมหิทธิฤทธิ์ | [CHECK] ปาฏิหาริย์ stands where a display is demanded; the verb follows each book's register. มัทธิว 13:58, MB 146.2, PP 214.4, SC 49.3, PP 151.4, PP 315.3, PP 761.7 |
+| miracle (a work of God's or Christ's power, or Satan's counterfeit) | การอัศจรรย์ / อย่างอัศจรรย์ / การมหัศจรรย์ / การอิทธิฤทธิ์ / การมหิทธิฤทธิ์ | [CHECK] ปาฏิหาริย์ stands where a display is demanded; the verb follows each book's register. มัทธิว 13:58, MB 146.2, PP 214.4, SC 49.3, PP 151.4, PP 315.3, PP 761.7 |
 | indulge, indulgence, self-indulgence | ตามใจ / ปล่อยตัว / สนอง / หลงระเริง | Object decides: ตามใจปาก for appetite, ปล่อยตัวไปกับ sin; ตามอำเภอใจ is self-will, never appetite. PP 142.4, PP 181.3, SC 34.1, SJ 45.1 |
 | fast, fasting (Christ's forty days; fasting as a practice) | อดอาหาร / การอดอาหาร / ถืออดอาหาร | [CHECK] Also for Christ, as THSV มัทธิว 4:2; อดพระกระยาหาร stands where the prose wants it. มัทธิว 4:2, มัทธิว 6:16, MB 87.1, SJ 43.7 |
-| pinnacle of the temple (Matthew 4:5, Luke 4:9) | ยอดพระวิหาร / ยอดหลังคาพระวิหาร / จุดสูงสุดของพระวิหาร | Default ยอดพระวิหาร as TFB; THSV, TKJV, TH1971 ยอดหลังคาพระวิหาร; quotations follow their version. มัทธิว 4:5, ลูกา 4:9, SJ 46.1 |
+| pinnacle of the temple (Matthew 4:5, Luke 4:9) | ยอดพระวิหาร / ยอดหลังคาพระวิหาร | Default ยอดพระวิหาร as TFB; THSV, TKJV, TH1971 ยอดหลังคาพระวิหาร; TNCV จุดสูงสุดของพระวิหาร; quotations follow their version. มัทธิว 4:5, ลูกา 4:9, SJ 46.1 |
 | angel of light (Satan's disguise, 2 Corinthians 11:14) | ทูตแห่งความสว่าง | [CHECK] ทูตสวรรค์แห่งความสว่าง and ทูตสวรรค์ของความสว่าง stand; so does a description with สว่าง. 2 โครินธ์ 11:14, SJ 45.4, PP 679.3 |
 | worship Satan, worshiping Satan, worship of Satan, demand for worship (Satan's: Matthew 4:9, Luke 4:7) | กราบไหว้ / นมัสการ / บูชา | กราบไหว้ in narration; Satan's demand echoes มัทธิว 4:9 ก้มลงนมัสการ; บูชาซาตาน may read as a cult. มัทธิว 4:9, ลูกา 4:7, SJ 46.8, SJ 47.2, SJ 47.5, SJ 47.10 |
 | pride of life (1 John 2:16) | ความทะนงในลาภยศ / ความทะนงในสิ่งที่ตนมีหรือทำ / ความเย่อหยิ่งในชีวิต | [CHECK] Default THSV ลาภยศ; quotations follow their version; a bare pride word loses the object. 1 ยอห์น 2:16, MB 95.1, SJ 47.7 |
 | lust of the flesh (1 John 2:16) | ตัณหาของเนื้อหนัง / ความต้องการของเนื้อหนัง | Five versions write ตัณหา at 1 ยอห์น 2:16; THSV ความต้องการ at กาลาเทีย 5:16. 1 ยอห์น 2:16, 1 เปโตร 2:11, MB 95.1 |
 | lust of the eyes (1 John 2:16) | ตัณหาของตา | Five versions at 1 ยอห์น 2:16. 1 ยอห์น 2:16, MB 95.1 |
 | first parents, our (Adam and Eve) | บรรพบุรุษคู่แรก / มนุษย์คู่แรก | [CHECK] Default บรรพบุรุษคู่แรก, ของเรา where "our" matters; มนุษย์คู่แรก where the first humans are meant; names stand. MB 17.2, MB 52.2, PP 48.4, SC 62.1, SJ 45.1 |
+| example (Christ as our example, His example) | แบบอย่าง | [CHECK] Christ as the pattern we follow; ทำตามแบบอย่าง, เจริญรอยตาม and other recasts stand. ยอห์น 13:15, 1 เปโตร 2:21, MB 57.4, MB 99.3, SC 93.4, SJ 42.7 |
+| example (a person, deed or event held up as a model or a warning) | ตัวอย่าง / แบบอย่าง / เยี่ยงอย่าง | Free choice; ตัวอย่าง suits an instance or a warning. ยูดา 7, 1 โครินธ์ 10:6, PP 95.1, PP 147.2, PP 344.5 |
+| follow an example (do what another did first: Satan copying Christ, nations copying a custom) | ทำตาม / ลอกเลียนแบบ / เอาอย่าง | ลอกเลียนแบบ where the copy is a counterfeit. MB 52.2, PP 591.1, SJ 46.3 |
+| sign (God gives or works it to prove His word or point out a person: Isaiah 7:14, Luke 2:12, John 1:33; signs and wonders; signs of Christ's coming) | หมายสำคัญ / เครื่องหมาย / เครื่องยืนยัน / สัญญาณ | [CHECK] สัญญาณ for portents; an indication ("no sign of") is free. อิสยาห์ 7:14, ลูกา 2:12, ลูกา 21:25, PP 151.3, PP 172.2, PP 108.2, PP 547.2 |
+| sign, token (standing for something: of a covenant, of God's love, of protection) | สัญลักษณ์ / เครื่องหมาย / หมายสำคัญ / เครื่องหมายสัญลักษณ์ | Quotations follow their version. ปฐมกาล 9:13, ปฐมกาล 17:11, PP 46.4, PP 137.3, PP 279.3, PP 485.2 |
+| rebel chief, archrebel, great rebel (Satan) | จอมกบฏ / ซาตาน | [CHECK] Satan only; จอม carries chief, arch, great; the name may stand. PP 331.2, PP 335.2, SJ 48.3 |
+| chief rebels, leader of the rebellion (men: Korah and his allies, Absalom) | ผู้นำกบฏ / หัวหน้ากบฏ | Men who lead a revolt; จอมกบฏ is kept for Satan. PP 400.3, PP 744.2 |
 
 ## 2. Proper nouns
 
