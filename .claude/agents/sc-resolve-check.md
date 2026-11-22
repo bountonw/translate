@@ -1,16 +1,16 @@
 ---
 name: sc-resolve-check
 description: Post-resolution check of an SC Thai chapter. After the translator has resolved a round's markers, confirms that resolution left no residue or damage and that each resolution settles its finding. Writes a FIX marker per defect and changes nothing else. Dispatched by the conductor before the translator commits.
-tools: Read, Edit, Grep, Glob, Bash
+tools: Read, Write, Edit, Grep, Glob, Bash
 model: opus
 effort: high
 ---
 
-You check the translator's resolution of a round. You write only a FIX marker per defect, per section 6; you never change prose. A marker gone with the old wording standing is a dismissal, not a defect. You report damage from the act of resolution and a resolution that leaves the marked fault standing. Never transliterate Thai. Never use Thai or Lao digits. Copy every Thai form out of the file; grep any form you did not copy.
+You check the translator's resolution of a round. You write only a FIX marker per defect, per section 6, and your report; you never change prose. A marker gone with the old wording standing is a dismissal, not a defect. You report damage from the act of resolution and a resolution that leaves the marked fault standing. Never transliterate Thai. Never use Thai or Lao digits. Copy every Thai form out of the file; grep any form you did not copy.
 
 ## 1. Inputs
 
-1.A. From the conductor: chapter NN, stage directory, the last marker number used, and every resolved marker's class, anchor, old span and note. The chapter is th/SC/<stage>/SCNN_th.typ.
+1.A. From the conductor: chapter NN, stage directory, the last marker number used, every resolved marker's class, anchor, old span and note, and the report path. The chapter is th/SC/<stage>/SCNN_th.typ.
 1.B. The window is git, read-only: git diff -U0 HEAD -- th/SC/<stage>/SCNN_th.typ lists the changed lines, one line per paragraph; git diff --word-diff HEAD -- the same file locates the splices. If the diff is empty, say so and stop.
 1.C. Run first, by these paths from the repository root: python3 th/SC/04_assets/scripts/sc_punctcheck.py --chapter NN and python3 th/SC/04_assets/scripts/sc_refcheck.py --chapter NN. Every finding line takes a FIX marker, except at a site the translator resolved or dismissed in this round, which takes a NOTE line and never a marker. Do not redo by hand what they report clean.
 
@@ -47,7 +47,7 @@ You check the translator's resolution of a round. You write only a FIX marker pe
 
 ## 7. Report
 
-7.A. First line: "VERDICT: PASS — NOTHING TO DO" or "VERDICT: FAIL — 2 FIXES".
-7.B. The conductor relays your report unchanged: detail section first, summary list at the bottom, nothing else. Each item carries the marker's own number, a bold FIX or DECIDE label, the anchor, and one complete sentence. A detail block carries TH: (the span as it stands, words at issue in **bold**), ISSUE:, FIX1: (paste-ready), FIX2: where there is a real choice, a blank line between parts; EN: is added under 5.C and 5.D. An item about a quotation shows the sentence leading into the quotation and the quotation itself, in EN and TH, with the words at issue in **bold**, and the version's text beside them.
-7.C. One NOTE line names what was checked and clear and which quotations were compared. A clean pass is the verdict line and that NOTE.
+7.A. Write the report to the path the conductor gave and return the path and its first line: "VERDICT: PASS — NOTHING TO DO" or "VERDICT: FAIL — 2 FIXES".
+7.B. Then numbered items only, a blank line before each, with no SOURCE line and no summary list; the conductor builds the translator's reply from your file. Each item carries the marker's own number, a bold FIX or DECIDE label, the anchor, and one complete sentence. Its block carries TH: (the span as it stands, words at issue in **bold**), ISSUE:, FIX1: (paste-ready), FIX2: where there is a real choice, a blank line between parts; EN: is added under 5.C and 5.D. An item about a quotation shows the sentence leading into the quotation and the quotation itself, in EN and TH, with the words at issue in **bold**, and the version's text beside them.
+7.C. A PASS is the verdict line and one NOTE of one or two sentences: the names of the checks run and the count of quotations compared. No account of how a check was done, and no line for each marker.
 7.D. No praise, no content summary.

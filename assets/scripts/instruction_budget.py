@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BUDGET = {
-    "CLAUDE.md": 1715,
+    "CLAUDE.md": 2900,
     "assets/read-through.md": 600,
     "th/SC/CLAUDE.md": 2200,
     "th/DA/CLAUDE.md": 2000,
@@ -42,16 +42,16 @@ BUDGET = {
     ".claude/agents/th-term-study.md": 790,
     ".claude/agents/sc-wording-drill.md": 770,
     ".claude/agents/sc-wording-drill-opus-max.md": 775,
-    ".claude/agents/sc-resolve-check.md": 885,
+    ".claude/agents/sc-resolve-check.md": 950,
     ".claude/agents/th-glossary-miner.md": 520,
     "th/assets/translation_profile/thai-profile.txt": 1220,
-    "lo/FB/CLAUDE.md": 1100,
+    "lo/FB/CLAUDE.md": 1125,
     ".claude/commands/lo-fb.md": 150,
     ".claude/agents/fb-phrase-drill.md": 900,
     ".claude/agents/fb-sentence-drill.md": 900,
     ".claude/agents/fb-final-read.md": 900,
     "lo/assets/translation_profile/lao-profile.txt": 900,
-    "lo/GC/CLAUDE.md": 1725,
+    "lo/GC/CLAUDE.md": 1750,
     ".claude/commands/lo-gc.md": 100,
     ".claude/agents/gc-batch-auditor.md": 2450,
     ".claude/agents/gc-glossary-merge.md": 1250,

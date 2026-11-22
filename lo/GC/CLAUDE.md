@@ -7,7 +7,7 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 1.A. "GCNN" or "run GCNN" — the chapter audit, section 3.
 1.B. "check GCNN", or the translator says he has finished resolving — section 4.
 1.C. "import GCNN" — splice a web-app handoff into the chapter as markers with gc_import_handoff.py, by the procedure at the end of ~/claude-sandbox/gc-audit/web-handoff-prompt.md.
-1.D. A term family or corpus question — dispatch gc-term-grep and relay its report verbatim.
+1.D. A term family or corpus question — dispatch gc-term-grep and build the report from its return (7.B).
 1.E. "7/3/1" and "model: X/Y/Z" — the drill of the root CLAUDE.md.
 1.F. Anything else — ask.
 
@@ -35,7 +35,7 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 
 4.A. Grep the chapter for [[. Standing markers end the check: name the numbers and stop.
 4.B. Run python3 lo/GC/04_assets/scripts/gc_dictcheck.py --chapter NN. It loads the typesetting dictionaries and lists every changed token they cannot segment. Name each in the gc-resolve-check dispatch: a typo takes a FIX marker, a new word a proposed coded row. After the chapter passes, append the confirmed rows to lo/assets/dictionaries/main.txt under a comment naming the chapter, never editing an existing line, and tell the translator to review them with git diff.
-4.C. Dispatch gc-resolve-check with the chapter, the last marker number, and every resolved marker's class, anchor, old span and note (its 5.E needs them). Relay its report verbatim. PASS means clean to commit. Apply its FIX markers one at a time against text you have read, never with a script.
+4.C. Dispatch gc-resolve-check with the chapter, the last marker number, the report path ~/claude-sandbox/gc-audit/gcNN-resolve-check.md, and every resolved marker's class, anchor, old span and note (its 5.E needs them). Build the report from its file. PASS means clean to commit. Apply its FIX markers one at a time against text you have read, never with a script.
 
 ## 5. Rules
 
@@ -60,8 +60,8 @@ This file governs the audit of the Lao translation of *The Great Controversy* in
 
 ## 7. Reporting
 
-7.A. The root CLAUDE.md report shape. A summary line is located by its {GC ###.#} anchor and the marker number where there is one. A FIX that needs a manuscript change is also written into the chapter as a [[FIX SEV #N|old -> new|note]] marker.
-7.B. gc-resolve-check and gc-term-grep return Lao spans and are relayed verbatim. gc-batch-auditor, gc-run-check and gc-glossary-merge write for you; compose the report from their items, copying every Lao form from their files.
+7.A. The root CLAUDE.md report shape. An item's heading carries its {GC ###.#} anchor and the marker number where there is one. A FIX that needs a manuscript change is also written into the chapter as a [[FIX SEV #N|old -> new|note]] marker.
+7.B. gc-resolve-check and gc-term-grep return Lao spans; build the report from the resolve check's file and the term grep's return, copying every Lao form and never retyping one. gc-batch-auditor, gc-run-check and gc-glossary-merge write for you; compose the report from their items, copying every Lao form from their files.
 
 ## 8. Print build
 

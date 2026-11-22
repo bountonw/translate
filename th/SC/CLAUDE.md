@@ -54,7 +54,7 @@ This file governs the Thai translation of *Steps to Christ* in th/SC. An SC sess
 5.A. Grep the chapter for [[. Standing markers end the check: name the numbers and stop.
 5.B. Run sc_punctcheck.py, sc_refcheck.py, sc_notescheck.py, assets/scripts/instruction_budget.py, then build_breaks.py --book SC and the compile check. Each chapter finding becomes a [[FIX #N|old -> new|note]] marker numbered on from the round's last number; a stale note is a DECIDE, updated or deleted; a file over budget is a FIX in the report.
 5.B.1. A finding the round already judged and the translator ruled on, such as a Typst comment ruled to stand, takes no marker at check and is not raised again.
-5.C. Dispatch sc-resolve-check with chapter, stage directory, last marker number, and every resolved marker's class, anchor, old span and note. Relay its report verbatim. PASS means clean to commit and to upload.
+5.C. Dispatch sc-resolve-check with chapter, stage directory, last marker number, the report path ~/claude-sandbox/sc-audit/scNN-ROUND-resolve-check.md, and every resolved marker's class, anchor, old span and note. Build the report from its file. PASS means clean to commit and to upload.
 
 ## 6. Rules
 

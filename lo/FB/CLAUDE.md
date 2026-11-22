@@ -29,13 +29,13 @@ This file governs the Lao translation of the 28 Fundamental Beliefs, and later o
 3.A. Preflight: FB07_en.md exists; no FB07_lo.typ exists in any stage, else name the stage and stop.
 3.B. Packet: python3 lo/FB/04_assets/scripts/fb_packet.py --belief 07 writes ~/claude-sandbox/fb-audit/fb07-packet.md: the English; every verse of the reference list and every embedded quotation in the six versions of 2.E; the Lao, GC and Thai glossary rows for the belief's key terms with their counts in lo/GC/03_public and lo/AA; the Lao profile. Data only; no judgment.
 3.C. Dispatch fb-phrase-drill (Fable, xhigh) with the belief number and the packet path. It segments the English into phrases smaller than sentences; for each phrase it weighs up to 9 renderings in the whole statement and writes the top 5 to ~/claude-sandbox/fb-audit/fb07-phrases.md, fix1 first with one sentence of reason each, naming any doctrinal weight, loophole or shift of precision the phrase carries. It writes fix1 of every phrase, in order, into lo/FB/01_raw/FB07_lo.typ.
-3.D. Report: every phrase as a numbered item, the English in bold, the five fixes, then the summary list. The translator replies "N. fixK" or "N. applied: <wording>" per phrase; the session writes each choice into the draft.
+3.D. Report: every phrase as a numbered item, the English in bold, the five fixes. The translator replies "N", "N.K" or "N. fixK" (root 1.C.3), or "N. applied: <wording>", per phrase; the session writes each choice into the draft.
 
 ## 4. Sentence round ("sentences FB07")
 
 4.A. Preflight: the draft holds every phrase choice and no [[ marker.
 4.B. Dispatch fb-sentence-drill (Fable, xhigh) with the belief number, the packet and the draft. For each sentence it weighs up to 8 renderings that make the chosen phrases work together, reordering or rewording where the fit asks it, and writes a [[SENT #N|old -> new|fix2: ...; fix3: ...; fix4: ...]] marker in the draft with fix1 as new.
-4.C. Report: one item per sentence with its four options. The translator resolves in the file or by "N. fixK". Resolved, the file moves to 02_edit.
+4.C. Report: one item per sentence with its four options. The translator resolves in the file or by "N", "N.K" or "N. fixK". Resolved, the file moves to 02_edit.
 
 ## 5. Final read ("final FB07")
 
