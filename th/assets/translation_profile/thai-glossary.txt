@@ -173,6 +173,7 @@
 | father of lies | บิดาแห่งการมุสา | [CHECK] Satan's title, John 8:44. PP 58.1 |
 | self-justification, excuse (for sin) | แก้ตัว / คำแก้ตัว / ข้อแก้ตัว | [CHECK] แก้ตัว the verb; คำแก้ตัว and ข้อแก้ตัว the nouns. PP 57.5, PP 58.1, PP 153.3 |
 | Holy Spirit | พระวิญญาณบริสุทธิ์ | [CHECK] |
+| Spirit of God, God's Spirit, Spirit of the Lord | พระวิญญาณของพระเจ้า / พระวิญญาณขององค์พระผู้เป็นเจ้า / พระวิญญาณบริสุทธิ์ | [CHECK] พระวิญญาณบริสุทธิ์ names the same Person and stands; quotations follow their version. มัทธิว 3:16, โรม 8:9, MB 7.2, PP 114.1, PP 610.2, SC 57.2 |
 | ingratitude, ungrateful | เนรคุณ / อกตัญญู / ไม่รู้คุณ / ไม่สำนึกในพระคุณ / ไม่รู้สำนึกในพระคุณ | [CHECK] Person คนเนรคุณ, คนอกตัญญู; toward God ไม่สำนึกในพระคุณ. MB 9.2, PP 171.2, PP 318.2, PP 36.3, SC 38.2 |
 | forbidden fruit, forbidden tree (Genesis 3) | ผลไม้ต้องห้าม / ผลไม้ที่ต้องห้าม / ผลไม้ที่พระเจ้าทรงห้าม / ผลไม้หวงห้าม / ต้นไม้หวงห้าม | [CHECK] Epithet or description; ที่ optional before ต้องห้าม; ต้นไม้ที่พระเจ้าทรงหวงห้าม stands. ปฐมกาล 3:11, PP 49.1, PP 55.3, PP 378.2, SC 40.2 |
 | Ruler of the universe, Sovereign of the universe, Governor of the universe | พระเจ้าผู้ทรงครอบครองจักรวาล | [CHECK] Never ปกครอง, the human-government word; "great Ruler" may take พระมหากษัตริย์. MB 74.1, PP 34.1, SC 38.2 |
@@ -416,8 +417,12 @@
 | wise men (the magi of Matthew 2) | นักปราชญ์ | [CHECK] THSV's word; never โหราจารย์; พวก, เหล่า or บรรดา may stand before it. มัทธิว 2:1, มัทธิว 2:7, PP 637.1, SJ 21.4, SJ 23.7 |
 | Friend, heavenly Friend, best Friend (capitalised: Christ or God) | มิตรสหาย / พระสหาย / สหาย | [CHECK] Default มิตรสหาย; พระสหาย where a human เพื่อน stands beside it. MB 9.2, MB 120.1, PP 128.2, SC 103.2, SJ 24.3 |
 | handiwork, work of His hands, works of His hands (God's works in creation) | ฝีพระหัตถ์ / พระหัตถกิจ | [CHECK] ฝีพระหัตถ์ where the craftsmanship shows; แห่งการทรงสร้าง may follow; THSV's ผลงานแห่งพระหัตถ์ only quoted. สดุดี 19:1, MB 26.4, PP 47.2, PP 48.1, PP 49.3, PP 103.2, SC 87.1, SJ 23.1 |
-| rabbi, rabbis (the Jewish teachers of the law in Christ's day) | ธรรมาจารย์ / รับบี | [CHECK] รับบี only where the title itself is named or spoken; อาจารย์ forms stand. มัทธิว 23:2, มัทธิว 23:7, ยอห์น 1:38, MB 3.1, MB 46.4, MB 131.2, SJ 30.3, SJ 37.3, DA 85.1 |
+| rabbi, rabbis (the Jewish teachers of the law in Christ's day) | ธรรมาจารย์ / รับบี | [CHECK] รับบี where the title is named or spoken, or scribes stand beside; อาจารย์ forms stand. มัทธิว 23:2, มัทธิว 23:7, ยอห์น 1:38, MB 3.1, MB 46.4, MB 131.2, SJ 30.3, SJ 37.3, DA 85.1, DA 328.3 |
 | Jewish teachers, learned teachers (the rabbis by another name; the great teachers, the doctors of Luke 2:46) | ธรรมาจารย์ / อาจารย์ | [CHECK] The rabbi row's men; ชาวยิว may follow; ครู alone reads as a schoolteacher; ปรมาจารย์ stands. ลูกา 2:46, MB 2.1, SJ 32.3, SJ 37.1, SJ 40.6, SJ 67.4 |
+| scribe, scribes (the teachers of the law in Christ's day; the scribes and Pharisees) | ธรรมาจารย์ | [CHECK] The rabbi row's men, one word for both; ผู้นำชาวยิว stands; Old Testament secretaries fall outside. มัทธิว 23:2, มัทธิว 7:29, มาระโก 12:28, MB 5.1, MB 46.4, MB 53.1, SJ 69.8, SJ 115.2, SJ 143.3, PP 635.2, DA 427.2 |
+| lawyer, lawyers (the expert in the law of Moses in the Gospels: Luke 10:25, Matthew 22:35) | ผู้เชี่ยวชาญธรรมบัญญัติ | [CHECK] TFB's word; THSV ผู้เชี่ยวชาญบัญญัติ, TNCV ผู้เชี่ยวชาญทางบทบัญญัติ, TH1971 and TH1940 บาเรียน; quotations follow their version. มัทธิว 22:35, ลูกา 7:30, ลูกา 10:25, ลูกา 11:45, ลูกา 11:46, ลูกา 11:52, ลูกา 14:3 |
+| lawyer, lawyers (the civil sense: Zenas, Titus 3:13; a lawyer in later history, as in GC) | ทนายความ / นักกฎหมาย | Reference only; the Gospel lawyer has his own row. ทิตัส 3:13 |
+| doctor of the law, doctors of the law, teacher of the law, teachers of the law (Luke 5:17, Acts 5:34, 1 Timothy 1:7) | อาจารย์สอนธรรมบัญญัติ / ธรรมาจารย์ | [CHECK] THSV's phrase; ธรรมาจารย์, TNCV's and TCL's word, where the men are the scribes of ลูกา 5:21. ลูกา 5:17, ลูกา 5:21, กิจการ 5:34, 1 ทิโมธี 1:7 |
 | learned men (men of learning: the rabbis, or the scholars of an age) | ผู้คงแก่เรียน / ผู้รอบรู้ / ผู้มีความรู้ | Men of learning; the scholar row's forms and descriptions such as มีความรู้ stand. SJ 12.2, SJ 32.4, SJ 181.6, 1 โครินธ์ 1:20 TCL |
 | brothers of Jesus, His brothers, His own brothers, His brethren (Joseph's sons in His home; His capitalised) | พี่ชาย / พี่ๆ | [CHECK] Older than Jesus, so never น้อง; a quoted verse takes a version writing พี่น้อง. DA 86.2, DA 87.2, PP 332.2, SJ 38.1, SJ 38.6, ยอห์น 2:12 TFB |
 | It is written (Christ's formula, quoted or cited as His answer) | มีพระคัมภีร์เขียนไว้ว่า / พระคัมภีร์มีเขียนไว้ / พระคัมภีร์เขียนไว้ว่า | [CHECK] Christ's formula, quoted or cited alone; default THSV มัทธิว 4:4; quotations keep their verse's wording. มัทธิว 4:4, มัทธิว 4:7, ลูกา 4:8, SJ 39.1, SJ 39.3 |
@@ -451,6 +456,22 @@
 | appetite, appetites (the bodily craving that rules when indulged; plain hunger is rare) | ความอยาก / ความอยากฝ่ายเนื้อหนัง / ตามใจปาก / ความต้องการ | [CHECK] Context decides; ความอยากอาหาร only for plain hunger; the pair with passion has its own row. PP 101.3, PP 562.1, SJ 45.1, SJ 45.3 |
 | passion, passions (sinful desire of the fallen nature: lust, the lower or evil passions) | กิเลสตัณหา / ราคะตัณหา / ตัณหา / ตัณหาฝ่ายเนื้อหนัง / กิเลส / ความใคร่ / ความปรารถนาฝ่ายต่ำ | [CHECK] ราคะ and ความใคร่ where sexual; for anger or human feeling, never these: name the feeling. กาลาเทีย 5:24, PP 101.3, PP 159.1, PP 458.1, MB 141.3 |
 | appetite and passion, appetites and passions (the pair: the cravings and feelings of the body) | กิเลสตัณหา / ความต้องการและอารมณ์ | กิเลสตัณหา carries both where indulged; ความต้องการและอารมณ์ where ruled; เนื้อหนัง tail optional; order by sound. PP 45.2, PP 60.1, PP 67.3, PP 544.4 |
+| wine (at Cana and at the Lord's Supper; new wine in the cluster) | น้ำองุ่น | [CHECK] EGW's pure juice of the grape; น้ำองุ่นสด stands; a quotation keeps its version. อิสยาห์ 65:8, 1 โครินธ์ 10:16, DA 149.3, SJ 53.4, SJ 98.4 |
+| wine (intoxicating: drunkenness, warnings, revelry, Babylon's wine) | เหล้าองุ่น / เหล้า / สุรา | [CHECK] Where intoxication is in view; เมา recasts stand; น้ำองุ่น only inside a quotation. สุภาษิต 20:1, PP 361.3, PP 455.2, PP 565.1, SJ 53.3 |
+| wine (unmarked: harvest, offerings, provisions, hospitality) | น้ำองุ่น / เหล้าองุ่น | Both stand; TKJV writes น้ำองุ่น; prefer it beside temperance teaching; quotations keep their version. ลูกา 10:34, PP 136.1, PP 526.2, PP 708.5, SJ 65.4 |
+| marriage feast, wedding (an earthly wedding and its feast) | งานเลี้ยงสมรส / งานสมรส / งานแต่งงาน | งานเลี้ยงสมรส where the feast is meant; royal or the Lamb's: อภิเษกสมรส. ยอห์น 2:1, ลูกา 14:8, PP 563.3, SJ 51.4 |
+| poor in spirit (Matthew 5:3), spiritual poverty | บกพร่องฝ่ายวิญญาณ / บกพร่องฝ่ายจิตวิญญาณ | [CHECK] Prose puts รู้สึก or ยอมรับว่าตน before บกพร่อง; quotations follow their version. มัทธิว 5:3, MB 6.1, MB 6.2, MB 7.1, MB 8.1, SJ 60.4 |
+| meek, meekness (gentle under wrong; Matthew 5:5) | สุภาพอ่อนโยน / อ่อนสุภาพ / อ่อนโยน / ถ่อมใจ / ถ่อมสุภาพ / อ่อนน้อม / ใจถ่อม / ถ่อมตัว / ถ่อมตน / นอบน้อม / นอบน้อมถ่อมตน | [CHECK] Default สุภาพอ่อนโยน or อ่อนสุภาพ; a recast or a fuller phrase the sentence needs stands. มัทธิว 5:5, สดุดี 37:11, MB 16.3, MB 17.2, PP 74.1, SC 58.3 |
+| Levite, Levites (a man of the tribe of Levi who served the sanctuary) | คนเลวี / พวกเลวี / ชาวเลวี / เผ่าเลวี | [CHECK] A classifier marks the tribesman; bare เลวี names Levi; quotations follow their version. ลูกา 10:32, ยอห์น 1:19, PP 115.1, PP 375.1, SJ 63.7 |
+| ceremonies, round of ceremonies, forms and ceremonies, forms of religion, rites (religion kept as outward rite, set against heart worship) | พิธีกรรม / พิธีทางศาสนา / ศาสนพิธี / พิธี | [CHECK] Default พิธีกรรม; forms fold in or take รูปแบบ or ภายนอก; พิธีรีตอง stands, never proposed. ฮีบรู 9:1, MB 46.3, MB 150.4, PP 590.1, PP 622.1, PP 634.3, SJ 59.1 |
+| true worship, true worship of God, true worshipers | นมัสการพระเจ้าอย่างแท้จริง / การนมัสการที่แท้จริง / นมัสการอย่างแท้จริง | [CHECK] พระเจ้า follows นมัสการ as object, never after ของ; quotations follow their version. ยอห์น 4:23, โรม 12:1, PP 81.2, PP 141.2, SJ 59.1, SJ 60.1 |
+| heavenly home, home in heaven (heaven as Christ's home and the believers') | สวรรค์ / บ้านบนสวรรค์ / บ้านในสวรรค์ / พระนิเวศ | [CHECK] Name heaven; บ้าน keeps the home image; พระนิเวศ with ในสวรรค์ for Christ's dwelling. 2 โครินธ์ 5:1, MB 71.1, SJ 15.6, SJ 62.6, SJ 62.7, SJ 167.1 |
+| righteousness | ความชอบธรรม / ชอบธรรม | [CHECK] ชอบธรรม as adjective, อันชอบธรรม; quotations follow their version; never ความดี, goodness. มัทธิว 5:6, สดุดี 119:172, MB 18.1, MB 149.2, PP 86.1, SC 61.1 |
+| amen | อาเมน | [CHECK] Never TKJV's เอเมน; สาธุ and ขอให้เป็นดังนั้น only inside a gloss. 1 โครินธ์ 14:16, เฉลยธรรมบัญญัติ 27:15, PP 500.3, SJ 56.4 |
+| the Lord, praise to the Lord (God named in narrative) | องค์พระผู้เป็นเจ้า / พระเจ้า / พระเป็นเจ้า | Reference only; พระเป็นเจ้า, TCL's and TH1971's word, stands; quotations follow their version. ลูกา 5:17, SJ 56.4 |
+| peacemaker, peacemakers (Matthew 5:9) | ผู้สร้างสันติ / คนที่สร้างสันติ / สร้างสันติ / ผู้ไกล่เกลี่ย / ไกล่เกลี่ย | [CHECK] สร้างสันติ, the verse's word, in every sense; ผู้ไกล่เกลี่ย where one settles a quarrel between others. มัทธิว 5:9, ยากอบ 3:18, กิจการ 7:26, MB 28.1, PP 667.1, SJ 62.2 |
+| neighbor, neighbour (the fellow human the law bids us love: Leviticus 19:18, Luke 10; the ninth and tenth commandments) | เพื่อนบ้าน / เพื่อนมนุษย์ | [CHECK] Either form by context; Luke 10's question and answer share one word; ผู้อื่น, คนอื่น stand. เลวีนิติ 19:18, มัทธิว 22:39, ลูกา 10:29, โรม 13:8, MB 42.2, PP 305.2, SJ 65.8, SJ 65.10 |
+| neighbor, neighbour (one who lives near: next door, townspeople; neighbouring peoples) | เพื่อนบ้าน / ชนชาติใกล้เคียง / ประเทศใกล้เคียง / ประเทศเพื่อนบ้าน | Nearness is the sense; peoples and nations take free wording; a recast stands. ลูกา 15:6, ยอห์น 9:8, สดุดี 79:4, MB 105.2, PP 159.2, PP 603.3, PP 616.2, SC 37.3 |
 
 ## 2. Proper nouns
 
@@ -530,6 +551,7 @@
 | Deborah | เดโบราห์ | [CHECK] THSV's spelling. PP 206.2 |
 | Eden | เอเดน | [CHECK] THSV's spelling. MB 27.1, PP 35.1 |
 | Egypt | อียิปต์ | [CHECK] THSV's spelling. MB 41.2, PP 129.1 |
+| Amen, Amon, Amun (Egyptian god of Thebes); Amen-Ra | อามุน / อามุน-รา | [CHECK] The spelling of Thai writing on Egypt; THSV's อาโมน inside a quotation; never อาเมน. เยเรมีย์ 46:25, PP 758.3, PP 758.4 |
 | Canaan | คานาอัน | [CHECK] THSV's spelling. MB 149.1, PP 117.2 |
 | Sodom | โสโดม | [CHECK] THSV's spelling. PP 133.1 |
 | Gomorrah | โกโมราห์ | [CHECK] THSV's spelling. PP 139.1 |
@@ -613,6 +635,10 @@
 | Jesus Christ, Christ Jesus | พระเยซูคริสต์ | Every version; TFB's พระคริสต์เยซู stands inside a TFB quotation. 2 โครินธ์ 4:6, MB 27.2, PP 373.1 |
 | Lord Jesus Christ, our Lord Jesus Christ | องค์พระเยซูคริสต์เจ้า / พระเยซูคริสต์องค์พระผู้เป็นเจ้า / พระเยซูคริสต์เจ้า | ของเรา where the English has "our"; a quotation keeps its version. TNCV ACT 11:17, PP 373.1, PP 761.3, SC 107.2, MB 27.2, DA 19.1 |
 | Samaritan, Samaritans | ชาวสะมาเรีย | [CHECK] THSV ยอห์น 4:9. MB 25.2, SJ 40.2 |
+| Andrew (the apostle) | อันดรูว์ | [CHECK] THSV's spelling, ยอห์น 1:40. SJ 51.1 |
+| Cana | คานา | [CHECK] THSV's spelling, ยอห์น 2:1; never คานาอัน, which is Canaan. SJ 51.4 |
+| Samaria | สะมาเรีย / แคว้นสะมาเรีย | [CHECK] THSV's spelling, ยอห์น 4:4. PP 412.3, SJ 53.6 |
+| Jericho | เยรีโค / เมืองเยรีโค | [CHECK] THSV's spelling, ลูกา 10:30. PP 369.1, SJ 63.6 |
 
 ## 3. Spelling
 
