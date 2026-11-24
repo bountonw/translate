@@ -132,7 +132,10 @@
 | birthright | สิทธิบุตรหัวปี / สิทธิของบุตรหัวปี | [CHECK] THSV at ปฐมกาล 25:34 and ฮีบรู 12:16. PP 177.3, PP 178.3 |
 | first-born son (law of the first-born) | บุตรชายหัวปี | [CHECK] Where the child's sex matters, as presentation and redemption; quotations follow their version. ลูกา 2:23, SJ 17.3, SJ 18.1 |
 | Holy One of Israel | องค์บริสุทธิ์ของอิสราเอล / องค์บริสุทธิ์แห่งอิสราเอล | [CHECK] Prose ของ; THSV writes ของ 25 times, แห่ง 5; quotations follow their version. SC 24.1, MB 64.1, PP 360.2 |
+| Holy One of God | องค์บริสุทธิ์ของพระเจ้า | [CHECK] THSV มาระโก 1:24, ลูกา 4:34, ยอห์น 6:69. SJ 87.10 |
 | Lamb of God | ลูกแกะของพระเจ้า | [CHECK] Prose and TCV's ยอห์น 1:29; the other versions' พระเมษโปดก stands inside their quotations. MB 1.3, SC 19.1, PP 63.3 |
+| Seed of the woman (Genesis 3:15) | พงศ์พันธุ์ของนาง | [CHECK] THSV and TH1971 ปฐมกาล 3:15; TKJV เชื้อสายของนาง. SJ 86.10 |
+| Branch of David (Christ, Jeremiah 23:5) | กิ่งของดาวิด | [CHECK] THSV กิ่ง at เยเรมีย์ 23:5; TKJV and TH1971 อังกูร; quotations follow their version. SJ 87.4 |
 | plan of salvation | แผนการช่วยมนุษย์ให้รอด / แผนการแห่งความรอด | [CHECK] PP 63.3, PP 66.1, SC 27.2 |
 | plan of redemption | แผนการทรงไถ่ / แผนการไถ่ / แผนการช่วยมนุษย์ให้รอด | [CHECK] MB 43.2, PP 63.3, SC 79.1 |
 | broken cisterns | บ่อน้ำรั่ว | TNCV's word at เยเรมีย์ 2:13; THSV writes บ่อแตก, TH1971 แอ่งแตก; MB and PP have no site. SC 28.1 |
@@ -155,8 +158,10 @@
 | self-righteousness, self-righteous | ยกย่องตัวเองว่าชอบธรรม / ยกยอตนเองว่าเป็นคนชอบธรรม / เชื่อมั่นในตัวเองว่าเป็นคนชอบธรรม / ความชอบธรรมของตนเอง | [CHECK] A description built on ชอบธรรม, ลูกา 18:9; never a bare pride word. MB 127.2, SC 30.2, PP 139.3 |
 | professed Christians, profession (of religion, of Christ), mere profession | อ้างตัวว่าเป็นคริสเตียน / อ้างตัวเป็นคริสเตียน / ได้ชื่อว่าเป็นคริสเตียน / อ้างว่าตนเป็น / ประกาศตนว่าเชื่อ | [CHECK] อ้างตัว the published default; ได้ชื่อว่า softer, stands; ทิตัส 1:16 TNCV อ้างว่า. PP 144.3, PP 175.3, MB 146.2, SC 32.1, SC 44.2 |
 | Christianity | คริสตศาสนา / คริสต์ศาสนา / ศาสนาคริสต์ | Both spellings stand; each book keeps one spelling throughout. MB 136.4, PP 144.3 |
+| church | คริสตจักร | [CHECK] Every Thai version but TH1940; PP, MB and SC. มัทธิว 16:18, SJ 84.2 |
 | God's throne, His throne, the throne (of heaven) | พระที่นั่ง / พระบัลลังก์ | [CHECK] Quotations follow the version; บัลลังก์ stands when found, never proposed. MB 140.3, MB 106.2, SC 35.4 |
 | throne of grace | พระที่นั่งแห่งพระคุณ | [CHECK] THSV, TH1971, TKJV ฮีบรู 4:16; TNCV พระบัลลังก์แห่งพระคุณ; never พระที่นั่งกรุณา, the mercy seat. SC 98.3 |
+| throne of David | บัลลังก์ของดาวิด / พระที่นั่งของดาวิด / บัลลังก์ของกษัตริย์ดาวิด | THSV and TNCV ลูกา 1:32; THSV อิสยาห์ 9:7. SJ 83.6 |
 | enemy, the; adversary, the; foe, the (Satan's titles) | ศัตรู / มารร้าย / พญามาร / ซาตาน | [CHECK] ศัตรู first, epithet may follow; มัน may replace the title; ปรปักษ์ glosses the name only. MB 115.1, PP 65.4, PP 39.2 |
 | evil one, the; wicked one, the (Satan) | มารร้าย / พญามาร / ซาตาน / มารซาตาน | [CHECK] มารร้าย is THSV, TH1971 and TNCV at 1 ยอห์น 5:19; พญามาร is TKJV's. MB 68.3, PP 331.2, SC 64.1, SC 94.2 |
 | deceiver, the; great deceiver, the (Satan) | ผู้หลอกลวง / จอมหลอกลวง / จอมล่อลวง / ซาตาน | [CHECK] จอม carries "great"; the versions write ผู้ล่อลวง at วิวรณ์ 12:9. PP 42.3, PP 53.5, PP 264.2 |
@@ -211,6 +216,8 @@
 | Prince of Peace (Isaiah 9:6) | องค์สันติราช | [CHECK] THSV, TH1971, TNCV, TKJV อิสยาห์ 9:6; never พระราชาแห่งสันติสุข. PP 34.1, PP 755.4 |
 | King of Peace (Hebrews 7:2) | กษัตริย์แห่งสันติสุข / พระราชาแห่งสันติสุข | [CHECK] Nine of ten Thai versions; one noun, never paired; Prince of Peace is องค์สันติราช. ฮีบรู 7:2, SJ 87.1 |
 | peace | สันติสุข / สันติภาพ / ความสงบสุข / สันติ / สันติสุขสันติภาพ | สันติสุข inner, with God; สันติภาพ nations, war; ความสงบสุข home; สันติสุขสันติภาพ stresses both; fitting recasts accepted. MB 15.2, MB 27.2, PP 145.2, PP 713.2, SC 124.1 |
+| ride, mount (Christ on the ass or colt) | ขึ้นทรงลา / ทรงลา | [CHECK] The royal verb; Christ never นั่ง or ประทับ on the animal. ลูกา 19:35, มาระโก 11:7, SJ 83.2 |
+| ass's colt, colt | ลูกลา | [CHECK] THSV, TNCV, TKJV and TH1971. เศคาริยาห์ 9:9, มาระโก 11:2, SJ 83.2 |
 | affections (of the heart) | ความปรารถนา / ความรักใคร่ / ความปรารถนาในใจ | The heart's attachments; ความหลงใหลฝ่ายเนื้อหนัง stands where found, never proposed. SC 47.1, SC 29.1 |
 | automaton, mere machine | หุ่นยนต์ | PP 49.1, PP 331.4 |
 | mammon | เงินทอง | Never transliterated. PP 87.2 |
@@ -287,7 +294,7 @@
 | talents, abilities, endowments (a person's capacities) | ความสามารถ / ความสามารถพิเศษ / พรสวรรค์ / ตะลันต์ / เก่ง | [CHECK] Default ความสามารถ; พรสวรรค์ inborn; ตะลันต์ and เก่ง stand, never proposed; recasts stand. MB 94.1, PP 203.1, PP 223.1, SC 81.1, SC 82.2 |
 | gift (God's, the Spirit's); Gift (Christ, 2 Corinthians 9:15) | ของประทาน | [CHECK] What God gives, prophecy included; never พรสวรรค์; ประทาน stands where gift is the giving. โรม 12:6, 1 เปโตร 4:10, 2 โครินธ์ 9:15, MB 136.1, PP 382.3, SC 49.2, SC 54.3, DA 26.3 |
 | co-worker with God, workers together with God (1 Corinthians 3:9) | ผู้ร่วมงานกับพระเจ้า / ร่วมงานกับพระเจ้า / ผู้ร่วมงาน | [CHECK] TNCV's noun at 1 โครินธ์ 3:9; THSV เราร่วมกันทำงานเพื่อพระเจ้า. PP 34.1, PP 573.3, PP 595.2, SC 79.2, SC 83.2 |
-| Lord of life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15, Prince of life. SC 81.4 |
+| Lord of life, Prince of Life (Christ) | องค์เจ้าชีวิต | TH1971 and TKJV เจ้าชีวิต at กิจการ 3:15. SC 81.4, SJ 87.9 |
 | mechanic, humble trade, mechanical employment | ช่างฝีมือ | Carpenter is ช่างไม้. PP 593.3, SC 81.4, SC 82.1 |
 | heathen, pagan (people, nations) | ไม่นับถือพระเจ้า / ไม่นับถือพระองค์ / ไม่รู้จักพระเจ้า / คนต่างชาติ / กราบไหว้รูปเคารพ / คนนอกศาสนา | [CHECK] History ไม่นับถือ; a principle today ไม่รู้จัก; a quotation keeps its version; คนนอกศาสนา only in reproach. MB 98.2, PP 141.2, PP 587.1, GC 41.3 |
 | heathen lands, heathen countries, the heathen world, foreign fields (the mission field) | ดินแดนที่ยังไม่รู้จักพระเจ้า / ดินแดนที่ข่าวประเสริฐยังไปไม่ถึง / ต่างแดน | [CHECK] Religious form against Christian countries; ต่างแดน or ดินแดนที่ไกลโพ้น where distance is the point. SC 81.2, SC 81.3, PP 332.2 |
@@ -350,6 +357,8 @@
 | sweet savor of Christ | กลิ่นหอมหวาน / กลิ่นอันหอมหวาน / กลิ่นหอมอันหวานชื่น | [CHECK] Christ's fragrance around believers; ของพระคริสต์ varies; bare กลิ่นหอม stands; MB 28.2 recast stands. 2 โครินธ์ 2:15, MB 6.1, SC 82.3 |
 | sanctuary (in heaven; sanctuary above; Daniel 8:14 and its cleansing) | สถานนมัสการ / สถานบริสุทธิ์ / สถานศักดิ์สิทธิ์ / พระวิหาร | [CHECK] สถานนมัสการ default; พระวิหาร where English says temple; ในสวรรค์ may clarify. ดาเนียล 8:14, ฮีบรู 8:2, วิวรณ์ 11:19, SC 102.1, PP 353.1 |
 | sanctuary (earthly: tabernacle, temple) | พลับพลา / สถานนมัสการ / พระวิหาร | [CHECK] พลับพลา in tabernacle era, พระวิหาร from Shiloh; บนโลก or a time phrase may clarify. PP 343.3, PP 355.2, PP 575.2 |
+| court, courts (of the temple) | ลานพระวิหาร / บริเวณพระวิหาร | [CHECK] TNCV ลานพระวิหาร; THSV and TH1971 บริเวณพระวิหาร. SJ 89.2, SJ 89.3, SJ 90.7 |
+| outer court (of the temple) | ลานชั้นนอก | [CHECK] THSV, TNCV, TKJV and TH1971; วิวรณ์ 11:2. SJ 89.1 |
 | monk, monks, monkish (Christian) | นักบวช | [CHECK] Never พระ, พระสงฆ์, ภิกษุ, บาทหลวง; classifier คน; add คาทอลิก or order where needed. SC 101.1 |
 | friar, friars | นักบวชที่เที่ยวขอทาน / นักบวช / ภราดา | [CHECK] First mention: full form or order's name; then นักบวช. ภราดา only with คณะ. |
 | mendicant, mendicant orders, begging monks | นักบวชที่เที่ยวขอทาน / คณะนักบวชที่เที่ยวขอทาน | Wording flexes; ภิกขาจาร and บิณฑบาต make the friar a Buddhist monk. |
@@ -420,6 +429,7 @@
 | wise men (the magi of Matthew 2) | นักปราชญ์ | [CHECK] THSV's word; never โหราจารย์; พวก, เหล่า or บรรดา may stand before it. มัทธิว 2:1, มัทธิว 2:7, PP 637.1, SJ 21.4, SJ 23.7 |
 | Friend, heavenly Friend, best Friend (capitalised: Christ or God) | มิตรสหาย / พระสหาย / สหาย | [CHECK] Default มิตรสหาย; พระสหาย where a human เพื่อน stands beside it. MB 9.2, MB 120.1, PP 128.2, SC 103.2, SJ 24.3 |
 | handiwork, work of His hands, works of His hands (God's works in creation) | ฝีพระหัตถ์ / พระหัตถกิจ | [CHECK] ฝีพระหัตถ์ where the craftsmanship shows; แห่งการทรงสร้าง may follow; THSV's ผลงานแห่งพระหัตถ์ only quoted. สดุดี 19:1, MB 26.4, PP 47.2, PP 48.1, PP 49.3, PP 103.2, SC 87.1, SJ 23.1 |
+| His work (God's or Christ's) | พระราชกิจ / งานของพระองค์ | PP, MB, SC and four Thai versions. SJ 91.9 |
 | rabbi, rabbis (the Jewish teachers of the law in Christ's day) | ธรรมาจารย์ / รับบี | [CHECK] รับบี where the title is named or spoken, or scribes stand beside; อาจารย์ forms stand. มัทธิว 23:2, มัทธิว 23:7, ยอห์น 1:38, MB 3.1, MB 46.4, MB 131.2, SJ 30.3, SJ 37.3, DA 85.1, DA 328.3 |
 | Jewish teachers, learned teachers (the rabbis by another name; the great teachers, the doctors of Luke 2:46) | ธรรมาจารย์ / อาจารย์ | [CHECK] The rabbi row's men; ชาวยิว may follow; ครู alone reads as a schoolteacher; ปรมาจารย์ stands. ลูกา 2:46, MB 2.1, SJ 32.3, SJ 37.1, SJ 40.6, SJ 67.4 |
 | scribe, scribes (the teachers of the law in Christ's day; the scribes and Pharisees) | ธรรมาจารย์ | [CHECK] The rabbi row's men, one word for both; ผู้นำชาวยิว stands; Old Testament secretaries fall outside. มัทธิว 23:2, มัทธิว 7:29, มาระโก 12:28, MB 5.1, MB 46.4, MB 53.1, SJ 69.8, SJ 115.2, SJ 143.3, PP 635.2, DA 427.2 |
@@ -471,7 +481,10 @@
 | heavenly home, home in heaven (heaven as Christ's home and the believers') | สวรรค์ / บ้านบนสวรรค์ / บ้านในสวรรค์ / พระนิเวศ | [CHECK] Name heaven; บ้าน keeps the home image; พระนิเวศ with ในสวรรค์ for Christ's dwelling. 2 โครินธ์ 5:1, MB 71.1, SJ 15.6, SJ 62.6, SJ 62.7, SJ 167.1 |
 | righteousness | ความชอบธรรม / ชอบธรรม | [CHECK] ชอบธรรม as adjective, อันชอบธรรม; quotations follow their version; never ความดี, goodness. มัทธิว 5:6, สดุดี 119:172, MB 18.1, MB 149.2, PP 86.1, SC 61.1 |
 | amen | อาเมน | [CHECK] Never TKJV's เอเมน; สาธุ and ขอให้เป็นดังนั้น only inside a gloss. 1 โครินธ์ 14:16, เฉลยธรรมบัญญัติ 27:15, PP 500.3, SJ 56.4 |
+| hosanna | โฮซันนา | [CHECK] THSV, TNCV, TKJV and TH1971. มัทธิว 21:9, SJ 84.6, SJ 91.1 |
+| palm branches, palms (fronds waved or strewn: John 12:13, Revelation 7:9) | ทางอินทผลัม | [CHECK] A frond, never กิ่ง; ใบอินทผลัม stands; quotations follow their version. ยอห์น 12:13, SJ 83.6 |
 | the Lord, praise to the Lord (God named in narrative) | องค์พระผู้เป็นเจ้า / พระเจ้า / พระเป็นเจ้า | Reference only; พระเป็นเจ้า, TCL's and TH1971's word, stands; quotations follow their version. ลูกา 5:17, SJ 56.4 |
+| Jehovah | พระเยโฮวาห์ | PP and TKJV; THSV's พระยาห์เวห์ only inside THSV quotations. SJ 87.8 |
 | peacemaker, peacemakers (Matthew 5:9) | ผู้สร้างสันติ / คนที่สร้างสันติ / สร้างสันติ / ผู้ไกล่เกลี่ย / ไกล่เกลี่ย | [CHECK] สร้างสันติ, the verse's word, in every sense; ผู้ไกล่เกลี่ย where one settles a quarrel between others. มัทธิว 5:9, ยากอบ 3:18, กิจการ 7:26, MB 28.1, PP 667.1, SJ 62.2 |
 | neighbor, neighbour (the fellow human the law bids us love: Leviticus 19:18, Luke 10; the ninth and tenth commandments) | เพื่อนบ้าน / เพื่อนมนุษย์ | [CHECK] Either form by context; Luke 10's question and answer share one word; ผู้อื่น, คนอื่น stand. เลวีนิติ 19:18, มัทธิว 22:39, ลูกา 10:29, โรม 13:8, MB 42.2, PP 305.2, SJ 65.8, SJ 65.10 |
 | neighbor, neighbour (one who lives near: next door, townspeople; neighbouring peoples) | เพื่อนบ้าน / ชนชาติใกล้เคียง / ประเทศใกล้เคียง / ประเทศเพื่อนบ้าน | Nearness is the sense; peoples and nations take free wording; a recast stands. ลูกา 15:6, ยอห์น 9:8, สดุดี 79:4, MB 105.2, PP 159.2, PP 603.3, PP 616.2, SC 37.3 |
@@ -558,8 +571,10 @@
 | Japheth | ยาเฟท | [CHECK] THSV's spelling. PP 117.1 |
 | Lot | โลท | [CHECK] THSV's spelling. MB 35.1, PP 127.1 |
 | Melchizedek | เมลคีเซเดค | [CHECK] THSV's spelling. PP 136.1 |
+| King of Salem | กษัตริย์เมืองซาเลม / กษัตริย์ซาเลม | [CHECK] THSV ฮีบรู 7:1 and ปฐมกาล 14:18. SJ 87.1 |
 | Moses | โมเสส | [CHECK] THSV's spelling. MB 14.1, PP 112.2 |
 | David | ดาวิด | [CHECK] the king; see the psalmist row; THSV's spelling. MB 11.2 |
+| Son of David | บุตรของดาวิด / บุตรดาวิด | [CHECK] THSV บุตรของดาวิด, TNCV บุตรดาวิด; quotations follow their version. มัทธิว 21:9, SJ 91.2 |
 | Solomon | ซาโลมอน | [CHECK] the king; also his books; THSV's spelling. |
 | Isaiah | อิสยาห์ | [CHECK] the prophet; also the book; THSV's spelling. |
 | Jeremiah | เยเรมีย์ | [CHECK] the prophet; also the book; THSV's spelling. |
@@ -603,12 +618,14 @@
 | Jordan | จอร์แดน | [CHECK] THSV's spelling. MB 1.3, PP 133.1 |
 | Jerusalem | เยรูซาเล็ม | [CHECK] THSV's spelling. MB 2.1, PP 67.1 |
 | Zion | ศิโยน | [CHECK] THSV's spelling. MB 132.1, PP 67.1 |
+| daughter of Zion | ธิดาแห่งศิโยน | [CHECK] THSV and TNCV เศคาริยาห์ 9:9; THSV ยอห์น 12:15. SJ 83.4 |
 | Capernaum | คาเปอรนาอุม | [CHECK] THSV's spelling. MB 59.3 |
 | Nineveh | นีนะเวห์ | [CHECK] THSV's spelling. PP 97.2 |
 | Gerizim | เกริซิม | [CHECK] THSV's spelling. MB 1.1, PP 127.2 |
 | Israel | อิสราเอล | [CHECK] THSV's spelling. MB 1.1, PP 33.2 |
 | Lucifer | ลูซีเฟอร์ | [CHECK] the pre-fall name, pronoun เขา, profile 4.B; not in THSV. PP 35.1, PP 78.4 |
 | Messiah (the title) | เมสสิยาห์ | [CHECK] THSV at ยอห์น 1:41; THSV's spelling. MB 1.3, PP 140.3 |
+| Shiloh (the Messiah, Genesis 49:10) | ชีโลห์ | [CHECK] THSV, TH1971 and TKJV ปฐมกาล 49:10; PP writes the town ชิโลห์. PP 236.3, SJ 87.2 |
 | Immanuel | อิมมานูเอล | [CHECK] THSV's spelling; the gloss has its own row, God with us. MB 34.1, DA 19.1 |
 | Pharisees | ฟาริสี | [CHECK] THSV's spelling. MB 5.1 |
 | John the Baptist | ยอห์นผู้ให้บัพติศมา | [CHECK] THSV and TNCV มัทธิว 3:1; TH1971 ยอห์นผู้ให้รับบัพติศมา. MB 1.3 |
@@ -763,3 +780,4 @@
 | เวิ้งว้าง (wide, open) | เวิ้งว้าง | เวิงว้าง | PP 472.3 |
 | แข็งแกร่ง (strong) | แข็งแกร่ง | แข็งเกร่ง | PP 556.2 |
 | ชิทธีม (Shittim) | ชิทธีม | ชิทธิม | Also inside a quotation. PP 453.2 |
+| อินทผลัม (date palm) | อินทผลัม | อิทผลัม, อินทผาลัม | Nine Thai Bibles write อินทผลัม; TCL also prints อินทผาลัม. |
