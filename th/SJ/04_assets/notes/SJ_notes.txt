@@ -19,7 +19,9 @@
 {SJ 47.8} | pay homage to the principles of evil | หลักการแห่งอำนาจชั่วร้าย | อำนาจ gives the bow a power to bow to and changes no meaning; ruled at terms, not a qa1 or qa2 finding.
 {SJ 62.2} | meek and lowly spirit | มีความอ่อนน้อมถ่อมตน | อ่อนน้อมถ่อมตน carries meek and lowly as one idiom, and the next sentence states the gentleness.
 {SJ 65.4} | brought him to an inn | พาไปยังโรงแรม | "Nine of the ten versions write โรงแรม at Luke 10:34."
+{SJ 67.1} | taught His disciples to keep it | ทรงสอนเหล่าสาวกของพระองค์ให้ถือรักษาด้วย | Kept for variety.
 {SJ 71.1} | when He came to be baptized by John the Baptist | หายอห์นเพื่อรับบัพติศมาจากท่าน | The verb รับบัพติศมา already names John's role, so the title would repeat บัพติศมา; the wording follows NTV at มัทธิว 3:13.
 {SJ 76.8} | So the care of the Saviour-Shepherd is not for those only who are in the fold. | ผู้เลี้ยงแกะไม่ได้ดูแลเฉพาะแกะที่อยู่ในคอกเท่านั้น | "The issue was resolved in the preceding clause": พระผู้ช่วยให้รอดทรงเป็นพระผู้เลี้ยงเช่นนี้แหละ names the Saviour as the shepherd.
 {SJ 77.6} | every wanderer from the fold | ทุกคนที่หลงไปจากคอก | ทุกคน keeps "every" and จากคอก keeps "from the fold"; the wanderer row's forms would drop one of them.
 {SJ 79.4} | the widow's son at Nain | บุตรชายของหญิงม่ายที่หมู่บ้านนาอิน | The author calls Nain "the village of Nain" at {DA 318.1}, and Nain was a village in size; the Bibles' เมือง follows Luke's word for town.
+{SJ 184.8} | There the heavenly Shepherd leads His flock | เหมือนดังผู้เลี้ยงแกะนำฝูงแกะของตน | The simile is literature; the title written in would read as a clunky textbook.

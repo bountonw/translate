@@ -194,6 +194,7 @@
 | exercise of the will (the will put to use) | ใช้อำนาจในการตัดสินใจ / ความตั้งใจแน่วแน่ | The will applied, not the faculty; the verb shape at SC 48.1, the noun in a list at SC 18.1. SC 48.1, SC 18.1 |
 | will of God, His will | น้ำพระทัย / พระประสงค์ / พระทัย | [CHECK] น้ำพระทัย where obeyed or submitted to; พระประสงค์ where His purpose; พระทัย in quotations. โรม 12:2 TH1971, MB 109.1, SC 43.4 |
 | paralytic, sick of the palsy | อัมพาต / คนง่อย | [CHECK] อัมพาต in prose; คนง่อย only beside a THSV or TH1971 quotation; figurative paralyzed free. มัทธิว 9:6, ยอห์น 5:3, SC 49.3, SC 50.1 |
+| leper, lepers, leprosy | คนโรคเรื้อน / โรคเรื้อน | [CHECK] THSV's word; THA-ERV's โรคผิวหนังร้ายแรง only in quotations. มัทธิว 11:5, ลูกา 7:22, PP 81.2, PP 277.2, SJ 77.10, SJ 80.3 |
 | made whole, healed (the sick) | หายเป็นปกติ / หายปกติ / หายดี / รักษาให้หาย / หายโรค / หายป่วย / รักษา | [CHECK] Made whole: หายเป็นปกติ or หายดี, body or soul; healed: รักษาให้หาย or รักษา; healing noun free. ยอห์น 5:9, ลูกา 8:50, SC 50.1, SC 51.1 |
 | probation (trial period to pass) | ช่วงเวลาทดลอง / ช่วงทดสอบ / ช่วงพิสูจน์ตัวเอง / ช่วงเวลาพิสูจน์ตน | [CHECK] Figurative, a person earning acceptance; ช่วงทดสอบ where การทดลอง as temptation stands nearby. SC 52.2, PP 423.2 |
 | probation (time of grace) | เวลาแห่งพระกรุณา / ช่วงเวลาแห่งพระกรุณา / ระยะเวลาแห่งพระกรุณา | [CHECK] Doctrinal, God's mercy holding time open; closing is สิ้นสุดลง or หมดลง; recasts on พระกรุณา stand. PP 66.2, PP 97.3, PP 140.1 |
@@ -515,6 +516,9 @@
 | Jeshurun | เยชูรูน | [CHECK] Also inside a quotation. TNCV Deuteronomy writes เยชูรุน; TH1971 32:15 เยชุรูน; most versions เยชูรูน. PP 471.2 |
 | Shittim, Abel-shittim, shittim tree | ชิทธีม / อาเบลชิทธีม / ต้นชิทธีม | [CHECK] Also inside a quotation. TNCV; THSV writes อาเบลชิทธิม, TKJV ชิทธิม. PP 453.2 |
 | Bethesda | เบธซาธา | [CHECK] THSV, TKJV and TH1971 at ยอห์น 5:2; TNCV writes เบเธสดา. SC 50.1 |
+| Nain | นาอิน | [CHECK] Nine Thai Bibles at ลูกา 7:11; TCL writes นาอีน. SJ 79.4 |
+| Jairus | ไยรัส | [CHECK] Nine Thai Bibles at มาระโก 5:22; TH1940 writes ญายโร. SJ 79.5 |
+| Lazarus | ลาซารัส | [CHECK] Nine Thai Bibles at ยอห์น 11:1 and ลูกา 16:20; TH1940 writes ลาซะโร. SJ 79.5, SJ 84.11, SJ 151.2 |
 | Nazareth | นาซาเร็ธ / เมืองนาซาเร็ธ | THSV's spelling. MB 2.1, PP 475.2, PP 592.3, SC 81.4 |
 | Jesus of Nazareth | พระเยซูชาวนาซาเร็ธ | THSV, TH1971 form; TNCV พระเยซูแห่งนาซาเร็ธ in its quotations. กิจการ 2:22, มาระโก 10:47 |
 | Galilee | กาลิลี / แคว้นกาลิลี / ทะเลสาบกาลิลี | THSV; ทะเลกาลิลี stands at MB 147.2, never proposed. MB 2.1, MB 4.1, PP 538.2, SC 81.4, SC 82.1 |
