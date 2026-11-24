@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reading page for the SC read-through (th/SC/CLAUDE.md section 10). Reads
+"""Reading page for the SC read-through (the SC procedure, section 10). Reads
 the chapters and the English as they stand on main; writes one HTML page
 under ~/claude-sandbox/sc-read/ for publishing as a claude.ai artifact.
 

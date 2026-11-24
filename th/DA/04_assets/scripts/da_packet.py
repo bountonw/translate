@@ -11,7 +11,8 @@ the range, and the whole spelling table; 3 the rows of thai-names.tsv whose
 English name occurs; 4 the verse picks of pass 1 for the range, from
 ~/claude-sandbox/da-audit/DANN-verses.tsv, with the picked version's text and
 the alternative where the call was close, and whether the citation is hidden
-(DA 3.D); 5 thai-profile.txt whole and section 3 of th/DA/CLAUDE.md; 6 the PP
+(DA 3.D); 5 thai-profile.txt whole and the DA book rules of
+th/DA/04_assets/book-rules.md; 6 the PP
 style samples of th/DA/04_assets/pp_samples.txt, English and Thai; 7 the Thai
 already in the chapter before the range. The 2023 print never enters the
 packet. Chapter 0 is the preface; without --range the whole chapter is the batch.
@@ -28,7 +29,9 @@ from da_common import (ROOT, PROJECT, SANDBOX, PROFILE, NAMES, GLOSSARY, chapter
                        glossary_rows, SUBTITLE_LINE)
 
 SAMPLES = PROJECT / "04_assets" / "pp_samples.txt"
-DA_CLAUDE = PROJECT / "CLAUDE.md"
+# The rules of this book: title, Bible versions, citations, names. Its lines keep the numbers 3.A, 3.B and on,
+# because agents and markers cite them, as "DA 3.D".
+BOOK_RULES = PROJECT / "04_assets" / "book-rules.md"
 
 
 def head_regex(head):
@@ -157,7 +160,7 @@ def main():
         L.append("")
 
     L += ["## 5. The rules", "", "### thai-profile.txt", "", PROFILE.read_text(encoding="utf-8").rstrip(), "",
-          "### th/DA/CLAUDE.md section 3", "", section_of(DA_CLAUDE.read_text(encoding="utf-8"), 3), ""]
+          "### th/DA/04_assets/book-rules.md", "", section_of(BOOK_RULES.read_text(encoding="utf-8"), 3), ""]
 
     L += ["## 6. Style samples from PP", ""]
     index, picks_pp = pp_index()

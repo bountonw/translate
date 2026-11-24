@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""fb_check.py — the mechanical check of one Lao statement of the 28 Fundamental Beliefs (lo/FB/CLAUDE.md 5.A and 6.A).
+"""fb_check.py — the mechanical check of one Lao statement of the 28 Fundamental Beliefs (the FB procedure, 5.A and 6.A).
 
 Usage: python3 fb_check.py --belief 07 [--dry-run] [--file PATH]
 
@@ -244,7 +244,7 @@ def check_reference_line(n, line, findings, books):
 def collect(belief, lines, spelling, books):
     findings = []
     if len(lines) != 4 or lines[2] != "":
-        findings.append(Finding(None, f"the file has {len(lines)} lines; expected the heading, the text, a blank line and the reference line (CLAUDE.md 2.B)"))
+        findings.append(Finding(None, f"the file has {len(lines)} lines; expected the heading, the text, a blank line and the reference line (the FB procedure, 2.B)"))
     h = re.match(r"^== (\d+) — (.+)$", lines[0]) if lines else None
     if not h:
         findings.append(Finding(0, "the heading is not of the form == N — title (profile 3.E)"))
@@ -271,7 +271,7 @@ def main():
     text = path.read_text(encoding="utf-8")
     standing = text.count("[[")
     if standing:
-        print(f"note [file]: {standing} standing [[ marker(s) in {rel(path)}; resolve them first, the check stops here (CLAUDE.md 6.A)")
+        print(f"note [file]: {standing} standing [[ marker(s) in {rel(path)}; resolve them first, the check stops here (the FB procedure, 6.A)")
         return 1
     lines = text.split("\n")
     if lines and lines[-1] == "":

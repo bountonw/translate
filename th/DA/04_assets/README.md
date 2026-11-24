@@ -1,10 +1,10 @@
 # DA — how to run the project
 
-The new Thai translation of *The Desire of Ages*, ผู้พึงปรารถนาแห่งปวงชน ฉบับแปลใหม่. The procedure is th/DA/CLAUDE.md; this page lists what you type.
+The new Thai translation of *The Desire of Ages*, ผู้พึงปรารถนาแห่งปวงชน ฉบับแปลใหม่. The procedure is the command /th-DA, and the book rules are th/DA/04_assets/book-rules.md; this page lists what you type.
 
 Start Claude Code in the checkout that holds the DA branch, then type `/th-DA` followed by one of the commands below. Every report comes back in the usual shape, with numbered items and the summary at the bottom.
 
-The agents live in .claude/agents (da-finder, da-miner, da-verse-study, da-drafter, da-check, da-fixer, da-print-compare, da-subtitles, da-resolve-check, da-wording-drill, with th-term-study and th-glossary-miner shared with SC) and the scripts in th/DA/04_assets/scripts; each script says what it does in its first lines. `/th-DA tools` repairs them.
+The agents (da-finder, da-miner, da-verse-study, da-drafter, da-check, da-fixer, da-print-compare, da-subtitles, da-resolve-check, da-wording-drill, with th-term-study and th-glossary-miner shared with SC) are kept outside this repository, and the scripts are in th/DA/04_assets/scripts; each script says what it does in its first lines. `/th-DA tools` repairs them.
 
 ## Once, before the first chapter
 
