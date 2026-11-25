@@ -15,6 +15,8 @@ on:
       - 'lo/GC/metadata.yaml'
       - 'th/MB/03_public/**'
       - 'th/MB/metadata.yaml'
+      - 'th/LBF/03_public/**'
+      - 'th/LBF/metadata.yaml'
       # the Thai break list, which keeps listed Thai words whole on the pages
       - 'th/assets/typeset/thai-breaks.txt'
       # the pages, the scripts, the layouts, the home page template
@@ -39,12 +41,13 @@ jobs:
         run: |
           python3 websites/assets/scripts/build_book.py lo/GC
           python3 websites/assets/scripts/build_book.py th/MB
+          python3 websites/assets/scripts/build_book.py th/LBF
       - name: Rebuild the home page, check its links and refuse a placeholder
         run: python3 websites/assets/scripts/build_home.py --release
       - name: Fail if the committed pages are out of date
         run: |
           if [ -n "$(git status --porcelain -- websites/laoegw)" ]; then
             git status --short -- websites/laoegw
-            echo "::error::The website pages do not match the chapter text, the list of books or the news. Run python3 websites/assets/scripts/build_book.py lo/GC, the same with th/MB, and python3 websites/assets/scripts/build_home.py, commit the pages, and after merging upload them to the server."
+            echo "::error::The website pages do not match the chapter text, the list of books or the news. Run python3 websites/assets/scripts/build_book.py lo/GC, the same with th/MB and th/LBF, and python3 websites/assets/scripts/build_home.py, commit the pages, and after merging upload them to the server."
             exit 1
           fi

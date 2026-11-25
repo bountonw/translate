@@ -4,7 +4,7 @@ chapter:
   title:
     th: พลังแห่งการให้อภัย
     en: The Power of Forgiveness
-  url: https://egwwritings.org/read?panels=p1546.152
+  url: https://m.egwwritings.org/en/book/1546.152#152
   original: Waggoner--ST 4/10/1893
 ---
 

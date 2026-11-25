@@ -4,7 +4,7 @@ chapter:
   title:
     th: อย่าลืมรับประทาน
     en: Don’t Forget to Eat
-  url: https://egwwritings.org/read?panels=p1525.596
+  url: https://m.egwwritings.org/en/book/1525.596#596
   original: Waggoner--PT 2/23/1893
 ---
 

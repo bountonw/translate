@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความชอบธรรมและชีวิต
     en: Righteousness and Life
-  url: https://egwwritings.org/read?panels=p1524.500
+  url: https://m.egwwritings.org/en/book/1524.500#500
   original: Waggoner--PT 10/6/1892
 ---
 

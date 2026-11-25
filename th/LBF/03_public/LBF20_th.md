@@ -4,7 +4,7 @@ chapter:
   title:
     th: ฤทธานุภาพของพระวิญญาณบริสุทธิ์
     en: The Power of the Spirit
-  url: https://egwwritings.org/read?panels=p1518.369
+  url: https://m.egwwritings.org/en/book/1518.369#369
   original: Waggoner--PT 1/11/1894
 ---
 

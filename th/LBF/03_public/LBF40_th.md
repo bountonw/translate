@@ -4,7 +4,7 @@ chapter:
   title:
     th: ศาสนาแห่งปัจจุบัน
     en: Present Tense Religion
-  url: https://egwwritings.org/read?panels=p1518.1165
+  url: https://m.egwwritings.org/en/book/1518.1165#1165
   original: Waggoner--PT 2/1/1894
 ---
 

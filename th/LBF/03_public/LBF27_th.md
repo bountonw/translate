@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความเชื่อที่มีชีวิต
     en: Living Faith
-  url: https://egwwritings.org/read?panels=p1090.4
+  url: https://m.egwwritings.org/en/book/1090.4#4
   original: Jones--BE 1/14/1895
 ---
 

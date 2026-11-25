@@ -4,7 +4,7 @@ chapter:
   title:
     th: การอัศจรรย์ในวันสะบาโต
     en: Some Sabbath Miracles
-  url: https://egwwritings.org/read?panels=p1519.6075
+  url: https://m.egwwritings.org/en/book/1519.6075#6075
   original: Waggoner--PT 9/19/1895
   note: Originally titled “Some Sabbath Miracles.” Sections “The Man With A Withered Hand” and “The Impotent Man Healed” are missing in the publication of Living by Faith
 ---

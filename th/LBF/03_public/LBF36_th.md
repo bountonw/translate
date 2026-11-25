@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชำระให้ชอบธรรม
     en: Being Justified
-  url: https://egwwritings.org/read?panels=p1546.199
+  url: https://m.egwwritings.org/en/book/1546.199#199
   original: Waggoner--ST 5/1/1893
 ---
 

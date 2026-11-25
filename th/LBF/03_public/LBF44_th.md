@@ -4,7 +4,7 @@ chapter:
   title:
     th: ทรงสร้างและทรงไถ่
     en: Creation and Redemption
-  url: https://egwwritings.org/read?panels=p1524.1202
+  url: https://m.egwwritings.org/en/book/1524.1202#1202
   original: Waggoner--PT 12/15/1892
 ---
 

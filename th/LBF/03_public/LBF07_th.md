@@ -4,7 +4,7 @@ chapter:
   title:
     th: พระวจนะในใจ
     en: The Indwelling Word
-  url: https://egwwritings.org/read?panels=p1543.821
+  url: https://m.egwwritings.org/en/book/1543.821#821
   original: Waggoner--ST 7/14/1890
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชอบธรรมโดยความเชื่อ
     en: Justification by Faith
-  url: https://egwwritings.org/read?panels=p1178.29
+  url: https://m.egwwritings.org/en/book/1178.29#29
   original: Jones--PT 6/21/1894
 ---
 

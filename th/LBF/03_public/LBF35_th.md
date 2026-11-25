@@ -4,7 +4,7 @@ chapter:
   title:
     th: การอธิษฐาน
     en: Prayer
-  url: https://egwwritings.org/read?panels=p1525.5666
+  url: https://m.egwwritings.org/en/book/1525.5666#5666
   original: Waggoner--PT 10/5/1893
 ---
 

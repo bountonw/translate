@@ -47,3 +47,29 @@ def test_every_committed_gc_page_opens_with_the_home_link():
         page = open(os.path.join(folder, rel), encoding='utf-8').read()
         assert re.split(r'<body>\n', page, maxsplit=1)[1].startswith(home_link(root)), rel
         assert page.count('class="site-header"') == 1, rel
+
+
+def test_settings_reads_the_list_of_a_metadata_file(tmp_path):
+    from build_book import settings
+    meta = tmp_path / 'metadata.yaml'
+    meta.write_text('---\nlang: th-TH\nsettings:\n  - strip_reference_codes_on_output\n...\n', encoding='utf-8')
+    assert settings(str(meta)) == ['strip_reference_codes_on_output']
+    meta.write_text('---\nlang: lo-LA\nbook:\n  title:\n    lo: ກ\n', encoding='utf-8')
+    assert settings(str(meta)) == []
+
+
+def test_a_hidden_code_leaves_the_paragraph_its_id_and_no_code():
+    from build_book import to_html
+    text = 'ก ข {LBF 7.1}\n\n> ค  \n> ง {LBF 28.3}\n'
+    shown, hidden = to_html(text), to_html(text, strip_codes=True)
+    assert '<p id="LBF7.1">ก ข <span class="egw"><a href="#LBF7.1">{LBF 7.1}</a></span></p>' in shown
+    assert '<p id="LBF7.1">ก ข</p>' in hidden
+    assert '<p id="LBF28.3">ค<br>\nง</p>' in hidden
+    assert '{LBF' not in hidden and 'class="egw"' not in hidden
+
+
+def test_a_note_in_a_comment_is_left_off_the_page_and_out_of_the_check():
+    from build_book import prepare
+    body = '## {LBF 15.1}\n\nก<!--a note\nto the translator-->ข {LBF 15.1}\n'
+    assert '<!--' not in prepare(body) and 'note' not in prepare(body)
+    assert check_book.letters(check_book.md_parts(body)[0]) == 'กขLBF151'
