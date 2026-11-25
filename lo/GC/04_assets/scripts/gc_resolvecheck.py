@@ -202,7 +202,7 @@ def main():
         findings.append((kind, anchor, msg, span))
 
     # --- pass 0: Lao and Thai digits, chapter-wide ---
-    # Numerals are always Western (root CLAUDE.md 5.A). The substitution is invisible
+    # Numerals are always Western (rule 5.A of the rules for every chat). The substitution is invisible
     # in print — the Lao digit zero closely resembles a vowel — so it is swept
     # mechanically here rather than left to a reader's eye. Costs milliseconds.
     for m in re.finditer(r"[\u0ED0-\u0ED9\u0E50-\u0E59]", text):

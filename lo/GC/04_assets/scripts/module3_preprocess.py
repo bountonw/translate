@@ -177,7 +177,7 @@ def create_tex_file(tex_input_paths, output_dir, tex_scripts_path, debug=False):
         # included, is a multiple of PAGE_COUNT_MULTIPLE. Blank pages lead up to
         # the QR-code page on the last right-hand page, and one blank page ends
         # the book; when the text fills that right-hand page, the QR code takes
-        # the last page instead (lo/GC/CLAUDE.md 8.C).
+        # the last page instead (the GC procedure, 8.C).
         m = PAGE_COUNT_MULTIPLE
         tex_content.append("\\clearpage")
         tex_content.append("\\newcount\\GCpadcount")

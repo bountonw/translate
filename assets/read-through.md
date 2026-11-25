@@ -1,6 +1,6 @@
 # Read-through — every book
 
-This file governs the read-through of any book: the translator's own reading, and the reading of outside reviewers on the proofreader site. A book's procedure file names this file in one trigger line, with its chapter stage, its read-through branch and worktree, its notes file and its drill agent; a book without that line has no read-through. The root CLAUDE.md governs reports, register and git.
+This file governs the read-through of any book: the translator's own reading, and the reading of outside reviewers on the proofreader site. A book's procedure file names this file in one trigger line, with its chapter stage, its read-through branch and worktree, its notes file and its drill agent; a book without that line has no read-through. The rules for every chat govern reports, register and git.
 
 ## 1. The translator's reading
 

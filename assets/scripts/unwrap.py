@@ -5,7 +5,7 @@ A logical line starts at column 0 (a marker, a bullet, or a
 plain paragraph's first line). A following line indented by one
 to three spaces or a tab is a hard-wrap continuation and is folded
 back in. A line indented by four or more spaces is an example block
-and stays as it is (root CLAUDE.md 7.A). Headings and fenced code
+and stays as it is (rule 7.A of the rules for every chat). Headings and fenced code
 blocks are left untouched.
 
     python3 assets/scripts/unwrap.py FILE [FILE ...]
