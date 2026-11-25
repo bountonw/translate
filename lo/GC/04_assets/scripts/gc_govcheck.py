@@ -30,7 +30,7 @@ anything was checked, so the number of rows each actually loads is
 asserted before and after.
 
 Usage, from the repository root, by that exact relative path so the
-permission allow-rules match (lo/GC/CLAUDE.md 2.C):
+permission allow-rules match (the GC procedure, 2.C):
 
     python3 lo/GC/04_assets/scripts/gc_govcheck.py --snapshot
         Save the current governing files as the baseline. Do this before
@@ -60,7 +60,7 @@ from pathlib import Path
 DEFAULT_REPO = Path(__file__).resolve().parents[4]
 
 # Run artifacts — the before-edit snapshot — stay in the sandbox, per
-# lo/GC/CLAUDE.md 2.D. Only the durable history files are in the repo.
+# the GC procedure, 2.D. Only the durable history files are in the repo.
 SANDBOX = Path.home() / "claude-sandbox" / "gc-audit"
 
 PROFILE = "lo/GC/04_assets/translation_profile"
@@ -69,7 +69,7 @@ OPENTERMS_REL = f"{PROFILE}/GC-open-terms.md"
 
 # The history files, tracked in the repository so that the record of how
 # each row was decided is versioned and survives the sandbox. No agent
-# reads them: lo/GC/CLAUDE.md 2.F lists the directory as not run input,
+# reads them: the GC procedure, 2.F, lists the directory as not run input,
 # which keeps them off every dispatch.
 HISTORY_REL = "lo/GC/04_assets/history"
 DEFAULT_HISTORY = [
@@ -96,7 +96,7 @@ KNOWN_PREFIXES = ("DEFER-TERM", "EXCEPT-TERM", "NOTE-TERM",
 PREFIX = re.compile(r"^(" + "|".join(KNOWN_PREFIXES) + r")\b")
 PREFIX_SHAPED = re.compile(r"^([A-Z]{3,}-[A-Z]{3,})\b")
 
-# Codepoints are named rather than printed, per lo/GC/CLAUDE.md 5.H, so
+# Codepoints are named rather than printed, per the GC procedure, 5.H, so
 # that a sweep for stray digits does not flag the rule forbidding them.
 LAO = re.compile("[\u0E80-\u0EFF]+")
 FORBIDDEN_DIGITS = re.compile("[\u0ED0-\u0ED9\u0E50-\u0E59]")
@@ -509,13 +509,13 @@ def check_characters(text, label, report):
         report.fail(
             f"{label} characters",
             f"Lao or Thai digit U+{ord(match.group()):04X} at offset "
-            f"{match.start()}. Root CLAUDE.md 5.A forbids both sets.",
+            f"{match.start()}. Rule 5.A of the rules for every chat forbids both sets.",
         )
     if ZWSP in text:
         report.fail(
             f"{label} characters",
             f"{text.count(ZWSP)} zero-width space(s) U+200B. "
-            "Root CLAUDE.md 5.B forbids them.",
+            "Rule 5.B of the rules for every chat forbids them.",
         )
 
 

@@ -2,7 +2,7 @@
 
 This directory holds the Thai translation of *Steps to Christ* that already exists, kept for reference. Nothing here is the project's own output: the project's chapters live in `th/SC/01_raw/`, `02_edit/` and `03_public/`. Nothing here is translated, edited or improved; where the printed book is wrong, the file is wrong in the same way.
 
-The project is a new translation, not a revision of this edition. The files are reference only and never precedent: a rendering here is weighed like any other candidate and taken only where it is the best in its passage, and the project's wording is never changed to match it. th/SC/CLAUDE.md 2.G says how the rounds use it.
+The project is a new translation, not a revision of this edition. The files are reference only and never precedent: a rendering here is weighed like any other candidate and taken only where it is the best in its passage, and the project's wording is never changed to match it. The SC procedure, 2.G, says how the rounds use it.
 
     print/   the published edition, "เคล็ดลับแห่งความสุข" (สำนักพิมพ์ข่าวประเสริฐ), as the EGW Writings app carries it: book 14099, code ThSC
 

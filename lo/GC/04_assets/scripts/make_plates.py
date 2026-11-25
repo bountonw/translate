@@ -25,7 +25,7 @@ from md_spacing_punctuation_to_tex import handle_lao_repetition_with_context
 PUBLIC = SCRIPTS.parent.parent / "03_public"
 OUT = SCRIPTS / "tex" / "plates.tex"
 
-# The picture credits, in English (lo/GC/CLAUDE.md 8.D). A book title in the italic line is set upright.
+# The picture credits, in English (the GC procedure, 8.D). A book title in the italic line is set upright.
 AI = "Image generated with AI (Google Gemini)."
 GC1888 = r"From \textup{The Great Controversy} (1888)."
 WYLIE = r"From J. A. Wylie, \textup{The History of Protestantism} (c. 1878)."
@@ -38,7 +38,7 @@ SCHNORR = r"From Julius Schnorr von Carolsfeld, \textup{Die Bibel in Bildern} (1
 #  Lao start, Lao end or None when the caption is a heading, English title (for reference;
 #  not printed), credit)
 # The printed width keeps each image at 400 ppi or more; no image is taller than 160 mm,
-# so that a full caption fits below it (lo/GC/CLAUDE.md 8.E).
+# so that a full caption fits below it (the GC procedure, 8.E).
 PLATES = [
     (1, 128, 1, "17.2", "ພຣະເຢຊູເບິ່ງນະຄອນເຢຣູຊາເລັມ", "ເທດສະການປັດສະຄາ.", "Jesus Looks upon Jerusalem", AI),
     (2, 128, 2, "40.2", "ຫຼາຍພັນຄົນລີ້ໄພ", "ອຸບມຸງເຫຼົ່ານີ້ເຊັ່ນກັນ.", "Christians in the Catacombs", AI),
