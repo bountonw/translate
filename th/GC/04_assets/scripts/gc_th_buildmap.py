@@ -95,8 +95,8 @@ VARIANT = {
     332: "ั", 333: "ั", 334: "็", 335: "่", 336: "้",
 }
 
-# Thai digits are transcribed to Western digits, because root rule 5.A of the
-# repository CLAUDE.md puts Western numerals in these files and a Thai digit
+# Thai digits are transcribed to Western digits, because rule 5.A of the
+# rules for every chat puts Western numerals in these files and a Thai digit
 # zero is easily mistaken for a vowel character in a later search.
 THAI_DIGITS = {303 + i: chr(ord("0") + i) for i in range(10)}
 
