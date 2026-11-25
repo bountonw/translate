@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความเชื่อและลมหายใจ
     en: Faith and Breath
-  url: https://egwwritings.org/read?panels=p1518.2925
+  url: https://m.egwwritings.org/en/book/1518.2925#2925
   original: Waggoner--PT 3/22/1894
 ---
 

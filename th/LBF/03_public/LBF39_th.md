@@ -4,7 +4,7 @@ chapter:
   title:
     th: ข่าวประเสริฐคืออะไร
     en: What is the Gospel?
-  url: https://egwwritings.org/read?panels=p1524.23
+  url: https://m.egwwritings.org/en/book/1524.23#23
   original: Waggoner--PT 1/28/1892
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความอ่อนแอและฤทธานุภาพ
     en: Weakness and Power
-  url: https://egwwritings.org/read?panels=p1525.5891
+  url: https://m.egwwritings.org/en/book/1525.5891#5891
   original: Waggoner--PT 10/12/1893
 ---
 

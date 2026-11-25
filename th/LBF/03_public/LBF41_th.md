@@ -4,7 +4,7 @@ chapter:
   title:
     th: เป็นคนใหม่
     en: A New Creation
-  url: https://egwwritings.org/read?panels=p1525.315
+  url: https://m.egwwritings.org/en/book/1525.315#315
   original: Waggoner--PT 2/9/1893
 ---
 

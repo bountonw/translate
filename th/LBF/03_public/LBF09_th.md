@@ -4,7 +4,7 @@ chapter:
   title:
     th: รอดในปัจจุบัน
     en: A Present Salvation
-  url: https://egwwritings.org/read?panels=p1525.1689
+  url: https://m.egwwritings.org/en/book/1525.1689#1689
   original: Waggoner--PT 5/18/1893
 ---
 

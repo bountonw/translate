@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความเชื่อที่แท้จริง
     en: True Faith
-  url: https://egwwritings.org/read?panels=p1183.3
+  url: https://m.egwwritings.org/en/book/1183.3#3
   original: Jones--PT 1/12/1899
 ---
 

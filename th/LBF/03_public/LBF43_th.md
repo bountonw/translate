@@ -4,7 +4,7 @@ chapter:
   title:
     th: ความผิดพลาด
     en: Making Mistakes
-  url: https://egwwritings.org/read?panels=p1518.1609
+  url: https://m.egwwritings.org/en/book/1518.1609#1609
   original: Waggoner--PT 2/8/1894
 ---
 

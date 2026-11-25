@@ -4,7 +4,7 @@ chapter:
   title:
     th: พระเยซูคริสต์องค์ผู้ชอบธรรม
     en: Jesus Christ the Righteous
-  url: https://egwwritings.org/read?panels=p1525.6506&index=0
+  url: https://m.egwwritings.org/en/book/1525.6506#6506
   original: Waggoner--PT 11/2/1893
   note: That the date given in the book is incorrect.
 ---

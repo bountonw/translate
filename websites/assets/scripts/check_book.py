@@ -8,7 +8,9 @@ build_book.py runs this check after every build. For every chapter in the
 book's 03_public folder it checks that the page exists, that every link on
 it leads to a file, that no TeX command is left, and that the text and the
 footnotes hold the same letters and digits, in the same order, as the
-chapter file. The chapter side is cleaned by this script's own rules, not
+chapter file. For a book whose metadata.yaml lists
+strip_reference_codes_on_output, it checks that no paragraph code such as
+{LBF 7.1} is shown and that each paragraph of the chapter file has its id. The chapter side is cleaned by this script's own rules, not
 the converter's, so a converter fault shows up as a difference.
 With --home it checks every link on the site's home page instead, the
 stylesheet and pictures included; build_home.py runs that check.
@@ -21,7 +23,7 @@ from html import unescape
 from html.parser import HTMLParser
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_book import SITE, front_matter, page_name, web_folder  # noqa: E402
+from build_book import SITE, front_matter, page_name, settings, web_folder  # noqa: E402
 
 
 class Text(HTMLParser):
@@ -73,6 +75,8 @@ def clean_md(text):
 
 
 def md_parts(body):
+    # a note to the translator in <!-- --> is not part of the page
+    body = re.sub(r'<!--.*?-->', '', body, flags=re.S)
     lines = [line for line in body.split('\n') if not line.strip().startswith('## {')]
     main = '\n'.join(line for line in lines if not line.startswith('[^'))
     notes = '\n'.join(line for line in lines if line.startswith('[^'))
@@ -111,6 +115,7 @@ def check(book, site=SITE):
     folder = os.path.join(site, web_folder(book))
     chapters = os.path.join(book, '03_public')
     problems = pages = 0
+    strip_codes = 'strip_reference_codes_on_output' in settings(os.path.join(book, 'metadata.yaml'))
     for name in sorted(os.listdir(chapters)):
         if not name.endswith('.md'):
             continue
@@ -133,6 +138,16 @@ def check(book, site=SITE):
         text = raw.split('</h1>', 1)[1].split('<nav class="chapter-nav bottom">', 1)[0]
         text, _, notes = text.partition('<div class="footnote">')
         md_main, md_notes = md_parts(body)
+        if strip_codes:
+            md_main = re.sub(r'\{[A-Za-z]+ \d+\.\d+\}', '', md_main)
+            if re.search(r'\{[A-Za-z]+ \d+\.\d+\}', text):
+                print('CODE shown on', rel, re.findall(r'\{[A-Za-z]+ \d+\.\d+\}', text)[:3])
+                problems += 1
+            for code, number in re.findall(r'^## \{([A-Za-z]+) (\d+\.\d+)\}', body, flags=re.M):
+                times = raw.count(f' id="{code}{number}"')
+                if times != 1:
+                    print(f'ID {code}{number} stands {times} times on', rel)
+                    problems += 1
         for label, a, b in (('TEXT', md_main, visible(text)[0]), ('FOOTNOTES', md_notes, visible(notes)[0])):
             a, b = letters(a), letters(b)
             if a != b:

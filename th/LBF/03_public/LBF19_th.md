@@ -4,7 +4,7 @@ chapter:
   title:
     th: รักษาด้วยสัมผัส
     en: The Healing Touch
-  url: https://egwwritings.org/read?panels=p1518.3070
+  url: https://m.egwwritings.org/en/book/1518.3070#3070
   original: Waggoner--PT 3/29/1894
 ---
 

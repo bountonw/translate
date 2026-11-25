@@ -4,7 +4,7 @@ chapter:
   title:
     th: องค์ประกอบของข่าวประเสริฐ
     en: What the Gospel Includes
-  url: https://egwwritings.org/read?panels=p1518.5437
+  url: https://m.egwwritings.org/en/book/1518.5437#5437
   original: Waggoner--PT  5/31/1894
 ---
 

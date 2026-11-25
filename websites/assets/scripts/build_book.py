@@ -12,7 +12,10 @@ lines break only where the print dictionaries allow; for a Thai book,
 thai_words.py keeps the words of the Thai break list whole. The page header, footer and page words come
 from the layout folder of the book's language, such as layout/lo/, and are
 shared by every book in that language; the header opens every page with a
-link to the site's home page. Exits 1 when the check finds a problem.
+link to the site's home page. A book whose metadata.yaml lists the setting
+strip_reference_codes_on_output, such as th/LBF, shows no paragraph code such
+as {LBF 7.1}; each paragraph keeps its id, so ...html#LBF7.1 still links to it.
+Exits 1 when the check finds a problem.
 Needs the Python-Markdown library (python-markdown).
 """
 import argparse
@@ -61,8 +64,10 @@ def clean_tex(text):
 def prepare(body):
     """Markdown body ready for conversion: paragraph tags such as
     ## {GC 17.1} are navigation only and go, so ### subheadings become
-    second level; the indented list in the introduction loses one level."""
+    second level; the indented list in the introduction loses one level.
+    A note to the translator in <!-- --> is left off the page."""
     lines = []
+    body = re.sub(r'<!--.*?-->', '', body, flags=re.S)
     for line in body.split('\n'):
         if line.strip().startswith('## {'):
             continue
@@ -73,7 +78,19 @@ def prepare(body):
     return '\n'.join(lines)
 
 
-def to_html(text):
+def settings(path):
+    """The items of the settings list of a metadata.yaml, such as
+    strip_reference_codes_on_output."""
+    items, inside = [], False
+    for line in open(path, encoding='utf-8'):
+        if not line.startswith((' ', '-')):
+            inside = line.startswith('settings:')
+        elif inside and line.strip().startswith('- '):
+            items.append(line.strip()[2:].strip())
+    return items
+
+
+def to_html(text, strip_codes=False):
     html = markdown.markdown(text, extensions=['footnotes'], output_format='html',
                              extension_configs={'footnotes': {'BACKLINK_TITLE': '%d'}})
     html = re.sub(r'\\emph\{(.*?)\}', r'<em>\1</em>', html)
@@ -85,11 +102,15 @@ def to_html(text):
     # a reference such as {GC 17.1} ends each paragraph; it names the
     # paragraph, so the page can be linked as ...html#GC17.1, and links to it
     html = re.sub(r'\{([A-Za-z]+) (\d+\.\d+)\}', r'<span class="egw">{\1 \2}</span>', html)
-    return re.sub(
+    html = re.sub(
         r'<p>((?:(?!</?p>).)*?)<span class="egw">\{([A-Za-z]+) (\d+\.\d+)\}</span></p>',
         lambda m: (f'<p id="{m[2]}{m[3]}">{m[1]}<span class="egw">'
                    f'<a href="#{m[2]}{m[3]}">{{{m[2]} {m[3]}}}</a></span></p>'),
         html, flags=re.S)
+    if strip_codes:
+        # the code goes from the page, with the space before it; the paragraph keeps its id
+        html = re.sub(r'\s*<span class="egw">(?:<a href="#[^"]*">)?\{[A-Za-z]+ \d+\.\d+\}(?:</a>)?</span>', '', html)
+    return html
 
 
 def page_name(number, english_title):
@@ -138,6 +159,7 @@ def main():
     layout = os.path.join(args.layout, lang)
     labels = read_yaml(open(os.path.join(layout, 'labels.txt'), encoding='utf-8'))
     book_title = meta[f'book.title.{lang}']
+    strip_codes = 'strip_reference_codes_on_output' in settings(os.path.join(args.book, 'metadata.yaml'))
 
     chapters = {}
     folder = os.path.join(args.book, '03_public')
@@ -158,6 +180,9 @@ def main():
         }
 
     header = open(os.path.join(layout, 'chapter_header.html'), encoding='utf-8').read()
+    # a book with no picture for shared links, such as th/LBF, gets no og:image lines
+    if not os.path.exists(os.path.join(args.site, web, 'images', 'cover-share.jpg')):
+        header = re.sub(r'[ \t]*<meta property="og:image[^>]*>\n', '', header)
     css_version = stylesheet_version(args.site)
     header = versioned(header, css_version)
     footer = open(os.path.join(layout, 'chapter_footer.html'), encoding='utf-8').read()
@@ -186,7 +211,7 @@ def main():
         page += f'<h1>{number_line}<span class="chapter-name">{ch["name"]}</span></h1>\n'
         if ch['url']:
             page += f'<p class="chapter-url"><a target="_blank" href="{ch["url"]}">{labels["english"]}</a></p>\n'
-        page += to_html(prepare(ch['body'])) + '\n'
+        page += to_html(prepare(ch['body']), strip_codes) + '\n'
         page += nav('bottom', prev and prev['title'], nxt and nxt['title'])
         page += footer
         pages[ch['id']] = page

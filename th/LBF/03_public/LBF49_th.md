@@ -4,7 +4,7 @@ chapter:
   title:
     th: การชำระครั้งสุดท้าย
     en: The Final Cleansing
-  url: https://egwwritings.org/read?panels=p12150.892(12150.897)&index=0
+  url: https://m.egwwritings.org/en/book/12150.897#897
   original: Waggoner--PT 02/27/1896
 ---
 

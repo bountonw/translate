@@ -4,7 +4,7 @@ chapter:
   title:
     th: การงานของเนื้อหนัง
     en: The Works of the Flesh
-  url: https://egwwritings.org/read?panels=p1518.2028
+  url: https://m.egwwritings.org/en/book/1518.2028#2028
   original: Waggoner--PT 2/22/1894
 ---
 

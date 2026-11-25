@@ -4,7 +4,7 @@ chapter:
   title:
     th: การพิพากษา
     en: The Judgment
-  url: https://egwwritings.org/read?panels=p12150.2784(12150.2785)&index=0
+  url: https://m.egwwritings.org/en/book/12150.2785#2785
   original: Waggoner--PT 06/18/1896
 ---
 

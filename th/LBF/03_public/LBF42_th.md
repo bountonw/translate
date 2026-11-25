@@ -4,7 +4,7 @@ chapter:
   title:
     th: บทเรียนจากชีวิตจริง
     en: A Lesson from Real Life
-  url: https://egwwritings.org/read?panels=p1518.5385
+  url: https://m.egwwritings.org/en/book/1518.5385#5385
   original: Waggoner--PT 5/31/1894
 ---
 

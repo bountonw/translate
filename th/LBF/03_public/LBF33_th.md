@@ -4,7 +4,7 @@ chapter:
   title:
     th: จงมีความเชื่อในพระเจ้า
     en: Have Faith in God
-  url: https://egwwritings.org/read?panels=p1518.2504
+  url: https://m.egwwritings.org/en/book/1518.2504#2504
   original: Waggoner--PT 3/8/1894
 ---
 

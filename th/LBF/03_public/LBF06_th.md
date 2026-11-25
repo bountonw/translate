@@ -4,7 +4,7 @@ chapter:
   title:
     th: ชัยชนะในพระคริสต์
     en: Overcoming in Christ
-  url: https://egwwritings.org/read?panels=p1525.6179
+  url: https://m.egwwritings.org/en/book/1525.6179#6179
   original: Waggoner--PT 10/26/1893
 ---
 

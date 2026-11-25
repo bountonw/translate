@@ -4,7 +4,7 @@ chapter:
   title:
     th: รอดโดยพระชนม์ชีพ
     en: Saved by His Life
-  url: https://egwwritings.org/read?panels=p1524.521
+  url: https://m.egwwritings.org/en/book/1524.521#521
   original: Waggoner--PT 10/06/1892
 ---
 

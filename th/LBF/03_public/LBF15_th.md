@@ -4,7 +4,7 @@ chapter:
   title:
     th: เปลี่ยนเป็นคนละคน
     en: Another Man
-  url: https://egwwritings.org/read?panels=p1518.817
+  url: https://m.egwwritings.org/en/book/1518.817#817
   original: Waggoner--PT 1/25/1894
 ---
 

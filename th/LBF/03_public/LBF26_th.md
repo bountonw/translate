@@ -4,7 +4,7 @@ chapter:
   title:
     th: ท่านสงสัยทำไม
     en: Why Did You Doubt (original “Wherefore Didst Thou Doubt?”)
-  url: https://egwwritings.org/read?panels=p12150.316
+  url: https://m.egwwritings.org/en/book/12150.316#316
   original: Waggoner--PT1/23/1896
 ---
 

@@ -4,7 +4,7 @@ chapter:
   title:
     th: อิสระเหมือนนก
     en: As Free as a Bird
-  url: https://egwwritings.org/read?panels=p1518.324
+  url: https://m.egwwritings.org/en/book/1518.324#324
   original: Waggoner--PT 1/10/1894
 ---
 

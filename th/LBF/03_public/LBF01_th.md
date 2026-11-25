@@ -4,7 +4,7 @@ chapter:
   title:
     th: ฤทธิ์เดชที่ทรงคุ้มครอง
     en: The Keeping Power
-  url: https://egwwritings.org/read?panels=p1518.4335
+  url: https://m.egwwritings.org/en/book/1518.4335#4335
   original: Waggoner--PT 5/3/1894
 ---
 
