@@ -6,6 +6,10 @@ Work that is agreed but not scheduled, in the order it will be done. When the tr
 
 1. Have editor review SJ00.
 
+## qa2 sites
+
+1. SJ18 Sanhedrin. {SJ 114.5}, {SJ 114.6} and {SJ 115.1} write สภาซันเฮดริน, where the glossary row gives สภาแซนเฮดริน; SJ20 and SJ25 print ซันเฮดริน once each. The translator left these sites to SJ18's qa2 round. Small.
+
 ## Later review
 
 1. Footnoted references. Review every Bible reference that sits in a footnote across the book and confirm whether it should be inline, in parentheses after its sentence, or stay a footnote. The Thai profile's rule: a citation sits in parentheses where it fits the flow of the sentence, and becomes a footnote only where a parenthesis would break it. About 11 footnotes in 9 chapters today; footnotes that explain a word are not references and stay.

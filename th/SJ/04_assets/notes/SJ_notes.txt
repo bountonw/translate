@@ -25,4 +25,8 @@
 {SJ 77.6} | every wanderer from the fold | ทุกคนที่หลงไปจากคอก | ทุกคน keeps "every" and จากคอก keeps "from the fold"; the wanderer row's forms would drop one of them.
 {SJ 79.4} | the widow's son at Nain | บุตรชายของหญิงม่ายที่หมู่บ้านนาอิน | The author calls Nain "the village of Nain" at {DA 318.1}, and Nain was a village in size; the Bibles' เมือง follows Luke's word for town.
 {SJ 87.9} | the Redeemer | พระผู้ไถ่ของโลก | ของโลก names whom He redeems and adds no new claim.
+{SJ 104.8} | He had lost the presence of His Father. | พระองค์ไม่สามารถสัมผัสได้ถึงการสถิตอยู่ด้วยของพระบิดา | No satisfactory proposal was given.
+{SJ 105.4} | His beams of light, love, and glory | แสงรัศมีแห่งความรัก | All three parts are there idiomatically.
+{SJ 117.7} | A satanic fury | ความเกรี้ยวกราดเยี่ยงปีศาจ | The translator ruled that the wording stands; do not raise it again.
+{SJ 176.4} | Again thousands believed | คนจำนวนมาก | "Thousands" is the author's word for a great many people, not a count.
 {SJ 184.8} | There the heavenly Shepherd leads His flock | เหมือนดังผู้เลี้ยงแกะนำฝูงแกะของตน | The simile is literature; the title written in would read as a clunky textbook.

@@ -16,6 +16,7 @@
 | temptation | การทดลอง / ถูกทดลอง | [CHECK] Enticement to sin; the Bible's word. ถูกทดลอง is the verb. มัทธิว 6:13, MB 116.2 |
 | trial (God testing) | การทดสอบ / ทดสอบ / ถูกทดสอบ / ลองใจ / การทดลองใจ | [CHECK] God proving faith or character; THSV writes ทดลอง here too, ambiguous but not wrong. ปฐมกาล 22:1, PP 48.4 |
 | trials (everyday hardships) | ความทุกข์ยากลำบาก / ความยากลำบาก / ความทุกข์ยาก / ความทุกข์ / ปัญหายุ่งยาก | [CHECK] Hardship words; prefer them over การทดลอง, which reads as temptation. MB 10.2, PP 129.2, SC 9.3 |
+| trial, test (an ordeal in which temptation presses: the hour of trial, Gethsemane, Christ's own test) | การทดลอง / ถูกทดลอง / การทดสอบ / ถูกทดสอบ | [CHECK] การทดลอง carries the temptation; การทดสอบ stands; God's proving alone takes trial (God testing). วิวรณ์ 3:10, ลูกา 22:28, PP 48.4, PP 217.2, SJ 104.2, SJ 104.8 |
 | tempt (Satan lures) | ล่อลวง / ทดลอง / หลอกล่อ / ชักนำ | [CHECK] Satan as agent: ล่อลวง where luring is the point, ทดลอง where testing is. ยากอบ 1:14, PP 54.3 |
 | tempter, the | ผู้ทดลอง / มารผู้ทดลอง / ซาตาน | The name may replace the title. มัทธิว 4:3, PP 54.2 |
 | test (proof, criterion) | พิสูจน์ / บทพิสูจน์ / เกณฑ์วัด | A standard something is measured by, not God's testing. MB 145.1, PP 707.2 |
@@ -336,6 +337,7 @@
 | eternal realities, eternal interests, unseen realities | ชีวิตนิรันดร์ / นิรันดร์ | Recasts stand. PP 459.3, SC 78.2, SC 99.3 |
 | priest (Roman Catholic) | บาทหลวง | [CHECK] Never ปุโรหิต, the Bible's priest, and never นักบวช, a monk. |
 | Son of God | พระบุตรของพระเจ้า / พระบุตรพระเจ้า | SC 71.2, SC 73.1 |
+| Sonship (Christ's being the Son of God; His Sonship to God) | ความเป็นพระบุตรของพระเจ้า / ทรงเป็นพระบุตรของพระเจ้า / ฐานะพระบุตร | [CHECK] The relation, not a rank: สถานภาพ renders position; after ใน, ฐานะ reads "as". ฮีบรู 3:6, โคโลสี 2:9, PP 36.2, SJ 116.2 |
 | heavenly Father, Father in heaven | พระบิดาในสวรรค์ / พระบิดาผู้สถิตในสวรรค์ / พระบิดาแห่งสวรรค์ | THSV มัทธิว 6:9 ผู้สถิตในสวรรค์; bare พระบิดา stands. SC 77.4 |
 | transform, transformation (of character, of the nature) | เปลี่ยนแปลง / เปลี่ยนแปลงใหม่ | Every site in MB, PP 1–20 and SC. SC 70.2, SC 73.1 |
 | devices (Satan's) | กลอุบาย / อุบาย | THSV 2 โครินธ์ 2:11 กลอุบาย; recasts stand. PP 53.2, PP 739.1, SC 71.2 |
@@ -345,7 +347,12 @@
 | fellowship of His sufferings; partakers of Christ's sufferings | ร่วมทุกข์กับพระคริสต์ / มีส่วนในความทุกข์ของพระคริสต์ / มีส่วนร่วมในความทุกข์ของพระคริสต์ | [CHECK] The name varies, as พระองค์; ร่วมทุกข์ is TH1971 and TKJV; มีส่วนร่วม follows THSV. ฟีลิปปี 3:10, 1 เปโตร 4:13, MB 13.1, MB 31.1, SC 79.3 |
 | world to come, the | โลกใหม่ที่จะมาถึง / โลกที่จะมาถึง / โลกใหม่ / ยุคหน้า | [CHECK] Quotations follow the version; โลกหน้า stands when found; never ชาติหน้า. ฮีบรู 2:5, มาระโก 10:30, MB 83.2, PP 762.2, SC 78.2 |
 | life to come, future life, the hereafter | ชีวิตที่จะมาถึง / ชีวิตหน้า / ชีวิตนิรันดร์ / ชีวิตภายภาคหน้า | [CHECK] Not a person's later years; ในสวรรค์ stands where it makes the implied explicit; โลกใหม่ที่จะมาถึง stands. 1 ทิโมธี 4:8, PP 175.3, MB 52.1, SC 83.2, SC 112.3 |
+| eternal life, everlasting life | ชีวิตนิรันดร์ | Every MB, PP and SC site. ยอห์น 3:16, MB 20.2, PP 57.5, SC 27.1 |
 | final reward, day of final reward | บำเหน็จรางวัล / บำเหน็จขั้นสุดท้าย / บำเหน็จ | [CHECK] Given at Christ's coming; ในสวรรค์ stands where it makes the implied explicit. วิวรณ์ 22:12, PP 246.1, SC 83.2 |
+| judgment day, day of judgment, final judgment (the last judgment, as a day or an event; great judgment day) | วันพิพากษา / การพิพากษา / การพิพากษาครั้งสุดท้าย / วันแห่งการพิพากษา | [CHECK] Great: อันยิ่งใหญ่ after, or วันสำคัญแห่งการพิพากษา; "the day" may take อันยิ่งใหญ่ too; never ใหญ่ or ครั้งใหญ่. มัทธิว 10:15, ฮีบรู 9:27, 1 ยอห์น 4:17, ยูดา 6, PP 55.2, PP 217.4, PP 244.3, PP 339.1, PP 409.2, PP 557.4 |
+| day of judgment (a judgment God sends within history on one man, house or nation, as on David) | วันแห่งการลงโทษ / การลงโทษ / การพิพากษาลงโทษ | Not the last judgment; วันพิพากษา would point there. อิสยาห์ 10:3, โฮเชยา 9:7, PP 723.4 |
+| investigative judgment, the work of investigation (GC's judgment of the books in the heavenly sanctuary before the advent) | การพิพากษาแบบไต่สวน / การไต่สวน / การพิพากษา | [CHECK] GC's doctrine: the Judge examines each case; not สืบสวน, สอบสวน; bare การพิพากษา once named. ดาเนียล 7:10, ลูกา 23:14, 1 โครินธ์ 4:4 |
+| great day, day of God (the day of Christ's coming and of God's wrath, named as a day; not the Day of Atonement) | วันอันยิ่งใหญ่ / วันยิ่งใหญ่ / วันสำคัญ / วันของพระเจ้า | ยิ่งใหญ่ or สำคัญ carries great; parts arranged freely; วันพิพากษา where judgment is meant. ยูดา 6, วิวรณ์ 6:17, วิวรณ์ 16:14, 2 เปโตร 3:12, PP 182.1, PP 340.1, PP 541.2, PP 557.4 |
 | the great commission (Matthew 28:19, Mark 16:15) | พระมหาบัญชา | [CHECK] A set phrase; TNCV and TCV head มัทธิว 28:16 with it. มัทธิว 28:19, มาระโก 16:15, SJ 166.3 |
 | commission, the Saviour's; the gospel commission | พระบัญชา | [CHECK] The giver follows, as ของพระผู้ช่วยให้รอด; พันธกิจ keeps to mission. SC 81.1 |
 | commission, commissioned (God charges or sends a person or an angel) | พระบัญชา / ทรงมอบหมาย / ทรงแต่งตั้ง | Reference only; ทรงใช้ and other recasts stand; คำสั่ง for a human authority's order. PP 60.3, PP 628.3, PP 761.7, PP 455.2 |
@@ -405,9 +412,30 @@
 | understand (God or Christ as subject) | ทรงเข้าใจ / เข้าพระทัย / ทรงประจักษ์ | [CHECK] Default ทรงเข้าใจ, the versions' verb; เข้าพระทัย stands; ทรงประจักษ์ where สดุดี 139:2 is echoed. 1 พงศาวดาร 28:9, สดุดี 139:2, MB 32.3, PP 50.1, PP 140.3, PP 152.1, SC 34.3 |
 | prophet | ผู้เผยพระวจนะ | [CHECK] THSV, TNCV and TH1971; TKJV's ผู้พยากรณ์ only quoted. MB 1.3, MB 43.1, MB 53.3 |
 | prophetess | ผู้เผยพระวจนะหญิง | [CHECK] THSV and TNCV at ลูกา 2:36; TKJV's ผู้พยากรณ์หญิง only quoted. SJ 19.7 |
-| Passover | ปัสกา / เทศกาลปัสกา / พิธีปัสกา | [CHECK] THSV, TNCV, TKJV, TH1971; เทศกาล for the feast, พิธี for the rite. อพยพ 12:11, PP 274.3, PP 277.1, SJ 18.4 |
+| Passover | ปัสกา / เทศกาลปัสกา / พิธีปัสกา | [CHECK] THSV, TNCV, TKJV, TH1971; เทศกาล for the feast and the holiday, พิธี for the rite. อพยพ 12:11, PP 274.3, PP 277.1, SJ 18.4 |
+| unleavened bread; feast of unleavened bread | ขนมปังไร้เชื้อ / เทศกาลกินขนมปังไร้เชื้อ | [CHECK] THSV, TKJV, TH1971; quotations keep their version, as TNCV's ขนมปังไม่ใส่เชื้อ. อพยพ 12:8, อพยพ 12:17, ลูกา 22:1, PP 274.1, PP 539.6, SJ 93.4 |
+| Passover supper, paschal supper (the Passover meal) | อาหารวันปัสกา / อาหารปัสกา / งานเลี้ยงปัสกา | No fixed form: narration describes the meal, naming เทศกาล or พิธี; bare ปัสกา only quoted. มัทธิว 26:17, ลูกา 22:13, ลูกา 22:15, 1 โครินธ์ 11:20, PP 278.1, SJ 93.1, SJ 94.5, SJ 94.6, SJ 101.2 |
+| Lord's Supper (the ordinance); table of the Lord (the rite) | พิธีมหาสนิท | [CHECK] THSV, TNCV, TH1971 headings; a quotation keeps its version. มัทธิว 26:26, 1 โครินธ์ 11:20, PP 497.1, PP 539.5 |
+| pitcher, pitcher of water (carried from a well or through the street: Mark 14:13, Luke 22:10, John 4:28; Rebekah's, Gideon's) | หม้อน้ำ / หม้อดิน / ไหน้ำ / เหยือก | Carried on head or shoulder; THSV writes เหยือก for Rebekah's; bare ไห or หม้อ stands. ปฐมกาล 24:14, มาระโก 14:13, ลูกา 22:10, ยอห์น 4:28, PP 172.2, PP 550.2, SJ 94.3 |
+| pitcher, pitcher of water, cruse of water (a jug kept at hand for pouring or drinking: the feet-washing set; Saul's cruse) | เหยือกน้ำ / เหยือก | Kept at hand for pouring or drinking; a different vessel from the carried pitcher. 1 ซามูเอล 26:11, PP 668.3, PP 698.3, SJ 97.1 |
+| upper room, upper chamber (the room of the Last Supper and of Acts 1:13; any room on an upper floor) | ห้องชั้นบน / ห้องใหญ่ชั้นบน | [CHECK] The Bibles' words; quotations follow their version. มาระโก 14:15, กิจการ 1:13, SJ 165.6 |
+| basin (the feet-washing, John 13:5) | อ่าง | All ten versions; อ่างน้ำ stands. ยอห์น 13:5, SJ 97.1, SJ 97.3 |
+| towel (the feet-washing, John 13:4–5) | ผ้าเช็ดตัว / ผ้าเช็ดเท้า | Nine versions write ผ้าเช็ดตัว; bare ผ้า stands once the towel is named. ยอห์น 13:4, ยอห์น 13:5, SJ 97.1, SJ 97.3 |
+| goodman of the house, good man of the house, good man of that house (the householder: Mark 14:14, Luke 22:11) | เจ้าบ้าน / เจ้าของบ้าน / เจ้าของเรือน | [CHECK] The master of the house, never a kind or good man; quotations follow their version. มัทธิว 13:27, มาระโก 14:14, ลูกา 22:11, SJ 94.3 |
 | manger | รางหญ้า | Every version at ลูกา 2:7, 2:12, 2:16. PP 69.3, SC 78.1, SJ 15.1 |
 | inn, inns (lodging for travellers: Luke 2:7, 10:34) | โรงแรม / ที่พักแรม | THSV's โรงแรม first; TFB's ที่พักแรม where a hotel would mislead; โรงเตี๊ยม reads Chinese. ลูกา 2:7, ลูกา 10:34, SJ 13.3, SJ 65.4 |
+| mob (a hostile crowd) | ฝูงชน | [CHECK] ฝูงชน is neutral: sentence or qualifier carries hostility; ผู้คน, กลุ่มคน stand likewise. มาระโก 14:43, กิจการ 21:35, PP 159.1, PP 159.3, SJ 109.6, SJ 117.7 |
+| throng (a crowd of any temper) | ฝูงชน | MB's and PP's word; its adjective carries the tone; มหาชน, ผู้คน, ชาวสวรรค์ stand. MB 2.2, MB 6.2, PP 162.2, PP 705.1, SJ 83.5, SJ 15.5 |
+| murderous | กระหายเลือด / หมายเอาชีวิต | Guides only; other supportable renderings stand. PP 390.2, SJ 107.6, SJ 109.8, SJ 114.7 |
+| rabble (the low, disorderly crowd) | ฝูงชนอันธพาล / อันธพาล / คนพาล | [CHECK] อันธพาล where they abuse or riot; คนพาล, THSV's word; นักเลง and qualified ฝูงชน stand. กิจการ 17:5, PP 158.3, SJ 117.5, SJ 117.8, SJ 129.1, SJ 143.3 |
+| dove, dovelike (the Spirit's form; the dove of peace; Noah's dove) | นกพิราบ | [CHECK] Eight of ten versions at the baptism; นกเขา is turtledove; Noah's นกเขา and peace recasts stand. มัทธิว 3:16, ลูกา 3:22, SJ 42.4, SJ 107.5, PP 105.3, PP 137.1 |
+| spies, spy (informers set to watch and report on a person: the priests' spies on Christ) | สายลับ / คนสอดแนม | [CHECK] สายสืบ and a description such as คนคอยจับผิด stand; scouts of a land take ผู้สอดแนม. ลูกา 20:20, MB 47.1, PP 652.3, PP 656.3, SJ 113.6 |
+| spies, spy out (scouts sent to view a land: Canaan, Jericho; Joseph's charge against his brothers) | ผู้สอดแนม / คนสอดแนม / สอดแนม | [CHECK] Reconnaissance of a land; สายลับ stands at Joseph's charge, as THSV writes. ปฐมกาล 42:9, กันดารวิถี 13:17, โยชูวา 2:1, PP 387.1, PP 482.4, PP 224.3 |
+| guard room, guardroom (the room off the high priest's court where Jesus was held and mocked) | ห้องยาม / ห้องทหารยาม | [CHECK] A room in the palace; ป้อม reads as a fort or sentry post. เอเสเคียล 40:7, SJ 117.5 |
+| betrayer, traitor (one who betrays: Judas; a traitor to God, king or people) | ผู้ทรยศ / คนทรยศ | Either noun serves; คนทรยศ carries contempt; His betrayer ผู้ที่ทรยศพระองค์; เกลือเป็นหนอน stands. ยอห์น 18:5, MB 136.4, PP 565.3, PP 658.4, PP 666.3, SJ 109.4, SJ 109.7 |
+| betray, betrayal, treachery (the act: Judas's betrayal; treachery among people) | ทรยศ / การทรยศ / ทรยศหักหลัง / การทรยศหักหลัง / การหักหลัง | Context chooses; หักหลัง stresses broken trust; quotations keep their version, as THSV's มอบ. ลูกา 22:48, PP 673.1, PP 699.2, PP 700.4, SJ 119.1 |
+| kiss (Judas's kiss of Christ: his sign and his feigned greeting) | จูบคำนับ / จูบทักทาย | THSV's word in Judas's sign; a bare จูบ as the sentence allows; quotations keep their version. มัทธิว 26:48, มาระโก 14:44, ลูกา 22:48, SJ 109.4, SJ 109.5, SJ 109.7, SJ 119.2 |
+| kiss (between people: greeting, reunion, farewell, a parent's blessing) | กอดจูบ / จูบทักทาย / จูบลา | The compound names the occasion; a bare จูบ as the sentence allows; quotations keep their version. ปฐมกาล 29:11, ปฐมกาล 29:13, ปฐมกาล 48:10, 1 พงศ์กษัตริย์ 19:20 |
 | child Jesus, infant Jesus (Jesus from birth to age twelve: Luke 2, Matthew 2) | พระกุมารเยซู / พระกุมาร | [CHECK] THSV writes it from the manger to age twelve; พระเยซู, ทารก, เด็กน้อย stand. ลูกา 2:12, ลูกา 2:43, SJ 19.2, SJ 19.5 |
 | book of life | หนังสือแห่งชีวิต | [CHECK] THSV, TNCV, TKJV; หนังสือชีวิต stands in quotations. ฟีลิปปี 4:3, PP 326.3, SJ 18.6 |
 | decree (an edict of a king, emperor or state: Caesar's census, Pharaoh, the Persian kings) | พระราชกฤษฎีกา / พระราชโองการ / กฤษฎีกา / คำสั่ง / รับสั่ง | A published edict กฤษฎีกา, พระราชกฤษฎีกา for a monarch's; a king's command พระราชโองการ; an order คำสั่ง. ลูกา 2:1, ดาเนียล 6:26, PP 242.2, PP 626.1, SJ 13.2 |
@@ -421,6 +449,12 @@
 | form of a servant, took the form of a servant (Philippians 2:7) | สภาพทาส / สภาพเป็นผู้รับใช้ / สภาพอย่างผู้รับใช้ | [CHECK] THSV, TNCV, TH1971 สภาพทาส; NTV, TKJV the ผู้รับใช้ forms; quotations follow their version. ฟีลิปปี 2:7, MB 14.2, SJ 15.3 |
 | courts of heaven, heavenly courts, courts above, celestial courts | สวรรค์ / สรวงสวรรค์ / ท้องพระโรงแห่งสวรรค์ | The published books write heaven itself; ท้องพระโรง only where the throne is in view. PP 63.1, PP 65.3, PP 594.3, SC 104.1, SJ 15.1 |
 | priests and rulers, Jewish rulers (the Jewish leaders of Christ's day) | ผู้นำ / ผู้ปกครอง | [CHECK] ผู้ปกครอง only with ปุโรหิต, ชาวยิว or another qualifier beside it. ลูกา 23:13, ลูกา 24:20, MB 2.1, SJ 15.7, SJ 19.8 |
+| elders (Israel's elders, a town's or a people's; the Jewish elders beside the priests in Christ's day; church elders outside) | ผู้ใหญ่ / ผู้อาวุโส / ผู้นำ | [CHECK] THSV ผู้ใหญ่; ผู้อาวุโส where ผู้ใหญ่ could mean adults; ผู้นำชาวยิว may merge a pair; ผู้ปกครอง may stand. ลูกา 22:52, มัทธิว 27:12, PP 381.3, PP 476.2, PP 607.4, SJ 107.6, SJ 127.2 |
+| elders (the church office: Acts 14:23, 20:17; 1 Timothy 5:17; Titus 1:5; James 5:14) | ผู้ปกครอง / ผู้ปกครองคริสตจักร / ผู้อาวุโส | [CHECK] Seven versions write ผู้ปกครอง; THSV writes ผู้อาวุโส at 1 เปโตร 5:1. กิจการ 14:23, กิจการ 20:17, ยากอบ 5:14 |
+| chief priests (the leading priests of Christ's day and of Ezra's; the singular chief priest of Kings and Chronicles is the high priest) | หัวหน้าปุโรหิต | [CHECK] พวก or บรรดา marks the plural; the singular takes มหาปุโรหิต; quotations follow their version. มัทธิว 27:12, ลูกา 22:52, ยอห์น 19:21, กิจการ 26:10, 2 พงศ์กษัตริย์ 25:18, SC 41.1 |
+| captains of the temple (the officers of the temple guard, under one head: Luke 22:4, 22:52) | นายทหารรักษาพระวิหาร / หัวหน้ากองยามพระวิหาร | [CHECK] THSV and TH1971 at both verses; second form TNCV's; quotations follow their version. ลูกา 22:4, ลูกา 22:52, SJ 110.4 |
+| captain of the temple (the one head of the temple guard: Acts 4:1, 5:24, 5:26) | หัวหน้ารักษาพระวิหาร / หัวหน้ายามพระวิหาร | [CHECK] THSV first, TNCV second; หัวหน้า marks the one head; quotations follow their version. กิจการ 4:1, กิจการ 5:24, กิจการ 5:26 |
+| governor, Roman governor (Pilate's office; Felix, Festus, Quirinius; Joseph's office and the governor of the feast outside) | เจ้าเมือง / ผู้ว่าราชการ | [CHECK] เจ้าเมือง for Pilate; ผู้ว่าราชการ for Felix and Festus, as THSV; quotations follow their version. มัทธิว 27:2, มัทธิว 27:11, กิจการ 23:24, SJ 115.2, SJ 123.1, SJ 133.4 |
 | angel of death, destroying angel, destroyer (God's angel who strikes, as at the Passover) | ทูตมรณะ / ผู้สังหาร / ผู้ทำลาย | [CHECK] ทูตมรณะ, THSV ฮีบรู 11:28; destroyer ผู้สังหาร or ผู้ทำลาย; องค์เพชฌฆาต stands; never มัจจุราช. อพยพ 12:23, วิวรณ์ 6:8, SJ 18.3, PP 292.3, PP 748.4 |
 | destroyer, the (Satan) | ผู้ทำลาย | ซาตาน may replace the title. PP 39.2, PP 53.4, SC 125.1 |
 | plague, plagues (a judgment God sends: on Egypt, in the wilderness, the last plagues) | ภัยพิบัติ / โรคระบาด / โรคร้าย | [CHECK] THSV's ภัยพิบัติ for God's judgments; โรคระบาด or โรคร้าย for disease; figurative uses free. อพยพ 11:1, อพยพ 12:13, วิวรณ์ 15:1, SJ 18.1, SJ 18.5, PP 263.1, SC 24.1 |
@@ -472,6 +506,8 @@
 | wine (at Cana and at the Lord's Supper; new wine in the cluster) | น้ำองุ่น | [CHECK] EGW's pure juice of the grape; น้ำองุ่นสด stands; a quotation keeps its version. อิสยาห์ 65:8, 1 โครินธ์ 10:16, DA 149.3, SJ 53.4, SJ 98.4 |
 | wine (intoxicating: drunkenness, warnings, revelry, Babylon's wine) | เหล้าองุ่น / เหล้า / สุรา | [CHECK] Where intoxication is in view; เมา recasts stand; น้ำองุ่น only inside a quotation. สุภาษิต 20:1, PP 361.3, PP 455.2, PP 565.1, SJ 53.3 |
 | wine (unmarked: harvest, offerings, provisions, hospitality) | น้ำองุ่น / เหล้าองุ่น | Both stand; TKJV writes น้ำองุ่น; prefer it beside temperance teaching; quotations keep their version. ลูกา 10:34, PP 136.1, PP 526.2, PP 708.5, SJ 65.4 |
+| cup (of the Lord's Supper; Christ's cup of suffering; figurative cups of blessing, sorrow, iniquity) | ถ้วย / ถ้วยแห่งความทุกข์ | [CHECK] All versions but TH1940 at Supper and Gethsemane; จอก only quoted; figurative recasts stand. ลูกา 22:20, มัทธิว 26:39, MB 7.1, MB 12.4, SJ 98.2, SJ 104.9 |
+| cup (a king's or a noble's drinking cup; the wine cup of revelry) | จอก / ถ้วย | Both stand; THSV writes จอก for Joseph's silver cup; จอกเหล้า for the wine cup. ปฐมกาล 44:2, PP 219.1, PP 228.2, PP 457.3 |
 | marriage feast, wedding (an earthly wedding and its feast) | งานเลี้ยงสมรส / งานสมรส / งานแต่งงาน | งานเลี้ยงสมรส where the feast is meant; royal or the Lamb's: อภิเษกสมรส. ยอห์น 2:1, ลูกา 14:8, PP 563.3, SJ 51.4 |
 | poor in spirit (Matthew 5:3), spiritual poverty | บกพร่องฝ่ายวิญญาณ / บกพร่องฝ่ายจิตวิญญาณ | [CHECK] Prose puts รู้สึก or ยอมรับว่าตน before บกพร่อง; quotations follow their version. มัทธิว 5:3, MB 6.1, MB 6.2, MB 7.1, MB 8.1, SJ 60.4 |
 | meek, meekness (gentle under wrong; Matthew 5:5) | สุภาพอ่อนโยน / อ่อนสุภาพ / อ่อนโยน / ถ่อมใจ / ถ่อมสุภาพ / อ่อนน้อม / ใจถ่อม / ถ่อมตัว / ถ่อมตน / นอบน้อม / นอบน้อมถ่อมตน | [CHECK] Default สุภาพอ่อนโยน or อ่อนสุภาพ; a recast or a fuller phrase the sentence needs stands. มัทธิว 5:5, สดุดี 37:11, MB 16.3, MB 17.2, PP 74.1, SC 58.3 |
@@ -583,6 +619,10 @@
 | Paul | เปาโล | [CHECK] THSV's spelling. MB 15.1, PP 67.1 |
 | Peter (the apostle) | เปโตร | [CHECK] the apostle and his epistles; THSV's spelling. |
 | James (the apostle; the epistle) | ยากอบ | [CHECK] the apostle and the epistle; THSV's spelling. |
+| Judas, Judas Iscariot | ยูดาส / ยูดาสอิสคาริโอท | THSV's spelling. มัทธิว 26:14, PP 452.1, SC 23.3 |
+| Annas | อันนาส | [CHECK] THSV's spelling, as every version but TH1940. ยอห์น 18:13, ลูกา 3:2, SJ 113.2 |
+| Caiaphas | คายาฟาส | [CHECK] THSV's spelling, as every version but TH1940. ยอห์น 18:13, มัทธิว 26:57, SJ 113.2 |
+| Pilate | ปีลาต | [CHECK] THSV's spelling, as all ten versions write it. มัทธิว 27:2, ลูกา 3:1, SJ 115.5 |
 | Stephen | สเทเฟน | [CHECK] THSV's spelling. MB 33.3 |
 | Mordecai | โมรเดคัย | [CHECK] THSV's spelling. MB 41.2 |
 | Nathanael | นาธานาเอล | [CHECK] THSV's spelling. PP 184.2 |
@@ -781,3 +821,4 @@
 | แข็งแกร่ง (strong) | แข็งแกร่ง | แข็งเกร่ง | PP 556.2 |
 | ชิทธีม (Shittim) | ชิทธีม | ชิทธิม | Also inside a quotation. PP 453.2 |
 | อินทผลัม (date palm) | อินทผลัม | อิทผลัม, อินทผาลัม | Nine Thai Bibles write อินทผลัม; TCL also prints อินทผาลัม. |
+| สัณฐาน (form, shape) | สัณฐาน | สันฐาน | SJ 107.5 |

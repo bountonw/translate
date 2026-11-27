@@ -12,10 +12,14 @@ questions under QUESTIONS.
 
 With --round it is also the run check: every marker well formed; numbers 1..N
 each once (letter families #12a #12b allowed); classes and severities allowed
-in the round; no marker inside the #chapter header, an #EGW tag or an anchor
-comment; every old side present in the chapter as committed at HEAD; nothing
-under th/SJ modified or untracked except this chapter. It prints the counts
-table and a VERDICT line, and exits 1 on FAIL.
+in the round; no marker inside an #EGW tag or a // comment, or on an #import
+or #show line; every old side present in the chapter as committed at HEAD;
+nothing under th/SJ modified or untracked except this chapter. It prints the
+counts table and a VERDICT line, and exits 1 on FAIL.
+
+A marker in the #chapter(...) header, as in its title, is read, numbered and
+listed like a paragraph marker, with "title" as its anchor and the header's
+"// English title:" comment as its English.
 """
 import argparse
 import re
@@ -27,6 +31,7 @@ from sj_common import (chapter_path, source_path, parse_thai, parse_english,
                        committed_text, MARKER, SANDBOX, ROOT)
 
 ANY_MARKER = re.compile(r"\[\[(.*?)\]\]", re.S)
+EN_TITLE = re.compile(r'^\s*//\s*English title:\s*"(.*)"\s*$', re.M)
 QUESTION = re.compile(r"\{\{Q(?P<num>#\d+[a-z]?)?\s*\|?(?P<q>.*?)\}\}", re.S)
 NO_SEV = {"SPELL", "GRAM", "REF", "NOTE", "READ", "CHOICE", "FIX"}
 ROUND_CLASSES = {
@@ -61,10 +66,12 @@ def main():
     blocks, residue, questions, problems, notes = [], [], [], [], []
     counts = Counter()
     numbers = []
-    if "[[" in "\n".join(head):
-        problems.append("a marker sits in the chapter header")
-    for p in paras:
-        body = p.text
+    head_text = "\n".join(head)
+    en_title = EN_TITLE.search(head_text)
+    english["title"] = en_title.group(1) if en_title else "(the header has no English title comment)"
+    units = [("title", head_text)] + [(p.anchor, p.text) for p in paras]
+    for anchor, body in units:
+        where = "title" if anchor == "title" else f"{{SJ {anchor}}}"
         seen = set()
         for m in MARKER.finditer(body):
             seen.add(m.span())
@@ -73,35 +80,37 @@ def main():
             counts[(cls, sev or "")] += 1
             missing = bool(old) and committed is not None and old not in committed
             if missing:
-                problems.append(f"#{num} {{SJ {p.anchor}}}: old side not in the committed chapter")
+                problems.append(f"#{num} {where}: old side not in the committed chapter")
             line = body[:m.start()].rsplit("\n", 1)[-1]
             if line.lstrip().startswith("//") or "#EGW[" in body[m.start():m.end()] or "#EGW[" in line and "]" not in line:
-                problems.append(f"#{num} {{SJ {p.anchor}}}: marker inside an anchor comment or #EGW tag")
+                problems.append(f"#{num} {where}: marker inside a // comment or an #EGW tag")
+            if line.lstrip().startswith(("#import", "#show")):
+                problems.append(f"#{num} {where}: marker on an #import or #show line")
             if a.round:
                 allowed = ROUND_CLASSES[a.round]
                 if cls not in allowed:
-                    problems.append(f"#{num} {{SJ {p.anchor}}}: class {cls} is not allowed in {a.round}")
+                    problems.append(f"#{num} {where}: class {cls} is not allowed in {a.round}")
                 if cls in NO_SEV and sev:
-                    problems.append(f"#{num} {{SJ {p.anchor}}}: {cls} carries no severity")
+                    problems.append(f"#{num} {where}: {cls} carries no severity")
                 if cls not in NO_SEV and not sev:
-                    problems.append(f"#{num} {{SJ {p.anchor}}}: {cls} needs HIGH or MED")
+                    problems.append(f"#{num} {where}: {cls} needs HIGH or MED")
                 if sev == "LOW" and a.round == "qa1":
-                    problems.append(f"#{num} {{SJ {p.anchor}}}: LOW is never written in qa1")
+                    problems.append(f"#{num} {where}: LOW is never written in qa1")
             if not new and not note.strip():
-                problems.append(f"#{num} {{SJ {p.anchor}}}: empty new side with an empty note")
+                problems.append(f"#{num} {where}: empty new side with an empty note")
             blocks.append(
-                f"## #{num} {cls}{' ' + sev if sev else ''} — {{SJ {p.anchor}}}\n\n"
+                f"## #{num} {cls}{' ' + sev if sev else ''} — {where}\n\n"
                 f"OLD: {old or '(insertion)'}\n\nNEW: {new or '(deletion, or an open question where the note begins verify:)'}\n\n"
                 f"NOTE: {note}\n\n"
                 + ("WARNING: the old side is not in the committed chapter.\n\n" if missing else "")
-                + f"EN {{SJ {p.anchor}}}: {english.get(p.anchor, '(no English paragraph carries this anchor)')}\n")
+                + f"EN {where}: {english.get(anchor, '(no English paragraph carries this anchor)')}\n")
         for m in ANY_MARKER.finditer(body):
             if not any(s <= m.start() < e for s, e in seen):
-                residue.append(f"- {{SJ {p.anchor}}} damaged: [[{m.group(1)[:80]}")
+                residue.append(f"- {where} damaged: [[{m.group(1)[:80]}")
         if body.count("[[") != body.count("]]"):
-            residue.append(f"- {{SJ {p.anchor}}} unterminated: {body.count('[[')} opening and {body.count(']]')} closing")
+            residue.append(f"- {where} unterminated: {body.count('[[')} opening and {body.count(']]')} closing")
         for m in QUESTION.finditer(body):
-            questions.append(f"- {{SJ {p.anchor}}} {m.group('num') or ''} {m.group('q').strip()}")
+            questions.append(f"- {where} {m.group('num') or ''} {m.group('q').strip()}")
 
     # Numbering: bare numbers once each, 1..N; a lettered family counts as one number.
     bare = [int(n) for n in numbers if n.isdigit()]

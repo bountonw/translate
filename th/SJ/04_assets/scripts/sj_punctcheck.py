@@ -11,7 +11,9 @@ batches do not report the same finding twice. Intact [[ ]] markers are replaced
 by their old side before checking, so a marker's English note is never flagged
 while the paragraph around it still is. Exit status 1 when anything was found.
 The spelling check reports every form the glossary's spelling table lists as
-incorrect (th/assets/translation_profile/thai-glossary.txt, section 3). An
+incorrect (th/assets/translation_profile/thai-glossary.txt, section 3), in the
+paragraphs and in the title and subtitle of the #chapter(...) header, whose
+findings carry {title} or {subtitle} as their anchor. An
 editor's choice, ((A/B)), is printed as a NOTE line and is not a finding, and
 its original: tag is not Latin text. A version label hidden in a comment, as
 (ลูกา 2:9–19/*THSV*/), is a label for sj_refcheck.py, not a typst-comment
@@ -59,6 +61,7 @@ EDITOR_CHOICE = re.compile(r"\(\((?:[^()]|\([^()]*\))*\)\)")  # one level of ( )
 ORIGINAL_TAG = re.compile(r"(?<=\(\()original:")
 BARE_CITATION = re.compile(r"(?:[1-3]\s)?[฀-๿]+\s\d+:\d+")
 GLOSSARY = ROOT / "th" / "assets" / "translation_profile" / "thai-glossary.txt"
+HEADER_STRING = re.compile(r'^\s*(title|subtitle)\s*:\s*"(.*)"', re.M)
 
 
 def load_spelling(path=GLOSSARY):
@@ -224,6 +227,16 @@ def main():
     def out(p, check, what):
         findings.append(f"{{SJ {p.anchor}}} {check}: {what}")
 
+    # The #chapter(...) header's title and subtitle strings take the spelling
+    # check too; a --range run checks them only when it starts at the first paragraph.
+    title_checked = bool(paras) and (first is None or first == paras[0].anchor)
+    if title_checked:
+        for m in HEADER_STRING.finditer("\n".join(head)):
+            body = mask_markers(m.group(2))
+            for wrong, right in SPELLING:
+                for s in re.finditer(re.escape(wrong), body):
+                    findings.append(f"{{{m.group(1)}}} spelling: {wrong} -> {right}: {context(body, s.start())}")
+
     prev = None
     for i, p in enumerate(paras):
         if not in_range(p.anchor, first, last):
@@ -249,7 +262,8 @@ def main():
         rel = path.resolve().relative_to(ROOT)
     except ValueError:
         rel = path
-    print(f"# {rel}: {len(findings)} finding(s) in {sum(1 for p in paras if in_range(p.anchor, first, last))} paragraph(s)")
+    print(f"# {rel}: {len(findings)} finding(s) in {sum(1 for p in paras if in_range(p.anchor, first, last))} paragraph(s)"
+          + (" and the title" if title_checked else ""))
     return 1 if findings else 0
 
 
